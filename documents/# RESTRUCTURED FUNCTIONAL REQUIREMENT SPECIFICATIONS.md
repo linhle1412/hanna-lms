@@ -1,6 +1,6 @@
 # FUNCTIONAL REQUIREMENT SPECIFICATIONS
 
-**Authors:** Diem Ha/Hai Nguyen  
+**Authors:** Diem Ha/Hai Nguyen  123
 **Date:** 24/03/2022  
 **Version:** 1.4.0
 
