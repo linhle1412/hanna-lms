@@ -107,8 +107,6 @@
      - 8.2.1 [Course List View](#821-course-list-view)
      - 8.2.2 [Filter & Search](#822-filter--search)
      - 8.2.3 [Export Courses](#823-export-courses)
-     - 8.2.4 [Course Import Function](#824-course-import-function)
-     - 8.2.5 [Course Actions Overview](#825-course-actions-overview)
    - 8.3 [Course Details Screen](#83-course-details-screen)
      - 8.3.1 [Course General Tab](#831-course-general-tab)
        - 8.3.1.1 [Course Status Timeline](#8311-course-status-timeline)
@@ -173,6 +171,7 @@
        - 8.9.11.8 [Mobile Responsive View - Checklist](#89118-mobile-responsive-view---checklist)
        - 8.9.11.9 [Email Reminder Sample](#89119-email-reminder-sample)
        - 8.9.11.10 [Design Specifications](#891110-design-specifications)
+   - 8.10 [Course Import Function](#810-course-import-function)
 9. [PIC Calendar](#9-pic-calendar)
    - 9.1 [View Courses Per Trainer](#91-view-courses-per-trainer)
    - 9.2 [View Trainer Assignment for Each Trainer](#92-view-trainer-assignment-for-each-trainer)
@@ -389,6 +388,7 @@ The system organizes permissions into six functional categories based on the Aut
 | `cancel_course` | Cancel course | Course Management | Cancel courses | Trainer, Lead Region, Head Channel |
 | `delete_course` | Delete course | Course Management | Delete courses | Trainer, Lead Region, Head Channel |
 | `approve_course` | Approve register/edit/cancel | Course Management | Approve course actions | Lead Region, Head Channel, Master Role |
+| `self_approval` | Self Approval | Course Management | Actions are auto-approved without requiring approval workflow | Head Channel (default) |
 | `manage_program` | Create/clone program | Content Management | Create/clone programs/products/modules | Master Role, Admin, Root Admin |
 | `view_program` | View program | Content Management | View program/product/module details | Master Role, Admin, Root Admin |
 | `manage_channel` | View/edit Channel setting | Admin | View/edit channel settings | Master Role, Admin, Root Admin |
@@ -411,7 +411,7 @@ Based on the Authorization Matrix (Section 4.2), the default permissions for eac
 |------|---------------------|-------------|
 | **TRAINER** | view_pic_calendar, view_master_calendar, create_course, view_course, register_course, edit_course, cancel_course, delete_course | 8 |
 | **LEAD_REGION** | view_pic_calendar, view_master_calendar, create_course, import_course, view_course, edit_course, approve_course, cancel_course, delete_course, manage_participant, manage_trainer, manage_admin, view_reports | 13 |
-| **HEAD_CHANNEL** | view_pic_calendar, view_master_calendar, create_course, import_course, view_course, edit_course, approve_course, cancel_course, delete_course, manage_participant, manage_trainer, manage_admin, view_reports | 13 |
+| **HEAD_CHANNEL** | view_pic_calendar, view_master_calendar, create_course, import_course, view_course, edit_course, approve_course, self_approval, cancel_course, delete_course, manage_participant, manage_trainer, manage_admin, view_reports | 14 |
 | **DMS_ADMIN** | view_pic_calendar, view_master_calendar, view_course, export_participant | 4 |
 | **MASTER_ROLE** | view_pic_calendar, view_master_calendar, view_course, edit_course, import_mof_result, import_participant, add_participant, finish_course, approve_course, manage_program, view_program, manage_channel, manage_template, manage_participant, manage_trainer, manage_admin, manage_list, view_reports, general_settings | 19 |
 | **ADMIN** | view_pic_calendar, view_master_calendar, view_course, edit_course, import_mof_result, import_participant, add_participant, confirm_passed, finish_course, manage_program, view_program, manage_channel, manage_template, manage_participant, manage_trainer, manage_admin, manage_list, view_reports, general_settings | 19 |
@@ -625,6 +625,13 @@ When Root Admin clicks "Edit Permissions" on a role, a modal displays all availa
 - `approve_course` permission required to approve registrations
 - Lead Region, Head Channel, and Master Role have this permission
 - Permission check performed in approval workflow
+
+**Course Auto-Approval (Section 8.4, 8.5, 8.6):**
+- `self_approval` permission enables auto-approval for all course actions
+- Users with `self_approval` permission skip approval workflow
+- Permission can be assigned at role level or user level
+- Default: Head Channel role has `self_approval` permission
+- System checks permission before creating approval requests
 
 **Course Edit (Section 8.5):**
 - `edit_course` permission required to edit courses
@@ -3901,7 +3908,7 @@ When a user selects a course type, the form dynamically shows/hides fields and a
 | 14  | Start Date         | Date Field             | M   | Must be >= today+2, Radio button: AM/PM                          |
 | 15  | End Date           | Date Field             | M   | Auto-set: Start date + program duration, Radio button: AM/PM     |
 | 16  | Area               | Dropdown list          | M   | List from List manage                                            |
-| 17  | City               | Dropdown List          | M   | List of Provinces                                                |
+| 17  | Province           | Dropdown List          | M   | List of Provinces                                                |
 | 18  | AOL Start time     | Date Field             | O   | Between Course start date and course end date + 3 days           |
 | 19  | AOL End time       | Date Field             | O   | Between Course start date and course end date + 3 days           |
 | 20  | AOL Exam ID        | Multi-select Dropdown | O   | List of AOL exam codes from List Manage. Supports multiple selections with checkbox selection and tag display. Selected items appear as removable tags. |
@@ -3913,8 +3920,8 @@ When a user selects a course type, the form dynamically shows/hides fields and a
 | 26  | Proctor Trainer    | Dropdown List          | O   | Shown if "Is Proctor Trainer" checkbox is checked. List of users with Team "Trainer" from User Management. |
 | 27  | Proctor Name       | Alphanumeric           | O   | Shown if "Is Proctor Trainer" = No                               |
 | 28  | Proctor Phone      | Alphanumeric           | O   | Shown if "Is Proctor Trainer" = No                               |
-| 29  | MOF address        | Dropdown List          | M   | Preconfigured MOF exam venue addresses. Auto-populates City and Ward. |
-| 30  | MOF City           | Display                | M   | Auto-populated from selected MOF address (read-only)             |
+| 29  | MOF address        | Dropdown List          | M   | Preconfigured MOF exam venue addresses. Auto-populates Province and Ward. |
+| 30  | MOF Province       | Display                | M   | Auto-populated from selected MOF address (read-only)             |
 | 31  | Ward               | Display                | M   | Auto-populated from selected MOF address (read-only). Includes former district info for reference. |
 | 32  | Exam categories    | Dropdown List          | M   | Nhân viên tư vấn bảo hiểm, Nhân viên NH                          |
 | 33  | Supporter          | Multi-select Dropdown | O   | List of users with role Admin. Supports multiple selections with checkbox selection and tag display. Selected items appear as removable tags. |
@@ -3950,31 +3957,31 @@ Skill courses use a minimal field set:
 
 **Business Rule:**
 
-System automatically generates unique course codes when a course is created. Course code format: `[BranchCode]-[CityCode][ChannelCode]-[CourseTypeCode]-[SequenceNumber]`
+System automatically generates unique course codes when a course is created. Course code format: `[SequenceNumber]-[ProvinceCode][ChannelCode]-[CourseTypeCode]`
 
 **Component Mapping:**
 
 | Component        | Source Field           | Format            | Examples                                    |
 | ---------------- | ---------------------- | ----------------- | ------------------------------------------- |
-| BranchCode       | Branch (List manage)   | Numeric           | 8, 4, 2                                     |
-| CityCode         | City (Province)        | 2-3 uppercase     | HCM (Ho Chi Minh), HN (Hanoi), DN (Da Nang) |
-| ChannelCode      | Channel                | 2-3 uppercase     | BC (Banca), AG (Agency), IFA, BK (Banker)   |
-| CourseTypeCode   | Course Type/Program    | 2-5 uppercase     | SHINE/SH (SHINE), PR (Product), SK (Skill)  |
 | SequenceNumber   | Auto-generated         | 3-digit (001-999) | Sequential number for uniqueness            |
+| ProvinceCode     | Province               | 2 uppercase chars | HC (Ho Chi Minh), HN (Hanoi), DN (Da Nang)  |
+| ChannelCode      | Channel                | 2 uppercase chars | BC (Banca), AG (Agency), BK (Banker)        |
+| CourseTypeCode   | Course Type/Program    | 2 uppercase chars | SH (SHINE), PR (Product), SK (Skill)        |
 
 **Code Generation Examples:**
 
-- `8-HCMBC-SHINE-001` (Branch 8, Ho Chi Minh + Banca, SHINE, sequence 001)
-- `8-HCMAG-PR-022` (Branch 8, Ho Chi Minh + Agency, Product, sequence 022)
-- `8-HNAG-SH-045` (Branch 8, Hanoi + Agency, SHINE, sequence 045)
-- `8-DNBC-SK-011` (Branch 8, Da Nang + Banca, Skill, sequence 011)
+- `001-HCBC-SH` (Sequence 001, Ho Chi Minh + Banca, SHINE)
+- `022-HCAG-PR` (Sequence 022, Ho Chi Minh + Agency, Product)
+- `045-HNAG-SH` (Sequence 045, Hanoi + Agency, SHINE)
+- `011-DNBC-SK` (Sequence 011, Da Nang + Banca, Skill)
 
 **Generation Rules:**
 
 - Code is auto-generated during course creation (user cannot edit)
-- Location code = CityCode + ChannelCode (no separator, e.g., HCM + BC = HCMBC)
-- Sequence number increments for same [BranchCode]-[CityCode][ChannelCode]-[CourseTypeCode] combination
+- Location code = ProvinceCode + ChannelCode (no separator, e.g., HC + BC = HCBC)
+- Sequence number increments for same [ProvinceCode][ChannelCode]-[CourseTypeCode] combination
 - System checks existing courses and assigns next available sequence number
+- Sequence number appears first for better sorting and grouping
 - Code is immutable once assigned
 
 ##### 8.1.1.6 Status Transition Logic
@@ -4149,7 +4156,252 @@ Courses can be created from multiple locations in the LMS system:
 
 ### 8.2 Course Listing Screen
 
-[Content will be copied from original Section 10.1]
+**Overview:**
+
+The Course Listing Screen provides a centralized interface for users to view, search, filter, and manage courses in the LMS system. Access and visibility are controlled by role-based authorization, ensuring users only see courses relevant to their responsibilities.
+
+---
+
+#### 8.2.1 Course List View
+
+**User Story:**
+
+**AS** any user who can login to LMS  
+**I NEED** to view the course list page with data filtered for my role  
+**SO THAT** I can view the list of courses relating to me or my channel/region
+
+**Acceptance Criteria:**
+
+1. **Course List Display:**
+   - Display courses in tabular format with sortable columns
+   - Default sort: Created At (descending - newest first)
+   - Pagination with configurable rows per page
+   - Loading indicators during data fetch
+   - Empty state message when no courses match filters
+
+2. **Role-Based Authorization:**
+   - System automatically filters courses based on user role
+   - Authorization rules apply without user configuration
+   - See Authorization Matrix below
+
+3. **Course Code Hyperlink:**
+   - Course code is clickable/hyperlinked
+   - Clicking opens Course Details Screen in new tab or same window
+   - Hover shows tooltip preview
+
+**Authorization Rule for Viewing Courses:**
+
+| Role                           | Authorization                                                |
+| ------------------------------ | ------------------------------------------------------------ |
+| Trainer                        | See only courses created by or assigned to trainer           |
+| Lead Region                    | See courses in lead's channel AND region, or created by lead |
+| Head Channel                   | See courses in head's channel                                |
+| Admin, Master Role, Root Admin | See all courses in LMS system                                |
+
+**Business Rules:**
+
+- **Trainer:** 
+  - Can view courses where they are Primary Trainer OR Co-Trainer
+  - Can view courses they created (as course creator)
+  - Cannot view other trainers' courses unless assigned
+
+- **Lead Region:**
+  - Can view all courses in their assigned channel AND region combination
+  - Can view courses they created regardless of channel/region
+  - Example: Lead for "Agency + South" sees all Agency courses in South region
+
+- **Head Channel:**
+  - Can view all courses in their assigned channel across all regions
+  - Can view courses they created regardless of channel
+  - Example: Head of Agency sees all Agency courses (North, South, Central, Nationwide)
+
+- **Admin, Master Role, Root Admin:**
+  - No restrictions - full visibility to all courses in system
+
+**Course Listing Fields:**
+
+| S/N | Fieldname      | Data Type | M/O/CM/D | Description                        | Data Example            | Validation/Rules                |
+| --- | -------------- | --------- | -------- | ---------------------------------- | ----------------------- | ------------------------------- |
+| 1   | Code           | Display   | D        | Course code (hyperlink)            | 001-HCBC-SH             | Clickable link to course details|
+| 2   | Course Name    | Display   | D        | Course name                        | SHINE                   | -                               |
+| 3   | Start-End Date | Display   | D        | Course start and end dates         | 01/04/2022 - 03/04/2022 | Format: DD/MM/YYYY              |
+| 4   | Trainer        | Display   | D        | Primary and co-trainer names       | John Doe, Jane Smith    | Comma-separated if multiple     |
+| 5   | Session        | Display   | D        | Number of stages/sessions          | 6                       | Numeric count                   |
+| 6   | Region         | Display   | D        | Course region                      | South                   | Values: North/South/Central/Nationwide |
+| 7   | Channel        | Display   | D        | Course channel                     | Agency                  | Values: Agency/Banca FSC/Banker/IFA |
+| 8   | Venue          | Display   | D        | Course venue address               | FWD Tower, HCM          | -                               |
+| 9   | Status         | Display   | D        | Current course status              | APPROVED                | Status badge with color coding  |
+| 10  | Created By     | Display   | D        | User who created the course        | Admin User              | -                               |
+| 11  | Created At     | Display   | D        | Creation date and time             | 15/03/2022 14:30        | Auto-sorted by newest first     |
+| 12  | Updated By     | Display   | D        | User who last updated              | Lead User               | -                               |
+| 13  | Action         | Button    | -        | Action buttons (role-based)        | 📝 ✏️ ❌ 🗑️             | See Section 8.2.5 for details   |
+
+---
+
+#### 8.2.2 Filter & Search
+
+**User Story:**
+
+**AS** a user viewing the course list  
+**I NEED** to filter and search courses by multiple criteria  
+**SO THAT** I can quickly find specific courses I'm looking for
+
+**Acceptance Criteria:**
+
+1. **Filter Area:**
+   - Filter panel always visible at top of course list
+   - Filters persist during session
+   - Clear indication when filters are active
+   - "Clear All Filters" button resets all filters
+
+2. **Filter Behavior:**
+   - Filters apply immediately (real-time) OR on button click
+   - Multiple filters work in combination (AND logic)
+   - Filter results respect role-based authorization
+   - Display count of filtered results
+
+3. **Search Behavior:**
+   - Search triggers on Enter key or Search button click
+   - Search is case-insensitive
+   - Partial match supported
+   - Search across multiple fields simultaneously
+
+**Filter Criteria:**
+
+| Filter  | Type          | Description         | Values/Options                                                                                                                  |
+| ------- | ------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Channel | Dropdown      | Filter by channel   | All, Agency, Banca FSC, Banker, IFA                                                                                             |
+| Region  | Dropdown      | Filter by region    | All, Central, North, South, Nationwide                                                                                          |
+| Status  | Dropdown      | Filter by status    | All, NEW, REGISTERED, APPROVED, IN_PROGRESS, WAITING_APPROVAL_EDIT, WAITING_APPROVAL_CANCEL, CANCEL, FINISHED, DELETED         |
+| Search  | Text Input    | Search by code/name | Free text - searches in Course Code and Course Name fields                                                                      |
+
+**Filter Implementation Details:**
+
+1. **Channel Filter:**
+   - Default: "All" (no filter applied)
+   - Single selection dropdown
+   - Updates course list to show only selected channel
+   - Respects user role (e.g., Head Channel only sees their channel regardless of filter selection)
+
+2. **Region Filter:**
+   - Default: "All" (no filter applied)
+   - Single selection dropdown
+   - Updates course list to show only selected region
+   - Respects user role (e.g., Lead Region only sees their region regardless of filter selection)
+
+3. **Status Filter:**
+   - Default: "All" (no filter applied)
+   - Single selection dropdown
+   - Shows all course statuses from system
+   - Color-code dropdown options matching status badge colors
+
+4. **Search Box:**
+   - Placeholder text: "Search by course code or name..."
+   - Minimum 1 character to trigger search
+   - Clear (X) button to reset search
+   - Search icon for visual clarity
+
+**Search Functionality:**
+
+**Search Fields:**
+- Course Code (e.g., "001-HCBC-SH")
+- Course Name (e.g., "SHINE")
+
+**Search Behavior:**
+- **Partial Match:** Search "HC" returns all courses with "HC" in code or name
+- **Case Insensitive:** Search "shine" or "SHINE" returns same results
+- **Real-time:** Results update as user types OR on button click (configurable)
+
+**Example Search Scenarios:**
+
+| Search Term | Matches                                       |
+| ----------- | --------------------------------------------- |
+| "SHINE"     | All courses with "SHINE" in code or name      |
+| "001-HC"    | All courses with code starting with "001-HC"  |
+| "Agency"    | All courses with "Agency" in name             |
+| "001"       | All courses with "001" in code                |
+
+---
+
+#### 8.2.3 Export Courses
+
+**User Story:**
+
+**AS** a user who can view the course list  
+**I NEED** a function to export courses to Excel  
+**SO THAT** I can have the list of courses to view offline or share with others
+
+**Acceptance Criteria:**
+
+1. **Export Button:**
+   - "Export Courses" button visible at top-right of course list
+   - Button always enabled when courses are visible
+   - Loading indicator during export generation
+
+2. **Export Behavior:**
+   - Exports only courses visible to current user (respects role authorization)
+   - Exports only courses matching current filters/search
+   - If no filters applied, exports all authorized courses
+   - File downloads automatically when ready
+
+3. **Export Format:**
+   - File format: Excel (.xlsx)
+   - File name format: `Courses_Export_{DDMMYYYY_HHMMSS}.xlsx`
+   - Example: `Courses_Export_15032022_143045.xlsx`
+
+4. **Export Content:**
+   - Includes all columns from Course Listing Fields (Section 8.2.1)
+   - Header row with column names
+   - Data formatted consistently with UI display
+   - Status column shows status text (not color)
+
+**Export File Structure:**
+
+**Excel Columns:**
+
+| Column # | Column Name    | Data Source         | Format          |
+| -------- | -------------- | ------------------- | --------------- |
+| 1        | Code           | Course Code         | Text            |
+| 2        | Course Name    | Course Name         | Text            |
+| 3        | Start Date     | Course Start Date   | Date (DD/MM/YYYY)|
+| 4        | End Date       | Course End Date     | Date (DD/MM/YYYY)|
+| 5        | Trainer        | Trainer Names       | Text            |
+| 6        | Sessions       | Number of Sessions  | Number          |
+| 7        | Region         | Course Region       | Text            |
+| 8        | Channel        | Course Channel      | Text            |
+| 9        | Venue          | Course Venue        | Text            |
+| 10       | Status         | Course Status       | Text            |
+| 11       | Created By     | Creator Name        | Text            |
+| 12       | Created At     | Creation Timestamp  | DateTime        |
+| 13       | Updated By     | Updater Name        | Text            |
+
+**Additional Requirements:**
+
+- Excel file includes sheet name: "Courses"
+- First row frozen (header row always visible)
+- Auto-filter enabled on header row
+- Column widths auto-adjusted for content
+- Include export metadata (export date, exported by user) in separate row or footer
+
+**Business Rules:**
+
+1. **Authorization:**
+   - User can only export courses they have permission to view
+   - Export respects same authorization rules as Course List View (Section 8.2.1)
+
+2. **Data Integrity:**
+   - Export captures data at moment of export
+   - If course is updated after export, exported file is not updated
+   - Export includes audit trail (who exported, when)
+
+3. **Performance:**
+   - Large exports (>1000 courses) may require background processing
+   - Display progress indicator for large exports
+   - Provide notification when export is ready (if background processing)
+
+---
+
+---
 
 ### 8.3 Course Details Screen
 
@@ -4157,8 +4409,7 @@ Courses can be created from multiple locations in the LMS system:
 The Course Details screen provides a comprehensive view of all course information, status progression, and management capabilities. It serves as the central hub for viewing and managing individual courses throughout their lifecycle.
 
 **Access Points:**
-- Click on course code/name in Course List
-- Click "View Details" action in Course List
+- Click on course code hyperlink in Course List
 - Navigate from Master Calendar or PIC Calendar
 - Direct URL: `/courses/[courseId]`
 
@@ -4277,7 +4528,7 @@ Course registration can be initiated from multiple locations in the system:
 |------|-------------|-------------------|-------------|------------|
 | Trainer | ✓ Yes | ✓ Yes | Lead Region OR Head Channel | Only for courses with status NEW |
 | Lead Region | ✓ Yes | ✓ Yes | Head Channel | Only for courses with status NEW; Lead's supervisor must approve |
-| Head Channel | ✓ Yes | ✗ No | **Auto-approved** | Only for courses with status NEW; Highest authority - no approval needed |
+| Head Channel | ✓ Yes | Conditional | **Auto-approved** if has `self_approval` permission; Otherwise requires approval by **another Head Channel** | Only for courses with status NEW; If `self_approval` permission assigned - actions auto-approved; If no `self_approval` permission - requires approval from another Head Channel in same channel |
 | Admin | ✗ No | N/A | N/A | Cannot register |
 | Master Role | ✗ No | N/A | N/A | Cannot register (system admin role only) |
 | Root Admin | ✗ No | N/A | N/A | Cannot register |
@@ -4304,7 +4555,7 @@ Course registration can be initiated from multiple locations in the system:
    - Note displayed (varies by role):
      - **For Trainer**: "By registering, you will become the primary trainer for this course. The course will be submitted for approval by your Head/Lead."
      - **For Lead Region**: "By registering, you will become the primary trainer for this course. The course will be submitted for approval by your Head Channel."
-     - **For Head Channel**: "By registering, you will become the primary trainer for this course. The course will be automatically approved."
+     - **For Head Channel** (or users with `self_approval`): "By registering, you will become the primary trainer for this course. The course will be automatically approved."
 
 3. **Confirm Registration:**
    - User reviews course information
@@ -4332,14 +4583,16 @@ Course registration can be initiated from multiple locations in the system:
      - Email subject: "[LMS] Course Registration Pending Approval: [Course Code]"
      - Email content: Course details, registering user name/role, link to approval screen
    
-   **For Head Channel (Auto-Approved):**
-   - System updates course record:
+   **For Users with `self_approval` Permission (Auto-Approved):**
+   - System checks: Does user have `self_approval` permission?
+   - If yes, system updates course record:
      - Status: NEW → REGISTERED → APPROVED (immediate transition)
      - Primary Trainer: Set to registering user's name
      - Trainer: Set to registering user's name (legacy field)
+     - Auto-approved: true
    - System records in Course History:
      - Action 1: "User registered for course"
-     - Action 2: "Course auto-approved (Head Channel registration)"
+     - Action 2: "Course auto-approved (self_approval permission)"
      - User: Registering user's name and role
      - Timestamp: Current date/time
    - System updates Status Timeline:
@@ -4347,12 +4600,13 @@ Course registration can be initiated from multiple locations in the system:
      - Add APPROVED milestone (same timestamp)
      - Record user and timestamp
    - No approval notification sent (auto-approved)
+   - Note: Default behavior for Head Channel role, but can be assigned to any role or user
 
 5. **Success Confirmation:**
    - Modal closes
-   - Success message displayed (varies by role):
-     - **For Trainer/Lead Region**: "Course registered successfully! Waiting for approval."
-     - **For Head Channel**: "Course registered and approved successfully!"
+   - Success message displayed (varies by permission):
+     - **For users without `self_approval` permission**: "Course registered successfully! Waiting for approval."
+     - **For users with `self_approval` permission**: "Course registered and approved successfully!"
    - Page refreshes to show updated course status
    - Status badge changes:
      - **For Trainer/Lead Region**: NEW (yellow) → REGISTERED (light gray)
@@ -4381,10 +4635,13 @@ Course registration can be initiated from multiple locations in the system:
    - Error message: "You do not have permission to register for courses."
 
 5. **Auto-Approval Rules:**
-   - **Head Channel registrations**: Automatically approved (no approval workflow)
-   - **Trainer registrations**: Require approval from Lead Region OR Head Channel
-   - **Lead Region registrations**: Require approval from Head Channel only
-   - Auto-approved courses transition through REGISTERED to APPROVED status immediately
+   - **Users with `self_approval` permission**: Actions are automatically approved (no approval workflow)
+   - **Default assignment**: Head Channel role has `self_approval` permission by default
+   - **Configurable**: Root Admin can assign `self_approval` permission to any role or individual user
+   - **Permission check**: System checks for `self_approval` permission before routing to approval workflow
+   - **Trainer registrations** (without `self_approval`): Require approval from Lead Region OR Head Channel
+   - **Lead Region registrations** (without `self_approval`): Require approval from Head Channel only
+   - Auto-approved courses transition through REGISTERED to APPROVED status immediately (if applicable)
 
 6. **Course Creator Exception:**
    - Course creator can register for their own course (if authorized role)
@@ -4823,6 +5080,465 @@ flowchart TD
 ### 8.9 Course Type Checklist Configuration
 
 [Content will be copied from original Section 10.3 and 10.4]
+
+---
+
+### 8.10 Course Import Function [PHASE 2]
+
+**User Story:**
+
+**AS** a Lead Region, Head Channel, or Admin  
+**I NEED** to import multiple courses via Excel file  
+**SO THAT** I can efficiently create many courses at once instead of manually entering each one
+
+**Acceptance Criteria:**
+
+1. **Import Access:**
+   - "Import Course" button visible only to authorized roles
+   - Button location: Top-right of course list page
+   - Opens import wizard/modal when clicked
+
+2. **Import Process:**
+   - Step 1: Download template
+   - Step 2: Fill template with course data
+   - Step 3: Upload filled template
+   - Step 4: System validates data
+   - Step 5: View validation results
+   - Step 6: System creates valid courses
+   - Step 7: View import history
+
+3. **Template Types:**
+   - Two separate templates: SHINE and AFTER-SHINE (Product/Skill)
+   - Templates downloadable from import screen
+   - Templates include example rows with sample data
+   - Templates include field descriptions/instructions
+
+**Authorization:**
+
+| Role         | Can Import Courses |
+| ------------ | ------------------ |
+| Trainer      | ❌ No              |
+| Lead Region  | ✅ Yes             |
+| Head Channel | ✅ Yes             |
+| Admin        | ✅ Yes             |
+| Master Role  | ✅ Yes             |
+| Root Admin   | ✅ Yes             |
+
+**Workflow for Course Import:**
+
+**Step 1: Admin Prepares Excel File**
+
+**Template Selection:**
+
+1. **SHINE Template:**
+   - Includes all SHINE-specific fields
+   - MOF exam fields (MOF Course Name, MOF Exam Time, Proctor info)
+   - AOL exam fields
+
+2. **AFTER-SHINE Template:**
+   - Includes Product and Skill course fields
+   - Excludes MOF exam fields
+   - Includes AOL exam fields (for Product courses)
+
+**Template Fields:**
+
+| Field Name                | SHINE | Product | Skill | Required | Data Type   | Description                          |
+| ------------------------- | ----- | ------- | ----- | -------- | ----------- | ------------------------------------ |
+| Primary/Sub               | ✓     | ✓       | ✓     | M        | Text        | "Primary" or "Sub" (for sub-courses) |
+| Program                   | ✓     | ✓       | ✓     | M        | Text        | Program name from LMS                |
+| Course Name               | ✓     | ✓       | ✓     | M        | Text        | Course name                          |
+| Course Type               | ✓     | ✓       | ✓     | M        | Text        | Shine/Product/Skill                  |
+| Channel                   | ✓     | ✓       | ✓     | M        | Text        | Agency/Banca/Banker/IFA              |
+| Region                    | ✓     | ✓       | ✓     | M        | Text        | North/South/Central/Nationwide       |
+| Start Date                | ✓     | ✓       | ✓     | M        | Date        | DD/MM/YYYY                           |
+| End Date                  | ✓     | ✓       | ✓     | M        | Date        | DD/MM/YYYY                           |
+| Primary Trainer           | ✓     | ✓       | ✓     | M        | Text        | Trainer name from LMS                |
+| Co-Trainer                | ✓     | ✓       | ✓     | O        | Text        | Comma-separated trainer names        |
+| Venue Address             | ✓     | ✓       | ✓     | M        | Text        | Full address                         |
+| Province                  | ✓     | ✓       | ✓     | M        | Text        | Province name                        |
+| Area                      | ✓     | ✓       | ✓     | M        | Text        | Area from list manage                |
+| Branch                    | ✓     | ✓       | ✓     | O        | Text        | Branch name from list manage         |
+| Partner                   | ✓     | ✓       | ✓     | O        | Text        | Partner name from list manage        |
+| AOL Start Time            | ✓     | ✓       | ✗     | O        | Date        | DD/MM/YYYY                           |
+| AOL End Time              | ✓     | ✓       | ✗     | O        | Date        | DD/MM/YYYY                           |
+| AOL Exam ID               | ✓     | ✓       | ✗     | O        | Text        | AOL exam code from list manage       |
+| MOF Course Name           | ✓     | ✗       | ✗     | M        | Text        | MOF course name                      |
+| Exam Type                 | ✓     | ✗       | ✗     | M        | Text        | Exam type from list                  |
+| MOF Exam Time             | ✓     | ✗       | ✗     | M        | Date        | DD/MM/YYYY                           |
+| Is Proctor Trainer        | ✓     | ✗       | ✗     | M        | Text        | Yes/No                               |
+| Proctor Trainer           | ✓     | ✗       | ✗     | O        | Text        | Trainer name (if Yes)                |
+| Proctor Name              | ✓     | ✗       | ✗     | O        | Text        | Name (if No)                         |
+| Proctor Phone             | ✓     | ✗       | ✗     | O        | Text        | Phone number (if No)                 |
+| MOF Address               | ✓     | ✗       | ✗     | M        | Text        | Full address                         |
+| MOF Province               | ✓     | ✗       | ✗     | M        | Text        | Province name                        |
+| MOF Ward                  | ✓     | ✗       | ✗     | M        | Text        | Ward name                            |
+| Exam Categories           | ✓     | ✗       | ✗     | M        | Text        | Exam category from list              |
+| Supporter                 | ✓     | ✓       | ✓     | O        | Text        | Comma-separated admin names          |
+| Description               | ✓     | ✓       | ✓     | O        | Text        | Free text description                |
+
+**Legend:**
+- ✓ = Field included in template
+- ✗ = Field not included in template
+- M = Mandatory
+- O = Optional
+
+**Step 2: Sub-Course Creation**
+
+**Concept:**
+- Primary course can have multiple sub-courses
+- Sub-courses run simultaneously with same trainer
+- Example: One trainer teaching same program in morning (primary) and afternoon (sub)
+
+**Implementation:**
+
+1. **Column "Primary/Sub":**
+   - Values: "Primary" or "Sub"
+   - Primary course and its sub-courses must be in continuous rows
+   - First row = Primary, subsequent rows = Sub
+
+2. **Inherited Fields (Sub-courses):**
+   - Sub-courses automatically inherit from primary:
+     - Primary Trainer
+     - Co-Trainer
+     - Program
+     - Course Start Date
+     - Course End Date
+   - User cannot change inherited fields in sub-course rows
+
+3. **Separate Fields (Sub-courses):**
+   - Each sub-course can have different:
+     - Venue Address
+     - Province/Area
+     - Time (AM/PM sessions)
+     - Supporter
+
+**Example Layout in Excel:**
+
+| Primary/Sub | Program | Trainer  | Start Date | End Date   | Venue     |
+| ----------- | ------- | -------- | ---------- | ---------- | --------- |
+| Primary     | SHINE   | John Doe | 01/04/2022 | 03/04/2022 | HCM Tower |
+| Sub         | SHINE   | John Doe | 01/04/2022 | 03/04/2022 | BRVT Hall |
+| Sub         | SHINE   | John Doe | 01/04/2022 | 03/04/2022 | DN Center |
+
+**Result:**
+- 3 courses created (1 primary + 2 sub)
+- All have same trainer, program, dates
+- Different venues
+
+**Step 3: Co-Trainer Uploading**
+
+**Implementation:**
+
+1. **Co-Trainer Field:**
+   - Column: "Co-Trainer"
+   - Format: Comma-separated trainer names
+   - Example: "Jane Smith, Bob Wilson"
+
+2. **Validation:**
+   - System checks each co-trainer name exists in LMS
+   - Returns error if co-trainer not found
+
+3. **Planning Update:**
+   - System updates course planning with co-trainers
+   - Co-trainers added to all stages
+   - Co-trainers can be re-selected per stage after import
+
+4. **Trainer Availability Check:**
+   - System checks if primary and co-trainers are available during course time
+   - Warning if trainer has conflicting courses
+   - Import continues with warning (not blocking)
+
+**Validation Checks:**
+
+**A. Duplicate Check**
+
+**Criteria for Duplicate:**
+- **[Start-End date] + Province + Venue** combination already exists
+
+**Validation Logic:**
+
+```
+IF (Start Date = Existing Course Start Date) 
+   AND (End Date = Existing Course End Date)
+   AND (Province = Existing Course Province)
+   AND (Venue = Existing Course Venue)
+THEN
+   Mark as DUPLICATE ERROR
+   Record in import history with error details
+   Skip course creation
+ELSE
+   Continue validation
+END IF
+```
+
+**Error Message:**
+```
+"Duplicate course detected: Course with same dates, province, and venue already exists (Course Code: {existing_course_code})"
+```
+
+**B. Data Validation Check**
+
+**Validation Rules:**
+
+| Field              | Valid Values                                     | Error Message               | Validation Logic                    |
+| ------------------ | ------------------------------------------------ | --------------------------- | ----------------------------------- |
+| Primary Trainer    | Existing trainer name in LMS                     | "Primary trainer not found" | Lookup in Trainer table             |
+| Co-Trainer         | Existing trainer name(s) in LMS                  | "Trainer does not valid"    | Lookup each name in Trainer table   |
+| Course Type        | Skill, Product, Shine                            | "Course type is invalid"    | Match against allowed values        |
+| Program            | Existing program name in LMS                     | "Program is invalid"        | Lookup in Program table             |
+| Channel            | Banker, Banca, Agency, IFA                       | "Channel is invalid"        | Match against allowed values        |
+| Region             | Nationwide, North, Central, South                | "Region is invalid"         | Match against allowed values        |
+| Exam Type          | Trực tuyến tại Doanh nghiệp, Trực tuyến tại VIDI | "Exam Type is invalid"      | Match against list manage values    |
+| Province           | Valid province name from list                    | "Province is invalid"       | Lookup in Province list             |
+| Ward               | Valid ward name from list                        | "Ward is invalid"           | Lookup in Ward list                 |
+| Branch             | Valid branch name from list manage               | "Branch is invalid"         | Lookup in Branch list               |
+| Partner            | Valid partner name from list manage              | "Partner is invalid"        | Lookup in Partner list              |
+| Area               | Valid area name from list manage                 | "Area is invalid"           | Lookup in Area list                 |
+| AOL Exam ID        | Valid AOL exam code from list manage             | "AOL Exam ID is invalid"    | Lookup in AOL Exam Code list        |
+| Supporter          | Valid user with Admin role                       | "Supporter not found"       | Lookup in User table with Admin role|
+
+**Validation Process:**
+
+1. Check all mandatory fields are filled
+2. Validate data types (dates, numbers, text)
+3. Validate against allowed values (dropdowns)
+4. Validate references (trainer names, program names, etc.)
+5. Record all validation errors per row
+6. Continue validation for all rows (don't stop at first error)
+
+**C. Date Rule Check**
+
+**Date Format:**
+- Required format: DD/MM/YYYY
+- System converts to internal date format for validation
+
+**Date Validation Rules:**
+
+| Rule # | Validation Rule                                          | Error Message                                     |
+| ------ | -------------------------------------------------------- | ------------------------------------------------- |
+| 1      | Start date >= Import date + 2 days                       | "Start date must be at least 2 days from today"  |
+| 2      | End date = Start date + course duration (from program)   | "End date does not match program duration"        |
+| 3      | AOL Start Time >= Course Start Date                      | "AOL start time must be on or after course start" |
+| 4      | AOL End Time <= Course End Date + 3 days                 | "AOL end time must be within 3 days after course end" |
+| 5      | AOL End Time >= AOL Start Time                           | "AOL end time must be after AOL start time"       |
+| 6      | MOF Exam Time >= Course Start Date                       | "MOF exam time must be on or after course start" |
+| 7      | MOF Exam Time <= Course Start Date + 30 days             | "MOF exam time must be within 30 days after course start" |
+
+**Validation Logic Examples:**
+
+```
+// Rule 1: Start Date Validation
+Import Date = 01/04/2022
+Minimum Start Date = 01/04/2022 + 2 days = 03/04/2022
+
+IF (Course Start Date < 03/04/2022) THEN
+   ERROR: "Start date must be at least 2 days from today"
+END IF
+```
+
+```
+// Rule 2: End Date Validation
+Program Duration = 6 days
+Course Start Date = 05/04/2022
+Expected End Date = 05/04/2022 + 6 days = 11/04/2022
+
+IF (Course End Date != 11/04/2022) THEN
+   ERROR: "End date does not match program duration (Expected: 11/04/2022)"
+END IF
+```
+
+```
+// Rule 5: AOL Date Range Validation
+AOL Start Time = 07/04/2022
+AOL End Time = 06/04/2022
+
+IF (AOL End Time < AOL Start Time) THEN
+   ERROR: "AOL end time must be after AOL start time"
+END IF
+```
+
+**D. Trainer Availability Check**
+
+**Purpose:**
+- Prevent double-booking trainers
+- Warn if trainer has conflicting course schedules
+
+**Validation Logic:**
+
+```
+FOR each course in import file:
+    FOR each trainer (primary + co-trainers):
+        Check if trainer has existing courses during [Start Date - End Date]
+        
+        IF conflict exists THEN
+            Record WARNING (not blocking error)
+            Message: "Availability check: Course name [course ID] cannot be imported due to Trainer's unavailability. Trainer {trainer_name} has conflicting course: {existing_course_code} from {existing_start} to {existing_end}"
+        END IF
+    END FOR
+END FOR
+```
+
+**Conflict Definition:**
+- Trainer has another course where date ranges overlap
+
+**Date Overlap Logic:**
+
+```
+Course A: [Start_A, End_A]
+Course B: [Start_B, End_B]
+
+Overlap EXISTS IF:
+   (Start_A <= End_B) AND (End_A >= Start_B)
+```
+
+**Warning vs Error:**
+- Trainer availability = **WARNING** (not blocking)
+- User can choose to proceed with import
+- Other validation errors = **ERROR** (blocking)
+
+**Example Scenarios:**
+
+| Scenario | Existing Course | Import Course | Result |
+| -------- | --------------- | ------------- | ------ |
+| 1        | 01/04 - 03/04   | 05/04 - 07/04 | ✅ OK (no overlap) |
+| 2        | 01/04 - 05/04   | 03/04 - 07/04 | ⚠️ WARNING (overlap: 03/04-05/04) |
+| 3        | 01/04 - 10/04   | 03/04 - 07/04 | ⚠️ WARNING (completely within) |
+| 4        | 05/04 - 07/04   | 01/04 - 10/04 | ⚠️ WARNING (existing within new) |
+
+**Course Import Result:**
+
+**Success Scenario:**
+
+**Pop-up Message:**
+```
+✅ Success!
+
+All courses imported successfully.
+
+Total: 25 courses created
+Please check course import history for details.
+
+[View Import History] [Close]
+```
+
+**Partial Success Scenario:**
+
+**Pop-up Message:**
+```
+⚠️ Import Completed with Errors
+
+Import Summary:
+✅ Successfully imported: 18 courses
+❌ Failed: 7 courses
+
+Please check import history for error details.
+
+[View Import History] [Download Error Report] [Close]
+```
+
+**Error Report:**
+- Excel file with failed rows
+- Error column with detailed error messages
+- Original data preserved for correction
+
+**Complete Failure Scenario:**
+
+**Pop-up Message:**
+```
+❌ Import Failed
+
+No courses were imported due to validation errors.
+
+Total errors: 25 courses
+
+Common issues:
+• Invalid trainer names (15 courses)
+• Invalid dates (8 courses)  
+• Duplicate courses (2 courses)
+
+[View Error Details] [Download Error Report] [Close]
+```
+
+**Import History:**
+
+**Purpose:**
+- Track all import attempts
+- Record success/failure details
+- Provide audit trail
+
+**Filter Selection:**
+
+| Filter      | Type          | Options                     |
+| ----------- | ------------- | --------------------------- |
+| Date Range  | Date Picker   | From [MM/YY] - To [MM/YY]   |
+| Status      | Dropdown      | FAIL / SUCCESS / ALL        |
+
+**Report Template:**
+
+| Column            | Description                                  | Example                          |
+| ----------------- | -------------------------------------------- | -------------------------------- |
+| Import ID         | Unique identifier for import batch           | IMP-20220401-001                 |
+| File Name         | Uploaded file name                           | SHINE_Courses_April.xlsx         |
+| Imported At       | Date and time of import                      | 01/04/2022 14:30:25              |
+| Imported By       | Username who performed import                | admin.user                       |
+| Total Rows        | Total courses in file                        | 25                               |
+| Success Count     | Number of successfully created courses       | 18                               |
+| Failed Count      | Number of failed courses                     | 7                                |
+| Status            | Overall status                               | PARTIAL_SUCCESS / SUCCESS / FAIL |
+| Error Details     | Summary of error types                       | Duplicate: 2, Invalid trainer: 5 |
+| Action            | Link to view/download details                | [View Details] [Download Report] |
+
+**Detailed Error View:**
+
+When user clicks "View Details", show table with failed courses:
+
+| Row # | Course Name | Error Type        | Error Message                          | Original Data                    |
+| ----- | ----------- | ----------------- | -------------------------------------- | -------------------------------- |
+| 5     | SHINE 001   | Duplicate         | Course already exists (code: 8-HCM...) | Start: 01/04/22, Venue: HCM...   |
+| 8     | Product 002 | Invalid Trainer   | Primary trainer not found              | Trainer: John Smith (not in LMS) |
+| 12    | Skill 003   | Invalid Date      | Start date must be at least 2 days...  | Start: 01/04/22 (too soon)       |
+
+**Export Options:**
+
+1. **Download Error Report:**
+   - Excel file with only failed rows
+   - Includes error messages
+   - Original data for easy correction
+
+2. **Download Full Report:**
+   - Excel file with all rows (success + failed)
+   - Status column (SUCCESS/FAILED)
+   - Error messages for failed rows
+
+**Business Rules:**
+
+1. **Import Authorization:**
+   - Only Lead Region, Head Channel, Admin, Master Role can import courses
+   - Trainers cannot import courses
+
+2. **Batch Processing:**
+   - Maximum 100 courses per import file
+   - Larger files rejected with message to split
+
+3. **Transaction Handling:**
+   - Import is NOT all-or-nothing
+   - Valid courses created even if some fail
+   - Failed courses recorded in import history
+
+4. **Course Status After Import:**
+   - All imported courses created with status = NEW
+   - Courses require registration and approval workflow
+   - No automatic status progression
+
+5. **Notification:**
+   - Email sent to importer with summary
+   - Includes link to import history
+   - Includes error report if applicable
+
+6. **Template Version Control:**
+   - Templates include version number
+   - System validates template version on upload
+   - Reject if template version too old
 
 ---
 
