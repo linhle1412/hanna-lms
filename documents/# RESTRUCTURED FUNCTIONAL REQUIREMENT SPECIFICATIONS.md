@@ -1,37 +1,15 @@
 # FUNCTIONAL REQUIREMENT SPECIFICATIONS
 
-**Authors:** Diem Ha/Hai Nguyen  123
-**Date:** 24/03/2022  
-**Version:** 1.4.0
-
----
-
-## VERSION HISTORY
-
-| VERSION | APPROVED BY | REVISION DATE | DESCRIPTION OF CHANGE           | AUTHOR             |
-| ------- | ----------- | ------------- | ------------------------------- | ------------------ |
-| 1.0.0   |             | 24/02/2022    | Initial creation                | Diem Ha/Hai Nguyen |
-| 1.1.0   |             | 2/03/2022     | Adding LMS architecture diagram | Diem Ha/Hai Nguyen |
-| 1.2.0   |             | 21/06/2022    | Adding 8 reports                | Diem Ha/Hai Nguyen |
-| 1.3.0   |             | [Current Date]| Major restructuring: Course Management reorganization | Diem Ha/Hai Nguyen |
-| 1.4.0   |             | [Current Date]| Program Management System: Added Section 7.3 (Program Management), enhanced Section 10.1.3 (Program Display Customization), added Section 10.1.11 (Program-Based Course Creation). Programs now independent of courses, enabling course creation for any active program. | Diem Ha/Hai Nguyen |
+**Authors:** Diem Ha
 
 ---
 
 ## TABLE OF CONTENTS
 
-1. [Abbreviations and Acronyms](#1-abbreviations-and-acronyms)
-2. [LMS Architecture Diagram](#2-lms-architecture-diagram)
-3. [External Interface Requirements](#3-external-interface-requirements)
-   - 3.1 [Overview Flow](#31-overview-flow)
-   - 3.2 [Participant API](#32-participant-api)
-   - 3.3 [CourseList API (ERecruiter)](#33-courselist-api-erecruiter)
-   - 3.4 [UpdateAOLExam API](#34-updateaolexam-api)
-   - 3.5 [AAPortal API](#35-aaportal-api)
-   - 3.6 [Course Status API](#36-course-status-api)
-   - 3.7 [Delete Participant from Course API](#37-delete-participant-from-course-api)
-   - 3.8 [Update Attendance API](#38-update-attendance-api)
-4. [Role and User Management](#4-role-and-user-management)
+1. [Abbreviations and Acronyms](#1-abbreviations-and-acronyms) [NOT STARTED]
+2. [LMS Architecture Diagram](#2-lms-architecture-diagram) [NOT STARTED]
+3. [External Interface Requirements](#3-external-interface-requirements) [NOT STARTED]
+4. [Role and User Management](#4-role-and-user-management) [IN REVIEW]
    - 4.1 [List of Roles](#41-list-of-roles)
    - 4.2 [Authorization Matrix by Feature](#42-authorization-matrix-by-feature)
    - 4.3 [User Management](#43-user-management)
@@ -51,15 +29,15 @@
      - 4.5.3 [Course List Filtering](#453-course-list-filtering)
      - 4.5.4 [Pending Approvals Filtering](#454-pending-approvals-filtering)
      - 4.5.5 [Approval Workflow Integration](#455-approval-workflow-integration)
-5. [Trainer Management](#5-trainer-management)
+5. [Trainer Management](#5-trainer-management) [IN PROGRESS]
    - 5.1 [Trainer Creation Page](#51-trainer-creation-page)
    - 5.2 [Trainer Listing Page](#52-trainer-listing-page)
    - 5.3 [Trainer Details Page](#53-trainer-details-page)
-6. [Participant Management](#6-participant-management)
+6. [Participant Management](#6-participant-management) [IN PROGRESS]
    - 6.1 [Integration](#61-integration)
    - 6.2 [Participant List](#62-participant-list)
    - 6.3 [Participant Details Page](#63-participant-details-page)
-7. [Content Management](#7-content-management)
+7. [Content Management](#7-content-management) [IN REVIEW]
    - 7.1 [Modules](#71-modules)
      - 7.1.1 [Module Data Structure](#711-module-data-structure)
      - 7.1.2 [Module Listing Page](#712-module-listing-page)
@@ -90,7 +68,7 @@
      - 7.3.3 [Program Status Management](#733-program-status-management)
      - 7.3.4 [Program Integration Points](#734-program-integration-points)
      - 7.3.5 [Future Enhancements](#735-future-enhancements)
-8. [Course Management](#8-course-management)
+8. [Course Management](#8-course-management) [IN REVIEW]
    - 8.1 [Course Creation](#81-course-creation)
      - 8.1.1 [Course Creation Form](#811-course-creation-form)
        - 8.1.1.1 [Dynamic Form Behavior Based on Course Type](#8111-dynamic-form-behavior-based-on-course-type)
@@ -130,56 +108,36 @@
      - 8.7.2 [Soft Delete vs Hard Delete](#872-soft-delete-vs-hard-delete)
    - 8.8 [Course Operations](#88-course-operations)
      - 8.8.1 [Course Participant List](#881-course-participant-list)
-     - 8.8.2 [Filter Area](#882-filter-area)
-     - 8.8.3 [Add Participant to Course with Import File](#883-add-participant-to-course-with-import-file)
-     - 8.8.4 [Add Participant to Course Manually](#884-add-participant-to-course-manually)
-     - 8.8.5 [Export Participants](#885-export-participants)
-     - 8.8.6 [Export Participants for MOF Exam](#886-export-participants-for-mof-exam)
-     - 8.8.7 [Import MOF Exam Result](#887-import-mof-exam-result)
-     - 8.8.8 [Confirm Passed Participant](#888-confirm-passed-participant)
-     - 8.8.9 [Export Passed Participant](#889-export-passed-participant)
-     - 8.8.10 [Attendance Check](#8810-attendance-check)
-     - 8.8.11 [AOL Exam Result](#8811-aol-exam-result)
-     - 8.8.12 [Rule for Calculate Final Result](#8812-rule-for-calculate-final-result)
-     - 8.8.13 [Manually Set Passed/Failed](#8813-manually-set-passedfailed)
-     - 8.8.14 [Grant Agent Code](#8814-grant-agent-code)
+     - 8.8.2 [Add Participant to Course with Import File](#882-add-participant-to-course-with-import-file)
+     - 8.8.3 [Add Participant to Course Manually](#883-add-participant-to-course-manually)
+     - 8.8.4 [Export Participants](#884-export-participants)
+     - 8.8.5 [Export Participants for MOF Exam](#885-export-participants-for-mof-exam)
+     - 8.8.6 [Import MOF Exam Result](#886-import-mof-exam-result)
+     - 8.8.7 [Confirm Passed Participant](#887-confirm-passed-participant)
+     - 8.8.8 [Export Passed Participant](#888-export-passed-participant)
+     - 8.8.9 [Attendance Check](#889-attendance-check)
+     - 8.8.10 [AOL Exam Result](#8810-aol-exam-result)
+     - 8.8.11 [Rule for Calculate Final Result](#8811-rule-for-calculate-final-result)
+     - 8.8.12 [Manually Set Passed/Failed](#8812-manually-set-passedfailed)
+     - 8.8.13 [Grant Agent Code](#8813-grant-agent-code)
    - 8.9 [Course Type Checklist Configuration](#89-course-type-checklist-configuration)
-     - 8.9.1 [Overview](#891-overview)
-     - 8.9.2 [Checklist Configuration by Course Type](#892-checklist-configuration-by-course-type)
-     - 8.9.3 [Checklist Display in Course Details](#893-checklist-display-in-course-details)
-     - 8.9.4 [Automated Email Reminder System](#894-automated-email-reminder-system)
-     - 8.9.5 [PIC Actions](#895-pic-actions)
-     - 8.9.6 [Status Definition Rules](#896-status-definition-rules)
-     - 8.9.7 [Business Rules](#897-business-rules)
-     - 8.9.8 [Checklist Template Configuration](#898-checklist-template-configuration)
-       - 8.9.8.1 [Default Templates by Course Type](#8981-default-templates-by-course-type)
-       - 8.9.8.2 [Clone Template Functionality](#8982-clone-template-functionality)
-       - 8.9.8.3 [Template Customization](#8983-template-customization)
-       - 8.9.8.4 [Template Selection During Course Creation](#8984-template-selection-during-course-creation)
-       - 8.9.8.5 [Template Management Screen](#8985-template-management-screen)
-       - 8.9.8.6 [Template Application to Courses](#8986-template-application-to-courses)
-     - 8.9.9 [Reporting and Tracking](#899-reporting-and-tracking)
-     - 8.9.10 [UI/UX Considerations](#8910-uiux-considerations)
-     - 8.9.11 [UI Mockups](#8911-ui-mockups)
-       - 8.9.11.1 [Template Management Screen](#89111-template-management-screen)
-       - 8.9.11.2 [Clone Template Modal](#89112-clone-template-modal)
-       - 8.9.11.3 [Template Creation/Edit Form](#89113-template-creationedit-form)
-       - 8.9.11.4 [Course Creation Form - Template Selection](#89114-course-creation-form---template-selection)
-       - 8.9.11.5 [Template Preview Modal](#89115-template-preview-modal)
-       - 8.9.11.6 [Course Details - Checklist Tab](#89116-course-details---checklist-tab)
-       - 8.9.11.7 [Checklist Summary Report](#89117-checklist-summary-report)
-       - 8.9.11.8 [Mobile Responsive View - Checklist](#89118-mobile-responsive-view---checklist)
-       - 8.9.11.9 [Email Reminder Sample](#89119-email-reminder-sample)
-       - 8.9.11.10 [Design Specifications](#891110-design-specifications)
-   - 8.10 [Course Import Function](#810-course-import-function)
-9. [PIC Calendar](#9-pic-calendar)
+     - 8.9.1 [Course Checklist by Course Type Definition](#891-course-checklist-by-course-type-definition)
+     - 8.9.2 [Email and Notification](#892-email-and-notification)
+       - 8.9.2.1 [Checklist Notification](#8921-checklist-notification)
+       - 8.9.2.2 [Checklist Notification Templates](#8922-checklist-notification-templates)
+     - 8.9.3 [Show Course Checklist in Course Details](#893-show-course-checklist-in-course-details)
+       - 8.9.3.1 [Course Checklist Details and Actions](#8931-course-checklist-details-and-actions)
+       - 8.9.3.2 [Business Rules](#8932-business-rules)
+     - 8.9.4 [Authorization Matrix](#894-authorization-matrix)
+   - 8.10 [Course Import Function [PHASE 2]](#810-course-import-function-phase-2)
+9. [PIC Calendar](#9-pic-calendar) [IN PROGRESS]
    - 9.1 [View Courses Per Trainer](#91-view-courses-per-trainer)
    - 9.2 [View Trainer Assignment for Each Trainer](#92-view-trainer-assignment-for-each-trainer)
    - 9.3 [Approve Courses in PIC Calendar](#93-approve-courses-in-pic-calendar)
      - 9.3.1 [Approve Registered Tab](#931-approve-registered-tab)
      - 9.3.2 [Approve Edit Tab](#932-approve-edit-tab)
      - 9.3.3 [Approve Cancel Tab](#933-approve-cancel-tab)
-10. [Master Calendar](#10-master-calendar)
+10. [Master Calendar](#10-master-calendar) [IN PROGRESS]
     - 10.1 [View Courses in Master Calendar](#101-view-courses-in-master-calendar)
       - 10.1.1 [Matrix Calendar Layout](#1011-matrix-calendar-layout)
       - 10.1.2 [Course Display in Calendar Cells](#1012-course-display-in-calendar-cells)
@@ -198,12 +156,8 @@
       - 10.3.2 [Course Edit](#1032-course-edit)
       - 10.3.3 [Course Delete](#1033-course-delete)
       - 10.3.4 [View Details](#1034-view-details)
-11. [List Manage](#11-list-manage)
-12. [Course Template](#12-course-template)
-    - 12.1 [Shine Course Template](#121-shine-course-template)
-    - 12.2 [Product Course Template](#122-product-course-template)
-    - 12.3 [Skill Course Template](#123-skill-course-template)
-13. [Report Management](#13-report-management)
+11. [List Manage](#11-list-manage) [IN PROGRESS]
+12. [Report Management [PHASE 2]](#13-report-management-phase-2) [NOT STARTED]
     - 13.1 [SHINE PASS RATIO](#131-shine-pass-ratio)
     - 13.2 [SHINE TRAINING](#132-shine-training)
     - 13.3 [PARTICIPANT OF TRAINERS](#133-participant-of-trainers)
@@ -216,9 +170,8 @@
     - 13.10 [SHINE REPORT](#1310-shine-report)
     - 13.11 [FWT TRAINER PAYSLIP](#1311-fwt-trainer-payslip)
     - 13.12 [EXAM FEE TOTAL](#1312-exam-fee-total)
-14. [General Setting](#14-general-setting)
+13. [General Setting](#14-general-setting)
     - 14.1 [SMTP Settings](#141-smtp-settings)
-15. [Appendix A - Issues List](#appendix-a-issues-list)
 
 ---
 
@@ -2158,7 +2111,7 @@ SO THAT I can search, view, create, and manage training modules
 | Duration | Module duration in hours | Sortable, displayed as "X.X hours" |
 | Outcome | Learning outcomes | Truncated with "..." if too long, tooltip on hover |
 | Tags | Module tags | Displayed as colored badges |
-| Status | Module status | Visual indicator (🟢 Active/⚪ Inactive/📝 Draft) |
+| Status | Module status | Visual indicator (Active/Inactive/Draft) |
 | Created By | Username who created | Sortable |
 | Updated By | Username who last updated | Sortable |
 | Actions | Edit, Delete, Clone buttons | Role-based visibility |
@@ -2507,54 +2460,17 @@ SO THAT I can remove outdated or unused content
    - Case-insensitive comparison
    - Error: "A module with this name already exists"
 
-2. **Duration Validation:**
-   - Minimum: 0.5 hours
-   - Maximum: 40 hours
-   - Increments: 0.5 hours
-   - Error: "Duration must be between 0.5 and 40 hours"
-
-3. **File Upload Validation:**
-   - Max file size: 50MB per file
-   - Max total size: 500MB per module
-   - Allowed types: PDF, DOCX, PPTX, XLSX, MP4, ZIP
-   - Error: "File exceeds maximum size of 50MB"
-
-4. **Deletion Validation:**
+2. **Deletion Validation:**
    - Cannot delete if used in active products
    - Can delete if only used in INACTIVE products (with warning)
    - Error: "Module is used in X active product(s)"
 
-5. **Status Change Validation:**
+3. **Status Change Validation:**
    - Cannot set to ACTIVE if required fields incomplete
    - Can set to INACTIVE anytime
    - Warning when deactivating: "This will prevent new assignments"
 
 ---
-
-#### 7.1.11 Module UI/UX Considerations
-
-**Responsive Design:**
-- Desktop: Full table layout with all columns
-- Tablet: Condensed table with essential columns
-- Mobile: Card-based layout with expandable details
-
-**Performance:**
-- Pagination for large module lists (>100 items)
-- Lazy loading for file attachments
-- Debounced search (300ms delay)
-- Cached module data in browser session
-
-**Accessibility:**
-- Keyboard navigation support
-- Screen reader labels for all fields
-- High contrast mode support
-- Focus indicators on interactive elements
-
-**User Feedback:**
-- Success toast notifications for all actions
-- Loading indicators during file uploads
-- Progress bars for large file uploads
-- Error messages with actionable guidance
 
 ---
 
@@ -3126,31 +3042,6 @@ SO THAT I can remove outdated or unused content
    - Warning when deactivating: "This will prevent new assignments to programs"
 
 ---
-
-#### 7.2.11 Product UI/UX Considerations
-
-**Responsive Design:**
-- Desktop: Full table layout with all columns
-- Tablet: Condensed table with essential columns
-- Mobile: Card-based layout with expandable details
-
-**Performance:**
-- Pagination for large product lists (>100 items)
-- Lazy loading for session details
-- Debounced search (300ms delay)
-- Cached product data in browser session
-
-**Accessibility:**
-- Keyboard navigation support
-- Screen reader labels for all fields
-- High contrast mode support
-- Focus indicators on interactive elements
-
-**User Feedback:**
-- Success toast notifications for all actions
-- Loading indicators during file uploads
-- Progress bars for large file uploads
-- Error messages with actionable guidance
 
 ---
 
@@ -3779,73 +3670,6 @@ SO THAT the program list remains clean and relevant
    - Soft delete allowed anytime
    - Confirmation required for all deletions
 
-#### 7.3.11 Program UI/UX Considerations
-
-**Visual Design:**
-
-1. **Color Coding:**
-   - SHINE Programs: Blue (#0097A9)
-   - Product Programs: Green (#28a745)
-   - Skill Programs: Orange (#ffc107)
-   - Custom colors: User-defined via color picker
-
-2. **Status Indicators:**
-   - ACTIVE: Green badge with checkmark
-   - INACTIVE: Grey badge with pause icon
-   - DELETED: Red badge with X icon (admin view only)
-
-3. **Icons:**
-   - Program Type icons:
-     - SHINE: 🎓 (graduation cap)
-     - Product: 📦 (package)
-     - Skill: 🔧 (wrench)
-
-**Responsive Design:**
-
-1. **Desktop (> 1200px):**
-   - Full table view with all columns
-   - Side-by-side form layout
-   - Expanded stage accordion
-
-2. **Tablet (768px - 1199px):**
-   - Condensed table with essential columns
-   - Stacked form layout
-   - Collapsible stage accordion
-
-3. **Mobile (< 768px):**
-   - Card-based list view
-   - Single-column form
-   - Simplified stage display
-
-**User Feedback:**
-
-1. **Loading States:**
-   - Skeleton loaders for list and details page
-   - Spinner for form submission
-   - Progress bar for file uploads
-
-2. **Success Messages:**
-   - Toast notification: "Program created successfully"
-   - Green checkmark icon
-   - Auto-dismiss after 3 seconds
-
-3. **Error Messages:**
-   - Inline field errors (red text below field)
-   - Toast notification for system errors
-   - Clear, actionable error descriptions
-
-4. **Empty States:**
-   - No programs: Illustration + "Create your first program" CTA
-   - No stages: "Add your first stage" message
-   - No files: "Upload files to attach to this program"
-
-**Accessibility:**
-
-- Keyboard navigation support (Tab, Enter, Esc)
-- Screen reader labels for all icons and actions
-- Color contrast ratio minimum 4.5:1
-- Focus indicators on interactive elements
-- Alternative text for visual elements
 
 ---
 
@@ -5075,473 +4899,923 @@ flowchart TD
 
 ### 8.8 Course Operations
 
-[Content will be adapted from original Section 10.2.4 subsections - Participant operations]
+**User Story:**
+
+**AS** A Course Administrator, Admin, or authorized user  
+**I NEED** to perform operations on course participants  
+**SO THAT** I can manage participant enrollment, track exam results, and complete course workflows
+
+**Business Context:**
+
+Course Operations encompass all participant-related actions that can be performed within a course context. These operations enable administrators to manage the complete participant lifecycle from enrollment through completion, including exam tracking, result confirmation, and certification processes.
+
+**Key Operations:**
+
+- Participant enrollment (add, import)
+- Exam result management (AOL, MOF)
+- Attendance tracking
+- Participant confirmation and certification
+- Data export for external processes
+
+---
+
+#### 8.8.1 Course Participant List
+
+**User Story:**
+
+**AS** A user viewing course details  
+**I NEED** to see all participants enrolled in the course  
+**SO THAT** I can track participant status and perform operations
+
+**Data Display:**
+
+The participant list displays all participants currently enrolled in the course, including:
+
+| Field | Description | Data Source |
+|-------|-------------|-------------|
+| Name | Participant full name | Participant record |
+| Agent Code | Unique agent identifier | Participant record or API |
+| Email | Contact email address | Participant record |
+| Phone | Contact phone number | Participant record |
+| Exam Type | Normal or Re MOF Examination | Course enrollment record |
+| AOL Result | Passed/Failed status | AOL exam API |
+| MOF Result | Passed/Failed status | MOF exam import |
+| Attendance | Percentage or stage count | Attendance API |
+| Final Result | Passed/Failed status | Calculated based on rules |
+
+**Filter Options:**
+
+- Search by name, agent code, email, phone
+- Filter by exam type (Normal, Re MOF Examination)
+- Filter by AOL result (Passed, Failed, Pending)
+- Filter by MOF result (Passed, Failed, Pending)
+- Filter by final result (Passed, Failed, Pending)
+
+**Authorization:**
+
+| Role | Can View List | Can Perform Operations |
+|------|---------------|------------------------|
+| Trainer | ✓ Yes | Limited (view only) |
+| Lead Region | ✓ Yes | ✓ Yes (within scope) |
+| Head Channel | ✓ Yes | ✓ Yes (within scope) |
+| Admin | ✓ Yes | ✓ Yes |
+| Master Role | ✓ Yes | ✓ Yes |
+
+---
+
+#### 8.8.2 Add Participant to Course with Import File
+
+**User Story:**
+
+**AS** an Admin channel  
+**I WANT** to import participants to course  
+**SO THAT** I can import new participant or add re-exam participants to the course
+
+**Acceptance Criteria:**
+
+**A. Add Normal Participant to Course with Import File**
+
+Importing rules based on course type and channel:
+
+**SHINE Course (Banca Channel Only):**
+
+- Import action means: CREATE new participant and add the created participant to SHINE course
+- Import only if participant doesn't exist → Create new participant + Add to course + Normal exam
+- Reject if participant already exists → Return to failed list
+- Business Reason: SHINE is the first course - participants shouldn't pre-exist. If they do exist, use "Add Participant" function instead of import.
+
+**After-SHINE Course (All Channels):**
+
+- Import action means: ADD existing participant to course (no creation)
+- Participant exists → Add existing participant to course + Normal exam
+- Reject if participant doesn't exist → Return to failed list
+- Business Reason: After-SHINE happens after SHINE completion - participants must already exist in system. Import function only adds existing participants to course, not creating new ones.
+
+**B. Add Re-Exam Participant to Course with Import File**
+
+**Business Use Case:**
+When Participant Failed the SHINE course, we allow them to re-take the SHINE course with the add existing Participant to SHINE course with importing feature.
+
+**CONDITION:** Participant exists in system AND all of the following are true:
+
+- AOL exams passed
+- Attendance completed
+- Course completed within past 45 days
+- MOF exam not passed
+
+**ACTION:** ADD existing participant to course with exam type set as "Re MOF Examination"
+
+**If CONDITION is not met:** Return to failed list
+
+**Business Reason:** Re-exam eligibility ensures participant completed all requirements except MOF within valid timeframe.
+
+**Import File Format:**
+
+| Column | Required | Description | Validation |
+|--------|----------|-------------|------------|
+| Name | Yes | Participant full name | Text, max 100 characters |
+| Agent Code | No | Unique agent identifier | Text, alphanumeric |
+| Email | Yes | Contact email address | Valid email format |
+| Phone | Yes | Contact phone number | Valid phone format |
+| AD Name | No | Active Directory username | Text |
+
+**Import Process:**
+
+1. User uploads import file
+2. System validates file format
+3. System processes each row:
+   - Validates participant data
+   - Checks existence (for After-SHINE) or non-existence (for SHINE)
+   - Validates re-exam conditions (if applicable)
+4. System creates/adds participants based on course type and channel rules
+5. System displays import results:
+   - Success count
+   - Failed count with reasons
+   - Detailed error list
+
+**Validation Rules:**
+
+| Rule | Condition | Error Message |
+|------|-----------|---------------|
+| File format | Must be CSV or Excel | "Invalid file format. Please use CSV or Excel format." |
+| Required fields | Name, Email, Phone must be present | "Missing required fields: [field names]" |
+| Email format | Must be valid email | "Invalid email format: [email]" |
+| Phone format | Must be valid phone | "Invalid phone format: [phone]" |
+| Participant exists (SHINE) | Participant already exists | "Participant already exists. Use 'Add Participant' function instead." |
+| Participant not exists (After-SHINE) | Participant doesn't exist | "Participant not found: [name]" |
+| Re-exam conditions | All conditions must be met | "Participant does not meet re-exam eligibility criteria" |
+
+**Authorization:**
+
+| Role | Can Import | Course Type Restrictions |
+|------|------------|--------------------------|
+| Trainer | ✗ No | N/A |
+| Lead Region | ✓ Yes | Within channel and region scope |
+| Head Channel | ✓ Yes | Within channel scope |
+| Admin | ✓ Yes | All courses |
+| Master Role | ✓ Yes | All courses |
+
+---
+
+#### 8.8.3 Add Participant to Course Manually
+
+**User Story:**
+
+**AS** an admin  
+**I WANT** to add participant to course  
+**SO THAT** I can manually add normal or re-exam participants to the course
+
+**Acceptance Criteria:**
+
+**Note:** The validation logic for manually adding participants is identical to the import feature (Section 8.8.2). The only difference is the UI interaction: instead of validating a file, the system displays a filtered list of eligible participants based on the same conditions, allowing users to select participants to add. Manual add only works with existing participants - it does not support creating new participants.
+
+**A. Add Normal Participant to Course**
+
+**SHINE Course (Banca Channel Only):**
+
+- **CONDITION:** Course channel is Banca AND participant exists in system
+- **ACTION:** ADD existing participant to course (no creation)
+- **Button Visibility:** "Add participants" button is displayed only if course channel is Banca
+- **Participant List:** System displays only existing participants (same validation logic as import)
+- **If CONDITION is not met:** Button not displayed or participant not shown in list
+- **Business Reason:** Manual add only works with existing participants. To create new participants for SHINE, use import feature.
+
+**After-SHINE Course (All Channels):**
+
+- **CONDITION:** Course channel is Banca, Agency, or IFA AND participant exists in system
+- **ACTION:** ADD existing participant to course (no creation)
+- **Button Visibility:** "Add participants" button displays filtered list of existing participants (filtered by same channels as import validation)
+- **Participant List:** System displays only participants who exist in system (same validation as import)
+- **If CONDITION is not met:** Participant not shown in list
+- **Business Reason:** After-SHINE happens after SHINE completion - participants must already exist in system.
+
+**B. Add Re-Exam Participant for SHINE Course**
+
+**Business Use Case:**
+When Participant Failed the SHINE course, we allow them to re-take the SHINE course by manually adding existing participants who meet re-exam eligibility criteria.
+
+**CONDITION:** Participant exists in system AND all of the following are true:
+
+- AOL exams passed
+- Attendance completed
+- Course completed within past 45 days
+- MOF exam not passed
+
+**ACTION:** ADD existing participant to course with exam type set as "Re MOF Examination"
+
+- **Button Visibility:** "Add re-exam participants" option displays filtered list
+- **Participant List:** System displays only participants who meet all conditions above (same validation logic as import re-exam validation)
+- **If CONDITION is not met:** Participant not shown in the eligible re-exam list
+- **Business Reason:** Re-exam eligibility ensures participant completed all requirements except MOF within valid timeframe.
+
+**Selection Process:**
+
+1. User clicks "Add Participants" or "Add Re-Exam Participants" button
+2. System displays filtered participant list based on course type and conditions
+3. User searches/filters participants by name, agent code, email, phone
+4. User selects participant(s) from list
+5. User clicks "Add to Course"
+6. System validates selection (same rules as import)
+7. System adds participant(s) to course with appropriate exam type
+8. Success message displayed
+
+**Authorization:**
+
+| Role | Can Add Manually | Course Type Restrictions |
+|------|------------------|--------------------------|
+| Trainer | ✗ No | N/A |
+| Lead Region | ✓ Yes | Within channel and region scope |
+| Head Channel | ✓ Yes | Within channel scope |
+| Admin | ✓ Yes | All courses |
+| Master Role | ✓ Yes | All courses |
+
+---
+
+#### 8.8.4 Export Participants
+
+**User Story:**
+
+**AS** an admin  
+**I NEED** to export all course participants  
+**SO THAT** I can have a list of planned participants for MOF exam
+
+**Acceptance Criteria:**
+
+- "Export participant" button downloads Excel file with all course participants
+- Export includes all participant data fields
+- Export file format: Excel (.xlsx) or CSV (.csv)
+
+**Export Data Fields:**
+
+| Field | Description |
+|-------|-------------|
+| Name | Participant full name |
+| Agent Code | Unique agent identifier |
+| Email | Contact email address |
+| Phone | Contact phone number |
+| Exam Type | Normal or Re MOF Examination |
+| AOL Result | Passed/Failed/Pending |
+| MOF Result | Passed/Failed/Pending |
+| Attendance | Percentage or stage count |
+| Final Result | Passed/Failed/Pending |
+
+**Authorization:**
+
+| Role | Can Export |
+|------|------------|
+| Trainer | ✗ No |
+| Lead Region | ✓ Yes |
+| Head Channel | ✓ Yes |
+| Admin | ✓ Yes |
+| Master Role | ✓ Yes |
+
+---
+
+#### 8.8.5 Export Participants for MOF Exam
+
+**User Story:**
+
+**AS** an admin  
+**I NEED** to export participants for MOF exam  
+**SO THAT** I can submit eligible participants for MOF examination
+
+**Acceptance Criteria:**
+
+Eligible participants for MOF exam:
+
+- Passed all AOL exams
+- Full attendance check
+- Template exported with eligible participants list
+
+**Eligibility Criteria:**
+
+| Criteria | Description | Validation |
+|----------|-------------|------------|
+| AOL Exams | All AOL exams must be passed | Check AOL exam results for all participants |
+| Attendance | Full attendance required | Check attendance percentage = 100% or all stages attended |
+
+**Export Data Fields:**
+
+| Field | Description |
+|-------|-------------|
+| Name | Participant full name |
+| Agent Code | Unique agent identifier |
+| Email | Contact email address |
+| Phone | Contact phone number |
+| MOF Course Code | Course code for MOF exam |
+| Province | Course province |
+
+**Business Rules:**
+
+- Only participants meeting all eligibility criteria are exported
+- Export file includes MOF course code and province for exam registration
+- Export format compatible with MOF exam system requirements
+
+**Authorization:**
+
+| Role | Can Export for MOF |
+|------|-------------------|
+| Trainer | ✗ No |
+| Lead Region | ✓ Yes |
+| Head Channel | ✓ Yes |
+| Admin | ✓ Yes |
+| Master Role | ✓ Yes |
+
+---
+
+#### 8.8.6 Import MOF Exam Result
+
+**User Story:**
+
+**AS** an admin  
+**I NEED** to import MOF exam results  
+**SO THAT** I can update participant MOF exam status in the system
+
+**Acceptance Criteria:**
+
+After participants finish MOF exam, Admin imports MOF exam result to LMS system.
+
+**File Upload Template:**
+
+| Field | Required | Description | Validation |
+|-------|----------|-------------|------------|
+| MOF exam ID | Yes | Unique MOF exam identifier | Text, alphanumeric |
+| MOF course code | Yes | Course code used for MOF exam | Must match course code in system |
+| Province | Yes | Exam province | Free text |
+| Participant Name | Yes | Participant full name | Must match participant in course |
+| Agent Code | No | Agent identifier | Text |
+| Result | Yes | Passed/Failed | Must be "Passed" or "Failed" |
+
+**Import Process:**
+
+1. User uploads MOF exam result file
+2. System validates file format
+3. System validates MOF course code matches course
+4. System matches participants by name/agent code
+5. System updates MOF exam results for matched participants
+6. System displays import results:
+   - Success count
+   - Failed count with reasons
+   - Unmatched participants list
+
+**Validation Rules:**
+
+| Rule | Condition | Error Message |
+|------|-----------|---------------|
+| File format | Must be CSV or Excel | "Invalid file format" |
+| MOF course code | Must match course | "MOF course code does not match course" |
+| Participant match | Must find participant in course | "Participant not found: [name]" |
+| Result value | Must be "Passed" or "Failed" | "Invalid result value: [value]" |
+
+**Authorization:**
+
+| Role | Can Import MOF Results |
+|------|------------------------|
+| Trainer | ✗ No |
+| Lead Region | ✓ Yes |
+| Head Channel | ✓ Yes |
+| Admin | ✓ Yes |
+| Master Role | ✓ Yes |
+
+---
+
+#### 8.8.7 Confirm Passed Participant
+
+**User Story:**
+
+**AS** an admin  
+**I NEED** to confirm passed participants  
+**SO THAT** I can finalize participant completion status and trigger certification processes
+
+**Process:**
+
+1. **LMS Event:** Reminder at Course End date + 1 day
+2. **Email sent to:** AA_admin (SHINE) or channel email (After-shine)
+3. **Admin action:** Login to LMS and confirm passed participants
+4. **System check:** Verify attachment uploaded (SHINE only)
+5. **Email confirmation sent** to appropriate admin
+
+**Confirmation Criteria:**
+
+| Course Type | Criteria | Attachment Required |
+|-------------|----------|---------------------|
+| SHINE | Final result = Passed | Yes |
+| Product | Final result = Passed | No |
+| Skill | Final result = Passed | No |
+
+**Confirmation Process:**
+
+1. System displays list of participants with final result = Passed
+2. Admin reviews participant list
+3. Admin selects participants to confirm
+4. Admin uploads attachment (SHINE only)
+5. Admin clicks "Confirm Passed"
+6. System validates attachment (SHINE only)
+7. System updates participant confirmation status
+8. System sends confirmation email
+9. Success message displayed
+
+**Business Rules:**
+
+- Only participants with final result = Passed can be confirmed
+- SHINE courses require attachment upload before confirmation
+- Confirmation triggers certification and agent code assignment processes
+- Confirmed participants cannot be unconfirmed (audit trail)
+
+**Authorization:**
+
+| Role | Can Confirm Passed |
+|------|-------------------|
+| Trainer | ✗ No |
+| Lead Region | ✗ No |
+| Head Channel | ✗ No |
+| Admin | ✓ Yes |
+| Master Role | ✓ Yes |
+
+---
+
+#### 8.8.8 Export Passed Participant
+
+**User Story:**
+
+**AS** an admin  
+**I NEED** to export passed participants  
+**SO THAT** I can provide certification data to external systems
+
+**Acceptance Criteria:**
+
+Admin can export passed participants with detailed information (final result = passed only)
+
+**Export Data Fields:**
+
+| Field | Description |
+|-------|-------------|
+| Name | Participant full name |
+| Agent Code | Unique agent identifier |
+| Email | Contact email address |
+| Phone | Contact phone number |
+| Course Code | Course identifier |
+| Course Name | Course name |
+| Course Type | SHINE/Product/Skill |
+| Final Result | Passed |
+| AOL Result | Passed/Failed |
+| MOF Result | Passed/Failed (SHINE only) |
+| Attendance | Percentage |
+| Confirmation Date | Date participant was confirmed |
+
+**Filter Options:**
+
+- Filter by course type
+- Filter by confirmation date range
+- Filter by channel
+- Filter by region
+
+**Authorization:**
+
+| Role | Can Export Passed |
+|------|-------------------|
+| Trainer | ✗ No |
+| Lead Region | ✗ No |
+| Head Channel | ✗ No |
+| Admin | ✓ Yes |
+| Master Role | ✓ Yes |
+
+---
+
+#### 8.8.9 Attendance Check
+
+**User Story:**
+
+**AS** THE System  
+**I NEED** to track participant attendance  
+**SO THAT** I can calculate final results and ensure course completion requirements
+
+**Acceptance Criteria:**
+
+- Updated via API (refer External Interface Requirement)
+- Number represents each stage
+- System tracks attendance per stage
+- System calculates attendance percentage
+
+**Attendance Data Structure:**
+
+| Field | Description | Data Source |
+|-------|-------------|-------------|
+| Stage Number | Course stage/session number | Course planning |
+| Participant ID | Unique participant identifier | Participant record |
+| Attendance Status | Present/Absent | Attendance API |
+| Attendance Date | Date of attendance | Attendance API |
+
+**Attendance Calculation:**
+
+- **Percentage:** (Number of stages attended / Total number of stages) × 100%
+- **Full Attendance:** Attendance percentage = 100% or all stages attended
+- **Partial Attendance:** Attendance percentage < 100%
+
+**Business Rules:**
+
+- Attendance updated via external API (Section 3.8)
+- System calculates attendance percentage automatically
+- Full attendance required for course completion (SHINE and Product)
+- Attendance data cannot be manually edited (API only)
+
+**Integration:**
+
+- **API Endpoint:** Update Attendance API (Section 3.8)
+- **Update Frequency:** Real-time via API
+- **Data Validation:** System validates stage numbers and participant IDs
+
+---
+
+#### 8.8.10 AOL Exam Result
+
+**User Story:**
+
+**AS** THE System  
+**I NEED** to track AOL exam results  
+**SO THAT** I can determine participant eligibility for MOF exam and final result calculation
+
+**Acceptance Criteria:**
+
+- Updated via API (refer External Interface Requirement)
+- Result: passed/failed
+- System tracks AOL exam results per participant
+
+**AOL Exam Data Structure:**
+
+| Field | Description | Data Source |
+|-------|-------------|-------------|
+| Participant ID | Unique participant identifier | Participant record |
+| AOL Exam ID | AOL exam code | Course configuration |
+| Result | Passed/Failed | AOL Exam API |
+| Exam Date | Date exam was taken | AOL Exam API |
+| Score | Exam score (if available) | AOL Exam API |
+
+**Business Rules:**
+
+- AOL exam results updated via external API (Section 3.4)
+- Multiple AOL exams may be required per course
+- All AOL exams must be passed for MOF exam eligibility (SHINE)
+- All AOL exams must be passed for final result = Passed (SHINE and Product)
+- AOL exam data cannot be manually edited (API only)
+
+**Integration:**
+
+- **API Endpoint:** UpdateAOLExam API (Section 3.4)
+- **Update Frequency:** Real-time via API
+- **Data Validation:** System validates AOL exam IDs and participant IDs
+
+---
+
+#### 8.8.11 Rule for Calculate Final Result
+
+**User Story:**
+
+**AS** THE System  
+**I NEED** to automatically calculate final result for each participant  
+**SO THAT** I can determine course completion status based on defined criteria
+
+**Acceptance Criteria:**
+
+LMS returns final result based on course type and completion criteria.
+
+**Course Type SHINE:**
+
+- Attendance: Full
+- AOL: Passed
+- MOF >= 30
+
+**Course Type Product:**
+
+- Attendance: Full
+- AOL: Passed
+
+**Course Type Skill:**
+
+- Attendance: Full
+
+**Calculation Logic:**
+
+**SHINE Course:**
+
+```
+IF (Attendance = Full) AND (All AOL Exams = Passed) AND (MOF Score >= 30)
+THEN
+    Final Result = Passed
+ELSE
+    Final Result = Failed
+END IF
+```
+
+**Product Course:**
+
+```
+IF (Attendance = Full) AND (All AOL Exams = Passed)
+THEN
+    Final Result = Passed
+ELSE
+    Final Result = Failed
+END IF
+```
+
+**Skill Course:**
+
+```
+IF (Attendance = Full)
+THEN
+    Final Result = Passed
+ELSE
+    Final Result = Failed
+END IF
+```
+
+**Automatic Calculation:**
+
+System calculates final result automatically when:
+
+- Attendance data is updated
+- AOL exam results are updated
+- MOF exam results are imported
+- Final result updates in real-time as data changes
+- Final result cannot be manually set (use Section 8.8.12 for manual override)
+
+**Business Rules:**
+
+- All criteria must be met for Final Result = Passed
+- If any criterion is not met, Final Result = Failed
+- Final result calculation is automatic and cannot be disabled
+- Manual override available for special cases (Section 8.8.12)
+
+---
+
+#### 8.8.12 Manually Set Passed/Failed
+
+**User Story:**
+
+**AS** an Admin or Head  
+**I NEED** to manually set final result for participants  
+**SO THAT** I can handle special cases and exceptions
+
+**Acceptance Criteria:**
+
+- Function only for Admin or Head
+- Button to set final result
+- Pop-up asks for reason and attachment
+- Value recorded as: passed** or failed**
+- Attachment recorded in participant list
+
+**Manual Override Process:**
+
+1. Admin/Head selects participant(s) from list
+2. Admin/Head clicks "Manually Set Result" button
+3. System displays confirmation dialog
+4. Admin/Head selects result: Passed** or Failed**
+5. Admin/Head enters reason (mandatory)
+6. Admin/Head uploads attachment (optional but recommended)
+7. Admin/Head confirms action
+8. System updates final result with ** indicator
+9. System records reason and attachment
+10. System logs action in audit trail
+
+**Manual Override Data:**
+
+| Field | Description | Required |
+|-------|-------------|----------|
+| Participant ID | Participant identifier | Yes |
+| Final Result | Passed** or Failed** | Yes |
+| Reason | Explanation for manual override | Yes |
+| Attachment | Supporting document | No |
+| Overridden By | User who performed override | System |
+| Overridden Date | Date/time of override | System |
+
+**Business Rules:**
+
+- Only Admin and Head Channel can perform manual override
+- Manual override creates ** indicator in final result
+- Reason is mandatory for audit purposes
+- Attachment is recommended for documentation
+- Manual override cannot be reversed (audit trail)
+- Manual override takes precedence over automatic calculation
+
+**Authorization:**
+
+| Role | Can Manually Set Result |
+|------|-------------------------|
+| Trainer | ✗ No |
+| Lead Region | ✗ No |
+| Head Channel | ✓ Yes |
+| Admin | ✓ Yes |
+| Master Role | ✓ Yes |
+
+---
+
+#### 8.8.13 Grant Agent Code
+
+**User Story:**
+
+**AS** THE External System  
+**I NEED** to grant agent codes to passed participants  
+**SO THAT** I can assign unique identifiers for certification
+
+**Acceptance Criteria:**
+
+- Done via API (refer External Interface)
+- Agent code displayed for each participant
+
+**Integration:**
+
+- **API Endpoint:** External system API (refer External Interface Requirements)
+- **Update Method:** API updates agent code in participant record
+- **Display:** Agent code displayed in participant list and details
+
+**Agent Code Data:**
+
+| Field | Description | Data Source |
+|-------|-------------|-------------|
+| Participant ID | Unique participant identifier | Participant record |
+| Agent Code | Unique agent identifier | External API |
+| Grant Date | Date agent code was granted | External API |
+| Grant Status | Granted/Pending | External API |
+
+**Business Rules:**
+
+- Agent codes granted via external API only
+- Agent codes typically granted after participant confirmation
+- Agent code cannot be manually edited
+- Agent code displayed once granted
+- Agent code is unique per participant
+
+**Course Type Restrictions:**
+
+- **SHINE Courses:** Agent code required for passed participants
+- **Product Courses:** Agent code optional
+- **Skill Courses:** Agent code not applicable
+
+**Authorization:**
+
+- Agent code granting is handled by external system
+- LMS displays agent code once received via API
+- No manual agent code assignment in LMS
 
 ### 8.9 Course Type Checklist Configuration
 
-[Content will be copied from original Section 10.3 and 10.4]
+**Business Context:**
+
+Allow authorized user to configure the course checklist template by course type. The checklist defines the workflow steps required to complete a course, ensuring all necessary actions are tracked and completed in a structured manner.
+
+---
+
+#### 8.9.1 Course Checklist by Course Type Definition
+
+The following table defines the checklist steps for each course type, including PIC (Person In Charge), reminder configuration, and completion criteria.
+
+| Steps | Course Type | Description |
+|-------|-------------|-------------|
+| **1. Verify AOL information** | SHINE, Product | **PIC:** Course Supporters<br>**Reminder:**<br>- Frequency: Daily<br>- Start: Course creation<br>- Stop: When action is done<br>**Action:** Confirm/update<br>**Completion:** Step is marked done when PIC confirms the step is completed |
+| **2. Verify MOF information** | SHINE | **PIC:** Course Supporters<br>**Reminder:**<br>- Frequency: Daily<br>- Start: Course creation<br>- Stop: When action is done<br>**Action:** Confirm/update<br>**Completion:** Step is marked done when PIC confirms the step is completed |
+| **3. Enter MOF exam code** | SHINE | **PIC:** Course Supporters<br>**Reminder:**<br>- Frequency: Daily<br>- Start: Course Creation<br>- Stop: When the action is done<br>**Action:** Enter MOF exam<br>**Completion:** Step is auto marked done when MOF exam code is entered |
+| **4. Approve course** | SHINE, Product, Skill | **PIC:** Trainer's Head Channel and Trainer's Lead Region<br>**Reminder:**<br>- Frequency: Daily<br>- Start: Course Start Date - "x" days<br>- End: Course Start Date - y days (where x>y)<br>**Action:** Approve/Reject<br>**Completion:** Step is auto marked done when the course has state Approved |
+| **5. Add participants** | SHINE, Product, Skill | **PIC:** External API<br>**Reminder:** No reminder<br>**Progress Tracking:** Show progress of the add participants action<br>- % progress = added/max*100%<br>**Completion:** Auto-tracked by API |
+| **6. Export Participants for MOF exam** | SHINE | **PIC:** Course Supporters<br>**Reminder:** Course end date + x days<br>**Action:** Export<br>**Completion:** Step is marked done when user exports |
+| **7. Update AOL exam result** | SHINE, Product | **PIC:** External API<br>**Reminder:** No reminder<br>**Progress Tracking:** Show progress of AOL exam updates<br>**Completion:** Step is marked done when all the participants have AOL exam updated |
+| **8. Update attendance result** | SHINE, Product, Skill | **PIC:** External API<br>**Reminder:** No reminder<br>**Progress Tracking:** Show progress of the attendance result<br>**Completion:** Auto-tracked by API |
+| **9. Import MOF result** | SHINE | **PIC:** Course Supporters<br>**Reminder:** No reminder<br>**Action:** Import MOF result<br>**Completion:** Step is auto marked done when the MOF result is uploaded successfully |
+| **10. Confirm passed participants** | SHINE, Product, Skill | **PIC:** AA Admin<br>**Reminder:** No reminder (allow email notification configuration)<br>**Action:** Confirm<br>**Completion:** Step is marked done when passed participants are confirmed successfully |
+| **11. Export participant for granting agent/license code** | SHINE, Product, Skill | **PIC:** AA admin<br>**Reminder:** No reminder<br>**Action:** Export<br>**Completion:** Step is marked done when user successfully exports the participant for agent/license code |
+| **12. Grant agent code** | SHINE | **PIC:** External API<br>**Reminder:** No reminder<br>**Completion:** Step is marked done when all the passed participants have the agent code granted |
+| **13. Grant license code** | SHINE, Product, Skill | **PIC:** External API<br>**Reminder:** No reminder<br>**Completion:** Step is marked done when all the passed participants have the license code granted |
+| **14. Finish course** | SHINE, Product, Skill | **PIC:** System or Admin<br>**Reminder:** No automatic reminder<br>**Action:** Finish Course<br>**Completion:** Action is marked done when course status is set to Finish (Manual or Automatic) |
+
+---
+
+#### 8.9.2 Email and Notification
+
+##### 8.9.2.1 Checklist Notification
+
+**System Behavior:**
+
+- System has default templates for checklist notification and email reminder
+- Allow authorized user to configure the reminder frequency and duration
+- Send the notification/email to PICs with the default/configured template in the configured frequency and duration
+
+**Configuration Options:**
+
+- Reminder frequency (e.g., Daily, Weekly)
+- Reminder duration (Start and Stop conditions)
+- Additional email recipients
+- Notification template customization
+
+##### 8.9.2.2 Checklist Notification Templates
+
+System provides default notification templates for checklist reminders. Templates include:
+
+- Step name and description
+- Course information (code, name, dates)
+- Action required
+- Due date/timeline
+- Direct link to course details
+
+**[Inference]** Based on the reference to "Mail Noti alert.xlsx", the system includes predefined email templates that can be customized by authorized users.
+
+---
+
+#### 8.9.3 Show Course Checklist in Course Details
+
+**Display Requirements:**
+
+- Show course checklist displays course actions per course type checklist configuration
+- Show action's PIC (following the course type checklist template)
+- Show action status: Done, Not Started, In Progress
+- Allow authorized user to mark the task as done for the manual tasks (Verify AOL, MOF information)
+- Allow authorized user to perform the task/action directly inside the checklist so that user can quickly perform the action:
+  - Export Participant for MOF
+  - Import MOF result
+  - Confirm passed participants
+  - Finish Course
+- Once the task is done, show user name who completes the task
+
+---
+
+##### 8.9.3.1 Course Checklist Details and Actions
+
+The following table shows the checklist display structure with available actions:
+
+| Step | Step Name | PIC | Status | Completed By | Action |
+|------|-----------|-----|--------|--------------|--------|
+| 1 | Verify AOL information | Course Supporters | Not Started / Completed | [User Name] | Mark as completed |
+| 2 | Verify MOF information | Course Supporters | Not Started / Completed | [User Name] | Mark as completed |
+| 3 | Enter MOF exam code | Course Supporters | Not Started / Completed | [User Name] | Enter MOF Exam Code |
+| 4 | Approve course | Lead region/head channel | Not Started / Completed | [User Name] | N/A (auto-tracked) |
+| 5 | Add participants | External API | Not Started / In Progress / Completed | [System/API] | N/A (auto-tracked) |
+| 6 | Export Participants for MOF exam | Course Supporters | Not Started / Completed | [User Name] | Export |
+| 7 | Update AOL exam result | External API | Not Started / In Progress / Completed | [System/API] | N/A (auto-tracked) |
+| 8 | Update attendance result | External API | Not Started / In Progress / Completed | [System/API] | N/A (auto-tracked) |
+| 9 | Import MOF result | Course Supporters | Not Started / Completed | [User Name] | Import |
+| 10 | Confirm passed participants | AA admin | Not Started / Completed | [User Name] | Confirm |
+| 11 | Export participant for granting agent/license code | AA admin | Not Started / Completed | [User Name] | Export |
+| 12 | Grant agent code | External API | Not Started / In Progress / Completed | [System/API] | N/A (auto-tracked) |
+| 13 | Grant license code | External API | Not Started / In Progress / Completed | [System/API] | N/A (auto-tracked) |
+| 14 | Finish course | System or Admin | Not Started / Completed | [User Name] | Mark as Finished |
+
+**Specifications:**
+
+- **Completed By:** Shows user name who completed the task
+- **Course Status:** Includes Not Started, In Progress, Completed
+- **Progress Tracking:** For API-based steps (5, 7, 8, 12, 13), show progress percentage or status
+
+---
+
+##### 8.9.3.2 Business Rules
+
+1. **Template Application:**
+   - When a course is created, the system automatically applies a checklist template based on the selected course type
+   - The checklist defines the workflow steps required to complete the course
+
+2. **Initial Status:**
+   - All steps have initial status (NOT_STARTED) when the course is created
+
+3. **Template Versioning:**
+   - System uses snapshot model: checklist is copied to course at creation time
+   - Future template changes do not affect existing courses
+   - This ensures consistency and prevents retroactive changes to in-progress courses
+
+4. **Completion Tracking:**
+   - System tracks the completion time for each step
+   - System records the user who completed each step (for manual actions)
+   - System automatically tracks completion for API-based steps
+
+5. **Reminder Logic:**
+   - Reminders only sent for steps in "Not Done" status
+   - Respect reminder frequency configuration
+   - Additional email addresses receive copy of reminder
+   - Reminders stop when step is marked as done
+
+6. **Manual vs. Automatic Steps:**
+   - Manual steps require user action to mark as complete
+   - Automatic steps (API-based) are marked complete by system when conditions are met
+   - Some steps are automatically marked done based on system events (e.g., course approval, MOF code entry)
+
+---
+
+#### 8.9.4 Authorization Matrix
+
+| Permission | Role |
+|------------|------|
+| View Course Checklist | Any users (all roles) |
+| Update Course Checklist | PIC with the action's authorized permission |
+| View Course Checklist template configuration | Root admin, Master Role |
+| Update Course Checklist Config | Root admin, Master Role |
+
+**Permission Details:**
+
+- **View Course Checklist:** All users can view the checklist to track course progress
+- **Update Course Checklist:** Only PICs with appropriate permissions can perform actions and mark steps complete
+- **View Template Configuration:** Only Root admin and Master Role can view checklist template configurations
+- **Update Template Configuration:** Only Root admin and Master Role can modify checklist templates and reminder settings
 
 ---
 
 ### 8.10 Course Import Function [PHASE 2]
-
-**User Story:**
-
-**AS** a Lead Region, Head Channel, or Admin  
-**I NEED** to import multiple courses via Excel file  
-**SO THAT** I can efficiently create many courses at once instead of manually entering each one
-
-**Acceptance Criteria:**
-
-1. **Import Access:**
-   - "Import Course" button visible only to authorized roles
-   - Button location: Top-right of course list page
-   - Opens import wizard/modal when clicked
-
-2. **Import Process:**
-   - Step 1: Download template
-   - Step 2: Fill template with course data
-   - Step 3: Upload filled template
-   - Step 4: System validates data
-   - Step 5: View validation results
-   - Step 6: System creates valid courses
-   - Step 7: View import history
-
-3. **Template Types:**
-   - Two separate templates: SHINE and AFTER-SHINE (Product/Skill)
-   - Templates downloadable from import screen
-   - Templates include example rows with sample data
-   - Templates include field descriptions/instructions
-
-**Authorization:**
-
-| Role         | Can Import Courses |
-| ------------ | ------------------ |
-| Trainer      | ❌ No              |
-| Lead Region  | ✅ Yes             |
-| Head Channel | ✅ Yes             |
-| Admin        | ✅ Yes             |
-| Master Role  | ✅ Yes             |
-| Root Admin   | ✅ Yes             |
-
-**Workflow for Course Import:**
-
-**Step 1: Admin Prepares Excel File**
-
-**Template Selection:**
-
-1. **SHINE Template:**
-   - Includes all SHINE-specific fields
-   - MOF exam fields (MOF Course Name, MOF Exam Time, Proctor info)
-   - AOL exam fields
-
-2. **AFTER-SHINE Template:**
-   - Includes Product and Skill course fields
-   - Excludes MOF exam fields
-   - Includes AOL exam fields (for Product courses)
-
-**Template Fields:**
-
-| Field Name                | SHINE | Product | Skill | Required | Data Type   | Description                          |
-| ------------------------- | ----- | ------- | ----- | -------- | ----------- | ------------------------------------ |
-| Primary/Sub               | ✓     | ✓       | ✓     | M        | Text        | "Primary" or "Sub" (for sub-courses) |
-| Program                   | ✓     | ✓       | ✓     | M        | Text        | Program name from LMS                |
-| Course Name               | ✓     | ✓       | ✓     | M        | Text        | Course name                          |
-| Course Type               | ✓     | ✓       | ✓     | M        | Text        | Shine/Product/Skill                  |
-| Channel                   | ✓     | ✓       | ✓     | M        | Text        | Agency/Banca/Banker/IFA              |
-| Region                    | ✓     | ✓       | ✓     | M        | Text        | North/South/Central/Nationwide       |
-| Start Date                | ✓     | ✓       | ✓     | M        | Date        | DD/MM/YYYY                           |
-| End Date                  | ✓     | ✓       | ✓     | M        | Date        | DD/MM/YYYY                           |
-| Primary Trainer           | ✓     | ✓       | ✓     | M        | Text        | Trainer name from LMS                |
-| Co-Trainer                | ✓     | ✓       | ✓     | O        | Text        | Comma-separated trainer names        |
-| Venue Address             | ✓     | ✓       | ✓     | M        | Text        | Full address                         |
-| Province                  | ✓     | ✓       | ✓     | M        | Text        | Province name                        |
-| Area                      | ✓     | ✓       | ✓     | M        | Text        | Area from list manage                |
-| Branch                    | ✓     | ✓       | ✓     | O        | Text        | Branch name from list manage         |
-| Partner                   | ✓     | ✓       | ✓     | O        | Text        | Partner name from list manage        |
-| AOL Start Time            | ✓     | ✓       | ✗     | O        | Date        | DD/MM/YYYY                           |
-| AOL End Time              | ✓     | ✓       | ✗     | O        | Date        | DD/MM/YYYY                           |
-| AOL Exam ID               | ✓     | ✓       | ✗     | O        | Text        | AOL exam code from list manage       |
-| MOF Course Name           | ✓     | ✗       | ✗     | M        | Text        | MOF course name                      |
-| Exam Type                 | ✓     | ✗       | ✗     | M        | Text        | Exam type from list                  |
-| MOF Exam Time             | ✓     | ✗       | ✗     | M        | Date        | DD/MM/YYYY                           |
-| Is Proctor Trainer        | ✓     | ✗       | ✗     | M        | Text        | Yes/No                               |
-| Proctor Trainer           | ✓     | ✗       | ✗     | O        | Text        | Trainer name (if Yes)                |
-| Proctor Name              | ✓     | ✗       | ✗     | O        | Text        | Name (if No)                         |
-| Proctor Phone             | ✓     | ✗       | ✗     | O        | Text        | Phone number (if No)                 |
-| MOF Address               | ✓     | ✗       | ✗     | M        | Text        | Full address                         |
-| MOF Province               | ✓     | ✗       | ✗     | M        | Text        | Province name                        |
-| MOF Ward                  | ✓     | ✗       | ✗     | M        | Text        | Ward name                            |
-| Exam Categories           | ✓     | ✗       | ✗     | M        | Text        | Exam category from list              |
-| Supporter                 | ✓     | ✓       | ✓     | O        | Text        | Comma-separated admin names          |
-| Description               | ✓     | ✓       | ✓     | O        | Text        | Free text description                |
-
-**Legend:**
-- ✓ = Field included in template
-- ✗ = Field not included in template
-- M = Mandatory
-- O = Optional
-
-**Step 2: Sub-Course Creation**
-
-**Concept:**
-- Primary course can have multiple sub-courses
-- Sub-courses run simultaneously with same trainer
-- Example: One trainer teaching same program in morning (primary) and afternoon (sub)
-
-**Implementation:**
-
-1. **Column "Primary/Sub":**
-   - Values: "Primary" or "Sub"
-   - Primary course and its sub-courses must be in continuous rows
-   - First row = Primary, subsequent rows = Sub
-
-2. **Inherited Fields (Sub-courses):**
-   - Sub-courses automatically inherit from primary:
-     - Primary Trainer
-     - Co-Trainer
-     - Program
-     - Course Start Date
-     - Course End Date
-   - User cannot change inherited fields in sub-course rows
-
-3. **Separate Fields (Sub-courses):**
-   - Each sub-course can have different:
-     - Venue Address
-     - Province/Area
-     - Time (AM/PM sessions)
-     - Supporter
-
-**Example Layout in Excel:**
-
-| Primary/Sub | Program | Trainer  | Start Date | End Date   | Venue     |
-| ----------- | ------- | -------- | ---------- | ---------- | --------- |
-| Primary     | SHINE   | John Doe | 01/04/2022 | 03/04/2022 | HCM Tower |
-| Sub         | SHINE   | John Doe | 01/04/2022 | 03/04/2022 | BRVT Hall |
-| Sub         | SHINE   | John Doe | 01/04/2022 | 03/04/2022 | DN Center |
-
-**Result:**
-- 3 courses created (1 primary + 2 sub)
-- All have same trainer, program, dates
-- Different venues
-
-**Step 3: Co-Trainer Uploading**
-
-**Implementation:**
-
-1. **Co-Trainer Field:**
-   - Column: "Co-Trainer"
-   - Format: Comma-separated trainer names
-   - Example: "Jane Smith, Bob Wilson"
-
-2. **Validation:**
-   - System checks each co-trainer name exists in LMS
-   - Returns error if co-trainer not found
-
-3. **Planning Update:**
-   - System updates course planning with co-trainers
-   - Co-trainers added to all stages
-   - Co-trainers can be re-selected per stage after import
-
-4. **Trainer Availability Check:**
-   - System checks if primary and co-trainers are available during course time
-   - Warning if trainer has conflicting courses
-   - Import continues with warning (not blocking)
-
-**Validation Checks:**
-
-**A. Duplicate Check**
-
-**Criteria for Duplicate:**
-- **[Start-End date] + Province + Venue** combination already exists
-
-**Validation Logic:**
-
-```
-IF (Start Date = Existing Course Start Date) 
-   AND (End Date = Existing Course End Date)
-   AND (Province = Existing Course Province)
-   AND (Venue = Existing Course Venue)
-THEN
-   Mark as DUPLICATE ERROR
-   Record in import history with error details
-   Skip course creation
-ELSE
-   Continue validation
-END IF
-```
-
-**Error Message:**
-```
-"Duplicate course detected: Course with same dates, province, and venue already exists (Course Code: {existing_course_code})"
-```
-
-**B. Data Validation Check**
-
-**Validation Rules:**
-
-| Field              | Valid Values                                     | Error Message               | Validation Logic                    |
-| ------------------ | ------------------------------------------------ | --------------------------- | ----------------------------------- |
-| Primary Trainer    | Existing trainer name in LMS                     | "Primary trainer not found" | Lookup in Trainer table             |
-| Co-Trainer         | Existing trainer name(s) in LMS                  | "Trainer does not valid"    | Lookup each name in Trainer table   |
-| Course Type        | Skill, Product, Shine                            | "Course type is invalid"    | Match against allowed values        |
-| Program            | Existing program name in LMS                     | "Program is invalid"        | Lookup in Program table             |
-| Channel            | Banker, Banca, Agency, IFA                       | "Channel is invalid"        | Match against allowed values        |
-| Region             | Nationwide, North, Central, South                | "Region is invalid"         | Match against allowed values        |
-| Exam Type          | Trực tuyến tại Doanh nghiệp, Trực tuyến tại VIDI | "Exam Type is invalid"      | Match against list manage values    |
-| Province           | Valid province name from list                    | "Province is invalid"       | Lookup in Province list             |
-| Ward               | Valid ward name from list                        | "Ward is invalid"           | Lookup in Ward list                 |
-| Branch             | Valid branch name from list manage               | "Branch is invalid"         | Lookup in Branch list               |
-| Partner            | Valid partner name from list manage              | "Partner is invalid"        | Lookup in Partner list              |
-| Area               | Valid area name from list manage                 | "Area is invalid"           | Lookup in Area list                 |
-| AOL Exam ID        | Valid AOL exam code from list manage             | "AOL Exam ID is invalid"    | Lookup in AOL Exam Code list        |
-| Supporter          | Valid user with Admin role                       | "Supporter not found"       | Lookup in User table with Admin role|
-
-**Validation Process:**
-
-1. Check all mandatory fields are filled
-2. Validate data types (dates, numbers, text)
-3. Validate against allowed values (dropdowns)
-4. Validate references (trainer names, program names, etc.)
-5. Record all validation errors per row
-6. Continue validation for all rows (don't stop at first error)
-
-**C. Date Rule Check**
-
-**Date Format:**
-- Required format: DD/MM/YYYY
-- System converts to internal date format for validation
-
-**Date Validation Rules:**
-
-| Rule # | Validation Rule                                          | Error Message                                     |
-| ------ | -------------------------------------------------------- | ------------------------------------------------- |
-| 1      | Start date >= Import date + 2 days                       | "Start date must be at least 2 days from today"  |
-| 2      | End date = Start date + course duration (from program)   | "End date does not match program duration"        |
-| 3      | AOL Start Time >= Course Start Date                      | "AOL start time must be on or after course start" |
-| 4      | AOL End Time <= Course End Date + 3 days                 | "AOL end time must be within 3 days after course end" |
-| 5      | AOL End Time >= AOL Start Time                           | "AOL end time must be after AOL start time"       |
-| 6      | MOF Exam Time >= Course Start Date                       | "MOF exam time must be on or after course start" |
-| 7      | MOF Exam Time <= Course Start Date + 30 days             | "MOF exam time must be within 30 days after course start" |
-
-**Validation Logic Examples:**
-
-```
-// Rule 1: Start Date Validation
-Import Date = 01/04/2022
-Minimum Start Date = 01/04/2022 + 2 days = 03/04/2022
-
-IF (Course Start Date < 03/04/2022) THEN
-   ERROR: "Start date must be at least 2 days from today"
-END IF
-```
-
-```
-// Rule 2: End Date Validation
-Program Duration = 6 days
-Course Start Date = 05/04/2022
-Expected End Date = 05/04/2022 + 6 days = 11/04/2022
-
-IF (Course End Date != 11/04/2022) THEN
-   ERROR: "End date does not match program duration (Expected: 11/04/2022)"
-END IF
-```
-
-```
-// Rule 5: AOL Date Range Validation
-AOL Start Time = 07/04/2022
-AOL End Time = 06/04/2022
-
-IF (AOL End Time < AOL Start Time) THEN
-   ERROR: "AOL end time must be after AOL start time"
-END IF
-```
-
-**D. Trainer Availability Check**
-
-**Purpose:**
-- Prevent double-booking trainers
-- Warn if trainer has conflicting course schedules
-
-**Validation Logic:**
-
-```
-FOR each course in import file:
-    FOR each trainer (primary + co-trainers):
-        Check if trainer has existing courses during [Start Date - End Date]
-        
-        IF conflict exists THEN
-            Record WARNING (not blocking error)
-            Message: "Availability check: Course name [course ID] cannot be imported due to Trainer's unavailability. Trainer {trainer_name} has conflicting course: {existing_course_code} from {existing_start} to {existing_end}"
-        END IF
-    END FOR
-END FOR
-```
-
-**Conflict Definition:**
-- Trainer has another course where date ranges overlap
-
-**Date Overlap Logic:**
-
-```
-Course A: [Start_A, End_A]
-Course B: [Start_B, End_B]
-
-Overlap EXISTS IF:
-   (Start_A <= End_B) AND (End_A >= Start_B)
-```
-
-**Warning vs Error:**
-- Trainer availability = **WARNING** (not blocking)
-- User can choose to proceed with import
-- Other validation errors = **ERROR** (blocking)
-
-**Example Scenarios:**
-
-| Scenario | Existing Course | Import Course | Result |
-| -------- | --------------- | ------------- | ------ |
-| 1        | 01/04 - 03/04   | 05/04 - 07/04 | ✅ OK (no overlap) |
-| 2        | 01/04 - 05/04   | 03/04 - 07/04 | ⚠️ WARNING (overlap: 03/04-05/04) |
-| 3        | 01/04 - 10/04   | 03/04 - 07/04 | ⚠️ WARNING (completely within) |
-| 4        | 05/04 - 07/04   | 01/04 - 10/04 | ⚠️ WARNING (existing within new) |
-
-**Course Import Result:**
-
-**Success Scenario:**
-
-**Pop-up Message:**
-```
-✅ Success!
-
-All courses imported successfully.
-
-Total: 25 courses created
-Please check course import history for details.
-
-[View Import History] [Close]
-```
-
-**Partial Success Scenario:**
-
-**Pop-up Message:**
-```
-⚠️ Import Completed with Errors
-
-Import Summary:
-✅ Successfully imported: 18 courses
-❌ Failed: 7 courses
-
-Please check import history for error details.
-
-[View Import History] [Download Error Report] [Close]
-```
-
-**Error Report:**
-- Excel file with failed rows
-- Error column with detailed error messages
-- Original data preserved for correction
-
-**Complete Failure Scenario:**
-
-**Pop-up Message:**
-```
-❌ Import Failed
-
-No courses were imported due to validation errors.
-
-Total errors: 25 courses
-
-Common issues:
-• Invalid trainer names (15 courses)
-• Invalid dates (8 courses)  
-• Duplicate courses (2 courses)
-
-[View Error Details] [Download Error Report] [Close]
-```
-
-**Import History:**
-
-**Purpose:**
-- Track all import attempts
-- Record success/failure details
-- Provide audit trail
-
-**Filter Selection:**
-
-| Filter      | Type          | Options                     |
-| ----------- | ------------- | --------------------------- |
-| Date Range  | Date Picker   | From [MM/YY] - To [MM/YY]   |
-| Status      | Dropdown      | FAIL / SUCCESS / ALL        |
-
-**Report Template:**
-
-| Column            | Description                                  | Example                          |
-| ----------------- | -------------------------------------------- | -------------------------------- |
-| Import ID         | Unique identifier for import batch           | IMP-20220401-001                 |
-| File Name         | Uploaded file name                           | SHINE_Courses_April.xlsx         |
-| Imported At       | Date and time of import                      | 01/04/2022 14:30:25              |
-| Imported By       | Username who performed import                | admin.user                       |
-| Total Rows        | Total courses in file                        | 25                               |
-| Success Count     | Number of successfully created courses       | 18                               |
-| Failed Count      | Number of failed courses                     | 7                                |
-| Status            | Overall status                               | PARTIAL_SUCCESS / SUCCESS / FAIL |
-| Error Details     | Summary of error types                       | Duplicate: 2, Invalid trainer: 5 |
-| Action            | Link to view/download details                | [View Details] [Download Report] |
-
-**Detailed Error View:**
-
-When user clicks "View Details", show table with failed courses:
-
-| Row # | Course Name | Error Type        | Error Message                          | Original Data                    |
-| ----- | ----------- | ----------------- | -------------------------------------- | -------------------------------- |
-| 5     | SHINE 001   | Duplicate         | Course already exists (code: 8-HCM...) | Start: 01/04/22, Venue: HCM...   |
-| 8     | Product 002 | Invalid Trainer   | Primary trainer not found              | Trainer: John Smith (not in LMS) |
-| 12    | Skill 003   | Invalid Date      | Start date must be at least 2 days...  | Start: 01/04/22 (too soon)       |
-
-**Export Options:**
-
-1. **Download Error Report:**
-   - Excel file with only failed rows
-   - Includes error messages
-   - Original data for easy correction
-
-2. **Download Full Report:**
-   - Excel file with all rows (success + failed)
-   - Status column (SUCCESS/FAILED)
-   - Error messages for failed rows
-
-**Business Rules:**
-
-1. **Import Authorization:**
-   - Only Lead Region, Head Channel, Admin, Master Role can import courses
-   - Trainers cannot import courses
-
-2. **Batch Processing:**
-   - Maximum 100 courses per import file
-   - Larger files rejected with message to split
-
-3. **Transaction Handling:**
-   - Import is NOT all-or-nothing
-   - Valid courses created even if some fail
-   - Failed courses recorded in import history
-
-4. **Course Status After Import:**
-   - All imported courses created with status = NEW
-   - Courses require registration and approval workflow
-   - No automatic status progression
-
-5. **Notification:**
-   - Email sent to importer with summary
-   - Includes link to import history
-   - Includes error report if applicable
-
-6. **Template Version Control:**
-   - Templates include version number
-   - System validates template version on upload
-   - Reject if template version too old
-
----
-
 ## 9. PIC CALENDAR
 
 ### 9.1 View Courses Per Trainer
@@ -5956,7 +6230,7 @@ I NEED to view and approve pending course requests
 SO THAT I can authorize registrations, edits, and cancellations within my scope of authority
 
 **Access:**
-- **Button:** "📋 View Approvals" in PIC Calendar header
+- **Button:** "View Approvals" in PIC Calendar header
 - **Visibility:** Only shown to users with approval permissions (Lead Region, Head Channel, Master Role)
 - **Authorization:** Filtered by user's channel and region scope (see Section 4.5.4)
 
@@ -6783,29 +7057,259 @@ SO THAT I can quickly schedule courses with pre-filled program and date informat
 
 ## 11. LIST MANAGE
 
-[Content will be copied from original Section 11]
+Lists manage is a menu to manage Master Data in LMS system. Root Admin can add new/edit/delete master data directly in UI.
+
+**List of Master Data:**
+
+| No  | List                      |
+| --- | ------------------------- |
+| 1   | list-course-status        |
+| 2   | province                  |
+| 3   | district                  |
+| 4   | ward                      |
+| 5   | List Channels             |
+| 6   | List Region               |
+| 7   | Trainer Title             |
+| 8   | Trainer Type              |
+| 9   | Highest Degree            |
+| 10  | List major                |
+| 11  | Quarter list              |
+| 12  | list time session         |
+| 13  | List type product         |
+| 14  | List learner product      |
+| 15  | List license product      |
+| 16  | Course Type List          |
+| 17  | List suggest tags Module  |
+| 18  | issue_place               |
+| 19  | List Exam Type            |
+| 20  | License type              |
+| 21  | list branch code course   |
+| 22  | list partner name         |
+| 23  | List exam code AOL course |
+| 24  | Team user                 |
+| 25  | list-course-status        |
+| 26  | Course Area               |
 
 ---
 
-## 12. COURSE TEMPLATE
+## 13. REPORT MANAGEMENT [PHASE 2]
 
-[Content will be copied from original Section 12]
+Report Management Menu available with user role Admin.
 
----
+### 13.1 SHINE PASS RATIO
 
-## 13. REPORT MANAGEMENT
+**Report Template:**
 
-[Content will be copied from original Section 13]
+| NO. | CHANNEL | PROVINCE | DATE | CLASS | MOF EXAM JOINING | PASS MOF EXAM | PASS RATIO | TRAINER |
+| --- | ------- | -------- | ---- | ----- | ---------------- | ------------- | ---------- | ------- |
+
+**Field Description:**
+
+| No  | Field            | Description                                       |
+| --- | ---------------- | ------------------------------------------------- |
+| 1   | CHANNEL          | Course channel                                    |
+| 2   | PROVINCE         | Course province                                   |
+| 3   | DATE             | Course start date                                 |
+| 4   | CLASS            | Class code                                        |
+| 5   | MOF EXAM JOINING | Count participants with exam result from MOF file |
+| 6   | PASS MOF EXAM    | Number of participants who passed MOF             |
+| 7   | PASS RATIO       | Pass ratio = PASS MOF EXAM / MOF EXAM JOINING     |
+| 8   | TRAINER          | Trainer name and number of stages                 |
+
+Export function required.
+
+### 13.2 SHINE TRAINING
+
+**Report Template:**
+
+Comprehensive report showing:
+
+- Registration numbers
+- First session attendance
+- Comp exam pass rate
+- UL2+NCI exam pass rate
+- MOF exam joining
+- Re-exam participants
+- Pass ratios
+
+**Filter:** Channel, Province, Date range
+
+Export function required.
+
+### 13.3 PARTICIPANT OF TRAINERS
+
+**Report Template:**
+
+Shows per trainer:
+
+- SHINE courses (number of classes, number of participants)
+- Product courses (number of classes, number of participants)
+- Skill courses (number of classes, number of participants)
+- Total classes
+- Total participants
+
+**Filter:**
+
+- Channel
+- Region
+- Month/year picker
+- Search box (trainer name)
+
+Export function required.
+
+### 13.4 RECRUITMENT SHINE
+
+**Report Template:**
+
+Weekly breakdown per month showing:
+
+- Region
+- AD name
+- RD name
+- Application submitted (from AS)
+- Application approved (from AS)
+- Attended SHINE (joined first session)
+
+**Filter:** Month/Year Picker
+
+Export function required.
+
+### 13.5 DANH SACH DANG KY MOF
+
+**Report Template:**
+
+MOF exam registration list showing:
+
+- Course name
+- Study date
+- Exam date/time
+- Province/District/Ward
+- Address
+- Expected number of participants
+- Exam type
+- Exam category
+- Proctor name + phone
+
+**Filter:**
+
+- Region
+- Channel
+- Time (Month/year picker)
+
+Export function required.
+
+### 13.6 PASS RATIO BY MONTH
+
+**Report 1:** Shows passed count and ratio per channel per month
+
+**Report 2:** Shows pass ratio trends over time per channel
+
+**Filter:** Month/year picker
+
+Export function required.
+
+### 13.7 GIO BAY TRAINER
+
+Shows trainer hours/sessions by program.
+
+**Filter:**
+
+- Time picker
+- Channel dropdown
+
+Export function required.
+
+### 13.8 ATTENDANCE REPORT
+
+Shows:
+
+- Training program
+- Monthly actual (classes, participants)
+- Monthly target (classes, participants)
+
+### 13.9 REPORT FOR FWD AGENT TRAINING ACTIVITY
+
+**Vietnamese:** BÁO CÁO VỀ HOẠT ĐỘNG ĐÀO TẠO ĐẠI LÝ BẢO HIỂM
+
+**Report Template:**
+
+Official report format for Ministry of Finance showing:
+
+- Training course name/code
+- Time period
+- Location
+- Number of participants
+- Number receiving certificates
+
+**Filter:** Year picker
+
+Export function required.
+
+### 13.10 SHINE REPORT
+
+Shows per month:
+
+- Registration count
+- Show up count
+- MOF exam joining count
+- Pass MOF exam count
+- Channel
+- Region
+
+**Filter:**
+
+- Month/year picker
+- Channel
+- Region
+
+Export function required.
+
+### 13.11 FWT TRAINER PAYSLIP
+
+**Vietnamese:** DANH SÁCH CHI TRẢ CHI PHÍ HUẤN LUYỆN CHO CỘNG TÁC VIÊN FWT
+
+**Report Template:**
+
+| FULL NAME | DOB | ID NUMBER | PROVINCE | CODE | AD  | Program | NUMBER OF SESSION | AMOUNT (VND) |
+| --------- | --- | --------- | -------- | ---- | --- | ------- | ----------------- | ------------ |
+
+Shows payment calculation for FWT trainers.
+
+**Calculation:** Amount = Number of sessions × amount per session
+
+**Filter:** Month/year picker
+
+Export function required.
+
+### 13.12 EXAM FEE TOTAL
+
+**Report:** LIST OF CANDIDATES WHO FAILED THE EXAM
+
+Shows participants who failed MOF exam:
+
+- Full name
+- DOB
+- ID number
+- Failed mark
+- Agent ID
+- AD name
+- Amount (VND)
+- Office
+- Course
+- Remark
+
+**Filter:** Month/year picker
+
+Export function required.
 
 ---
 
 ## 14. GENERAL SETTING
 
-[Content will be copied from original Section 14]
+### 14.1 SMTP Settings
+
+[SMTP configuration settings for email notifications]
 
 ---
 
-## 15. APPENDIX A - ISSUES LIST
-
-[Content will be copied from original Section 15]
 
