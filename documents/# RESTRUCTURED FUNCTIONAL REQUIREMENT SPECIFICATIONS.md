@@ -177,13 +177,118 @@
 
 ## 1. ABBREVIATIONS AND ACRONYMS
 
-[Content will be copied from original document - Section 1]
+| Term / Acronym | Description                                  |
+| -------------- | -------------------------------------------- |
+| AS Portal      | Agent Support Portal                         |
+| DMS            | The core system of FWD                       |
+| E-check        | The system to check participant's attendance |
+| AOL            | Agent Online Learning                        |
+| AD             | Agent Admin, manager of Agent                |
+| MOF            | Ministry of Finance                          |
+| LMS            | Learning Management System                   |
+| API            | Application Programming Interface            |
+| PIC            | Person In Charge                             |
+| RBAC           | Role-Based Access Control                    |
+| SMTP           | Simple Mail Transfer Protocol                |
+| UI             | User Interface                               |
+| UX             | User Experience                              |
 
 ---
 
 ## 2. LMS ARCHITECTURE DIAGRAM
 
-[Content will be copied from original document - Section 2]
+### 2.1 System Overview
+
+The FWD LMS is a training management platform that connects internal users with external systems to manage the complete training lifecycle.
+
+```mermaid
+flowchart TB
+    subgraph HUMAN[HUMAN ACTORS]
+        HL[Head / Lead]
+        TR[Trainer]
+        AC[Admin Channel]
+        RA[Root Admin]
+    end
+
+    subgraph LMS[FWD LMS SYSTEM]
+        LMS_CORE[FWD LMS Core System]
+    end
+
+    subgraph EXTERNAL[EXTERNAL SYSTEMS]
+        ER[E-recruit]
+        AOL[AOL System]
+        EC[E-check]
+        DMS[DMS Core]
+    end
+
+    subgraph AUTH[AUTHENTICATION]
+        AD[Active Directory]
+    end
+
+    HL --> LMS_CORE
+    TR --> LMS_CORE
+    AC --> LMS_CORE
+    RA --> LMS_CORE
+    AD --> LMS_CORE
+    ER --> LMS_CORE
+    AOL --> LMS_CORE
+    EC --> LMS_CORE
+    DMS --> LMS_CORE
+
+    classDef humanActor fill:#e1f5ff,stroke:#01579b,stroke-width:2px
+    classDef lmsSystem fill:#fff3e0,stroke:#e65100,stroke-width:3px
+    classDef externalSys fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    classDef authSys fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
+
+    class HL,TR,AC,RA humanActor
+    class LMS_CORE lmsSystem
+    class ER,AOL,EC,DMS externalSys
+    class AD authSys
+```
+
+### 2.2 User Roles and Responsibilities
+
+| Role | Key Functions |
+|------|---------------|
+| **Head / Lead** | Create courses, Approve course register/edit/cancel requests, Master data configuration, General settings |
+| **Trainer** | View calendars/courses, Create/edit courses, Register for courses |
+| **Admin Channel** | Input MOF class code, Export participants for MOF, Upload MOF results, Confirm passed participants |
+| **Root Admin** | System administration, User management, Role and permission management |
+
+### 2.3 External System Integrations
+
+| System | Purpose | Integration Type |
+|--------|---------|------------------|
+| **E-recruit** | Post participant data | API (POST) |
+| **AOL System** | Post AOL exam results | API (POST) |
+| **E-check** | Post attendance check | API (POST) |
+| **DMS Core** | Grant agent code, Get course status | API (POST/GET) |
+| **Active Directory** | User authentication | LDAP/SSO |
+
+### 2.2 API Integration Summary
+
+| #  | External System | API Endpoint                               | Method | Purpose                                 |
+|----|-----------------|---------------------------------------------|--------|-----------------------------------------|
+| ①  | DMS             | `/api/external/participant/create`          | POST   | Create and assign participant to course |
+| ②  | E-Recruiter     | `/api/external/course/courseList`           | GET    | Get list of courses by date             |
+| ③  | AOL System      | `/api/external/course/updateAOLExam`        | POST   | Update AOL exam results                 |
+| ④  | AA Portal       | `/api/external/AAPortal/licenseShine`       | POST   | Grant agent/license codes               |
+| ⑤  | DMS             | `/api/external/course/courseStatus/{code}`  | GET    | Get course status by code               |
+| ⑥  | DMS             | `/api/external/course/delete/{code}/{id}`   | DELETE | Delete participant from course          |
+| ⑦  | E-check         | `/api/external/course/updateAttendance`     | POST   | Update attendance data for participants |
+
+### 2.3 Key System Modules
+
+| Module | Description |
+|--------|-------------|
+| **User Management** | User accounts, roles, and permissions |
+| **Trainer Management** | Trainer profiles and assignments |
+| **Participant Management** | Participant data and enrollment |
+| **Content Management** | Modules, Products, and Programs |
+| **Course Management** | Course creation, operations, and workflows |
+| **Calendar Views** | PIC Calendar and Master Calendar |
+| **Checklist Workflow** | Course type checklists and reminders |
+| **Reporting** | Various reports and exports |
 
 ---
 
@@ -393,10 +498,10 @@ Root Admin can view and modify permissions for each role through a centralized m
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│ 🔐 Role & Permission Management                                 │
+│ Role & Permission Management                                 │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                  │
-│ ℹ️ Configure what each role can do in the system. System roles │
+│ Configure what each role can do in the system. System roles │
 │    cannot be deleted.                                           │
 │                                                                  │
 │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ │
@@ -404,14 +509,14 @@ Root Admin can view and modify permissions for each role through a centralized m
 │ Role List                                                       │
 │                                                                  │
 │ ┌───────────────────────────────────────────────────────────┐ │
-│ │ 🔒 TRAINER                                                 │ │
+│ │ TRAINER                                                 │ │
 │ │ System Role • 8 permissions assigned                      │ │
 │ │ Assign to users who are trainers                          │ │
 │ │                                        [Edit Permissions] │ │
 │ └───────────────────────────────────────────────────────────┘ │
 │                                                                  │
 │ ┌───────────────────────────────────────────────────────────┐ │
-│ │ 🔒 LEAD_REGION                                            │ │
+│ │ LEAD_REGION                                            │ │
 │ │ System Role • 13 permissions assigned                     │ │
 │ │ Assign to users who are lead of region                    │ │
 │ │                                        [Edit Permissions] │ │
@@ -457,28 +562,28 @@ When Root Admin clicks "Edit Permissions" on a role, a modal displays all availa
 │                                                                  │
 │ Role Name: TRAINER                                              │
 │ Description: Assign to users who are trainers                   │
-│ Type: 🔒 System Role (cannot be deleted)                        │
+│ Type: System Role (cannot be deleted)                        │
 │                                                                  │
 │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ │
 │                                                                  │
 │ Permissions (Select all that apply)                             │
 │                                                                  │
 │ 📅 CALENDAR PERMISSIONS                                         │
-│ ☑ View PIC Calendar - View courses per trainer                 │
-│ ☑ View Master Calendar - View all courses in calendar          │
+│ [X] View PIC Calendar - View courses per trainer                 │
+│ [X] View Master Calendar - View all courses in calendar          │
 │                                                                  │
 │ 📚 COURSE MANAGEMENT PERMISSIONS                                │
-│ ☑ Create course - Create new courses                           │
+│ [X] Create course - Create new courses                           │
 │ ☐ Import course - Bulk import courses                          │
-│ ☑ View course - View course information                        │
-│ ☑ Register course - Register as primary trainer                │
-│ ☑ Edit course - Edit course details                            │
-│ ☑ Cancel course - Cancel courses                               │
-│ ☑ Delete course - Delete courses                               │
+│ [X] View course - View course information                        │
+│ [X] Register course - Register as primary trainer                │
+│ [X] Edit course - Edit course details                            │
+│ [X] Cancel course - Cancel courses                               │
+│ [X] Delete course - Delete courses                               │
 │ ☐ Approve course - Approve course actions                      │
 │ ☐ Finish course - Mark course as finished                      │
 │                                                                  │
-│ 👥 PARTICIPANT MANAGEMENT PERMISSIONS                           │
+│ PARTICIPANT MANAGEMENT PERMISSIONS                           │
 │ ☐ Import MOF result - Import MOF exam results                  │
 │ ☐ Import participant - Bulk import participants                │
 │ ☐ Add participant - Add individual participants                │
@@ -492,7 +597,7 @@ When Root Admin clicks "Edit Permissions" on a role, a modal displays all availa
 │ 📊 REPORT PERMISSIONS                                           │
 │ ☐ View reports - View and generate reports                     │
 │                                                                  │
-│ ⚙️ ADMIN PERMISSIONS                                            │
+│ ADMIN PERMISSIONS                                            │
 │ ☐ Manage channel - View/edit channel settings                  │
 │ ☐ Manage template - View/edit/delete course templates          │
 │ ☐ Manage participant - Full participant management             │
@@ -1006,7 +1111,7 @@ The trainer list displays the following information:
 | Location     | Trainer's location                           | -                           |
 | Phone        | Contact phone number                         | -                           |
 | Email        | Email address                                | -                           |
-| Status       | Active/Inactive                              | Visual indicator (🟢/⚪)    |
+| Status       | Active/Inactive                              | Visual indicator (Active/Inactive)    |
 | Created By   | Username who created the trainer             | -                           |
 | Updated By   | Username who last updated the trainer        | -                           |
 
@@ -1165,21 +1270,283 @@ The Trainer Details page uses a **2-column layout** for optimal space utilizatio
 
 ---
 
-### 5.4 Authorization Matrix
+### 5.4 Trainer Unavailable Period Management
 
-| Action                    | Trainer | Lead Region | Head Channel | Admin | Master Role | Root Admin |
-|---------------------------|---------|-------------|--------------|-------|-------------|------------|
-| View Trainer List         | -       | ✓           | ✓            | ✓     | ✓           | ✓          |
-| Create Trainer            | -       | ✓           | ✓            | ✓     | ✓           | ✓          |
-| Edit Trainer              | -       | ✓           | ✓            | ✓     | ✓           | ✓          |
-| Delete Trainer            | -       | ✓           | ✓            | ✓     | ✓           | ✓          |
-| View Trainer Details      | -       | ✓           | ✓            | ✓     | ✓           | ✓          |
-| Export Trainer List       | -       | ✓           | ✓            | ✓     | ✓           | ✓          |
-| Activate/Deactivate       | -       | ✓           | ✓            | ✓     | ✓           | ✓          |
+**User Story:**  
+AS a Trainer/Lead/Head  
+I NEED to register unavailable periods for trainers  
+SO THAT the system can warn when scheduling trainers during unavailable dates
+
+**Business Use Cases:**
+- Trainer registers vacation dates to prevent course assignment during time off
+- Lead/Head manages unavailability for trainers in their scope
+- System warns when assigning unavailable trainers to courses or planning stages
+- PIC Calendar displays trainer unavailability for scheduling visibility
 
 ---
 
-### 5.5 Data Validation Rules
+#### 5.4.1 Trainer Unavailable Period Registration
+
+**Master Data Fields:**
+
+| Field | Type | Required | Description | Values/Example |
+|-------|------|----------|-------------|----------------|
+| Trainer | Dropdown | Yes | Trainer name | From active trainer list |
+| Start Date | Date | Yes | First unavailable date | DD/MM/YYYY |
+| End Date | Date | Yes | Last unavailable date | DD/MM/YYYY |
+| Unavailability Type | Dropdown | Yes | Type of unavailability | Vacation/Sick Leave/Other Commitment/Personal |
+| Reason | Text | Optional | Brief description | Max 200 characters |
+| Is Active | Checkbox | Yes | Active status | Default: Active |
+
+**Unavailability Types:**
+
+| Type | Description | Use Case |
+|------|-------------|----------|
+| Vacation | Planned time off | Annual leave, holidays |
+| Sick Leave | Medical absence | Personal health, family care |
+| Other Commitment | Professional obligations | Conference, external training |
+| Personal | Personal matters | No details required |
+
+**Entry Points:**
+- Trainer Management → Trainer Details → "Unavailability" tab
+- Trainer List → Actions → "Manage Unavailability"
+
+**Add/Edit Form:**
+- Modal dialog or inline form
+- All fields displayed in single form
+- Date range picker for Start/End dates
+- Save/Cancel buttons
+- Validation on save
+
+---
+
+#### 5.4.2 View Unavailable Period List
+
+**List Display:**
+
+| Column | Description | Sortable | Filterable |
+|--------|-------------|----------|------------|
+| Trainer Name | Full trainer name | Yes | Yes |
+| Start Date | First unavailable date | Yes | Yes |
+| End Date | Last unavailable date | Yes | Yes |
+| Duration | Number of days | Yes | No |
+| Unavailability Type | Type | No | Yes |
+| Reason | Description text | No | No |
+| Status | Active/Inactive | No | Yes |
+| Created By | Creator name | No | No |
+| Created Date | Creation timestamp | Yes | No |
+| Actions | Edit/Delete buttons | - | - |
+
+**Filter Options:**
+- **Trainer:** Dropdown/search box
+- **Channel:** Dropdown (Agency/Banca/IFA/Banker)
+- **Region:** Dropdown (North/South/Central)
+- **Unavailability Type:** Dropdown (All/Vacation/Sick Leave/Other Commitment/Personal)
+- **Date Range:** From-To date picker
+- **Status:** Dropdown (All/Active/Inactive)
+
+**Default Sort:** Start Date (descending - most recent first)
+
+**List Features:**
+- Pagination (default 20 per page)
+- Export to Excel
+- Bulk actions: Deactivate/Delete selected periods
+
+---
+
+#### 5.4.3 Trainer Unavailable Warnings
+
+**Warning Trigger Points:**
+
+**1. Assign Trainer to Course (Course Creation/Edit):**
+- System checks trainer unavailability when:
+  - Creating course with primary/co-trainer selected
+  - Editing course to change primary/co-trainer
+  - Course dates overlap with trainer's unavailable period
+- Warning modal displays:
+  ```
+  ⚠️ Trainer Unavailable
+  
+  [Trainer Name] is unavailable during course period:
+  • [Start Date] - [End Date]: [Type] - [Reason]
+  
+  Course Period: [Course Start] - [Course End]
+  
+  Do you want to continue anyway?
+  
+  [Cancel] [Continue Anyway]
+  ```
+
+**2. Assign Trainer in Planning:**
+- System checks when:
+  - Adding new stage in course planning
+  - Editing existing stage to change trainer or date
+  - Stage date overlaps with trainer's unavailable period
+- Same warning modal format
+
+**Warning Behavior:**
+- Non-blocking (user can override)
+- Warning displayed once per action
+- Override action recorded in Course History
+- Format: "Trainer assigned during unavailable period: [Trainer] on [Dates] by [User]"
+
+---
+
+#### 5.4.4 Show Trainer Unavailable Slots on PIC Calendar
+
+**Calendar Visual Indicators:**
+
+**Display Style:**
+- Unavailable dates shown with diagonal stripe pattern background
+- Color scheme:
+  - Base: Light gray (#f5f5f5)
+  - Stripes: Light red (#ffebee)
+  - Pattern: 45-degree diagonal stripes
+- Applied to trainer rows in PIC Calendar
+
+**Tooltip on Hover:**
+- Format: "🚫 [Trainer Name] - [Unavailability Type]"
+- Example: "🚫 John Doe - Vacation"
+- If reason provided: "🚫 John Doe - Vacation: Annual leave"
+
+**Calendar Behavior:**
+- Unavailable dates still allow course assignment (warning only, not blocking)
+- Courses can be displayed on unavailable dates (with warning)
+- Visual indicator helps schedulers avoid conflicts
+
+**Legend Update:**
+- Add to PIC Calendar legend section
+- "🚫 Diagonal stripes = Trainer Unavailable"
+
+---
+
+#### 5.4.5 Role and Permission
+
+**Authorization Matrix:**
+
+| Role | Add Own | View Own | Update Own | Delete Own | Add Others | View Others | Update Others | Delete Others |
+|------|---------|----------|------------|------------|------------|-------------|---------------|---------------|
+| **Trainer** | Yes | Yes | Yes | Yes | No | No | No | No |
+| **Lead Region** | Yes | Yes | Yes | Yes | Yes* | Yes* | Yes* | Yes* |
+| **Head Channel** | Yes | Yes | Yes | Yes | Yes** | Yes** | Yes** | Yes** |
+| **Admin** | No | No | No | No | Yes | Yes | Yes | Yes |
+| **Master Role** | No | No | No | No | Yes | Yes | Yes | Yes |
+| **Root Admin** | No | No | No | No | Yes | Yes | Yes | Yes |
+
+**Scope Rules:**
+- **Trainer:** Can only manage own unavailability periods
+- **Lead Region (*):** Can manage trainers in same channel AND same region
+- **Head Channel (**):** Can manage trainers in same channel (all regions)
+- **Admin/Master/Root Admin:** Can manage all trainers (no restrictions)
+
+**Permission Logic:**
+- System filters trainer list based on user's scope
+- Unauthorized users cannot see/modify unavailability for trainers outside their scope
+- Error message if attempting unauthorized action: "You do not have permission to manage this trainer's availability"
+
+---
+
+#### 5.4.6 Business Rules
+
+**Validation Rules:**
+
+1. **Date Range:** End Date must be >= Start Date
+2. **Reason Length:** Maximum 200 characters
+3. **Overlap Warning:** System warns (non-blocking) if trainer has overlapping unavailability periods
+4. **Inactive Periods:** Inactive periods not checked during warnings
+5. **Past Dates:** Can register past dates for historical record-keeping
+
+**System Behavior:**
+
+1. **Warning Only:** All unavailability checks are non-blocking warnings
+2. **Override Capability:** All authorized users can override unavailability warnings
+3. **History Tracking:** All actions recorded in trainer profile or course history
+4. **Active Status:** Only active periods trigger warnings
+5. **Date Match:** System checks if course/stage dates overlap with unavailable period (any overlap triggers warning)
+
+**Integration Rules:**
+
+1. **Course Creation:** Check primary trainer and co-trainer availability
+2. **Course Edit:** Check when changing trainers
+3. **Planning:** Check when adding/editing stages with trainer assignment
+4. **Calendar:** Display unavailability on PIC Calendar
+5. **Reports:** Unavailability data available for trainer availability reports
+
+---
+
+#### 5.4.7 UI Requirements
+
+**Unavailability Tab in Trainer Details:**
+
+Add new tab to Trainer Details page (Section 5.3):
+
+```
+[General] [Address] [Experience] [Education] [Unavailability] [History] [Road Map]
+```
+
+**Tab Content:**
+- List of all unavailability periods for this trainer
+- [+ Add Unavailable Period] button
+- Filter/sort options (simplified view)
+- Export button
+
+**Add/Edit Modal:**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│ Add Unavailable Period                            [✕ Close] │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│ Trainer: *                                                   │
+│ ┌────────────────────────────────────────────────────────┐  │
+│ │ John Doe                                        ▼      │  │
+│ └────────────────────────────────────────────────────────┘  │
+│                                                              │
+│ Start Date: *          End Date: *                           │
+│ ┌──────────────────┐   ┌──────────────────┐                 │
+│ │ DD/MM/YYYY   📅  │   │ DD/MM/YYYY   📅  │                 │
+│ └──────────────────┘   └──────────────────┘                 │
+│                                                              │
+│ Unavailability Type: *                                       │
+│ ┌────────────────────────────────────────────────────────┐  │
+│ │ Vacation                                        ▼      │  │
+│ └────────────────────────────────────────────────────────┘  │
+│                                                              │
+│ Reason: (Optional)                                           │
+│ ┌────────────────────────────────────────────────────────┐  │
+│ │ Annual leave                                            │  │
+│ └────────────────────────────────────────────────────────┘  │
+│                                                              │
+│ ☑ Active                                                     │
+│                                                              │
+│                                      [Cancel]  [Save]        │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**History Tracking:**
+
+All actions recorded with format:
+- "Unavailable period added: [Trainer] from [Start] to [End] ([Type]) by [User] on [Timestamp]"
+- "Unavailable period updated: [Trainer] from [Start] to [End] by [User] on [Timestamp]"
+- "Unavailable period deleted: [Trainer] from [Start] to [End] by [User] on [Timestamp]"
+
+---
+
+### 5.5 Authorization Matrix
+
+| Action                    | Trainer | Lead Region | Head Channel | Admin | Master Role | Root Admin |
+|---------------------------|---------|-------------|--------------|-------|-------------|------------|
+| View Trainer List         | -       | Yes           | Yes            | Yes     | Yes           | Yes          |
+| Create Trainer            | -       | Yes           | Yes            | Yes     | Yes           | Yes          |
+| Edit Trainer              | -       | Yes           | Yes            | Yes     | Yes           | Yes          |
+| Delete Trainer            | -       | Yes           | Yes            | Yes     | Yes           | Yes          |
+| View Trainer Details      | -       | Yes           | Yes            | Yes     | Yes           | Yes          |
+| Export Trainer List       | -       | Yes           | Yes            | Yes     | Yes           | Yes          |
+| Activate/Deactivate       | -       | Yes           | Yes            | Yes     | Yes           | Yes          |
+
+---
+
+### 5.6 Data Validation Rules
 
 1. **Email Uniqueness:** Each trainer must have a unique email address
 2. **User Link Requirement:** Email must match an existing LMS user with trainer role (or be created via quick create)
@@ -1191,7 +1558,7 @@ The Trainer Details page uses a **2-column layout** for optimal space utilizatio
 
 ---
 
-### 5.6 Integration Points
+### 5.7 Integration Points
 
 1. **User Management:** Trainer email must link to existing user account
 2. **Course Management:** Users with Team "Trainer" appear in trainer selection dropdowns for course creation/assignment
@@ -1615,7 +1982,7 @@ SO THAT I can track their certification status
 - **Sorting:** Default sort by Issue Date (newest first)
 - **Visual Indicators:**
   - 🟢 Active (green)
-  - 🔴 Expired (red)
+  - Expired (red)
   - ⚫ Revoked (black)
 
 #### 6.3.7 Reference Section (Table View)
@@ -1695,7 +2062,7 @@ SO THAT I can understand their learning progression and completed courses
 Timeline View (Vertical):
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   2025
-  ├─ Mar 2025 ✅ SHINE - Passed
+  ├─ Mar 2025 [PASSED] SHINE - Passed
   │   • AOL: Passed
   │   • MOF: 85/100
   │   • Attendance: 100%
@@ -1705,7 +2072,7 @@ Timeline View (Vertical):
   │   • AOL: Pending
   │   • Attendance: 75%
   │
-  └─ [Planned] Jun 2025 ⏳ Advanced Product
+  └─ [Planned] Jun 2025 [PENDING] Advanced Product
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -1715,8 +2082,8 @@ Timeline View (Vertical):
 - Color coding:
   - 🟢 Green: Passed
   - 🔵 Blue: In Progress
-  - 🔴 Red: Failed
-  - ⚪ Gray: Withdrawn
+  - Red: Failed
+  - Gray: Withdrawn
 - Click course entry to navigate to course details
 - Filter by course type, year, status
 - Export timeline to PDF
@@ -1764,7 +2131,7 @@ SO THAT I can track data modifications for compliance and audit purposes
 - Color coding:
   - 🟢 Green: CREATE
   - 🟡 Yellow: UPDATE
-  - 🔴 Red: DELETE
+  - Red: DELETE
 
 ---
 
@@ -1877,16 +2244,16 @@ SO THAT I can mark participants as active or inactive based on their employment 
 
 | Action | Trainer | Lead Region | Head Channel | DMS Admin | Master Role | Admin | Root Admin |
 |--------|---------|-------------|--------------|-----------|-------------|-------|------------|
-| View Participant List | ✗ | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ |
-| View Participant Details | ✗ | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ |
-| Create Participant (Manual) | ✗ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ |
-| Edit Participant | ✗ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ |
-| Delete Participant | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✓ |
-| Import Participants | ✗ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ |
-| Export Participants | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Activate/Deactivate | ✗ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ |
-| Upload Documents | ✗ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ |
-| View Audit Log | ✗ | ✓ | ✓ | ✗ | ✓ | ✓ | ✓ |
+| View Participant List | No | Yes | Yes | No | Yes | Yes | Yes |
+| View Participant Details | No | Yes | Yes | No | Yes | Yes | Yes |
+| Create Participant (Manual) | No | No | No | No | Yes | Yes | Yes |
+| Edit Participant | No | No | No | No | Yes | Yes | Yes |
+| Delete Participant | No | No | No | No | No | No | Yes |
+| Import Participants | No | No | No | No | Yes | Yes | Yes |
+| Export Participants | No | Yes | Yes | Yes | Yes | Yes | Yes |
+| Activate/Deactivate | No | No | No | No | Yes | Yes | Yes |
+| Upload Documents | No | No | No | No | Yes | Yes | Yes |
+| View Audit Log | No | Yes | Yes | No | Yes | Yes | Yes |
 
 **Data Filtering by Role:**
 
@@ -2229,7 +2596,7 @@ SO THAT trainers can access supporting materials and resources
 |--------|-------------|----------|
 | File Name | Original filename | Hyperlink to download, truncated with tooltip |
 | File Size | Size in MB/KB | Sortable |
-| File Type | Icon + extension | Visual indicator (📄 PDF, 📊 Excel, etc.) |
+| File Type | Icon + extension | Visual indicator (PDF, Excel, Word, etc.) |
 | Uploaded By | Username who uploaded | Sortable |
 | Upload Date | Timestamp | Sortable, format: "DD/MM/YYYY HH:MM" |
 | Actions | Download, Delete buttons | Role-based visibility |
@@ -2337,8 +2704,8 @@ SO THAT I can quickly create similar modules without starting from scratch
 │ │ Introduction to Life Insurance (Copy)              │ │
 │ └────────────────────────────────────────────────────┘ │
 │                                                          │
-│ ☑ Copy attached files                                   │
-│ ☑ Copy tags                                              │
+│ [X] Copy attached files                                   │
+│ [X] Copy tags                                              │
 │ ☐ Set as DRAFT status                                   │
 │                                                          │
 │                              [Cancel]  [Clone Module]   │
@@ -2384,7 +2751,7 @@ SO THAT I can remove outdated or unused content
 │ Delete Module?                                    [✕]   │
 ├─────────────────────────────────────────────────────────┤
 │                                                          │
-│ ⚠️ Are you sure you want to delete this module?        │
+│ [WARNING] Are you sure you want to delete this module?        │
 │                                                          │
 │ Module Name: Introduction to Life Insurance             │
 │ Duration: 2.5 hours                                     │
@@ -2439,15 +2806,15 @@ SO THAT I can remove outdated or unused content
 
 | Action | Admin | Master Role | Root Admin | Other Roles |
 |--------|-------|-------------|------------|-------------|
-| View Module List | ✓ | ✓ | ✓ | ✗ |
-| Create Module | ✓ | ✓ | ✓ | ✗ |
-| Edit Module | ✓ | ✓ | ✓ | ✗ |
-| Delete Module | ✓ | ✗ | ✓ | ✗ |
-| Clone Module | ✓ | ✓ | ✓ | ✗ |
-| Upload Files | ✓ | ✓ | ✓ | ✗ |
-| Delete Files | ✓ | ✗ | ✓ | ✗ |
-| Change Status | ✓ | ✓ | ✓ | ✗ |
-| View Usage | ✓ | ✓ | ✓ | ✗ |
+| View Module List | Yes | Yes | Yes | No |
+| Create Module | Yes | Yes | Yes | No |
+| Edit Module | Yes | Yes | Yes | No |
+| Delete Module | Yes | No | Yes | No |
+| Clone Module | Yes | Yes | Yes | No |
+| Upload Files | Yes | Yes | Yes | No |
+| Delete Files | Yes | No | Yes | No |
+| Change Status | Yes | Yes | Yes | No |
+| View Usage | Yes | Yes | Yes | No |
 
 ---
 
@@ -2600,7 +2967,7 @@ SO THAT I can search, view, create, and manage training products
 | Sessions | Number of sessions | Sortable, displayed as number |
 | Certificate | Certificate name | Text display |
 | License | License type | Text display |
-| Status | Product status | Visual indicator (🟢 Active/⚪ Inactive/📝 Draft), sortable |
+| Status | Product status | Visual indicator (Active/Inactive/Draft), sortable |
 | Duration | Total hours | Sortable, displayed as "X hours" |
 | Created By | Username who created | Sortable |
 | Updated By | Username who last updated | Sortable |
@@ -2726,7 +3093,7 @@ SO THAT trainers and learners have access to relevant resources
 |--------|-------------|----------|
 | File Name | Original filename | Hyperlink to download, truncated with tooltip |
 | File Size | Size in MB/KB | Sortable |
-| File Type | Icon + extension | Visual indicator (📄 PDF, 📊 Excel, etc.) |
+| File Type | Icon + extension | Visual indicator (PDF, Excel, Word, etc.) |
 | Uploaded By | Username who uploaded | Sortable |
 | Upload Date | Timestamp | Sortable, format: "DD/MM/YYYY HH:MM" |
 | Actions | Download, Delete buttons | Role-based visibility |
@@ -2880,10 +3247,10 @@ SO THAT I can quickly create similar products without starting from scratch
 │ │ Product Knowledge Fundamentals (Copy)              │ │
 │ └────────────────────────────────────────────────────┘ │
 │                                                          │
-│ ☑ Copy sessions                                         │
-│ ☑ Copy tags                                             │
+│ [X] Copy sessions                                         │
+│ [X] Copy tags                                             │
 │ ☐ Copy files                                            │
-│ ☑ Set as DRAFT status                                  │
+│ [X] Set as DRAFT status                                  │
 │                                                          │
 │                              [Cancel]  [Clone Product]  │
 └─────────────────────────────────────────────────────────┘
@@ -2928,7 +3295,7 @@ SO THAT I can remove outdated or unused content
 │ Delete Product?                                   [✕]   │
 ├─────────────────────────────────────────────────────────┤
 │                                                          │
-│ ⚠️ Are you sure you want to delete this product?       │
+│ [WARNING] Are you sure you want to delete this product?       │
 │                                                          │
 │ Product Name: Product Knowledge Fundamentals            │
 │ Sessions: 4                                             │
@@ -2986,15 +3353,15 @@ SO THAT I can remove outdated or unused content
 
 | Action | Admin | Master Role | Root Admin | Other Roles |
 |--------|-------|-------------|------------|-------------|
-| View Product List | ✓ | ✓ | ✓ | ✓ (read-only) |
-| Create Product | ✓ | ✓ | ✓ | ✗ |
-| Edit Product | ✓ | ✓ | ✓ | ✗ |
-| Delete Product | ✓ | ✗ | ✓ | ✗ |
-| Clone Product | ✓ | ✓ | ✓ | ✗ |
-| Upload Files | ✓ | ✓ | ✓ | ✗ |
-| Delete Files | ✓ | ✗ | ✓ | ✗ |
-| Change Status | ✓ | ✓ | ✓ | ✗ |
-| View Usage | ✓ | ✓ | ✓ | ✗ |
+| View Product List | Yes | Yes | Yes | Yes (read-only) |
+| Create Product | Yes | Yes | Yes | No |
+| Edit Product | Yes | Yes | Yes | No |
+| Delete Product | Yes | No | Yes | No |
+| Clone Product | Yes | Yes | Yes | No |
+| Upload Files | Yes | Yes | Yes | No |
+| Delete Files | Yes | No | Yes | No |
+| Change Status | Yes | Yes | Yes | No |
+| View Usage | Yes | Yes | Yes | No |
 
 ---
 
@@ -3455,9 +3822,9 @@ SO THAT I can quickly create similar programs without manual data entry
 │ │ SHINE Program - Copy                        │ │
 │ └────────────────────────────────────────────┘ │
 │                                                  │
-│ ☑ Copy all stages and products                 │
-│ ☑ Copy attached files                           │
-│ ☑ Copy tags                                     │
+│ [X] Copy all stages and products                 │
+│ [X] Copy attached files                           │
+│ [X] Copy tags                                     │
 │ ☐ Set cloned program as INACTIVE               │
 │                                                  │
 │                                                  │
@@ -3474,10 +3841,10 @@ SO THAT I can quickly create similar programs without manual data entry
    - Step 6: User redirected to cloned Program Details Page
 
 4. **Cloned Data:**
-   - ✅ All general information fields (except ID, Created By/Date)
-   - ✅ All stages and product associations
-   - ✅ Attached files (optional, checkbox selection)
-   - ✅ Tags (optional, checkbox selection)
+   - [YES] All general information fields (except ID, Created By/Date)
+   - [YES] All stages and product associations
+   - [YES] Attached files (optional, checkbox selection)
+   - [YES] Tags (optional, checkbox selection)
    - ❌ History/audit trail (new program starts fresh)
 
 5. **Default Values in Cloned Program:**
@@ -3504,7 +3871,7 @@ SO THAT the program list remains clean and relevant
 
 ```
 ┌─────────────────────────────────────────────────┐
-│ ⚠️  Delete Program                               │
+│ [WARNING] Delete Program                        │
 ├─────────────────────────────────────────────────┤
 │                                                  │
 │ Are you sure you want to delete this program?  │
@@ -3513,7 +3880,7 @@ SO THAT the program list remains clean and relevant
 │ Type: SHINE                                      │
 │ Status: ACTIVE                                   │
 │                                                  │
-│ ⚠️  Warning:                                     │
+│ [WARNING] Warning:                               │
 │ • This action cannot be undone                  │
 │ • X courses are associated with this program   │
 │ • Courses will remain but lose program link    │
@@ -3610,16 +3977,16 @@ SO THAT the program list remains clean and relevant
 
 | Action | TRAINER | LEAD_REGION | HEAD_CHANNEL | DMS_ADMIN | MASTER_ROLE | ADMIN | ROOT_ADMIN |
 |--------|---------|-------------|--------------|-----------|-------------|-------|------------|
-| View Program List | ✓ | ✓ | ✓ | | ✓ | ✓ | ✓ |
-| View Program Details | ✓ | ✓ | ✓ | | ✓ | ✓ | ✓ |
-| Create Program | | | | | ✓ | ✓ | ✓ |
-| Edit Program | | | | | ✓ | ✓ | ✓ |
-| Clone Program | | | | | ✓ | ✓ | ✓ |
-| Delete Program | | | | | ✓ | ✓ | ✓ |
-| Activate/Deactivate | | | | | ✓ | ✓ | ✓ |
-| Upload Files | | | | | ✓ | ✓ | ✓ |
-| Delete Files | | | | | ✓ | ✓ | ✓ |
-| View History | | | | | ✓ | ✓ | ✓ |
+| View Program List | Yes | Yes | Yes | | Yes | Yes | Yes |
+| View Program Details | Yes | Yes | Yes | | Yes | Yes | Yes |
+| Create Program | | | | | Yes | Yes | Yes |
+| Edit Program | | | | | Yes | Yes | Yes |
+| Clone Program | | | | | Yes | Yes | Yes |
+| Delete Program | | | | | Yes | Yes | Yes |
+| Activate/Deactivate | | | | | Yes | Yes | Yes |
+| Upload Files | | | | | Yes | Yes | Yes |
+| Delete Files | | | | | Yes | Yes | Yes |
+| View History | | | | | Yes | Yes | Yes |
 
 **Authorization Notes:**
 
@@ -3677,6 +4044,73 @@ SO THAT the program list remains clean and relevant
 
 This section consolidates all course-related functionality including creation, listing, details, operations, and workflows.
 
+### Course Lifecycle Overview
+
+The following diagram illustrates the main stages in the course management lifecycle:
+
+```mermaid
+flowchart TD
+    START([Start]) --> CREATE[Course Creation]
+    CREATE -->|Course created with status NEW| REGISTER[Course Registration]
+    
+    REGISTER -->|Trainer registers| APPROVAL[Course Approval]
+    APPROVAL -->|Approved by Lead/Head| ADD_PARTICIPANTS[Add Participants]
+    APPROVAL -->|Rejected| REGISTER
+    
+    ADD_PARTICIPANTS -->|Manual or Import| ATTENDANCE[Record Attendance]
+    ATTENDANCE -->|Via E-check API| AOL_EXAM[Record AOL Results]
+    AOL_EXAM -->|Via AOL API| MOF_CHECK{MOF Course?}
+    
+    MOF_CHECK -->|Yes| EXPORT_MOF[Export Participants for MOF]
+    MOF_CHECK -->|No - Skip MOF| CALCULATE
+    
+    EXPORT_MOF --> UPLOAD_MOF[Upload MOF Results]
+    UPLOAD_MOF --> CALCULATE[Calculate Passed Participants]
+    
+    CALCULATE --> CONFIRM_PASSED[Confirm Passed Participants]
+    
+    CONFIRM_PASSED --> GRANT_CODE[Grant Agent Code / License Code]
+    GRANT_CODE -->|Post to DMS| COURSE_COMPLETE[Course Completed]
+    
+    COURSE_COMPLETE --> END([End])
+    
+    classDef createClass fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    classDef approvalClass fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef operationClass fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef completionClass fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    classDef decisionClass fill:#fff9c4,stroke:#f9a825,stroke-width:2px
+    
+    class CREATE createClass
+    class REGISTER,APPROVAL approvalClass
+    class ADD_PARTICIPANTS,ATTENDANCE,AOL_EXAM,EXPORT_MOF,UPLOAD_MOF operationClass
+    class CALCULATE,CONFIRM_PASSED,GRANT_CODE,COURSE_COMPLETE completionClass
+    class MOF_CHECK decisionClass
+```
+
+### Business Use Case Example
+
+**Scenario: SHINE Product Training Course**
+
+1. **Creation**: Head Channel creates a "SHINE - Life Insurance" course for March 2025
+2. **Registration**: One trainer registers for the course as primary trainer
+3. **Approval**: Head Channel approves the registration request
+4. **Add Participants**: 
+   - Admin Channel imports 20 participants via API from E-recruit system
+   - Admin Channel imports 3 participants from Excel file
+   - Admin Channel manually adds 2 participants for re-exam
+5. **Attendance & AOL**: 
+   - Attendance records for all 5 sessions are received via E-check API
+   - Admin Channel uploads AOL exam results via AOL API
+6. **MOF extra steps**: 
+   - Admin Channel exports 25 participants for MOF exam
+   - After MOF exam, Admin Channel uploads results (23 passed MOF)
+7. **Calculate & Confirm**: 
+   - System calculates: 22 participants met all requirements (attendance ≥80%, AOL passed, MOF passed)
+   - Admin Channel confirms the 22 passed participants
+8. **Grant Code**: Admin Channel grants agent codes to 22 passed participants via DMS
+9. **Complete**: Course is marked as completed
+
+
 ### 8.1 Course Creation
 
 **User Story:**  
@@ -3701,9 +4135,9 @@ When a user selects a course type, the form dynamically shows/hides fields and a
 
 | Course Type | MOF Fields | AOL Fields | Program Filter |
 |-------------|------------|------------|----------------|
-| SHINE       | ✅ Required | ✅ Optional | SHINE programs only |
-| Product     | ❌ Hidden   | ✅ Optional | Product programs only |
-| Skill       | ❌ Hidden   | ❌ Hidden  | Skill programs only |
+| SHINE       | [REQUIRED] Required | [OPTIONAL] Optional | SHINE programs only |
+| Product     | [HIDDEN] Hidden   | [OPTIONAL] Optional | Product programs only |
+| Skill       |  Hidden   |  Hidden  | Skill programs only |
 
 **Dynamic Behavior:**
 - **Course Type Selection:** User selects from dropdown (SHINE/Product/Skill)
@@ -4058,7 +4492,7 @@ The Course Listing Screen provides a centralized interface for users to view, se
 | 10  | Created By     | Display   | D        | User who created the course        | Admin User              | -                               |
 | 11  | Created At     | Display   | D        | Creation date and time             | 15/03/2022 14:30        | Auto-sorted by newest first     |
 | 12  | Updated By     | Display   | D        | User who last updated              | Lead User               | -                               |
-| 13  | Action         | Button    | -        | Action buttons (role-based)        | 📝 ✏️ ❌ 🗑️             | See Section 8.2.5 for details   |
+| 13  | Action         | Button    | -        | Action buttons (role-based)        | Edit / Delete             | See Section 8.2.5 for details   |
 
 ---
 
@@ -4307,13 +4741,499 @@ All course information fields displayed in Course Details are the **same fields 
 
 #### 8.3.2 Course History
 
-[Content will be copied from original Section 10.2.2]
+**User Story:**  
+AS a user viewing course details  
+I NEED to see a complete history of course modifications  
+SO THAT I can track changes, understand workflow decisions, and maintain audit trail
+
+**Purpose:**  
+The Course History tab provides a chronological audit trail of all modifications, approvals, rejections, and significant actions performed on the course throughout its lifecycle.
+
+---
+
+##### 8.3.2.1 History Fields Tracked
+
+The system automatically tracks the following course modification events:
+
+| Field Name | Event Type | Description | Value Format | Recorded When |
+|------------|-----------|-------------|--------------|---------------|
+| PROCTOR NAME | Field Change | Proctor name update | From [Old value] to [New Value] | MOF proctor changed |
+| MOF EXAM TIME | Field Change | MOF exam time update | From [Old value] to [New Value] | MOF exam date/time changed |
+| EXAM TYPE | Field Change | Exam type update | From [Old value] to [New Value] | MOF exam type changed |
+| MOF ADDRESS | Field Change | MOF address update | From [Old value] to [New Value] | MOF exam location changed |
+| REJECT REGISTRATION | Workflow | Registration rejection reason | Reject reason text | Course registration rejected |
+| CANCEL REASON | Workflow | Course cancellation reason | Cancel reason text | Course cancelled |
+| REJECT CANCEL REASON | Workflow | Cancellation rejection reason | Reject cancel reason text | Cancel request rejected |
+| EDIT REASON | Workflow | Course edit reason | Edit reason text | Course edited (approval required) |
+| REJECT EDIT REASON | Workflow | Edit rejection reason | Reject edit reason text | Edit request rejected |
+| PLANNING CHANGE | Field Change | Planning schedule change | Stage details | Planning modified |
+| TRAINER CHANGE | Field Change | Trainer assignment change | From [Old Trainer] to [New Trainer] | Primary/co-trainer changed |
+| STATUS CHANGE | Workflow | Course status transition | From [Old Status] to [New Status] | Status changed |
+
+**Entry Format:**
+
+All history entries automatically include:
+- **User ID:** User who performed the action (userid)
+- **Timestamp:** Date and time in format DD/MM/YYYY HH:MM
+- **Field Name:** Which field or event was recorded
+- **Value:** The change details or reason
+
+**Example Entry:**
+```
+EDIT REASON: Update venue address due to location change
+By: user123 (Head Channel - Jane Smith)
+Date: 15/11/2025 14:30
+```
+
+---
+
+##### 8.3.2.2 History Display
+
+**Tab Location:**  
+Course Details → History Tab
+
+**Display Format:**
+
+| Column | Description | Example |
+|--------|-------------|---------|
+| Timestamp | Date and time of change | 15/11/2025 14:30 |
+| Field/Event | What was changed | EDIT REASON |
+| Value | Change details | Update venue address |
+| User | Who made the change | Jane Smith (Head Channel) |
+| User ID | System user identifier | user123 |
+
+**Sort Order:**  
+- Default: Most recent first (descending timestamp)
+- User can toggle: Ascending/Descending
+
+**Filter Options:**
+- Filter by Event Type: All/Field Changes/Workflow Events
+- Filter by User: Dropdown of users who have modified the course
+- Filter by Date Range: From-To date picker
+
+**Export:**
+- [Export History] button exports complete history to Excel
+- Includes all columns with full details
+
+---
+
+##### 8.3.2.3 Automatic History Recording
+
+**System Behavior:**
+
+The system automatically records history entries for:
+
+1. **Registration Workflow:**
+   - User registers for course
+   - Registration approved
+   - Registration rejected (with reason)
+
+2. **Approval Workflow:**
+   - Course edit submitted (with edit reason)
+   - Edit approved
+   - Edit rejected (with reject reason)
+
+3. **Cancellation Workflow:**
+   - Course cancellation requested (with reason)
+   - Cancellation approved
+   - Cancellation rejected (with reject reason)
+
+4. **Field Changes:**
+   - MOF-related fields updated (proctor, exam time, type, address)
+   - Trainer assignments changed
+   - Planning schedule modified
+   - Course dates changed
+
+5. **Status Changes:**
+   - All status transitions (NEW → REGISTERED → APPROVED, etc.)
+   - Auto-cancellation due to approval timeout
+
+6. **Special Actions:**
+   - Trainer assigned during unavailable period (override recorded)
+   - Stage scheduled on holiday (override recorded)
+
+**No Manual Entry:**
+- Users cannot manually add or edit history entries
+- All entries are system-generated for data integrity
+- History entries are immutable (cannot be deleted or modified)
+
+---
+
+##### 8.3.2.4 Business Rules
+
+1. **Immutable Records:** History entries cannot be edited or deleted
+2. **User Attribution:** All entries include user who performed action  
+3. **Retention:** History retained for life of course
+
+---
+
+##### 8.3.2.5 Authorization
+
+**View History:**
+- All users who can view course details can view course history
+- Same authorization rules as Course Details (Section 8.3)
+
+**No Edit/Delete:**
+- No users can edit or delete history entries
+- Even Master Role and Root Admin cannot modify history (data integrity)
 
 ---
 
 #### 8.3.3 Course Planning Tab
 
-[Content will be copied from original Section 10.2.3]
+**User Story:**  
+AS an admin, trainer, head, or lead  
+I NEED to view and manage the course planning schedule  
+SO THAT I can track session details, trainers, and handle non-continuous course timings
+
+**Business Use Cases:**
+- View detailed breakdown of course stages/sessions with trainers and timing
+- Edit course planning when course schedule changes
+- Manage non-continuous courses (courses with skip days, gaps, or non-sequential sessions)
+- Update end date automatically when planning changes
+- Track co-trainer assignments per session
+
+---
+
+##### 8.3.3.1 Planning Tab Display
+
+**Screen Description:**
+
+The Course Planning Tab displays a list of all course stages/sessions with timing and trainer details.
+
+**Fields Displayed:**
+
+| S/N | Fieldname  | Data Type | M/O/CM/D | Description         | Validation              |
+| --- | ---------- | --------- | -------- | ------------------- | ----------------------- |
+| 1   | Add new    | Button    | -        | Add new stage/session manually or upload planning file | Available for authorized users |
+| 2   | Trainer    | Display   | D        | Trainer name(s) assigned to the stage | Shows primary trainer + co-trainer if applicable |
+| 3   | Stage      | Display   | D        | Stage/session number | Sequential numbering: Stage 1, Stage 2, etc. |
+| 4   | Start Date | Display   | D        | Start date and time of the stage | Format: DD/MM/YYYY HH:MM AM/PM |
+| 5   | End Date   | Display   | D        | End date and time of the stage | Format: DD/MM/YYYY HH:MM AM/PM |
+| 6   | Action     | Button    |          | Edit/Delete buttons | [Edit] [Delete] buttons for each stage |
+
+**Display Format:**
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Course Planning                                              [+ Add Stage]  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Stage │ Trainer            │ Start Date Time │ End Date Time   │ Actions    │
+├───────┼────────────────────┼─────────────────┼─────────────────┼────────────┤
+│ 1     │ John Doe           │ 01/11/25 08:00 AM│ 01/11/25 12:00 PM│[Edit][Del]│
+│ 2     │ John Doe           │ 01/11/25 01:00 PM│ 01/11/25 05:00 PM│[Edit][Del]│
+│ 3     │ John Doe, Jane S.  │ 02/11/25 08:00 AM│ 02/11/25 12:00 PM│[Edit][Del]│
+│ 4     │ John Doe           │ 04/11/25 08:00 AM│ 04/11/25 12:00 PM│[Edit][Del]│
+│ 5     │ John Doe           │ 04/11/25 01:00 PM│ 04/11/25 05:00 PM│[Edit][Del]│
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Business Rules:**
+
+1. **Automatic Planning Generation:**
+   - When course is created, system auto-generates planning based on:
+     - Program duration (number of stages)
+     - Course start date
+     - Course end date
+     - Default session times (AM/PM)
+   - Primary trainer automatically assigned to all stages
+   - Co-trainer (if selected during creation) automatically assigned to all stages
+
+2. **Trainer Display:**
+   - Shows primary trainer name for each stage
+   - If co-trainer assigned, shows: "Primary Trainer, Co-Trainer"
+   - Multiple co-trainers separated by commas
+
+3. **Stage Numbering:**
+   - Sequential numbering from 1 to N
+   - Stage numbers automatically update when stages are added/deleted
+   - No gaps in stage sequence
+
+---
+
+##### 8.3.3.2 Course Time in Non-Continuous Days
+
+**User Story:**  
+AS an admin/trainer/head/lead  
+I CAN manage non-continuous courses  
+SO THAT course time can be tracked correctly when courses have skip days or gaps
+
+**Business Use Cases:**
+- Handle courses with scheduled breaks (weekends, holidays)
+- Manage courses scheduled one stage per week
+- Track courses with irregular timing patterns
+- Automatically update end date when planning changes
+- Reflect skip days in PIC Calendar and Master Calendar
+
+**Acceptance Criteria:**
+
+1. **Edit Planning:**
+   - Authorized users can edit planning (time of stages)
+   - Click [Edit] button on any stage to modify timing
+   - Edit modal shows:
+     - Stage number (read-only)
+     - Trainer selection (dropdown)
+     - Start date/time (date-time picker)
+     - End date/time (date-time picker)
+
+2. **Skip Days Support:**
+   - Course can skip days (holidays, weekends, scheduled gaps)
+   - System allows non-consecutive dates for stages
+   - Example: Stage 1 on Monday, Stage 2 on Wednesday (skipping Tuesday)
+   - No validation requiring consecutive days
+
+3. **Automatic End Date Update:**
+   - When planning is modified, system recalculates course end date
+   - Course end date = Latest stage end date/time
+   - End date updates automatically in:
+     - Course General tab
+     - Course List
+     - Master Calendar
+     - PIC Calendar
+
+4. **Calendar Integration:**
+   - PIC/Master Calendar automatically updated to show skip days
+   - Course appears only on days when stages are scheduled
+   - Skip days do not show course in calendar
+
+**Example Scenario:**
+
+**Course X has 4 stages with skip date:**
+
+- **Course Start Date:** 01/11/2025 (T-1)
+- **Skip Date:** 02/11/2025 (T) - No stages scheduled
+- **Course End Date:** 03/11/2025 (T+1) - Auto-calculated
+
+**Planning:**
+
+| Stage | Date | Time | Trainer | Notes |
+|-------|------|------|---------|-------|
+| Stage 1 | 01/11/25 (T-1) | 08:00 AM - 12:00 PM | John Doe | First day |
+| Stage 2 | 01/11/25 (T-1) | 01:00 PM - 05:00 PM | John Doe | First day |
+| **Skip** | **02/11/25 (T)** | **No stages** | **-** | **Holiday/Break** |
+| Stage 3 | 03/11/25 (T+1) | 08:00 AM - 12:00 PM | John Doe | Last day |
+| Stage 4 | 03/11/25 (T+1) | 01:00 PM - 05:00 PM | John Doe | Last day |
+
+**Result:**
+- System recognizes gap between stages
+- Course end date automatically set to 03/11/25 05:00 PM
+- Calendar shows course only on 01/11/25 and 03/11/25
+- Skip day (02/11/25) does not display course
+
+---
+
+##### 8.3.3.3 Edit Planning
+
+**User Story:**  
+AS an authorized user  
+I NEED to edit course planning  
+SO THAT I can adjust schedule, trainers, or timing for course stages
+
+**Authorization:**
+
+| Role | Can Edit Planning | Conditions |
+|------|------------------|------------|
+| Trainer | Yes (creator or primary) | Only when status = NEW or REGISTERED |
+| Lead Region | Yes | When status = NEW, REGISTERED, or APPROVED |
+| Head Channel | Yes | When status = NEW, REGISTERED, or APPROVED |
+| Admin | Yes | When status = NEW, REGISTERED, or APPROVED |
+| Master Role | Yes | Any status (override) |
+
+**Edit Flow:**
+
+1. **Edit Individual Stage:**
+   - Click [Edit] button on specific stage row
+   - Edit modal opens with current stage details:
+     ```
+     ┌─────────────────────────────────────────┐
+     │ Edit Stage 3                     [X]   │
+     ├─────────────────────────────────────────┤
+     │                                         │
+     │ Stage Number: 3  (read-only)            │
+     │                                         │
+     │ Trainer: *                              │
+     │ ┌───────────────────────────────────┐   │
+     │ │ John Doe              ▼           │   │
+     │ └───────────────────────────────────┘   │
+     │                                         │
+     │ Start Date & Time: *                    │
+     │ ┌────────────────┐ ┌────────────────┐  │
+     │ │ 04/11/2025  📅 │ │ 08:00 AM   ▼  │  │
+     │ └────────────────┘ └────────────────┘  │
+     │                                         │
+     │ End Date & Time: *                      │
+     │ ┌────────────────┐ ┌────────────────┐  │
+     │ │ 04/11/2025  📅 │ │ 12:00 PM   ▼  │  │
+     │ └────────────────┘ └────────────────┘  │
+     │                                         │
+     │                   [Cancel] [Save]       │
+     └─────────────────────────────────────────┘
+     ```
+   - User modifies trainer, date, or time
+   - Click [Save] to apply changes
+   - System validates:
+     - End date/time must be after start date/time
+     - Stage timing doesn't conflict with trainer's other courses
+   - System updates:
+     - Stage details in planning
+     - Course end date (if last stage modified)
+     - Calendar displays
+
+2. **Delete Stage:**
+   - Click [Delete] button on stage row
+   - Confirmation dialog appears:
+     ```
+     Delete Stage 3?
+     
+     This will remove this stage from the course planning.
+     Stage numbers will be resequenced.
+     
+     [Cancel] [Confirm Delete]
+     ```
+   - Click [Confirm Delete]
+   - System removes stage
+   - System resequences remaining stages (no gaps)
+   - System updates course end date (if last stage deleted)
+
+3. **Add New Stage:**
+   - Click [+ Add Stage] button
+   - Add stage modal opens:
+     ```
+     ┌─────────────────────────────────────────┐
+     │ Add New Stage                    [X]   │
+     ├─────────────────────────────────────────┤
+     │                                         │
+     │ Stage will be added as: Stage 6         │
+     │                                         │
+     │ Trainer: *                              │
+     │ ┌───────────────────────────────────┐   │
+     │ │ Select Trainer        ▼           │   │
+     │ └───────────────────────────────────┘   │
+     │                                         │
+     │ Start Date & Time: *                    │
+     │ ┌────────────────┐ ┌────────────────┐  │
+     │ │ DD/MM/YYYY  📅 │ │ HH:MM AM   ▼  │  │
+     │ └────────────────┘ └────────────────┘  │
+     │                                         │
+     │ End Date & Time: *                      │
+     │ ┌────────────────┐ ┌────────────────┐  │
+     │ │ DD/MM/YYYY  📅 │ │ HH:MM PM   ▼  │  │
+     │ └────────────────┘ └────────────────┘  │
+     │                                         │
+     │                   [Cancel] [Add]        │
+     └─────────────────────────────────────────┘
+     ```
+   - User enters trainer, date, and time
+   - Click [Add] to create new stage
+   - System assigns next sequential stage number
+   - System updates course end date (if new stage is later)
+
+**Validation Rules:**
+
+1. **Date/Time Validation:**
+   - End date/time must be after start date/time
+   - Stage start date must be >= course start date
+   - Warning if stage extends beyond original course end date
+   - No validation requiring consecutive days (supports skip days)
+
+2. **Trainer Availability Check:**
+   - System checks if trainer has other courses at same time
+   - Warning message if conflict detected:
+     ```
+     ⚠️ Warning: Trainer John Doe has another course scheduled:
+     Course: 8-HCMAG-PR-022 on 04/11/2025 09:00 AM - 01:00 PM
+     
+     Do you want to continue?
+     [Cancel] [Continue Anyway]
+     ```
+   - User can proceed with conflict (warning only, not blocking)
+
+3. **Stage Sequence:**
+   - Stage numbers automatically resequenced
+   - No gaps in numbering
+   - Stages displayed in chronological order
+
+**Automatic Updates:**
+
+When planning is modified, system automatically updates:
+
+1. **Course End Date:**
+   - Recalculated as: Latest stage end date/time
+   - Updated in Course General tab
+   - Updated in Course List
+   - Updated in calendars
+
+2. **Calendar Display:**
+   - PIC Calendar updated to show new schedule
+   - Master Calendar updated to show new schedule
+   - Skip days removed from calendar display
+   - New dates added to calendar display
+
+3. **Course History:**
+   - Planning changes recorded in Course History
+   - Records: User, timestamp, what changed
+
+**Business Rules:**
+
+1. **Edit Authorization:**
+   - Only authorized users can edit planning
+   - Master Role can edit at any status
+   - Other roles restricted by course status
+
+2. **Stage Integrity:**
+   - Cannot delete all stages (minimum 1 stage required)
+   - Cannot create overlapping stages for same trainer
+   - Stage numbers always sequential
+
+3. **Calendar Synchronization:**
+   - Planning changes immediately reflected in calendars
+   - No manual refresh required
+   - Real-time update for all users viewing the course
+
+---
+
+##### 8.3.3.4 Upload Planning File
+
+**User Story:**  
+AS an admin or authorized user  
+I NEED to upload a planning file  
+SO THAT I can quickly import complex course schedules from Excel
+
+**Acceptance Criteria:**
+
+1. **Upload Button:**
+   - [Upload Planning] button available in Planning tab
+   - Opens file upload dialog
+   - Accepts: .xlsx, .xls formats
+
+2. **Excel Template Format:**
+
+| Column | Field Name | Required | Format | Example |
+|--------|-----------|----------|--------|---------|
+| A | Stage Number | Yes | Integer | 1, 2, 3 |
+| B | Trainer Name | Yes | Text | John Doe |
+| C | Start Date | Yes | DD/MM/YYYY | 01/11/2025 |
+| D | Start Time | Yes | HH:MM AM/PM | 08:00 AM |
+| E | End Date | Yes | DD/MM/YYYY | 01/11/2025 |
+| F | End Time | Yes | HH:MM AM/PM | 12:00 PM |
+
+3. **Upload Process:**
+   - User selects file
+   - System validates file format and data
+   - System displays preview of stages to be imported
+   - User confirms import
+   - System replaces current planning with imported data
+   - System updates course end date
+
+4. **Validation:**
+   - Trainer names must match existing trainers in system
+   - End date/time must be after start date/time
+   - No overlapping stages for same trainer
+
+**Error Handling:**
+- Invalid file format: "Please upload a valid Excel file (.xlsx or .xls)"
+- Trainer not found: "Trainer [Name] not found in row [X]. Please use exact trainer name."
+- Date validation: "End date/time must be after start date/time in row [X]"
 
 ---
 
@@ -4350,12 +5270,12 @@ Course registration can be initiated from multiple locations in the system:
 
 | Role | Can Register | Approval Required? | Approved By | Conditions |
 |------|-------------|-------------------|-------------|------------|
-| Trainer | ✓ Yes | ✓ Yes | Lead Region OR Head Channel | Only for courses with status NEW |
-| Lead Region | ✓ Yes | ✓ Yes | Head Channel | Only for courses with status NEW; Lead's supervisor must approve |
-| Head Channel | ✓ Yes | Conditional | **Auto-approved** if has `self_approval` permission; Otherwise requires approval by **another Head Channel** | Only for courses with status NEW; If `self_approval` permission assigned - actions auto-approved; If no `self_approval` permission - requires approval from another Head Channel in same channel |
-| Admin | ✗ No | N/A | N/A | Cannot register |
-| Master Role | ✗ No | N/A | N/A | Cannot register (system admin role only) |
-| Root Admin | ✗ No | N/A | N/A | Cannot register |
+| Trainer | Yes Yes | Yes Yes | Lead Region OR Head Channel | Only for courses with status NEW |
+| Lead Region | Yes Yes | Yes Yes | Head Channel | Only for courses with status NEW; Lead's supervisor must approve |
+| Head Channel | Yes Yes | Conditional | **Auto-approved** if has `self_approval` permission; Otherwise requires approval by **another Head Channel** | Only for courses with status NEW; If `self_approval` permission assigned - actions auto-approved; If no `self_approval` permission - requires approval from another Head Channel in same channel |
+| Admin | No No | N/A | N/A | Cannot register |
+| Master Role | No No | N/A | N/A | Cannot register (system admin role only) |
+| Root Admin | No No | N/A | N/A | Cannot register |
 
 **Registration Flow:**
 
@@ -4480,7 +5400,7 @@ Course registration can be initiated from multiple locations in the system:
 │ Register for Course                                    [✕ Close] │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                  │
-│ 📋 Course Information                                           │
+│ Course Information                                           │
 │                                                                  │
 │ Course Code:        8-HCMBC-SHINE-001                           │
 │ Course Name:        SHINE Training Program - Banca HCM          │
@@ -4498,7 +5418,7 @@ Course registration can be initiated from multiple locations in the system:
 │                                                                  │
 │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ │
 │                                                                  │
-│ ℹ️ Registration Information                                     │
+│ Registration Information                                     │
 │                                                                  │
 │ By registering for this course, you will:                       │
 │ • Become the primary trainer for this course                    │
@@ -4546,12 +5466,12 @@ SO THAT I can control which courses proceed and ensure proper resource allocatio
 
 | Role | Can Approve Registration | Approves For | Scope |
 |------|-------------------------|--------------|-------|
-| Trainer | ✗ No | N/A | Cannot approve |
-| Lead Region | ✓ Yes | Trainer registrations only | Can approve courses in their channel AND region where Trainer registered |
-| Head Channel | ✓ Yes | Trainer OR Lead Region registrations | Can approve courses in their channel (all regions) |
-| Admin | ✗ No | N/A | Cannot approve |
-| Master Role | ✓ Yes | Any registration | Can approve any course (override) |
-| Root Admin | ✗ No | N/A | Cannot approve |
+| Trainer | No No | N/A | Cannot approve |
+| Lead Region | Yes Yes | Trainer registrations only | Can approve courses in their channel AND region where Trainer registered |
+| Head Channel | Yes Yes | Trainer OR Lead Region registrations | Can approve courses in their channel (all regions) |
+| Admin | No No | N/A | Cannot approve |
+| Master Role | Yes Yes | Any registration | Can approve any course (override) |
+| Root Admin | No No | N/A | Cannot approve |
 
 **Note:** Head Channel registrations are **auto-approved** and do not appear in the approval queue.
 
@@ -4887,15 +5807,319 @@ flowchart TD
 
 ### 8.5 Course Edit
 
-[Content will be adapted from original Section 8.3.2 and edit workflows]
+**User Story:**  
+AS a Trainer, Lead, Head, Admin, or Master Role user  
+I NEED to edit course information  
+SO THAT I can update course details when necessary based on my authorization and course status
+
+**Business Use Cases:**
+- Update course venue or schedule changes
+- Correct course information errors
+- Modify MOF details for SHINE courses
+- Adjust trainer assignments
+
+**Entry Points:**
+- Course Details → [Edit] button
+- Master Calendar → Right-click course → "Edit"
+- Course List → Actions → "Edit"
+
+---
+
+#### 8.5.1 Edit Authorization Matrix
+
+**SHINE Courses:**
+
+| Course Status | Trainer (creator/primary) | Lead | Head | Admin | Master Role |
+|---------------|--------------------------|------|------|-------|-------------|
+| NEW | Yes (creator only) | Yes | Yes | No | Yes |
+| REGISTERED | Yes (primary only) | Yes | Yes | No | Yes |
+| APPROVED | No | Yes* | Yes | Yes** | Yes |
+| IN_PROGRESS and others | No | No | No | No | Yes |
+
+*Requires Head approval  
+**MOF class code field only
+
+**Product/Skill Courses:**
+
+| Course Status | Trainer (creator/primary) | Lead | Head | Admin | Master Role |
+|---------------|--------------------------|------|------|-------|-------------|
+| NEW | Yes (creator only) | Yes | Yes | No | Yes |
+| REGISTERED | Yes (primary only) | Yes | Yes | No | Yes |
+| APPROVED | Yes* | Yes | Yes | No | Yes |
+| IN_PROGRESS and others | No | No | No | No | Yes |
+
+*Requires approval
+
+---
+
+#### 8.5.2 Edit Approval Workflow
+
+**Approval Required When:**
+
+1. **Lead edits SHINE course (APPROVED status):**
+   - Status: APPROVED → WAITING_APPROVAL_EDIT
+   - Approver: Head Channel
+   - Approved: Edits saved, status → APPROVED
+   - Rejected: Edits discarded, status → APPROVED
+
+2. **Trainer edits Product/Skill course (APPROVED status):**
+   - Status: APPROVED → WAITING_APPROVAL_EDIT  
+   - Approver: Head Channel or Lead Region
+   - Approved: Edits saved, status → APPROVED
+   - Rejected: Edits discarded, status → APPROVED
+
+**Approval Flow:**
+1. User submits edit with edit reason (mandatory)
+2. Status changes to WAITING_APPROVAL_EDIT
+3. Notification sent to approver
+4. Approver reviews and approves/rejects
+5. Status returns to APPROVED
+6. Notification sent to requester
+
+---
+
+#### 8.5.3 Field-Level Restrictions
+
+**Admin Editing SHINE (APPROVED status):**
+- Can ONLY edit: MOF Class Code field
+- All other fields: Read-only/blocked
+
+**All Other Authorized Users:**
+- Can edit all course fields (same as creation form - Section 8.1.1)
+
+---
+
+#### 8.5.4 Business Rules
+
+1. **Creator Check:** Trainer can only edit own created courses when status = NEW
+2. **Primary Trainer Check:** Trainer can only edit when primary trainer and status = REGISTERED
+3. **Edit Reason Mandatory:** Edit reason required when approval workflow triggered
+4. **Validation:** Same validation rules as course creation (Section 8.1.3)
+5. **History Tracking:** All edits recorded in Course History (Section 8.3.2)
+6. **Status Lock:** IN_PROGRESS and later statuses locked (Master Role override only)
+
+---
 
 ### 8.6 Course Cancel
 
-[Content will be adapted from cancel workflows]
+**User Story:**  
+AS a Trainer, Lead, Head, Admin, or Master Role user  
+I NEED to cancel a course  
+SO THAT I can properly close courses that will not proceed
+
+**Business Use Cases:**
+- Course cannot proceed due to insufficient participants
+- Trainer unavailable and no replacement found
+- Business decision to cancel training program
+- Force majeure situations (natural disasters, pandemic, etc.)
+
+**Entry Points:**
+- Course Details → [Cancel] button
+- Master Calendar → Right-click course → "Cancel"
+- Course List → Actions → "Cancel"
+
+---
+
+#### 8.6.1 Cancel Authorization Matrix
+
+| Course Status | Trainer (creator/primary) | Lead | Head | Admin | Master Role |
+|---------------|--------------------------|------|------|-------|-------------|
+| NEW | **No** | **No** | **No** | **No** | **No** |
+| REGISTERED | Yes | Yes | Yes | Yes | Yes |
+| APPROVED and later | **Approval required** | Yes | Yes | Yes | Yes |
+
+**Legend:**
+- **Yes** = Can cancel directly (no approval needed)
+- **No** = Cannot cancel (blocked)
+- **Approval required** = Can request cancellation (requires approval)
+
+**Key Business Rules:**
+1. **NEW courses** cannot be cancelled by anyone (not yet in the system workflow)
+2. **REGISTERED courses** can be cancelled by any authorized user (course is in queue but not yet approved)
+3. **APPROVED and later courses** can be cancelled directly by Lead, Head, Admin, and Master Role
+4. **Trainers** can only cancel APPROVED+ courses with approval from Head/Lead
+
+---
+
+#### 8.6.2 Cancel Approval Workflow
+
+**Approval Required When:**
+- Trainer cancels course with status APPROVED or later
+- Status: Current → WAITING_APPROVAL_CANCEL
+- Approver: Head Channel or Lead Region
+- Approved: Status → CANCEL
+- Rejected: Status returns to previous status
+
+**Approval Flow:**
+1. User clicks [Cancel Course] button
+2. System displays cancellation reason modal (mandatory)
+3. User enters cancellation reason and submits
+4. Status changes to WAITING_APPROVAL_CANCEL
+5. Notification sent to approver
+6. Approver reviews and approves/rejects
+7. **If Approved:**
+   - Status → CANCEL
+   - Notifications sent to all participants, trainers, PICs
+   - Calendar updated (course removed/grayed out)
+8. **If Rejected:**
+   - Status returns to previous status
+   - Rejection reason recorded in Course History
+   - Notification sent to requester
+
+---
+
+#### 8.6.3 Direct Cancellation (No Approval)
+
+**NEW Status:**
+- **Blocked for all users** (cannot cancel)
+- Reason: Course is not yet formally in the system workflow
+- User must submit/register the course first before cancellation becomes available
+- Alternative: User can delete the draft course if needed
+
+**REGISTERED Status:**
+- All authorized users (Trainer, Lead, Head, Admin, Master Role) can cancel directly
+- Cancellation reason mandatory
+- Status: REGISTERED → CANCEL immediately
+- No approval workflow triggered
+- Rationale: Course is in queue but not yet approved, so cancellation has minimal impact
+
+**APPROVED and Later Statuses:**
+- **Lead, Head, Admin, Master Role:** Can cancel directly without approval
+- **Trainer:** Must go through approval workflow (see section 8.6.2)
+- Cancellation reason mandatory
+- Status transition depends on role:
+  - Non-Trainer roles: Current status → CANCEL immediately
+  - Trainer role: Current status → WAITING_APPROVAL_CANCEL
+
+---
+
+#### 8.6.4 Business Rules
+
+1. **NEW Status Block:** Courses with NEW status cannot be cancelled by anyone (not yet in workflow)
+2. **REGISTERED Status - Open Cancellation:** Courses with REGISTERED status can be cancelled by any authorized user without approval
+3. **APPROVED+ Trainer Cancellation:** Trainers must get approval from Head/Lead to cancel APPROVED or later status courses
+4. **APPROVED+ Management Cancellation:** Lead, Head, Admin, and Master Role can cancel APPROVED+ courses directly
+5. **Cancellation Reason Mandatory:** Cancellation reason required for all cancel actions
+6. **Auto-Cancel:** System auto-cancels NEW/REGISTERED courses if not APPROVED by start date
+7. **Notification Broadcast:** All course participants/trainers/PICs notified when course cancelled
+8. **History Tracking:** Cancellation reason and rejection reason (if applicable) recorded in Course History
+9. **Calendar Update:** Cancelled courses removed or displayed as "Cancelled" in calendars
+10. **No Revert:** Once CANCEL status is set, course cannot be re-activated (Master Role can edit if needed)
+
+---
+
+#### 8.6.5 UI Requirements
+
+**Cancel Button:**
+- Visible in: Course Details, Master Calendar context menu, Course List actions
+- Button states:
+  - Enabled: User has cancel permission for current status
+  - Disabled/Hidden: User cannot cancel for current status
+
+**Cancellation Modal:**
+- Title: "Cancel Course - [Course Code]"
+- Fields:
+  - Course Code (read-only)
+  - Course Name (read-only)
+  - Current Status (read-only)
+  - Cancellation Reason (textarea, mandatory, max 500 chars)
+- Buttons:
+  - [Submit Cancellation] - Primary action
+  - [Close] - Secondary action
+
+**Approval Modal (for approvers):**
+- Title: "Approve Course Cancellation - [Course Code]"
+- Fields:
+  - Course Code (read-only)
+  - Requested By (read-only)
+  - Cancellation Reason (read-only)
+  - Rejection Reason (textarea, mandatory if rejecting, max 500 chars)
+- Buttons:
+  - [Approve Cancellation] - Primary destructive action (red)
+  - [Reject] - Secondary action
+  - [Close] - Tertiary action
+
+---
 
 ### 8.7 Course Delete
 
-[Content will be adapted from original Section 8.3.3]
+**User Story:**  
+AS a Course Creator or Supervisor (Lead Region/Head Channel)  
+I NEED to delete a course in NEW status  
+SO THAT I can remove draft courses that are not yet submitted to the system workflow
+
+**Business Use Cases:**
+- Remove duplicate/test draft courses
+- Clean up abandoned course drafts
+- Delete courses created by mistake before submission
+
+**Entry Points:**
+- Course Details → [Delete] button
+- Master Calendar → Right-click → "Delete Course"
+- Course List → Actions → "Delete Course"
+
+---
+
+#### 8.7.1 Delete Authorization Matrix
+
+| Course Status | Course Creator | Supervisor (Lead Same Region OR Head Same Channel) | Other Users |
+|---------------|----------------|---------------------------------------------------|-------------|
+| NEW | **Yes** | **Yes** | **No** |
+| REGISTERED and later | **No** | **No** | **No** |
+
+**Key Rules:**
+1. Only NEW status courses can be deleted (hard delete)
+2. Course creator can delete their own NEW courses
+3. Supervisors can delete NEW courses in their organizational scope (same region/channel)
+4. REGISTERED+ courses must use Cancel function instead
+5. Delete is permanent - no recovery possible
+
+---
+
+#### 8.7.2 Delete vs Cancel
+
+| Course Status | Action | Type | Rationale |
+|---------------|--------|------|-----------|
+| NEW | **DELETE** | Hard delete | Draft not in workflow |
+| REGISTERED+ | **CANCEL** | Status change | Course in/past approval workflow |
+
+---
+
+#### 8.7.3 Delete Workflow
+
+**Process:**
+1. User clicks [Delete Course]
+2. System validates:
+   - User is creator OR supervisor (same region/channel)
+   - Course status = NEW
+3. Show confirmation dialog with course details
+4. User confirms → Hard delete from database
+5. Log deletion in audit trail
+6. Show success message and redirect
+
+**Confirmation Dialog:**
+
+```
+┌─────────────────────────────────────────────────────────┐
+│ Delete Course?                                    [✕]   │
+├─────────────────────────────────────────────────────────┤
+│                                                          │
+│ [WARNING] Are you sure you want to delete this course?  │
+│                                                          │
+│ Course Code: 8-HCMBC-SHINE-001                          │
+│ Course Name: SHINE Training Program                     │
+│ Creator: Nguyen Van A                                   │
+│                                                          │
+│ ⚠️  This action CANNOT be undone.                       │
+│                                                          │
+│ Reason (Optional): [________________]                   │
+│                                                          │
+│                              [Cancel]  [Delete Course]  │
+└─────────────────────────────────────────────────────────┘
+```
+
+
+---
 
 ### 8.8 Course Operations
 
@@ -4933,6 +6157,7 @@ The participant list displays all participants currently enrolled in the course,
 
 | Field | Description | Data Source |
 |-------|-------------|-------------|
+| Participant ID | Unique participant identifier | System-generated |
 | Name | Participant full name | Participant record |
 | Agent Code | Unique agent identifier | Participant record or API |
 | Email | Contact email address | Participant record |
@@ -4955,11 +6180,11 @@ The participant list displays all participants currently enrolled in the course,
 
 | Role | Can View List | Can Perform Operations |
 |------|---------------|------------------------|
-| Trainer | ✓ Yes | Limited (view only) |
-| Lead Region | ✓ Yes | ✓ Yes (within scope) |
-| Head Channel | ✓ Yes | ✓ Yes (within scope) |
-| Admin | ✓ Yes | ✓ Yes |
-| Master Role | ✓ Yes | ✓ Yes |
+| Trainer | Yes Yes | Limited (view only) |
+| Lead Region | Yes Yes | Yes Yes (within scope) |
+| Head Channel | Yes Yes | Yes Yes (within scope) |
+| Admin | Yes Yes | Yes Yes |
+| Master Role | Yes Yes | Yes Yes |
 
 ---
 
@@ -5049,11 +6274,11 @@ When Participant Failed the SHINE course, we allow them to re-take the SHINE cou
 
 | Role | Can Import | Course Type Restrictions |
 |------|------------|--------------------------|
-| Trainer | ✗ No | N/A |
-| Lead Region | ✓ Yes | Within channel and region scope |
-| Head Channel | ✓ Yes | Within channel scope |
-| Admin | ✓ Yes | All courses |
-| Master Role | ✓ Yes | All courses |
+| Trainer | No No | N/A |
+| Lead Region | Yes Yes | Within channel and region scope |
+| Head Channel | Yes Yes | Within channel scope |
+| Admin | Yes Yes | All courses |
+| Master Role | Yes Yes | All courses |
 
 ---
 
@@ -5123,11 +6348,11 @@ When Participant Failed the SHINE course, we allow them to re-take the SHINE cou
 
 | Role | Can Add Manually | Course Type Restrictions |
 |------|------------------|--------------------------|
-| Trainer | ✗ No | N/A |
-| Lead Region | ✓ Yes | Within channel and region scope |
-| Head Channel | ✓ Yes | Within channel scope |
-| Admin | ✓ Yes | All courses |
-| Master Role | ✓ Yes | All courses |
+| Trainer | No No | N/A |
+| Lead Region | Yes Yes | Within channel and region scope |
+| Head Channel | Yes Yes | Within channel scope |
+| Admin | Yes Yes | All courses |
+| Master Role | Yes Yes | All courses |
 
 ---
 
@@ -5163,11 +6388,11 @@ When Participant Failed the SHINE course, we allow them to re-take the SHINE cou
 
 | Role | Can Export |
 |------|------------|
-| Trainer | ✗ No |
-| Lead Region | ✓ Yes |
-| Head Channel | ✓ Yes |
-| Admin | ✓ Yes |
-| Master Role | ✓ Yes |
+| Trainer | No No |
+| Lead Region | Yes Yes |
+| Head Channel | Yes Yes |
+| Admin | Yes Yes |
+| Master Role | Yes Yes |
 
 ---
 
@@ -5215,11 +6440,11 @@ Eligible participants for MOF exam:
 
 | Role | Can Export for MOF |
 |------|-------------------|
-| Trainer | ✗ No |
-| Lead Region | ✓ Yes |
-| Head Channel | ✓ Yes |
-| Admin | ✓ Yes |
-| Master Role | ✓ Yes |
+| Trainer | No No |
+| Lead Region | Yes Yes |
+| Head Channel | Yes Yes |
+| Admin | Yes Yes |
+| Master Role | Yes Yes |
 
 ---
 
@@ -5271,11 +6496,11 @@ After participants finish MOF exam, Admin imports MOF exam result to LMS system.
 
 | Role | Can Import MOF Results |
 |------|------------------------|
-| Trainer | ✗ No |
-| Lead Region | ✓ Yes |
-| Head Channel | ✓ Yes |
-| Admin | ✓ Yes |
-| Master Role | ✓ Yes |
+| Trainer | No No |
+| Lead Region | Yes Yes |
+| Head Channel | Yes Yes |
+| Admin | Yes Yes |
+| Master Role | Yes Yes |
 
 ---
 
@@ -5326,11 +6551,11 @@ After participants finish MOF exam, Admin imports MOF exam result to LMS system.
 
 | Role | Can Confirm Passed |
 |------|-------------------|
-| Trainer | ✗ No |
-| Lead Region | ✗ No |
-| Head Channel | ✗ No |
-| Admin | ✓ Yes |
-| Master Role | ✓ Yes |
+| Trainer | No No |
+| Lead Region | No No |
+| Head Channel | No No |
+| Admin | Yes Yes |
+| Master Role | Yes Yes |
 
 ---
 
@@ -5374,11 +6599,11 @@ Admin can export passed participants with detailed information (final result = p
 
 | Role | Can Export Passed |
 |------|-------------------|
-| Trainer | ✗ No |
-| Lead Region | ✗ No |
-| Head Channel | ✗ No |
-| Admin | ✓ Yes |
-| Master Role | ✓ Yes |
+| Trainer | No No |
+| Lead Region | No No |
+| Head Channel | No No |
+| Admin | Yes Yes |
+| Master Role | Yes Yes |
 
 ---
 
@@ -5601,11 +6826,11 @@ System calculates final result automatically when:
 
 | Role | Can Manually Set Result |
 |------|-------------------------|
-| Trainer | ✗ No |
-| Lead Region | ✗ No |
-| Head Channel | ✓ Yes |
-| Admin | ✓ Yes |
-| Master Role | ✓ Yes |
+| Trainer | No No |
+| Lead Region | No No |
+| Head Channel | Yes Yes |
+| Admin | Yes Yes |
+| Master Role | Yes Yes |
 
 ---
 
@@ -5851,7 +7076,7 @@ The PIC Calendar uses a 2-dimensional matrix layout:
 │  PIC Calendar                                       November 2025   │
 ├────────────────────────────────────────────────────────────────────┤
 │  Filters: [All Channels ▼] [All Regions ▼] [All Types ▼]          │
-│  ☑ Show Trainers                                                    │
+│  [X] Show Trainers                                                    │
 ├────────────────────────────────────────────────────────────────────┤
 │                                                                      │
 │  ┌──────────────┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐    │
@@ -5914,7 +7139,7 @@ SO THAT I can focus on specific trainers and reduce visual clutter
 **Customization Features:**
 
 **1. Show/Hide Trainers Toggle:**
-- **Checkbox:** "☑ Show Trainers" in calendar header
+- **Checkbox:** "[X] Show Trainers" in calendar header
 - **Default State:** Checked (trainers visible)
 - **Behavior:**
   - **Checked:** Trainer column visible, matrix layout displayed
@@ -5936,8 +7161,8 @@ SO THAT I can focus on specific trainers and reduce visual clutter
    - Close button (✕) in top-right corner
 
 2. **Bulk Actions:**
-   - "✓ Select All" button - selects all trainers
-   - "✗ Deselect All" button - clears all selections
+   - "Select All" button - selects all trainers
+   - "Deselect All" button - clears all selections
 
 3. **Trainer List:**
    - Scrollable list of all trainers with courses in current month
@@ -6328,16 +7553,16 @@ Display and manage course cancellation requests awaiting approval.
 **Display Columns:**
 | Column | Description | All Tabs |
 |--------|-------------|----------|
-| Course Code | Unique course identifier (clickable link to course details page) | ✓ |
-| Course Name | Full course name | ✓ |
-| Course Type | SHINE/Product/Skill | ✓ |
-| Requester | User who submitted request | ✓ |
-| Request Date | When request was submitted | ✓ |
-| Course Start Date | Scheduled start date | ✓ |
-| Region | Course region | ✓ |
-| Channel | Course channel | ✓ |
-| Days Pending | Days since request submitted | ✓ |
-| Actions | Approve/Reject buttons | ✓ |
+| Course Code | Unique course identifier (clickable link to course details page) | Yes |
+| Course Name | Full course name | Yes |
+| Course Type | SHINE/Product/Skill | Yes |
+| Requester | User who submitted request | Yes |
+| Request Date | When request was submitted | Yes |
+| Course Start Date | Scheduled start date | Yes |
+| Region | Course region | Yes |
+| Channel | Course channel | Yes |
+| Days Pending | Days since request submitted | Yes |
+| Actions | Approve/Reject buttons | Yes |
 
 **Navigation:**
 - Course Code is a clickable link that navigates to the course details page
@@ -6401,7 +7626,7 @@ The Master Calendar uses a 2-dimensional matrix layout:
 │  Master Calendar                                    November 2025   │
 ├────────────────────────────────────────────────────────────────────┤
 │  Filters: [All Channels ▼] [All Regions ▼] [All Types ▼]          │
-│  ☑ Show Programs    [⚙ Customize Programs]                         │
+│  [X] Show Programs    [SETTINGS - Customize Programs]                         │
 ├────────────────────────────────────────────────────────────────────┤
 │                                                                      │
 │  ┌──────────────┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐    │
@@ -6536,7 +7761,7 @@ SO THAT I can focus on relevant programs and reduce visual clutter
 **Customization Features:**
 
 **1. Show/Hide Programs Toggle:**
-- **Checkbox:** "☑ Show Programs" in calendar header
+- **Checkbox:** "[X] Show Programs" in calendar header
 - **Default State:** Checked (programs visible)
 - **Behavior:**
   - **Checked:** Program column visible, matrix layout displayed
@@ -6558,8 +7783,8 @@ SO THAT I can focus on relevant programs and reduce visual clutter
    - Close button (✕) in top-right corner
 
 2. **Bulk Actions:**
-   - "✓ Select All" button - selects all programs
-   - "✗ Deselect All" button - clears all selections
+   - "Select All" button - selects all programs
+   - "Deselect All" button - clears all selections
    - Both buttons positioned at top of modal body
 
 3. **Program List:**
@@ -6765,7 +7990,7 @@ SO THAT I can focus on relevant programs and reduce visual clutter
 ```
 ┌────────────────────────────────────────────────────────────┐
 │                                                             │
-│                    ⚙️                                       │
+│                    [SETTINGS]                               │
 │                                                             │
 │         No programs selected                                │
 │                                                             │
@@ -7023,7 +8248,7 @@ SO THAT I can quickly schedule courses with pre-filled program and date informat
 │ Delete Course?                                    [✕]   │
 ├─────────────────────────────────────────────────────────┤
 │                                                          │
-│ ⚠️ Are you sure you want to delete this course?        │
+│ [WARNING] Are you sure you want to delete this course?        │
 │                                                          │
 │ Course Code: 8-HCMBC-SHINE-001                          │
 │ Course Name: SHINE Training Program                     │
@@ -7089,6 +8314,116 @@ Lists manage is a menu to manage Master Data in LMS system. Root Admin can add n
 | 24  | Team user                 |
 | 25  | list-course-status        |
 | 26  | Course Area               |
+| 27  | Holiday Calendar          |
+
+---
+
+### 11.1 Holiday Calendar Configuration
+
+**User Story:**  
+AS a Root Admin  
+I NEED to configure holiday dates  
+SO THAT the system can warn users when scheduling courses on holidays
+
+**Business Use Cases:**
+- Configure national holidays (Lunar New Year, National Day, Hung Kings' Festival, etc.)
+- Configure company-specific holidays
+- Prevent accidental scheduling on holidays with warning system
+
+**Master Data Fields:**
+
+| Field | Type | Required | Description | Example | Validation |
+|-------|------|----------|-------------|---------|------------|
+| Holiday Name | Text | Yes | Holiday name | Lunar New Year Day 1 | Max 100 characters |
+| Holiday Date | Date | Yes | Holiday date | 29/01/2025 | DD/MM/YYYY format |
+| Holiday Type | Dropdown | Yes | Type of holiday | National | Values: National/Company |
+| Year | Integer | Yes | Applicable year | 2025 | Current year or future years only |
+| Is Active | Checkbox | Yes | Active status | ✓ | Default: Active |
+
+**Holiday Type Values:**
+
+| Type | Scope | Description |
+|------|-------|-------------|
+| National | All courses | Applies to entire country (e.g., National Day, Lunar New Year, Hung Kings' Festival) |
+| Company | All courses | Company-specific holidays (e.g., Company Anniversary, Training Department Day) |
+
+**UI Requirements:**
+
+1. **Holiday List View:**
+   - Display all holidays sorted by date (ascending)
+   - Filter by: Year, Holiday Type, Status (Active/Inactive)
+   - Search by holiday name
+   - Actions: Add New, Edit, Delete, Activate/Deactivate
+
+2. **Add/Edit Holiday Form:**
+   - All fields in single form
+   - Date picker for Holiday Date
+   - Dropdown for Holiday Type
+   - Save/Cancel buttons
+   - Validation on save
+
+**Integration with Course Planning:**
+
+**1. Course Creation - Auto Planning Generation:**
+- System checks holiday calendar when generating stage schedule
+- Skips holiday dates when creating stages
+- If course spans holidays, stages scheduled around holiday dates
+- No blocking - planning can still include holidays if manually adjusted
+
+**2. Manual Planning Edit:**
+- When user schedules stage on holiday date, display warning modal:
+  ```
+  ⚠️ Warning: Holiday Detected
+  
+  29/01/2025 is Lunar New Year Day 1 (National Holiday)
+  
+  Do you want to schedule a stage on this date?
+  
+  [Cancel] [Continue Anyway]
+  ```
+- Warning only - user can override by clicking "Continue Anyway"
+- Warning appears when:
+  - Adding new stage
+  - Editing existing stage to holiday date
+  - Uploading planning file with holiday dates
+
+**3. Calendar Display:**
+- Holidays marked with light red/pink background (#ffebee) in Master/PIC Calendar
+- Holiday indicator (🗓️) shown on date
+- Tooltip on hover: "🗓️ [Holiday Name] ([Holiday Type])"
+- Example: "🗓️ Lunar New Year Day 1 (National Holiday)"
+
+**Business Rules:**
+
+1. **Holiday Check:** System checks stage start date against active holidays for matching year and displays warning (non-blocking)
+2. **Override:** All authorized users can override holiday warnings; override recorded in Course History
+3. **Warning Only:** Holiday warnings are informational only; system never blocks stage creation on holidays
+
+**Example Scenarios:**
+
+**Scenario 1: National Holiday**
+- Admin creates course spanning 28/01/2025 - 05/02/2025
+- 29/01/2025 is Lunar New Year Day 1 (National)
+- System auto-generates stages skipping 29/01:
+  - Stages on: 28/01 AM, 28/01 PM, 30/01 AM, 30/01 PM, etc.
+  - Gap on 29/01
+
+**Scenario 2: User Override**
+- Admin manually adds stage on 29/01/2025 (Lunar New Year)
+- Warning modal appears
+- Admin clicks "Continue Anyway"
+- Stage created, history recorded: "Stage scheduled on holiday: Lunar New Year Day 1 on 29/01/2025 by Admin User"
+
+**Authorization:**
+
+| Role | Can Configure Holidays | Can Override Holiday Warning |
+|------|----------------------|----------------------------|
+| Root Admin | Yes | Yes |
+| Admin | No | Yes |
+| Master Role | No | Yes |
+| Head Channel | No | Yes |
+| Lead Region | No | Yes |
+| Trainer | No | Yes (for own courses) |
 
 ---
 
