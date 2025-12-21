@@ -1,0 +1,524 @@
+# API Document Specification
+
+## Project Information
+
+**Project:** LEARNING MANAGEMENT SYSTEM (LMS)
+
+**Document Type:** API Document Specification
+
+---
+
+## Document History
+
+| Version | Date Approved | Description |
+|---------|---------------|-------------|
+| 1.0.0 | {DD/MM/YYYY} | API (Integration with LMS): Course List (ERecruiter), AOL Exam, AA Portal, Participant, Course Status, Delete Participant from Course |
+| 1.1.0 | 06/10/2022 | Update: API Participant, License codes, Rule for null and empty string, AAPortal API, License codes |
+| 2.0.0 | - | - |
+
+---
+
+## Document Review and Approval
+
+| Function/Department | Reviewed and Agreed By | Approved By |
+|---------------------|------------------------|-------------|
+| Project Owner | {Name/Signature/Date} | {Name/Signature/Date} |
+| Stakeholders | {Name/Signature/Date} | {Name/Signature/Date} |
+
+---
+
+## TABLE OF CONTENTS
+
+1. [ECOSYSTEM OVERVIEW](#1-ecosystem-overview)
+2. [TECHNICAL DESCRIPTION](#2-technical-description)
+   - 2.1 [System Context Diagram](#21-system-context-diagram)
+   - 2.2 [Integration Overview](#22-integration-overview)
+   - 2.3 [Participant API](#23-participant-api)
+   - 2.4 [Attendance API](#24-attendance-api)
+   - 2.5 [CourseList API (ERecruiter)](#25-courselist-api-erecruiter)
+   - 2.6 [UpdateAOLExam API](#26-updateaolexam-api)
+   - 2.7 [AAPortal API](#27-aaportal-api)
+   - 2.8 [Course Status API](#28-course-status-api)
+   - 2.9 [Delete Participant from Course API](#29-delete-participant-from-course-api)
+
+---
+
+## 1. ECOSYSTEM OVERVIEW
+
+This document describes how to integrate HTTP Methods between FWD systems and Learning Management System (LMS).
+
+The parameters and URL names in the document are those of the Test environment.
+
+---
+
+## 2. TECHNICAL DESCRIPTION
+
+### 2.1 System Context Diagram
+
+The following diagram illustrates the integration between LMS and external systems:
+
+```mermaid
+graph LR
+    %% External Systems
+    Participant[("Participant<br/>System")]
+    ERecruiter[("CourseList<br/>(ERecruiter)")]
+    UpdateAOL[("UpdateAOLExam")]
+    AAPortal[("AAPortal")]
+    ECheck[("E-CHECK<br/>(Attendance)")]
+    ADAuth[("AD Authentication")]
+    
+    %% Central LMS
+    LMS[("LMS<br/>(Learning Management System)")]
+    
+    %% API Connections
+    Participant -->|"REST (POST)<br/>/lms/external/participant/create"| LMS
+    ERecruiter -->|"REST (GET)<br/>/lms/external/course/courseList"| LMS
+    UpdateAOL -->|"REST (POST)<br/>/api/external/course/updateAOLExam"| LMS
+    AAPortal -->|"REST (POST)<br/>/lms/external/AAPortal/licenseShine"| LMS
+    ECheck -->|"REST (POST)<br/>/lms/external/eCheck/attendance"| LMS
+    ADAuth -->|"Agent login<br/>/AdAuth/idap/agentLogin<br/>http://10.19.69.30:8080/AdAuth/idap/agentLogin"| LMS
+    
+    %% Outbound APIs
+    LMS -->|"REST (GET)<br/>/external/course/courseStatus/{courseCode}"| GetStatus[("Get Course<br/>Status")]
+    LMS -->|"REST (DELETE)<br/>/external/course/delete/{courseCode}/{participantId}"| DeletePart[("Delete<br/>Participant")]
+    
+    %% Styling
+    classDef externalSystem fill:#E3F2FD,stroke:#1976D2,stroke-width:2px
+    classDef lmsSystem fill:#FFF9C4,stroke:#F57C00,stroke-width:3px
+    classDef outbound fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px
+    
+    class Participant,ERecruiter,UpdateAOL,AAPortal,ECheck,ADAuth externalSystem
+    class LMS lmsSystem
+    class GetStatus,DeletePart outbound
+```
+
+### 2.2 Integration Overview
+
+**Inbound APIs (External Systems → LMS):**
+
+| System | Endpoint | Method | Purpose |
+|--------|----------|--------|---------|
+| Participant System | `/lms/external/participant/create` | POST | Create and assign participant to course |
+| CourseList (ERecruiter) | `/lms/external/course/courseList` | GET | Get confirmed course list |
+| UpdateAOLExam | `/api/external/course/updateAOLExam` | POST | Update AOL exam results |
+| AAPortal | `/lms/external/AAPortal/licenseShine` | POST | Update license and SHINE code |
+| E-CHECK (Attendance) | `/lms/external/eCheck/attendance` | POST | Attendance check sync |
+| AD Authentication | `/AdAuth/idap/agentLogin` | POST | Agent login authentication |
+
+**Outbound APIs (LMS → External Systems):**
+
+| Endpoint | Method | Purpose |
+|----------|--------|---------|
+| `/external/course/courseStatus/{courseCode}` | GET | Get course status by course code |
+| `/external/course/delete/{courseCode}/{participantId}` | DELETE | Delete participant from course |
+
+---
+
+### 2.3 Participant API
+
+**Purpose:** Create and assign participant to course
+
+**Method:** HTTP-POST
+
+**URL:** `https://{domain:port}/lms/external/participant/create`
+
+**Note:** When calling participant API to update participant:
+- **Empty string:** Update the field data to be empty
+- **Null string:** Do not update the field data
+
+#### Request Parameters
+
+| Key | Required | Data Type | Length | Description |
+|-----|----------|-----------|--------|-------------|
+| **Basic Information** |
+| accountName | No | String | - | - |
+| accountNumber | No | String | - | - |
+| genderCode | No | String | - | - |
+| gender | No | String | - | - |
+| middleName | No | String | - | - |
+| mobilePhone | Yes | String | - | - |
+| email | Yes | String | - | - |
+| lastName | No | String | - | - |
+| firstName | No | String | - | - |
+| fullName | Yes | String | - | - |
+| birthPlace | Yes | String | - | - |
+| birthday | No | Date | - | - |
+| terDate | No | Date | - | - |
+| **Bank Information** |
+| bankBranchCode | No | String | - | - |
+| bankCode | No | String | - | - |
+| bank | No | String | - | - |
+| bankBranch | No | String | - | - |
+| **Identification** |
+| idNumber | Yes | String | - | ID number |
+| idType | No | String | - | - |
+| idTypeCode | No | String | - | - |
+| oldIdNumber | No | String | - | The old ID number for LMS to determine if there is a new update |
+| issueDate | Yes | Date | - | - |
+| issuePlace | Yes | String | - | - |
+| **Personal Details** |
+| religionCode | No | String | - | - |
+| taxCode | No | String | - | - |
+| educationCode | No | String | - | - |
+| education | No | String | - | - |
+| maritalStatusCode | No | String | - | - |
+| maritalStatus | No | String | - | - |
+| nationality | No | String | - | - |
+| nationalityCode | No | String | - | - |
+| religion | No | String | - | - |
+| **Work Information** |
+| channel | No | String | - | Value in list: "CA; Banca_FSC; Agency; Banker" |
+| leaderCode | No | String | - | - |
+| leaderName | No | String | - | - |
+| leaderTitle | No | String | - | - |
+| title | No | String | - | - |
+| agentCode | No | String | - | - |
+| agentCodeIssueDate | No | Date | - | - |
+| courseCode | Yes | String | - | Reject if wrong course code |
+| adName | No | String | - | - |
+
+#### Nested Objects
+
+**participantReferences** (List)
+
+| Key | Data Type | Description |
+|-----|-----------|-------------|
+| fullName | String | - |
+| position | String | - |
+| relationship | String | - |
+
+**participantRegistration** (Object)
+
+| Key | Data Type | Description |
+|-----|-----------|-------------|
+| applicationNo | String | - |
+| approverCode | String | - |
+| dateOfIssue | Date | - |
+| introducerCode | String | - |
+| introducerName | String | - |
+| lastUpdateDate | Date | - |
+| occupationCode | String | - |
+| passionQuestion | String | - |
+| positionCode | String | - |
+| projectCode | String | - |
+| projectName | String | - |
+| recruiterCode | String | - |
+| recruiterName | String | - |
+| refNo | String | - |
+| reporterCode | String | - |
+| reporterName | String | - |
+| status | String | - |
+| submissionDate | Date | - |
+| type | String | - |
+| occupation | String | - |
+| approverName | String | - |
+| approverDate | Date | - |
+| locationCode | String | - |
+| locationName | String | - |
+| clazzCode | String | - |
+| clazzName | String | - |
+| skipExam | Number | - |
+
+**participantRelationships** (List)
+
+| Key | Data Type | Description |
+|-----|-----------|-------------|
+| accommodation | String | - |
+| dateOfBirth | Date | - |
+| fullName | String | - |
+| jobTitle | String | - |
+| relationship | String | - |
+| phone | String | - |
+| relationship1 | String | - |
+
+**participantWorkingExperiences** (List)
+
+| Key | Data Type | Description |
+|-----|-----------|-------------|
+| description | String | - |
+| expYears | String | - |
+| majorCode | String | - |
+| major | String | - |
+
+**homeAddress** (Object)
+
+| Key | Data Type | Description |
+|-----|-----------|-------------|
+| addressLine1 | String | - |
+| addressLine2 | String | - |
+| addressLine3 | String | - |
+| city | String | - |
+| cityCode | String | - |
+| district | String | - |
+| districtCode | String | - |
+
+**businessAddress** (Object)
+
+| Key | Data Type | Description |
+|-----|-----------|-------------|
+| addressLine1 | String | - |
+| addressLine2 | String | - |
+| addressLine3 | String | - |
+| city | String | - |
+| cityCode | String | - |
+| district | String | - |
+| districtCode | String | - |
+
+**licenseCodes** (Object)
+
+| Key | Data Type | Description |
+|-----|-----------|-------------|
+| typeUpdate | String | Replace all the existing license code of the participant once this API is called to input the new list license code |
+| licenseCode | String | - |
+| licenseName | String | - |
+| effectiveDate | Date | - |
+
+**participantSupportDocument** (Object)
+
+| Key | Data Type | Description |
+|-----|-----------|-------------|
+| passport | String | - |
+| image | String | - |
+| applicationResignation | String | - |
+| electronicSignature | String | - |
+| proofOfResidence | String | - |
+| otherDocument | String | - |
+
+#### Response
+
+| Key | Data Type | Description |
+|-----|-----------|-------------|
+| result | String | "Success" or "Error" |
+| errorMessage | String | Error message |
+| data | Object | Default is NULL |
+| footer | Object | Default is NULL |
+
+---
+
+### 2.4 Attendance API
+
+**Purpose:** Post the attendance record to each participant in course
+
+**Method:** HTTP-POST
+
+**URL:** `https://{domain:port}/lms/external/attendance/sync`
+
+#### Request Parameters
+
+| Key | Required | Data Type | Description |
+|-----|----------|-----------|-------------|
+| participantIdNumber | Yes | String | - |
+| courseCode | Yes | String | Example: "courseCode": "90-HCMAG-Shine" |
+| stageNumber | Yes | Number | Example: Update attendance check for stage 1 then enter: "stageNumber": 1 |
+| dateScan | Yes | Date | Format: yyyy-mm-dd hh:mm:ss |
+| note | No | String | - |
+
+#### Response
+
+| Key | Data Type | Description |
+|-----|-----------|-------------|
+| result | String | "Success" or "Error" |
+| errorMessage | String | Error message |
+| data | Object | Default is NULL |
+| footer | Object | Default is NULL |
+
+---
+
+### 2.5 CourseList API (ERecruiter)
+
+**Purpose:** Get lists of Courses by Date
+
+**Method:** HTTP-GET
+
+**URL:** `https://{domain:port}/lms/external/course/courseList?{date}`
+
+#### Request Parameters
+
+| Key | Required | Data Type | Description |
+|-----|----------|-----------|-------------|
+| date | No | Date | Format: (yyyy-MM-dd). Return list of SHINE courses with status APPROVED since the entered date |
+
+#### Response
+
+| Key | Data Type | Description |
+|-----|-----------|-------------|
+| result | String | "Success" or "Error" |
+| errorMessage | String | Error message |
+| data | List | List of course objects |
+| footer | Object | Default is NULL |
+
+**Data Object Fields:**
+
+| Key | Data Type | Description |
+|-----|-----------|-------------|
+| courseCode | String | - |
+| name | String | - |
+| description | String | - |
+| startTime | Date | - |
+| endTime | Date | - |
+| region | String | - |
+| courseType | String | Value in list: "Shine; Skill; Product" |
+| channel | String | Value in list: "CA; Banca; Agency; Banker" |
+
+**Venue Object:**
+
+| Key | Data Type | Description |
+|-----|-----------|-------------|
+| address | String | - |
+| districtCode | String | - |
+| cityCode | String | - |
+| district | String | - |
+| city | String | - |
+| ward | String | - |
+| wardCode | String | - |
+
+---
+
+### 2.6 UpdateAOLExam API
+
+**Purpose:** Update AOL Exam Result
+
+**Method:** HTTP-POST
+
+**URL:** `https://{domain:port}/api/external/course/updateAOLExam`
+
+#### Request Parameters
+
+| Key | Required | Data Type | Description |
+|-----|----------|-----------|-------------|
+| examCode | Yes | String | - |
+| idNumber | Yes | String | - |
+| examName | Yes | String | - |
+| beginningDate | Yes | Date | - |
+| endingDate | No | Date | - |
+| data | Yes | List | List of exam results |
+
+**Data Object Fields:**
+
+| Key | Data Type | Description |
+|-----|-----------|-------------|
+| examName | String | - |
+| score | Number | - |
+| ratio | Number | - |
+| status | String | - |
+| dateFinished | Date | - |
+
+#### Response
+
+| Key | Data Type | Description |
+|-----|-----------|-------------|
+| result | String | "Success" or "Error" |
+| errorMessage | String | Error message |
+| data | Object | Default is NULL |
+| footer | Object | Default is NULL |
+
+---
+
+### 2.7 AAPortal API
+
+**Purpose:** Certified SHINE-Code implementation for Participant
+
+**Method:** HTTP-POST
+
+**URL:** `https://{domain:port}/lms/external/AAPortal/licenseShine`
+
+#### Request Parameters
+
+| Key | Required | Data Type | Description |
+|-----|----------|-----------|-------------|
+| request | Yes | List | List of certification requests |
+
+**Request Object Fields:**
+
+| Key | Required | Data Type | Description |
+|-----|----------|-----------|-------------|
+| idNumber | Yes | String | ID number |
+| courseCode | Yes | String | - |
+| shineCode | Yes | String | SHINE code (cert) |
+| licenseCodes | No | Object | Replace all the existing license code of the participant once this API is called to input the new list license code |
+| effectiveDate | Yes | Date | Format: yyyy-mm-dd |
+
+**licenseCodes Object:**
+
+| Key | Data Type | Description |
+|-----|-----------|-------------|
+| licenseCode | String | - |
+| licenseName | String | - |
+
+#### Response
+
+| Key | Data Type | Description |
+|-----|-----------|-------------|
+| result | String | "Success" or "Error" |
+| errorMessage | String | Error message |
+| data | Object | Default is NULL |
+| footer | Object | Default is NULL |
+
+---
+
+### 2.8 Course Status API
+
+**Purpose:** Get status of Course by CourseCode
+
+**Method:** HTTP-GET
+
+**URL:** `https://{domain:port}/external/course/courseStatus/{courseCode}`
+
+#### Request Parameters
+
+| Key | Required | Data Type | Description |
+|-----|----------|-----------|-------------|
+| courseCode | Yes | String | - |
+
+#### Response
+
+| Key | Data Type | Description |
+|-----|-----------|-------------|
+| result | String | "Success" or "Error" |
+| errorMessage | String | Error message |
+| data | Object | Course status object |
+| footer | Object | Default is NULL |
+
+**Data Object Fields:**
+
+| Key | Data Type | Description |
+|-----|-----------|-------------|
+| id | Number | - |
+| courseCode | String | - |
+| courseName | String | - |
+| status | String | Value in list: "NEW; REGISTERED; APPROVED; CANCEL; IN_PROGRESS; DELETE; WAITING_CANCEL; WAITING_DELETE; FINISH; WAITING_EDIT" |
+| channel | String | Value in list: "CA; Banca_FSC; Agency; Banker" |
+| courseType | String | Value in list: "Shine; Skill; Product" |
+| licenseType | String | - |
+| startTime | Date | - |
+| endTime | Date | - |
+
+---
+
+### 2.9 Delete Participant from Course API
+
+**Purpose:** Delete Participant from Course by CourseCode and ParticipantId
+
+**Method:** HTTP-DELETE
+
+**URL:** `https://{domain:port}/external/course/delete/{courseCode}/{participantId}`
+
+#### Request Parameters
+
+| Key | Required | Data Type | Description |
+|-----|----------|-----------|-------------|
+| courseCode | Yes | String | - |
+| participantId | Yes | Number | - |
+
+#### Response
+
+| Key | Data Type | Description |
+|-----|-----------|-------------|
+| result | String | "Success" or "Error" |
+| errorMessage | String | Error message |
+| data | Object | Default is NULL |
+| footer | Object | Default is NULL |
+
+---
+
+## End of Document
