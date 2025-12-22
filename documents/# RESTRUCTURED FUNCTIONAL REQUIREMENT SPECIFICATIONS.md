@@ -49,7 +49,6 @@
      - 7.1.8 [Module Integration Points](#718-module-integration-points)
      - 7.1.9 [Module Authorization Matrix](#719-module-authorization-matrix)
      - 7.1.10 [Module Validation Rules](#7110-module-validation-rules)
-     - 7.1.11 [Module UI/UX Considerations](#7111-module-uiux-considerations)
    - 7.2 [Product](#72-product)
      - 7.2.1 [Product Data Structure](#721-product-data-structure)
      - 7.2.2 [Product Listing Page](#722-product-listing-page)
@@ -61,7 +60,6 @@
      - 7.2.8 [Product Integration Points](#728-product-integration-points)
      - 7.2.9 [Product Authorization Matrix](#729-product-authorization-matrix)
      - 7.2.10 [Product Validation Rules](#7210-product-validation-rules)
-     - 7.2.11 [Product UI/UX Considerations](#7211-product-uiux-considerations)
    - 7.3 [Program](#73-program)
      - 7.3.1 [Program Data Structure](#731-program-data-structure)
      - 7.3.2 [Program Management Features](#732-program-management-features)
@@ -91,7 +89,7 @@
        - 8.3.1.2 [Course Approval Actions](#8312-course-approval-actions)
      - 8.3.2 [Course History](#832-course-history)
      - 8.3.3 [Course Planning Tab](#833-course-planning-tab)
-     - 8.3.4 [Course Participant Tab Overview](#834-course-participant-tab-overview)
+     - 8.3.4 [Course Participant Tab](#834-course-participant-tab)
    - 8.4 [Course Registration](#84-course-registration)
      - 8.4.1 [Registration Process](#841-registration-process)
      - 8.4.2 [Registration Approval Workflow](#842-registration-approval-workflow)
@@ -101,11 +99,13 @@
      - 8.5.2 [Edit Approval Workflow](#852-edit-approval-workflow)
      - 8.5.3 [Field-Level Restrictions](#853-field-level-restrictions)
    - 8.6 [Course Cancel](#86-course-cancel)
-     - 8.6.1 [Cancellation Process](#861-cancellation-process)
+     - 8.6.1 [Cancel Authorization Matrix](#861-cancel-authorization-matrix)
      - 8.6.2 [Cancel Approval Workflow](#862-cancel-approval-workflow)
+     - 8.6.3 [Direct Cancellation (No Approval)](#863-direct-cancellation-no-approval)
+     - 8.6.4 [Business Rules](#864-business-rules)
    - 8.7 [Course Delete](#87-course-delete)
-     - 8.7.1 [Delete Authorization](#871-delete-authorization)
-     - 8.7.2 [Soft Delete vs Hard Delete](#872-soft-delete-vs-hard-delete)
+     - 8.7.1 [Delete Authorization Matrix](#871-delete-authorization-matrix)
+     - 8.7.2 [Delete Workflow](#872-delete-workflow)
    - 8.8 [Course Operations](#88-course-operations)
      - 8.8.1 [Course Participant List](#881-course-participant-list)
      - 8.8.2 [Add Participant to Course with Import File](#882-add-participant-to-course-with-import-file)
@@ -146,9 +146,7 @@
       - 10.1.5 [Month Navigation](#1015-month-navigation)
       - 10.1.6 [Interactive Features](#1016-interactive-features)
       - 10.1.7 [Empty State Handling](#1017-empty-state-handling)
-      - 10.1.8 [Responsive Design](#1018-responsive-design)
       - 10.1.9 [Performance Optimization](#1019-performance-optimization)
-      - 10.1.10 [Accessibility](#10110-accessibility)
       - 10.1.11 [Program-Based Course Creation](#10111-program-based-course-creation)
     - 10.2 [Create Course in Master Calendar](#102-create-course-in-master-calendar)
     - 10.3 [Other Actions in Master Calendar](#103-other-actions-in-master-calendar)
@@ -182,7 +180,7 @@
 | AS Portal      | Agent Support Portal                         |
 | DMS            | The core system of FWD                       |
 | E-check        | The system to check participant's attendance |
-| AOL            | Agent Online Learning                        |
+| AOL            | AOL exam that participant will need to take when attending the MOF and Product Course                                          |
 | AD             | Agent Admin, manager of Agent                |
 | MOF            | Ministry of Finance                          |
 | LMS            | Learning Management System                   |
@@ -1474,63 +1472,6 @@ SO THAT the system can warn when scheduling trainers during unavailable dates
 
 ---
 
-#### 5.4.7 UI Requirements
-
-**Unavailability Tab in Trainer Details:**
-
-Add new tab to Trainer Details page (Section 5.3):
-
-```
-[General] [Address] [Experience] [Education] [Unavailability] [History] [Road Map]
-```
-
-**Tab Content:**
-- List of all unavailability periods for this trainer
-- [+ Add Unavailable Period] button
-- Filter/sort options (simplified view)
-- Export button
-
-**Add/Edit Modal:**
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│ Add Unavailable Period                            [✕ Close] │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│ Trainer: *                                                   │
-│ ┌────────────────────────────────────────────────────────┐  │
-│ │ John Doe                                        ▼      │  │
-│ └────────────────────────────────────────────────────────┘  │
-│                                                              │
-│ Start Date: *          End Date: *                           │
-│ ┌──────────────────┐   ┌──────────────────┐                 │
-│ │ DD/MM/YYYY   📅  │   │ DD/MM/YYYY   📅  │                 │
-│ └──────────────────┘   └──────────────────┘                 │
-│                                                              │
-│ Unavailability Type: *                                       │
-│ ┌────────────────────────────────────────────────────────┐  │
-│ │ Vacation                                        ▼      │  │
-│ └────────────────────────────────────────────────────────┘  │
-│                                                              │
-│ Reason: (Optional)                                           │
-│ ┌────────────────────────────────────────────────────────┐  │
-│ │ Annual leave                                            │  │
-│ └────────────────────────────────────────────────────────┘  │
-│                                                              │
-│ ☑ Active                                                     │
-│                                                              │
-│                                      [Cancel]  [Save]        │
-└─────────────────────────────────────────────────────────────┘
-```
-
-**History Tracking:**
-
-All actions recorded with format:
-- "Unavailable period added: [Trainer] from [Start] to [End] ([Type]) by [User] on [Timestamp]"
-- "Unavailable period updated: [Trainer] from [Start] to [End] by [User] on [Timestamp]"
-- "Unavailable period deleted: [Trainer] from [Start] to [End] by [User] on [Timestamp]"
-
----
 
 ### 5.5 Authorization Matrix
 
@@ -2266,46 +2207,7 @@ SO THAT I can mark participants as active or inactive based on their employment 
 
 ---
 
-### 6.8 Participant UI/UX Considerations
-
-**List Page:**
-
-- **Loading States:** Show skeleton loaders while fetching data
-- **Empty State:** Display helpful message when no participants found
-- **Error State:** Show error message with retry option
-- **Bulk Actions:** Select multiple participants for export
-- **Keyboard Navigation:** Support arrow keys and shortcuts
-- **Responsive:** Mobile-friendly table with horizontal scroll
-
-**Details Page:**
-
-- **Tab Navigation:** Use tabs for different sections if too much information
-- **Sticky Header:** Keep participant name and key info visible when scrolling
-- **Auto-Save:** Auto-save draft changes to prevent data loss
-- **Unsaved Changes Warning:** Prompt user before leaving page with unsaved changes
-- **Loading Indicators:** Show loading state when saving/fetching data
-- **Success Notifications:** Toast notification after successful save
-- **Error Handling:** Clear error messages with actionable suggestions
-
-**Form Interactions:**
-
-- **Field Validation:** Real-time validation with inline error messages
-- **Required Field Indicators:** Asterisk (*) for required fields
-- **Help Text:** Tooltip or help icon for complex fields
-- **Autocomplete:** Suggest values for common fields (e.g., bank names)
-- **Date Pickers:** Calendar widget for date fields
-- **Dropdown Search:** Searchable dropdowns for long lists
-
-**Performance:**
-
-- **Lazy Loading:** Load sections on demand (e.g., audit log)
-- **Pagination:** Paginate long lists (addresses, experiences, audit log)
-- **Image Optimization:** Compress and lazy-load document previews
-- **Caching:** Cache participant data for faster navigation
-
----
-
-### 6.9 Participant Integration Points
+### 6.8 Participant Integration Points
 
 **Integration with Other Modules:**
 
@@ -2347,7 +2249,7 @@ flowchart TD
 
 ---
 
-### 6.10 Future Enhancements
+### 6.9 Future Enhancements
 
 **Planned Features:**
 
@@ -5237,9 +5139,74 @@ SO THAT I can quickly import complex course schedules from Excel
 
 ---
 
-#### 8.3.4 Course Participant Tab Overview
+#### 8.3.4 Course Participant Tab
 
-[Content will be copied from original Section 10.2.4]
+**User Story:**  
+AS a user viewing course details  
+I NEED a dedicated tab to view and manage course participants  
+SO THAT I can access all participant-related operations in one place
+
+**Tab Purpose:**  
+The Participant Tab provides a centralized interface for viewing enrolled participants and performing participant operations within the course context.
+
+**Tab Location:** Course Details Screen → Participant Tab (alongside General Info, Planning tabs)
+
+---
+
+**Tab Layout:**
+
+**Top Action Bar:**
+- Add Participants button (Section 8.8.3)
+- Import Participants button (Section 8.8.2)
+- Export Participants button (Section 8.8.4)
+- Refresh button
+
+**Main Content Area:**
+- Participant list table with search and filter (Section 8.8.1)
+- Pagination controls
+- Bulk selection and operations
+
+**Per-Row Actions:**
+- View participant details
+- Edit participant (if authorized)
+- Remove from course (if authorized)
+
+---
+
+**Authorization:**
+
+| Role | View Tab | Add/Import | Edit/Remove | Export |
+|------|----------|------------|-------------|--------|
+| Trainer | Yes | No | No | Yes |
+| Lead Region | Yes | Yes (scope) | Yes (scope) | Yes |
+| Head Channel | Yes | Yes (scope) | Yes (scope) | Yes |
+| Admin | Yes | Yes | Yes | Yes |
+| Master Role | Yes | Yes | Yes | Yes |
+
+**Scope:** Lead (same region) / Head (same channel) only
+
+---
+
+**Detailed Specifications:**
+
+For complete functional requirements, see:
+- **Section 8.8.1:** Participant List Display (data structure, filters, search)
+- **Section 8.8.2:** Import Participants (file upload, validation rules)
+- **Section 8.8.3:** Add Participants Manually (selection process)
+- **Section 8.8.4:** Export Participants (download functionality)
+
+---
+
+**Business Rules:**
+
+1. Tab visible to all authorized users
+2. Action buttons shown/hidden based on user permissions
+3. Participant data syncs from external APIs (AOL, MOF, Attendance)
+4. All operations logged in audit trail
+5. Scope restrictions apply for Lead/Head roles
+6. Empty state displays when no participants enrolled
+
+---
 
 ### 8.4 Course Registration
 
@@ -5390,70 +5357,6 @@ Course registration can be initiated from multiple locations in the system:
 6. **Course Creator Exception:**
    - Course creator can register for their own course (if authorized role)
    - No special validation required - follows standard registration flow based on role
-
-**UI Requirements:**
-
-**Registration Modal Layout:**
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│ Register for Course                                    [✕ Close] │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                  │
-│ Course Information                                           │
-│                                                                  │
-│ Course Code:        8-HCMBC-SHINE-001                           │
-│ Course Name:        SHINE Training Program - Banca HCM          │
-│ Course Type:        SHINE                                       │
-│ Program:            SHINE Program                               │
-│                                                                  │
-│ Start Date:         01/11/2025 AM                               │
-│ End Date:           10/11/2025 PM                               │
-│                                                                  │
-│ Channel:            Banca                                       │
-│ Region:             South                                       │
-│ Venue:              FWD Tower, Ho Chi Minh City                 │
-│                                                                  │
-│ Current Status:     NEW                                         │
-│                                                                  │
-│ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ │
-│                                                                  │
-│ Registration Information                                     │
-│                                                                  │
-│ By registering for this course, you will:                       │
-│ • Become the primary trainer for this course                    │
-│ • Submit the course for approval by your Head/Lead              │
-│ • Be responsible for course delivery and completion             │
-│                                                                  │
-│ The course status will change to REGISTERED and your Head/Lead  │
-│ will be notified to approve the registration.                   │
-│                                                                  │
-│                                                                  │
-│                                          [Cancel]  [Register]   │
-└─────────────────────────────────────────────────────────────────┘
-```
-
-**Button States:**
-
-- **Register Button:**
-  - Enabled: When course status is NEW and user is Trainer, Lead Region, or Head Channel
-  - Disabled: When course status is not NEW or user is not authorized
-  - Loading: Shows spinner during registration processing
-  - Hidden: After successful registration (status no longer NEW)
-
-- **Cancel Button:**
-  - Always enabled
-  - Closes modal without making changes
-
-**Validation Messages:**
-
-| Validation | Error Message | Display Location |
-|------------|---------------|------------------|
-| Course not NEW | "This course cannot be registered. Only NEW courses can be registered." | Toast notification |
-| User not authorized | "You do not have permission to register for courses." | Toast notification |
-| Registration failed | "Failed to register course: [error details]" | Toast notification |
-| Success (Trainer/Lead) | "Course registered successfully! Waiting for approval." | Toast notification |
-| Success (Head Channel) | "Course registered and approved successfully!" | Toast notification |
 
 #### 8.4.2 Registration Approval Workflow
 
@@ -6008,37 +5911,6 @@ SO THAT I can properly close courses that will not proceed
 
 ---
 
-#### 8.6.5 UI Requirements
-
-**Cancel Button:**
-- Visible in: Course Details, Master Calendar context menu, Course List actions
-- Button states:
-  - Enabled: User has cancel permission for current status
-  - Disabled/Hidden: User cannot cancel for current status
-
-**Cancellation Modal:**
-- Title: "Cancel Course - [Course Code]"
-- Fields:
-  - Course Code (read-only)
-  - Course Name (read-only)
-  - Current Status (read-only)
-  - Cancellation Reason (textarea, mandatory, max 500 chars)
-- Buttons:
-  - [Submit Cancellation] - Primary action
-  - [Close] - Secondary action
-
-**Approval Modal (for approvers):**
-- Title: "Approve Course Cancellation - [Course Code]"
-- Fields:
-  - Course Code (read-only)
-  - Requested By (read-only)
-  - Cancellation Reason (read-only)
-  - Rejection Reason (textarea, mandatory if rejecting, max 500 chars)
-- Buttons:
-  - [Approve Cancellation] - Primary destructive action (red)
-  - [Reject] - Secondary action
-  - [Close] - Tertiary action
-
 ---
 
 ### 8.7 Course Delete
@@ -6076,16 +5948,7 @@ SO THAT I can remove draft courses that are not yet submitted to the system work
 
 ---
 
-#### 8.7.2 Delete vs Cancel
-
-| Course Status | Action | Type | Rationale |
-|---------------|--------|------|-----------|
-| NEW | **DELETE** | Hard delete | Draft not in workflow |
-| REGISTERED+ | **CANCEL** | Status change | Course in/past approval workflow |
-
----
-
-#### 8.7.3 Delete Workflow
+#### 8.7.2 Delete Workflow
 
 **Process:**
 1. User clicks [Delete Course]
@@ -6117,7 +5980,6 @@ SO THAT I can remove draft courses that are not yet submitted to the system work
 │                              [Cancel]  [Delete Course]  │
 └─────────────────────────────────────────────────────────┘
 ```
-
 
 ---
 
@@ -6238,11 +6100,53 @@ When Participant Failed the SHINE course, we allow them to re-take the SHINE cou
 
 | Column | Required | Description | Validation |
 |--------|----------|-------------|------------|
-| Name | Yes | Participant full name | Text, max 100 characters |
-| Agent Code | No | Unique agent identifier | Text, alphanumeric |
+| Full Name | Yes | Participant full name | Text, max 100 characters |
+| Gender | Yes | Gender | Male/Female |
+| Birth day | Yes | Date of birth | Valid date format (DD/MM/YYYY) |
+| Phone | Yes | Contact phone number | Valid phone format, 10-11 digits |
+| Mobile | Yes | Mobile phone number | Valid phone format, 10-11 digits |
 | Email | Yes | Contact email address | Valid email format |
-| Phone | Yes | Contact phone number | Valid phone format |
+| Marital status | No | Marital status | Text (e.g., married, single) |
+| Education | No | Education level | Text (e.g., DH = University) |
+| Passport | No | Passport number | Text, alphanumeric |
+| Id Number | Yes | National ID number | Numeric, 9-12 digits |
+| Issue date | No | ID issue date | Valid date format (DD/MM/YYYY) |
+| Issue Place | No | ID issue place | Text (e.g., TP. Hà Nội) |
+| Birth Place | No | Place of birth | Text (e.g., TP. Hà Nội) |
+| Religion | No | Religion | Text (e.g., No, Buddhist, Catholic) |
+| Nationality | Yes | Nationality | Text (e.g., VietNam) |
+| Reporter Name | No | Name of reporter/supervisor | Text |
+| Reporter Code | No | Reporter/supervisor code | Text, alphanumeric |
+| Agent Code | Yes | Unique agent identifier | Text, alphanumeric |
+| Title | No | Job title/position | Text (e.g., FWO) |
+| Ter Date | No | Termination/contract date | Valid date format (DD/MM/YYYY) |
 | AD Name | No | Active Directory username | Text |
+
+**Sample Import Data:**
+
+```
+Full Name: Nguyen Anh Thy
+Gender: Female
+Birth day: 5/12/2020
+Phone: 0376456432
+Mobile: 0389845647
+Email: dtn@gmail.com
+Marital status: married
+Education: DH
+Passport: 231998754
+Id Number: 231009843
+Issue date: 5/12/2020
+Issue Place: TP. Hà Nội
+Birth Place: TP. Hà Nội
+Religion: No
+Nationality: VietNam
+Reporter Name: Nam AD
+Reporter Code: AD1239
+Agent Code: Agentcode123
+Title: FWO
+Ter Date: 5/12/2025
+AD Name: Eric
+```
 
 **Import Process:**
 
@@ -6262,13 +6166,18 @@ When Participant Failed the SHINE course, we allow them to re-take the SHINE cou
 
 | Rule | Condition | Error Message |
 |------|-----------|---------------|
-| File format | Must be CSV or Excel | "Invalid file format. Please use CSV or Excel format." |
-| Required fields | Name, Email, Phone must be present | "Missing required fields: [field names]" |
-| Email format | Must be valid email | "Invalid email format: [email]" |
-| Phone format | Must be valid phone | "Invalid phone format: [phone]" |
-| Participant exists (SHINE) | Participant already exists | "Participant already exists. Use 'Add Participant' function instead." |
-| Participant not exists (After-SHINE) | Participant doesn't exist | "Participant not found: [name]" |
-| Re-exam conditions | All conditions must be met | "Participant does not meet re-exam eligibility criteria" |
+| File format | Must be CSV or Excel (.xlsx, .xls, .csv) | "Invalid file format. Please use CSV or Excel format." |
+| Required fields | Full Name, Gender, Birth day, Phone, Mobile, Email, Id Number, Nationality, Agent Code must be present | "Missing required fields: [field names]" |
+| Email format | Must be valid email format | "Invalid email format: [email]" |
+| Phone format | Must be valid phone format (10-11 digits) | "Invalid phone format: [phone]" |
+| Mobile format | Must be valid mobile format (10-11 digits) | "Invalid mobile format: [mobile]" |
+| Id Number format | Must be numeric (9-12 digits) | "Invalid ID number format: [id]" |
+| Date format | Must be valid date (DD/MM/YYYY) | "Invalid date format: [date]. Use DD/MM/YYYY format." |
+| Gender value | Must be Male or Female | "Invalid gender value: [gender]. Must be Male or Female." |
+| Agent Code unique | Agent Code must be unique in system | "Duplicate Agent Code: [code]" |
+| Participant exists (SHINE) | Participant already exists (check by Agent Code or Email) | "Participant already exists. Use 'Add Participant' function instead." |
+| Participant not exists (After-SHINE) | Participant doesn't exist in system | "Participant not found: [name] / [agent code]" |
+| Re-exam conditions | All re-exam conditions must be met | "Participant does not meet re-exam eligibility criteria" |
 
 **Authorization:**
 
@@ -7391,21 +7300,6 @@ When hovering over a trainer's name in the left column, display:
 
 ---
 
-#### 9.1.11 Performance and Accessibility
-
-**Performance Optimization:**
-- Same as Master Calendar (Section 10.1.9)
-- Virtual scrolling for large trainer lists
-- Lazy rendering for cells outside viewport
-
-**Accessibility:**
-- Same as Master Calendar (Section 10.1.10)
-- Keyboard navigation support
-- Screen reader support with ARIA labels
-- High contrast mode support
-
----
-
 ### 9.2 View Trainer Assignment for Each Trainer
 
 **User Story:**  
@@ -8015,29 +7909,6 @@ SO THAT I can focus on relevant programs and reduce visual clutter
 
 ---
 
-#### 10.1.8 Responsive Design
-
-**Desktop View (>1200px):**
-- Full matrix layout with all columns visible
-- Program column: 180px width
-- Day columns: Auto-width based on available space
-- Horizontal scroll if needed for 31-day months
-
-**Tablet View (768px - 1200px):**
-- Reduced program column width: 150px
-- Narrower day columns
-- Horizontal scroll enabled
-- Filters stack vertically
-
-**Mobile View (<768px):**
-- Switch to list view instead of matrix
-- Show courses grouped by program
-- Date range displayed as text
-- Tap to expand course details
-- Filters in collapsible panel
-
----
-
 #### 10.1.9 Performance Optimization
 
 **Data Loading:**
@@ -8057,30 +7928,6 @@ SO THAT I can focus on relevant programs and reduce visual clutter
 - Display "Loading..." in cells during refresh
 - Disable interactions during data load
 - Show progress indicator for slow connections
-
----
-
-#### 10.1.10 Accessibility
-
-**Keyboard Navigation:**
-- Tab: Navigate between cells
-- Enter: Open course details
-- Space: Select/deselect program in customization modal
-- Escape: Close modals/tooltips
-- Arrow keys: Navigate month (Left/Right), cells (Up/Down/Left/Right)
-
-**Screen Reader Support:**
-- ARIA labels for all interactive elements
-- Announce filter changes
-- Describe cell content (program, date, city, status)
-- Provide text alternatives for color coding
-
-**Visual Accessibility:**
-- High contrast mode support
-- Color-blind friendly status colors
-- Text labels in addition to color coding
-- Minimum font size: 14px
-- Focus indicators on all interactive elements
 
 ---
 
@@ -8346,21 +8193,6 @@ SO THAT the system can warn users when scheduling courses on holidays
 |------|-------|-------------|
 | National | All courses | Applies to entire country (e.g., National Day, Lunar New Year, Hung Kings' Festival) |
 | Company | All courses | Company-specific holidays (e.g., Company Anniversary, Training Department Day) |
-
-**UI Requirements:**
-
-1. **Holiday List View:**
-   - Display all holidays sorted by date (ascending)
-   - Filter by: Year, Holiday Type, Status (Active/Inactive)
-   - Search by holiday name
-   - Actions: Add New, Edit, Delete, Activate/Deactivate
-
-2. **Add/Edit Holiday Form:**
-   - All fields in single form
-   - Date picker for Holiday Date
-   - Dropdown for Holiday Type
-   - Save/Cancel buttons
-   - Validation on save
 
 **Integration with Course Planning:**
 
