@@ -117,7 +117,7 @@
      - 8.8.8 [Export Passed Participant](#888-export-passed-participant)
      - 8.8.9 [Attendance Check](#889-attendance-check)
      - 8.8.10 [AOL Exam Result](#8810-aol-exam-result)
-     - 8.8.11 [Rule for Calculate Final Result](#8811-rule-for-calculate-final-result)
+     - 8.8.11 [Configurable Final Result Calculation Rules](#8811-configurable-final-result-calculation-rules)
      - 8.8.12 [Manually Set Passed/Failed](#8812-manually-set-passedfailed)
      - 8.8.13 [Grant Agent Code](#8813-grant-agent-code)
    - 8.9 [Course Type Checklist Configuration](#89-course-type-checklist-configuration)
@@ -129,14 +129,22 @@
        - 8.9.3.1 [Course Checklist Details and Actions](#8931-course-checklist-details-and-actions)
        - 8.9.3.2 [Business Rules](#8932-business-rules)
      - 8.9.4 [Authorization Matrix](#894-authorization-matrix)
+     - 8.9.5 [Course MOF addresses registration and participant allocation](#895-course-mof-addresses-registration-and-participant-allocation)
    - 8.10 [Course Import Function [PHASE 2]](#810-course-import-function-phase-2)
 9. [PIC Calendar](#9-pic-calendar) [IN PROGRESS]
    - 9.1 [View Courses Per Trainer](#91-view-courses-per-trainer)
+     - 9.1.1 [Matrix Calendar Layout](#911-matrix-calendar-layout)
+     - 9.1.2 [Course Display in Calendar Cells](#912-course-display-in-calendar-cells)
+     - 9.1.3 [Trainer Display Customization](#913-trainer-display-customization)
+     - 9.1.4 [Filter Options](#914-filter-options)
+     - 9.1.5 [Role-Based Authorization](#915-role-based-authorization)
+     - 9.1.6 [Trainer Workload Tooltip](#916-trainer-workload-tooltip)
+     - 9.1.7 [Interactive Features](#917-interactive-features)
+     - 9.1.8 [Month Navigation](#918-month-navigation)
+     - 9.1.9 [Empty State Handling](#919-empty-state-handling)
+     - 9.1.10 [Default Screen After Login](#9110-default-screen-after-login)
    - 9.2 [View Trainer Assignment for Each Trainer](#92-view-trainer-assignment-for-each-trainer)
-   - 9.3 [Approve Courses in PIC Calendar](#93-approve-courses-in-pic-calendar)
-     - 9.3.1 [Approve Registered Tab](#931-approve-registered-tab)
-     - 9.3.2 [Approve Edit Tab](#932-approve-edit-tab)
-     - 9.3.3 [Approve Cancel Tab](#933-approve-cancel-tab)
+   - 9.3 [Export PIC Calendar Data](#93-export-pic-calendar-data)
 10. [Master Calendar](#10-master-calendar) [IN PROGRESS]
     - 10.1 [View Courses in Master Calendar](#101-view-courses-in-master-calendar)
       - 10.1.1 [Matrix Calendar Layout](#1011-matrix-calendar-layout)
@@ -154,6 +162,7 @@
       - 10.3.2 [Course Edit](#1032-course-edit)
       - 10.3.3 [Course Delete](#1033-course-delete)
       - 10.3.4 [View Details](#1034-view-details)
+      - 10.3.5 [Export Course](#1035-export-course)
 11. [List Manage](#11-list-manage) [IN PROGRESS]
 12. [Report Management [PHASE 2]](#13-report-management-phase-2) [NOT STARTED]
     - 13.1 [SHINE PASS RATIO](#131-shine-pass-ratio)
@@ -293,7 +302,7 @@ flowchart TB
 ## 3. EXTERNAL INTERFACE REQUIREMENTS
 
 [Content will be copied from original document - Section 3]
-
+Seperated Document for API specification named: LMS_External_APIs_Document_Specification
 ---
 
 ## 4. ROLE AND USER MANAGEMENT
@@ -1391,30 +1400,34 @@ SO THAT the system can warn when scheduling trainers during unavailable dates
 ---
 
 #### 5.4.4 Show Trainer Unavailable Slots on PIC Calendar
+**Business Requirement:**  
+The system must visually display all trainer unavailable periods on the PIC (Planning & Instructor Calendar) calendar to ensure transparent scheduling and prevent accidental trainer assignments during unavailable slots.
 
-**Calendar Visual Indicators:**
+**Functional Requirements:**
 
-**Display Style:**
-- Unavailable dates shown with diagonal stripe pattern background
-- Color scheme:
-  - Base: Light gray (#f5f5f5)
-  - Stripes: Light red (#ffebee)
-  - Pattern: 45-degree diagonal stripes
-- Applied to trainer rows in PIC Calendar
+1. **Calendar Display Integration:**
+   - Display all active trainer unavailable periods on the PIC calendar
+   - Show unavailable slots as blocked time slots with distinct visual styling
+   - Display unavailable period information on hover/click (trainer name, type, reason, dates)
 
-**Tooltip on Hover:**
-- Format: "🚫 [Trainer Name] - [Unavailability Type]"
-- Example: "🚫 John Doe - Vacation"
-- If reason provided: "🚫 John Doe - Vacation: Annual leave"
+2. **Visual Indicators:**
+   - Use distinct color coding for unavailable periods (e.g., red/gray striped pattern)
+   - Differentiate between unavailable types (Annual Leave, Sick Leave, Business Trip, Personal, Other) using color or pattern variations
+   - Show trainer name/initials on unavailable slot if space permits
 
-**Calendar Behavior:**
-- Unavailable dates still allow course assignment (warning only, not blocking)
-- Courses can be displayed on unavailable dates (with warning)
-- Visual indicator helps schedulers avoid conflicts
+3. **Calendar View Modes:**
+   - Display unavailable periods in all calendar views (Day, Week, Month)
+   - Adjust display density based on view mode (full details in Day view, condensed in Month view)
+   - Support multiple trainers' unavailable periods displayed simultaneously
 
-**Legend Update:**
-- Add to PIC Calendar legend section
-- "🚫 Diagonal stripes = Trainer Unavailable"
+4. **Filtering and Toggle:**
+   - Provide toggle option to show/hide trainer unavailable periods on calendar
+   - Filter unavailable periods by trainer (multi-select dropdown)
+   - Filter by unavailable type (Annual Leave, Sick Leave, etc.)
+   - Filter by date range
+
+
+
 
 ---
 
@@ -1884,13 +1897,6 @@ SO THAT I can maintain required documentation for compliance
 - **Max Files:** 20 files per participant
 - **Naming:** Auto-rename to prevent duplicates: `[DocumentType]_[ID]_[Timestamp].[ext]`
 
-**UI Components:**
-
-- Drag-and-drop upload area
-- File browser button
-- Upload progress indicator
-- File list with actions (Download/Delete/Preview)
-- File type icons for visual identification
 
 #### 6.3.6 License Codes Section (Table View)
 
@@ -1921,10 +1927,6 @@ SO THAT I can track their certification status
   - Expired: Current date > Expiry Date
   - Revoked: Manually marked as revoked
 - **Sorting:** Default sort by Issue Date (newest first)
-- **Visual Indicators:**
-  - 🟢 Active (green)
-  - Expired (red)
-  - ⚫ Revoked (black)
 
 #### 6.3.7 Reference Section (Table View)
 
@@ -1997,34 +1999,10 @@ SO THAT I can understand their learning progression and completed courses
 | Attendance | Attendance percentage |
 | Certificate | Certificate number (if passed) |
 
-**Visual Representation:**
-
-```
-Timeline View (Vertical):
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  2025
-  ├─ Mar 2025 [PASSED] SHINE - Passed
-  │   • AOL: Passed
-  │   • MOF: 85/100
-  │   • Attendance: 100%
-  │   • Certificate: SH-2025-001234
-  │
-  ├─ May 2025 🔄 Product Training - In Progress
-  │   • AOL: Pending
-  │   • Attendance: 75%
-  │
-  └─ [Planned] Jun 2025 [PENDING] Advanced Product
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
 
 **Business Rules:**
 
 - Courses sorted by start date (most recent at top)
-- Color coding:
-  - 🟢 Green: Passed
-  - 🔵 Blue: In Progress
-  - Red: Failed
-  - Gray: Withdrawn
 - Click course entry to navigate to course details
 - Filter by course type, year, status
 - Export timeline to PDF
@@ -2069,60 +2047,10 @@ SO THAT I can track data modifications for compliance and audit purposes
 - System actions (API updates) marked as "System"
 - Audit log entries are immutable (cannot be edited/deleted)
 - Retention period: 7 years (compliance requirement)
-- Color coding:
-  - 🟢 Green: CREATE
-  - 🟡 Yellow: UPDATE
-  - Red: DELETE
 
 ---
 
-### 6.4 Participant Status Management
-
-**User Story:**  
-AS AN Admin or Master Role user  
-I NEED to manage participant status  
-SO THAT I can mark participants as active or inactive based on their employment status
-
-**Acceptance Criteria:**
-
-**Status Values:**
-
-- **Active:** Participant is currently active and can be enrolled in courses
-- **Inactive:** Participant is no longer active (default status for new participants)
-
-**Status Change Rules:**
-
-- **Activation:** Participant becomes Active when:
-  - Agent code is issued (via API Section 3.5)
-  - Manually activated by Admin
-- **Deactivation:** Participant becomes Inactive when:
-  - Termination date (Ter Date) is set
-  - Manually deactivated by Admin
-  - Agent code is revoked
-
-**Status Impact:**
-
-- **Active Participants:**
-  - Can be enrolled in new courses
-  - Visible in participant search for course registration
-  - Included in active participant reports
-  
-- **Inactive Participants:**
-  - Cannot be enrolled in new courses
-  - Can complete courses they're already enrolled in
-  - Excluded from active participant reports
-  - Historical data remains accessible
-
-**Status Change Actions:**
-
-- **Location:** Participant Details page → General Information section
-- **Button:** "Activate" or "Deactivate" based on current status
-- **Confirmation:** Dialog box requesting reason for status change
-- **Audit:** Status change logged in Audit Data Update section
-
----
-
-### 6.5 Participant Business Rules
+### 6.4 Participant Business Rules
 
 **General Rules:**
 
@@ -2145,16 +2073,9 @@ SO THAT I can mark participants as active or inactive based on their employment 
 2. **Duplicate Prevention:** Participant cannot be enrolled in same course twice
 3. **Re-exam Eligibility:** Special rules apply for re-exam participants (Section 8.8.4)
 
-**Data Security:**
-
-1. **PII Protection:** Personal Identifiable Information is encrypted at rest
-2. **Access Control:** Only authorized roles can view/edit participant data
-3. **Audit Trail:** All changes to participant data are logged
-4. **Data Retention:** Participant data retained for 7 years after termination
-
 ---
 
-### 6.6 Participant Validation Rules
+### 6.5 Participant Validation Rules
 
 **Field-Level Validations:**
 
@@ -2179,7 +2100,7 @@ SO THAT I can mark participants as active or inactive based on their employment 
 
 ---
 
-### 6.7 Participant Authorization Matrix
+### 6.6 Participant Authorization Matrix
 
 **Access Control by Role:**
 
@@ -2207,31 +2128,7 @@ SO THAT I can mark participants as active or inactive based on their employment 
 
 ---
 
-### 6.8 Participant Integration Points
 
-**Integration with Other Modules:**
-
-1. **Course Management (Section 8):**
-   - Participant enrollment in courses
-   - Course result tracking
-   - Certificate issuance
-
-2. **External APIs (Section 3):**
-   - Participant API (3.2): Create/Update participant data
-   - AAPortal API (3.5): Receive agent/license codes
-   - Delete Participant API (3.7): Remove participant from course
-
-3. **Trainer Management (Section 5):**
-   - Display trainer information in participant's course history
-   - Link trainers to courses in Road Map
-
-4. **Content Management (Section 7):**
-   - Show products/programs in participant's training journey
-   - Link learning materials to participant's Road Map
-
-5. **Report Management (Section 13):**
-   - Participant data used in various reports
-   - Export participant statistics
 
 **Data Flow:**
 
@@ -2246,47 +2143,6 @@ flowchart TD
     AAP[AAPortal API] -->|Grant Codes| PDB
     PDB -->|Data| REPORTS[Reports]
 ```
-
----
-
-### 6.9 Future Enhancements
-
-**Planned Features:**
-
-1. **Self-Service Portal:**
-   - Participants can view their own training history
-   - Update personal information (pending approval)
-   - Download certificates
-
-2. **Advanced Search:**
-   - Full-text search across all fields
-   - Saved search filters
-   - Search history
-
-3. **Batch Operations:**
-   - Bulk edit participant fields
-   - Bulk status change
-   - Bulk document upload
-
-4. **Analytics Dashboard:**
-   - Participant enrollment trends
-   - Completion rate statistics
-   - Geographic distribution visualization
-
-5. **Notification System:**
-   - Email participants about upcoming courses
-   - Send reminders for incomplete training
-   - Alert on certificate expiration
-
-6. **Document OCR:**
-   - Auto-extract data from uploaded ID cards
-   - Verify ID information against uploaded documents
-
-7. **Integration Enhancements:**
-   - Real-time sync with DMS
-   - Integration with HR systems
-   - API for external partner access
-
 ---
 
 ## 7. CONTENT MANAGEMENT
@@ -4048,7 +3904,12 @@ When a user selects a course type, the form dynamically shows/hides fields and a
 - **Field Visibility:** MOF and AOL sections show/hide automatically
 - **Validation Rules:** Required fields adjust based on course type
 
-##### 8.1.1.2 SHINE Form Fields
+##### 8.1.1.2 SHINE Form
+Requirements
+- Support multiple MOF address registration ()
+- User can select the MOF address from the configured MOF address
+- User can add new MOF address
+
 
 | S/N | Fieldname          | Data Type              | M/O | Description                                                      |
 | --- | ------------------ | ---------------------- | --- | ---------------------------------------------------------------- |
@@ -6601,84 +6462,152 @@ Admin can export passed participants with detailed information (final result = p
 
 ---
 
-#### 8.8.11 Rule for Calculate Final Result
+#### 8.8.11 Configurable Final Result Calculation Rules
 
 **User Story:**
 
-**AS** THE System  
-**I NEED** to automatically calculate final result for each participant  
-**SO THAT** I can determine course completion status based on defined criteria
+**AS** an Administrator  
+**I NEED** to configure custom final result calculation rules based on channel, course type, exam type, and partner status  
+**SO THAT** the system can automatically calculate participant results according to different business requirements without code changes
+
+---
+
+**Business Need:**
+
+Different business contexts require different passing criteria:
+- Re-MOF exams only require MOF score (participants already completed attendance and AOL)
+- LIP exams in Agency Channel require attendance only on specific stages (5, 6, 7)
+- Partner status (partner vs non-partner) affects requirements
+- ILP courses have different requirements than SHINE/Product/Skill
+- Workshop courses only require attendance with no exam checks
+- Rules vary by channel (ALL, BANCA, AGENCY, IFA)
+
+---
 
 **Acceptance Criteria:**
 
-LMS returns final result based on course type and completion criteria.
+**Define Rules by Multiple Business Dimensions**
+- Rules can be configured based on Channel (ALL, BANCA, AGENCY, IFA, etc.)
+- Rules can be configured based on Course Type (SHINE, PRODUCT, SKILL, ILP, WORKSHOP)
+- Rules can be configured based on Exam Type (ALL, RE_MOF_EXAM, LIP, etc.)
+- Rules can be configured based on Partner Status (ALL, Partner, Non-Partner)
+- Each unique combination can have its own passing criteria
 
-**Course Type SHINE:**
+**Configure AOL Exam Check**
+- Each rule specifies whether AOL exam pass is required (CHECK) or not required (SKIP)
+- When CHECK: All AOL exams must be passed for participant to pass
+- When SKIP: AOL exam results do not affect final result
 
-- Attendance: Full
-- AOL: Passed
-- MOF >= 30
+**Configure Attendance Check (Điểm danh)**
+- Each rule specifies whether attendance is required (CHECK) or not required (SKIP)
+- When CHECK: Attendance verification is performed according to stage configuration
+- When SKIP: Attendance does not affect final result (useful for re-exam scenarios where participant already attended)
 
-**Course Type Product:**
+**Configure Stage-Specific Attendance**
+- When attendance check is enabled, rule specifies which stages must be attended
+- "ALL" means all stages must be attended (100% attendance)
+- Specific stages can be listed (e.g., "5;6;7" means only stages 5, 6, 7 must be attended)
+- Only specified stages are evaluated for attendance compliance
+- Participant must attend ALL specified stages to pass attendance check
 
-- Attendance: Full
-- AOL: Passed
+**Configure MOF Exam Check**
+- Each rule specifies whether MOF exam pass is required (CHECK) or not required (SKIP)
+- When CHECK: MOF exam score must meet minimum threshold (default: ≥ 30)
+- When SKIP: MOF exam results do not affect final result
 
-**Course Type Skill:**
+**Automatic Rule Matching and Application**
+- System matches course to applicable rule based on: Channel + Course Type + Exam Type + Partner Status
+- When exact match found, system applies that rule's criteria
+- When "ALL" is specified in a dimension, rule applies to all values in that dimension
+- System calculates final result automatically as data becomes available
 
-- Attendance: Full
+**Real-Time Final Result Calculation**
+- Final result recalculates when attendance, AOL, or MOF data is updated
+- Participant passes only when all checks marked as "CHECK" are satisfied
+- Checks marked as "SKIP" are ignored in calculation
+- Final result displays immediately in participant list
 
-**Calculation Logic:**
+**Rule Management**
+- Administrators can create, edit, and deactivate rules
+- Rule configuration is stored centrally and can be updated without code deployment
+- Changes to rules apply immediately to new calculations
+- Historical confirmed results are not affected by rule changes
+- All rule changes are logged with timestamp and administrator
 
-**SHINE Course:**
+---
 
-```
-IF (Attendance = Full) AND (All AOL Exams = Passed) AND (MOF Score >= 30)
-THEN
-    Final Result = Passed
-ELSE
-    Final Result = Failed
-END IF
-```
+**Rule Configuration Table:**
 
-**Product Course:**
+The following table defines all final result calculation rules configured in the system:
 
-```
-IF (Attendance = Full) AND (All AOL Exams = Passed)
-THEN
-    Final Result = Passed
-ELSE
-    Final Result = Failed
-END IF
-```
+| Channel | Course Type | Exam Type | Is Partner? | Check Pass AOL | Check Điểm danh | Stage_check | Check Pass MOF? |
+|---------|-------------|-----------|-------------|----------------|-----------------|-------------|-----------------|
+| ALL | SHINE | ALL | ALL | CHECK | CHECK | ALL | CHECK |
+| ALL | SHINE | RE_MOF_EXAM | ALL | SKIP | SKIP | - | CHECK |
+| BANCA | SHINE | RE_MOF_EXAM | X | SKIP | SKIP | - | CHECK |
+| AGENCY | SHINE | RE_MOF_EXAM | X | SKIP | SKIP | - | CHECK |
+| IFA | SHINE | RE_MOF_EXAM | X | SKIP | SKIP | - | CHECK |
+| BANCA | SHINE | RE_MOF_EXAM | O | SKIP | SKIP | - | CHECK |
+| AGENCY | SHINE | RE_MOF_EXAM | O | SKIP | SKIP | - | CHECK |
+| IFA | SHINE | RE_MOF_EXAM | O | SKIP | SKIP | - | CHECK |
+| AGENCY | ALL | LIP | ALL | CHECK | CHECK | 5;6;7 | SKIP |
+| BANCA | ALL | ALL | ALL | SKIP | CHECK | ALL | CHECK |
+| ALL | ILP | ALL | ALL | SKIP | CHECK | ALL | CHECK |
+| ALL | PRODUCT | ALL | ALL | CHECK | CHECK | ALL | SKIP |
+| ALL | SKILL | ALL | ALL | SKIP | CHECK | ALL | SKIP |
+| ALL | WORKSHOP | ALL | ALL | SKIP | CHECK | ALL | SKIP |
 
-**Skill Course:**
 
-```
-IF (Attendance = Full)
-THEN
-    Final Result = Passed
-ELSE
-    Final Result = Failed
-END IF
-```
-
-**Automatic Calculation:**
-
-System calculates final result automatically when:
-
-- Attendance data is updated
-- AOL exam results are updated
-- MOF exam results are imported
-- Final result updates in real-time as data changes
-- Final result cannot be manually set (use Section 8.8.12 for manual override)
+---
 
 **Business Rules:**
 
-- All criteria must be met for Final Result = Passed
-- If any criterion is not met, Final Result = Failed
-- Final result calculation is automatic and cannot be disabled
-- Manual override available for special cases (Section 8.8.12)
+- "ALL" in any dimension means the rule applies to all values in that dimension
+- More specific rules take precedence over general rules (e.g., AGENCY + LIP overrides ALL + LIP)
+- When Stage_check = "ALL", participant must attend 100% of course stages
+- When Stage_check = specific stages (e.g., "5;6;7"), participant must attend only those stages
+- Stage_check is only evaluated when Check Điểm danh = CHECK
+- When Check Điểm danh = SKIP, attendance is not required at all (useful for re-exam scenarios)
+- Participant passes only when all checks marked as "CHECK" are satisfied
+- Checks marked as "SKIP" are ignored in final result calculation
+- Manual override capability (Section 8.8.12) supersedes all automatic rules
+
+
+---
+
+**Permission Configuration:**
+
+| Permission ID | Feature Name | Category | Description |
+|---------------|--------------|----------|-------------|
+| `manage_result_rules` | Manage Final Result Rules | Admin | Create, edit, and deactivate final result calculation rules |
+
+**Note:** Role assignment for this permission will be configured during system setup.
+
+
+**Default Calculation Logic (Fallback):**
+
+If no custom rule is configured or matches a course, system uses default logic:
+
+**SHINE Course:**
+```
+IF (Attendance = Full) AND (All AOL Exams = Passed) AND (MOF Score >= 30)
+THEN Final Result = Passed
+ELSE Final Result = Failed
+```
+
+**Product Course:**
+```
+IF (Attendance = Full) AND (All AOL Exams = Passed)
+THEN Final Result = Passed
+ELSE Final Result = Failed
+```
+
+**Skill Course:**
+```
+IF (Attendance = Full)
+THEN Final Result = Passed
+ELSE Final Result = Failed
+```
 
 ---
 
@@ -6947,9 +6876,278 @@ The following table shows the checklist display structure with available actions
 - **View Template Configuration:** Only Root admin and Master Role can view checklist template configurations
 - **Update Template Configuration:** Only Root admin and Master Role can modify checklist templates and reminder settings
 
+#### 8.9.5 Course MOF addresses registration and participant allocation [NEW REQUIREMENT]
+
+**Overview:**
+
+This feature enables courses to support multiple MOF exam venues, allowing administrators to configure multiple exam locations and allocate participants to specific venues based on capacity, geography, or scheduling needs.
+
+**Business Need:**
+
+Large SHINE courses (50+ participants) often cannot accommodate all participants at a single MOF exam venue due to:
+- Venue capacity constraints (typically 30-40 seats per location)
+- Geographic distribution of participants across different districts
+- Multiple exam time slots available on the same or different dates
+- Participant preference for convenient exam locations
+
+**Business Use Case:**
+
+A SHINE course in Ho Chi Minh City with 60 participants:
+- Venue 1: District 1 MOF Center - 35 participants at 9:00 AM, January 15
+- Venue 2: District 7 MOF Center - 25 participants at 2:00 PM, January 15
+
 ---
 
-### 8.10 Course Import Function [PHASE 2]
+**8.9.5.1 MOF Address Configuration (Course Creation/Edit Phase)** [NEW REQUIREMENT]
+
+- Add multiple MOF exam venues to a single course (up to 5 venues)
+- Configure each MOF venue with: address, date/time, exam type
+- Set primary MOF venue (default for participants)
+- Edit or remove MOF venues before course starts
+- Validate: at least 1 MOF venue required for SHINE courses
+
+**8.9.5.2 Participant Allocation to MOF Venues**
+
+- View all course participants with their assigned MOF venue
+- Manually assign individual participants to specific MOF venues
+- Bulk assign multiple participants to a MOF venue
+- Auto-allocate participants evenly across venues (optional)
+- Track participant count per venue
+- Validate: each participant must be assigned to exactly one venue
+
+**8.9.5.3 MOF Venue Management & Tracking**
+
+- Filter participant list by assigned MOF venue in the Course Participant tab
+- Multi-select filter allowing selection of multiple MOF venues simultaneously
+- Filter options include: "All Venues", individual venue names, and "Unassigned"
+- Filtered view displays participants assigned to any of the selected venues
+- Participant count shown for each venue in filter dropdown
+- Filter state persists during session
+- View which participants are assigned to each venue
+
+**8.9.5.4 Export Participants by MOF Venue**
+
+- Export participants grouped by their assigned MOF venue to CSV file
+- Generate separate export files per MOF venue
+- Export only participants allocated to specific venue
+- Include venue details in export (MOF address, exam date/time, province, ward)
+- Support individual venue export or bulk export (all venues as separate files)
+- Export format compatible with MOF exam registration system
+
+**Export File Naming:**
+- Single venue: `Course_[CourseCode]_MOF_[VenueName]_[Date].csv`
+- Bulk export: Multiple files in ZIP format
+
+**Export Data Fields:**
+- All standard participant fields (Full Name, Gender, Birthday, Phone, Mobile, Email, etc.)
+- MOF Venue Name
+- MOF Address
+- MOF Exam Date
+- MOF Exam Time
+- Province
+- Ward
+
+**8.9.5.5 MOF Result Import by Venue**
+
+- Import MOF exam results mapped to specific venue
+- Match participants to correct venue during import
+- Support multiple MOF result files (one per venue)
+- Validate participant-venue assignment during import
+- Update MOF results for participants at specific venue
+
+---
+
+**Authorization:**
+
+| Role | Configure MOF Venues | Allocate Participants | Export by Venue | Import Results |
+|------|---------------------|----------------------|-----------------|----------------|
+| Trainer | No | No | No | No |
+| Lead Region | Yes | Yes | Yes | No |
+| Head Channel | Yes | Yes | Yes | No |
+| Admin | Yes | Yes | Yes | Yes |
+| Master Role | Yes | Yes | Yes | Yes |
+
+---
+
+**Permission Configuration:**
+
+The Multiple MOF Address Management feature requires the following permission to be added to the system:
+
+| Permission ID | Feature Name | Category | Description |
+|---------------|--------------|----------|-------------|
+| `manage_mof_venues` | Manage Multiple MOF Venues | Course Management | Configure multiple MOF exam venues, allocate participants to venues, and import results by venue |
+
+**Permission Scope:**
+- **Configure MOF Venues:** Add/edit/remove multiple MOF exam venues during course creation/edit
+- **Allocate Participants:** Assign participants to specific MOF venues
+- **Export by Venue:** Export participants grouped by MOF venue to CSV files
+- **Import Results:** Import MOF exam results mapped to specific venues
+
+**Permission Dependencies:**
+- Users must also have `edit_course` permission to configure MOF venues
+- Users must also have `manage_participant` permission to allocate participants
+- Users must also have `import_mof_result` permission to import results by venue
+
+**Business Rules:**
+- The feature is automatically enabled when a course's program type is "SHINE"
+- Users without `manage_mof_venues` permission cannot access any MOF venue management functionality
+- Trainers can view MOF venue assignments for their courses but cannot modify them
+
+**Note:** Role assignment for this permission will be configured during system setup based on organizational requirements.
+
+---
+
+**Mockup Screens:**
+
+The following mockup screens illustrate the key workflows for multiple MOF address management.
+
+**Screen 1: Course Creation - MOF Venue Configuration**
+
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│ Create SHINE Course                                            [✕]   │
+├──────────────────────────────────────────────────────────────────────┤
+│                                                                       │
+│ ... [Basic Course Fields - Program, Name, Trainer, etc.] ...        │
+│                                                                       │
+│ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ │
+│                                                                       │
+│ MOF Exam Venues Configuration                                        │
+│                                                                       │
+│ ┌─ MOF Venue #1 (Primary) ─────────────────────────────────────┐    │
+│ │                                                                │    │
+│ │  MOF Address: *                                                │    │
+│ │  ┌──────────────────────────────────────────────────────┐     │    │
+│ │  │ Trung tâm VIDI - Quận 1, TP.HCM                   ▼ │     │    │
+│ │  └──────────────────────────────────────────────────────┘     │    │
+│ │                                                                │    │
+│ │  Province: *                    Ward: *                        │    │
+│ │  ┌──────────────────────┐      ┌──────────────────────┐       │    │
+│ │  │ TP. Hồ Chí Minh      │      │ Phường Bến Nghé      │       │    │
+│ │  └──────────────────────┘      └──────────────────────┘       │    │
+│ │                                                                │    │
+│ │  MOF Exam Date & Time: *                                       │    │
+│ │  ┌──────────────────┐  ┌────────┐                              │    │
+│ │  │ 15/01/2025    📅 │  │ 09:00  │                              │    │
+│ │  └──────────────────┘  └────────┘                              │    │
+│ │                                                                │    │
+│ │  Exam Type: *                                                  │    │
+│ │  ┌──────────────────────────┐                                 │    │
+│ │  │ Trực tuyến tại VIDI   ▼  │                                 │    │
+│ │  └──────────────────────────┘                                 │    │
+│ │                                                                │    │
+│ └────────────────────────────────────────────────────────────────┘    │
+│                                                                       │
+│ ┌─ MOF Venue #2 ───────────────────────────────────────────────┐    │
+│ │                                                          [✕]   │    │
+│ │  MOF Address: *                                                │    │
+│ │  ┌──────────────────────────────────────────────────────┐     │    │
+│ │  │ Trung tâm VIDI - Quận 7, TP.HCM                   ▼ │     │    │
+│ │  └──────────────────────────────────────────────────────┘     │    │
+│ │                                                                │    │
+│ │  Province: *                    Ward: *                        │    │
+│ │  ┌──────────────────────┐      ┌──────────────────────┐       │    │
+│ │  │ TP. Hồ Chí Minh      │      │ Phường Tân Phú       │       │    │
+│ │  └──────────────────────┘      └──────────────────────┘       │    │
+│ │                                                                │    │
+│ │  MOF Exam Date & Time: *                                       │    │
+│ │  ┌──────────────────┐  ┌────────┐                              │    │
+│ │  │ 15/01/2025    📅 │  │ 14:00  │                              │    │
+│ │  └──────────────────┘  └────────┘                              │    │
+│ │                                                                │    │
+│ │  Exam Type: *                                                  │    │
+│ │  ┌──────────────────────────┐                                 │    │
+│ │  │ Trực tuyến tại VIDI   ▼  │                                 │    │
+│ │  └──────────────────────────┘                                 │    │
+│ │                                                                │    │
+│ └────────────────────────────────────────────────────────────────┘    │
+│                                                                       │
+│ [+ Add MOF Venue]  (Maximum 5 venues)                                │
+│                                                                       │
+│                                          [Cancel]  [Save Course]     │
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+**Screen 2: Course Participant Tab - MOF Venue Allocation**
+
+```
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Course Details: 8-HCMBC-SHINE-001                                      [✕]   │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                               │
+│ [General] [Planning] [Participant] [History] [Checklist]                    │
+│                                                                               │
+│ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ │
+│                                                                               │
+│ Participant Management                   Total: 60 participants              │
+│                                                                               │
+│ ┌─ MOF Venue Summary ────────────────────────────────────────────────────┐  │
+│ │                                                                          │  │
+│ │  Venue #1: Quận 1, TP.HCM (09:00, 15/01/2025)                          │  │
+│ │  ● Assigned: 35 participants                                            │  │
+│ │                                                                          │  │
+│ │  Venue #2: Quận 7, TP.HCM (14:00, 15/01/2025)                          │  │
+│ │  ● Assigned: 20 participants                                            │  │
+│ │                                                                          │  │
+│ │  ⚠️ Unassigned: 5 participants                                          │  │
+│ │                                                                          │  │
+│ └──────────────────────────────────────────────────────────────────────────┘  │
+│                                                                               │
+│ [+ Add Participant] [Import] [Export] [Bulk Actions ▼]                      │
+│                                                                               │
+│ Search: [________________] 🔍   Filter: [All MOF Venues ▼] [All Status ▼]  │
+│                                                                               │
+│ ┌──────────────────────────────────────────────────────────────────────────┐ │
+│ │☐ No. │ Name              │ Agent Code │ Email         │ MOF Venue       ││ │
+│ ├──────┼───────────────────┼────────────┼───────────────┼─────────────────┤│ │
+│ │☐  1  │ Nguyen Van A      │ AG001      │ nva@mail.com  │ [Quận 1  ▼] ✓  ││ │
+│ │☐  2  │ Tran Thi B        │ AG002      │ ttb@mail.com  │ [Quận 1  ▼] ✓  ││ │
+│ │☐  3  │ Le Van C          │ AG003      │ lvc@mail.com  │ [Quận 7  ▼] ✓  ││ │
+│ │☐  4  │ Pham Thi D        │ AG004      │ ptd@mail.com  │ [Quận 7  ▼] ✓  ││ │
+│ │☐  5  │ Hoang Van E       │ AG005      │ hve@mail.com  │ [Select... ▼]  ││ │
+│ │☐  6  │ Nguyen Thi F      │ AG006      │ ntf@mail.com  │ [Select... ▼]  ││ │
+│ │☐  7  │ Vo Van G          │ AG007      │ vvg@mail.com  │ [Quận 1  ▼] ✓  ││ │
+│ │...   │ ...               │ ...        │ ...           │ ...             ││ │
+│ └──────────────────────────────────────────────────────────────────────────┘ │
+│                                                                               │
+│ 3 selected    [Assign to MOF Venue]                     Showing 1-10 of 60  │
+│                                                                               │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+**Screen 3: Bulk Assign Modal**
+
+```
+┌──────────────────────────────────────────────────────┐
+│ Assign Participants to MOF Venue               [✕]  │
+├──────────────────────────────────────────────────────┤
+│                                                       │
+│ Selected Participants: 3                              │
+│                                                       │
+│ ┌─────────────────────────────────────────────────┐  │
+│ │ • Nguyen Van A (AG001)                          │  │
+│ │ • Tran Thi B (AG002)                            │  │
+│ │ • Le Van C (AG003)                              │  │
+│ └─────────────────────────────────────────────────┘  │
+│                                                       │
+│ Assign to MOF Venue: *                                │
+│ ┌─────────────────────────────────────────────────┐  │
+│ │ Quận 1, TP.HCM (09:00, 15/01/2025)          ▼  │  │
+│ │ ─────────────────────────────────────────────── │  │
+│ │ ✓ Quận 1, TP.HCM (09:00, 15/01/2025)           │  │
+│ │   Quận 7, TP.HCM (14:00, 15/01/2025)           │  │
+│ └─────────────────────────────────────────────────┘  │
+│                                                       │
+│                             [Cancel]  [Assign]       │
+└──────────────────────────────────────────────────────┘
+```
+
+---
+
 ## 9. PIC CALENDAR
 
 ### 9.1 View Courses Per Trainer
@@ -7328,160 +7526,140 @@ SO THAT I can manage trainer workload and capacity planning
    - **In Progress:** Courses currently running (IN_PROGRESS status)
    - **Workload Percentage:** (Total Registered / Assignment Target) × 100%
 
-3. **Visual Indicators:**
-   - **Green:** Workload < 80% (under capacity)
-   - **Yellow:** Workload 80-100% (at capacity)
-   - **Red:** Workload > 100% (over capacity)
-   - Color indicator displayed next to trainer name
-
-4. **Trainer Profile Link:**
-   - Click on trainer name to navigate to trainer details page
-   - Opens in same tab (use browser back to return)
-   - Preserves PIC Calendar state (filters, month, selections)
+---
 
 ---
 
-### 9.3 Approve Courses in PIC Calendar
+### 9.3 Export PIC Calendar Data [NEW REQUIREMENT]
 
 **User Story:**  
-AS A Lead Region, Head Channel, or Master Role user  
-I NEED to view and approve pending course requests  
-SO THAT I can authorize registrations, edits, and cancellations within my scope of authority
+AS a user viewing the PIC Calendar  
+I NEED to export trainer assignments and course schedules  
+SO THAT I can have an offline view of trainer workload for planning, reporting, or sharing with stakeholders
 
-**Access:**
-- **Button:** "View Approvals" in PIC Calendar header
-- **Visibility:** Only shown to users with approval permissions (Lead Region, Head Channel, Master Role)
-- **Authorization:** Filtered by user's channel and region scope (see Section 4.5.4)
+**Entry Point:**  
+PIC Calendar → [Export] button in toolbar
 
-**Approval Tabs:**
+**Acceptance Criteria:**
 
-#### 9.3.1 Approve Registered Tab
+1. **Export Button:**
+   - "Export PIC Data" button visible in PIC Calendar toolbar (top-right)
+   - Button enabled when trainers and courses are visible in calendar
+   - Loading indicator during export generation
 
-**Purpose:**  
-Display and manage course registration requests awaiting approval.
+2. **Export Scope:**
+   - Exports trainer-course assignments for current month view
+   - Respects applied filters (channel, region, course type)
+   - Respects trainer customization (only exports visible/selected trainers)
+   - Respects role-based authorization (user only exports data they can view)
 
-**Display Criteria:**
-- Shows courses with status `REGISTERED`
-- Filtered by user's approval scope (channel/region)
-- Shows trainer registration requests awaiting approval
-
-**Actions Available:**
-- **Approve:** Approve registration and change status to `APPROVED`
-- **Reject:** Reject registration with mandatory reason, return status to `NEW`
-
-**Workflow Details:**
-- See Section 8.4.2 for detailed registration approval workflow
-- Includes approval/rejection modals
-- Email notifications to trainer after action
-- Course history logging
+3. **Export Format:**
+   - File format: Excel (.xlsx)
+   - File name: `PICCalendar_Export_{DDMMYYYY_HHMMSS}.xlsx`
+   - Example: `PICCalendar_Export_27122024_153045.xlsx`
 
 ---
 
-#### 9.3.2 Approve Edit Tab
+**Export File Structure:**
 
-**Purpose:**  
-Display and manage course edit requests awaiting approval.
+**Sheet 1: "Trainer Assignments"**
 
-**Display Criteria:**
-- Shows courses with status `WAITING_APPROVAL_EDIT`
-- Filtered by user's approval scope (channel/region)
-- Shows course edit requests awaiting approval
+| Column # | Column Name | Data Source | Format | Description |
+|----------|-------------|-------------|--------|-------------|
+| 1 | Trainer Name | Trainer full name | Text | Primary trainer name |
+| 2 | Assignment Target | Trainer profile | Number | Monthly course target |
+| 3 | Total Registered | Count of courses | Number | Courses registered this month |
+| 4 | Approved | Count of courses | Number | Courses with APPROVED status |
+| 5 | In Progress | Count of courses | Number | Currently running courses |
+| 6 | Workload (%) | Calculated | Percentage | (Total Registered / Assignment) × 100 |
 
-**Before/After Comparison:**
-- System displays which fields were changed
-- Shows original value vs. new value for each modified field
-- Highlights critical changes (date, trainer, location)
+**Sheet 2: "Course Details"**
 
-**Actions Available:**
-- **Approve Changes:** Approve edits and apply changes to course
-- **Reject Changes:** Reject edits with mandatory reason, revert to original values
-
-**Workflow Details:**
-- See Section 8.5.2 for detailed edit approval workflow
-- Includes field comparison view
-- Email notifications to requester after action
-- Course history logging with change details
-
----
-
-#### 9.3.3 Approve Cancel Tab
-
-**Purpose:**  
-Display and manage course cancellation requests awaiting approval.
-
-**Display Criteria:**
-- Shows courses with status `WAITING_APPROVAL_CANCEL`
-- Filtered by user's approval scope (channel/region)
-- Shows course cancellation requests awaiting approval
-
-**Cancellation Reason Display:**
-- System displays cancellation reason provided by requester
-- Shows impact analysis (enrolled participants, scheduled trainers)
-- Displays course details for review
-
-**Actions Available:**
-- **Approve Cancellation:** Approve cancellation and change status to `CANCEL`
-- **Reject Cancellation:** Reject cancellation with mandatory reason, return to original status
-
-**Workflow Details:**
-- See Section 8.6.2 for detailed cancel approval workflow
-- Includes cancellation confirmation modal
-- Email notifications to requester and affected parties after action
-- Course history logging with cancellation reason
+| Column # | Column Name | Data Source | Format | Description |
+|----------|-------------|-------------|--------|-------------|
+| 1 | Primary Trainer | Trainer name | Text | Primary trainer |
+| 2 | Course Code | Course code | Text | Course identifier |
+| 3 | Course Name | Course name | Text | Full course name |
+| 4 | Start Date | Course start date | Date (DD/MM/YYYY) | Course start date |
+| 5 | End Date | Course end date | Date (DD/MM/YYYY) | Course end date |
+| 6 | City/Region | Course venue | Text | Course location |
+| 7 | Channel | Course channel | Text | BC, EC, Agency, etc. |
+| 8 | Course Type | Course type | Text | SHINE, Product, Skill, etc. |
+| 9 | Status | Course status | Text | NEW, REGISTERED, APPROVED, etc. |
+| 10 | Co-Trainer | Co-trainer names | Text | Comma-separated if multiple |
 
 ---
 
-**Common Features Across All Tabs:**
+**Business Rules:**
 
-**Filtering Options:**
-- Filter by trainer (dropdown list)
-- Filter by course type (SHINE/Product/Skill/All)
-- Filter by region (North/South/Central/All)
-- Search by course code or course name
+1. **Authorization:**
+   - User can only export trainers and courses they have permission to view
+   - Trainer: Only their own assignments
+   - Lead Region: Trainers in their channel + region
+   - Head Channel: All trainers in their channel
+   - Admin/Master Role: All trainers
 
-**Sorting Options:**
-- Sort by request date (oldest/newest first)
-- Sort by course start date (earliest/latest first)
-- Sort by trainer name (A-Z)
+2. **Filter Integration:**
+   - Export reflects currently applied filters on PIC Calendar
+   - If "Channel = Agency" filter active, exports only Agency trainers/courses
+   - If course type filter applied, exports only matching courses
 
-**Display Columns:**
-| Column | Description | All Tabs |
-|--------|-------------|----------|
-| Course Code | Unique course identifier (clickable link to course details page) | Yes |
-| Course Name | Full course name | Yes |
-| Course Type | SHINE/Product/Skill | Yes |
-| Requester | User who submitted request | Yes |
-| Request Date | When request was submitted | Yes |
-| Course Start Date | Scheduled start date | Yes |
-| Region | Course region | Yes |
-| Channel | Course channel | Yes |
-| Days Pending | Days since request submitted | Yes |
-| Actions | Approve/Reject buttons | Yes |
+3. **Trainer Customization:**
+   - Export includes only trainers currently visible/selected in PIC Calendar
+   - If "Show Trainers" is toggled off or specific trainers hidden, they are excluded from export
+   - Respects trainer selection from customization modal
 
-**Navigation:**
-- Course Code is a clickable link that navigates to the course details page
-- Link styled in primary color (#0097A9) with underline on hover for visibility
-- Users can use browser back button to return to the approval list
+4. **Month Scope:**
+   - Export data for currently displayed month only
+   - Trainer workload metrics calculated for displayed month
+   - Courses spanning multiple months included if they start in displayed month
 
-**Real-Time Count Badges:**
-- Each tab shows count of pending items in tab label
-- Example: "Approve Registered (3)" indicates 3 pending registrations
-- Counts update in real-time after approval/rejection actions
+5. **Data Accuracy:**
+   - Export captures data at moment of export
+   - Workload percentage calculated based on current assignment target
+   - Include timestamp in filename for version tracking
 
-**Bulk Actions (Future Enhancement):**
-- Checkbox selection for multiple courses
-- Bulk approve/reject functionality
-- Confirmation modal for bulk actions
+6. **Empty Result Handling:**
+   - If no trainers visible, show message: "No trainer data to export"
+   - If trainers visible but no courses, export trainer summary only
+   - Do not generate empty Excel file
 
-**Export Functionality:**
-- Export pending approvals list to Excel
-- Includes all displayed columns
-- Filtered by current tab and applied filters
+---
 
-**Empty State:**
-- When no pending approvals: Display message "No pending approvals at this time"
-- Includes icon and helpful text
-- Suggests checking other tabs or adjusting filters
+**Authorization:**
+
+| Role | Can Export from PIC Calendar |
+|------|------------------------------|
+| Trainer | Yes (only their data) |
+| Lead Region | Yes (their channel + region trainers) |
+| Head Channel | Yes (their channel, all trainers) |
+| Admin | Yes (all trainers) |
+| Master Role | Yes (all trainers) |
+
+---
+
+**User Flow:**
+
+1. User navigates to PIC Calendar
+2. User applies filters (optional): channel, region, course type
+3. User customizes trainer display (optional): select specific trainers
+4. User navigates to desired month (e.g., November 2025)
+5. User clicks [Export PIC Data] button
+6. System validates: trainers and courses exist for current view
+7. System generates Excel file with 2 sheets (Trainer Assignments + Course Details)
+8. File downloads automatically to user's browser
+9. Success notification: "PIC data for 15 trainers exported successfully"
+
+---
+
+**Error Handling:**
+
+| Error Scenario | System Response | User Message |
+|----------------|-----------------|--------------|
+| No trainers visible | Block export, show message | "No trainer data to export. Please select trainers." |
+| Export generation fails | Show error notification | "Export failed. Please try again or contact support." |
+| User lacks permission | Hide export button | N/A |
+| Network timeout | Show error, allow retry | "Export timeout. Please try again." |
 
 ---
 
@@ -7972,12 +8150,6 @@ SO THAT I can plan training schedules even for programs without existing courses
 - Program must be ACTIVE status
 - User must have course creation permissions
 
-**Benefits:**
-- **Reduced Data Entry:** Pre-fills 5 fields automatically
-- **Consistency:** Ensures program-course alignment
-- **Efficiency:** Single-click course creation from calendar view
-- **Visibility:** See program availability before creating courses
-
 ---
 
 ### 10.2 Create Course in Master Calendar
@@ -8124,6 +8296,140 @@ SO THAT I can quickly schedule courses with pre-filled program and date informat
 - Browser back button returns to Master Calendar
 - Calendar state restored from session storage
 - User sees same view they left (month, filters, program selection)
+#### 10.3.5 Export Course (NEW REQUIREMENT)
+
+**User Story:**  
+AS a user viewing the Master Calendar  
+I NEED to export courses displayed in the calendar  
+SO THAT I can have an offline list of courses for planning, reporting, or sharing with stakeholders
+
+**Entry Point:**  
+Master Calendar → [Export] button in toolbar
+
+**Acceptance Criteria:**
+
+1. **Export Button:**
+   - "Export Courses" button visible in Master Calendar toolbar (top-right)
+   - Button enabled when courses are visible in calendar
+   - Loading indicator during export generation
+
+2. **Export Scope:**
+   - Exports only courses visible in current month view
+   - Respects role-based authorization (user only exports courses they can view)
+   - Respects applied filters (channel, region, program, status)
+   - If programs are filtered/selected, exports only those programs' courses
+
+3. **Export Format:**
+   - File format: Excel (.xlsx)
+   - File name: `MasterCalendar_Export_{DDMMYYYY_HHMMSS}.xlsx`
+   - Example: `MasterCalendar_Export_27122024_153045.xlsx`
+
+---
+
+**Export Columns (Match Course List View - Section 8.2.1):**
+
+| Column # | Column Name      | Data Source              | Format               | Description |
+|----------|------------------|--------------------------|----------------------|-------------|
+| 1        | Code             | Course Code              | Text                 | Course code (e.g., 001-HCBC-SH) |
+| 2        | Course Name      | Course Name              | Text                 | Full course name |
+| 3        | Start Date       | Course Start Date        | Date (DD/MM/YYYY)    | Course start date |
+| 4        | End Date         | Course End Date          | Date (DD/MM/YYYY)    | Course end date |
+| 5        | Trainer          | Primary & Co-Trainer     | Text                 | Comma-separated if multiple trainers |
+| 6        | Sessions         | Number of Stages         | Number               | Count of course stages/sessions |
+| 7        | Region           | Course Region            | Text                 | North/South/Central/Nationwide |
+| 8        | Channel          | Course Channel           | Text                 | Agency/Banca FSC/Banker/IFA |
+| 9        | Venue            | Course Venue Address     | Text                 | Physical location address |
+| 10       | Status           | Course Status            | Text                 | NEW/REGISTERED/APPROVED/etc. |
+| 11       | Created By       | Course Creator           | Text                 | User who created the course |
+| 12       | Created At       | Creation Timestamp       | DateTime (DD/MM/YYYY HH:MM) | When course was created |
+| 13       | Updated By       | Last Updater             | Text                 | User who last updated course |
+
+---
+
+**Excel File Structure:**
+
+- **Sheet Name:** "Master Calendar Courses"
+- **Header Row:** First row frozen (always visible when scrolling)
+- **Auto-filter:** Enabled on header row for all columns
+- **Column Widths:** Auto-adjusted for content readability
+- **Metadata Row:** Include export information at top
+
+**Metadata Example (Rows 1-4, before header):**
+
+```
+Row 1: Exported From: Master Calendar
+Row 2: Month: January 2025
+Row 3: Exported By: [User Name] | Export Date: 27/12/2024 15:30:45
+Row 4: Total Courses: 45
+Row 5: [Blank]
+Row 6: [Header Row] Code | Course Name | Start Date | ...
+Row 7+: [Data Rows]
+```
+
+---
+
+**Business Rules:**
+
+1. **Authorization:**
+   - User can only export courses they have permission to view
+   - Export respects same authorization rules as Course List View (Section 8.2.1)
+   - Trainer: Only their courses
+   - Lead Region: Courses in their channel + region
+   - Head Channel: All courses in their channel
+   - Admin/Master Role: All courses
+
+2. **Filter Integration:**
+   - Export reflects currently applied filters on Master Calendar
+   - If "Channel = Agency" filter active, exports only Agency courses
+   - If specific programs selected in program filter, exports only those programs
+
+3. **Month Scope:**
+   - Default: Export courses in currently displayed month
+   - Only courses with start dates in the displayed month are included
+   - Courses spanning multiple months appear in export for their start month
+
+4. **Data Accuracy:**
+   - Export captures data at moment of export
+   - Data snapshot - not live-updated after export
+   - Include timestamp in filename for version tracking
+
+5. **Empty Result Handling:**
+   - If no courses in selected month/filters, show message: "No courses to export"
+   - Do not generate empty Excel file
+
+---
+
+**Authorization:**
+
+| Role | Can Export from Master Calendar |
+|------|--------------------------------|
+| Trainer | Yes (only their courses) |
+| Lead Region | Yes (their channel + region) |
+| Head Channel | Yes (their channel, all regions) |
+| Admin | Yes (all courses) |
+| Master Role | Yes (all courses) |
+
+---
+
+**User Flow:**
+
+1. User navigates to Master Calendar
+2. User applies filters (optional): channel, region, program, status
+3. User navigates to desired month (e.g., January 2025)
+4. User clicks [Export Courses] button
+5. System validates: courses exist for current view
+6. System generates Excel file with filtered courses (13 columns)
+7. File downloads automatically to user's browser
+8. Success notification: "45 courses exported successfully"
+
+**Error Handling:**
+
+| Error Scenario | System Response | User Message |
+|----------------|-----------------|--------------|
+| No courses in view | Block export, show message | "No courses to export for current selection" |
+| Export generation fails | Show error notification | "Export failed. Please try again or contact support." |
+| User lacks permission | Hide export button | N/A |
+| Network timeout | Show error, allow retry | "Export timeout. Please try again." |
 
 ---
 
@@ -8260,223 +8566,4 @@ SO THAT the system can warn users when scheduling courses on holidays
 ---
 
 ## 13. REPORT MANAGEMENT [PHASE 2]
-
-Report Management Menu available with user role Admin.
-
-### 13.1 SHINE PASS RATIO
-
-**Report Template:**
-
-| NO. | CHANNEL | PROVINCE | DATE | CLASS | MOF EXAM JOINING | PASS MOF EXAM | PASS RATIO | TRAINER |
-| --- | ------- | -------- | ---- | ----- | ---------------- | ------------- | ---------- | ------- |
-
-**Field Description:**
-
-| No  | Field            | Description                                       |
-| --- | ---------------- | ------------------------------------------------- |
-| 1   | CHANNEL          | Course channel                                    |
-| 2   | PROVINCE         | Course province                                   |
-| 3   | DATE             | Course start date                                 |
-| 4   | CLASS            | Class code                                        |
-| 5   | MOF EXAM JOINING | Count participants with exam result from MOF file |
-| 6   | PASS MOF EXAM    | Number of participants who passed MOF             |
-| 7   | PASS RATIO       | Pass ratio = PASS MOF EXAM / MOF EXAM JOINING     |
-| 8   | TRAINER          | Trainer name and number of stages                 |
-
-Export function required.
-
-### 13.2 SHINE TRAINING
-
-**Report Template:**
-
-Comprehensive report showing:
-
-- Registration numbers
-- First session attendance
-- Comp exam pass rate
-- UL2+NCI exam pass rate
-- MOF exam joining
-- Re-exam participants
-- Pass ratios
-
-**Filter:** Channel, Province, Date range
-
-Export function required.
-
-### 13.3 PARTICIPANT OF TRAINERS
-
-**Report Template:**
-
-Shows per trainer:
-
-- SHINE courses (number of classes, number of participants)
-- Product courses (number of classes, number of participants)
-- Skill courses (number of classes, number of participants)
-- Total classes
-- Total participants
-
-**Filter:**
-
-- Channel
-- Region
-- Month/year picker
-- Search box (trainer name)
-
-Export function required.
-
-### 13.4 RECRUITMENT SHINE
-
-**Report Template:**
-
-Weekly breakdown per month showing:
-
-- Region
-- AD name
-- RD name
-- Application submitted (from AS)
-- Application approved (from AS)
-- Attended SHINE (joined first session)
-
-**Filter:** Month/Year Picker
-
-Export function required.
-
-### 13.5 DANH SACH DANG KY MOF
-
-**Report Template:**
-
-MOF exam registration list showing:
-
-- Course name
-- Study date
-- Exam date/time
-- Province/District/Ward
-- Address
-- Expected number of participants
-- Exam type
-- Exam category
-- Proctor name + phone
-
-**Filter:**
-
-- Region
-- Channel
-- Time (Month/year picker)
-
-Export function required.
-
-### 13.6 PASS RATIO BY MONTH
-
-**Report 1:** Shows passed count and ratio per channel per month
-
-**Report 2:** Shows pass ratio trends over time per channel
-
-**Filter:** Month/year picker
-
-Export function required.
-
-### 13.7 GIO BAY TRAINER
-
-Shows trainer hours/sessions by program.
-
-**Filter:**
-
-- Time picker
-- Channel dropdown
-
-Export function required.
-
-### 13.8 ATTENDANCE REPORT
-
-Shows:
-
-- Training program
-- Monthly actual (classes, participants)
-- Monthly target (classes, participants)
-
-### 13.9 REPORT FOR FWD AGENT TRAINING ACTIVITY
-
-**Vietnamese:** BÁO CÁO VỀ HOẠT ĐỘNG ĐÀO TẠO ĐẠI LÝ BẢO HIỂM
-
-**Report Template:**
-
-Official report format for Ministry of Finance showing:
-
-- Training course name/code
-- Time period
-- Location
-- Number of participants
-- Number receiving certificates
-
-**Filter:** Year picker
-
-Export function required.
-
-### 13.10 SHINE REPORT
-
-Shows per month:
-
-- Registration count
-- Show up count
-- MOF exam joining count
-- Pass MOF exam count
-- Channel
-- Region
-
-**Filter:**
-
-- Month/year picker
-- Channel
-- Region
-
-Export function required.
-
-### 13.11 FWT TRAINER PAYSLIP
-
-**Vietnamese:** DANH SÁCH CHI TRẢ CHI PHÍ HUẤN LUYỆN CHO CỘNG TÁC VIÊN FWT
-
-**Report Template:**
-
-| FULL NAME | DOB | ID NUMBER | PROVINCE | CODE | AD  | Program | NUMBER OF SESSION | AMOUNT (VND) |
-| --------- | --- | --------- | -------- | ---- | --- | ------- | ----------------- | ------------ |
-
-Shows payment calculation for FWT trainers.
-
-**Calculation:** Amount = Number of sessions × amount per session
-
-**Filter:** Month/year picker
-
-Export function required.
-
-### 13.12 EXAM FEE TOTAL
-
-**Report:** LIST OF CANDIDATES WHO FAILED THE EXAM
-
-Shows participants who failed MOF exam:
-
-- Full name
-- DOB
-- ID number
-- Failed mark
-- Agent ID
-- AD name
-- Amount (VND)
-- Office
-- Course
-- Remark
-
-**Filter:** Month/year picker
-
-Export function required.
-
----
-
-## 14. GENERAL SETTING
-
-### 14.1 SMTP Settings
-
-[SMTP configuration settings for email notifications]
-
----
-
 
