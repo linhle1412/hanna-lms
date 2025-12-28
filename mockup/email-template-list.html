@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Template Configuration - LMS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .toolbar {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-secondary {
+            background-color: #95a5a6;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #7f8c8d;
+        }
+
+        .btn-danger {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #c0392b;
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+
+        .search-filter {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-filter input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            width: 250px;
+        }
+
+        .search-filter select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .table-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 1200px;
+        }
+
+        thead {
+            background-color: #34495e;
+            color: white;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #ecf0f1;
+            font-size: 14px;
+        }
+
+        tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .badge-active {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .badge-inactive {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .badge-category {
+            background-color: #e7f3ff;
+            color: #0066cc;
+        }
+
+        .actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .subject-preview {
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .trigger-badge {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 11px;
+            margin-right: 4px;
+        }
+
+        .pagination {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .pagination-info {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .pagination-controls {
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Email and Notification Template Configuration</h1>
+            <p>Manage email notification templates for course-related actions. Customize messaging, recipients, and formatting without code changes.</p>
+        </div>
+
+        <div class="toolbar">
+            <div class="search-filter">
+                <input type="text" placeholder="Search templates..." value="">
+                <select>
+                    <option value="">All Actions</option>
+                    <option value="create">Create Course</option>
+                    <option value="register">Register Course</option>
+                    <option value="approve">Approve</option>
+                    <option value="reject">Reject</option>
+                    <option value="edit">Edit Course</option>
+                    <option value="cancel">Cancel Course</option>
+                </select>
+                <select>
+                    <option value="">All Course Types</option>
+                    <option value="all">All Course Type</option>
+                    <option value="shine">SHINE</option>
+                    <option value="product">Product</option>
+                    <option value="aftershine">Aftershine</option>
+                </select>
+                <select>
+                    <option value="">All Status</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" onclick="window.location.href='email-template-form.html'">
+                + Create New Template
+            </button>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Template Name</th>
+                        <th>Trigger Action</th>
+                        <th>Course Type</th>
+                        <th>Subject</th>
+                        <th>Recipients</th>
+                        <th>Status</th>
+                        <th>Last Modified</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Course Creation - Head/Lead</strong><br><span style="color: #7f8c8d; font-size: 12px;">Head/Lead creates new course</span></td>
+                        <td><span class="trigger-badge">Create Course</span><br><span style="color: #7f8c8d; font-size: 12px;">Head/Lead</span></td>
+                        <td>All</td>
+                        <td class="subject-preview">[LMS] Create new course</td>
+                        <td>All trainers, Lead region, Head channel</td>
+                        <td><span class="badge badge-active">Active</span></td>
+                        <td>15/01/2025<br><span style="color: #7f8c8d; font-size: 12px;">Admin User</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn btn-secondary btn-sm" onclick="window.location.href='email-template-form.html?id=1'">Edit</button>
+                                <button class="btn btn-secondary btn-sm">Test</button>
+                                <button class="btn btn-danger btn-sm">Deactivate</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Course Registration - Trainer</strong><br><span style="color: #7f8c8d; font-size: 12px;">Trainer registers new course</span></td>
+                        <td><span class="trigger-badge">Register Course</span><br><span style="color: #7f8c8d; font-size: 12px;">Trainer</span></td>
+                        <td>All</td>
+                        <td class="subject-preview">[LMS] Register course</td>
+                        <td>Sếp của trainer, Lead region, Head channel</td>
+                        <td><span class="badge badge-active">Active</span></td>
+                        <td>12/01/2025<br><span style="color: #7f8c8d; font-size: 12px;">Master Role</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn btn-secondary btn-sm" onclick="window.location.href='email-template-form.html?id=2'">Edit</button>
+                                <button class="btn btn-secondary btn-sm">Test</button>
+                                <button class="btn btn-danger btn-sm">Deactivate</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Approve Registration</strong><br><span style="color: #7f8c8d; font-size: 12px;">Lead/Head approves course registration</span></td>
+                        <td><span class="trigger-badge">Approve Registration</span><br><span style="color: #7f8c8d; font-size: 12px;">Lead/Head</span></td>
+                        <td>All</td>
+                        <td class="subject-preview">[LMS] Approve course registration</td>
+                        <td>Primary trainer</td>
+                        <td><span class="badge badge-active">Active</span></td>
+                        <td>10/01/2025<br><span style="color: #7f8c8d; font-size: 12px;">Admin User</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn btn-secondary btn-sm" onclick="window.location.href='email-template-form.html?id=3'">Edit</button>
+                                <button class="btn btn-secondary btn-sm">Test</button>
+                                <button class="btn btn-danger btn-sm">Deactivate</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reject Registration</strong><br><span style="color: #7f8c8d; font-size: 12px;">Lead/Head rejects course registration</span></td>
+                        <td><span class="trigger-badge">Reject Registration</span><br><span style="color: #7f8c8d; font-size: 12px;">Lead/Head</span></td>
+                        <td>All</td>
+                        <td class="subject-preview">[LMS] Reject course registration</td>
+                        <td>Primary trainer</td>
+                        <td><span class="badge badge-active">Active</span></td>
+                        <td>08/01/2025<br><span style="color: #7f8c8d; font-size: 12px;">Admin User</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn btn-secondary btn-sm" onclick="window.location.href='email-template-form.html?id=4'">Edit</button>
+                                <button class="btn btn-secondary btn-sm">Test</button>
+                                <button class="btn btn-danger btn-sm">Deactivate</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Edit Course - Trainer</strong><br><span style="color: #7f8c8d; font-size: 12px;">Trainer edits approved course</span></td>
+                        <td><span class="trigger-badge">Edit Course</span><br><span style="color: #7f8c8d; font-size: 12px;">Trainer</span></td>
+                        <td>Aftershine</td>
+                        <td class="subject-preview">[LMS] Edit course</td>
+                        <td>Sếp của trainer, Lead region, Head channel</td>
+                        <td><span class="badge badge-active">Active</span></td>
+                        <td>05/01/2025<br><span style="color: #7f8c8d; font-size: 12px;">Admin User</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn btn-secondary btn-sm" onclick="window.location.href='email-template-form.html?id=5'">Edit</button>
+                                <button class="btn btn-secondary btn-sm">Test</button>
+                                <button class="btn btn-danger btn-sm">Deactivate</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cancel Course</strong><br><span style="color: #7f8c8d; font-size: 12px;">Course cancellation notification</span></td>
+                        <td><span class="trigger-badge">Cancel Course</span><br><span style="color: #7f8c8d; font-size: 12px;">User with permission</span></td>
+                        <td>All</td>
+                        <td class="subject-preview">[LMS] Cancel course</td>
+                        <td>Primary trainer</td>
+                        <td><span class="badge badge-inactive">Inactive</span></td>
+                        <td>20/12/2024<br><span style="color: #7f8c8d; font-size: 12px;">Master Role</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="btn btn-secondary btn-sm" onclick="window.location.href='email-template-form.html?id=6'">Edit</button>
+                                <button class="btn btn-secondary btn-sm">Test</button>
+                                <button class="btn btn-primary btn-sm">Activate</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination">
+            <div class="pagination-info">
+                Showing 1-6 of 17 templates
+            </div>
+            <div class="pagination-controls">
+                <button class="btn btn-secondary btn-sm" disabled>Previous</button>
+                <button class="btn btn-secondary btn-sm">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple interaction handlers
+        document.querySelectorAll('.btn-danger, .btn-primary').forEach(btn => {
+            if (btn.textContent.includes('Activate') || btn.textContent.includes('Deactivate')) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const action = this.textContent.trim();
+                    const templateName = this.closest('tr').querySelector('td:first-child strong').textContent;
+                    if (confirm(`Are you sure you want to ${action.toLowerCase()} "${templateName}"?`)) {
+                        alert(`Template "${templateName}" has been ${action.toLowerCase()}d.`);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

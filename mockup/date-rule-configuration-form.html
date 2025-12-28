@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Rule Configuration Form - LMS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .form-section h2 {
+            color: #2c3e50;
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #34495e;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .form-group label .required {
+            color: #e74c3c;
+            margin-left: 4px;
+        }
+
+        .form-group input[type="number"],
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input[type="number"]:focus,
+        .form-group input[type="text"]:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        .form-group .help-text {
+            margin-top: 5px;
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+
+        .form-group .validation-info {
+            margin-top: 5px;
+            font-size: 12px;
+            color: #3498db;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .info-box {
+            background-color: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .info-box h3 {
+            color: #2c3e50;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .info-box p {
+            color: #7f8c8d;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+            color: #7f8c8d;
+            font-size: 13px;
+        }
+
+        .info-box ul li {
+            margin-bottom: 5px;
+        }
+
+        .rule-preview {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        .rule-preview h4 {
+            color: #2c3e50;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .rule-preview .rule-item {
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .rule-preview .rule-item strong {
+            color: #2c3e50;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ecf0f1;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-secondary {
+            background-color: #95a5a6;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #7f8c8d;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .form-group.error input {
+            border-color: #e74c3c;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Date Rule Configuration</h1>
+            <p id="form-mode">Create new date rule configuration</p>
+        </div>
+
+        <div class="form-container">
+            <form id="dateRuleForm">
+                <div class="info-box">
+                    <h3>ℹ️ About Date Rule Configuration</h3>
+                    <p>Configure date validation rules that will be applied during course creation and editing. These rules ensure:</p>
+                    <ul>
+                        <li>Courses are scheduled with appropriate advance notice</li>
+                        <li>MOF exam dates fall within acceptable timeframes</li>
+                        <li>AOL exam periods are properly aligned with course dates</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>Note:</strong> Only one active configuration can exist at a time. The most recent active configuration will be used for new courses.</p>
+                </div>
+
+                <div class="form-section">
+                    <h2>Configuration Details</h2>
+                    
+                    <div class="form-group">
+                        <label>
+                            Configuration Name
+                            <span class="required">*</span>
+                        </label>
+                        <input type="text" id="configName" name="configName" placeholder="e.g., Peak Season Configuration" value="Peak Season Configuration">
+                        <div class="help-text">Enter a descriptive name for this configuration</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="isActive" name="isActive" checked>
+                            <span>Active Configuration</span>
+                        </label>
+                        <div class="help-text">Only active configurations are applied during course validation. If unchecked, this configuration will not be used.</div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Date Validation Rules</h2>
+
+                    <div class="form-group">
+                        <label>
+                            Course Start Date Minimum Advance Days
+                            <span class="required">*</span>
+                        </label>
+                        <input type="number" id="minAdvanceDays" name="minAdvanceDays" min="0" max="365" value="5" required>
+                        <div class="help-text">Minimum number of days between today and course start date</div>
+                        <div class="validation-info">
+                            <span>ℹ️</span>
+                            <span>Validation: Must be >= 0 and <= 365 days</span>
+                        </div>
+                        <div class="rule-preview">
+                            <h4>Rule Preview:</h4>
+                            <div class="rule-item">
+                                <strong>Validation:</strong> Course Start Date >= Today + <span id="preview-min-days">5</span> days
+                            </div>
+                            <div class="rule-item">
+                                <strong>Error Message:</strong> "Course start date must be at least <span id="preview-min-days-msg">5</span> days from today"
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            MOF Exam Time Window (Days from Start)
+                            <span class="required">*</span>
+                        </label>
+                        <input type="number" id="mofWindow" name="mofWindow" min="1" max="90" value="30" required>
+                        <div class="help-text">Maximum number of days after course start date that MOF exam can be scheduled</div>
+                        <div class="validation-info">
+                            <span>ℹ️</span>
+                            <span>Validation: Must be > 0 and <= 90 days</span>
+                        </div>
+                        <div class="rule-preview">
+                            <h4>Rule Preview:</h4>
+                            <div class="rule-item">
+                                <strong>Validation:</strong> Course Start Date <= MOF Exam Time <= Course Start Date + <span id="preview-mof-days">30</span> days
+                            </div>
+                            <div class="rule-item">
+                                <strong>Error Message:</strong> "MOF exam must be within <span id="preview-mof-days-msg">30</span> days of course start"
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            AOL Exam Period Extension (Days after Course End)
+                            <span class="required">*</span>
+                        </label>
+                        <input type="number" id="aolExtension" name="aolExtension" min="0" max="30" value="3" required>
+                        <div class="help-text">Number of days after course end date that AOL exam period can extend</div>
+                        <div class="validation-info">
+                            <span>ℹ️</span>
+                            <span>Validation: Must be >= 0 and <= 30 days</span>
+                        </div>
+                        <div class="rule-preview">
+                            <h4>Rule Preview:</h4>
+                            <div class="rule-item">
+                                <strong>Validation:</strong> Course Start Date <= AOL Start/End <= Course End Date + <span id="preview-aol-days">3</span> days
+                            </div>
+                            <div class="rule-item">
+                                <strong>Error Message:</strong> "AOL exam period must be within course dates + <span id="preview-aol-days-msg">3</span> days"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Business Rules Information</h2>
+                    <div class="info-box">
+                        <h3>📋 How Rules Are Applied</h3>
+                        <ul>
+                            <li><strong>Rule Versioning:</strong> Rules are applied at course creation time. Future changes won't affect existing courses.</li>
+                            <li><strong>Rule Priority:</strong> If multiple active configurations exist, the most recent one is used.</li>
+                            <li><strong>Default Values:</strong> If no active configuration exists, system uses defaults (2 days, 30 days, 3 days).</li>
+                            <li><strong>History Tracking:</strong> All changes are logged with user details and timestamps.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="window.location.href='date-rule-configuration-list.html'">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Configuration</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Update previews in real-time
+        document.getElementById('minAdvanceDays').addEventListener('input', function() {
+            const value = this.value || 0;
+            document.getElementById('preview-min-days').textContent = value;
+            document.getElementById('preview-min-days-msg').textContent = value;
+        });
+
+        document.getElementById('mofWindow').addEventListener('input', function() {
+            const value = this.value || 0;
+            document.getElementById('preview-mof-days').textContent = value;
+            document.getElementById('preview-mof-days-msg').textContent = value;
+        });
+
+        document.getElementById('aolExtension').addEventListener('input', function() {
+            const value = this.value || 0;
+            document.getElementById('preview-aol-days').textContent = value;
+            document.getElementById('preview-aol-days-msg').textContent = value;
+        });
+
+        // Form validation
+        document.getElementById('dateRuleForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const minAdvanceDays = parseInt(document.getElementById('minAdvanceDays').value);
+            const mofWindow = parseInt(document.getElementById('mofWindow').value);
+            const aolExtension = parseInt(document.getElementById('aolExtension').value);
+            
+            let isValid = true;
+            
+            // Validate minAdvanceDays
+            if (minAdvanceDays < 0 || minAdvanceDays > 365) {
+                showError('minAdvanceDays', 'Value must be between 0 and 365 days');
+                isValid = false;
+            } else {
+                clearError('minAdvanceDays');
+            }
+            
+            // Validate mofWindow
+            if (mofWindow <= 0 || mofWindow > 90) {
+                showError('mofWindow', 'Value must be between 1 and 90 days');
+                isValid = false;
+            } else {
+                clearError('mofWindow');
+            }
+            
+            // Validate aolExtension
+            if (aolExtension < 0 || aolExtension > 30) {
+                showError('aolExtension', 'Value must be between 0 and 30 days');
+                isValid = false;
+            } else {
+                clearError('aolExtension');
+            }
+            
+            if (isValid) {
+                alert('Configuration saved successfully!');
+                window.location.href = 'date-rule-configuration-list.html';
+            }
+        });
+        
+        function showError(fieldId, message) {
+            const field = document.getElementById(fieldId);
+            const formGroup = field.closest('.form-group');
+            formGroup.classList.add('error');
+            
+            let errorDiv = formGroup.querySelector('.error-message');
+            if (!errorDiv) {
+                errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message';
+                formGroup.appendChild(errorDiv);
+            }
+            errorDiv.textContent = message;
+        }
+        
+        function clearError(fieldId) {
+            const field = document.getElementById(fieldId);
+            const formGroup = field.closest('.form-group');
+            formGroup.classList.remove('error');
+            const errorDiv = formGroup.querySelector('.error-message');
+            if (errorDiv) {
+                errorDiv.remove();
+            }
+        }
+
+        // Check if editing (based on URL parameter)
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('id')) {
+            document.getElementById('form-mode').textContent = 'Edit date rule configuration';
+            document.querySelector('h1').textContent = 'Edit Date Rule Configuration';
+        }
+    </script>
+</body>
+</html>
+

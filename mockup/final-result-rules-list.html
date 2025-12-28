@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Result Calculation Rules - List View</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .toolbar {
+            padding: 24px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 10px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .filters {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .filter-select {
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
+        }
+
+        .table-container {
+            padding: 24px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: #f9fafb;
+        }
+
+        th {
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 14px;
+        }
+
+        tbody tr {
+            transition: background 0.2s;
+        }
+
+        tbody tr:hover {
+            background: #f9fafb;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-active {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-inactive {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .checks-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            background: #e0e7ff;
+            color: #3730a3;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            margin: 2px;
+        }
+
+        .btn-small {
+            padding: 6px 12px;
+            border: 1px solid #d1d5db;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            margin-right: 6px;
+            transition: all 0.2s;
+        }
+
+        .btn-small:hover {
+            background: #f3f4f6;
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        .footer {
+            padding: 16px 24px;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f9fafb;
+        }
+
+        .footer-info {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .btn-export {
+            padding: 8px 16px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-export:hover {
+            background: #5568d3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Final Result Calculation Rules</h1>
+            <button class="btn-primary">
+                <span>➕</span>
+                <span>Add Rule</span>
+            </button>
+        </div>
+
+        <div class="toolbar">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search rules...">
+                <span style="padding: 10px 16px; color: #9ca3af;">🔍</span>
+            </div>
+            
+            <div class="filters">
+                <span style="color: #6b7280; display: flex; align-items: center; font-size: 14px; font-weight: 500;">Filter by:</span>
+                <select class="filter-select">
+                    <option>All Channels</option>
+                    <option>ALL</option>
+                    <option>BANCA</option>
+                    <option>AGENCY</option>
+                    <option>IFA</option>
+                </select>
+                <select class="filter-select">
+                    <option>All Course Types</option>
+                    <option>SHINE</option>
+                    <option>PRODUCT</option>
+                    <option>SKILL</option>
+                    <option>ILP</option>
+                    <option>WORKSHOP</option>
+                </select>
+                <select class="filter-select">
+                    <option>All Exam Types</option>
+                    <option>ALL</option>
+                    <option>RE_MOF_EXAM</option>
+                    <option>LIP</option>
+                </select>
+                <select class="filter-select">
+                    <option>Active</option>
+                    <option>Inactive</option>
+                    <option>All Status</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 60px;">No.</th>
+                        <th>Channel</th>
+                        <th>Course Type</th>
+                        <th>Exam Type</th>
+                        <th>Partner</th>
+                        <th>Checks Applied</th>
+                        <th>Status</th>
+                        <th style="width: 140px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong>ALL</strong></td>
+                        <td>SHINE</td>
+                        <td>ALL</td>
+                        <td>ALL</td>
+                        <td>
+                            <span class="checks-badge">AOL</span>
+                            <span class="checks-badge">ATT(ALL)</span>
+                            <span class="checks-badge">MOF</span>
+                        </td>
+                        <td>
+                            <span class="status-badge status-active">● Active</span>
+                        </td>
+                        <td>
+                            <button class="btn-small">Edit</button>
+                            <button class="btn-small">View</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>ALL</strong></td>
+                        <td>SHINE</td>
+                        <td>RE_MOF_EXAM</td>
+                        <td>ALL</td>
+                        <td>
+                            <span class="checks-badge">MOF only</span>
+                        </td>
+                        <td>
+                            <span class="status-badge status-active">● Active</span>
+                        </td>
+                        <td>
+                            <button class="btn-small">Edit</button>
+                            <button class="btn-small">View</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><strong>BANCA</strong></td>
+                        <td>SHINE</td>
+                        <td>RE_MOF_EXAM</td>
+                        <td>X</td>
+                        <td>
+                            <span class="checks-badge">MOF only</span>
+                        </td>
+                        <td>
+                            <span class="status-badge status-active">● Active</span>
+                        </td>
+                        <td>
+                            <button class="btn-small">Edit</button>
+                            <button class="btn-small">View</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><strong>AGENCY</strong></td>
+                        <td>ALL</td>
+                        <td>LIP</td>
+                        <td>ALL</td>
+                        <td>
+                            <span class="checks-badge">AOL</span>
+                            <span class="checks-badge">ATT(5,6,7)</span>
+                        </td>
+                        <td>
+                            <span class="status-badge status-active">● Active</span>
+                        </td>
+                        <td>
+                            <button class="btn-small">Edit</button>
+                            <button class="btn-small">View</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><strong>BANCA</strong></td>
+                        <td>ALL</td>
+                        <td>ALL</td>
+                        <td>ALL</td>
+                        <td>
+                            <span class="checks-badge">ATT(ALL)</span>
+                            <span class="checks-badge">MOF</span>
+                        </td>
+                        <td>
+                            <span class="status-badge status-active">● Active</span>
+                        </td>
+                        <td>
+                            <button class="btn-small">Edit</button>
+                            <button class="btn-small">View</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><strong>ALL</strong></td>
+                        <td>ILP</td>
+                        <td>ALL</td>
+                        <td>ALL</td>
+                        <td>
+                            <span class="checks-badge">ATT(ALL)</span>
+                            <span class="checks-badge">MOF</span>
+                        </td>
+                        <td>
+                            <span class="status-badge status-active">● Active</span>
+                        </td>
+                        <td>
+                            <button class="btn-small">Edit</button>
+                            <button class="btn-small">View</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><strong>ALL</strong></td>
+                        <td>PRODUCT</td>
+                        <td>ALL</td>
+                        <td>ALL</td>
+                        <td>
+                            <span class="checks-badge">AOL</span>
+                            <span class="checks-badge">ATT(ALL)</span>
+                        </td>
+                        <td>
+                            <span class="status-badge status-active">● Active</span>
+                        </td>
+                        <td>
+                            <button class="btn-small">Edit</button>
+                            <button class="btn-small">View</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td><strong>ALL</strong></td>
+                        <td>SKILL</td>
+                        <td>ALL</td>
+                        <td>ALL</td>
+                        <td>
+                            <span class="checks-badge">ATT only</span>
+                        </td>
+                        <td>
+                            <span class="status-badge status-active">● Active</span>
+                        </td>
+                        <td>
+                            <button class="btn-small">Edit</button>
+                            <button class="btn-small">View</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td><strong>ALL</strong></td>
+                        <td>WORKSHOP</td>
+                        <td>ALL</td>
+                        <td>ALL</td>
+                        <td>
+                            <span class="checks-badge">ATT only</span>
+                        </td>
+                        <td>
+                            <span class="status-badge status-inactive">○ Inactive</span>
+                        </td>
+                        <td>
+                            <button class="btn-small">Edit</button>
+                            <button class="btn-small">View</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <div class="footer-info">
+                Showing 1-9 of 9 rules
+            </div>
+            <button class="btn-export">Export CSV</button>
+        </div>
+    </div>
+
+    <div style="margin-top: 20px; padding: 16px; background: white; border-radius: 8px; max-width: 1400px; margin-left: auto; margin-right: auto;">
+        <h3 style="margin-bottom: 12px; color: #374151;">Legend:</h3>
+        <div style="display: flex; gap: 24px; flex-wrap: wrap; font-size: 14px; color: #6b7280;">
+            <div><strong>AOL</strong> = AOL Exam Check</div>
+            <div><strong>ATT</strong> = Attendance Check</div>
+            <div><strong>MOF</strong> = MOF Exam Check</div>
+            <div><strong>ATT(ALL)</strong> = All stages required</div>
+            <div><strong>ATT(5,6,7)</strong> = Specific stages required</div>
+        </div>
+    </div>
+</body>
+</html>
+

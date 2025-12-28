@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participant List with Rule Results</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 24px;
+        }
+
+        .header h1 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .header-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .rule-banner {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .rule-banner-icon {
+            font-size: 20px;
+        }
+
+        .rule-banner-text {
+            flex: 1;
+            font-size: 14px;
+            color: #1e40af;
+            font-weight: 500;
+        }
+
+        .stats-bar {
+            display: flex;
+            padding: 20px 24px;
+            gap: 24px;
+            border-bottom: 1px solid #e5e7eb;
+            background: #f9fafb;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .stat-total { color: #3b82f6; }
+        .stat-passed { color: #059669; }
+        .stat-failed { color: #dc2626; }
+        .stat-pending { color: #d97706; }
+
+        .table-container {
+            padding: 24px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: #f9fafb;
+        }
+
+        th {
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 12px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #e5e7eb;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 14px;
+        }
+
+        tbody tr {
+            transition: background 0.2s;
+        }
+
+        tbody tr:hover {
+            background: #f9fafb;
+        }
+
+        .check-icon {
+            font-size: 18px;
+            display: inline-block;
+            width: 24px;
+            text-align: center;
+        }
+
+        .check-pass { color: #059669; }
+        .check-fail { color: #dc2626; }
+        .check-pending { color: #d97706; }
+
+        .result-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .result-passed {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .result-failed {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .result-pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .legend {
+            padding: 16px 24px;
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        .legend-items {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-banner {
+            background: #eff6ff;
+            padding: 12px 24px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 13px;
+            color: #1e40af;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Course Participants: 8-HCMBC-SHINE-001 (LIP Exam)</h1>
+            <div class="header-subtitle">Agency Channel • LIP Exam • Course Type: ALL</div>
+        </div>
+
+        <div class="rule-banner">
+            <span class="rule-banner-icon">📋</span>
+            <div class="rule-banner-text">
+                <strong>Applied Rule:</strong> AGENCY + ALL + LIP + ALL → 
+                <strong>Checks:</strong> Attendance (stages 5, 6, 7) + AOL Exam Pass
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-label">Total</div>
+                <div class="stat-value stat-total">25</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Passed</div>
+                <div class="stat-value stat-passed">18</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Failed</div>
+                <div class="stat-value stat-failed">5</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Pending</div>
+                <div class="stat-value stat-pending">2</div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 50px;">No.</th>
+                        <th>Participant Name</th>
+                        <th style="text-align: center;">Stage 5</th>
+                        <th style="text-align: center;">Stage 6</th>
+                        <th style="text-align: center;">Stage 7</th>
+                        <th style="text-align: center;">ATT Check</th>
+                        <th style="text-align: center;">AOL Check</th>
+                        <th style="text-align: center;">Final Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong>Nguyen Van A</strong></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-pass" style="font-weight: 600;">✓ OK</span></td>
+                        <td style="text-align: center;"><span class="check-pass" style="font-weight: 600;">✓ Pass</span></td>
+                        <td style="text-align: center;">
+                            <span class="result-badge result-passed">✅ PASSED</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>Tran Thi B</strong></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-pass" style="font-weight: 600;">✓ OK</span></td>
+                        <td style="text-align: center;"><span class="check-pass" style="font-weight: 600;">✓ Pass</span></td>
+                        <td style="text-align: center;">
+                            <span class="result-badge result-passed">✅ PASSED</span>
+                        </td>
+                    </tr>
+                    <tr style="background: #fef2f2;">
+                        <td>3</td>
+                        <td><strong>Le Van C</strong></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-icon check-fail">✗</span></td>
+                        <td style="text-align: center;"><span class="check-fail" style="font-weight: 600;">✗ NO</span></td>
+                        <td style="text-align: center;"><span class="check-pass" style="font-weight: 600;">✓ Pass</span></td>
+                        <td style="text-align: center;">
+                            <span class="result-badge result-failed">❌ FAILED</span>
+                        </td>
+                    </tr>
+                    <tr style="background: #fef2f2;">
+                        <td>4</td>
+                        <td><strong>Pham Thi D</strong></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-pass" style="font-weight: 600;">✓ OK</span></td>
+                        <td style="text-align: center;"><span class="check-fail" style="font-weight: 600;">✗ Fail</span></td>
+                        <td style="text-align: center;">
+                            <span class="result-badge result-failed">❌ FAILED</span>
+                        </td>
+                    </tr>
+                    <tr style="background: #fffbeb;">
+                        <td>5</td>
+                        <td><strong>Hoang Van E</strong></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-pass" style="font-weight: 600;">✓ OK</span></td>
+                        <td style="text-align: center;"><span class="check-pending" style="font-weight: 600;">⏳ Pend</span></td>
+                        <td style="text-align: center;">
+                            <span class="result-badge result-pending">⏳ PENDING</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><strong>Vo Thi F</strong></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-pass" style="font-weight: 600;">✓ OK</span></td>
+                        <td style="text-align: center;"><span class="check-pass" style="font-weight: 600;">✓ Pass</span></td>
+                        <td style="text-align: center;">
+                            <span class="result-badge result-passed">✅ PASSED</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><strong>Nguyen Van G</strong></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-pass" style="font-weight: 600;">✓ OK</span></td>
+                        <td style="text-align: center;"><span class="check-pass" style="font-weight: 600;">✓ Pass</span></td>
+                        <td style="text-align: center;">
+                            <span class="result-badge result-passed">✅ PASSED</span>
+                        </td>
+                    </tr>
+                    <tr style="background: #fef2f2;">
+                        <td>8</td>
+                        <td><strong>Tran Van H</strong></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-icon check-fail">✗</span></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-fail" style="font-weight: 600;">✗ NO</span></td>
+                        <td style="text-align: center;"><span class="check-pass" style="font-weight: 600;">✓ Pass</span></td>
+                        <td style="text-align: center;">
+                            <span class="result-badge result-failed">❌ FAILED</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td><strong>Le Thi I</strong></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-pass" style="font-weight: 600;">✓ OK</span></td>
+                        <td style="text-align: center;"><span class="check-pass" style="font-weight: 600;">✓ Pass</span></td>
+                        <td style="text-align: center;">
+                            <span class="result-badge result-passed">✅ PASSED</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td><strong>Pham Van K</strong></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-icon check-pass">✓</span></td>
+                        <td style="text-align: center;"><span class="check-pass" style="font-weight: 600;">✓ OK</span></td>
+                        <td style="text-align: center;"><span class="check-pass" style="font-weight: 600;">✓ Pass</span></td>
+                        <td style="text-align: center;">
+                            <span class="result-badge result-passed">✅ PASSED</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="8" style="text-align: center; color: #9ca3af; padding: 20px;">
+                            ... 15 more participants ...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="legend">
+            <div style="font-weight: 600; margin-bottom: 8px;">Legend:</div>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <span class="check-icon check-pass">✓</span>
+                    <span>Attended / Passed</span>
+                </div>
+                <div class="legend-item">
+                    <span class="check-icon check-fail">✗</span>
+                    <span>Absent / Failed</span>
+                </div>
+                <div class="legend-item">
+                    <span class="check-icon check-pending">⏳</span>
+                    <span>Pending</span>
+                </div>
+                <div class="legend-item">
+                    <strong>ATT</strong> = Attendance Check Result
+                </div>
+            </div>
+        </div>
+
+        <div class="info-banner">
+            <span>ℹ️</span>
+            <span><strong>Note:</strong> Only stages 5, 6, 7 are checked per the applied rule. Attendance on other stages (1-4) does not affect the final result.</span>
+        </div>
+    </div>
+</body>
+</html>
+

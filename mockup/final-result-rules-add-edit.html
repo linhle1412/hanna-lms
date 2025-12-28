@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add/Edit Final Result Calculation Rule</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 12px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            padding: 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .modal-header h2 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .close-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+
+        .required::after {
+            content: " *";
+            color: #ef4444;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .radio-option label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 400;
+        }
+
+        .check-card {
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+            transition: all 0.3s;
+        }
+
+        .check-card.enabled {
+            border-color: #667eea;
+            background: #f5f7ff;
+        }
+
+        .check-card-header {
+            font-size: 15px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 16px;
+        }
+
+        .radio-large {
+            margin-bottom: 12px;
+        }
+
+        .radio-large input[type="radio"] {
+            width: 18px;
+            height: 18px;
+        }
+
+        .radio-large label {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .stage-config {
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 16px;
+            margin-top: 12px;
+        }
+
+        .stage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .stage-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .stage-checkbox:hover {
+            background: #f9fafb;
+        }
+
+        .stage-checkbox input:checked + span {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .stage-checkbox input {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .stage-selected {
+            margin-top: 12px;
+            padding: 8px 12px;
+            background: #e0e7ff;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #3730a3;
+        }
+
+        .info-box {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px 16px;
+            margin-top: 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #1e40af;
+            display: flex;
+            align-items: start;
+            gap: 8px;
+        }
+
+        .summary-box {
+            background: #f9fafb;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 24px;
+        }
+
+        .summary-box h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #111827;
+        }
+
+        .summary-content {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #374151;
+        }
+
+        .summary-content strong {
+            color: #111827;
+        }
+
+        .checkmark {
+            color: #059669;
+            font-weight: bold;
+        }
+
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 12px 16px;
+            margin-top: 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #92400e;
+            display: flex;
+            align-items: start;
+            gap: 8px;
+        }
+
+        .modal-footer {
+            padding: 20px 24px;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            background: #f9fafb;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .btn-cancel {
+            background: white;
+            color: #6b7280;
+            border: 1px solid #d1d5db;
+        }
+
+        .btn-cancel:hover {
+            background: #f9fafb;
+            border-color: #9ca3af;
+        }
+
+        .btn-save {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-save:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <div class="modal-header">
+            <h2>Add Final Result Calculation Rule</h2>
+            <button class="close-btn">✕</button>
+        </div>
+
+        <div class="modal-body">
+            <!-- Rule Matching Criteria -->
+            <div class="section-title">
+                🎯 Rule Matching Criteria
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="required">Channel</label>
+                    <select class="form-control">
+                        <option value="">Select Channel</option>
+                        <option value="ALL">ALL</option>
+                        <option value="BANCA">BANCA</option>
+                        <option value="AGENCY" selected>AGENCY</option>
+                        <option value="IFA">IFA</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="required">Course Type</label>
+                    <select class="form-control">
+                        <option value="">Select Course Type</option>
+                        <option value="ALL" selected>ALL</option>
+                        <option value="SHINE">SHINE</option>
+                        <option value="PRODUCT">PRODUCT</option>
+                        <option value="SKILL">SKILL</option>
+                        <option value="ILP">ILP</option>
+                        <option value="WORKSHOP">WORKSHOP</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="required">Exam Type</label>
+                    <select class="form-control">
+                        <option value="">Select Exam Type</option>
+                        <option value="ALL">ALL</option>
+                        <option value="RE_MOF_EXAM">RE_MOF_EXAM</option>
+                        <option value="LIP" selected>LIP</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="required">Partner Status</label>
+                    <select class="form-control">
+                        <option value="ALL" selected>ALL</option>
+                        <option value="X">X (Partner)</option>
+                        <option value="O">O (Non-Partner)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Passing Criteria Configuration -->
+            <div class="section-title" style="margin-top: 32px;">
+                ✓ Passing Criteria Configuration
+            </div>
+
+            <!-- AOL Exam Check -->
+            <div class="check-card enabled">
+                <div class="check-card-header">📝 AOL Exam Check</div>
+                
+                <div class="radio-large">
+                    <input type="radio" name="aol" id="aol-check" checked>
+                    <label for="aol-check">CHECK - Require AOL exam pass</label>
+                </div>
+                <div class="radio-large">
+                    <input type="radio" name="aol" id="aol-skip">
+                    <label for="aol-skip">SKIP - Do not check AOL exam</label>
+                </div>
+
+                <div class="info-box">
+                    <span>ℹ️</span>
+                    <span>When CHECK: All AOL exams must be passed</span>
+                </div>
+            </div>
+
+            <!-- Attendance Check -->
+            <div class="check-card enabled">
+                <div class="check-card-header">📅 Attendance Check (Điểm danh)</div>
+                
+                <div class="radio-large">
+                    <input type="radio" name="attendance" id="att-check" checked>
+                    <label for="att-check">CHECK - Require attendance</label>
+                </div>
+                <div class="radio-large">
+                    <input type="radio" name="attendance" id="att-skip">
+                    <label for="att-skip">SKIP - Do not check attendance</label>
+                </div>
+
+                <div class="stage-config">
+                    <label style="font-weight: 600; margin-bottom: 8px; display: block;">Stage Configuration:</label>
+                    
+                    <div class="radio-large">
+                        <input type="radio" name="stage-mode" id="stage-all">
+                        <label for="stage-all">ALL stages (100% attendance)</label>
+                    </div>
+                    <div class="radio-large">
+                        <input type="radio" name="stage-mode" id="stage-specific" checked>
+                        <label for="stage-specific">Specific stages only</label>
+                    </div>
+
+                    <div style="margin-top: 16px;">
+                        <label style="font-size: 13px; font-weight: 500; color: #6b7280; margin-bottom: 8px; display: block;">
+                            Select required stages:
+                        </label>
+                        <div class="stage-grid">
+                            <label class="stage-checkbox">
+                                <input type="checkbox" name="stage" value="1">
+                                <span>Stage 1</span>
+                            </label>
+                            <label class="stage-checkbox">
+                                <input type="checkbox" name="stage" value="2">
+                                <span>Stage 2</span>
+                            </label>
+                            <label class="stage-checkbox">
+                                <input type="checkbox" name="stage" value="3">
+                                <span>Stage 3</span>
+                            </label>
+                            <label class="stage-checkbox">
+                                <input type="checkbox" name="stage" value="4">
+                                <span>Stage 4</span>
+                            </label>
+                            <label class="stage-checkbox">
+                                <input type="checkbox" name="stage" value="5" checked>
+                                <span>Stage 5</span>
+                            </label>
+                            <label class="stage-checkbox">
+                                <input type="checkbox" name="stage" value="6" checked>
+                                <span>Stage 6</span>
+                            </label>
+                            <label class="stage-checkbox">
+                                <input type="checkbox" name="stage" value="7" checked>
+                                <span>Stage 7</span>
+                            </label>
+                        </div>
+
+                        <div class="stage-selected">
+                            <strong>Selected:</strong> 5, 6, 7
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <span>ℹ️</span>
+                    <span>Participant must attend ALL selected stages</span>
+                </div>
+            </div>
+
+            <!-- MOF Exam Check -->
+            <div class="check-card">
+                <div class="check-card-header">🎓 MOF Exam Check</div>
+                
+                <div class="radio-large">
+                    <input type="radio" name="mof" id="mof-check">
+                    <label for="mof-check">CHECK - Require MOF exam pass</label>
+                </div>
+                <div class="radio-large">
+                    <input type="radio" name="mof" id="mof-skip" checked>
+                    <label for="mof-skip">SKIP - Do not check MOF exam</label>
+                </div>
+
+                <div class="info-box">
+                    <span>ℹ️</span>
+                    <span>When CHECK: MOF score must be ≥ 30 (default threshold)</span>
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="summary-box">
+                <h3>📋 Rule Summary</h3>
+                <div class="summary-content">
+                    <div style="margin-bottom: 12px;">
+                        <strong>This rule applies to:</strong><br>
+                        • Channel: <strong>AGENCY</strong><br>
+                        • Course Type: <strong>ALL</strong><br>
+                        • Exam Type: <strong>LIP</strong><br>
+                        • Partner Status: <strong>ALL</strong>
+                    </div>
+                    <div>
+                        <strong>Participant passes when:</strong><br>
+                        <span class="checkmark">✓</span> Attended stages: <strong>5, 6, 7</strong><br>
+                        <span class="checkmark">✓</span> AOL exam: <strong>Passed</strong>
+                    </div>
+                </div>
+
+                <div class="warning-box" style="margin-top: 16px;">
+                    <span>⚠️</span>
+                    <span><strong>Important:</strong> At least one check must be enabled</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn btn-cancel">Cancel</button>
+            <button class="btn btn-save">Save Rule</button>
+        </div>
+    </div>
+</body>
+</html>
+

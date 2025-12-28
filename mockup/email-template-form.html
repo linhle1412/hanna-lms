@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Template Form - LMS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .form-section:last-child {
+            border-bottom: none;
+        }
+
+        .form-section h2 {
+            color: #2c3e50;
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #34495e;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .form-group label .required {
+            color: #e74c3c;
+            margin-left: 4px;
+        }
+
+        .form-group input[type="text"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-group .help-text {
+            margin-top: 5px;
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .multi-select {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .multi-select label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            background: white;
+        }
+
+        .multi-select label:hover {
+            background: #f8f9fa;
+        }
+
+        .multi-select input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+        }
+
+        .variable-helper {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        .variable-helper h4 {
+            color: #2c3e50;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .variable-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 8px;
+        }
+
+        .variable-item {
+            padding: 6px 10px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .variable-item:hover {
+            background: #e7f3ff;
+            border-color: #3498db;
+        }
+
+        .variable-item code {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        .editor-toolbar {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-bottom: none;
+            padding: 10px;
+            border-radius: 4px 4px 0 0;
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .editor-toolbar button {
+            padding: 6px 12px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .editor-toolbar button:hover {
+            background: #e9ecef;
+        }
+
+        .editor-container {
+            border: 1px solid #e9ecef;
+            border-radius: 0 0 4px 4px;
+        }
+
+        .editor-container textarea {
+            border: none;
+            min-height: 200px;
+        }
+
+        .preview-panel {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        .preview-panel h4 {
+            color: #2c3e50;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .preview-email {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+        }
+
+        .preview-email .subject {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .preview-email .body {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ecf0f1;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-secondary {
+            background-color: #95a5a6;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #7f8c8d;
+        }
+
+        .btn-test {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        .btn-test:hover {
+            background-color: #229954;
+        }
+
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 12px;
+        }
+
+        .recipient-group {
+            margin-top: 10px;
+        }
+
+        .recipient-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            margin-bottom: 5px;
+        }
+
+        .recipient-item input[type="text"] {
+            flex: 1;
+        }
+
+        .btn-remove {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .btn-remove:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Email Template Configuration</h1>
+            <p id="form-mode">Create new email notification template</p>
+        </div>
+
+        <div class="form-container">
+            <form id="emailTemplateForm">
+                <div class="form-section">
+                    <h2>Template Information</h2>
+                    
+                    <div class="form-group">
+                        <label>
+                            Template Name
+                            <span class="required">*</span>
+                        </label>
+                        <input type="text" id="templateName" name="templateName" placeholder="e.g., Course Creation - Head/Lead" value="Course Creation - Head/Lead" required>
+                        <div class="help-text">Enter a descriptive name for this template</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Description
+                            <span class="required">*</span>
+                        </label>
+                        <textarea id="description" name="description" placeholder="Describe when this template is used..." required>Head/Lead creates new course</textarea>
+                        <div class="help-text">Business description of when this notification is sent</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="isActive" name="isActive" checked>
+                            <span>Active Template</span>
+                        </label>
+                        <div class="help-text">Only active templates are used for sending notifications</div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Trigger Configuration</h2>
+
+                    <div class="form-group">
+                        <label>
+                            Trigger Action
+                            <span class="required">*</span>
+                        </label>
+                        <select id="triggerAction" name="triggerAction" required>
+                            <option value="">Select trigger action...</option>
+                            <option value="create" selected>Create Course</option>
+                            <option value="register">Register Course</option>
+                            <option value="approve_registration">Approve Registration</option>
+                            <option value="reject_registration">Reject Registration</option>
+                            <option value="edit">Edit Course</option>
+                            <option value="approve_edit">Approve Edit</option>
+                            <option value="reject_edit">Reject Edit</option>
+                            <option value="cancel">Cancel Course</option>
+                            <option value="confirm_participant">Confirm Passed Participant</option>
+                        </select>
+                        <div class="help-text">System action that triggers this notification</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Sender Role
+                            <span class="required">*</span>
+                        </label>
+                        <select id="senderRole" name="senderRole" required>
+                            <option value="">Select sender role...</option>
+                            <option value="Head/Lead" selected>Head/Lead</option>
+                            <option value="Trainer">Trainer</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Lead">Lead</option>
+                        </select>
+                        <div class="help-text">Role of the user who performs the action</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Course Type Filter
+                        </label>
+                        <div class="multi-select">
+                            <label>
+                                <input type="checkbox" name="courseType" value="all" checked>
+                                <span>All Course Type</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="courseType" value="shine">
+                                <span>SHINE</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="courseType" value="product">
+                                <span>Product</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="courseType" value="skill">
+                                <span>Skill</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="courseType" value="aftershine">
+                                <span>Aftershine</span>
+                            </label>
+                        </div>
+                        <div class="help-text">Select which course types this template applies to</div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Email Content</h2>
+
+                    <div class="form-group">
+                        <label>
+                            Subject Line
+                            <span class="required">*</span>
+                        </label>
+                        <input type="text" id="subject" name="subject" placeholder="[LMS] Create new course" value="[LMS] Create new course" required>
+                        <div class="help-text">Email subject line. Use variables like ${courseName}, ${startTime}</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Message Body
+                            <span class="required">*</span>
+                        </label>
+                        <div class="editor-toolbar">
+                            <button type="button" onclick="insertVariable('${role}')">Insert ${role}</button>
+                            <button type="button" onclick="insertVariable('${trainer name}')">Insert ${trainer name}</button>
+                            <button type="button" onclick="insertVariable('${courseName}')">Insert ${courseName}</button>
+                            <button type="button" onclick="insertVariable('${startTime}')">Insert ${startTime}</button>
+                            <button type="button" onclick="insertVariable('${Primary Trainer}')">Insert ${Primary Trainer}</button>
+                            <button type="button" onclick="previewEmail()">Preview</button>
+                        </div>
+                        <div class="editor-container">
+                            <textarea id="messageBody" name="messageBody" required>${role}: ${trainer name} created a course with name: ${courseName} which starts on: ${startTime}</textarea>
+                        </div>
+                        <div class="variable-helper">
+                            <h4>Available Variables:</h4>
+                            <div class="variable-list">
+                                <div class="variable-item" onclick="insertVariable('${role}')">
+                                    <code>${role}</code> - User role
+                                </div>
+                                <div class="variable-item" onclick="insertVariable('${trainer name}')">
+                                    <code>${trainer name}</code> - Trainer name
+                                </div>
+                                <div class="variable-item" onclick="insertVariable('${courseName}')">
+                                    <code>${courseName}</code> - Course name
+                                </div>
+                                <div class="variable-item" onclick="insertVariable('${startTime}')">
+                                    <code>${startTime}</code> - Course start date/time
+                                </div>
+                                <div class="variable-item" onclick="insertVariable('${Primary Trainer}')">
+                                    <code>${Primary Trainer}</code> - Primary trainer name
+                                </div>
+                                <div class="variable-item" onclick="insertVariable('${reject reason}')">
+                                    <code>${reject reason}</code> - Rejection reason (HTML)
+                                </div>
+                                <div class="variable-item" onclick="insertVariable('${edit reason}')">
+                                    <code>${edit reason}</code> - Edit reason (HTML)
+                                </div>
+                                <div class="variable-item" onclick="insertVariable('${request cancel reason}')">
+                                    <code>${request cancel reason}</code> - Cancel reason (HTML)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Email Format
+                        </label>
+                        <select id="emailFormat" name="emailFormat">
+                            <option value="html">HTML Only</option>
+                            <option value="text">Plain Text Only</option>
+                            <option value="both" selected>Both (HTML + Plain Text)</option>
+                        </select>
+                        <div class="help-text">Select email format. "Both" sends HTML with plain text fallback</div>
+                    </div>
+
+                    <div id="previewPanel" class="preview-panel" style="display: none;">
+                        <h4>Email Preview:</h4>
+                        <div class="preview-email">
+                            <div class="subject" id="previewSubject">[LMS] Create new course</div>
+                            <div class="body" id="previewBody">${role}: ${trainer name} created a course with name: ${courseName} which starts on: ${startTime}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Recipients Configuration</h2>
+
+                    <div class="form-group">
+                        <label>
+                            Base Recipients
+                        </label>
+                        <div class="multi-select">
+                            <label>
+                                <input type="checkbox" name="recipient" value="primary_trainer">
+                                <span>Primary trainer</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="recipient" value="lead_region" checked>
+                                <span>Lead region</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="recipient" value="head_channel" checked>
+                                <span>Head channel</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="recipient" value="all_trainers" checked>
+                                <span>All trainers</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="recipient" value="supervisor_trainer">
+                                <span>Sếp của trainer</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="recipient" value="admin_channel">
+                                <span>Admin channel email</span>
+                            </label>
+                        </div>
+                        <div class="help-text">Select base recipients for this template</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Additional Email Addresses
+                        </label>
+                        <div class="recipient-group" id="additionalEmails">
+                            <div class="recipient-item">
+                                <input type="email" placeholder="email@example.com">
+                                <button type="button" class="btn-remove" onclick="removeEmail(this)">Remove</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="addEmailField()" style="margin-top: 10px;">+ Add Email</button>
+                        <div class="help-text">Add specific email addresses as additional recipients</div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="window.location.href='email-template-list.html'">Cancel</button>
+                    <button type="button" class="btn btn-test" onclick="testEmail()">Send Test Email</button>
+                    <button type="button" class="btn btn-secondary">Save as Draft</button>
+                    <button type="submit" class="btn btn-primary">Save & Activate</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function insertVariable(variable) {
+            const textarea = document.getElementById('messageBody');
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            const text = textarea.value;
+            textarea.value = text.substring(0, start) + variable + text.substring(end);
+            textarea.focus();
+            textarea.setSelectionRange(start + variable.length, start + variable.length);
+            updatePreview();
+        }
+
+        function updatePreview() {
+            const subject = document.getElementById('subject').value;
+            const body = document.getElementById('messageBody').value;
+            
+            // Replace variables with sample data
+            const sampleData = {
+                '${role}': 'Head Channel',
+                '${trainer name}': 'Nguyen Van A',
+                '${courseName}': '759-HCMBC-SHINE-001',
+                '${startTime}': '15/01/2025',
+                '${Primary Trainer}': 'Tran Thi B'
+            };
+            
+            let previewSubject = subject;
+            let previewBody = body;
+            
+            Object.keys(sampleData).forEach(key => {
+                previewSubject = previewSubject.replace(new RegExp(key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), sampleData[key]);
+                previewBody = previewBody.replace(new RegExp(key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), sampleData[key]);
+            });
+            
+            document.getElementById('previewSubject').textContent = previewSubject;
+            document.getElementById('previewBody').textContent = previewBody;
+        }
+
+        function previewEmail() {
+            updatePreview();
+            const panel = document.getElementById('previewPanel');
+            panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function addEmailField() {
+            const container = document.getElementById('additionalEmails');
+            const newField = document.createElement('div');
+            newField.className = 'recipient-item';
+            newField.innerHTML = `
+                <input type="email" placeholder="email@example.com">
+                <button type="button" class="btn-remove" onclick="removeEmail(this)">Remove</button>
+            `;
+            container.appendChild(newField);
+        }
+
+        function removeEmail(button) {
+            button.closest('.recipient-item').remove();
+        }
+
+        function testEmail() {
+            const email = prompt('Enter email address to send test email:');
+            if (email) {
+                alert(`Test email sent to ${email}`);
+            }
+        }
+
+        // Update preview on input
+        document.getElementById('subject').addEventListener('input', updatePreview);
+        document.getElementById('messageBody').addEventListener('input', updatePreview);
+
+        // Form submission
+        document.getElementById('emailTemplateForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Template saved successfully!');
+            window.location.href = 'email-template-list.html';
+        });
+
+        // Check if editing
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('id')) {
+            document.getElementById('form-mode').textContent = 'Edit email notification template';
+            document.querySelector('h1').textContent = 'Edit Email Template';
+        }
+    </script>
+</body>
+</html>
+

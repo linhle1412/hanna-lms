@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Assign to MOF Venue</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+        .modal {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            max-width: 500px;
+            width: 100%;
+        }
+        .modal-header {
+            padding: 20px 25px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-header h3 {
+            font-size: 18px;
+            color: #333;
+        }
+        .close-btn {
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+        .modal-body {
+            padding: 25px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .participant-list {
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 15px;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        .participant-item {
+            padding: 6px 0;
+            font-size: 13px;
+            color: #333;
+        }
+        .participant-item::before {
+            content: "•";
+            margin-right: 8px;
+            color: #2196F3;
+        }
+        label {
+            display: block;
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        label .required {
+            color: #f44336;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .capacity-check {
+            background: #fff3e0;
+            border: 1px solid #ff9800;
+            border-radius: 6px;
+            padding: 12px;
+            margin-top: 15px;
+        }
+        .capacity-check-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .capacity-info {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        .capacity-warning {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #ff9800;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .checkbox-group input {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+        .checkbox-group label {
+            margin: 0;
+            cursor: pointer;
+        }
+        .modal-footer {
+            padding: 15px 25px;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .btn-cancel {
+            background: #f5f5f5;
+            color: #666;
+        }
+        .btn-primary {
+            background: #2196F3;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <div class="modal-header">
+            <h3>Assign Participants to MOF Venue</h3>
+            <button class="close-btn">&times;</button>
+        </div>
+        
+        <div class="modal-body">
+            <div class="section">
+                <div class="section-title">Selected Participants: 3</div>
+                <div class="participant-list">
+                    <div class="participant-item">Nguyen Van A (AG001)</div>
+                    <div class="participant-item">Tran Thi B (AG002)</div>
+                    <div class="participant-item">Le Van C (AG003)</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <label>Assign to MOF Venue <span class="required">*</span></label>
+                <select>
+                    <option>-- Select MOF Venue --</option>
+                    <option selected>Quận 1, TP.HCM (09:00, 15/01/2025)</option>
+                    <option>Quận 7, TP.HCM (14:00, 15/01/2025)</option>
+                </select>
+            </div>
+
+            <div class="capacity-check">
+                <div class="capacity-check-title">Capacity Check:</div>
+                <div class="capacity-info">Quận 1: 35/35 participants (100%)</div>
+                <div class="capacity-warning">
+                    <span>⚠️</span>
+                    <span>Venue is at full capacity</span>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="override">
+                    <label for="override">Override capacity limit</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+            <button class="btn btn-cancel">Cancel</button>
+            <button class="btn btn-primary">Assign</button>
+        </div>
+    </div>
+</body>
+</html>
