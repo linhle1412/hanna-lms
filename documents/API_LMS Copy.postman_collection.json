@@ -1,0 +1,341 @@
+{
+	"info": {
+		"_postman_id": "a1bc7e4e-6560-407e-8635-fb3abcadc6bf",
+		"name": "API_LMS Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14399027"
+	},
+	"item": [
+		{
+			"name": "External",
+			"item": [
+				{
+					"name": "CreateParticipant",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "hMOdMlJ5myWXzzIVLGeI23GtsD8C5Ili",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "API_KEY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accountName\": \"Test account name\",\n    \"accountNumber\": \"123654\",\n    \"adName\": \"Dummy_01 Participant\",\n    \"bank\": \"Dummy_01\",\n    \"bankBranch\": \"Dummy_01\",\n    \"bankBranchCode\": \"Dummy_01\",\n    \"bankCode\": \"Dummy_01\",\n    \"birthPlace\": \"Quan Binh Thanh\",\n    \"birthday\": \"1997-05-15\",\n    \"businessAddress\": {\n        \"addressLine1\": \"Le Thanh Ton Dummy_01\",\n        \"addressLine2\": \"Hai Ba Trung Dummy_01\",\n        \"addressLine3\": \"\",\n        \"city\": \"Ho Chi Minh\",\n        \"cityCode\": \"700000\",\n        \"district\": \"Quan 1\",\n        \"districtCode\": \"118\"\n    },\n    \"channel\": \"Banker\",\n    \"courseCode\": \"90-HCMAG-Shine\",\n    \"education\": \"DH1\",\n    \"educationCode\": \"DH001 Dummy_01\",\n    \"email\": \"testlmsnotification+0096@gmail.com\",\n    \"firstName\": \"Diem\",\n    \"fullName\": \"Ha Kieu My hehe\",\n    \"gender\": \"Male\",\n    \"genderCode\": \"1\",\n    \"idNumber\": \"231897643\",\n    \"oldIdNumber\": \"\",\n    \"idType\": \"CMND\",\n    \"idTypeCode\": \"01\",\n    \"issueDate\": \"2020-12-21T16:04:46.287Z\",\n    \"issuePlace\": \"Đồng Nai\",\n    \"lastName\": \"Hưng\",\n    \"leaderCode\": \"L001\",\n    \"leaderName\": \"Le Van Trung\",\n    \"leaderTitle\": \"Head\",\n    \"maritalStatus\": \"married\",\n    \"maritalStatusCode\": \"02\",\n    \"middleName\": \"Van\",\n    \"mobilePhone\": \"0389876543\",\n    \"nationality\": \"VN\",\n    \"nationalityCode\": \"VN001\",\n    \"participantReferences\": [\n        {\n            \"fullName\": \"Nguyen Ngoc Huy\",\n            \"position\": \"developer\",\n            \"relationship\": \"brother\"\n        }\n    ],\n    \"participantRelationships\": [\n        {\n            \"accommodation\": \"Dummy_01\",\n            \"dateOfBirth\": \"1874-01-13\",\n            \"fullName\": \"Nguyen Thanh Phi1\",\n            \"jobTitle\": \"CIO\",\n            \"phone\": \"\",\n            \"relationship\": \"master\",\n            \"relationship1\": null\n        }\n    ],\n    \"participantSupportDocument\": {\n        \"applicationResignation\": \"\",\n        \"electronicSignature\": \"\",\n        \"image\": \"image Dummy_01\",\n        \"otherDocument\": \"otherDocument Dummy_01\",\n        \"passport\": \" 186473648pass\",\n        \"proofOfResidence\": \"proofOfResidence Dummy_01\"\n    },\n    \"participantWorkingExperiences\": [\n        {\n            \"description\": \"TMA Dummy_01\",\n            \"expYears\": \"2\",\n            \"major\": \"Senior Engineer Dummy_01\",\n            \"majorCode\": \"SE Dummy_01\"\n        }\n    ],\n    \"participantRegistration\": {\n        \"applicationNo\": \"applicationNo\",\n        \"approverCode\": \"Dummy_01\",\n        \"approverDate\": \"2021-01-17\",\n        \"approverName\": \"Dummy_01\",\n        \"clazzCode\": \"Dummy_01\",\n        \"clazzName\": \"Dummy_01\",\n        \"dateOfIssue\": \"2021-01-16\",\n        \"introducerCode\": \"Dummy_01\",\n        \"introducerName\": \"Dummy_01\",\n        \"lastUpdateDate\": \"2021-01-15\",\n        \"locationCode\": \"Dummy_01\",\n        \"locationName\": \"Dummy_01\",\n        \"occupation\": \"Dummy_01\",\n        \"occupationCode\": \"Dummy_01\",\n        \"passionQuestion\": \"Dummy_01\",\n        \"positionCode\": \"Dummy_01\",\n        \"projectCode\": \"TP_KHANH\",\n        \"projectName\": \"Project name test nha KHANH\",\n        \"recruiterCode\": \"Dummy_01\",\n        \"recruiterName\": \"Dummy_01\",\n        \"refNo\": \"Dummy_01\",\n        \"reporterCode\": \"Dummy_01\",\n        \"reporterName\": \"Dummy_01\",\n        \"skipExam\": 0,\n        \"status\": \"Dummy_01\",\n        \"submissionDate\": \"2021-01-14\",\n        \"type\": \"Dummy_01\"\n    },\n    \"placedPhone\": \"111111111111\",\n    \"religion\": \"No\",\n    \"religionCode\": null,\n    \"taxCode\": \"9999999999999\",\n    \"terDate\": \"\",\n    \"title\": \"No\"\n}"
+						},
+						"url": {
+							"raw": "https://lms-uat.cloud-air.com/lms/external/participant/create",
+							"protocol": "https",
+							"host": [
+								"lms-uat",
+								"cloud-air",
+								"com"
+							],
+							"path": [
+								"lms",
+								"external",
+								"participant",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AOL result",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "API_KEY",
+								"value": "hMOdMlJ5myWXzzIVLGeI23GtsD8C5Ili",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idNumber\": \"231897643\",\r\n  \"examCode\": \"AOL2-shine\",\r\n  \"data\": [\r\n    {\r\n      \"examName\": \"Exam code 2\",\r\n      \"score\": 30,\r\n      \"ratio\": 90.99,\r\n      \"status\": \"Pass\",\r\n      \"dateFinished\": \"2022-09-29T00:00:00.000+0700\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://lms-uat.cloud-air.com/lms/external/course/updateAOLExam",
+							"protocol": "https",
+							"host": [
+								"lms-uat",
+								"cloud-air",
+								"com"
+							],
+							"path": [
+								"lms",
+								"external",
+								"course",
+								"updateAOLExam"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Attendance",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "API_KEY",
+								"value": "hMOdMlJ5myWXzzIVLGeI23GtsD8C5Ili",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"participantIdNumber\": \"231897643\",\n        \"courseCode\": \"90-HCMAG-Shine\",\n        \"stageNumber\": 6,\n        \"dateScan\": \"2022-10-03 13:00:00\",\n        \"note\": \"Note\"\n    }\n \n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://lms-uat.cloud-air.com/lms/external/attendance/sync",
+							"protocol": "https",
+							"host": [
+								"lms-uat",
+								"cloud-air",
+								"com"
+							],
+							"path": [
+								"lms",
+								"external",
+								"attendance",
+								"sync"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "E Recruit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJ1c2VyTmFtZVwiOlwiTGVhZF9BZ2VuY3lfTlwiLFwicGVybWlzc2lvbkxpc3RcIjpbXCJBTExPV19BQ0NFU1NfQVBJX0FQUFJPVkVfQ0FOQ0VMXCIsXCJBTExPV19BQ0NFU1NfQVBJX0NBTkNFTFwiLFwiQUxMT1dfQUNDRVNTX0FQSV9DT05GSVJNX0NPREVfUEFSVElDSVBBTlRcIixcIkFMTE9XX0FDQ0VTU19BUElfQ1JFQVRFX0NPVVJTRVwiLFwiQUxMT1dfQUNDRVNTX0FQSV9DUkVBVEVfVFJBSU5FUlwiLFwiQUxMT1dfQUNDRVNTX0FQSV9ERUxFVEVfQ09VUlNFXCIsXCJBTExPV19BQ0NFU1NfQVBJX0RFTEVURV9QQVJUSUNJUEFOVF9PRl9DT1VSU0VcIixcIkFMTE9XX0FDQ0VTU19BUElfREVMRVRFX1BMQU5OSU5HX0NPVVJTRVwiLFwiQUxMT1dfQUNDRVNTX0FQSV9ERVRBSUxfQ09VUlNFXCIsXCJBTExPV19BQ0NFU1NfQVBJX0VESVRfQ09VUlNFXCIsXCJBTExPV19BQ0NFU1NfQVBJX0VESVRfQ09VUlNFX1RSQUlORVJcIixcIkFMTE9XX0FDQ0VTU19BUElfRURJVF9TSElORV9DT1VSU0VcIixcIkFMTE9XX0FDQ0VTU19BUElfRURJVF9UUkFJTkVSXCIsXCJBTExPV19BQ0NFU1NfQVBJX0ZJTkRfVVNFUl9CWV9ST0xFX05BTUVcIixcIkFMTE9XX0FDQ0VTU19BUElfR0VUX0FMTF9UUkFJTkVSXCIsXCJBTExPV19BQ0NFU1NfQVBJX0dFVF9UUkFJTkVSX0JZX1VTRVJfSURcIixcIkFMTE9XX0FDQ0VTU19BUElfSU1QT1JUX0lSVF9TSElORV9DT1VSU0VcIixcIkFMTE9XX0FDQ0VTU19BUElfSU1QT1JUX1BBUlRJQ0lQQU5UX0NPVVJTRVwiLFwiQUxMT1dfQUNDRVNTX0FQSV9PUkRFUl9QTEFOTklOR19DT1VSU0VcIixcIkFMTE9XX0FDQ0VTU19BUElfUExBTk5JTkdfQ09VUlNFXCIsXCJBTExPV19BQ0NFU1NfQVBJX1NFQVJDSF9DT1VSU0VcIixcIkFMTE9XX0FDQ0VTU19BUElfU0VORF9NQUlMX1RPX1BBUlRJQ0lQQU5UXCIsXCJBTExPV19BQ0NFU1NfQ09VUlNFX01BTkFHRU1FTlRcIixcIkFMTE9XX0FDQ0VTU19EQVNIQk9BUkRcIixcIkFMTE9XX0FDQ0VTU19QQVJUSUNJUEFOVF9NQU5BR0VNRU5UXCIsXCJBTExPV19BQ0NFU1NfUkVQT1JUX01BTkFHRU1FTlRcIixcIkFMTE9XX0FDQ0VTU19TVVJWRVlfTUFOQUdFTUVOVFwiLFwiQUxMT1dfQUNDRVNTX1RSQUlORVJfTUFOQUdFTUVOVFwiXX0iLCJleHAiOjE2NDg0ODMxMjh9.ppsjnxX-FP9nsvcoNX4Kan5-6LV_u_kdj-UmnBRByO7pYXz-OoMauHglnZBrv-hLIjFmvxVf0OyOLP-AYA2ArQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "API_KEY",
+								"value": "hMOdMlJ5myWXzzIVLGeI23GtsD8C5Ili",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://lms-uat.cloud-air.com/lms/external/course/courseList?date=2022-10-30",
+							"protocol": "https",
+							"host": [
+								"lms-uat",
+								"cloud-air",
+								"com"
+							],
+							"path": [
+								"lms",
+								"external",
+								"course",
+								"courseList"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2022-10-30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AA",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{local}}",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "API_KEY",
+								"value": "hMOdMlJ5myWXzzIVLGeI23GtsD8C5Ili",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"idNumber\": \"2317767645\",\r\n        \"shineCode\": \"TEST1000\",\r\n        \"licenseCodes\": [\r\n            {\r\n                \"licenseCode\": \"LICENSECODE1\",\r\n                \"licenseName\": \"license code test update\",\r\n                \"effectiveDate\": \"2022-10-06\"\r\n            },\r\n            {\r\n                \"licenseCode\": \"LICENSECODE2\",\r\n                \"licenseName\": \"license code test update 2\",\r\n                \"effectiveDate\": \"2022-10-06\"\r\n            }\r\n        ]\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://lms-uat.cloud-air.com/lms/external/AAPortal/licenseShine",
+							"protocol": "https",
+							"host": [
+								"lms-uat",
+								"cloud-air",
+								"com"
+							],
+							"path": [
+								"lms",
+								"external",
+								"AAPortal",
+								"licenseShine"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ChangeStatus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJ1c2VyTmFtZVwiOlwiTE1TX1NVUEVSX0FETUlOXCIsXCJwZXJtaXNzaW9uTGlzdFwiOltcIkFMTE9XX0FDQ0VTU19BRE1JTl9NQU5BR0VNRU5UXCIsXCJBTExPV19BQ0NFU1NfQVBJX0FQUFJPVkVfQ0FOQ0VMXCIsXCJBTExPV19BQ0NFU1NfQVBJX0NBTkNFTFwiLFwiQUxMT1dfQUNDRVNTX0FQSV9DSEFOR0VfU1RBVFVTX1RFTVBMQVRFXCIsXCJBTExPV19BQ0NFU1NfQVBJX0NPTkZJUk1fQ09ERV9QQVJUSUNJUEFOVFwiLFwiQUxMT1dfQUNDRVNTX0FQSV9DT1VSU0VfQVBQUk9WRVwiLFwiQUxMT1dfQUNDRVNTX0FQSV9DUkVBVEVfQ0hBTk5FTFwiLFwiQUxMT1dfQUNDRVNTX0FQSV9DUkVBVEVfQ09ORklHXCIsXCJBTExPV19BQ0NFU1NfQVBJX0NSRUFURV9DT1VSU0VcIixcIkFMTE9XX0FDQ0VTU19BUElfQ1JFQVRFX01PRFVMRVwiLFwiQUxMT1dfQUNDRVNTX0FQSV9DUkVBVEVfUFJPRFVDVFwiLFwiQUxMT1dfQUNDRVNTX0FQSV9DUkVBVEVfUFJPR1JBTVwiLFwiQUxMT1dfQUNDRVNTX0FQSV9DUkVBVEVfUk9MRVwiLFwiQUxMT1dfQUNDRVNTX0FQSV9DUkVBVEVfVEVNUExBVEVcIixcIkFMTE9XX0FDQ0VTU19BUElfQ1JFQVRFX1RSQUlORVJcIixcIkFMTE9XX0FDQ0VTU19BUElfQ1JFQVRFX1VTRVJcIixcIkFMTE9XX0FDQ0VTU19BUElfQ1JFQVRFX1dJVEhfUEFSRU5UX0NPTkZJR1wiLFwiQUxMT1dfQUNDRVNTX0FQSV9ERUxFVEVfQ0hBTk5FTFwiLFwiQUxMT1dfQUNDRVNTX0FQSV9ERUxFVEVfQ09ORklHXCIsXCJBTExPV19BQ0NFU1NfQVBJX0RFTEVURV9DT1VSU0VcIixcIkFMTE9XX0FDQ0VTU19BUElfREVMRVRFX01PRFVMRVwiLFwiQUxMT1dfQUNDRVNTX0FQSV9ERUxFVEVfUEFSVElDSVBBTlRfT0ZfQ09VUlNFXCIsXCJBTExPV19BQ0NFU1NfQVBJX0RFTEVURV9QTEFOTklOR19DT1VSU0VcIixcIkFMTE9XX0FDQ0VTU19BUElfREVMRVRFX1BST0RVQ1RcIixcIkFMTE9XX0FDQ0VTU19BUElfREVMRVRFX1JPTEVcIixcIkFMTE9XX0FDQ0VTU19BUElfREVMRVRFX1RFTVBMQVRFXCIsXCJBTExPV19BQ0NFU1NfQVBJX0RFTEVURV9UUkFJTkVSXCIsXCJBTExPV19BQ0NFU1NfQVBJX0RFTEVURV9VU0VSXCIsXCJBTExPV19BQ0NFU1NfQVBJX0RFTEVURV9XSVRIX1BBUkVOVFwiLFwiQUxMT1dfQUNDRVNTX0FQSV9ERVRBSUxfQ09VUlNFXCIsXCJBTExPV19BQ0NFU1NfQVBJX0RFVEFJTF9ST0xFXCIsXCJBTExPV19BQ0NFU1NfQVBJX0VESVRfQ0hBTk5FTFwiLFwiQUxMT1dfQUNDRVNTX0FQSV9FRElUX0NPVVJTRVwiLFwiQUxMT1dfQUNDRVNTX0FQSV9FRElUX0NPVVJTRV9UUkFJTkVSXCIsXCJBTExPV19BQ0NFU1NfQVBJX0VESVRfTU9EVUxFXCIsXCJBTExPV19BQ0NFU1NfQVBJX0VESVRfUFJPRFVDVFwiLFwiQUxMT1dfQUNDRVNTX0FQSV9FRElUX1BST0dSQU1cIixcIkFMTE9XX0FDQ0VTU19BUElfRURJVF9ST0xFXCIsXCJBTExPV19BQ0NFU1NfQVBJX0VESVRfU0hJTkVfQ09VUlNFXCIsXCJBTExPV19BQ0NFU1NfQVBJX0VESVRfVEVNUExBVEVcIixcIkFMTE9XX0FDQ0VTU19BUElfRURJVF9UUkFJTkVSXCIsXCJBTExPV19BQ0NFU1NfQVBJX0VESVRfVVNFUlwiLFwiQUxMT1dfQUNDRVNTX0FQSV9GSU5EX1VTRVJfQllfUk9MRV9OQU1FXCIsXCJBTExPV19BQ0NFU1NfQVBJX0dFVF9BTExfVFJBSU5FUlwiLFwiQUxMT1dfQUNDRVNTX0FQSV9HRVRfQUxMX1VTRVJcIixcIkFMTE9XX0FDQ0VTU19BUElfR0VUX1RSQUlORVJfQllfVVNFUl9JRFwiLFwiQUxMT1dfQUNDRVNTX0FQSV9ISURFX1BST0dSQU1cIixcIkFMTE9XX0FDQ0VTU19BUElfSU1QT1JUX0lSVF9TSElORV9DT1VSU0VcIixcIkFMTE9XX0FDQ0VTU19BUElfSU1QT1JUX1BBUlRJQ0lQQU5UX0NPVVJTRVwiLFwiQUxMT1dfQUNDRVNTX0FQSV9PUkRFUl9QTEFOTklOR19DT1VSU0VcIixcIkFMTE9XX0FDQ0VTU19BUElfUExBTk5JTkdfQ09VUlNFXCIsXCJBTExPV19BQ0NFU1NfQVBJX1NFQVJDSF9DT1VSU0VcIixcIkFMTE9XX0FDQ0VTU19BUElfU0VBUkNIX1VTRVJcIixcIkFMTE9XX0FDQ0VTU19BUElfU0VORF9NQUlMX1RPX1BBUlRJQ0lQQU5UXCIsXCJBTExPV19BQ0NFU1NfQVBJX1NNVFBfU0VUVElOR1NfRURJVFwiLFwiQUxMT1dfQUNDRVNTX0FQSV9TTVRQX1NFVFRJTkdTX0dFVFwiLFwiQUxMT1dfQUNDRVNTX0FQSV9TTVRQX1NFVFRJTkdTX1RFU1RcIixcIkFMTE9XX0FDQ0VTU19BUElfVVBEQVRFX0NPTkZJR1wiLFwiQUxMT1dfQUNDRVNTX0FQSV9VUERBVEVfV0lUSF9QQVJFTlRfQ09ORklHXCIsXCJBTExPV19BQ0NFU1NfQVBJX1ZJRVdfREVUQUlMX1VTRVJcIixcIkFMTE9XX0FDQ0VTU19BVFRBQ0hfRklMRVwiLFwiQUxMT1dfQUNDRVNTX0NBTEVOREFSXCIsXCJBTExPV19BQ0NFU1NfQ0hBTk5FTF9NQU5BR0VNRU5UXCIsXCJBTExPV19BQ0NFU1NfQ09VUlNFX01BTkFHRU1FTlRcIixcIkFMTE9XX0FDQ0VTU19EQVNIQk9BUkRcIixcIkFMTE9XX0FDQ0VTU19HRU5FUkFMX1NFVFRJTkdTXCIsXCJBTExPV19BQ0NFU1NfTElTVF9DT05GSUdcIixcIkFMTE9XX0FDQ0VTU19NT0RVTEVfTUFOQUdFTUVOVFwiLFwiQUxMT1dfQUNDRVNTX1BBUlRJQ0lQQU5UX01BTkFHRU1FTlRcIixcIkFMTE9XX0FDQ0VTU19QUk9EVUNUX01BTkFHRU1FTlRcIixcIkFMTE9XX0FDQ0VTU19QUk9HUkFNX01BTkFHRU1FTlRcIixcIkFMTE9XX0FDQ0VTU19SRVBPUlRfTUFOQUdFTUVOVFwiLFwiQUxMT1dfQUNDRVNTX1JPTEVfTUFOQUdFTUVOVFwiLFwiQUxMT1dfQUNDRVNTX1NVUlZFWV9NQU5BR0VNRU5UXCIsXCJBTExPV19BQ0NFU1NfVEVNUExBVEVfTUFOQUdFTUVOVFwiLFwiQUxMT1dfQUNDRVNTX1RSQUlORVJfTUFOQUdFTUVOVFwiLFwiQUxMT1dfQUNDRVNTX1VTRVJfTUFOQUdFTUVOVFwiLFwiQUxMT1dfRURJVF9QUklNQVJZX1RSQUlORVJcIl19IiwiZXhwIjoxNjY3MzYyNjczfQ.AeJxT7hbhtdQzl9JaIkxk6kC9bGY8Nn2wzx4AQ1j2yQXFSM__XqA_cc8C5ZnLLdhzWmv-I6a1tsd3kNWumRiGA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"IN_PROGRESS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://lms-uat.cloud-air.com/lms/api/course/changeStatus/90",
+							"protocol": "https",
+							"host": [
+								"lms-uat",
+								"cloud-air",
+								"com"
+							],
+							"path": [
+								"lms",
+								"api",
+								"course",
+								"changeStatus",
+								"90"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CourseStatus",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{local}}",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "API_KEY",
+								"value": "hMOdMlJ5myWXzzIVLGeI23GtsD8C5Ili",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://lms-uat.cloud-air.com/external/course/courseStatus/268-HCMBC-ProductforTest",
+							"protocol": "https",
+							"host": [
+								"lms-uat",
+								"cloud-air",
+								"com"
+							],
+							"path": [
+								"external",
+								"course",
+								"courseStatus",
+								"268-HCMBC-ProductforTest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete/participant",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{local}}",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "API_KEY",
+								"value": "hMOdMlJ5myWXzzIVLGeI23GtsD8C5Ili",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://lms-uat.cloud-air.com/external/course/delete/2-HCMAG-Shine/231006543",
+							"protocol": "https",
+							"host": [
+								"lms-uat",
+								"cloud-air",
+								"com"
+							],
+							"path": [
+								"external",
+								"course",
+								"delete",
+								"2-HCMAG-Shine",
+								"231006543"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
