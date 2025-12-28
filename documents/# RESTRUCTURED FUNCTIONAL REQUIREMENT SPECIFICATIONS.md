@@ -120,16 +120,7 @@
      - 8.8.11 [Configurable Final Result Calculation Rules](#8811-configurable-final-result-calculation-rules)
      - 8.8.12 [Manually Set Passed/Failed](#8812-manually-set-passedfailed)
      - 8.8.13 [Grant Agent Code](#8813-grant-agent-code)
-   - 8.9 [Course Type Checklist Configuration](#89-course-type-checklist-configuration)
-     - 8.9.1 [Course Checklist by Course Type Definition](#891-course-checklist-by-course-type-definition)
-     - 8.9.2 [Email and Notification](#892-email-and-notification)
-       - 8.9.2.1 [Checklist Notification](#8921-checklist-notification)
-       - 8.9.2.2 [Checklist Notification Templates](#8922-checklist-notification-templates)
-     - 8.9.3 [Show Course Checklist in Course Details](#893-show-course-checklist-in-course-details)
-       - 8.9.3.1 [Course Checklist Details and Actions](#8931-course-checklist-details-and-actions)
-       - 8.9.3.2 [Business Rules](#8932-business-rules)
-     - 8.9.4 [Authorization Matrix](#894-authorization-matrix)
-     - 8.9.5 [Course MOF addresses registration and participant allocation](#895-course-mof-addresses-registration-and-participant-allocation)
+   - 8.9 [Course MOF addresses registration and participant allocation](#89-course-mof-addresses-registration-and-participant-allocation)
    - 8.10 [Course Import Function [PHASE 2]](#810-course-import-function-phase-2)
 9. [PIC Calendar](#9-pic-calendar) [IN PROGRESS]
    - 9.1 [View Courses Per Trainer](#91-view-courses-per-trainer)
@@ -164,7 +155,20 @@
       - 10.3.4 [View Details](#1034-view-details)
       - 10.3.5 [Export Course](#1035-export-course)
 11. [List Manage](#11-list-manage) [IN PROGRESS]
-12. [Report Management [PHASE 2]](#13-report-management-phase-2) [NOT STARTED]
+12. [Configuration](#12-configuration)
+    - 12.1 [Course Configuration](#121-course-configuration)
+      - 12.1.1 [Course Type Checklist Configuration](#1211-course-type-checklist-configuration)
+        - 12.1.1.1 [Course Checklist by Course Type Definition](#12111-course-checklist-by-course-type-definition)
+        - 12.1.1.2 [Email and Notification](#12112-email-and-notification)
+          - 12.1.1.2.1 [Checklist Notification](#121121-checklist-notification)
+          - 12.1.1.2.2 [Checklist Notification Templates](#121122-checklist-notification-templates)
+        - 12.1.1.3 [Show Course Checklist in Course Details](#12113-show-course-checklist-in-course-details)
+          - 12.1.1.3.1 [Course Checklist Details and Actions](#121131-course-checklist-details-and-actions)
+          - 12.1.1.3.2 [Business Rules](#121132-business-rules)
+        - 12.1.1.4 [Authorization Matrix](#12114-authorization-matrix)
+      - 12.1.2 [Date Rule Configuration](#1212-date-rule-configuration)
+    - 12.2 [Holiday Calendar Configuration](#122-holiday-calendar-configuration)
+13. [Report Management [PHASE 2]](#13-report-management-phase-2) [NOT STARTED]
     - 13.1 [SHINE PASS RATIO](#131-shine-pass-ratio)
     - 13.2 [SHINE TRAINING](#132-shine-training)
     - 13.3 [PARTICIPANT OF TRAINERS](#133-participant-of-trainers)
@@ -4155,12 +4159,14 @@ Courses can be created from multiple locations in the LMS system:
 
 | Field | Validation Rule | Error Message |
 |-------|----------------|---------------|
-| Start Date | Must be >= today + 2 days | "Course start date must be at least 2 days from today" |
+| Start Date | Must be >= today + (configured minimum advance days) | "Course start date must be at least {configured_days} days from today" |
 | End Date | Must be >= Start Date | "End date cannot be before start date" |
-| MOF Exam Time | Start date <= MOF time <= Start date + 30 days | "MOF exam must be within 30 days of course start" |
-| AOL Start/End | Between course start and course end + 3 days | "AOL exam period must be within course dates + 3 days" |
+| MOF Exam Time | Start date <= MOF time <= Start date + (configured window days) | "MOF exam must be within {configured_days} days of course start" |
+| AOL Start/End | Between course start and course end + (configured extension days) | "AOL exam period must be within course dates + {configured_days} days" |
 | Primary Trainer | Must be active trainer | "Selected trainer is not active" |
 | Course Code | Must be unique | "Course code already exists" (system-generated, rare) |
+
+**Note:** Date validation rules (minimum advance days, MOF exam window, AOL period extension) are configurable in Section 12.1.2 (Date Rule Configuration). If no active configuration exists, system uses default values (2 days, 30 days, 3 days respectively).
 
 **Business Rule Validation:**
 
@@ -6720,163 +6726,7 @@ ELSE Final Result = Failed
 - LMS displays agent code once received via API
 - No manual agent code assignment in LMS
 
-### 8.9 Course Type Checklist Configuration
-
-**Business Context:**
-
-Allow authorized user to configure the course checklist template by course type. The checklist defines the workflow steps required to complete a course, ensuring all necessary actions are tracked and completed in a structured manner.
-
----
-
-#### 8.9.1 Course Checklist by Course Type Definition
-
-The following table defines the checklist steps for each course type, including PIC (Person In Charge), reminder configuration, and completion criteria.
-
-| Steps | Course Type | Description |
-|-------|-------------|-------------|
-| **1. Verify AOL information** | SHINE, Product | **PIC:** Course Supporters<br>**Reminder:**<br>- Frequency: Daily<br>- Start: Course creation<br>- Stop: When action is done<br>**Action:** Confirm/update<br>**Completion:** Step is marked done when PIC confirms the step is completed |
-| **2. Verify MOF information** | SHINE | **PIC:** Course Supporters<br>**Reminder:**<br>- Frequency: Daily<br>- Start: Course creation<br>- Stop: When action is done<br>**Action:** Confirm/update<br>**Completion:** Step is marked done when PIC confirms the step is completed |
-| **3. Enter MOF exam code** | SHINE | **PIC:** Course Supporters<br>**Reminder:**<br>- Frequency: Daily<br>- Start: Course Creation<br>- Stop: When the action is done<br>**Action:** Enter MOF exam<br>**Completion:** Step is auto marked done when MOF exam code is entered |
-| **4. Approve course** | SHINE, Product, Skill | **PIC:** Trainer's Head Channel and Trainer's Lead Region<br>**Reminder:**<br>- Frequency: Daily<br>- Start: Course Start Date - "x" days<br>- End: Course Start Date - y days (where x>y)<br>**Action:** Approve/Reject<br>**Completion:** Step is auto marked done when the course has state Approved |
-| **5. Add participants** | SHINE, Product, Skill | **PIC:** External API<br>**Reminder:** No reminder<br>**Progress Tracking:** Show progress of the add participants action<br>- % progress = added/max*100%<br>**Completion:** Auto-tracked by API |
-| **6. Export Participants for MOF exam** | SHINE | **PIC:** Course Supporters<br>**Reminder:** Course end date + x days<br>**Action:** Export<br>**Completion:** Step is marked done when user exports |
-| **7. Update AOL exam result** | SHINE, Product | **PIC:** External API<br>**Reminder:** No reminder<br>**Progress Tracking:** Show progress of AOL exam updates<br>**Completion:** Step is marked done when all the participants have AOL exam updated |
-| **8. Update attendance result** | SHINE, Product, Skill | **PIC:** External API<br>**Reminder:** No reminder<br>**Progress Tracking:** Show progress of the attendance result<br>**Completion:** Auto-tracked by API |
-| **9. Import MOF result** | SHINE | **PIC:** Course Supporters<br>**Reminder:** No reminder<br>**Action:** Import MOF result<br>**Completion:** Step is auto marked done when the MOF result is uploaded successfully |
-| **10. Confirm passed participants** | SHINE, Product, Skill | **PIC:** AA Admin<br>**Reminder:** No reminder (allow email notification configuration)<br>**Action:** Confirm<br>**Completion:** Step is marked done when passed participants are confirmed successfully |
-| **11. Export participant for granting agent/license code** | SHINE, Product, Skill | **PIC:** AA admin<br>**Reminder:** No reminder<br>**Action:** Export<br>**Completion:** Step is marked done when user successfully exports the participant for agent/license code |
-| **12. Grant agent code** | SHINE | **PIC:** External API<br>**Reminder:** No reminder<br>**Completion:** Step is marked done when all the passed participants have the agent code granted |
-| **13. Grant license code** | SHINE, Product, Skill | **PIC:** External API<br>**Reminder:** No reminder<br>**Completion:** Step is marked done when all the passed participants have the license code granted |
-| **14. Finish course** | SHINE, Product, Skill | **PIC:** System or Admin<br>**Reminder:** No automatic reminder<br>**Action:** Finish Course<br>**Completion:** Action is marked done when course status is set to Finish (Manual or Automatic) |
-
----
-
-#### 8.9.2 Email and Notification
-
-##### 8.9.2.1 Checklist Notification
-
-**System Behavior:**
-
-- System has default templates for checklist notification and email reminder
-- Allow authorized user to configure the reminder frequency and duration
-- Send the notification/email to PICs with the default/configured template in the configured frequency and duration
-
-**Configuration Options:**
-
-- Reminder frequency (e.g., Daily, Weekly)
-- Reminder duration (Start and Stop conditions)
-- Additional email recipients
-- Notification template customization
-
-##### 8.9.2.2 Checklist Notification Templates
-
-System provides default notification templates for checklist reminders. Templates include:
-
-- Step name and description
-- Course information (code, name, dates)
-- Action required
-- Due date/timeline
-- Direct link to course details
-
-**[Inference]** Based on the reference to "Mail Noti alert.xlsx", the system includes predefined email templates that can be customized by authorized users.
-
----
-
-#### 8.9.3 Show Course Checklist in Course Details
-
-**Display Requirements:**
-
-- Show course checklist displays course actions per course type checklist configuration
-- Show action's PIC (following the course type checklist template)
-- Show action status: Done, Not Started, In Progress
-- Allow authorized user to mark the task as done for the manual tasks (Verify AOL, MOF information)
-- Allow authorized user to perform the task/action directly inside the checklist so that user can quickly perform the action:
-  - Export Participant for MOF
-  - Import MOF result
-  - Confirm passed participants
-  - Finish Course
-- Once the task is done, show user name who completes the task
-
----
-
-##### 8.9.3.1 Course Checklist Details and Actions
-
-The following table shows the checklist display structure with available actions:
-
-| Step | Step Name | PIC | Status | Completed By | Action |
-|------|-----------|-----|--------|--------------|--------|
-| 1 | Verify AOL information | Course Supporters | Not Started / Completed | [User Name] | Mark as completed |
-| 2 | Verify MOF information | Course Supporters | Not Started / Completed | [User Name] | Mark as completed |
-| 3 | Enter MOF exam code | Course Supporters | Not Started / Completed | [User Name] | Enter MOF Exam Code |
-| 4 | Approve course | Lead region/head channel | Not Started / Completed | [User Name] | N/A (auto-tracked) |
-| 5 | Add participants | External API | Not Started / In Progress / Completed | [System/API] | N/A (auto-tracked) |
-| 6 | Export Participants for MOF exam | Course Supporters | Not Started / Completed | [User Name] | Export |
-| 7 | Update AOL exam result | External API | Not Started / In Progress / Completed | [System/API] | N/A (auto-tracked) |
-| 8 | Update attendance result | External API | Not Started / In Progress / Completed | [System/API] | N/A (auto-tracked) |
-| 9 | Import MOF result | Course Supporters | Not Started / Completed | [User Name] | Import |
-| 10 | Confirm passed participants | AA admin | Not Started / Completed | [User Name] | Confirm |
-| 11 | Export participant for granting agent/license code | AA admin | Not Started / Completed | [User Name] | Export |
-| 12 | Grant agent code | External API | Not Started / In Progress / Completed | [System/API] | N/A (auto-tracked) |
-| 13 | Grant license code | External API | Not Started / In Progress / Completed | [System/API] | N/A (auto-tracked) |
-| 14 | Finish course | System or Admin | Not Started / Completed | [User Name] | Mark as Finished |
-
-**Specifications:**
-
-- **Completed By:** Shows user name who completed the task
-- **Course Status:** Includes Not Started, In Progress, Completed
-- **Progress Tracking:** For API-based steps (5, 7, 8, 12, 13), show progress percentage or status
-
----
-
-##### 8.9.3.2 Business Rules
-
-1. **Template Application:**
-   - When a course is created, the system automatically applies a checklist template based on the selected course type
-   - The checklist defines the workflow steps required to complete the course
-
-2. **Initial Status:**
-   - All steps have initial status (NOT_STARTED) when the course is created
-
-3. **Template Versioning:**
-   - System uses snapshot model: checklist is copied to course at creation time
-   - Future template changes do not affect existing courses
-   - This ensures consistency and prevents retroactive changes to in-progress courses
-
-4. **Completion Tracking:**
-   - System tracks the completion time for each step
-   - System records the user who completed each step (for manual actions)
-   - System automatically tracks completion for API-based steps
-
-5. **Reminder Logic:**
-   - Reminders only sent for steps in "Not Done" status
-   - Respect reminder frequency configuration
-   - Additional email addresses receive copy of reminder
-   - Reminders stop when step is marked as done
-
-6. **Manual vs. Automatic Steps:**
-   - Manual steps require user action to mark as complete
-   - Automatic steps (API-based) are marked complete by system when conditions are met
-   - Some steps are automatically marked done based on system events (e.g., course approval, MOF code entry)
-
----
-
-#### 8.9.4 Authorization Matrix
-
-| Permission | Role |
-|------------|------|
-| View Course Checklist | Any users (all roles) |
-| Update Course Checklist | PIC with the action's authorized permission |
-| View Course Checklist template configuration | Root admin, Master Role |
-| Update Course Checklist Config | Root admin, Master Role |
-
-**Permission Details:**
-
-- **View Course Checklist:** All users can view the checklist to track course progress
-- **Update Course Checklist:** Only PICs with appropriate permissions can perform actions and mark steps complete
-- **View Template Configuration:** Only Root admin and Master Role can view checklist template configurations
-- **Update Template Configuration:** Only Root admin and Master Role can modify checklist templates and reminder settings
-
-#### 8.9.5 Course MOF addresses registration and participant allocation [NEW REQUIREMENT]
+### 8.9 Course MOF addresses registration and participant allocation [NEW REQUIREMENT]
 
 **Overview:**
 
@@ -6898,7 +6748,7 @@ A SHINE course in Ho Chi Minh City with 60 participants:
 
 ---
 
-**8.9.5.1 MOF Address Configuration (Course Creation/Edit Phase)** [NEW REQUIREMENT]
+**8.9.1 MOF Address Configuration (Course Creation/Edit Phase)** [NEW REQUIREMENT]
 
 - Add multiple MOF exam venues to a single course (up to 5 venues)
 - Configure each MOF venue with: address, date/time, exam type
@@ -6906,7 +6756,7 @@ A SHINE course in Ho Chi Minh City with 60 participants:
 - Edit or remove MOF venues before course starts
 - Validate: at least 1 MOF venue required for SHINE courses
 
-**8.9.5.2 Participant Allocation to MOF Venues**
+**8.9.2 Participant Allocation to MOF Venues**
 
 - View all course participants with their assigned MOF venue
 - Manually assign individual participants to specific MOF venues
@@ -6915,7 +6765,7 @@ A SHINE course in Ho Chi Minh City with 60 participants:
 - Track participant count per venue
 - Validate: each participant must be assigned to exactly one venue
 
-**8.9.5.3 MOF Venue Management & Tracking**
+**8.9.3 MOF Venue Management & Tracking**
 
 - Filter participant list by assigned MOF venue in the Course Participant tab
 - Multi-select filter allowing selection of multiple MOF venues simultaneously
@@ -6925,7 +6775,7 @@ A SHINE course in Ho Chi Minh City with 60 participants:
 - Filter state persists during session
 - View which participants are assigned to each venue
 
-**8.9.5.4 Export Participants by MOF Venue**
+**8.9.4 Export Participants by MOF Venue**
 
 - Export participants grouped by their assigned MOF venue to CSV file
 - Generate separate export files per MOF venue
@@ -6947,7 +6797,7 @@ A SHINE course in Ho Chi Minh City with 60 participants:
 - Province
 - Ward
 
-**8.9.5.5 MOF Result Import by Venue**
+**8.9.5 MOF Result Import by Venue**
 
 - Import MOF exam results mapped to specific venue
 - Match participants to correct venue during import
@@ -8470,8 +8320,262 @@ Lists manage is a menu to manage Master Data in LMS system. Root Admin can add n
 | 27  | Holiday Calendar          |
 
 ---
+## 12. CONFIGURATION
+### 12.1 Course Configuration
+#### 12.1.1 Course Type Checklist Configuration
 
-### 11.1 Holiday Calendar Configuration
+**Business Context:**
+
+Allow authorized user to configure the course checklist template by course type. The checklist defines the workflow steps required to complete a course, ensuring all necessary actions are tracked and completed in a structured manner.
+
+---
+
+##### 12.1.1.1 Course Checklist by Course Type Definition
+
+The following table defines the checklist steps for each course type, including PIC (Person In Charge), reminder configuration, and completion criteria.
+
+| Steps | Course Type | Description |
+|-------|-------------|-------------|
+| **1. Verify AOL information** | SHINE, Product | **PIC:** Course Supporters<br>**Reminder:**<br>- Frequency: Daily<br>- Start: Course creation<br>- Stop: When action is done<br>**Action:** Confirm/update<br>**Completion:** Step is marked done when PIC confirms the step is completed |
+| **2. Verify MOF information** | SHINE | **PIC:** Course Supporters<br>**Reminder:**<br>- Frequency: Daily<br>- Start: Course creation<br>- Stop: When action is done<br>**Action:** Confirm/update<br>**Completion:** Step is marked done when PIC confirms the step is completed |
+| **3. Enter MOF exam code** | SHINE | **PIC:** Course Supporters<br>**Reminder:**<br>- Frequency: Daily<br>- Start: Course Creation<br>- Stop: When the action is done<br>**Action:** Enter MOF exam<br>**Completion:** Step is auto marked done when MOF exam code is entered |
+| **4. Approve course** | SHINE, Product, Skill | **PIC:** Trainer's Head Channel and Trainer's Lead Region<br>**Reminder:**<br>- Frequency: Daily<br>- Start: Course Start Date - "x" days<br>- End: Course Start Date - y days (where x>y)<br>**Action:** Approve/Reject<br>**Completion:** Step is auto marked done when the course has state Approved |
+| **5. Add participants** | SHINE, Product, Skill | **PIC:** External API<br>**Reminder:** No reminder<br>**Progress Tracking:** Show progress of the add participants action<br>- % progress = added/max*100%<br>**Completion:** Auto-tracked by API |
+| **6. Export Participants for MOF exam** | SHINE | **PIC:** Course Supporters<br>**Reminder:** Course end date + x days<br>**Action:** Export<br>**Completion:** Step is marked done when user exports |
+| **7. Update AOL exam result** | SHINE, Product | **PIC:** External API<br>**Reminder:** No reminder<br>**Progress Tracking:** Show progress of AOL exam updates<br>**Completion:** Step is marked done when all the participants have AOL exam updated |
+| **8. Update attendance result** | SHINE, Product, Skill | **PIC:** External API<br>**Reminder:** No reminder<br>**Progress Tracking:** Show progress of the attendance result<br>**Completion:** Auto-tracked by API |
+| **9. Import MOF result** | SHINE | **PIC:** Course Supporters<br>**Reminder:** No reminder<br>**Action:** Import MOF result<br>**Completion:** Step is auto marked done when the MOF result is uploaded successfully |
+| **10. Confirm passed participants** | SHINE, Product, Skill | **PIC:** AA Admin<br>**Reminder:** No reminder (allow email notification configuration)<br>**Action:** Confirm<br>**Completion:** Step is marked done when passed participants are confirmed successfully |
+| **11. Export participant for granting agent/license code** | SHINE, Product, Skill | **PIC:** AA admin<br>**Reminder:** No reminder<br>**Action:** Export<br>**Completion:** Step is marked done when user successfully exports the participant for agent/license code |
+| **12. Grant agent code** | SHINE | **PIC:** External API<br>**Reminder:** No reminder<br>**Completion:** Step is marked done when all the passed participants have the agent code granted |
+| **13. Grant license code** | SHINE, Product, Skill | **PIC:** External API<br>**Reminder:** No reminder<br>**Completion:** Step is marked done when all the passed participants have the license code granted |
+| **14. Finish course** | SHINE, Product, Skill | **PIC:** System or Admin<br>**Reminder:** No automatic reminder<br>**Action:** Finish Course<br>**Completion:** Action is marked done when course status is set to Finish (Manual or Automatic) |
+
+---
+
+##### 12.1.1.2 Email and Notification
+
+###### 12.1.1.2.1 Checklist Notification
+
+**System Behavior:**
+
+- System has default templates for checklist notification and email reminder
+- Allow authorized user to configure the reminder frequency and duration
+- Send the notification/email to PICs with the default/configured template in the configured frequency and duration
+
+**Configuration Options:**
+
+- Reminder frequency (e.g., Daily, Weekly)
+- Reminder duration (Start and Stop conditions)
+- Additional email recipients
+- Notification template customization
+
+###### 12.1.1.2.2 Checklist Notification Templates
+
+System provides default notification templates for checklist reminders. Templates include:
+
+- Step name and description
+- Course information (code, name, dates)
+- Action required
+- Due date/timeline
+- Direct link to course details
+
+**[Inference]** Based on the reference to "Mail Noti alert.xlsx", the system includes predefined email templates that can be customized by authorized users.
+
+---
+
+##### 12.1.1.3 Show Course Checklist in Course Details
+
+**Display Requirements:**
+
+- Show course checklist displays course actions per course type checklist configuration
+- Show action's PIC (following the course type checklist template)
+- Show action status: Done, Not Started, In Progress
+- Allow authorized user to mark the task as done for the manual tasks (Verify AOL, MOF information)
+- Allow authorized user to perform the task/action directly inside the checklist so that user can quickly perform the action:
+  - Export Participant for MOF
+  - Import MOF result
+  - Confirm passed participants
+  - Finish Course
+- Once the task is done, show user name who completes the task
+
+---
+
+###### 12.1.1.3.1 Course Checklist Details and Actions
+
+The following table shows the checklist display structure with available actions:
+
+| Step | Step Name | PIC | Status | Completed By | Action |
+|------|-----------|-----|--------|--------------|--------|
+| 1 | Verify AOL information | Course Supporters | Not Started / Completed | [User Name] | Mark as completed |
+| 2 | Verify MOF information | Course Supporters | Not Started / Completed | [User Name] | Mark as completed |
+| 3 | Enter MOF exam code | Course Supporters | Not Started / Completed | [User Name] | Enter MOF Exam Code |
+| 4 | Approve course | Lead region/head channel | Not Started / Completed | [User Name] | N/A (auto-tracked) |
+| 5 | Add participants | External API | Not Started / In Progress / Completed | [System/API] | N/A (auto-tracked) |
+| 6 | Export Participants for MOF exam | Course Supporters | Not Started / Completed | [User Name] | Export |
+| 7 | Update AOL exam result | External API | Not Started / In Progress / Completed | [System/API] | N/A (auto-tracked) |
+| 8 | Update attendance result | External API | Not Started / In Progress / Completed | [System/API] | N/A (auto-tracked) |
+| 9 | Import MOF result | Course Supporters | Not Started / Completed | [User Name] | Import |
+| 10 | Confirm passed participants | AA admin | Not Started / Completed | [User Name] | Confirm |
+| 11 | Export participant for granting agent/license code | AA admin | Not Started / Completed | [User Name] | Export |
+| 12 | Grant agent code | External API | Not Started / In Progress / Completed | [System/API] | N/A (auto-tracked) |
+| 13 | Grant license code | External API | Not Started / In Progress / Completed | [System/API] | N/A (auto-tracked) |
+| 14 | Finish course | System or Admin | Not Started / Completed | [User Name] | Mark as Finished |
+
+**Specifications:**
+
+- **Completed By:** Shows user name who completed the task
+- **Course Status:** Includes Not Started, In Progress, Completed
+- **Progress Tracking:** For API-based steps (5, 7, 8, 12, 13), show progress percentage or status
+
+---
+
+###### 12.1.1.3.2 Business Rules
+
+1. **Template Application:**
+   - When a course is created, the system automatically applies a checklist template based on the selected course type
+   - The checklist defines the workflow steps required to complete the course
+
+2. **Initial Status:**
+   - All steps have initial status (NOT_STARTED) when the course is created
+
+3. **Template Versioning:**
+   - System uses snapshot model: checklist is copied to course at creation time
+   - Future template changes do not affect existing courses
+   - This ensures consistency and prevents retroactive changes to in-progress courses
+
+4. **Completion Tracking:**
+   - System tracks the completion time for each step
+   - System records the user who completed each step (for manual actions)
+   - System automatically tracks completion for API-based steps
+
+5. **Reminder Logic:**
+   - Reminders only sent for steps in "Not Done" status
+   - Respect reminder frequency configuration
+   - Additional email addresses receive copy of reminder
+   - Reminders stop when step is marked as done
+
+6. **Manual vs. Automatic Steps:**
+   - Manual steps require user action to mark as complete
+   - Automatic steps (API-based) are marked complete by system when conditions are met
+   - Some steps are automatically marked done based on system events (e.g., course approval, MOF code entry)
+
+---
+
+##### 12.1.1.4 Authorization Matrix
+
+| Permission | Role |
+|------------|------|
+| View Course Checklist | Any users (all roles) |
+| Update Course Checklist | PIC with the action's authorized permission |
+| View Course Checklist template configuration | Root admin, Master Role |
+| Update Course Checklist Config | Root admin, Master Role |
+
+**Permission Details:**
+
+- **View Course Checklist:** All users can view the checklist to track course progress
+- **Update Course Checklist:** Only PICs with appropriate permissions can perform actions and mark steps complete
+- **View Template Configuration:** Only Root admin and Master Role can view checklist template configurations
+- **Update Template Configuration:** Only Root admin and Master Role can modify checklist templates and reminder settings
+
+#### 12.1.2 Date Rule Configuration
+
+**Business Context:**
+
+Allow authorized users to configure date validation rules for course creation and planning. These rules ensure courses are scheduled with appropriate advance notice and that exam dates fall within acceptable timeframes. Instead of hardcoded values, administrators can adjust these rules based on business needs and operational requirements.
+
+**Business Use Cases:**
+
+- Adjust minimum advance notice for course creation based on seasonal demand or operational capacity
+- Configure MOF exam scheduling windows to align with exam center availability
+- Set AOL exam period extensions to accommodate different course types or regions
+- Maintain flexibility to update rules without code changes
+
+**Configuration Fields:**
+
+| Field | Type | Required | Description | Default Value | Validation |
+|-------|------|----------|-------------|---------------|------------|
+| Course Start Date Minimum Advance Days | Integer | Yes | Minimum number of days between today and course start date | 2 | Must be >= 0, <= 365 |
+| MOF Exam Time Window (Days from Start) | Integer | Yes | Maximum number of days after course start date that MOF exam can be scheduled | 30 | Must be > 0, <= 90 |
+| AOL Exam Period Extension (Days after Course End) | Integer | Yes | Number of days after course end date that AOL exam period can extend | 3 | Must be >= 0, <= 30 |
+| Is Active | Checkbox | Yes | Active status of the configuration | ✓ | Default: Active |
+
+**Date Rule Application:**
+
+The configured rules are applied during course creation and editing as follows:
+
+1. **Course Start Date Validation:**
+   - System validates: `Course Start Date >= Today + (Course Start Date Minimum Advance Days)`
+   - Error message: "Course start date must be at least {configured_days} days from today"
+
+2. **MOF Exam Time Validation:**
+   - System validates: `Course Start Date <= MOF Exam Time <= Course Start Date + (MOF Exam Time Window)`
+   - Error message: "MOF exam must be within {configured_days} days of course start"
+
+3. **AOL Exam Period Validation:**
+   - System validates: `Course Start Date <= AOL Start/End <= Course End Date + (AOL Exam Period Extension)`
+   - Error message: "AOL exam period must be within course dates + {configured_days} days"
+
+**Business Rules:**
+
+1. **Rule Versioning:**
+   - System uses snapshot model: date rules are applied at course creation time
+   - Future rule changes do not affect existing courses
+   - This ensures consistency for in-progress courses
+
+2. **Rule Activation:**
+   - Only active rules are applied during validation
+   - Inactive rules are ignored, and system uses default values
+   - At least one active rule configuration must exist
+
+3. **Rule Priority:**
+   - If multiple active configurations exist, system uses the most recent one
+   - System logs which rule configuration was applied to each course
+
+4. **Default Values:**
+   - If no active configuration exists, system uses hardcoded defaults:
+     - Course Start Date Minimum Advance Days: 2
+     - MOF Exam Time Window: 30 days
+     - AOL Exam Period Extension: 3 days
+
+**Configuration History:**
+
+- System tracks all changes to date rule configurations
+- History includes: created date, created by, modified date, modified by, old values, new values
+- History accessible to Root Admin and Master Role for audit purposes
+
+**Authorization:**
+
+- **View Date Rule Configuration:** Root Admin, Master Role
+- **Create/Edit/Delete Date Rule Configuration:** Root Admin, Master Role only
+- **View Configuration History:** Root Admin, Master Role
+
+**Integration Points:**
+
+- Date rules are enforced in:
+  - Course Creation Form (Section 8.1.1)
+  - Course Edit (Section 8.5)
+  - Course Planning (Section 8.3.3)
+  - Validation & Error Handling (Section 8.1.3)
+
+**Example Scenarios:**
+
+**Scenario 1: High Season Adjustment**
+- During peak training season, admin increases "Course Start Date Minimum Advance Days" from 2 to 5 days
+- All new courses created after this change require 5 days advance notice
+- Existing courses created with 2-day rule remain unchanged
+
+**Scenario 2: MOF Exam Window Extension**
+- Due to exam center capacity constraints, admin extends "MOF Exam Time Window" from 30 to 45 days
+- New courses can schedule MOF exams up to 45 days after course start date
+- Previously created courses with 30-day window remain unchanged
+
+---
+
+
+### 12.2 Holiday Calendar Configuration
+
+#### 12.2.1 Holiday Registration
 
 **User Story:**  
 AS a Root Admin  
@@ -8500,7 +8604,19 @@ SO THAT the system can warn users when scheduling courses on holidays
 | National | All courses | Applies to entire country (e.g., National Day, Lunar New Year, Hung Kings' Festival) |
 | Company | All courses | Company-specific holidays (e.g., Company Anniversary, Training Department Day) |
 
+**Authorization:**
+
+- **Create/Edit/Delete Holiday:** Exclusive to Root Admin role
+  - Includes all CRUD operations on holiday records
+  - Includes activation/deactivation of holidays
+  - Holiday configuration menu only visible to Root Admin
+  - Unauthorized access attempts logged and blocked with error message: "You do not have permission to manage holidays"
+
+- **View Holiday History:** All users can view holiday configuration history
+  - Includes: created date, created by, modifications, active status changes
+
 **Integration with Course Planning:**
+#### 12.2.2 Holiday Skip During Course Planning 
 
 **1. Course Creation - Auto Planning Generation:**
 - System checks holiday calendar when generating stage schedule
@@ -8525,11 +8641,31 @@ SO THAT the system can warn users when scheduling courses on holidays
   - Editing existing stage to holiday date
   - Uploading planning file with holiday dates
 
+**Authorization:**
+
+- **Override Holiday Warning:**
+  - All roles except Trainer can override for any course
+  - Trainers can only override for courses where they are assigned as main trainer
+  - Override action logged in Course History with user details
+  - Override button visibility based on user role and course ownership
+
+#### 12.2.3 Holiday Display in PIC Calendar
+
 **3. Calendar Display:**
 - Holidays marked with light red/pink background (#ffebee) in Master/PIC Calendar
 - Holiday indicator (🗓️) shown on date
 - Tooltip on hover: "🗓️ [Holiday Name] ([Holiday Type])"
 - Example: "🗓️ Lunar New Year Day 1 (National Holiday)"
+
+**Authorization:**
+
+- **View Holiday Calendar:** All users can view configured holidays
+  - Holidays visible in calendar views (Master Calendar, PIC Calendar)
+  - Holiday tooltips accessible to all users
+  - Holiday warning modals appear to all users during course/stage creation
+
+- **Export Holiday Calendar:** All users can export holiday calendar data
+  - Export includes: holiday name, date, type, status, description
 
 **Business Rules:**
 
@@ -8552,18 +8688,6 @@ SO THAT the system can warn users when scheduling courses on holidays
 - Admin clicks "Continue Anyway"
 - Stage created, history recorded: "Stage scheduled on holiday: Lunar New Year Day 1 on 29/01/2025 by Admin User"
 
-**Authorization:**
-
-| Role | Can Configure Holidays | Can Override Holiday Warning |
-|------|----------------------|----------------------------|
-| Root Admin | Yes | Yes |
-| Admin | No | Yes |
-| Master Role | No | Yes |
-| Head Channel | No | Yes |
-| Lead Region | No | Yes |
-| Trainer | No | Yes (for own courses) |
 
 ---
-
-## 13. REPORT MANAGEMENT [PHASE 2]
 
