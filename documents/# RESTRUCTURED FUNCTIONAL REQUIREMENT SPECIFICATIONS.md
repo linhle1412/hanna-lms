@@ -86,7 +86,8 @@
    - 8.3 [Course Details Screen](#83-course-details-screen)
      - 8.3.1 [Course General Tab](#831-course-general-tab)
        - 8.3.1.1 [Course Status Timeline](#8311-course-status-timeline)
-       - 8.3.1.2 [Course Approval Actions](#8312-course-approval-actions)
+       - 8.3.1.2 [Course Information Display](#8312-course-information-display)
+       - 8.3.1.3 [Course Approval Actions](#8313-course-approval-actions)
      - 8.3.2 [Course History](#832-course-history)
      - 8.3.3 [Course Planning Tab](#833-course-planning-tab)
      - 8.3.4 [Course Participant Tab](#834-course-participant-tab)
@@ -417,21 +418,7 @@ SO THAT I can search, view, edit, delete user in the LMS system
 
 #### 4.3.3 Login Authentication
 
-**User Story:**  
-AS an LMS user with system access  
-I CAN login to LMS system
-SO THAT I can view calendar, create course, or do other tasks according to my role
-
-**Acceptance Criteria:**
-
-- In login screen user enters username and password then click login button
-- System validates user's name and password, return error message for the invalid user's name or password with AD authentication
-- After enter username/password and click on login button, LMS calls AD to verify login credential
-- If the input data is correct, then user can arrive LMS PIC Calendar screen
-- If the inputted data is incorrect, then return the error message: "Invalid username or password"
-- There are no limited times that user enter can enter the wrong password
-- External contractors do not have access to LMS system and do not require user accounts
-- **Role Display:** After successful login, user's current role is displayed in the header. For users with multiple assigned roles, a dropdown selector allows switching between roles. For users with a single role, the role is displayed as static text. Users can only switch between roles that are assigned to their account.
+To be defined!
 
 ### 4.4 Role & Permission Management
 
@@ -4476,7 +4463,60 @@ Display all course information fields collected during course creation, organize
 
 ---
 
-##### 8.3.1.1 Course Information Display
+##### 8.3.1.1 Course Status Timeline
+
+**User Story:**  
+AS a user viewing course details  
+I NEED to see a visual timeline of course status progression  
+SO THAT I can quickly understand the course lifecycle and key milestones
+
+**Display Location:**
+- **Tab:** Course Details → General Tab
+- **Position:** Top section, above course information fields
+- **Visibility:** All users with course view access
+
+**Timeline Structure:**
+
+| Milestone | Description | Trigger Event | Visual Indicator |
+|-----------|-------------|---------------|------------------|
+| **NEW** | Course created | Course creation | Yellow badge, active |
+| **REGISTERED** | Trainer registered | Course registration | Gray badge, active |
+| **APPROVED** | Registration approved | Approval workflow | Blue badge, active |
+| **IN_PROGRESS** | Course running | Auto on start date | Red badge, active |
+| **FINISHED** | Course completed | Finish course action | Green badge, completed |
+| **CANCEL** | Course cancelled | Cancellation workflow | Dark badge, completed |
+
+**Timeline Entry Format:**
+
+Each milestone displays:
+- **Status Badge:** Colored status indicator
+- **Timestamp:** Date and time (DD/MM/YYYY HH:MM)
+- **User:** Name and role of user who triggered the milestone
+- **Action Type:** Manual user action or automatic system action
+- **Additional Info:** Rejection reason (if applicable), cancellation reason (if applicable)
+
+**Visual Design:**
+- Horizontal timeline layout with connected milestones
+- Completed milestones: Full color badge with checkmark
+- Active milestone: Highlighted with current status
+- Future milestones: Grayed out (if applicable)
+- System actions: Labeled as "System" with automatic action icon
+
+**Update Rules:**
+- Timeline automatically updates on status transitions
+- Milestones are immutable once recorded
+- Rejection events shown as sub-events under REGISTERED milestone
+- Auto-cancellation marked as system action with reason
+
+**Integration Points:**
+- Updates on course registration (Section 8.4.1)
+- Updates on approval/rejection (Section 8.4.2)
+- Updates on cancellation (Section 8.6)
+- Updates on course completion (Section 8.8.13)
+
+---
+
+##### 8.3.1.2 Course Information Display
 
 **User Story:**
 AS a user viewing course details
