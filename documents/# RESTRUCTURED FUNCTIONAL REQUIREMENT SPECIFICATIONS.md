@@ -168,6 +168,19 @@
         - 12.1.1.4 [Authorization Matrix](#12114-authorization-matrix)
       - 12.1.2 [Date Rule Configuration](#1212-date-rule-configuration)
     - 12.2 [Holiday Calendar Configuration](#122-holiday-calendar-configuration)
+      - 12.2.1 [Holiday Registration](#1221-holiday-registration)
+      - 12.2.2 [Holiday Skip During Course Planning](#1222-holiday-skip-during-course-planning)
+      - 12.2.3 [Holiday Display in PIC Calendar](#1223-holiday-display-in-pic-calendar)
+    - 12.3 [MOF Address List Management](#123-mof-address-list-management)
+      - 12.3.1 [MOF Address List Overview](#1231-mof-address-list-overview)
+      - 12.3.2 [MOF Address Data Structure](#1232-mof-address-data-structure)
+      - 12.3.3 [MOF Address Listing Page](#1233-mof-address-listing-page)
+      - 12.3.4 [MOF Address Creation Form](#1234-mof-address-creation-form)
+      - 12.3.5 [MOF Address Edit Form](#1235-mof-address-edit-form)
+      - 12.3.6 [MOF Address Delete Functionality](#1236-mof-address-delete-functionality)
+      - 12.3.7 [Integration with Course Creation](#1237-integration-with-course-creation)
+      - 12.3.8 [Authorization Matrix](#1238-authorization-matrix)
+      - 12.3.9 [Business Rules](#1239-business-rules)
 13. [Report Management [PHASE 2]](#13-report-management-phase-2) [NOT STARTED]
     - 13.1 [SHINE PASS RATIO](#131-shine-pass-ratio)
     - 13.2 [SHINE TRAINING](#132-shine-training)
@@ -181,7 +194,7 @@
     - 13.10 [SHINE REPORT](#1310-shine-report)
     - 13.11 [FWT TRAINER PAYSLIP](#1311-fwt-trainer-payslip)
     - 13.12 [EXAM FEE TOTAL](#1312-exam-fee-total)
-13. [General Setting](#14-general-setting)
+14. [General Setting](#14-general-setting)
     - 14.1 [SMTP Settings](#141-smtp-settings)
 
 ---
@@ -3910,9 +3923,9 @@ When a user selects a course type, the form dynamically shows/hides fields and a
 
 ##### 8.1.1.2 SHINE Form
 Requirements
-- Support multiple MOF address registration ()
-- User can select the MOF address from the configured MOF address
-- User can add new MOF address
+- Support multiple MOF address registration (see Section 8.9)
+- User can select the MOF address from the configured MOF address list (see Section 12.3)
+- User with `manage_list` permission can add new MOF address during course creation (quick-add modal)
 
 
 | S/N | Fieldname          | Data Type              | M/O | Description                                                      |
@@ -8318,6 +8331,7 @@ Lists manage is a menu to manage Master Data in LMS system. Root Admin can add n
 | 25  | list-course-status        |
 | 26  | Course Area               |
 | 27  | Holiday Calendar          |
+| 28  | MOF Address List         |
 
 ---
 ## 12. CONFIGURATION
@@ -8688,6 +8702,336 @@ SO THAT the system can warn users when scheduling courses on holidays
 - Admin clicks "Continue Anyway"
 - Stage created, history recorded: "Stage scheduled on holiday: Lunar New Year Day 1 on 29/01/2025 by Admin User"
 
+
+---
+
+### 12.3 MOF Address List Management
+
+#### 12.3.1 MOF Address List Overview
+
+**User Story:**  
+AS a Root Admin or Master Role user  
+I NEED to manage a centralized list of MOF exam venue addresses  
+SO THAT course creators can select from preconfigured addresses, ensuring data consistency and reducing data entry errors
+
+**Business Need:**
+
+MOF exam venues are standardized locations where participants take Ministry of Finance certification exams. These venues have fixed addresses, provinces, and wards that should be maintained as master data to:
+
+- **Ensure Data Consistency:** All courses use the same standardized venue names and addresses
+- **Reduce Data Entry Errors:** Prevents typos and inconsistent address formats
+- **Improve User Experience:** Course creators can quickly select from dropdown instead of typing addresses
+- **Support Auto-Population:** Province and Ward fields automatically populate when MOF address is selected
+- **Enable Reporting:** Standardized data enables accurate reporting by venue location
+
+**Business Use Cases:**
+
+1. **Initial Setup:** Root Admin imports all MOF exam venues from official MOF documentation during system initialization
+2. **New Venue Addition:** MOF opens a new exam center in a new district, Root Admin adds the new venue to the master list
+3. **Venue Update:** MOF changes the address of an existing venue, Root Admin updates the address in the master list
+4. **Venue Deactivation:** MOF closes an exam center, Root Admin deactivates the venue (prevents new course assignments but preserves historical data)
+5. **Course Creation:** Course creators select from active MOF addresses when creating SHINE courses, with Province and Ward auto-populated
+
+---
+
+#### 12.3.2 MOF Address Data Structure
+
+**MOF Address Fields:**
+
+| Field | Type | Required | Description | Example | Validation Rules |
+|-------|------|----------|-------------|---------|------------------|
+| ID | Number | Auto | Unique MOF address identifier | 1 | System-generated, immutable |
+| Address Name | String | Yes | Display name of MOF exam venue | "Trung tâm VIDI - Quận 1, TP.HCM" | Max 255 characters, unique |
+| Full Address | Text | Yes | Complete physical address | "123 Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh" | Max 500 characters |
+| Province | Dropdown | Yes | Province/Province-level city | "TP. Hồ Chí Minh" | Must match Province master data |
+| Ward | Dropdown | Yes | Ward/Commune name | "Phường Bến Nghé" | Must match Ward master data, filtered by selected Province |
+| Status | Dropdown | Yes | Active status | ACTIVE | Values: ACTIVE, INACTIVE |
+| Notes | Text | Optional | Additional venue information | "Ground floor, parking available" | Max 1000 characters |
+| Created By | String | Auto | User who created the address | "admin@lms.com" | Auto-populated |
+| Created Date | DateTime | Auto | Address creation timestamp | "2025-01-15 10:30:00" | Auto-populated |
+| Updated By | String | Auto | User who last updated the address | "admin@lms.com" | Auto-populated |
+| Updated Date | DateTime | Auto | Last update timestamp | "2025-03-20 14:45:00" | Auto-populated |
+
+**Status Values:**
+
+| Status | Description | Usage |
+|--------|-------------|-------|
+| ACTIVE | Venue is available for use | Appears in dropdown during course creation |
+| INACTIVE | Venue is closed or unavailable | Hidden from course creation dropdown, but visible in historical courses |
+
+**Province-Ward Relationship:**
+
+- Ward dropdown is filtered based on selected Province
+- System validates that selected Ward belongs to selected Province
+- Uses existing Province and Ward master data from List Manage (items 2 and 4)
+
+---
+
+#### 12.3.3 MOF Address Listing Page
+
+**User Story:**  
+AS a Root Admin or Master Role user  
+I NEED to view and search all MOF addresses  
+SO THAT I can manage the master data list effectively
+
+**Access Control:**
+- **Authorized Roles:** Root Admin, Master Role
+- **Entry Point:** List Manage → MOF Address List menu
+- **Permission Required:** `manage_list`
+
+**Page Features:**
+
+**1. Add New Button:**
+- Location: Top-right corner of page
+- Action: Opens MOF address creation form
+- Label: "+ Add New MOF Address"
+- Authorization: Root Admin, Master Role only
+
+**2. Search Functionality:**
+- Search by address name
+- Search by full address
+- Search by province
+- Search by ward
+- Real-time search with debounce (300ms)
+- Case-insensitive matching
+
+**3. Filter Options:**
+
+| Filter | Options | Default | Behavior |
+|--------|---------|---------|----------|
+| **Status** | All, Active, Inactive | All | Filter addresses by status |
+| **Province** | All provinces from master data | All | Filter addresses by province |
+| **Ward** | All wards (filtered by selected province) | All | Filter addresses by ward |
+
+**4. Table Columns:**
+
+| Column | Description | Sortable | Width |
+|--------|-------------|----------|-------|
+| Address Name | Display name of venue | Yes | 30% |
+| Full Address | Complete physical address | No | 35% |
+| Province | Province name | Yes | 15% |
+| Ward | Ward name | Yes | 15% |
+| Status | Active/Inactive badge | Yes | 5% |
+| Actions | Edit/Delete buttons | No | 10% |
+
+**5. Actions Column:**
+- **Edit Button:** Opens edit form for selected address
+- **Delete Button:** Soft delete (sets status to INACTIVE) with confirmation dialog
+- **View Details:** Click on address name to view full details
+
+**6. Pagination:**
+- Default: 20 items per page
+- Options: 10, 20, 50, 100 items per page
+- Page navigation controls
+
+**7. Empty State:**
+- Message: "No MOF addresses found. Click '+ Add New MOF Address' to create the first address."
+- Display when no addresses exist or search/filter returns no results
+
+---
+
+#### 12.3.4 MOF Address Creation Form
+
+**User Story:**  
+AS a Root Admin or Master Role user  
+I NEED to create new MOF exam venue addresses  
+SO THAT they become available for course creators to select
+
+**Form Fields:**
+
+| S/N | Field Name | Data Type | M/O | Description | Validation |
+|-----|------------|-----------|-----|-------------|------------|
+| 1 | Address Name | Text Input | M | Display name of MOF exam venue | Required, max 255 chars, unique |
+| 2 | Full Address | Textarea | M | Complete physical address | Required, max 500 chars |
+| 3 | Province | Dropdown | M | Province/Province-level city | Required, from Province master data |
+| 4 | Ward | Dropdown | M | Ward/Commune name | Required, filtered by Province, from Ward master data |
+| 5 | Notes | Textarea | O | Additional venue information | Optional, max 1000 chars |
+| 6 | Status | Dropdown | M | Active status | Required, default: ACTIVE |
+
+**Form Behavior:**
+
+1. **Province-Ward Dependency:**
+   - Ward dropdown is disabled until Province is selected
+   - Ward dropdown filters to show only wards belonging to selected Province
+   - If Province is changed, Ward selection is cleared
+
+2. **Address Name Uniqueness:**
+   - System validates address name is unique
+   - Error message: "Address name already exists. Please use a different name."
+
+3. **Form Actions:**
+   - **Save Button:** Creates new MOF address and returns to listing page
+   - **Cancel Button:** Discards changes and returns to listing page
+   - **Save & Add Another:** Creates address and clears form for next entry
+
+**Validation Rules:**
+
+| Field | Validation | Error Message |
+|-------|------------|---------------|
+| Address Name | Required, unique, max 255 chars | "Address name is required" / "Address name already exists" |
+| Full Address | Required, max 500 chars | "Full address is required" |
+| Province | Required, must exist in master data | "Province is required" |
+| Ward | Required, must belong to selected Province | "Ward is required" / "Selected ward does not belong to selected province" |
+
+---
+
+#### 12.3.5 MOF Address Edit Form
+
+**User Story:**  
+AS a Root Admin or Master Role user  
+I NEED to edit existing MOF addresses  
+SO THAT venue information stays current and accurate
+
+**Edit Form:**
+- Same fields as creation form
+- Pre-populated with existing address data
+- All fields are editable except ID (read-only)
+
+**Edit Restrictions:**
+- **Active Addresses in Use:** Can be edited freely
+- **Inactive Addresses:** Can be edited and reactivated
+- **Historical Data:** Editing does not affect past course records (address is copied to course at creation time)
+
+**Edit Actions:**
+- **Save Button:** Updates address and returns to listing page
+- **Cancel Button:** Discards changes and returns to listing page
+- **Deactivate Button:** Sets status to INACTIVE (soft delete)
+
+**Deactivation Rules:**
+- Deactivated addresses do not appear in course creation dropdown
+- Deactivated addresses remain visible in historical course data
+- Deactivated addresses can be reactivated later
+
+---
+
+#### 12.3.6 MOF Address Delete Functionality
+
+**User Story:**  
+AS a Root Admin or Master Role user  
+I NEED to remove MOF addresses that are no longer valid  
+SO THAT the master data list remains accurate and up-to-date
+
+**Delete Behavior:**
+- **Soft Delete:** Sets status to INACTIVE (address is not physically deleted)
+- **Confirmation Required:** Modal dialog asks "Are you sure you want to deactivate this MOF address?"
+- **Impact Check:** System checks if address is used in any active courses
+  - If used in active courses: Warning message "This address is used in {count} active course(s). Deactivating will hide it from new course creation but existing courses will retain the address."
+  - If not used: Simple confirmation
+
+**Delete Restrictions:**
+- Cannot permanently delete addresses used in historical courses (data integrity)
+- Only Root Admin and Master Role can delete
+
+**Delete Confirmation Dialog:**
+
+```
+┌────────────────────────────────────────────────────────────┐
+│ Deactivate MOF Address                                     │
+├────────────────────────────────────────────────────────────┤
+│                                                             │
+│ Are you sure you want to deactivate this MOF address?     │
+│                                                             │
+│ Address: Trung tâm VIDI - Quận 1, TP.HCM                 │
+│                                                             │
+│ [Warning if used in courses]                               │
+│ This address is used in 3 active course(s).               │
+│ Deactivating will hide it from new course creation         │
+│ but existing courses will retain the address.              │
+│                                                             │
+│                                          [Cancel] [Deactivate] │
+└────────────────────────────────────────────────────────────┘
+```
+
+---
+
+#### 12.3.7 Integration with Course Creation
+
+**Integration Points:**
+
+1. **Course Creation Form (Section 8.1.1.2):**
+   - Field 29: "MOF address | Dropdown List | M | Preconfigured MOF exam venue addresses. Auto-populates Province and Ward."
+   - Dropdown shows only ACTIVE MOF addresses
+   - Dropdown is searchable/filterable
+   - When MOF address is selected:
+     - Field 30 (MOF Province) auto-populates (read-only)
+     - Field 31 (Ward) auto-populates (read-only)
+
+2. **Multiple MOF Venues (Section 8.9.1):**
+   - Course creators can select multiple MOF addresses (up to 5 venues)
+   - Each venue selection auto-populates Province and Ward
+   - "Add New MOF Address" option available during course creation (opens quick-add modal)
+
+3. **Quick Add During Course Creation:**
+   - If address not found in dropdown, user can click "Add New MOF Address"
+   - Opens simplified modal form (Address Name, Full Address, Province, Ward, Status)
+   - On save, new address is immediately available in dropdown
+   - Requires `manage_list` permission
+
+**Business Rules:**
+
+1. **Dropdown Population:**
+   - Only ACTIVE MOF addresses appear in course creation dropdown
+   - Addresses sorted alphabetically by Address Name
+   - Search/filter functionality available in dropdown
+
+2. **Auto-Population:**
+   - Province and Ward fields are read-only when MOF address is selected
+   - If MOF address is cleared, Province and Ward fields are also cleared
+   - Auto-population uses data from MOF Address master record
+
+3. **Data Consistency:**
+   - Course stores a copy of MOF address data at creation time
+   - Changes to master MOF address do not affect existing courses
+   - Ensures historical data integrity
+
+---
+
+#### 12.3.8 Authorization Matrix
+
+**Permission Requirements:**
+
+| Action | Root Admin | Master Role | Admin | Other Roles |
+|--------|------------|-------------|-------|-------------|
+| View MOF Address List | Yes | Yes | No | No |
+| Create MOF Address | Yes | Yes | No | No |
+| Edit MOF Address | Yes | Yes | No | No |
+| Delete/Deactivate MOF Address | Yes | Yes | No | No |
+| Select MOF Address in Course Creation | Yes | Yes | Yes | Yes (if can create courses) |
+| Quick Add MOF Address during Course Creation | Yes | Yes | No | No |
+
+**Permission Details:**
+
+- **View/Create/Edit/Delete:** Requires `manage_list` permission
+- **Select in Course Creation:** All users who can create courses can select from active addresses
+- **Quick Add during Course Creation:** Requires `manage_list` permission
+
+**Access Control:**
+- MOF Address List menu item only visible to Root Admin and Master Role
+- Unauthorized access attempts logged and blocked with error message: "You do not have permission to manage MOF addresses"
+
+---
+
+#### 12.3.9 Business Rules
+
+**1. Address Name Uniqueness:**
+- Address Name must be unique across all MOF addresses (active and inactive)
+- Prevents duplicate venue entries
+- System validates on create and edit
+
+**2. Status Management:**
+- New addresses default to ACTIVE status
+- Inactive addresses hidden from course creation dropdown
+- Inactive addresses remain in system for historical data integrity
+
+**3. Province-Ward Validation:**
+- Ward must belong to selected Province
+- System validates using Province and Ward master data relationship
+- Prevents invalid address combinations
+
+**4. Data Integrity:**
+- MOF address data is copied to course at creation time
+- Changes to master MOF address do not affect existing courses
+- Ensures historical course data remains accurate
 
 ---
 
