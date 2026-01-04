@@ -318,8 +318,8 @@ flowchart TB
 
 ## 3. EXTERNAL INTERFACE REQUIREMENTS
 
-[Content will be copied from original document - Section 3]
 Seperated Document for API specification named: LMS_External_APIs_Document_Specification
+
 ---
 
 ## 4. ROLE AND USER MANAGEMENT
@@ -366,9 +366,11 @@ Admin can manage role and user role via a menu in LMS UI. This menu only allows 
 | 22  | Trainer management                       |         | x           | x            |           | x           | x     | x          |
 | 23  | Admin management                         |         | x           | x            |           | x           | x     | x          |
 | 24  | List manage                              |         |             |              |           | x           | x     | x          |
-| 25  | Report management                        |         | x           | x            |           | x           | x     | x          |
-| 26  | Role and Permission                      |         |             |              |           |             |       | x          |
-| 27  | General setting                          |         |             |              |           | x           | x     | x          |
+| 25  | Manage Multiple MOF Venues               |         | x           | x            |           | x           | x     |            |
+| 26  | Manage Final Result Calculation Rules    |         |             |              |           | x           | x     | x          |
+| 27  | Report management                        |         | x           | x            |           | x           | x     | x          |
+| 28  | Role and Permission                      |         |             |              |           |             |       | x          |
+| 29  | General setting                          |         |             |              |           | x           | x     | x          |
 
 ### 4.3 User Management
 
@@ -479,6 +481,8 @@ The system organizes permissions into six functional categories based on the Aut
 | `manage_trainer` | Trainer management | Admin | Manage trainer profiles | Lead Region, Head Channel, Master Role, Admin, Root Admin |
 | `manage_admin` | Admin management | Admin | Manage admin users | Lead Region, Head Channel, Master Role, Admin, Root Admin |
 | `manage_list` | List manage | Admin | Manage master data lists | Master Role, Admin, Root Admin |
+| `manage_mof_venues` | Manage Multiple MOF Venues | Course Management | Configure multiple MOF exam venues, allocate participants to venues, and import results by venue | Lead Region, Head Channel, Admin, Master Role |
+| `manage_result_rules` | Manage Final Result Rules | Admin | Create, edit, and deactivate final result calculation rules | Master Role, Admin, Root Admin |
 | `view_reports` | Report management | Report | View and generate reports | Lead Region, Head Channel, Master Role, Admin, Root Admin |
 | `manage_roles` | Role and Permission | Admin | Manage roles and permissions | Root Admin only |
 | `general_settings` | General setting | Admin | Configure system settings | Master Role, Admin, Root Admin |
@@ -492,12 +496,12 @@ Based on the Authorization Matrix (Section 4.2), the default permissions for eac
 | Role | Permissions Assigned | Total Count |
 |------|---------------------|-------------|
 | **TRAINER** | view_pic_calendar, view_master_calendar, create_course, view_course, register_course, edit_course, cancel_course, delete_course | 8 |
-| **LEAD_REGION** | view_pic_calendar, view_master_calendar, create_course, import_course, view_course, edit_course, approve_course, cancel_course, delete_course, manage_participant, manage_trainer, manage_admin, view_reports | 13 |
-| **HEAD_CHANNEL** | view_pic_calendar, view_master_calendar, create_course, import_course, view_course, edit_course, approve_course, self_approval, cancel_course, delete_course, manage_participant, manage_trainer, manage_admin, view_reports | 14 |
+| **LEAD_REGION** | view_pic_calendar, view_master_calendar, create_course, import_course, view_course, edit_course, approve_course, cancel_course, delete_course, manage_participant, manage_trainer, manage_admin, manage_mof_venues, view_reports | 14 |
+| **HEAD_CHANNEL** | view_pic_calendar, view_master_calendar, create_course, import_course, view_course, edit_course, approve_course, self_approval, cancel_course, delete_course, manage_participant, manage_trainer, manage_admin, manage_mof_venues, view_reports | 15 |
 | **DMS_ADMIN** | view_pic_calendar, view_master_calendar, view_course, export_participant | 4 |
-| **MASTER_ROLE** | view_pic_calendar, view_master_calendar, view_course, edit_course, import_mof_result, import_participant, add_participant, finish_course, approve_course, manage_program, view_program, manage_channel, manage_template, manage_participant, manage_trainer, manage_admin, manage_list, view_reports, general_settings | 19 |
-| **ADMIN** | view_pic_calendar, view_master_calendar, view_course, edit_course, import_mof_result, import_participant, add_participant, confirm_passed, finish_course, manage_program, view_program, manage_channel, manage_template, manage_participant, manage_trainer, manage_admin, manage_list, view_reports, general_settings | 19 |
-| **ROOT_ADMIN** | view_pic_calendar, view_master_calendar, view_course, manage_program, view_program, manage_channel, manage_template, manage_participant, manage_trainer, manage_admin, manage_list, view_reports, manage_roles, general_settings | 14 |
+| **MASTER_ROLE** | view_pic_calendar, view_master_calendar, view_course, edit_course, import_mof_result, import_participant, add_participant, finish_course, approve_course, manage_program, view_program, manage_channel, manage_template, manage_participant, manage_trainer, manage_admin, manage_list, manage_mof_venues, manage_result_rules, view_reports, general_settings | 21 |
+| **ADMIN** | view_pic_calendar, view_master_calendar, view_course, edit_course, import_mof_result, import_participant, add_participant, confirm_passed, finish_course, manage_program, view_program, manage_channel, manage_template, manage_participant, manage_trainer, manage_admin, manage_list, manage_mof_venues, manage_result_rules, view_reports, general_settings | 21 |
+| **ROOT_ADMIN** | view_pic_calendar, view_master_calendar, view_course, manage_program, view_program, manage_channel, manage_template, manage_participant, manage_trainer, manage_admin, manage_list, manage_result_rules, view_reports, manage_roles, general_settings | 15 |
 
 **Key Notes:**
 - **Register Course (Feature #6)**: Only Trainer has this permission per original specification
