@@ -1,202 +1,45 @@
 # FUNCTIONAL REQUIREMENT SPECIFICATIONS
 
-**Authors:** Diem Ha
-
----
-
 ## TABLE OF CONTENTS
 
 1. [Abbreviations and Acronyms](#1-abbreviations-and-acronyms) [NOT STARTED]
 2. [LMS Architecture Diagram](#2-lms-architecture-diagram) [NOT STARTED]
 3. [External Interface Requirements](#3-external-interface-requirements) [NOT STARTED]
 4. [Role and User Management](#4-role-and-user-management) [IN REVIEW]
-   - 4.1 [List of Roles](#41-list-of-roles)
-   - 4.2 [Authorization Matrix by Feature](#42-authorization-matrix-by-feature)
-   - 4.3 [User Management](#43-user-management)
-     - 4.3.1 [User Creation Screen](#431-user-creation-screen)
-     - 4.3.2 [User Listing Page](#432-user-listing-page)
-     - 4.3.3 [Login Authentication](#433-login-authentication)
-   - 4.4 [Role & Permission Management](#44-role--permission-management)
-     - 4.4.1 [Permission Categories and Definitions](#441-permission-categories-and-definitions)
-     - 4.4.2 [Default Role Permission Matrix](#442-default-role-permission-matrix)
-     - 4.4.3 [Role & Permission Management Screen](#443-role--permission-management-screen)
-     - 4.4.4 [Edit Permissions Modal](#444-edit-permissions-modal)
-     - 4.4.5 [Permission Management Business Rules](#445-permission-management-business-rules)
-     - 4.4.8 [Integration with Other Features](#448-integration-with-other-features)
-   - 4.5 [Role-Based Data Filtering](#45-role-based-data-filtering)
-     - 4.5.1 [Data Filtering Rules by Role](#451-data-filtering-rules-by-role)
-     - 4.5.2 [Dashboard Statistics Filtering](#452-dashboard-statistics-filtering)
-     - 4.5.3 [Course List Filtering](#453-course-list-filtering)
-     - 4.5.4 [Pending Approvals Filtering](#454-pending-approvals-filtering)
-     - 4.5.5 [Approval Workflow Integration](#455-approval-workflow-integration)
 5. [Trainer Management](#5-trainer-management) [IN PROGRESS]
-   - 5.1 [Trainer Creation Page](#51-trainer-creation-page)
-   - 5.2 [Trainer Listing Page](#52-trainer-listing-page)
-   - 5.3 [Trainer Details Page](#53-trainer-details-page)
 6. [Participant Management](#6-participant-management) [IN PROGRESS]
-   - 6.1 [Integration](#61-integration)
-   - 6.2 [Participant List](#62-participant-list)
-   - 6.3 [Participant Details Page](#63-participant-details-page)
 7. [Content Management](#7-content-management) [IN REVIEW]
-   - 7.1 [Modules](#71-modules)
-     - 7.1.1 [Module Data Structure](#711-module-data-structure)
-     - 7.1.2 [Module Listing Page](#712-module-listing-page)
-     - 7.1.3 [Module Creation Form](#713-module-creation-form)
-     - 7.1.4 [Module Details Page](#714-module-details-page)
-     - 7.1.5 [Module Status Management](#715-module-status-management)
-     - 7.1.6 [Module Clone Functionality](#716-module-clone-functionality)
-     - 7.1.7 [Module Delete Functionality](#717-module-delete-functionality)
-     - 7.1.8 [Module Integration Points](#718-module-integration-points)
-     - 7.1.9 [Module Authorization Matrix](#719-module-authorization-matrix)
-     - 7.1.10 [Module Validation Rules](#7110-module-validation-rules)
-   - 7.2 [Product](#72-product)
-     - 7.2.1 [Product Data Structure](#721-product-data-structure)
-     - 7.2.2 [Product Listing Page](#722-product-listing-page)
-     - 7.2.3 [Product Details Page](#723-product-details-page)
-     - 7.2.4 [Product Creation](#724-product-creation)
-     - 7.2.5 [Product Status Management](#725-product-status-management)
-     - 7.2.6 [Product Clone Functionality](#726-product-clone-functionality)
-     - 7.2.7 [Product Delete Functionality](#727-product-delete-functionality)
-     - 7.2.8 [Product Integration Points](#728-product-integration-points)
-     - 7.2.9 [Product Authorization Matrix](#729-product-authorization-matrix)
-     - 7.2.10 [Product Validation Rules](#7210-product-validation-rules)
-   - 7.3 [Program](#73-program)
-     - 7.3.1 [Program Data Structure](#731-program-data-structure)
-     - 7.3.2 [Program Management Features](#732-program-management-features)
-     - 7.3.3 [Program Status Management](#733-program-status-management)
-     - 7.3.4 [Program Integration Points](#734-program-integration-points)
-     - 7.3.5 [Future Enhancements](#735-future-enhancements)
 8. [Course Management](#8-course-management) [IN REVIEW]
    - 8.1 [Course Creation](#81-course-creation)
-     - 8.1.1 [Course Creation Form](#811-course-creation-form)
-       - 8.1.1.1 [Dynamic Form Behavior Based on Course Type](#8111-dynamic-form-behavior-based-on-course-type)
-       - 8.1.1.2 [SHINE Form Fields](#8112-shine-form-fields)
-       - 8.1.1.3 [Product Form Fields](#8113-product-form-fields)
-       - 8.1.1.4 [Skill Form Fields](#8114-skill-form-fields)
-       - 8.1.1.5 [Course Code Generation Logic](#8115-course-code-generation-logic)
-       - 8.1.1.6 [Status Transition Logic](#8116-status-transition-logic)
-       - 8.1.1.7 [Checklist Template Application](#8117-checklist-template-application)
-       - 8.1.1.8 [Co-trainer Management](#8118-co-trainer-management)
-     - 8.1.2 [Entry Points](#812-entry-points)
-     - 8.1.3 [Validation & Error Handling](#813-validation--error-handling)
    - 8.2 [Course Listing Screen](#82-course-listing-screen)
-     - 8.2.1 [Course List View](#821-course-list-view)
-     - 8.2.2 [Filter & Search](#822-filter--search)
-     - 8.2.3 [Export Courses](#823-export-courses)
    - 8.3 [Course Details Screen](#83-course-details-screen)
-     - 8.3.1 [Course General Tab](#831-course-general-tab)
-       - 8.3.1.1 [Course Status Timeline](#8311-course-status-timeline)
-       - 8.3.1.2 [Course Information Display](#8312-course-information-display)
-       - 8.3.1.3 [Course Approval Actions](#8313-course-approval-actions)
-     - 8.3.2 [Course History](#832-course-history)
-     - 8.3.3 [Course Planning Tab](#833-course-planning-tab)
-     - 8.3.4 [Course Participant Tab](#834-course-participant-tab)
    - 8.4 [Course Registration](#84-course-registration)
-     - 8.4.1 [Registration Process](#841-registration-process)
-     - 8.4.2 [Registration Approval Workflow](#842-registration-approval-workflow)
-     - 8.4.3 [Auto-Cancellation Rule](#843-auto-cancellation-rule)
    - 8.5 [Course Edit](#85-course-edit)
-     - 8.5.1 [Edit Authorization Matrix](#851-edit-authorization-matrix)
-     - 8.5.2 [Edit Approval Workflow](#852-edit-approval-workflow)
-     - 8.5.3 [Field-Level Restrictions](#853-field-level-restrictions)
    - 8.6 [Course Cancel](#86-course-cancel)
-     - 8.6.1 [Cancel Authorization Matrix](#861-cancel-authorization-matrix)
-     - 8.6.2 [Cancel Approval Workflow](#862-cancel-approval-workflow)
-     - 8.6.3 [Direct Cancellation (No Approval)](#863-direct-cancellation-no-approval)
-     - 8.6.4 [Business Rules](#864-business-rules)
    - 8.7 [Course Delete](#87-course-delete)
-     - 8.7.1 [Delete Authorization Matrix](#871-delete-authorization-matrix)
-     - 8.7.2 [Delete Workflow](#872-delete-workflow)
-   - 8.8 [Course Operations](#88-course-operations)
-     - 8.8.1 [Course Participant List](#881-course-participant-list)
-     - 8.8.2 [Add Participant to Course with Import File](#882-add-participant-to-course-with-import-file)
-     - 8.8.3 [Add Participant to Course Manually](#883-add-participant-to-course-manually)
-     - 8.8.4 [Export Participants](#884-export-participants)
-     - 8.8.5 [Export Participants for MOF Exam](#885-export-participants-for-mof-exam)
-     - 8.8.6 [Import MOF Exam Result](#886-import-mof-exam-result)
-     - 8.8.7 [Confirm Passed Participant](#887-confirm-passed-participant)
-     - 8.8.8 [Export Passed Participant](#888-export-passed-participant)
-     - 8.8.9 [Attendance Check](#889-attendance-check)
-     - 8.8.10 [AOL Exam Result](#8810-aol-exam-result)
-     - 8.8.11 [Configurable Final Result Calculation Rules](#8811-configurable-final-result-calculation-rules)
-     - 8.8.12 [Manually Set Passed/Failed](#8812-manually-set-passedfailed)
-     - 8.8.13 [Grant Agent Code](#8813-grant-agent-code)
+   - 8.8.1 [Course Participant List](#881-course-participant-list)
+   - 8.8.2 [Add Participant to Course with Import File](#882-add-participant-to-course-with-import-file)
+   - 8.8.3 [Add Participant to Course Manually](#883-add-participant-to-course-manually)
+   - 8.8.4 [Export Participants](#884-export-participants)
+   - 8.8.5 [Export Participants for MOF Exam](#885-export-participants-for-mof-exam)
+   - 8.8.6 [Import MOF Exam Result](#886-import-mof-exam-result)
+   - 8.8.7 [Confirm Passed Participant](#887-confirm-passed-participant)
+   - 8.8.8 [Export Passed Participant](#888-export-passed-participant)
+   - 8.8.9 [Attendance Check](#889-attendance-check)
+   - 8.8.10 [AOL Exam Result](#8810-aol-exam-result)
+   - 8.8.12 [Manually Set Passed/Failed](#8812-manually-set-passedfailed)
+   - 8.8.13 [Grant Agent Code](#8813-grant-agent-code)
    - 8.9 [Course MOF addresses registration and participant allocation](#89-course-mof-addresses-registration-and-participant-allocation)
    - 8.10 [Course Import Function [PHASE 2]](#810-course-import-function-phase-2)
 9. [PIC Calendar](#9-pic-calendar) [IN PROGRESS]
-   - 9.1 [View Courses Per Trainer](#91-view-courses-per-trainer)
-     - 9.1.1 [Matrix Calendar Layout](#911-matrix-calendar-layout)
-     - 9.1.2 [Course Display in Calendar Cells](#912-course-display-in-calendar-cells)
-     - 9.1.3 [Trainer Display Customization](#913-trainer-display-customization)
-     - 9.1.4 [Filter Options](#914-filter-options)
-     - 9.1.5 [Role-Based Authorization](#915-role-based-authorization)
-     - 9.1.6 [Trainer Workload Tooltip](#916-trainer-workload-tooltip)
-     - 9.1.7 [Interactive Features](#917-interactive-features)
-     - 9.1.8 [Month Navigation](#918-month-navigation)
-     - 9.1.9 [Empty State Handling](#919-empty-state-handling)
-     - 9.1.10 [Default Screen After Login](#9110-default-screen-after-login)
-   - 9.2 [View Trainer Assignment for Each Trainer](#92-view-trainer-assignment-for-each-trainer)
-   - 9.3 [Export PIC Calendar Data](#93-export-pic-calendar-data)
 10. [Master Calendar](#10-master-calendar) [IN PROGRESS]
-    - 10.1 [View Courses in Master Calendar](#101-view-courses-in-master-calendar)
-      - 10.1.1 [Matrix Calendar Layout](#1011-matrix-calendar-layout)
-      - 10.1.2 [Course Display in Calendar Cells](#1012-course-display-in-calendar-cells)
-      - 10.1.3 [Program Display Customization](#1013-program-display-customization)
-      - 10.1.4 [Filter Options](#1014-filter-options)
-      - 10.1.5 [Month Navigation](#1015-month-navigation)
-      - 10.1.6 [Interactive Features](#1016-interactive-features)
-      - 10.1.7 [Empty State Handling](#1017-empty-state-handling)
-      - 10.1.9 [Performance Optimization](#1019-performance-optimization)
-      - 10.1.11 [Program-Based Course Creation](#10111-program-based-course-creation)
-    - 10.2 [Create Course in Master Calendar](#102-create-course-in-master-calendar)
-    - 10.3 [Other Actions in Master Calendar](#103-other-actions-in-master-calendar)
-      - 10.3.1 [Course Registration](#1031-course-registration)
-      - 10.3.2 [Course Edit](#1032-course-edit)
-      - 10.3.3 [Course Delete](#1033-course-delete)
-      - 10.3.4 [View Details](#1034-view-details)
-      - 10.3.5 [Export Course](#1035-export-course)
 11. [List Manage](#11-list-manage) [IN PROGRESS]
 12. [Configuration](#12-configuration)
     - 12.1 [Course Configuration](#121-course-configuration)
-      - 12.1.1 [Course Type Checklist Configuration](#1211-course-type-checklist-configuration)
-        - 12.1.1.1 [Course Checklist by Course Type Definition](#12111-course-checklist-by-course-type-definition)
-        - 12.1.1.2 [Email and Notification](#12112-email-and-notification)
-          - 12.1.1.2.1 [Checklist Notification](#121121-checklist-notification)
-          - 12.1.1.2.2 [Checklist Notification Templates](#121122-checklist-notification-templates)
-        - 12.1.1.3 [Show Course Checklist in Course Details](#12113-show-course-checklist-in-course-details)
-          - 12.1.1.3.1 [Course Checklist Details and Actions](#121131-course-checklist-details-and-actions)
-          - 12.1.1.3.2 [Business Rules](#121132-business-rules)
-        - 12.1.1.4 [Authorization Matrix](#12114-authorization-matrix)
-      - 12.1.2 [Date Rule Configuration](#1212-date-rule-configuration)
     - 12.2 [Holiday Calendar Configuration](#122-holiday-calendar-configuration)
-      - 12.2.1 [Holiday Registration](#1221-holiday-registration)
-      - 12.2.2 [Holiday Skip During Course Planning](#1222-holiday-skip-during-course-planning)
-      - 12.2.3 [Holiday Display in PIC Calendar](#1223-holiday-display-in-pic-calendar)
     - 12.3 [MOF Address List Management](#123-mof-address-list-management)
-      - 12.3.1 [MOF Address List Overview](#1231-mof-address-list-overview)
-      - 12.3.2 [MOF Address Data Structure](#1232-mof-address-data-structure)
-      - 12.3.3 [MOF Address Listing Page](#1233-mof-address-listing-page)
-      - 12.3.4 [MOF Address Creation Form](#1234-mof-address-creation-form)
-      - 12.3.5 [MOF Address Edit Form](#1235-mof-address-edit-form)
-      - 12.3.6 [MOF Address Delete Functionality](#1236-mof-address-delete-functionality)
-      - 12.3.7 [Integration with Course Creation](#1237-integration-with-course-creation)
-      - 12.3.8 [Authorization Matrix](#1238-authorization-matrix)
-      - 12.3.9 [Business Rules](#1239-business-rules)
-13. [Report Management [PHASE 2]](#13-report-management-phase-2) [NOT STARTED]
-    - 13.1 [SHINE PASS RATIO](#131-shine-pass-ratio)
-    - 13.2 [SHINE TRAINING](#132-shine-training)
-    - 13.3 [PARTICIPANT OF TRAINERS](#133-participant-of-trainers)
-    - 13.4 [RECRUITMENT SHINE](#134-recruitment-shine)
-    - 13.5 [DANH SACH DANG KY MOF](#135-danh-sach-dang-ky-mof)
-    - 13.6 [PASS RATIO BY MONTH](#136-pass-ratio-by-month)
-    - 13.7 [GIO BAY TRAINER](#137-gio-bay-trainer)
-    - 13.8 [ATTENDANCE REPORT](#138-attendance-report)
-    - 13.9 [REPORT FOR FWD AGENT TRAINING ACTIVITY](#139-report-for-fwd-agent-training-activity)
-    - 13.10 [SHINE REPORT](#1310-shine-report)
-    - 13.11 [FWT TRAINER PAYSLIP](#1311-fwt-trainer-payslip)
-    - 13.12 [EXAM FEE TOTAL](#1312-exam-fee-total)
-14. [General Setting](#14-general-setting)
-    - 14.1 [SMTP Settings](#141-smtp-settings)
+    - 12.4 [Configurable Final Result Calculation Rules](#124-configurable-final-result-calculation-rules)
+
 
 ---
 
@@ -325,6 +168,27 @@ Seperated Document for API specification named: LMS_External_APIs_Document_Speci
 
 ## 4. ROLE AND USER MANAGEMENT
 
+**Subsections:**
+- [4.1 List of Roles](#41-list-of-roles)
+- [4.2 Authorization Matrix by Feature](#42-authorization-matrix-by-feature)
+- [4.3 User Management](#43-user-management)
+  - [4.3.1 User Creation Screen](#431-user-creation-screen)
+  - [4.3.2 User Listing Page](#432-user-listing-page)
+  - [4.3.3 Login Authentication](#433-login-authentication)
+- [4.4 Role & Permission Management](#44-role--permission-management)
+  - [4.4.3 Role & Permission Management Screen](#443-role--permission-management-screen)
+  - [4.4.4 Edit Permissions Modal](#444-edit-permissions-modal)
+  - [4.4.5 Permission Management Business Rules](#445-permission-management-business-rules)
+  - [4.4.8 Integration with Other Features](#448-integration-with-other-features)
+- [4.5 Role-Based Data Filtering](#45-role-based-data-filtering)
+  - [4.5.1 Data Filtering Rules by Role](#451-data-filtering-rules-by-role)
+  - [4.5.2 Dashboard Statistics Filtering](#452-dashboard-statistics-filtering)
+  - [4.5.3 Course List Filtering](#453-course-list-filtering)
+  - [4.5.4 Pending Approvals Filtering](#454-pending-approvals-filtering)
+  - [4.5.5 Approval Workflow Integration](#455-approval-workflow-integration)
+
+---
+
 Admin can manage role and user role via a menu in LMS UI. This menu only allows admin role to access and modify data.
 
 ### 4.1 List of Roles
@@ -435,67 +299,7 @@ SO THAT I can control what actions each role can perform and maintain proper acc
 
 ---
 
-#### 4.4.1 Permission Categories and Definitions
 
-The system organizes permissions into six functional categories based on the Authorization Matrix (Section 4.2):
-
-**Permission Structure:**
-
-| Permission ID | Feature Name | Category | Description | Roles with Permission |
-|---------------|--------------|----------|-------------|----------------------|
-| `view_pic_calendar` | View PIC Calendar | Calendar | View courses per trainer | All roles |
-| `view_master_calendar` | View Master Calendar | Calendar | View all courses in calendar | All roles |
-| `create_course` | Create course | Course Management | Create new courses | Trainer, Lead Region, Head Channel |
-| `import_course` | Import course | Course Management | Bulk import courses and view history | Lead Region, Head Channel |
-| `view_course` | View/export course | Course Management | View course list/details and export | All roles |
-| `register_course` | Register course | Course Management | Register as primary trainer | Trainer only |
-| `edit_course` | Edit course | Course Management | Edit course details | Trainer, Lead Region, Head Channel, Master Role, Admin |
-| `import_mof_result` | Import MOF exam result | Participant Management | Import MOF exam results | Master Role, Admin |
-| `import_participant` | Import participant | Participant Management | Bulk import participants | Master Role, Admin |
-| `add_participant` | Add participant | Participant Management | Add individual participants | Master Role, Admin |
-| `confirm_passed` | Confirm passed participant | Participant Management | Confirm passed participants | Admin only |
-| `export_participant` | Export participant | Participant Management | Export participant lists | DMS Admin only |
-| `finish_course` | Finish course | Course Management | Mark course as finished | Master Role, Admin |
-| `cancel_course` | Cancel course | Course Management | Cancel courses | Trainer, Lead Region, Head Channel |
-| `delete_course` | Delete course | Course Management | Delete courses | Trainer, Lead Region, Head Channel |
-| `approve_course` | Approve register/edit/cancel | Course Management | Approve course actions | Lead Region, Head Channel, Master Role |
-| `self_approval` | Self Approval | Course Management | Actions are auto-approved without requiring approval workflow | Head Channel (default) |
-| `manage_program` | Create/clone program | Content Management | Create/clone programs/products/modules | Master Role, Admin, Root Admin |
-| `view_program` | View program | Content Management | View program/product/module details | Master Role, Admin, Root Admin |
-| `manage_channel` | View/edit Channel setting | Admin | View/edit channel settings | Master Role, Admin, Root Admin |
-| `manage_template` | View/edit/delete template | Admin | View/edit/delete course templates | Master Role, Admin, Root Admin |
-| `manage_participant` | Participant management | Admin | Full participant management | Lead Region, Head Channel, Master Role, Admin, Root Admin |
-| `manage_trainer` | Trainer management | Admin | Manage trainer profiles | Lead Region, Head Channel, Master Role, Admin, Root Admin |
-| `manage_admin` | Admin management | Admin | Manage admin users | Lead Region, Head Channel, Master Role, Admin, Root Admin |
-| `manage_list` | List manage | Admin | Manage master data lists | Master Role, Admin, Root Admin |
-| `manage_mof_venues` | Manage Multiple MOF Venues | Course Management | Configure multiple MOF exam venues, allocate participants to venues, and import results by venue | Lead Region, Head Channel, Admin, Master Role |
-| `manage_result_rules` | Manage Final Result Rules | Admin | Create, edit, and deactivate final result calculation rules | Master Role, Admin, Root Admin |
-| `view_reports` | Report management | Report | View and generate reports | Lead Region, Head Channel, Master Role, Admin, Root Admin |
-| `manage_roles` | Role and Permission | Admin | Manage roles and permissions | Root Admin only |
-| `general_settings` | General setting | Admin | Configure system settings | Master Role, Admin, Root Admin |
-
----
-
-#### 4.4.2 Default Role Permission Matrix
-
-Based on the Authorization Matrix (Section 4.2), the default permissions for each role are:
-
-| Role | Permissions Assigned | Total Count |
-|------|---------------------|-------------|
-| **TRAINER** | view_pic_calendar, view_master_calendar, create_course, view_course, register_course, edit_course, cancel_course, delete_course | 8 |
-| **LEAD_REGION** | view_pic_calendar, view_master_calendar, create_course, import_course, view_course, edit_course, approve_course, cancel_course, delete_course, manage_participant, manage_trainer, manage_admin, manage_mof_venues, view_reports | 14 |
-| **HEAD_CHANNEL** | view_pic_calendar, view_master_calendar, create_course, import_course, view_course, edit_course, approve_course, self_approval, cancel_course, delete_course, manage_participant, manage_trainer, manage_admin, manage_mof_venues, view_reports | 15 |
-| **DMS_ADMIN** | view_pic_calendar, view_master_calendar, view_course, export_participant | 4 |
-| **MASTER_ROLE** | view_pic_calendar, view_master_calendar, view_course, edit_course, import_mof_result, import_participant, add_participant, finish_course, approve_course, manage_program, view_program, manage_channel, manage_template, manage_participant, manage_trainer, manage_admin, manage_list, manage_mof_venues, manage_result_rules, view_reports, general_settings | 21 |
-| **ADMIN** | view_pic_calendar, view_master_calendar, view_course, edit_course, import_mof_result, import_participant, add_participant, confirm_passed, finish_course, manage_program, view_program, manage_channel, manage_template, manage_participant, manage_trainer, manage_admin, manage_list, manage_mof_venues, manage_result_rules, view_reports, general_settings | 21 |
-| **ROOT_ADMIN** | view_pic_calendar, view_master_calendar, view_course, manage_program, view_program, manage_channel, manage_template, manage_participant, manage_trainer, manage_admin, manage_list, manage_result_rules, view_reports, manage_roles, general_settings | 15 |
-
-**Key Notes:**
-- **Register Course (Feature #6)**: Only Trainer has this permission per original specification
-- **Create Course (Feature #3)**: Trainer, Lead Region, Head Channel only (Root Admin does NOT have this permission per original specification)
-- **Edit Course (Feature #7)**: Root Admin does NOT have this permission per original specification
-- **Manage Roles (Feature #26)**: Exclusive to Root Admin for system security
-- **Export Participant (Feature #12)**: Exclusive to DMS Admin per original specification
 
 ---
 
@@ -764,6 +568,8 @@ The system applies role-based filtering to ensure users only see data within the
 
 #### 4.5.2 Dashboard Statistics Filtering
 
+[NEW FEATURE]
+
 Dashboard cards display statistics filtered by user's role and scope:
 
 **1. Active Courses Count:**
@@ -949,6 +755,39 @@ The Pending Approvals feature integrates with three approval workflows: Registra
 ---
 
 ## 5. TRAINER MANAGEMENT
+
+**Subsections:**
+- [5.1 Trainer Creation](#51-trainer-creation)
+  - [5.1.1 User Story](#511-user-story)
+  - [5.1.2 Access Control](#512-access-control)
+  - [5.1.3 User Account Linking (Enhanced)](#513-user-account-linking-enhanced)
+  - [5.1.4 Trainer Creation Form Fields](#514-trainer-creation-form-fields)
+  - [5.1.5 Business Rules](#515-business-rules)
+- [5.2 Trainer Listing Page](#52-trainer-listing-page)
+  - [5.2.1 User Story](#521-user-story)
+  - [5.2.2 Access Control](#522-access-control)
+  - [5.2.3 Filter Options](#523-filter-options)
+  - [5.2.4 Search Functionality](#524-search-functionality)
+  - [5.2.5 Display Columns](#525-display-columns)
+  - [5.2.6 List Features](#526-list-features)
+- [5.3 Trainer Details Page](#53-trainer-details-page)
+  - [5.3.1 User Story](#531-user-story)
+  - [5.3.2 Access Control](#532-access-control)
+  - [5.3.3 Page Layout](#533-page-layout)
+  - [5.3.4 Page Sections](#534-page-sections)
+  - [5.3.5 Section Details](#535-section-details)
+- [5.4 Trainer Unavailable Period Management](#54-trainer-unavailable-period-management)
+  - [5.4.1 Trainer Unavailable Period Registration](#541-trainer-unavailable-period-registration)
+  - [5.4.2 View Unavailable Period List](#542-view-unavailable-period-list)
+  - [5.4.3 Trainer Unavailable Warnings](#543-trainer-unavailable-warnings)
+  - [5.4.4 Show Trainer Unavailable Slots on PIC Calendar](#544-show-trainer-unavailable-slots-on-pic-calendar)
+  - [5.4.5 Role and Permission](#545-role-and-permission)
+  - [5.4.6 Business Rules](#546-business-rules)
+- [5.5 Authorization Matrix](#55-authorization-matrix)
+- [5.6 Data Validation Rules](#56-data-validation-rules)
+- [5.7 Integration Points](#57-integration-points)
+
+---
 
 Root Admin, Admin, Lead region, and Head channel can add new trainers and manage trainer profiles via a menu in LMS UI.
 
@@ -1266,16 +1105,72 @@ The Trainer Details page uses a **2-column layout** for optimal space utilizatio
 - Visual charts and graphs
 - Comparison with company average
 
-**8. Training History**
-- Auto-populated from course assignments
-- Displays:
-  - Course ID
-  - Course Name
-  - Course Date
-  - Number of Participants
-  - Course Status
-- View only (cannot be manually edited)
-- Sortable and filterable
+**8. Training History (Assigned Courses)**
+
+**User Story:**  
+AS A user viewing trainer details  
+I NEED to see all courses the trainer is assigned to  
+SO THAT I can track their teaching schedule, workload, and course history
+
+**Acceptance Criteria:**
+
+**Course List Display:**
+
+The Training History section displays a comprehensive table of all courses where the trainer is assigned (as Main Trainer or Co-trainer).
+
+**Table Columns:**
+
+| Column | Description | Data Source |
+|--------|-------------|-------------|
+| Course Code | Course code (hyperlink to course details) | Course Management |
+| Course Name | Full course name | Course Management |
+| Course Type | SHINE/Product/Skill | Course Management |
+| Start Date | Course start date | Course Management |
+| End Date | Course end date | Course Management |
+| Duration | Calculated days (End Date - Start Date) | Calculated |
+| Location/Venue | Training location or MOF address | Course Management |
+| Trainer Role | Main Trainer / Co-trainer | Course Assignment |
+| Number of Participants | Total enrolled participants | Course Management |
+| Course Status | NEW/REGISTERED/APPROVED/IN_PROGRESS/FINISHED/CANCEL | Course Management |
+| Actions | View Course Details button | - |
+
+**Table Features:**
+
+- **Sorting:** 
+  - Default: Start Date (newest first)
+  - Sortable by: Course Code, Course Name, Start Date, End Date, Status, Number of Participants
+  - Click column header to toggle ascending/descending
+  
+- **Filtering:**
+  - Filter by Course Type (SHINE/Product/Skill)
+  - Filter by Course Status (dropdown multi-select)
+  - Filter by Date Range (Start Date from/to)
+  - Filter by Trainer Role (Main Trainer/Co-trainer/All)
+  - Search by Course Code or Course Name (text input)
+  
+- **Pagination:**
+  - 20, 50, 100 rows per page (user selectable)
+  - Page navigation controls
+  
+- **View Actions:**
+  - **View Course Details:** Click course code or "View Details" button to navigate to course details page
+  - **Export:** Export filtered course list to Excel
+
+**Display Rules:**
+
+- **Auto-Populated:** All data is automatically populated from course assignments (cannot be manually edited)
+- **Real-Time:** List updates automatically when trainer is assigned/removed from courses
+- **Scope:** Shows all courses where trainer is assigned (past, current, and future), including both Main Trainer and Co-trainer assignments
+- **Status Indicators:** Course status displayed with color-coded badges:
+  - NEW: Yellow
+  - REGISTERED: Gray
+  - APPROVED: Blue
+  - IN_PROGRESS: Red
+  - FINISHED: Green
+  - CANCEL: Dark Gray
+  
+- **Empty State:** If trainer has no course assignments, display message: "No courses assigned to this trainer"
+- **Read-Only:** Course assignments cannot be managed from this page (use Course Management module - Section 8)
 
 **9. Road Map**
 - Trainer development and career planning
@@ -1304,14 +1199,14 @@ SO THAT the system can warn when scheduling trainers during unavailable dates
 
 **Master Data Fields:**
 
-| Field | Type | Required | Description | Values/Example |
-|-------|------|----------|-------------|----------------|
-| Trainer | Dropdown | Yes | Trainer name | From active trainer list |
-| Start Date | Date | Yes | First unavailable date | DD/MM/YYYY |
-| End Date | Date | Yes | Last unavailable date | DD/MM/YYYY |
-| Unavailability Type | Dropdown | Yes | Type of unavailability | Vacation/Sick Leave/Other Commitment/Personal |
-| Reason | Text | Optional | Brief description | Max 200 characters |
-| Is Active | Checkbox | Yes | Active status | Default: Active |
+| Field | Type | Required | Description | Values/Example | Validation Rules |
+|-------|------|----------|-------------|----------------|------------------|
+| Trainer | Dropdown | Yes | Trainer name | From active trainer list | Must be from active trainer list |
+| Start Date | Date | Yes | First unavailable date | DD/MM/YYYY | Can be past date (for historical records) |
+| End Date | Date | Yes | Last unavailable date | DD/MM/YYYY | Must be >= Start Date |
+| Unavailability Type | Dropdown | Yes | Type of unavailability | Vacation/Sick Leave/Other Commitment/Personal | Must select from predefined types |
+| Reason | Text | Optional | Brief description | Max 200 characters | Maximum 200 characters if provided |
+| Is Active | Checkbox | Yes | Active status | Default: Active | Default: Active (checked) |
 
 **Unavailability Types:**
 
@@ -1441,22 +1336,7 @@ The system must visually display all trainer unavailable periods on the PIC (Pla
 
 #### 5.4.5 Role and Permission
 
-**Authorization Matrix:**
-
-| Role | Add Own | View Own | Update Own | Delete Own | Add Others | View Others | Update Others | Delete Others |
-|------|---------|----------|------------|------------|------------|-------------|---------------|---------------|
-| **Trainer** | Yes | Yes | Yes | Yes | No | No | No | No |
-| **Lead Region** | Yes | Yes | Yes | Yes | Yes* | Yes* | Yes* | Yes* |
-| **Head Channel** | Yes | Yes | Yes | Yes | Yes** | Yes** | Yes** | Yes** |
-| **Admin** | No | No | No | No | Yes | Yes | Yes | Yes |
-| **Master Role** | No | No | No | No | Yes | Yes | Yes | Yes |
-| **Root Admin** | No | No | No | No | Yes | Yes | Yes | Yes |
-
-**Scope Rules:**
-- **Trainer:** Can only manage own unavailability periods
-- **Lead Region (*):** Can manage trainers in same channel AND same region
-- **Head Channel (**):** Can manage trainers in same channel (all regions)
-- **Admin/Master/Root Admin:** Can manage all trainers (no restrictions)
+**Authorization Logic:** Trainers can only manage their own unavailability periods; Lead Region can manage trainers in same channel AND same region; Head Channel can manage trainers in same channel (all regions); Admin, Master Role, and Root Admin can manage all trainers' unavailability periods (no restrictions) but cannot manage their own.
 
 **Permission Logic:**
 - System filters trainer list based on user's scope
@@ -1467,44 +1347,31 @@ The system must visually display all trainer unavailable periods on the PIC (Pla
 
 #### 5.4.6 Business Rules
 
-**Validation Rules:**
-
-1. **Date Range:** End Date must be >= Start Date
-2. **Reason Length:** Maximum 200 characters
-3. **Overlap Warning:** System warns (non-blocking) if trainer has overlapping unavailability periods
-4. **Inactive Periods:** Inactive periods not checked during warnings
-5. **Past Dates:** Can register past dates for historical record-keeping
+**Overlap Validation:**
+- System warns (non-blocking) if trainer has overlapping unavailability periods
+- Only active periods are checked for overlaps
+- Inactive periods do not trigger overlap warnings
 
 **System Behavior:**
+- **Warning Only:** All unavailability checks are non-blocking warnings (user can override)
+- **Override Capability:** All authorized users can override unavailability warnings
+- **History Tracking:** All override actions recorded in trainer profile or course history
+- **Active Status:** Only active periods trigger warnings during course/stage assignment
+- **Date Overlap Check:** System checks if course/stage dates overlap with unavailable period (any overlap triggers warning)
 
-1. **Warning Only:** All unavailability checks are non-blocking warnings
-2. **Override Capability:** All authorized users can override unavailability warnings
-3. **History Tracking:** All actions recorded in trainer profile or course history
-4. **Active Status:** Only active periods trigger warnings
-5. **Date Match:** System checks if course/stage dates overlap with unavailable period (any overlap triggers warning)
-
-**Integration Rules:**
-
-1. **Course Creation:** Check primary trainer and co-trainer availability
-2. **Course Edit:** Check when changing trainers
-3. **Planning:** Check when adding/editing stages with trainer assignment
-4. **Calendar:** Display unavailability on PIC Calendar
-5. **Reports:** Unavailability data available for trainer availability reports
+**Integration Points:**
+- **Course Creation:** Check primary trainer and co-trainer availability
+- **Course Edit:** Check when changing trainers
+- **Planning:** Check when adding/editing stages with trainer assignment
+- **Calendar:** Display unavailability on PIC Calendar (Section 5.4.4)
+- **Reports:** Unavailability data available for trainer availability reports
 
 ---
 
 
 ### 5.5 Authorization Matrix
 
-| Action                    | Trainer | Lead Region | Head Channel | Admin | Master Role | Root Admin |
-|---------------------------|---------|-------------|--------------|-------|-------------|------------|
-| View Trainer List         | -       | Yes           | Yes            | Yes     | Yes           | Yes          |
-| Create Trainer            | -       | Yes           | Yes            | Yes     | Yes           | Yes          |
-| Edit Trainer              | -       | Yes           | Yes            | Yes     | Yes           | Yes          |
-| Delete Trainer            | -       | Yes           | Yes            | Yes     | Yes           | Yes          |
-| View Trainer Details      | -       | Yes           | Yes            | Yes     | Yes           | Yes          |
-| Export Trainer List       | -       | Yes           | Yes            | Yes     | Yes           | Yes          |
-| Activate/Deactivate       | -       | Yes           | Yes            | Yes     | Yes           | Yes          |
+**Authorization Logic:** Trainers have no access to trainer management functions; all other roles (Lead Region, Head Channel, Admin, Master Role, Root Admin) have full access to all trainer management actions (View, Create, Edit, Delete, Export, Activate/Deactivate).
 
 ---
 
@@ -1534,6 +1401,28 @@ The system must visually display all trainer unavailable periods on the PIC (Pla
 
 ## 6. PARTICIPANT MANAGEMENT
 
+**Subsections:**
+- [6.1 Integration](#61-integration)
+- [6.2 Participant List](#62-participant-list)
+  - [6.2.1 Search and Filter Area](#621-search-and-filter-area)
+  - [6.2.2 Participant List Display](#622-participant-list-display)
+  - [6.2.3 Export Functionality](#623-export-functionality)
+- [6.3 Participant Details Page](#63-participant-details-page)
+  - [6.3.1 Page Layout](#631-page-layout)
+  - [6.3.2 General Information Section](#632-general-information-section)
+  - [6.3.3 Address Section (Table View)](#633-address-section-table-view)
+  - [6.3.4 Experience Section (Table View)](#634-experience-section-table-view)
+  - [6.3.5 Support Document Section](#635-support-document-section)
+  - [6.3.6 License Codes Section (Table View)](#636-license-codes-section-table-view)
+  - [6.3.7 Reference Section (Table View)](#637-reference-section-table-view)
+  - [6.3.8 Relationships Section (Table View)](#638-relationships-section-table-view)
+  - [6.3.8 Road Map Section](#638-road-map-section)
+  - [6.3.11 Audit Data Update Section](#6311-audit-data-update-section)
+- [6.4 Participant Business Rules](#64-participant-business-rules)
+- [6.5 Participant Authorization Matrix](#65-participant-authorization-matrix)
+
+---
+
 **User Story:**  
 AS A System Administrator, Admin, Lead Region, Head Channel, or Master Role user  
 I NEED to manage participant information in the LMS system  
@@ -1561,53 +1450,40 @@ Participants can be created in the system through:
 
 ### 6.1 Integration
 
+**API Specification Reference:**  
+For complete API specification details including endpoint URL, request/response formats, field definitions, validation rules, business rules, processing logic, and error handling, refer to the separate API specification document: **LMS_External_APIs_Document_Specification_V1.1-06102022.md** - Section 2.3 (Participant API).
+
 **User Story:**  
 AS AN External System (DMS)  
 I NEED to send participant data to LMS via API  
 SO THAT participant records are synchronized and up-to-date across systems
 
-**Acceptance Criteria:**
+**Business Logic Summary:**
 
-1. **API Endpoint Integration:**
-   - System receives participant data via POST API (Section 3.2 - Participant API)
-   - Validates incoming data against required fields
-   - Creates new participant records or updates existing records
-   - Returns success/error response with details
+The Participant API integration enables DMS system to create and update participant records in LMS while automatically assigning them to courses. The system processes incoming participant data through the following business logic:
 
-2. **Integration Flow:**
+1. **Participant Identification:** System identifies if participant exists by checking ID number. If `oldIdNumber` is provided, system uses it to match existing participants for ID number change scenarios.
 
-```mermaid
-flowchart LR
-    DMS[DMS System] -->|POST Participant Data| API[LMS Participant API]
-    API -->|Validate| VAL[Data Validation]
-    VAL -->|Valid| CREATE[Create/Update Participant]
-    VAL -->|Invalid| ERR[Return Error]
-    CREATE -->|Success| COURSE[Assign to Course]
-    CREATE -->|Fail| ERR
-    COURSE -->|Complete| SUCCESS[Return Success]
-    ERR -->|Response| DMS
-    SUCCESS -->|Response| DMS
-```
+2. **Create or Update Decision:** 
+   - If participant does not exist (ID number not found) → Create new participant record
+   - If participant exists (ID number found) → Update all provided fields
 
-3. **Data Synchronization Rules:**
-   - **New Participant:** Create new record if ID number not found
-   - **Existing Participant:** Update record if ID number exists
-   - **Old ID Number Field:** System compares `oldIdNumber` with current `idNumber` to detect updates
-   - **Course Assignment:** If `courseCode` is provided and valid, participant is automatically assigned to course
-   - **Error Handling:** Invalid course code or missing required fields result in error response
+3. **Data Synchronization:** 
+   - API data takes precedence over manual UI entry
+   - Empty string ("") clears field value, null keeps existing value
+   - All provided fields are updated, nested objects are replaced if provided
 
-4. **API Fields Mapping:**
-   - Refer to Section 3.2 (Participant API) for complete field definitions
-   - All required fields must be present for successful creation
-   - Optional fields can be empty or null
-   - Nested objects supported: `homeAddress`, `businessAddress`, `participantSupportDocument`, `participantRegistration`, `participantReferences`
+4. **Course Assignment:** 
+   - If `courseCode` is provided and valid → Automatically assign participant to course
+   - System validates course exists and is in valid status (typically APPROVED or IN_PROGRESS)
+   - Prevents duplicate enrollment in same course
 
-**Business Rules:**
+5. **Validation and Error Handling:**
+   - Validates required fields, field formats, and business rules (ID uniqueness, age requirement, etc.)
+   - Returns detailed error messages for troubleshooting
+   - Participant creation/update may succeed even if course assignment fails (error logged but operation continues)
 
-- **Duplicate Prevention:** System checks ID number for uniqueness
-- **Data Updates:** If participant exists, system updates all provided fields
-- **Course Assignment Validation:** System validates course code exists and is in valid status before assignment
-- **Error Response:** System returns detailed error message for troubleshooting
+**For detailed validation rules, processing flow, and error scenarios, refer to API Specification Document - Section 2.3.4, 2.3.5, and 2.3.6.**
 
 ---
 
@@ -1634,7 +1510,7 @@ SO THAT I can search, view, filter, and export participant information
 |-----|-------|-----------|----------|-------------|------------|
 | 1 | Filter/Search by Region | Dropdown List | O | Region values: South/Middle/North | Filter participants by region |
 | 2 | Filter/Search by Channel | Dropdown List | O | Channel values: IFA/Banca FSC/Agency/Banker | Filter participants by channel |
-| 3 | Search Input | Alphanumeric (50) | O | Free text search for: Full name, AD name, Email, Phone, Agent code, ID number | Input triggered after selecting filter dropdown |
+| 3 | Search Input | Alphanumeric (50) | O | Free text search for: Full name, AD name, Email, Phone, Agent code, Participant code, ID number | Input triggered after selecting filter dropdown |
 
 **Search Behavior:**
 
@@ -1650,7 +1526,7 @@ SO THAT I can search, view, filter, and export participant information
 
 | S/N | Fieldname | Data Type | M/O/CM/D | Description | Additional Info |
 |-----|-----------|-----------|----------|-------------|-----------------|
-| 1 | Code | Display | D | Agent code | Hyperlink to participant details page |
+| 1 | Code | Display | D | Participant code/identifier | Hyperlink to participant details page |
 | 2 | Name | Display | D | Full name of participant | Sortable |
 | 3 | Gender | Display | D | Gender | Male/Female/Other |
 | 4 | ID | Display | D | ID card number | Unique identifier |
@@ -1659,12 +1535,13 @@ SO THAT I can search, view, filter, and export participant information
 | 7 | Email | Display | D | Email address | |
 | 8 | Title | Display | D | Agent title/position | |
 | 9 | Status | Display | D | Participant status | Active/Inactive (default: Inactive) |
-| 10 | Appointed date | Display | D | Date of issuing agent code | Format: DD/MM/YYYY |
-| 11 | Ter date | Display | D | Terminate date | Format: DD/MM/YYYY |
-| 12 | AD | Display | D | Agent Admin name | |
-| 13 | DL code | Display | D | Direct Leader code | |
-| 14 | DL name | Display | D | Direct Leader name | |
-| 15 | DL title | Display | D | Direct Leader title | |
+| 10 | Agent Code | Display | D | Agent code (granted via API) | Read-only, displayed if available |
+| 11 | Appointed date | Display | D | Date of issuing agent code | Format: DD/MM/YYYY |
+| 12 | Ter date | Display | D | Terminate date | Format: DD/MM/YYYY |
+| 13 | AD | Display | D | Agent Admin name | |
+| 14 | DL code | Display | D | Direct Leader code | |
+| 15 | DL name | Display | D | Direct Leader name | |
+| 16 | DL title | Display | D | Direct Leader title | |
 
 **List Behavior:**
 
@@ -1715,7 +1592,7 @@ SO THAT I can view complete profile, training history, and supporting documents
 **Access Control:**
 
 - **Authorized Roles:** Lead Region, Head Channel, Admin, Master Role, Root Admin
-- **Entry Point:** Click on participant name/code in participant list
+- **Entry Point:** Click on participant name or participant code in participant list
 - **Authorization Matrix:** Refer to Section 4.2 - Row 21
 
 **Acceptance Criteria:**
@@ -1730,8 +1607,10 @@ The participant details page is organized into the following sections:
 4. **Support Document** (file upload/download/delete)
 5. **License Codes** (table view, read-only from API)
 6. **Reference** (table view with add/edit/delete)
-7. **Road Map** (training journey visualization)
-8. **Audit Data Update** (history log)
+7. **Relationships** (table view with add/edit/delete)
+8. **Registration Information** (read-only or editable based on business rules)
+9. **Road Map** (training journey visualization)
+10. **Audit Data Update** (history log)
 
 #### 6.3.2 General Information Section
 
@@ -1778,6 +1657,8 @@ The participant details page is organized into the following sections:
 | Title | String | O | Participant title | |
 | Agent Code | String | O | Agent code | Auto-assigned from API |
 | Agent Code Issue Date | Date | O | Date agent code was issued | DD/MM/YYYY, auto-populated |
+| Placed Phone | String | O | Alternative phone number | Phone format validation |
+| AD Name | String | O | Active Directory username | Max 100 characters |
 
 **Section Behavior:**
 
@@ -1798,21 +1679,23 @@ SO THAT I can track both home and business addresses
 **Acceptance Criteria:**
 
 **Address Types:**
-- Home Address
-- Business Address
+- Home Address (`homeAddress` object in API)
+- Business Address (`businessAddress` object in API)
 - Multiple addresses of each type allowed
 
 **Address Fields:**
 
-| Field | Type | M/O | Description |
-|-------|------|-----|-------------|
-| Address Type | Dropdown | M | Home/Business |
-| Address Line | String | M | Full address |
-| Province | Dropdown | M | Province/City |
-| District | Dropdown | M | District (filtered by province) |
-| Ward | Dropdown | M | Ward/Commune (filtered by district) |
-| Postal Code | String | O | Postal/Zip code |
-| Is Primary | Checkbox | O | Mark as primary address |
+| Field | Type | M/O | Description | API Mapping |
+|-------|------|-----|-------------|-------------|
+| Address Type | Dropdown | M | Home/Business | Maps to `homeAddress` or `businessAddress` object |
+| Address Line 1 | String | M | Primary address line | `addressLine1` |
+| Address Line 2 | String | O | Secondary address line | `addressLine2` |
+| Address Line 3 | String | O | Tertiary address line | `addressLine3` |
+| City | Dropdown | M | City/Province | `city` (display), `cityCode` (value) |
+| City Code | String | O | City code | Auto-populated from selection |
+| District | Dropdown | M | District (filtered by city) | `district` (display), `districtCode` (value) |
+| District Code | String | O | District code | Auto-populated from selection |
+| Is Primary | Checkbox | O | Mark as primary address | UI-only field |
 
 **Table Actions:**
 
@@ -1825,8 +1708,10 @@ SO THAT I can track both home and business addresses
 
 - At least one address required
 - Only one primary address per type
-- Cascade dropdown: Province → District → Ward
+- Cascade dropdown: City → District
 - Cannot delete primary address until another is set as primary
+- Address Line 1 is mandatory, Address Line 2 and 3 are optional
+- City and District codes are automatically populated when selection is made
 
 #### 6.3.4 Experience Section (Table View)
 
@@ -1839,21 +1724,19 @@ SO THAT I can understand their professional background
 
 **Experience Fields:**
 
-| Field | Type | M/O | Description |
-|-------|------|-----|-------------|
-| Company Name | String | M | Employer name |
-| Position | String | M | Job title/position |
-| Start Date | Date | M | Employment start date (DD/MM/YYYY) |
-| End Date | Date | O | Employment end date (DD/MM/YYYY), empty if current |
-| Description | Text Area | O | Job responsibilities and achievements |
-| Industry | String | O | Industry sector |
+| Field | Type | M/O | Description | API Mapping |
+|-------|------|-----|-------------|-------------|
+| Description | Text Area | M | Work experience description | `description` |
+| Experience Years | String | M | Years of experience | `expYears` |
+| Major | String | O | Field of study/major | `major` |
+| Major Code | String | O | Major code | `majorCode` (auto-populated) |
 
 **Table Columns:**
 
-- Company Name
-- Position
-- Duration (calculated: Start Date - End Date or "Present")
-- Industry
+- Description
+- Experience Years
+- Major
+- Major Code
 - Actions (Edit/Delete)
 
 **Table Actions:**
@@ -1864,10 +1747,9 @@ SO THAT I can understand their professional background
 
 **Business Rules:**
 
-- Experience entries sorted by Start Date (most recent first)
-- End Date must be after Start Date
-- If End Date is empty, displayed as "Present"
-- Duration automatically calculated
+- Experience entries sorted by Experience Years (highest first)
+- Experience Years must be numeric or numeric range (e.g., "5", "3-5")
+- Major Code is auto-populated when Major is selected from master data
 
 #### 6.3.5 Support Document Section
 
@@ -1889,21 +1771,34 @@ SO THAT I can maintain required documentation for compliance
 
 **Document Fields:**
 
-| Field | Type | Description |
-|-------|------|-------------|
-| Document Name | String | File name (editable) |
-| Document Type | Dropdown | ID Card/Certificate/Contract/Other |
-| File Size | Display | File size in KB/MB |
-| File Format | Display | File extension |
-| Upload Date | Display | Upload timestamp |
-| Uploaded By | Display | User who uploaded |
+| Field | Type | Description | API Mapping |
+|-------|------|-------------|-------------|
+| Document Name | String | File name (editable) | UI-only field |
+| Document Type | Dropdown | Specific document type | Maps to API field names |
+| File Path/URL | String | File location | Stored in corresponding API field |
+| File Size | Display | File size in KB/MB | UI-only field |
+| File Format | Display | File extension | UI-only field |
+| Upload Date | Display | Upload timestamp | UI-only field |
+| Uploaded By | Display | User who uploaded | UI-only field |
+
+**Document Type Mapping to API Fields:**
+
+| Document Type | API Field Name | Required |
+|---------------|----------------|----------|
+| Passport | `passport` | No |
+| Image/Photo | `image` | No |
+| Application/Resignation | `applicationResignation` | No |
+| Electronic Signature | `electronicSignature` | No |
+| Proof of Residence | `proofOfResidence` | No |
+| Other Document | `otherDocument` | No |
 
 **File Upload Rules:**
 
 - **Supported Formats:** PDF, JPG, JPEG, PNG, DOC, DOCX, XLS, XLSX
 - **Max File Size:** 10 MB per file
-- **Max Files:** 20 files per participant
+- **Max Files:** One file per document type (6 types total)
 - **Naming:** Auto-rename to prevent duplicates: `[DocumentType]_[ID]_[Timestamp].[ext]`
+- **API Integration:** Each document type maps to a specific field in `participantSupportDocument` object
 
 
 #### 6.3.6 License Codes Section (Table View)
@@ -1947,18 +1842,18 @@ SO THAT I can maintain emergency and professional contacts
 
 **Reference Fields:**
 
-| Field | Type | M/O | Description |
-|-------|------|-----|-------------|
-| Reference Name | String | M | Full name of reference |
-| Relationship | Dropdown | M | Spouse/Parent/Sibling/Friend/Colleague/Other |
-| Phone Number | String | M | Contact phone number |
-| Email | String | O | Contact email address |
-| Address | String | O | Reference address |
-| Notes | Text Area | O | Additional information |
+| Field | Type | M/O | Description | API Mapping |
+|-------|------|-----|-------------|-------------|
+| Full Name | String | M | Full name of reference | `fullName` |
+| Position | String | O | Reference position/job title | `position` |
+| Relationship | Dropdown | M | Relationship type | `relationship` |
+| Phone Number | String | O | Contact phone number | Not in API - UI-only field (API enhancement required) |
+| Email | String | O | Contact email address | Not in API - UI-only field (API enhancement required) |
 
 **Table Columns:**
 
-- Reference Name
+- Full Name
+- Position
 - Relationship
 - Phone Number
 - Email
@@ -1973,8 +1868,56 @@ SO THAT I can maintain emergency and professional contacts
 **Business Rules:**
 
 - Maximum 5 reference contacts per participant
-- Phone number format validation
+- Relationship dropdown values: Spouse/Parent/Sibling/Friend/Colleague/Other
+- Position field is optional but recommended for professional references
+- Phone Number is optional but recommended for emergency contacts
+- Email is optional but recommended for professional references
+- Phone number format validation (if provided)
 - Email format validation (if provided)
+- **API Enhancement Required:** Phone Number and Email fields are not in the API `participantReferences` object but are included in UI for business requirements (emergency contact purposes). Request to add `phoneNumber` and `email` fields to the `participantReferences` object in the Participant API (Section 3.2) to enable full data synchronization between DMS and LMS systems.
+
+#### 6.3.8 Relationships Section (Table View)
+
+**User Story:**  
+AS A user viewing participant details  
+I NEED to manage participant family and personal relationships  
+SO THAT I can track emergency contacts and family information
+
+**Acceptance Criteria:**
+
+**Relationship Fields:**
+
+| Field | Type | M/O | Description | API Mapping |
+|-------|------|-----|-------------|-------------|
+| Full Name | String | M | Full name of relationship contact | `fullName` |
+| Date of Birth | Date | O | Date of birth | `dateOfBirth` |
+| Relationship | Dropdown | M | Relationship type | `relationship` |
+| Relationship 1 | String | O | Additional relationship descriptor | `relationship1` |
+| Job Title | String | O | Job title/position | `jobTitle` |
+| Phone | String | O | Contact phone number | `phone` |
+| Accommodation | String | O | Accommodation information | `accommodation` |
+
+**Table Columns:**
+
+- Full Name
+- Relationship
+- Relationship 1
+- Job Title
+- Phone
+- Actions (Edit/Delete)
+
+**Table Actions:**
+
+- **Add New:** Opens relationship creation modal
+- **Edit:** Opens relationship edit modal
+- **Delete:** Confirmation dialog before deletion
+
+**Business Rules:**
+
+- Maximum 10 relationship contacts per participant
+- Relationship dropdown values: Spouse/Parent/Sibling/Child/Friend/Colleague/Other
+- Phone number format validation (if provided)
+- Date of Birth must be valid date format (DD/MM/YYYY)
 
 #### 6.3.8 Road Map Section
 
@@ -2015,7 +1958,7 @@ SO THAT I can understand their learning progression and completed courses
 - Filter by course type, year, status
 - Export timeline to PDF
 
-#### 6.3.9 Audit Data Update Section
+#### 6.3.11 Audit Data Update Section
 
 **User Story:**  
 AS A user viewing participant details  
@@ -2060,77 +2003,51 @@ SO THAT I can track data modifications for compliance and audit purposes
 
 ### 6.4 Participant Business Rules
 
-**General Rules:**
+**Scope:** These rules apply to all participant operations regardless of entry point (API, UI, Import).
 
-1. **Unique Identifier:** ID Number must be unique across all participants
+**Note:** For API-specific execution logic (data source priority, update behavior, error handling), refer to Section 6.1 (Integration).
+
+**Participant Rules:**
+
+1. **ID Number:** Must be unique across all participants, 9 or 12 digits only
 2. **Required Fields:** Full Name, Email, Mobile Phone, ID Number, Issue Date, Issue Place, Birth Place are mandatory
-3. **Age Requirement:** Participant must be at least 18 years old
-4. **Email Validation:** Email format must be valid
-5. **Phone Validation:** Mobile phone must be valid format
-
-**API Integration Rules:**
-
-1. **Data Source Priority:** API data takes precedence over manual entry
-2. **Update Behavior:** If participant exists, API updates all provided fields
-3. **Course Assignment:** If courseCode is valid, participant is automatically enrolled
-4. **Error Handling:** Invalid or duplicate data returns error response
-
-**Course Enrollment Rules:**
-
-1. **Active Status:** Only active participants can be enrolled in new courses
-2. **Duplicate Prevention:** Participant cannot be enrolled in same course twice
-3. **Re-exam Eligibility:** Special rules apply for re-exam participants (Section 8.8.4)
+3. **Age Requirement:** Participant must be at least 18 years old (calculated from birthday)
+4. **Email:** Must be valid email format; warning if email already exists for another participant (allows but warns)
+5. **Mobile Phone:** Must be valid format (10 digits, starts with 0)
+6. **Full Name:** Max 100 characters, letters and spaces only
+7. **Issue Date:** Cannot be future date
+8. **Ter Date:** Must be after appointed date (agent code issue date) if both are provided
+9. **Bank Account Number:** Numeric only if provided
+10. **Agent Code:** Cannot manually assign agent code (API only, granted via AAPortal API)
+11. **Status Change:** Cannot activate participant without agent code unless forced by Admin
+12. **Course Enrollment - Active Status:** Only active participants can be enrolled in new courses
+13. **Course Enrollment - Duplicate Prevention:** Participant cannot be enrolled in the same course twice
+14. **Course Enrollment - Course Validation:** System validates course exists and is in valid status before enrollment
+15. **Course Enrollment - Re-exam Eligibility:** Special rules apply for re-exam participants (Section 8.8.4)
 
 ---
 
-### 6.5 Participant Validation Rules
+### 6.5 Participant Authorization Matrix
 
-**Field-Level Validations:**
+**Authorization by Role:**
 
-| Field | Validation Rule | Error Message |
-|-------|----------------|---------------|
-| Full Name | Max 100 characters, letters and spaces only | "Name must contain only letters and spaces" |
-| Email | Valid email format | "Invalid email format" |
-| Mobile Phone | 10 digits, starts with 0 | "Invalid phone number format" |
-| ID Number | 9 or 12 digits, unique | "ID number must be 9 or 12 digits and unique" |
-| Birthday | Age >= 18 years | "Participant must be at least 18 years old" |
-| Issue Date | Cannot be future date | "Issue date cannot be in the future" |
-| Ter Date | Must be after appointed date | "Termination date must be after appointment date" |
-| Bank Account Number | Numeric only if provided | "Account number must contain only numbers" |
-
-**Business Logic Validations:**
-
-1. **ID Number Uniqueness:** System checks for duplicate ID numbers before save
-2. **Email Uniqueness:** Warning if email already exists (allow but warn)
-3. **Agent Code Assignment:** Cannot manually assign agent code (API only)
-4. **Status Change:** Cannot activate participant without agent code unless forced by Admin
-5. **Course Assignment:** Validates course exists and is in valid status
-
----
-
-### 6.6 Participant Authorization Matrix
-
-**Access Control by Role:**
-
-| Action | Trainer | Lead Region | Head Channel | DMS Admin | Master Role | Admin | Root Admin |
-|--------|---------|-------------|--------------|-----------|-------------|-------|------------|
-| View Participant List | No | Yes | Yes | No | Yes | Yes | Yes |
-| View Participant Details | No | Yes | Yes | No | Yes | Yes | Yes |
-| Create Participant (Manual) | No | No | No | No | Yes | Yes | Yes |
-| Edit Participant | No | No | No | No | Yes | Yes | Yes |
-| Delete Participant | No | No | No | No | No | No | Yes |
-| Import Participants | No | No | No | No | Yes | Yes | Yes |
-| Export Participants | No | Yes | Yes | Yes | Yes | Yes | Yes |
-| Activate/Deactivate | No | No | No | No | Yes | Yes | Yes |
-| Upload Documents | No | No | No | No | Yes | Yes | Yes |
-| View Audit Log | No | Yes | Yes | No | Yes | Yes | Yes |
-
-**Data Filtering by Role:**
-
-- **Lead Region:** Can only view participants in their channel AND region
-- **Head Channel:** Can view participants in their channel (all regions)
-- **Admin/Master Role/Root Admin:** Can view all participants without restriction
-- **DMS Admin:** Special export access only (for passed participant list)
+1. **Trainer:** No access to participant management
+2. **DMS Admin:** No access to participant management (except export-only access for passed participant lists)
+3. **Lead Region:** 
+   - Can view and export participants (filtered by scope)
+   - Data filtering: Same channel AND same region
+4. **Head Channel:**
+   - Can view and export participants (filtered by scope)
+   - Data filtering: Same channel, all regions
+5. **Admin:**
+   - Full access except delete
+   - Data filtering: All participants
+6. **Master Role:**
+   - Full access except delete
+   - Data filtering: All participants
+7. **Root Admin:**
+   - Full access including delete
+   - Data filtering: All participants
 
 **Refer to Section 4.5 (Role-Based Data Filtering) for detailed filtering rules**
 
@@ -2154,6 +2071,43 @@ flowchart TD
 ---
 
 ## 7. CONTENT MANAGEMENT
+
+**Subsections:**
+- [7.1 Modules](#71-modules)
+  - [7.1.1 Module Data Structure](#711-module-data-structure)
+  - [7.1.2 Module Listing Page](#712-module-listing-page)
+  - [7.1.3 Module Creation Form](#713-module-creation-form)
+  - [7.1.4 Module Details Page](#714-module-details-page)
+  - [7.1.5 Module Status Management](#715-module-status-management)
+  - [7.1.6 Module Clone Functionality](#716-module-clone-functionality)
+  - [7.1.7 Module Delete Functionality](#717-module-delete-functionality)
+  - [7.1.8 Module Integration Points](#718-module-integration-points)
+  - [7.1.9 Module Authorization Matrix](#719-module-authorization-matrix)
+  - [7.1.10 Module Validation Rules](#7110-module-validation-rules)
+- [7.2 Product](#72-product)
+  - [7.2.1 Product Data Structure](#721-product-data-structure)
+  - [7.2.2 Product Listing Page](#722-product-listing-page)
+  - [7.2.3 Product Details Page](#723-product-details-page)
+  - [7.2.4 Product Creation](#724-product-creation)
+  - [7.2.5 Product Status Management](#725-product-status-management)
+  - [7.2.6 Product Clone Functionality](#726-product-clone-functionality)
+  - [7.2.7 Product Delete Functionality](#727-product-delete-functionality)
+  - [7.2.8 Product Integration Points](#728-product-integration-points)
+  - [7.2.9 Product Authorization Matrix](#729-product-authorization-matrix)
+  - [7.2.10 Product Validation Rules](#7210-product-validation-rules)
+- [7.3 Program](#73-program)
+  - [7.3.1 Program Data Structure](#731-program-data-structure)
+  - [7.3.2 Program Listing Page](#732-program-listing-page)
+  - [7.3.3 Program Creation Form](#733-program-creation-form)
+  - [7.3.4 Program Details Page](#734-program-details-page)
+  - [7.3.5 Program Status Management](#735-program-status-management)
+  - [7.3.6 Program Clone Functionality](#736-program-clone-functionality)
+  - [7.3.7 Program Delete Functionality](#737-program-delete-functionality)
+  - [7.3.8 Program Integration Points](#738-program-integration-points)
+  - [7.3.9 Program Authorization Matrix](#739-program-authorization-matrix)
+  - [7.3.10 Program Validation Rules](#7310-program-validation-rules)
+
+---
 
 ### 7.1 Modules
 
@@ -2570,17 +2524,7 @@ SO THAT I can remove outdated or unused content
 
 #### 7.1.9 Module Authorization Matrix
 
-| Action | Admin | Master Role | Root Admin | Other Roles |
-|--------|-------|-------------|------------|-------------|
-| View Module List | Yes | Yes | Yes | No |
-| Create Module | Yes | Yes | Yes | No |
-| Edit Module | Yes | Yes | Yes | No |
-| Delete Module | Yes | No | Yes | No |
-| Clone Module | Yes | Yes | Yes | No |
-| Upload Files | Yes | Yes | Yes | No |
-| Delete Files | Yes | No | Yes | No |
-| Change Status | Yes | Yes | Yes | No |
-| View Usage | Yes | Yes | Yes | No |
+**Authorization Logic:** Admin, Master Role, and Root Admin have full access to all module management actions (View, Create, Edit, Clone, Upload Files, Change Status, View Usage); only Admin and Root Admin can delete modules and delete files; all other roles have no access.
 
 ---
 
@@ -3117,17 +3061,7 @@ SO THAT I can remove outdated or unused content
 
 #### 7.2.9 Product Authorization Matrix
 
-| Action | Admin | Master Role | Root Admin | Other Roles |
-|--------|-------|-------------|------------|-------------|
-| View Product List | Yes | Yes | Yes | Yes (read-only) |
-| Create Product | Yes | Yes | Yes | No |
-| Edit Product | Yes | Yes | Yes | No |
-| Delete Product | Yes | No | Yes | No |
-| Clone Product | Yes | Yes | Yes | No |
-| Upload Files | Yes | Yes | Yes | No |
-| Delete Files | Yes | No | Yes | No |
-| Change Status | Yes | Yes | Yes | No |
-| View Usage | Yes | Yes | Yes | No |
+**Authorization Logic:** All roles can view product list (read-only); Admin, Master Role, and Root Admin have full access to all product management actions (Create, Edit, Clone, Upload Files, Change Status, View Usage); only Admin and Root Admin can delete products and delete files.
 
 ---
 
@@ -3741,24 +3675,7 @@ SO THAT the program list remains clean and relevant
 
 #### 7.3.9 Program Authorization Matrix
 
-| Action | TRAINER | LEAD_REGION | HEAD_CHANNEL | DMS_ADMIN | MASTER_ROLE | ADMIN | ROOT_ADMIN |
-|--------|---------|-------------|--------------|-----------|-------------|-------|------------|
-| View Program List | Yes | Yes | Yes | | Yes | Yes | Yes |
-| View Program Details | Yes | Yes | Yes | | Yes | Yes | Yes |
-| Create Program | | | | | Yes | Yes | Yes |
-| Edit Program | | | | | Yes | Yes | Yes |
-| Clone Program | | | | | Yes | Yes | Yes |
-| Delete Program | | | | | Yes | Yes | Yes |
-| Activate/Deactivate | | | | | Yes | Yes | Yes |
-| Upload Files | | | | | Yes | Yes | Yes |
-| Delete Files | | | | | Yes | Yes | Yes |
-| View History | | | | | Yes | Yes | Yes |
-
-**Authorization Notes:**
-
-- Trainers, Lead Region, Head Channel: Read-only access for program selection during course creation
-- Master Role, Admin, Root Admin: Full CRUD access to programs
-- DMS_ADMIN: No program management access (export-only role)
+**Authorization Logic:** Trainers, Lead Region, and Head Channel have read-only access (View Program List and Details) for program selection during course creation; Master Role, Admin, and Root Admin have full CRUD access to all program management actions (Create, Edit, Clone, Delete, Activate/Deactivate, Upload/Delete Files, View History); DMS Admin has no program management access.
 
 #### 7.3.10 Program Validation Rules
 
@@ -3807,6 +3724,65 @@ SO THAT the program list remains clean and relevant
 ---
 
 ## 8. COURSE MANAGEMENT
+
+**Subsections:**
+- [8.1 Course Creation](#81-course-creation)
+  - [8.1.1 Course Creation Form](#811-course-creation-form)
+    - [8.1.1.1 Dynamic Form Behavior Based on Course Type](#8111-dynamic-form-behavior-based-on-course-type)
+    - [8.1.1.2 SHINE Form](#8112-shine-form)
+    - [8.1.1.3 Product Form Fields](#8113-product-form-fields)
+    - [8.1.1.4 Skill Form Fields](#8114-skill-form-fields)
+    - [8.1.1.5 Course Code Generation Logic](#8115-course-code-generation-logic)
+    - [8.1.1.6 Status Transition Logic](#8116-status-transition-logic)
+    - [8.1.1.7 Checklist Template Application](#8117-checklist-template-application)
+    - [8.1.1.8 Co-trainer Management](#8118-co-trainer-management)
+  - [8.1.2 Entry Points](#812-entry-points)
+  - [8.1.3 Validation & Error Handling](#813-validation--error-handling)
+- [8.2 Course Listing Screen](#82-course-listing-screen)
+  - [8.2.1 Course List View](#821-course-list-view)
+  - [8.2.2 Filter & Search](#822-filter--search)
+  - [8.2.3 Export Courses](#823-export-courses)
+- [8.3 Course Details Screen](#83-course-details-screen)
+  - [8.3.1 Course General Tab](#831-course-general-tab)
+    - [8.3.1.1 Course Status Timeline](#8311-course-status-timeline)
+    - [8.3.1.2 Course Information Display](#8312-course-information-display)
+  - [8.3.2 Course History](#832-course-history)
+  - [8.3.3 Course Planning Tab](#833-course-planning-tab)
+  - [8.3.4 Course Participant Tab](#834-course-participant-tab)
+- [8.4 Course Registration](#84-course-registration)
+  - [8.4.1 Registration Process](#841-registration-process)
+  - [8.4.2 Registration Approval Workflow](#842-registration-approval-workflow)
+  - [8.4.3 Auto-Cancellation Rule](#843-auto-cancellation-rule)
+- [8.5 Course Edit](#85-course-edit)
+  - [8.5.1 Edit Authorization Matrix](#851-edit-authorization-matrix)
+  - [8.5.2 Edit Approval Workflow](#852-edit-approval-workflow)
+  - [8.5.3 Field-Level Restrictions](#853-field-level-restrictions)
+  - [8.5.4 Business Rules](#854-business-rules)
+- [8.6 Course Cancel](#86-course-cancel)
+  - [8.6.1 Cancel Authorization Matrix](#861-cancel-authorization-matrix)
+  - [8.6.2 Cancel Approval Workflow](#862-cancel-approval-workflow)
+  - [8.6.3 Direct Cancellation (No Approval)](#863-direct-cancellation-no-approval)
+  - [8.6.4 Business Rules](#864-business-rules)
+- [8.7 Course Delete](#87-course-delete)
+  - [8.7.1 Delete Authorization Matrix](#871-delete-authorization-matrix)
+  - [8.7.2 Delete Workflow](#872-delete-workflow)
+- [8.8 Course Operations](#88-course-operations)
+  - [8.8.1 Course Participant List](#881-course-participant-list)
+  - [8.8.2 Add Participant to Course with Import File](#882-add-participant-to-course-with-import-file)
+  - [8.8.3 Add Participant to Course Manually](#883-add-participant-to-course-manually)
+  - [8.8.4 Export Participants](#884-export-participants)
+  - [8.8.5 Export Participants for MOF Exam](#885-export-participants-for-mof-exam)
+  - [8.8.6 Import MOF Exam Result](#886-import-mof-exam-result)
+  - [8.8.7 Confirm Passed Participant](#887-confirm-passed-participant)
+  - [8.8.8 Export Passed Participant](#888-export-passed-participant)
+  - [8.8.9 Attendance Check](#889-attendance-check)
+  - [8.8.10 AOL Exam Result](#8810-aol-exam-result)
+  - [8.8.12 Manually Set Passed/Failed](#8812-manually-set-passedfailed)
+  - [8.8.13 Grant Agent Code](#8813-grant-agent-code)
+- [8.9 Course MOF addresses registration and participant allocation](#89-course-mof-addresses-registration-and-participant-allocation)
+- [8.10 Course Import Function [PHASE 2]](#810-course-import-function-phase-2)
+
+---
 
 This section consolidates all course-related functionality including creation, listing, details, operations, and workflows.
 
@@ -5749,22 +5725,7 @@ SO THAT I can properly close courses that will not proceed
 
 #### 8.6.1 Cancel Authorization Matrix
 
-| Course Status | Trainer (creator/primary) | Lead | Head | Admin | Master Role |
-|---------------|--------------------------|------|------|-------|-------------|
-| NEW | **No** | **No** | **No** | **No** | **No** |
-| REGISTERED | Yes | Yes | Yes | Yes | Yes |
-| APPROVED and later | **Approval required** | Yes | Yes | Yes | Yes |
-
-**Legend:**
-- **Yes** = Can cancel directly (no approval needed)
-- **No** = Cannot cancel (blocked)
-- **Approval required** = Can request cancellation (requires approval)
-
-**Key Business Rules:**
-1. **NEW courses** cannot be cancelled by anyone (not yet in the system workflow)
-2. **REGISTERED courses** can be cancelled by any authorized user (course is in queue but not yet approved)
-3. **APPROVED and later courses** can be cancelled directly by Lead, Head, Admin, and Master Role
-4. **Trainers** can only cancel APPROVED+ courses with approval from Head/Lead
+**Authorization Logic:** NEW courses cannot be cancelled by anyone; REGISTERED courses can be cancelled directly by Trainer, Lead, Head, Admin, and Master Role (no approval needed); APPROVED and later courses can be cancelled directly by Lead, Head, Admin, and Master Role, but Trainers require approval from Head/Lead.
 
 ---
 
@@ -5858,17 +5819,7 @@ SO THAT I can remove draft courses that are not yet submitted to the system work
 
 #### 8.7.1 Delete Authorization Matrix
 
-| Course Status | Course Creator | Supervisor (Lead Same Region OR Head Same Channel) | Other Users |
-|---------------|----------------|---------------------------------------------------|-------------|
-| NEW | **Yes** | **Yes** | **No** |
-| REGISTERED and later | **No** | **No** | **No** |
-
-**Key Rules:**
-1. Only NEW status courses can be deleted (hard delete)
-2. Course creator can delete their own NEW courses
-3. Supervisors can delete NEW courses in their organizational scope (same region/channel)
-4. REGISTERED+ courses must use Cancel function instead
-5. Delete is permanent - no recovery possible
+**Authorization Logic:** Only NEW status courses can be deleted (hard delete, permanent); Course Creator can delete their own NEW courses; Supervisors (Lead same region OR Head same channel) can delete NEW courses in their organizational scope; REGISTERED and later courses cannot be deleted (must use Cancel function instead).
 
 ---
 
@@ -6525,154 +6476,6 @@ Admin can export passed participants with detailed information (final result = p
 
 ---
 
-#### 8.8.11 Configurable Final Result Calculation Rules
-
-**User Story:**
-
-**AS** an Administrator  
-**I NEED** to configure custom final result calculation rules based on channel, course type, exam type, and partner status  
-**SO THAT** the system can automatically calculate participant results according to different business requirements without code changes
-
----
-
-**Business Need:**
-
-Different business contexts require different passing criteria:
-- Re-MOF exams only require MOF score (participants already completed attendance and AOL)
-- LIP exams in Agency Channel require attendance only on specific stages (5, 6, 7)
-- Partner status (partner vs non-partner) affects requirements
-- ILP courses have different requirements than SHINE/Product/Skill
-- Workshop courses only require attendance with no exam checks
-- Rules vary by channel (ALL, BANCA, AGENCY, IFA)
-
----
-
-**Acceptance Criteria:**
-
-**Define Rules by Multiple Business Dimensions**
-- Rules can be configured based on Channel (ALL, BANCA, AGENCY, IFA, etc.)
-- Rules can be configured based on Course Type (SHINE, PRODUCT, SKILL, ILP, WORKSHOP)
-- Rules can be configured based on Exam Type (ALL, RE_MOF_EXAM, LIP, etc.)
-- Rules can be configured based on Partner Status (ALL, Partner, Non-Partner)
-- Each unique combination can have its own passing criteria
-
-**Configure AOL Exam Check**
-- Each rule specifies whether AOL exam pass is required (CHECK) or not required (SKIP)
-- When CHECK: All AOL exams must be passed for participant to pass
-- When SKIP: AOL exam results do not affect final result
-
-**Configure Attendance Check (Điểm danh)**
-- Each rule specifies whether attendance is required (CHECK) or not required (SKIP)
-- When CHECK: Attendance verification is performed according to stage configuration
-- When SKIP: Attendance does not affect final result (useful for re-exam scenarios where participant already attended)
-
-**Configure Stage-Specific Attendance**
-- When attendance check is enabled, rule specifies which stages must be attended
-- "ALL" means all stages must be attended (100% attendance)
-- Specific stages can be listed (e.g., "5;6;7" means only stages 5, 6, 7 must be attended)
-- Only specified stages are evaluated for attendance compliance
-- Participant must attend ALL specified stages to pass attendance check
-
-**Configure MOF Exam Check**
-- Each rule specifies whether MOF exam pass is required (CHECK) or not required (SKIP)
-- When CHECK: MOF exam score must meet minimum threshold (default: ≥ 30)
-- When SKIP: MOF exam results do not affect final result
-
-**Automatic Rule Matching and Application**
-- System matches course to applicable rule based on: Channel + Course Type + Exam Type + Partner Status
-- When exact match found, system applies that rule's criteria
-- When "ALL" is specified in a dimension, rule applies to all values in that dimension
-- System calculates final result automatically as data becomes available
-
-**Real-Time Final Result Calculation**
-- Final result recalculates when attendance, AOL, or MOF data is updated
-- Participant passes only when all checks marked as "CHECK" are satisfied
-- Checks marked as "SKIP" are ignored in calculation
-- Final result displays immediately in participant list
-
-**Rule Management**
-- Administrators can create, edit, and deactivate rules
-- Rule configuration is stored centrally and can be updated without code deployment
-- Changes to rules apply immediately to new calculations
-- Historical confirmed results are not affected by rule changes
-- All rule changes are logged with timestamp and administrator
-
----
-
-**Rule Configuration Table:**
-
-The following table defines all final result calculation rules configured in the system:
-
-| Channel | Course Type | Exam Type | Is Partner? | Check Pass AOL | Check Điểm danh | Stage_check | Check Pass MOF? |
-|---------|-------------|-----------|-------------|----------------|-----------------|-------------|-----------------|
-| ALL | SHINE | ALL | ALL | CHECK | CHECK | ALL | CHECK |
-| ALL | SHINE | RE_MOF_EXAM | ALL | SKIP | SKIP | - | CHECK |
-| BANCA | SHINE | RE_MOF_EXAM | X | SKIP | SKIP | - | CHECK |
-| AGENCY | SHINE | RE_MOF_EXAM | X | SKIP | SKIP | - | CHECK |
-| IFA | SHINE | RE_MOF_EXAM | X | SKIP | SKIP | - | CHECK |
-| BANCA | SHINE | RE_MOF_EXAM | O | SKIP | SKIP | - | CHECK |
-| AGENCY | SHINE | RE_MOF_EXAM | O | SKIP | SKIP | - | CHECK |
-| IFA | SHINE | RE_MOF_EXAM | O | SKIP | SKIP | - | CHECK |
-| AGENCY | ALL | LIP | ALL | CHECK | CHECK | 5;6;7 | SKIP |
-| BANCA | ALL | ALL | ALL | SKIP | CHECK | ALL | CHECK |
-| ALL | ILP | ALL | ALL | SKIP | CHECK | ALL | CHECK |
-| ALL | PRODUCT | ALL | ALL | CHECK | CHECK | ALL | SKIP |
-| ALL | SKILL | ALL | ALL | SKIP | CHECK | ALL | SKIP |
-| ALL | WORKSHOP | ALL | ALL | SKIP | CHECK | ALL | SKIP |
-
-
----
-
-**Business Rules:**
-
-- "ALL" in any dimension means the rule applies to all values in that dimension
-- More specific rules take precedence over general rules (e.g., AGENCY + LIP overrides ALL + LIP)
-- When Stage_check = "ALL", participant must attend 100% of course stages
-- When Stage_check = specific stages (e.g., "5;6;7"), participant must attend only those stages
-- Stage_check is only evaluated when Check Điểm danh = CHECK
-- When Check Điểm danh = SKIP, attendance is not required at all (useful for re-exam scenarios)
-- Participant passes only when all checks marked as "CHECK" are satisfied
-- Checks marked as "SKIP" are ignored in final result calculation
-- Manual override capability (Section 8.8.12) supersedes all automatic rules
-
-
----
-
-**Permission Configuration:**
-
-| Permission ID | Feature Name | Category | Description |
-|---------------|--------------|----------|-------------|
-| `manage_result_rules` | Manage Final Result Rules | Admin | Create, edit, and deactivate final result calculation rules |
-
-**Note:** Role assignment for this permission will be configured during system setup.
-
-
-**Default Calculation Logic (Fallback):**
-
-If no custom rule is configured or matches a course, system uses default logic:
-
-**SHINE Course:**
-```
-IF (Attendance = Full) AND (All AOL Exams = Passed) AND (MOF Score >= 30)
-THEN Final Result = Passed
-ELSE Final Result = Failed
-```
-
-**Product Course:**
-```
-IF (Attendance = Full) AND (All AOL Exams = Passed)
-THEN Final Result = Passed
-ELSE Final Result = Failed
-```
-
-**Skill Course:**
-```
-IF (Attendance = Full)
-THEN Final Result = Passed
-ELSE Final Result = Failed
-```
-
----
 
 #### 8.8.12 Manually Set Passed/Failed
 
@@ -7057,6 +6860,23 @@ The following mockup screens illustrate the key workflows for multiple MOF addre
 
 ## 9. PIC CALENDAR
 
+**Subsections:**
+- [9.1 View Courses Per Trainer](#91-view-courses-per-trainer)
+  - [9.1.1 Matrix Calendar Layout](#911-matrix-calendar-layout)
+  - [9.1.2 Course Display in Calendar Cells](#912-course-display-in-calendar-cells)
+  - [9.1.3 Trainer Display Customization](#913-trainer-display-customization)
+  - [9.1.4 Filter Options](#914-filter-options)
+  - [9.1.5 Role-Based Authorization](#915-role-based-authorization)
+  - [9.1.6 Trainer Workload Tooltip](#916-trainer-workload-tooltip)
+  - [9.1.7 Interactive Features](#917-interactive-features)
+  - [9.1.8 Month Navigation](#918-month-navigation)
+  - [9.1.9 Empty State Handling](#919-empty-state-handling)
+  - [9.1.10 Default Screen After Login](#9110-default-screen-after-login)
+- [9.2 View Trainer Assignment for Each Trainer](#92-view-trainer-assignment-for-each-trainer)
+- [9.3 Export PIC Calendar Data](#93-export-pic-calendar-data)
+
+---
+
 ### 9.1 View Courses Per Trainer
 
 **User Story:**  
@@ -7076,70 +6896,13 @@ SO THAT I can see trainer assignments, course schedules, and workload distributi
 
 #### 9.1.1 Matrix Calendar Layout
 
-**Layout Structure:**
-
-The PIC Calendar uses a 2-dimensional matrix layout:
-- **Vertical Axis (Rows):** Primary Trainers (John Doe, Jane Smith, etc.)
-- **Horizontal Axis (Columns):** Days of the month (1-30/31)
-- **Cells:** Show course events spanning multiple days with city abbreviations
-
-**Visual Representation:**
-
-```
-┌────────────────────────────────────────────────────────────────────┐
-│  PIC Calendar                                       November 2025   │
-├────────────────────────────────────────────────────────────────────┤
-│  Filters: [All Channels ▼] [All Regions ▼] [All Types ▼]          │
-│  [X] Show Trainers                                                    │
-├────────────────────────────────────────────────────────────────────┤
-│                                                                      │
-│  ┌──────────────┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐    │
-│  │ PRIMARY      │ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ 7 │ 8 │ 9 │10 │...│    │
-│  │ TRAINER ⋮    │   │   │   │   │   │   │   │   │   │   │   │    │
-│  ├──────────────┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤    │
-│  │ John Doe     │   │   │   │HCM│HCM│HCM│HCM│HCM│   │   │   │    │
-│  │              │   │   │   │   │   │   │   │   │   │   │   │    │
-│  ├──────────────┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤    │
-│  │ Jane Smith   │   │   │HN │HN │HN │   │   │   │   │   │   │    │
-│  │              │   │   │   │   │   │   │   │   │   │   │   │    │
-│  ├──────────────┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┼───┤    │
-│  │ Mike Johnson │   │   │   │   │   │   │   │DN │DN │DN │   │    │
-│  │              │   │   │   │   │   │   │   │   │   │   │   │    │
-│  └──────────────┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘    │
-│                                                                      │
-└────────────────────────────────────────────────────────────────────┘
-```
-
-**Key Features:**
-1. **Primary Trainer Column (Left):** Lists all trainers with courses in the selected month
-2. **Day Columns (Top):** Days 1-30/31 based on month
-3. **Course Cells:** Display city abbreviation (e.g., HCM, HN, DN) for courses spanning multiple days
-4. **Color Coding:** Cell background color indicates course status
-5. **Interactive Cells:** Click to view details, hover for course information
+PIC Calendar displays courses in a 2-dimensional matrix: vertical axis shows primary trainers (rows), horizontal axis shows days of the month (columns). Each cell displays city abbreviation for courses spanning multiple days, with background color indicating course status. Cells are interactive: click to view course details, hover to see course information tooltip.
 
 ---
 
 #### 9.1.2 Course Display in Calendar Cells
 
-**Cell Content:**
-
-Each cell displays:
-- **City Abbreviation:** 2-3 uppercase letters (e.g., HCM, HN, DN, BRVT)
-- **Background Color:** Indicates course status (same color scheme as Master Calendar)
-- **Text Color:** White for visibility
-
-**City Abbreviation Mapping:**
-- Uses same mapping as Master Calendar (Section 10.1.2)
-- Examples: HCM (Ho Chi Minh), HN (Hanoi), DN (Da Nang), BRVT (Ba Ria - Vung Tau)
-
-**Status Color Coding:**
-- Uses same color scheme as Master Calendar (Section 10.1.2)
-- NEW: Yellow, REGISTERED: Light Gray, APPROVED: Teal, etc.
-
-**Multi-Day Course Display:**
-- Courses spanning multiple days appear in all cells within the date range
-- Same city abbreviation and color displayed across all days
-- Visual continuity shows course duration at a glance
+Each calendar cell displays city abbreviation (2-3 uppercase letters, e.g., HCM, HN, DN) with background color indicating course status. Uses same color scheme and city abbreviation mapping as Master Calendar (Section 10.1.2). Courses spanning multiple days appear in all cells within the date range with same abbreviation and color for visual continuity.
 
 ---
 
@@ -7152,126 +6915,30 @@ SO THAT I can focus on specific trainers and reduce visual clutter
 
 **Customization Features:**
 
-**1. Show/Hide Trainers Toggle:**
-- **Checkbox:** "[X] Show Trainers" in calendar header
-- **Default State:** Checked (trainers visible)
-- **Behavior:**
-  - **Checked:** Trainer column visible, matrix layout displayed
-  - **Unchecked:** Trainer column hidden, shows compact day-only view
-- **State Persistence:** User preference saved in browser session
+Users can customize trainer display in PIC Calendar through two features:
 
-**2. Trainer Selector:**
-- **Icon:** Three vertical dots (⋮) displayed in PRIMARY TRAINER column header
-- **Visibility:** Only shown when "Show Trainers" is checked
-- **Action:** Opens trainer selection modal
-- **Tooltip:** "Customize Trainers" on hover
+1. **Show/Hide Trainers Toggle:** Checkbox in calendar header to show/hide all trainer columns, with preference saved in browser session.
 
-**Trainer Selection Modal:**
-
-**Modal Components:**
-
-1. **Header:**
-   - Title: "👤 Select Trainers to Display"
-   - Close button (✕) in top-right corner
-
-2. **Bulk Actions:**
-   - "Select All" button - selects all trainers
-   - "Deselect All" button - clears all selections
-
-3. **Trainer List:**
-   - Scrollable list of all trainers with courses in current month
-   - Each trainer displays as a checkbox with label
-   - Trainer label shows: Trainer name (course count)
-   - Example: "John Doe (3 courses)"
-   - Alphabetically sorted
-
-4. **Footer:**
-   - Left side: Selection counter showing "X of Y trainers selected"
-   - Right side: "Cancel" and "Apply" buttons
-   - Buttons aligned to the right
-
-**Acceptance Criteria:**
-
-1. **Trainer Selection:**
-   - User can select/deselect individual trainers via checkbox
-   - User can select all trainers at once via "Select All" button
-   - User can deselect all trainers at once via "Deselect All" button
-   - Selection counter updates in real-time as user makes changes
-   - At least 1 trainer must be selected to enable "Apply" button
-
-2. **Selection Persistence:**
-   - Selected trainers saved in browser local storage
-   - Selection persists across page refreshes and navigation
-   - Each user has independent trainer preferences
-   - Default state: All trainers selected
-
-3. **Calendar Update:**
-   - Clicking "Apply" saves selection and closes modal
-   - Calendar refreshes to show only selected trainers
-   - Unselected trainers hidden from trainer rows
-   - Day columns remain unchanged
-   - Empty state displayed if no trainers selected
-   - Success notification: "Trainer selection updated"
-
-4. **Modal Interaction:**
-   - Clicking "Cancel" closes modal without saving changes
-   - Clicking close button (✕) closes modal without saving changes
-   - Clicking outside modal closes modal without saving changes
-   - Modal displays with white background and proper styling
-
-5. **Visual Feedback:**
-   - Selected trainers highlighted with checkmark
-   - Disabled "Apply" button when no trainers selected
-   - Loading indicator during calendar refresh
-   - Smooth transition when trainers are shown/hidden
+2. **Trainer Selector:** Three dots icon in PRIMARY TRAINER column header opens a modal allowing users to select specific trainers to display. The modal shows all trainers with courses in the current month, allows bulk select/deselect, and saves user preferences in browser local storage. Calendar updates to show only selected trainers, with at least one trainer required to be selected.
 
 ---
 
 #### 9.1.4 Filter Options
 
-**Filter Bar Location:** Below calendar header, above calendar grid
-
-**Available Filters:**
-
-| Filter | Options | Default | Behavior |
-|--------|---------|---------|----------|
-| **Channel** | All, Agency, Banca FSC, Banker, IFA | All | Filter courses by channel |
-| **Region** | All, Central, Middle, North, South | All | Filter courses by region |
-| **Course Type** | All, SHINE, Product, Skill | All | Filter courses by type |
-
-**Filter Behavior:**
-- Same as Master Calendar (Section 10.1.4)
-- Filters apply to courses, not trainers
-- Trainers with no matching courses hidden automatically
+Filter bar located below calendar header provides three filters: Channel (All, Agency, Banca FSC, Banker, IFA), Region (All, Central, Middle, North, South), and Course Type (All, SHINE, Product, Skill). Filters apply to courses, and trainers with no matching courses are automatically hidden. Filter behavior same as Master Calendar (Section 10.1.4).
 
 ---
 
 #### 9.1.5 Role-Based Authorization
 
-**PIC Calendar View Authorization:**
-
-| Role | Visible Trainers | Visible Courses | Scope |
-|------|-----------------|-----------------|-------|
-| **Trainer** | Only self | Only courses where user is Primary Trainer or Co-Trainer | Personal view |
-| **Lead Region** | Trainers in same channel AND region | Courses in same channel AND region | Regional management |
-| **Head Channel** | Trainers in same channel (all regions) | Courses in same channel (all regions) | Channel management |
-| **Admin** | All trainers | All courses | System-wide view |
-| **Root Admin** | All trainers | All courses | System-wide view |
-| **Master Role** | All trainers | All courses | System-wide view |
-
-**Authorization Rules:**
-- Filters applied at API level (backend) for security
-- Client-side filtering for UI responsiveness
-- User's channel and region retrieved from session storage
-- Unauthorized trainers/courses never sent to client
+Trainer: Only self and courses where user is Primary Trainer or Co-Trainer. Lead Region: Trainers and courses in same channel AND region. Head Channel: Trainers and courses in same channel (all regions). Admin, Master Role, Root Admin: All trainers and courses. Filters applied at API level for security; unauthorized trainers/courses never sent to client.
 
 ---
 
 #### 9.1.6 Trainer Workload Tooltip
 
-**Tooltip Display:**
+Hovering over trainer name in left column displays tooltip with trainer name, monthly assignment target, total registered courses, approved courses, in-progress courses, and workload percentage (Total Registered / Assignment × 100%). Clicking trainer name navigates to trainer profile.
 
-When hovering over a trainer's name in the left column, display:
 
 ```
 ┌─────────────────────────────────────┐
@@ -7305,7 +6972,7 @@ When hovering over a trainer's name in the left column, display:
 
 **Cell Interactions:**
 
-| Action | Trigger | Behavior |
+---
 |--------|---------|----------|
 | **Single Click** | Click on cell with course | Navigate to course details page |
 | **Hover** | Mouse over cell with course | Show tooltip with course details |
@@ -7339,69 +7006,19 @@ When hovering over a trainer's name in the left column, display:
 
 #### 9.1.8 Month Navigation
 
-**Navigation Controls:**
-- Same as Master Calendar (Section 10.1.5)
-- Previous/Next buttons, Today button
-- Month/year picker for quick navigation
+Navigation controls same as Master Calendar (Section 10.1.5): Previous/Next buttons, Today button, and month/year picker for quick navigation.
 
 ---
 
 #### 9.1.9 Empty State Handling
 
-**No Courses in Month:**
-
-```
-┌────────────────────────────────────────────────────────────┐
-│                                                             │
-│                    📅                                       │
-│                                                             │
-│         No courses scheduled for this month                 │
-│                                                             │
-└────────────────────────────────────────────────────────────┘
-```
-
-**No Trainers Selected:**
-
-```
-┌────────────────────────────────────────────────────────────┐
-│                                                             │
-│                    👤                                       │
-│                                                             │
-│         No trainers selected                                │
-│                                                             │
-│         [Customize Trainers]                                │
-│                                                             │
-└────────────────────────────────────────────────────────────┘
-```
-
-**No Trainers Match Filters:**
-
-```
-┌────────────────────────────────────────────────────────────┐
-│                                                             │
-│                    🔍                                       │
-│                                                             │
-│         No trainers found matching selected filters         │
-│                                                             │
-│         [Clear All Filters]                                 │
-│                                                             │
-└────────────────────────────────────────────────────────────┘
-```
+System displays appropriate empty state messages: "No courses scheduled for this month" when no courses exist, "No trainers selected" with customize button when no trainers are selected, and "No trainers found matching selected filters" with clear filters option when filters exclude all trainers.
 
 ---
 
 #### 9.1.10 Default Screen After Login
 
-**Business Rule:**
-- PIC Calendar is set as the default landing page after successful login
-- All users (except DMS Admin) see PIC Calendar first
-- Calendar opens to current month by default
-- User's last filter/trainer selection preferences restored from local storage
-
-**Navigation:**
-- Users can navigate to other screens via main menu
-- Browser back button returns to PIC Calendar
-- PIC Calendar link in header always available
+PIC Calendar is the default landing page after successful login for all users (except DMS Admin). Calendar opens to current month with user's last filter and trainer selection preferences restored from local storage. Users can navigate to other screens via main menu, and PIC Calendar link is always available in header.
 
 ---
 
@@ -7571,6 +7188,27 @@ PIC Calendar → [Export] button in toolbar
 ---
 
 ## 10. MASTER CALENDAR
+
+**Subsections:**
+- [10.1 View Courses in Master Calendar](#101-view-courses-in-master-calendar)
+  - [10.1.1 Matrix Calendar Layout](#1011-matrix-calendar-layout)
+  - [10.1.2 Course Display in Calendar Cells](#1012-course-display-in-calendar-cells)
+  - [10.1.3 Program Display Customization](#1013-program-display-customization)
+  - [10.1.4 Filter Options](#1014-filter-options)
+  - [10.1.5 Month Navigation](#1015-month-navigation)
+  - [10.1.6 Interactive Features](#1016-interactive-features)
+  - [10.1.7 Empty State Handling](#1017-empty-state-handling)
+  - [10.1.9 Performance Optimization](#1019-performance-optimization)
+  - [10.1.11 Program-Based Course Creation](#10111-program-based-course-creation)
+- [10.2 Create Course in Master Calendar](#102-create-course-in-master-calendar)
+- [10.3 Other Actions in Master Calendar](#103-other-actions-in-master-calendar)
+  - [10.3.1 Course Registration](#1031-course-registration)
+  - [10.3.2 Course Edit](#1032-course-edit)
+  - [10.3.3 Course Delete](#1033-course-delete)
+  - [10.3.4 View Details](#1034-view-details)
+  - [10.3.5 Export Course](#1035-export-course)
+
+---
 
 ### 10.1 View Courses in Master Calendar
 
@@ -8379,8 +8017,41 @@ Lists manage is a menu to manage Master Data in LMS system. Root Admin can add n
 
 ---
 ## 12. CONFIGURATION
+
+**Subsections:**
+- [12.1 Course Configuration](#121-course-configuration)
+  - [12.1.1 Course Type Checklist Configuration](#1211-course-type-checklist-configuration)
+    - [12.1.1.1 Course Checklist by Course Type Definition](#12111-course-checklist-by-course-type-definition)
+    - [12.1.1.2 Email and Notification](#12112-email-and-notification)
+      - [12.1.1.2.1 Checklist Notification](#121121-checklist-notification)
+      - [12.1.1.2.2 Checklist Notification Templates](#121122-checklist-notification-templates)
+    - [12.1.1.3 Show Course Checklist in Course Details](#12113-show-course-checklist-in-course-details)
+      - [12.1.1.3.1 Course Checklist Details and Actions](#121131-course-checklist-details-and-actions)
+      - [12.1.1.3.2 Business Rules](#121132-business-rules)
+    - [12.1.1.4 Authorization Matrix](#12114-authorization-matrix)
+  - [12.1.2 Date Rule Configuration](#1212-date-rule-configuration)
+- [12.2 Holiday Calendar Configuration](#122-holiday-calendar-configuration)
+  - [12.2.1 Holiday Registration](#1221-holiday-registration)
+  - [12.2.2 Holiday Skip During Course Planning](#1222-holiday-skip-during-course-planning)
+  - [12.2.3 Holiday Display in PIC Calendar](#1223-holiday-display-in-pic-calendar)
+- [12.3 MOF Address List Management](#123-mof-address-list-management)
+  - [12.3.1 MOF Address List Overview](#1231-mof-address-list-overview)
+  - [12.3.2 MOF Address Data Structure](#1232-mof-address-data-structure)
+  - [12.3.3 MOF Address Listing Page](#1233-mof-address-listing-page)
+  - [12.3.4 MOF Address Creation Form](#1234-mof-address-creation-form)
+  - [12.3.5 MOF Address Edit Form](#1235-mof-address-edit-form)
+  - [12.3.6 MOF Address Delete Functionality](#1236-mof-address-delete-functionality)
+  - [12.3.7 Integration with Course Creation](#1237-integration-with-course-creation)
+  - [12.3.8 Authorization Matrix](#1238-authorization-matrix)
+  - [12.3.9 Business Rules](#1239-business-rules)
+- [12.4 Configurable Final Result Calculation Rules](#124-configurable-final-result-calculation-rules)
+
+---
+
 ### 12.1 Course Configuration
 #### 12.1.1 Course Type Checklist Configuration
+
+[NEW FEATURE]
 
 **Business Context:**
 
@@ -8522,19 +8193,7 @@ The following table shows the checklist display structure with available actions
 
 ##### 12.1.1.4 Authorization Matrix
 
-| Permission | Role |
-|------------|------|
-| View Course Checklist | Any users (all roles) |
-| Update Course Checklist | PIC with the action's authorized permission |
-| View Course Checklist template configuration | Root admin, Master Role |
-| Update Course Checklist Config | Root admin, Master Role |
-
-**Permission Details:**
-
-- **View Course Checklist:** All users can view the checklist to track course progress
-- **Update Course Checklist:** Only PICs with appropriate permissions can perform actions and mark steps complete
-- **View Template Configuration:** Only Root admin and Master Role can view checklist template configurations
-- **Update Template Configuration:** Only Root admin and Master Role can modify checklist templates and reminder settings
+**Authorization Logic:** All users can view course checklist; only PICs (Person In Charge) with appropriate permissions can update checklist and mark steps complete; only Root Admin and Master Role can view and update course checklist template configuration.
 
 #### 12.1.2 Date Rule Configuration
 
@@ -8632,6 +8291,8 @@ The configured rules are applied during course creation and editing as follows:
 
 
 ### 12.2 Holiday Calendar Configuration
+
+[NEW FEATURE]
 
 #### 12.2.1 Holiday Registration
 
@@ -9032,26 +8693,7 @@ SO THAT the master data list remains accurate and up-to-date
 
 #### 12.3.8 Authorization Matrix
 
-**Permission Requirements:**
-
-| Action | Root Admin | Master Role | Admin | Other Roles |
-|--------|------------|-------------|-------|-------------|
-| View MOF Address List | Yes | Yes | No | No |
-| Create MOF Address | Yes | Yes | No | No |
-| Edit MOF Address | Yes | Yes | No | No |
-| Delete/Deactivate MOF Address | Yes | Yes | No | No |
-| Select MOF Address in Course Creation | Yes | Yes | Yes | Yes (if can create courses) |
-| Quick Add MOF Address during Course Creation | Yes | Yes | No | No |
-
-**Permission Details:**
-
-- **View/Create/Edit/Delete:** Requires `manage_list` permission
-- **Select in Course Creation:** All users who can create courses can select from active addresses
-- **Quick Add during Course Creation:** Requires `manage_list` permission
-
-**Access Control:**
-- MOF Address List menu item only visible to Root Admin and Master Role
-- Unauthorized access attempts logged and blocked with error message: "You do not have permission to manage MOF addresses"
+**Authorization Logic:** Root Admin and Master Role have full access to MOF Address management (View, Create, Edit, Delete/Deactivate) and can quick-add addresses during course creation; all users who can create courses can select MOF addresses from the dropdown; Admin and other roles have no access to MOF Address management functions (requires `manage_list` permission).
 
 ---
 
@@ -9079,3 +8721,153 @@ SO THAT the master data list remains accurate and up-to-date
 
 ---
 
+### 12.4 Configurable Final Result Calculation Rules
+
+[NEW FEATURE]
+
+**User Story:**
+
+**AS** an Administrator  
+**I NEED** to configure custom final result calculation rules based on channel, course type, exam type, and partner status  
+**SO THAT** the system can automatically calculate participant results according to different business requirements without code changes
+
+---
+
+**Business Need:**
+
+Different business contexts require different passing criteria:
+- Re-MOF exams only require MOF score (participants already completed attendance and AOL)
+- LIP exams in Agency Channel require attendance only on specific stages (5, 6, 7)
+- Partner status (partner vs non-partner) affects requirements
+- ILP courses have different requirements than SHINE/Product/Skill
+- Workshop courses only require attendance with no exam checks
+- Rules vary by channel (ALL, BANCA, AGENCY, IFA)
+
+---
+
+**Acceptance Criteria:**
+
+**Define Rules by Multiple Business Dimensions**
+- Rules can be configured based on Channel (ALL, BANCA, AGENCY, IFA, etc.)
+- Rules can be configured based on Course Type (SHINE, PRODUCT, SKILL, ILP, WORKSHOP)
+- Rules can be configured based on Exam Type (ALL, RE_MOF_EXAM, LIP, etc.)
+- Rules can be configured based on Partner Status (ALL, Partner, Non-Partner)
+- Each unique combination can have its own passing criteria
+
+**Configure AOL Exam Check**
+- Each rule specifies whether AOL exam pass is required (CHECK) or not required (SKIP)
+- When CHECK: All AOL exams must be passed for participant to pass
+- When SKIP: AOL exam results do not affect final result
+
+**Configure Attendance Check (Điểm danh)**
+- Each rule specifies whether attendance is required (CHECK) or not required (SKIP)
+- When CHECK: Attendance verification is performed according to stage configuration
+- When SKIP: Attendance does not affect final result (useful for re-exam scenarios where participant already attended)
+
+**Configure Stage-Specific Attendance**
+- When attendance check is enabled, rule specifies which stages must be attended
+- "ALL" means all stages must be attended (100% attendance)
+- Specific stages can be listed (e.g., "5;6;7" means only stages 5, 6, 7 must be attended)
+- Only specified stages are evaluated for attendance compliance
+- Participant must attend ALL specified stages to pass attendance check
+
+**Configure MOF Exam Check**
+- Each rule specifies whether MOF exam pass is required (CHECK) or not required (SKIP)
+- When CHECK: MOF exam score must meet minimum threshold (default: ≥ 30)
+- When SKIP: MOF exam results do not affect final result
+
+**Automatic Rule Matching and Application**
+- System matches course to applicable rule based on: Channel + Course Type + Exam Type + Partner Status
+- When exact match found, system applies that rule's criteria
+- When "ALL" is specified in a dimension, rule applies to all values in that dimension
+- System calculates final result automatically as data becomes available
+
+**Real-Time Final Result Calculation**
+- Final result recalculates when attendance, AOL, or MOF data is updated
+- Participant passes only when all checks marked as "CHECK" are satisfied
+- Checks marked as "SKIP" are ignored in calculation
+- Final result displays immediately in participant list
+
+**Rule Management**
+- Administrators can create, edit, and deactivate rules
+- Rule configuration is stored centrally and can be updated without code deployment
+- Changes to rules apply immediately to new calculations
+- Historical confirmed results are not affected by rule changes
+- All rule changes are logged with timestamp and administrator
+
+---
+
+**Rule Configuration Table:**
+
+The following table defines all final result calculation rules configured in the system:
+
+| Channel | Course Type | Exam Type | Is Partner? | Check Pass AOL | Check Điểm danh | Stage_check | Check Pass MOF? |
+|---------|-------------|-----------|-------------|----------------|-----------------|-------------|-----------------|
+| ALL | SHINE | ALL | ALL | CHECK | CHECK | ALL | CHECK |
+| ALL | SHINE | RE_MOF_EXAM | ALL | SKIP | SKIP | - | CHECK |
+| BANCA | SHINE | RE_MOF_EXAM | X | SKIP | SKIP | - | CHECK |
+| AGENCY | SHINE | RE_MOF_EXAM | X | SKIP | SKIP | - | CHECK |
+| IFA | SHINE | RE_MOF_EXAM | X | SKIP | SKIP | - | CHECK |
+| BANCA | SHINE | RE_MOF_EXAM | O | SKIP | SKIP | - | CHECK |
+| AGENCY | SHINE | RE_MOF_EXAM | O | SKIP | SKIP | - | CHECK |
+| IFA | SHINE | RE_MOF_EXAM | O | SKIP | SKIP | - | CHECK |
+| AGENCY | ALL | LIP | ALL | CHECK | CHECK | 5;6;7 | SKIP |
+| BANCA | ALL | ALL | ALL | SKIP | CHECK | ALL | CHECK |
+| ALL | ILP | ALL | ALL | SKIP | CHECK | ALL | CHECK |
+| ALL | PRODUCT | ALL | ALL | CHECK | CHECK | ALL | SKIP |
+| ALL | SKILL | ALL | ALL | SKIP | CHECK | ALL | SKIP |
+| ALL | WORKSHOP | ALL | ALL | SKIP | CHECK | ALL | SKIP |
+
+
+---
+
+**Business Rules:**
+
+- "ALL" in any dimension means the rule applies to all values in that dimension
+- More specific rules take precedence over general rules (e.g., AGENCY + LIP overrides ALL + LIP)
+- When Stage_check = "ALL", participant must attend 100% of course stages
+- When Stage_check = specific stages (e.g., "5;6;7"), participant must attend only those stages
+- Stage_check is only evaluated when Check Điểm danh = CHECK
+- When Check Điểm danh = SKIP, attendance is not required at all (useful for re-exam scenarios)
+- Participant passes only when all checks marked as "CHECK" are satisfied
+- Checks marked as "SKIP" are ignored in final result calculation
+- Manual override capability (Section 8.8.12) supersedes all automatic rules
+
+
+---
+
+**Permission Configuration:**
+
+| Permission ID | Feature Name | Category | Description |
+|---------------|--------------|----------|-------------|
+| `manage_result_rules` | Manage Final Result Rules | Admin | Create, edit, and deactivate final result calculation rules |
+
+**Note:** Role assignment for this permission will be configured during system setup.
+
+
+**Default Calculation Logic (Fallback):**
+
+If no custom rule is configured or matches a course, system uses default logic:
+
+**SHINE Course:**
+```
+IF (Attendance = Full) AND (All AOL Exams = Passed) AND (MOF Score >= 30)
+THEN Final Result = Passed
+ELSE Final Result = Failed
+```
+
+**Product Course:**
+```
+IF (Attendance = Full) AND (All AOL Exams = Passed)
+THEN Final Result = Passed
+ELSE Final Result = Failed
+```
+
+**Skill Course:**
+```
+IF (Attendance = Full)
+THEN Final Result = Passed
+ELSE Final Result = Failed
+```
+
+---
