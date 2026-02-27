@@ -4275,12 +4275,13 @@ The Course Listing Screen provides a centralized interface for users to view, se
 
 **Filter Criteria:**
 
-| Filter  | Type          | Description         | Values/Options                                                                                                                  |
-| ------- | ------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| Channel | Dropdown      | Filter by channel   | All, Agency, Banca FSC, Banker, IFA                                                                                             |
-| Region  | Dropdown      | Filter by region    | All, Central, North, South, Nationwide                                                                                          |
-| Status  | Dropdown      | Filter by status    | All, NEW, REGISTERED, APPROVED, IN_PROGRESS, WAITING_APPROVAL_EDIT, WAITING_APPROVAL_CANCEL, CANCEL, FINISHED, DELETED         |
-| Search  | Text Input    | Search by code/name | Free text - searches in Course Code and Course Name fields                                                                      |
+| Filter      | Type          | Description                    | Values/Options                                                                                                                  |
+| ----------- | ------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| Channel     | Dropdown      | Filter by channel              | All, Agency, Banca FSC, Banker, IFA                                                                                             |
+| Region      | Dropdown      | Filter by region               | All, Central, North, South, Nationwide                                                                                          |
+| Status      | Dropdown      | Filter by status               | All, NEW, REGISTERED, APPROVED, IN_PROGRESS, WAITING_APPROVAL_EDIT, WAITING_APPROVAL_CANCEL, CANCEL, FINISHED, DELETED         |
+| Assigned to | Dropdown      | Filter by primary trainer      | All, [List of trainers] - dropdown populated with available trainers                                                             |
+| Search       | Text Input    | Search by code/name            | Free text - searches in Course Code and Course Name fields                                                                      |
 
 **Filter Implementation Details:**
 
@@ -4302,7 +4303,15 @@ The Course Listing Screen provides a centralized interface for users to view, se
    - Shows all course statuses from system
    - Color-code dropdown options matching status badge colors
 
-4. **Search Box:**
+4. **Assigned to Filter:**
+   - Default: "All" (no filter applied)
+   - Single selection dropdown
+   - Populated with list of available trainers from the system
+   - Filters courses by primary trainer assignment
+   - Updates course list to show only courses assigned to selected trainer
+   - Trainer name displayed in format: "First Name Last Name" or as configured in trainer profile
+
+5. **Search Box:**
    - Placeholder text: "Search by course code or name..."
    - Minimum 1 character to trigger search
    - Clear (X) button to reset search
