@@ -3899,7 +3899,7 @@ Requirements
 | --- | ------------------ | ---------------------- | --- | ---------------------------------------------------------------- |
 | 1   | Save               | Button                 | -   | On-click to create the course                                    |
 | 2   | Cancel             | Button                 | -   | On-click to cancel course creation                               |
-| 3   | Course Type        | Dropdown               | M   | Values: Product/Shine/Skill                                      |
+| 3   | Course Type        | Display               | D  | Auto-populated from selected program                               |
 | 4   | License Type       | Display                | D   | Auto-populated from selected program                             |
 | 5   | Programs           | Dropdown List          | M   | Filtered list based on course type                               |
 | 6   | Course Name        | Alphanumeric           | M   | Auto-fills with program name (editable)                          |
