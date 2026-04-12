@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "agentCode": "AGT001",
+    "email": "john@mail.com",
+    "phone": "123-456-7890",
+    "region": "IFA Central",
+    "channel": "IFA",
+    "status": "Active"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "agentCode": "AGT002",
+    "email": "jane@mail.com",
+    "phone": "234-567-8901",
+    "region": "Banca South",
+    "channel": "Banca",
+    "status": "Active"
+  },
+  {
+    "id": 3,
+    "name": "Bob Wilson",
+    "agentCode": "AGT003",
+    "email": "bob@mail.com",
+    "phone": "345-678-9012",
+    "region": "Agency South",
+    "channel": "Agency",
+    "status": "Active"
+  },
+  {
+    "id": 4,
+    "name": "Alice Brown",
+    "agentCode": "AGT004",
+    "email": "alice@mail.com",
+    "phone": "456-789-0123",
+    "region": "IFA Central",
+    "channel": "IFA",
+    "status": "Active"
+  }
+]

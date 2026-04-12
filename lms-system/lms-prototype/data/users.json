@@ -1,0 +1,103 @@
+[
+  {
+    "id": 1,
+    "username": "Head_agency",
+    "password": "password123",
+    "email": "head.agency@fwd.com",
+    "roles": [
+      "HEAD_CHANNEL",
+      "LEAD_REGION"
+    ],
+    "team": "Admin",
+    "channel": "Agency",
+    "region": "South",
+    "createdDate": "2025-09-01"
+  },
+  {
+    "id": 100,
+    "username": "admin_user",
+    "password": "password123",
+    "email": "admin@lms.com",
+    "roles": [
+      "ADMIN"
+    ],
+    "team": "Admin",
+    "channel": "Agency",
+    "region": "South",
+    "createdDate": "2025-01-01"
+  },
+  {
+    "id": 101,
+    "username": "root_admin",
+    "password": "password123",
+    "email": "root@lms.com",
+    "roles": [
+      "ROOT_ADMIN"
+    ],
+    "team": "Admin",
+    "createdDate": "2025-01-01"
+  },
+  {
+    "id": 102,
+    "username": "master_user",
+    "password": "password123",
+    "email": "master@lms.com",
+    "roles": [
+      "MASTER_ROLE"
+    ],
+    "team": "Admin",
+    "createdDate": "2025-01-01"
+  },
+  {
+    "id": 2,
+    "username": "trainer_user",
+    "password": "password123",
+    "email": "trainer@fwd.com",
+    "roles": [
+      "TRAINER"
+    ],
+    "team": "Trainer",
+    "channel": "Banca",
+    "region": "Middle",
+    "createdDate": "2025-09-02"
+  },
+  {
+    "id": 1762707841831,
+    "username": "TrainerAgencyNorth",
+    "password": "password123",
+    "email": "traineragencynorth@gmail.com",
+    "roles": [
+      "TRAINER"
+    ],
+    "team": "Trainer",
+    "channel": "Agency",
+    "region": "North",
+    "createdDate": "2025-11-09"
+  },
+  {
+    "id": 1762707970764,
+    "username": "LeadAgencyNorth",
+    "password": "password123",
+    "email": "leadagencynorth@gmail.com",
+    "roles": [
+      "LEAD_REGION"
+    ],
+    "team": "Trainer",
+    "channel": "Agency",
+    "region": "North",
+    "createdDate": "2025-11-09"
+  },
+  {
+    "id": 999,
+    "username": "test_user",
+    "password": "password123",
+    "email": "test@lms.com",
+    "roles": [
+      "TEST_ROLE"
+    ],
+    "team": "Testing",
+    "channel": "All",
+    "region": "All",
+    "createdDate": "2025-01-15"
+  }
+]

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIC Calendar - FWD LMS</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <h2>FWD Insurance</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard.html" class="nav-item">
+                    <span class="nav-icon">🏠</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="master-calendar.html" class="nav-item">
+                    <span class="nav-icon">📅</span>
+                    <span>Master Calendar</span>
+                </a>
+                <a href="pic-calendar.html" class="nav-item active">
+                    <span class="nav-icon">👤</span>
+                    <span>PIC Calendar</span>
+                </a>
+                <a href="course-list.html" class="nav-item">
+                    <span class="nav-icon">📚</span>
+                    <span>Courses</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="breadcrumb">
+                    <a href="../dashboard.html">🏠 Home</a>
+                    <span>></span>
+                    <span class="active">PIC Calendar</span>
+                </div>
+                <div class="user-profile">
+                    <select id="roleSelector">
+                        <option value="trainer">Trainer</option>
+                        <option value="lead_region">Lead Region</option>
+                        <option value="head_channel">Head Channel</option>
+                        <option value="admin">Admin</option>
+                        <option value="root_admin">Root Admin</option>
+                    </select>
+                    <img src="https://via.placeholder.com/32" alt="Profile">
+                    <span>LMS Admin</span>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="action-header">
+                    <h1 class="page-title">PIC Calendar</h1>
+                    <div>
+                        <select class="filter-select" style="margin-right: 10px;">
+                            <option>All Trainers</option>
+                            <option>Trainer1 cloudair</option>
+                            <option>Trainer2 cloudair</option>
+                        </select>
+                        <button class="btn-primary" onclick="showTab('approvals')">View Approvals</button>
+                    </div>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab active" onclick="showTab('calendar')">Calendar</button>
+                    <button class="tab admin-only" onclick="showTab('approvals')">Approvals</button>
+                </div>
+
+                <div id="calendar" class="tab-content active">
+                    <div class="search-section">
+                        <select class="filter-select">
+                            <option>All Trainers</option>
+                        </select>
+                        <select class="filter-select">
+                            <option>October 2025</option>
+                        </select>
+                    </div>
+
+                    <div class="calendar-view">
+                        <div class="calendar-grid">
+                            <div class="calendar-day-header">Sun</div>
+                            <div class="calendar-day-header">Mon</div>
+                            <div class="calendar-day-header">Tue</div>
+                            <div class="calendar-day-header">Wed</div>
+                            <div class="calendar-day-header">Thu</div>
+                            <div class="calendar-day-header">Fri</div>
+                            <div class="calendar-day-header">Sat</div>
+                            
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">1</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">2</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">3</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">4</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">5</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">6</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">7</div>
+                            </div>
+                            
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">8</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">9</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">10</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">11</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">12</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">13</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">14</div>
+                            </div>
+                            
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">15</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">16</div>
+                                <div class="calendar-event" onclick="Navigation.navigate('course-details.html')">Trainer1<br/>SHINE Course</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">17</div>
+                                <div class="calendar-event" onclick="Navigation.navigate('course-details.html')">Trainer2<br/>Product Course</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">18</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">19</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">20</div>
+                            </div>
+                            <div class="calendar-day">
+                                <div style="font-weight: 600; margin-bottom: 5px;">21</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="approvals" class="tab-content admin-only">
+                    <div class="tabs" style="margin-top: 0;">
+                        <button class="tab active" onclick="showApprovalTab('register')">Register Requests</button>
+                        <button class="tab" onclick="showApprovalTab('edit')">Edit Requests</button>
+                        <button class="tab" onclick="showApprovalTab('cancel')">Cancel Requests</button>
+                    </div>
+
+                    <div id="register" class="tab-content active">
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Course Code</th>
+                                        <th>Course Name</th>
+                                        <th>Trainer</th>
+                                        <th>Request Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>4-TPCTIFA_M... Shine</td>
+                                        <td>Shine: New course</td>
+                                        <td>Trainer1 cloudair</td>
+                                        <td>01/10/2025</td>
+                                        <td>
+                                            <button class="btn-primary" style="padding: 5px 10px; margin-right: 5px;">Approve</button>
+                                            <button class="btn-secondary" style="padding: 5px 10px;">Reject</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="edit" class="tab-content">
+                        <p>Edit requests will appear here.</p>
+                    </div>
+
+                    <div id="cancel" class="tab-content">
+                        <p>Cancel requests will appear here.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+    <script>
+        function showTab(tabName) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            event.target.classList.add('active');
+            const content = document.getElementById(tabName);
+            if (content) content.classList.add('active');
+        }
+
+        function showApprovalTab(tabName) {
+            document.querySelectorAll('#approvals .tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('#approvals .tab-content').forEach(c => c.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+    </script>
+</body>
+</html>
+

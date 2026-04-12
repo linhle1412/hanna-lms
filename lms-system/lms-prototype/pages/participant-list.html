@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participants - FWD LMS</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <h2>FWD Insurance</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard.html" class="nav-item">
+                    <span class="nav-icon">🏠</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="master-calendar.html" class="nav-item">
+                    <span class="nav-icon">📅</span>
+                    <span>Master Calendar</span>
+                </a>
+                <a href="course-list.html" class="nav-item">
+                    <span class="nav-icon">📚</span>
+                    <span>Courses</span>
+                </a>
+                <a href="participant-list.html" class="nav-item active admin-only">
+                    <span class="nav-icon">👥</span>
+                    <span>Participants</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="breadcrumb">
+                    <a href="../dashboard.html">🏠 Home</a>
+                    <span>></span>
+                    <span class="active">Participants</span>
+                </div>
+                <div class="user-profile">
+                    <select id="roleSelector">
+                        <option value="admin">Admin</option>
+                        <option value="root_admin">Root Admin</option>
+                        <option value="lead_region">Lead Region</option>
+                        <option value="head_channel">Head Channel</option>
+                    </select>
+                    <img src="https://via.placeholder.com/32" alt="Profile">
+                    <span>LMS Admin</span>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="action-header">
+                    <h1 class="page-title">Participants</h1>
+                    <button class="btn-primary" onclick="Navigation.showModal('importParticipantModal')">Import Participants</button>
+                </div>
+
+                <div class="search-section">
+                    <input type="text" class="search-input" placeholder="Search by name, agent code, email, phone, ID...">
+                    <select class="filter-select">
+                        <option>All Regions</option>
+                    </select>
+                    <select class="filter-select">
+                        <option>All Channels</option>
+                    </select>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Agent Code</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Region</th>
+                                <th>Channel</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="participant-details.html">John Doe</a></td>
+                                <td>AGT001</td>
+                                <td>john@mail.com</td>
+                                <td>123-456-7890</td>
+                                <td>IFA Central</td>
+                                <td>IFA</td>
+                                <td><span class="status-badge status-approved">Active</span></td>
+                                <td><a href="participant-details.html">View</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="participant-details.html">Jane Smith</a></td>
+                                <td>AGT002</td>
+                                <td>jane@mail.com</td>
+                                <td>234-567-8901</td>
+                                <td>Banca South</td>
+                                <td>Banca</td>
+                                <td><span class="status-badge status-approved">Active</span></td>
+                                <td><a href="participant-details.html">View</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="participant-details.html">Bob Wilson</a></td>
+                                <td>AGT003</td>
+                                <td>bob@mail.com</td>
+                                <td>345-678-9012</td>
+                                <td>Agency South</td>
+                                <td>Agency</td>
+                                <td><span class="status-badge status-approved">Active</span></td>
+                                <td><a href="participant-details.html">View</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <span>Go 1 Page 1 of 10</span>
+                        <div class="pagination-controls">
+                            <button>&lt;</button>
+                            <span>1</span>
+                            <button>&gt;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Import Participant Modal -->
+    <div id="importParticipantModal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Import Participants</h3>
+                <button class="modal-close" onclick="Navigation.hideModal('importParticipantModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group full-width">
+                    <label>Upload Excel File</label>
+                    <input type="file" accept=".xlsx,.xls">
+                    <p style="color: #666; font-size: 12px; margin-top: 5px;">Upload Excel file with participant data</p>
+                </div>
+                <div class="form-group full-width">
+                    <label>Course Type</label>
+                    <select>
+                        <option>SHINE - Banca</option>
+                        <option>After-SHINE</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="Navigation.hideModal('importParticipantModal')">Cancel</button>
+                <button class="btn-primary" onclick="alert('Participants imported!'); Navigation.hideModal('importParticipantModal')">Import</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>
+

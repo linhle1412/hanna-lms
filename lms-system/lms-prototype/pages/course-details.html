@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details - FWD LMS</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <h2>FWD Insurance</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard.html" class="nav-item">
+                    <span class="nav-icon">🏠</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="master-calendar.html" class="nav-item">
+                    <span class="nav-icon">📅</span>
+                    <span>Master Calendar</span>
+                </a>
+                <a href="course-list.html" class="nav-item">
+                    <span class="nav-icon">📚</span>
+                    <span>Courses</span>
+                </a>
+                <a href="participant-list.html" class="nav-item admin-only">
+                    <span class="nav-icon">👥</span>
+                    <span>Participants</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="breadcrumb">
+                    <a href="../dashboard.html">🏠 Home</a>
+                    <span>></span>
+                    <a href="course-list.html">Courses</a>
+                    <span>></span>
+                    <span class="active">Course Details</span>
+                </div>
+                <div class="user-profile">
+                    <select id="roleSelector">
+                        <option value="trainer">Trainer</option>
+                        <option value="lead_region">Lead Region</option>
+                        <option value="head_channel">Head Channel</option>
+                        <option value="admin">Admin</option>
+                        <option value="root_admin">Root Admin</option>
+                    </select>
+                    <img src="https://via.placeholder.com/32" alt="Profile">
+                    <span>LMS Admin</span>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="action-header">
+                    <h1 class="page-title" style="margin: 0;">Course: 4-TPCTIFA_M... Shine</h1>
+                    <button class="btn-primary" style="white-space: nowrap; flex-shrink: 0;">Edit Course</button>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab active" onclick="showTab('general')">General</button>
+                    <button class="tab" onclick="showTab('planning')">Planning</button>
+                    <button class="tab" onclick="showTab('participants')">Participants</button>
+                    <button class="tab" onclick="showTab('checklist')">Checklist</button>
+                    <button class="tab" onclick="showTab('history')">History</button>
+                </div>
+
+                <div id="general" class="tab-content active">
+                    <div class="table-container" style="padding: 20px;">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr style="border-bottom: 1px solid #e0e0e0;">
+                                <td style="width: 200px; font-weight: 600; padding: 12px; color: #555;">Course Code:</td>
+                                <td style="padding: 12px; color: #333;">4-TPCTIFA_M... Shine</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0e0e0;">
+                                <td style="padding: 12px; font-weight: 600; color: #555;">Course Name:</td>
+                                <td style="padding: 12px; color: #333;">Shine: New course</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0e0e0;">
+                                <td style="padding: 12px; font-weight: 600; color: #555;">Program:</td>
+                                <td style="padding: 12px; color: #333;">SHINE Program</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0e0e0;">
+                                <td style="padding: 12px; font-weight: 600; color: #555;">Trainer:</td>
+                                <td style="padding: 12px; color: #333;">• Trainer1 cloudair</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0e0e0;">
+                                <td style="padding: 12px; font-weight: 600; color: #555;">Channel:</td>
+                                <td style="padding: 12px; color: #333;">IFA</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0e0e0;">
+                                <td style="padding: 12px; font-weight: 600; color: #555;">Region:</td>
+                                <td style="padding: 12px; color: #333;">IFA Central</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; font-weight: 600; color: #555;">Status:</td>
+                                <td style="padding: 12px;"><span class="status-badge status-creating">Creating</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="participants" class="tab-content">
+                    <div class="action-header">
+                        <h2 style="margin: 0;">Participants</h2>
+                        <div style="display: flex; gap: 10px; align-items: center; flex-shrink: 0;">
+                            <button class="btn-secondary">Import Participants</button>
+                            <button class="btn-primary" onclick="Navigation.showModal('addParticipantModal')">Add Participants</button>
+                        </div>
+                    </div>
+                    <div class="search-section">
+                        <input type="text" class="search-input" placeholder="Search participants...">
+                        <select class="filter-select">
+                            <option>All</option>
+                            <option>Passed</option>
+                            <option>Failed</option>
+                            <option>Pending</option>
+                        </select>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Agent Code</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>AOL Result</th>
+                                    <th>MOF Result</th>
+                                    <th>Attendance</th>
+                                    <th>Final Result</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>AGT001</td>
+                                    <td>john@mail.com</td>
+                                    <td>123-456-7890</td>
+                                    <td><span class="status-badge status-approved">Passed</span></td>
+                                    <td><span class="status-badge status-pending">Pending</span></td>
+                                    <td>85%</td>
+                                    <td><span class="status-badge status-pending">In Progress</span></td>
+                                    <td><a href="participant-details.html">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Jane Smith</td>
+                                    <td>AGT002</td>
+                                    <td>jane@mail.com</td>
+                                    <td>234-567-8901</td>
+                                    <td><span class="status-badge status-approved">Passed</span></td>
+                                    <td><span class="status-badge status-approved">Passed</span></td>
+                                    <td>92%</td>
+                                    <td><span class="status-badge status-approved">Passed</span></td>
+                                    <td><a href="participant-details.html">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Bob Wilson</td>
+                                    <td>AGT003</td>
+                                    <td>bob@mail.com</td>
+                                    <td>345-678-9012</td>
+                                    <td><span class="status-badge status-pending">In Progress</span></td>
+                                    <td>N/A</td>
+                                    <td>78%</td>
+                                    <td><span class="status-badge status-pending">In Progress</span></td>
+                                    <td><a href="participant-details.html">View</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="planning" class="tab-content">
+                    <div class="table-container" style="padding: 20px;">
+                        <h3 style="margin-bottom: 15px; color: #2c3e50;">Course Planning</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Stage</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Trainer</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Stage 1</td>
+                                    <td>01/10/2025</td>
+                                    <td>09:00 AM - 12:00 PM</td>
+                                    <td>Trainer1 cloudair</td>
+                                    <td><a href="#">Edit</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Stage 2</td>
+                                    <td>02/10/2025</td>
+                                    <td>01:00 PM - 05:00 PM</td>
+                                    <td>Trainer1 cloudair</td>
+                                    <td><a href="#">Edit</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="checklist" class="tab-content">
+                    <div class="table-container" style="padding: 20px;">
+                        <h3 style="margin-bottom: 15px; color: #2c3e50;">Course Checklist</h3>
+                        <p style="color: #666;">Checklist items will be displayed here based on course type.</p>
+                    </div>
+                </div>
+
+                <div id="history" class="tab-content">
+                    <div class="table-container" style="padding: 20px;">
+                        <h3 style="margin-bottom: 15px; color: #2c3e50;">Course History</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                    <th>Field</th>
+                                    <th>Old Value</th>
+                                    <th>New Value</th>
+                                    <th>Modified By</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01/10/2025 10:30 AM</td>
+                                    <td>Created</td>
+                                    <td>Course</td>
+                                    <td>-</td>
+                                    <td>4-TPCTIFA_M... Shine</td>
+                                    <td>LMS Admin Cloudair</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Participant Modal -->
+    <div id="addParticipantModal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Add Participants to Course</h3>
+                <button class="modal-close" onclick="Navigation.hideModal('addParticipantModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="search-section" style="margin-bottom: 20px;">
+                    <input type="text" class="search-input" placeholder="Search participants...">
+                    <select class="filter-select">
+                        <option>All</option>
+                    </select>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="selectAll"> Select All</th>
+                                <th>Name</th>
+                                <th>Agent Code</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>John Doe</td>
+                                <td>AGT001</td>
+                                <td>john@mail.com</td>
+                                <td>123-456-7890</td>
+                                <td>✓</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>Jane Smith</td>
+                                <td>AGT002</td>
+                                <td>jane@mail.com</td>
+                                <td>234-567-8901</td>
+                                <td>✓</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>Bob Wilson</td>
+                                <td>AGT003</td>
+                                <td>bob@mail.com</td>
+                                <td>345-678-9012</td>
+                                <td>✓</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>Alice Brown</td>
+                                <td>AGT004</td>
+                                <td>alice@mail.com</td>
+                                <td>456-789-0123</td>
+                                <td>✓</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <span>Showing 4 of 150 participants</span>
+                        <div class="pagination-controls">
+                            <span>Selected: 0 participant(s)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="Navigation.hideModal('addParticipantModal')">Cancel</button>
+                <button class="btn-primary">Add Selected to Course</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+    <script src="../js/state.js"></script>
+    <script src="../js/data-handler.js"></script>
+    <script>
+        let currentCourseId = null;
+        let currentCourse = null;
+
+        // Get course ID from URL
+        function getCourseId() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return parseInt(urlParams.get('id')) || 1;
+        }
+
+        // Load course data
+        function loadCourseDetails() {
+            currentCourseId = getCourseId();
+            currentCourse = LMSState.getCourse(currentCourseId);
+            
+            if (!currentCourse) {
+                DataHandler.showMessage('Course not found', 'error');
+                window.location.href = 'course-list.html';
+                return;
+            }
+
+            // Update page title
+            document.querySelector('.page-title').textContent = `Course: ${currentCourse.code}`;
+            
+            // Load general tab
+            loadGeneralTab();
+            
+            // Load participants tab
+            loadParticipantsTab();
+        }
+
+        // Load general tab
+        function loadGeneralTab() {
+            const generalTab = document.getElementById('general');
+            if (!generalTab) return;
+
+            generalTab.innerHTML = `
+                <div class="table-container" style="padding: 20px;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr style="border-bottom: 1px solid #e0e0e0;">
+                            <td style="width: 200px; font-weight: 600; padding: 12px; color: #555;">Course Code:</td>
+                            <td style="padding: 12px; color: #333;">${currentCourse.code}</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e0e0e0;">
+                            <td style="padding: 12px; font-weight: 600; color: #555;">Course Name:</td>
+                            <td style="padding: 12px; color: #333;">${currentCourse.name}</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e0e0e0;">
+                            <td style="padding: 12px; font-weight: 600; color: #555;">Program:</td>
+                            <td style="padding: 12px; color: #333;">${currentCourse.program}</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e0e0e0;">
+                            <td style="padding: 12px; font-weight: 600; color: #555;">Trainer:</td>
+                            <td style="padding: 12px; color: #333;">• ${currentCourse.trainer}</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e0e0e0;">
+                            <td style="padding: 12px; font-weight: 600; color: #555;">Channel:</td>
+                            <td style="padding: 12px; color: #333;">${currentCourse.channel}</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e0e0e0;">
+                            <td style="padding: 12px; font-weight: 600; color: #555;">Region:</td>
+                            <td style="padding: 12px; color: #333;">${currentCourse.region}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; font-weight: 600; color: #555;">Status:</td>
+                            <td style="padding: 12px;">
+                                <span class="status-badge status-${currentCourse.status.toLowerCase().replace(' ', '-')}">${currentCourse.status}</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            `;
+        }
+
+        // Load participants tab
+        function loadParticipantsTab() {
+            const participantsTab = document.getElementById('participants');
+            if (!participantsTab) return;
+
+            const courseParticipants = LMSState.getCourseParticipants(currentCourseId);
+            const allParticipants = LMSState.getParticipants({});
+            
+            // Build participants table
+            const participantsTable = courseParticipants.map(p => {
+                return `
+                    <tr>
+                        <td>${p.name}</td>
+                        <td>${p.agentCode}</td>
+                        <td>${p.email}</td>
+                        <td>${p.phone}</td>
+                        <td><span class="status-badge status-approved">Passed</span></td>
+                        <td><span class="status-badge status-pending">Pending</span></td>
+                        <td>85%</td>
+                        <td><span class="status-badge status-pending">In Progress</span></td>
+                        <td>
+                            <a href="participant-details.html?id=${p.id}">View</a>
+                            <a href="#" onclick="removeParticipant(${p.id}); return false;" style="margin-left: 10px; color: #e74c3c;">Remove</a>
+                        </td>
+                    </tr>
+                `;
+            }).join('') || '<tr><td colspan="9" style="text-align: center; padding: 30px;">No participants added yet</td></tr>';
+
+            // Build modal participant list
+            const modalParticipants = allParticipants.map(p => {
+                const isAdded = courseParticipants.some(cp => cp.id === p.id);
+                return `
+                    <tr>
+                        <td><input type="checkbox" value="${p.id}" ${isAdded ? 'disabled' : ''}></td>
+                        <td>${p.name}</td>
+                        <td>${p.agentCode}</td>
+                        <td>${p.email}</td>
+                        <td>${p.phone}</td>
+                        <td>${p.status === 'Active' ? '✓' : ''}</td>
+                    </tr>
+                `;
+            }).join('');
+
+            participantsTab.innerHTML = `
+                <div class="action-header">
+                    <h2 style="margin: 0;">Participants</h2>
+                    <div style="display: flex; gap: 10px; align-items: center; flex-shrink: 0;">
+                        <button class="btn-secondary" onclick="alert('Import feature coming soon')">Import Participants</button>
+                        <button class="btn-primary" onclick="Navigation.showModal('addParticipantModal')">Add Participants</button>
+                    </div>
+                </div>
+                <div class="search-section">
+                    <input type="text" class="search-input" placeholder="Search participants..." id="participantSearch">
+                    <select class="filter-select">
+                        <option>All</option>
+                        <option>Passed</option>
+                        <option>Failed</option>
+                        <option>Pending</option>
+                    </select>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Agent Code</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>AOL Result</th>
+                                <th>MOF Result</th>
+                                <th>Attendance</th>
+                                <th>Final Result</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${participantsTable}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+
+            // Update modal content
+            const modalBody = document.querySelector('#addParticipantModal .modal-body');
+            if (modalBody) {
+                const tableBody = modalBody.querySelector('tbody');
+                if (tableBody) {
+                    tableBody.innerHTML = modalParticipants;
+                }
+            }
+        }
+
+        // Remove participant from course
+        function removeParticipant(participantId) {
+            if (confirm('Are you sure you want to remove this participant from the course?')) {
+                DataHandler.removeParticipantFromCourse(currentCourseId, participantId);
+                DataHandler.showMessage('Participant removed successfully');
+                loadParticipantsTab();
+            }
+        }
+
+        // Add participants to course
+        function setupAddParticipantsModal() {
+            const addBtn = document.querySelector('#addParticipantModal .btn-primary');
+            if (addBtn) {
+                addBtn.onclick = function() {
+                    const checkboxes = document.querySelectorAll('#addParticipantModal tbody input[type="checkbox"]:checked:not(:disabled)');
+                    const selectedIds = Array.from(checkboxes).map(cb => parseInt(cb.value));
+                    
+                    if (selectedIds.length === 0) {
+                        DataHandler.showMessage('Please select at least one participant', 'error');
+                        return;
+                    }
+
+                    DataHandler.addParticipantsToCourse(currentCourseId, selectedIds);
+                    DataHandler.showMessage(`${selectedIds.length} participant(s) added successfully!`);
+                    Navigation.hideModal('addParticipantModal');
+                    loadParticipantsTab();
+                };
+            }
+        }
+
+        function showTab(tabName) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        // Global refresh function
+        window.refreshCourseDetails = function(courseId) {
+            if (courseId === currentCourseId) {
+                loadCourseDetails();
+            }
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCourseDetails();
+            setupAddParticipantsModal();
+            
+            // Listen for updates
+            LMSState.on('courses_updated', () => {
+                loadCourseDetails();
+            });
+            
+            LMSState.on('participants_updated', () => {
+                loadParticipantsTab();
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Trainer1 cloudair",
+    "email": "trainer1@mail.com",
+    "type": "FWD",
+    "region": "IFA Central",
+    "rate": "$50/hr",
+    "status": "Active"
+  },
+  {
+    "id": 2,
+    "name": "Trainer2 cloudair",
+    "email": "trainer2@mail.com",
+    "type": "FWD",
+    "region": "Banca South",
+    "rate": "$55/hr",
+    "status": "Active"
+  },
+  {
+    "id": 3,
+    "name": "Trainer3 cloudair",
+    "email": "trainer3@mail.com",
+    "type": "FWT",
+    "region": "Agency South",
+    "rate": "$45/hr",
+    "status": "Active"
+  }
+]
+

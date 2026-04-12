@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create SHINE Course - Multiple MOF Venues</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        .modal {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .modal-header {
+            padding: 20px 30px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-header h2 {
+            font-size: 20px;
+            color: #333;
+        }
+        .close-btn {
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+        .modal-body {
+            padding: 30px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        .form-section {
+            margin-bottom: 30px;
+        }
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .venue-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .venue-card.primary {
+            border-color: #2196F3;
+            background-color: #E3F2FD;
+        }
+        .venue-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .venue-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+        }
+        .venue-title .badge {
+            background: #2196F3;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            margin-left: 8px;
+        }
+        .remove-venue-btn {
+            background: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .form-row.full {
+            grid-template-columns: 1fr;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        label .required {
+            color: #f44336;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        input[readonly] {
+            background-color: #f5f5f5;
+            color: #666;
+        }
+        .time-input {
+            display: flex;
+            gap: 10px;
+        }
+        .time-input input {
+            flex: 2;
+        }
+        .time-input input[type="time"] {
+            flex: 1;
+        }
+        .add-venue-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .add-venue-btn:hover {
+            background: #45a049;
+        }
+        .venue-limit {
+            color: #999;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .modal-footer {
+            padding: 20px 30px;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        .btn {
+            padding: 10px 24px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .btn-cancel {
+            background: #f5f5f5;
+            color: #666;
+        }
+        .btn-primary {
+            background: #2196F3;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <div class="modal-header">
+            <h2>Create SHINE Course</h2>
+            <button class="close-btn">&times;</button>
+        </div>
+        
+        <div class="modal-body">
+            <!-- Basic Fields (Collapsed for brevity) -->
+            <div class="form-section">
+                <div class="section-title">Basic Information</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Course Type <span class="required">*</span></label>
+                        <select>
+                            <option>SHINE</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Program <span class="required">*</span></label>
+                        <select>
+                            <option>SHINE Training Program</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- More basic fields... -->
+            </div>
+
+            <!-- MOF Venues Section -->
+            <div class="form-section">
+                <div class="section-title">MOF Exam Venues Configuration</div>
+                
+                <!-- Venue #1 (Primary) -->
+                <div class="venue-card primary">
+                    <div class="venue-header">
+                        <div class="venue-title">
+                            MOF Venue #1
+                            <span class="badge">Primary</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>MOF Address <span class="required">*</span></label>
+                        <select>
+                            <option>Trung tâm VIDI - Quận 1, TP.HCM</option>
+                            <option>Trung tâm VIDI - Quận 7, TP.HCM</option>
+                            <option>Trung tâm VIDI - Quận 3, TP.HCM</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Province <span class="required">*</span></label>
+                            <input type="text" value="TP. Hồ Chí Minh" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Ward <span class="required">*</span></label>
+                            <input type="text" value="Phường Bến Nghé" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>MOF Exam Date & Time <span class="required">*</span></label>
+                            <div class="time-input">
+                                <input type="date" value="2025-01-15">
+                                <input type="time" value="09:00">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Capacity (Optional)</label>
+                            <input type="number" value="35" placeholder="Max participants">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Exam Type <span class="required">*</span></label>
+                        <select>
+                            <option>Trực tuyến tại VIDI</option>
+                            <option>Trực tuyến tại doanh nghiệp</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Venue #2 -->
+                <div class="venue-card">
+                    <div class="venue-header">
+                        <div class="venue-title">MOF Venue #2</div>
+                        <button class="remove-venue-btn">✕ Remove</button>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>MOF Address <span class="required">*</span></label>
+                        <select>
+                            <option>Trung tâm VIDI - Quận 7, TP.HCM</option>
+                            <option>Trung tâm VIDI - Quận 1, TP.HCM</option>
+                            <option>Trung tâm VIDI - Quận 3, TP.HCM</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Province <span class="required">*</span></label>
+                            <input type="text" value="TP. Hồ Chí Minh" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Ward <span class="required">*</span></label>
+                            <input type="text" value="Phường Tân Phú" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>MOF Exam Date & Time <span class="required">*</span></label>
+                            <div class="time-input">
+                                <input type="date" value="2025-01-15">
+                                <input type="time" value="14:00">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Capacity (Optional)</label>
+                            <input type="number" value="25" placeholder="Max participants">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Exam Type <span class="required">*</span></label>
+                        <select>
+                            <option>Trực tuyến tại VIDI</option>
+                            <option>Trực tuyến tại doanh nghiệp</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Add Venue Button -->
+                <button class="add-venue-btn">
+                    <span>➕</span>
+                    Add MOF Venue
+                </button>
+                <span class="venue-limit">(Maximum 5 venues)</span>
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+            <button class="btn btn-cancel">Cancel</button>
+            <button class="btn btn-primary">Save Course</button>
+        </div>
+    </div>
+</body>
+</html>

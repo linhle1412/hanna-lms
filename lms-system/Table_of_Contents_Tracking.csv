@@ -1,0 +1,629 @@
+Section Number,Section Name,Level,Status,Development Status,Assigned To,Priority,Notes,Last Updated,Details
+1,Abbreviations and Acronyms,1,NOT STARTED,,,,,1/27/2025,"- List of all abbreviations and acronyms used in the document
+- Definitions for each term"
+2,LMS Architecture Diagram,1,NOT STARTED,,,,,1/27/2025,"- System architecture overview
+- Component relationships
+- Integration points"
+3,External Interface Requirements,1,NOT STARTED,,,,,1/27/2025,"- External API specifications
+- Integration requirements
+- Data exchange protocols"
+4,Role and User Management,1,IN REVIEW,,,,,1/27/2025,"- Role definitions
+- User management features
+- Permission management
+- Authorization matrices"
+4.1,List of Roles,2,,,,,,1/27/2025,"- Define all system roles
+- Role descriptions
+- Role hierarchy"
+4.2,Authorization Matrix by Feature,2,,,,,,1/27/2025,"- Feature-based permissions
+- Role access matrix
+- Permission definitions"
+4.3,User Management,2,,,,,,1/27/2025,"- User creation
+- User listing
+- User authentication
+- User profile management"
+4.3.1,User Creation Screen,3,,,,,,1/27/2025,"- User creation form
+- Field validation
+- Role assignment
+- Account linking"
+4.3.2,User Listing Page,3,,,,,,1/27/2025,"- User list display
+- Search and filter
+- Pagination
+- Bulk operations"
+4.3.3,Login Authentication,3,,,,,,1/27/2025,"- Login form
+- Authentication logic
+- Session management
+- Password policies"
+4.4,Role & Permission Management,2,,,,,,1/27/2025,"- Permission categories
+- Default role permissions
+- Permission management UI
+- Permission editing"
+4.4.1,Permission Categories and Definitions,3,,,,,,1/27/2025,"- Permission category structure
+- Permission definitions
+- Category organization"
+4.4.2,Default Role Permission Matrix,3,,,,,,1/27/2025,"- Default permissions per role
+- Permission matrix table
+- Role-based access rules"
+4.4.3,Role & Permission Management Screen,3,,,,,,1/27/2025,"- Permission management interface
+- Role selection
+- Permission assignment UI"
+4.4.4,Edit Permissions Modal,3,,,,,,1/27/2025,"- Permission editing dialog
+- Permission toggle functionality
+- Save and cancel actions"
+4.4.5,Permission Management Business Rules,3,,,,,,1/27/2025,"- Permission inheritance rules
+- Permission validation
+- Business logic constraints"
+4.4.8,Integration with Other Features,3,,,,,,1/27/2025,"- Permission integration points
+- Feature permission dependencies
+- Cross-feature permission checks"
+4.5,Role-Based Data Filtering,2,,,,,,1/27/2025,"- Data filtering by role
+- Dashboard filtering
+- Course list filtering
+- Approval filtering"
+4.5.1,Data Filtering Rules by Role,3,,,,,,1/27/2025,"- Role-based filter rules
+- Data scope definitions
+- Filter logic"
+4.5.2,Dashboard Statistics Filtering,3,,,,,,1/27/2025,"- Dashboard data filtering
+- Statistics scope by role
+- Filtered metrics display"
+4.5.3,Course List Filtering,3,,,,,,1/27/2025,"- Course list scope by role
+- Channel/region filtering
+- Visibility rules"
+4.5.4,Pending Approvals Filtering,3,,,,,,1/27/2025,"- Approval list filtering
+- Role-based approval scope
+- Filtered approval queue"
+4.5.5,Approval Workflow Integration,3,,,,,,1/27/2025,"- Workflow integration
+- Role-based workflow routing
+- Approval chain logic"
+5,Trainer Management,1,IN PROGRESS,,,,,1/27/2025,"- Trainer creation
+- Trainer listing
+- Trainer details
+- Trainer unavailable period management"
+5.1,Trainer Creation Page,2,,,,,,1/27/2025,"- Trainer creation form
+- User account linking
+- Trainer profile fields
+- Validation rules"
+5.2,Trainer Listing Page,2,,,,,,1/27/2025,"- Trainer list display
+- Search and filter
+- Column display
+- List features"
+5.3,Trainer Details Page,2,,,,,,1/27/2025,"- Trainer profile display
+- Course history
+- Assignment details
+- Edit capabilities"
+6,Participant Management,1,IN PROGRESS,,,,,1/27/2025,"- Participant integration
+- Participant listing
+- Participant details
+- Participant data management"
+6.1,Integration,2,,,,,,1/27/2025,"- External participant API integration
+- Data synchronization
+- API endpoints"
+6.2,Participant List,2,,,,,,1/27/2025,"- Participant list display
+- Search and filter area
+- Export functionality
+- List behavior"
+6.3,Participant Details Page,2,,,,,,1/27/2025,"- Participant profile display
+- General information
+- Address section
+- Experience section
+- Support documents
+- License codes
+- Road map"
+7,Content Management,1,IN REVIEW,,,,,1/27/2025,"- Module management
+- Product management
+- Program management
+- Content lifecycle"
+7.1,Modules,2,,,,,,1/27/2025,"- Module data structure
+- Module listing
+- Module creation
+- Module details
+- Module status management
+- Module clone
+- Module delete"
+7.1.1,Module Data Structure,3,,,,,,1/27/2025,"- Module field definitions
+- Data model
+- Relationships"
+7.1.2,Module Listing Page,3,,,,,,1/27/2025,"- Module list display
+- Search and filter
+- Status display
+- Actions"
+7.1.3,Module Creation Form,3,,,,,,1/27/2025,"- Module creation form
+- Field validation
+- Status assignment"
+7.1.4,Module Details Page,3,,,,,,1/27/2025,"- Module detail display
+- Edit capabilities
+- Related information"
+7.1.5,Module Status Management,3,,,,,,1/27/2025,"- Status transitions
+- Status rules
+- Status display"
+7.1.6,Module Clone Functionality,3,,,,,,1/27/2025,"- Clone module feature
+- Clone logic
+- Clone validation"
+7.1.7,Module Delete Functionality,3,,,,,,1/27/2025,"- Delete module feature
+- Delete validation
+- Soft delete logic"
+7.1.8,Module Integration Points,3,,,,,,1/27/2025,"- Integration with courses
+- Integration with programs
+- API endpoints"
+7.1.9,Module Authorization Matrix,3,,,,,,1/27/2025,"- Permission matrix
+- Role-based access
+- Authorization rules"
+7.1.10,Module Validation Rules,3,,,,,,1/27/2025,"- Field validation
+- Business rules
+- Data constraints"
+7.2,Product,2,,,,,,1/27/2025,"- Product data structure
+- Product listing
+- Product creation
+- Product details
+- Product status management
+- Product clone
+- Product delete"
+7.2.1,Product Data Structure,3,,,,,,1/27/2025,"- Product field definitions
+- Data model
+- Relationships"
+7.2.2,Product Listing Page,3,,,,,,1/27/2025,"- Product list display
+- Search and filter
+- Status display
+- Actions"
+7.2.3,Product Details Page,3,,,,,,1/27/2025,"- Product detail display
+- Edit capabilities
+- Related information"
+7.2.4,Product Creation,3,,,,,,1/27/2025,"- Product creation form
+- Field validation
+- Status assignment"
+7.2.5,Product Status Management,3,,,,,,1/27/2025,"- Status transitions
+- Status rules
+- Status display"
+7.2.6,Product Clone Functionality,3,,,,,,1/27/2025,"- Clone product feature
+- Clone logic
+- Clone validation"
+7.2.7,Product Delete Functionality,3,,,,,,1/27/2025,"- Delete product feature
+- Delete validation
+- Soft delete logic"
+7.2.8,Product Integration Points,3,,,,,,1/27/2025,"- Integration with courses
+- Integration with programs
+- API endpoints"
+7.2.9,Product Authorization Matrix,3,,,,,,1/27/2025,"- Permission matrix
+- Role-based access
+- Authorization rules"
+7.2.10,Product Validation Rules,3,,,,,,1/27/2025,"- Field validation
+- Business rules
+- Data constraints"
+7.3,Program,2,,,,,,1/27/2025,"- Program data structure
+- Program management features
+- Program status management
+- Program integration"
+7.3.1,Program Data Structure,3,,,,,,1/27/2025,"- Program field definitions
+- Data model
+- Relationships"
+7.3.2,Program Management Features,3,,,,,,1/27/2025,"- Program listing
+- Program creation
+- Program details
+- Program operations"
+7.3.3,Program Status Management,3,,,,,,1/27/2025,"- Status transitions
+- Status rules
+- Status display"
+7.3.4,Program Integration Points,3,,,,,,1/27/2025,"- Integration with courses
+- Integration with modules
+- API endpoints"
+7.3.5,Future Enhancements,3,,,,,,1/27/2025,"- Planned features
+- Enhancement roadmap
+- Future capabilities"
+8,Course Management,1,IN REVIEW,,,,,1/27/2025,"- Course creation
+- Course listing
+- Course details
+- Course registration
+- Course edit
+- Course cancel
+- Course delete
+- Course operations"
+8.1,Course Creation,2,,,,,,1/27/2025,"- Course creation form
+- Dynamic form behavior
+- Course type-specific fields
+- Course code generation
+- Status transition logic
+- Checklist template application
+- Co-trainer management"
+8.1.1,Course Creation Form,3,,,,,,1/27/2025,"- Form structure
+- Field definitions
+- Dynamic behavior
+- Validation"
+8.1.1.1,Dynamic Form Behavior Based on Course Type,4,,,,,,1/27/2025,"- SHINE form fields
+- Product form fields
+- Skill form fields
+- Dynamic field display"
+8.1.1.2,SHINE Form Fields,4,,,,,,1/27/2025,"- SHINE-specific fields
+- Field requirements
+- Field validation"
+8.1.1.3,Product Form Fields,4,,,,,,1/27/2025,"- Product-specific fields
+- Field requirements
+- Field validation"
+8.1.1.4,Skill Form Fields,4,,,,,,1/27/2025,"- Skill-specific fields
+- Field requirements
+- Field validation"
+8.1.1.5,Course Code Generation Logic,4,,,,,,1/27/2025,"- Code generation rules
+- Code format
+- Uniqueness validation"
+8.1.1.6,Status Transition Logic,4,,,,,,1/27/2025,"- Status flow
+- Transition rules
+- Status validation"
+8.1.1.7,Checklist Template Application,4,,,,,,1/27/2025,"- Template selection
+- Template application
+- Checklist initialization"
+8.1.1.8,Co-trainer Management,4,,,,,,1/27/2025,"- Co-trainer selection
+- Co-trainer assignment
+- Co-trainer validation"
+8.1.2,Entry Points,3,,,,,,1/27/2025,"- Course creation entry points
+- Navigation paths
+- Access control"
+8.1.3,Validation & Error Handling,3,,,,,,1/27/2025,"- Field validation rules
+- Date validation (configurable rules)
+- Error messages
+- Validation logic"
+8.2,Course Listing Screen,2,,X,,,,1/27/2025,"- Course list view
+- Filter and search
+- Export courses
+- List features"
+8.2.1,Course List View,3,,X,,,,1/27/2025,"- List display
+- Column definitions
+- Sorting
+- Pagination"
+8.2.2,Filter & Search,3,,X,,,,1/27/2025,"- Filter options
+- Search functionality
+- Filter combinations"
+8.2.3,Export Courses,3,,O,,,,1/27/2025,"- Export functionality
+- Export format
+- Export fields"
+8.3,Course Details Screen,2,,,,,,1/27/2025,"- Course general tab
+- Course history
+- Course planning tab
+- Course participant tab"
+8.3.1,Course General Tab,3,,X,,,,1/27/2025,"- General information display
+- Course status timeline
+- Course approval actions
+- Edit capabilities"
+8.3.1.1,Course Status Timeline,4,,X,,,,1/27/2025,"- Status history display
+- Timeline visualization
+- Status change tracking"
+8.3.1.2,Course Approval Actions,4,,,,,,1/27/2025,"- Approval buttons
+- Approval workflow
+- Rejection handling"
+8.3.2,Course History,3,,O,,,,1/27/2025,"- History log display
+- Change tracking
+- Audit trail"
+8.3.3,Course Planning Tab,3,,X,,,,1/27/2025,"- Planning information
+- Schedule display
+- Planning details"
+8.3.4,Course Participant Tab,3,,X,,,,1/27/2025,"- Participant list display
+- Add participants button
+- Import participants button
+- Export participants button
+- Participant operations"
+8.4,Course Registration,2,,,,,,1/27/2025,"- Registration process
+- Registration approval workflow
+- Auto-cancellation rule"
+8.4.1,Registration Process,3,,,,,,1/27/2025,"- Registration flow
+- Registration form
+- Registration validation"
+8.4.2,Registration Approval Workflow,3,,,,,,1/27/2025,"- Approval workflow
+- Approval routing
+- Approval notifications"
+8.4.3,Auto-Cancellation Rule,3,,,,,,1/27/2025,"- Auto-cancel logic
+- Cancellation conditions
+- Cancellation notifications"
+8.5,Course Edit,2,,,,,,1/27/2025,"- Edit authorization matrix
+- Edit approval workflow
+- Field-level restrictions"
+8.5.1,Edit Authorization Matrix,3,,,,,,1/27/2025,"- Edit permissions
+- Role-based edit access
+- Authorization rules"
+8.5.2,Edit Approval Workflow,3,,,,,,1/27/2025,"- Edit approval flow
+- Approval routing
+- Approval notifications"
+8.5.3,Field-Level Restrictions,3,,,,,,1/27/2025,"- Field edit restrictions
+- Read-only fields
+- Conditional edit rules"
+8.6,Course Cancel,2,,,,,,1/27/2025,"- Cancel authorization matrix
+- Cancel approval workflow
+- Direct cancellation
+- Business rules"
+8.6.1,Cancel Authorization Matrix,3,,,,,,1/27/2025,"- Cancel permissions
+- Role-based cancel access
+- Authorization rules"
+8.6.2,Cancel Approval Workflow,3,,,,,,1/27/2025,"- Cancel approval flow
+- Approval routing
+- Approval notifications"
+8.6.3,Direct Cancellation (No Approval),3,,,,,,1/27/2025,"- Direct cancel conditions
+- No approval scenarios
+- Direct cancel rules"
+8.6.4,Business Rules,3,,,,,,1/27/2025,"- Cancel business rules
+- Status-based rules
+- Validation rules"
+8.7,Course Delete,2,,,,,,1/27/2025,"- Delete authorization matrix
+- Delete workflow
+- Delete validation"
+8.7.1,Delete Authorization Matrix,3,,,,,,1/27/2025,"- Delete permissions
+- Role-based delete access
+- Authorization rules"
+8.7.2,Delete Workflow,3,,,,,,1/27/2025,"- Delete process
+- Delete validation
+- Delete confirmation"
+8.8,Course Operations,2,,,,,,1/27/2025,"- Participant list
+- Add participant (import/manual)
+- Export participants
+- MOF exam operations
+- AOL exam operations
+- Attendance check
+- Final result calculation
+- Participant confirmation"
+8.8.1,Course Participant List,3,,,,,,1/27/2025,"- Participant list display
+- Data fields (ID Name Agent Code Email Phone Exam Type AOL Result MOF Result Attendance Final Result)
+- Filter options (search by name/agent code/email/phone filter by exam type/AOL result/MOF result/final result)
+- Authorization matrix"
+8.8.2,Add Participant to Course with Import File,3,,,,,,1/27/2025,"- Import file upload
+- File format validation (21 columns)
+- Participant creation (SHINE) or addition (After-SHINE)
+- Re-exam participant import
+- Validation logic by course channel and type
+- Duplication check
+- Import process workflow"
+8.8.3,Add Participant to Course Manually,3,,,,,,1/27/2025,"- Participant Details Validation
+- Participant Duplication Check
+- Support add re-exam participant to course
+- Implement Specific import participant logic check by course channel type etc
+- Enable UI for add existing participant to course for re-exam
+- Show list of participants that are applicable to be added to course
+- Participant Search and Filter during adding participant to course"
+8.8.4,Export Participants,3,,,,,,1/27/2025,"- Export Participant List to CSV file based on current filters
+- Export includes all participant data fields
+- Export format: Excel (.xlsx) or CSV (.csv)"
+8.8.5,Export Participants for MOF Exam,3,,,,,,1/27/2025,"- Determine the Participants that are eligible for MOF exam
+- Export Participant to CSV predefined template for MOF exam
+- Eligibility criteria: Passed all AOL exams Full attendance check
+- Export includes MOF course code and province"
+8.8.6,Import MOF Exam Result,3,,,,,,1/27/2025,"- Allow Import MOF Exam Result with file upload
+- File format validation (CSV or Excel)
+- MOF course code validation
+- Participant matching by name/agent code
+- Result update (Passed/Failed)
+- Import results display (success count failed count unmatched list)"
+8.8.7,Confirm Passed Participant,3,,,,,,1/27/2025,"- Display list of participants with final result = Passed
+- Admin review and selection
+- Attachment upload (SHINE only)
+- Confirmation process
+- Email notification
+- Confirmation status update"
+8.8.8,Export Passed Participant,3,,,,,,1/27/2025,"- Export passed participants only (final result = Passed)
+- Export includes detailed information
+- Filter options (course type confirmation date channel region)
+- Export format: Excel or CSV"
+8.8.9,Attendance Check,3,,,,,,1/27/2025,"- Updated via API (refer External Interface Requirement)
+- Number represents each stage
+- System tracks attendance per stage
+- System calculates attendance percentage
+- Full attendance required for course completion"
+8.8.10,AOL Exam Result,3,,,,,,1/27/2025,"- Updated via API (refer External Interface Requirement)
+- Result: passed/failed
+- System tracks AOL exam results per participant
+- Multiple AOL exams may be required per course
+- All AOL exams must be passed for MOF exam eligibility"
+8.8.11,Configurable Final Result Calculation Rules,3,,,,,,1/27/2025,"- Configure rules based on Channel Course Type Exam Type Partner Status
+- Configure AOL exam check (CHECK/SKIP)
+- Configure Attendance check (CHECK/SKIP)
+- Configure Stage-specific attendance (ALL or specific stages)
+- Configure MOF exam check (CHECK/SKIP)
+- Rule priority and matching logic
+- Rule configuration UI"
+8.8.12,Manually Set Passed/Failed,3,,,,,,1/27/2025,"- Manual result override functionality
+- Admin/Head only
+- Reason and attachment required
+- Value recorded as passed** or failed**
+- Attachment recorded in participant list"
+8.8.13,Grant Agent Code,3,,,,,,1/27/2025,"- Done via API (refer External Interface)
+- Agent code displayed for each participant
+- Code assignment process"
+8.9,Course Type Checklist Configuration,2,,,,,,1/27/2025,"- Course checklist by course type definition
+- Email and notification
+- Show course checklist in course details
+- Authorization matrix"
+8.9.1,Course Checklist by Course Type Definition,3,,,,,,1/27/2025,"- Checklist step definitions
+- Step configuration per course type
+- PIC assignment
+- Reminder configuration"
+8.9.2,Email and Notification,3,,,,,,1/27/2025,"- Checklist notification
+- Notification templates
+- Notification triggers"
+8.9.2.1,Checklist Notification,4,,,,,,1/27/2025,"- Notification logic
+- Notification timing
+- Notification recipients"
+8.9.2.2,Checklist Notification Templates,4,,,,,,1/27/2025,"- Template definitions
+- Template variables
+- Template customization"
+8.9.3,Show Course Checklist in Course Details,3,,,,,,1/27/2025,"- Checklist display
+- Checklist details and actions
+- Business rules"
+8.9.3.1,Course Checklist Details and Actions,4,,,,,,1/27/2025,"- Step display
+- Action buttons
+- Progress tracking"
+8.9.3.2,Business Rules,4,,,,,,1/27/2025,"- Checklist completion rules
+- Step dependency rules
+- Validation rules"
+8.9.4,Authorization Matrix,3,,,,,,1/27/2025,"- Checklist permissions
+- Role-based access
+- Action permissions"
+8.9.5,Course MOF addresses registration and participant allocation,3,,,,,,1/27/2025,"- Multiple MOF address configuration
+- Participant allocation to MOF addresses
+- Import MOF results by venue
+- Filter participant list by MOF address
+- Export participants by MOF venue"
+8.1,Course Import Function [PHASE 2],2,PHASE 2,,,,,,1/27/2025,"- Course import functionality
+- Import file format
+- Import validation
+- Import process"
+9,PIC Calendar,1,IN PROGRESS,,,,,1/27/2025,"- View courses per trainer
+- View trainer assignment
+- Export PIC calendar data
+- Calendar features"
+9.1,View Courses Per Trainer,2,,,,,,1/27/2025,"- Matrix calendar layout
+- Course display in calendar cells
+- Trainer display customization
+- Filter options
+- Role-based authorization
+- Trainer workload tooltip
+- Interactive features
+- Month navigation
+- Empty state handling
+- Default screen after login"
+9.1.1,Matrix Calendar Layout,3,,,,,,1/27/2025,"- Calendar grid structure
+- Trainer rows
+- Date columns
+- Cell display"
+9.1.2,Course Display in Calendar Cells,3,,,,,,1/27/2025,"- Course information in cells
+- Course color coding
+- Course details on hover"
+9.1.3,Trainer Display Customization,3,,,,,,1/27/2025,"- Trainer selection
+- Trainer filtering
+- Display options"
+9.1.4,Filter Options,3,,,,,,1/27/2025,"- Filter by trainer
+- Filter by course type
+- Filter by status
+- Filter by date range"
+9.1.5,Role-Based Authorization,3,,,,,,1/27/2025,"- Calendar access by role
+- View permissions
+- Edit permissions"
+9.1.6,Trainer Workload Tooltip,3,,,,,,1/27/2025,"- Workload information
+- Tooltip display
+- Workload calculation"
+9.1.7,Interactive Features,3,,,,,,1/27/2025,"- Course click actions
+- Drag and drop
+- Quick actions"
+9.1.8,Month Navigation,3,,,,,,1/27/2025,"- Month selection
+- Date navigation
+- Calendar refresh"
+9.1.9,Empty State Handling,3,,,,,,1/27/2025,"- Empty state display
+- Empty state messages
+- Empty state actions"
+9.1.10,Default Screen After Login,3,,,,,,1/27/2025,"- Default view configuration
+- Login redirect
+- User preference"
+9.2,View Trainer Assignment for Each Trainer,2,,,,,,1/27/2025,"- Trainer assignment display
+- Assignment details
+- Assignment history"
+9.3,Export PIC Calendar Data,2,,,,,,1/27/2025,"- Export calendar data to CSV
+- Trainer assignments export
+- Course details export
+- Two-sheet export format"
+10,Master Calendar,1,IN PROGRESS,,,,,1/27/2025,"- View courses in master calendar
+- Create course in master calendar
+- Other actions in master calendar
+- Calendar features"
+10.1,View Courses in Master Calendar,2,,,,,,1/27/2025,"- Matrix calendar layout
+- Course display in calendar cells
+- Program display customization
+- Filter options
+- Month navigation
+- Interactive features
+- Empty state handling
+- Performance optimization
+- Program-based course creation"
+10.1.1,Matrix Calendar Layout,3,,,,,,1/27/2025,"- Calendar grid structure
+- Program rows
+- Date columns
+- Cell display"
+10.1.2,Course Display in Calendar Cells,3,,,,,,1/27/2025,"- Course information in cells
+- Course color coding
+- Course details on hover"
+10.1.3,Program Display Customization,3,,,,,,1/27/2025,"- Program selection
+- Program filtering
+- Display options"
+10.1.4,Filter Options,3,,,,,,1/27/2025,"- Filter by program
+- Filter by course type
+- Filter by status
+- Filter by date range"
+10.1.5,Month Navigation,3,,,,,,1/27/2025,"- Month selection
+- Date navigation
+- Calendar refresh"
+10.1.6,Interactive Features,3,,,,,,1/27/2025,"- Course click actions
+- Drag and drop
+- Quick actions"
+10.1.7,Empty State Handling,3,,,,,,1/27/2025,"- Empty state display
+- Empty state messages
+- Empty state actions"
+10.1.9,Performance Optimization,3,,,,,,1/27/2025,"- Performance improvements
+- Loading optimization
+- Data caching"
+10.1.11,Program-Based Course Creation,3,,,,,,1/27/2025,"- Course creation from program
+- Program context
+- Pre-filled fields"
+10.2,Create Course in Master Calendar,2,,,,,,1/27/2025,"- Course creation from calendar
+- Quick create feature
+- Calendar context"
+10.3,Other Actions in Master Calendar,2,,,,,,1/27/2025,"- Course registration
+- Course edit
+- Course delete
+- View details
+- Export course"
+10.3.1,Course Registration,3,,,,,,1/27/2025,"- Registration from calendar
+- Registration workflow
+- Calendar integration"
+10.3.2,Course Edit,3,,,,,,1/27/2025,"- Edit from calendar
+- Edit workflow
+- Calendar integration"
+10.3.3,Course Delete,3,,,,,,1/27/2025,"- Delete from calendar
+- Delete confirmation
+- Calendar integration"
+10.3.4,View Details,3,,,,,,1/27/2025,"- View course details
+- Details modal
+- Quick view"
+10.3.5,Export Course,3,,,,,,1/27/2025,"- Export from calendar
+- Export format
+- Export fields"
+11,List Manage,1,IN PROGRESS,,,,,1/27/2025,"- List management features
+- List operations
+- List configuration"
+12,Report Management [PHASE 2],1,NOT STARTED,,,,,1/27/2025,"- Report generation
+- Report types
+- Report export
+- Report scheduling"
+13.1,SHINE PASS RATIO,2,,,,,,1/27/2025,"- SHINE pass ratio calculation
+- Pass ratio report
+- Report export"
+13.2,SHINE TRAINING,2,,,,,,1/27/2025,"- SHINE training report
+- Training statistics
+- Report export"
+13.3,PARTICIPANT OF TRAINERS,2,,,,,,1/27/2025,"- Participant by trainer report
+- Trainer statistics
+- Report export"
+13.4,RECRUITMENT SHINE,2,,,,,,1/27/2025,"- Recruitment SHINE report
+- Recruitment statistics
+- Report export"
+13.5,DANH SACH DANG KY MOF,2,,,,,,1/27/2025,"- MOF registration list
+- Registration report
+- Report export"
+13.6,PASS RATIO BY MONTH,2,,,,,,1/27/2025,"- Monthly pass ratio report
+- Monthly statistics
+- Report export"
+13.7,GIO BAY TRAINER,2,,,,,,1/27/2025,"- Trainer flight hours report
+- Flight hours statistics
+- Report export"
+13.8,ATTENDANCE REPORT,2,,,,,,1/27/2025,"- Attendance report
+- Attendance statistics
+- Report export"
+13.9,REPORT FOR FWD AGENT TRAINING ACTIVITY,2,,,,,,1/27/2025,"- FWD agent training activity report
+- Activity statistics
+- Report export"
+13.1,SHINE REPORT,2,,,,,,1/27/2025,"- SHINE comprehensive report
+- SHINE statistics
+- Report export"
+13.11,FWT TRAINER PAYSLIP,2,,,,,,1/27/2025,"- Trainer payslip report
+- Payslip generation
+- Report export"
+13.12,EXAM FEE TOTAL,2,,,,,,1/27/2025,"- Exam fee total report
+- Fee statistics
+- Report export"
+13,General Setting,1,,,,,,1/27/2025,"- System settings
+- Configuration management
+- Settings UI"
+14.1,SMTP Settings,2,,,,,,1/27/2025,"- SMTP configuration
+- Email server settings
+- Email testing
+- Settings validation"

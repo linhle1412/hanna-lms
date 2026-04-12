@@ -1,0 +1,3148 @@
+Date: Sun, 7 Dec 2025 07:45:46 +0000 (UTC)
+Message-ID: <588118635.37.1765093546960@c81102006b41>
+Subject: Exported From Confluence
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_36_211327159.1765093546960"
+
+------=_Part_36_211327159.1765093546960
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/exported.html
+
+<html xmlns:o=3D'urn:schemas-microsoft-com:office:office'
+      xmlns:w=3D'urn:schemas-microsoft-com:office:word'
+      xmlns:v=3D'urn:schemas-microsoft-com:vml'
+      xmlns=3D'urn:w3-org-ns:HTML'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <title>Course Creation, Listing, Details</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:TargetScreenSize>1024x640</o:TargetScreenSize>
+            <o:PixelsPerInch>72</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+                <!--
+        @page Section1 {
+            size: 8.5in 11.0in;
+            margin: 1.0in;
+            mso-header-margin: .5in;
+            mso-footer-margin: .5in;
+            mso-paper-source: 0;
+        }
+
+        table {
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: solid 1px;
+            padding: 5px;
+        }
+
+        td {
+            page-break-inside: avoid;
+        }
+
+        tr {
+            page-break-after: avoid;
+        }
+
+        div.Section1 {
+            page: Section1;
+        }
+
+        /* Confluence print stylesheet. Common to all themes for print medi=
+a */
+/* Full of !important until we improve batching for print CSS */
+
+@media print {
+    #main {
+        padding-bottom: 1em !important; /* The default padding of 6em is to=
+o much for printouts */
+    }
+
+    body {
+        font: var(--ds-font-body-small, Arial, Helvetica, FreeSans, sans-se=
+rif);
+    }
+
+    body, #full-height-container, #main, #page, #content, .has-personal-sid=
+ebar #content {
+        background: var(--ds-surface, #fff) !important;
+        color: var(--ds-text, #000) !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    a, a:link, a:visited, a:focus, a:hover, a:active {
+        color: var(--ds-text, #000);
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+        page-break-after: avoid;
+    }
+
+    pre {
+        font: var(--ds-font-code, Monaco, "Courier New", monospace);
+    }
+
+    #header,
+    .aui-header-inner,
+    #navigation,
+    #sidebar,
+    .sidebar,
+    #personal-info-sidebar,
+    .ia-fixed-sidebar,
+    .page-actions,
+    .navmenu,
+    .ajs-menu-bar,
+    .noprint,
+    .inline-control-link,
+    .inline-control-link a,
+    a.show-labels-editor,
+    .global-comment-actions,
+    .comment-actions,
+    .quick-comment-container,
+    #addcomment {
+        display: none !important;
+    }
+
+    /* CONF-28544 cannot print multiple pages in IE */
+    #splitter-content {
+        position: relative !important;
+    }
+
+    .comment .date::before {
+        content: none !important; /* remove middot for print view */
+    }
+
+    h1.pagetitle img {
+        height: auto;
+        width: auto;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    #footer {
+        position: relative !important; /* CONF-17506 Place the footer at en=
+d of the content */
+        margin: 0;
+        padding: 0;
+        background: none;
+        clear: both;
+    }
+
+    #poweredby {
+        border-top: none;
+        background: none;
+    }
+
+    #poweredby li.print-only {
+        display: list-item;
+        font-style: italic;
+    }
+
+    #poweredby li.noprint {
+        display: none;
+    }
+
+    /* no width controls in print */
+    .wiki-content .table-wrap,
+    .wiki-content p,
+    .panel .codeContent,
+    .panel .codeContent pre,
+    .image-wrap {
+        overflow: visible !important;
+    }
+
+    /* TODO - should this work? */
+    #children-section,
+    #comments-section .comment,
+    #comments-section .comment .comment-body,
+    #comments-section .comment .comment-content,
+    #comments-section .comment p {
+        page-break-inside: avoid;
+    }
+
+    #page-children a {
+        text-decoration: none;
+    }
+
+    /**
+     hide twixies
+
+     the specificity here is a hack because print styles
+     are getting loaded before the base styles. */
+    #comments-section.pageSection .section-header,
+    #comments-section.pageSection .section-title,
+    #children-section.pageSection .section-header,
+    #children-section.pageSection .section-title,
+    .children-show-hide {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .children-show-hide.icon {
+        display: none;
+    }
+
+    /* personal sidebar */
+    .has-personal-sidebar #content {
+        margin-right: 0px;
+    }
+
+    .has-personal-sidebar #content .pageSection {
+        margin-right: 0px;
+    }
+
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+-->
+    </style>
+</head>
+<body>
+    <h1>Course Creation, Listing, Details</h1>
+    <div class=3D"Section1">
+        <p></p>
+<style type=3D"text/css">/*<![CDATA[*/
+div.rbtoc1765093546851 {padding: 0px;}
+div.rbtoc1765093546851 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1765093546851 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style>
+<div class=3D"toc-macro rbtoc1765093546851">
+<ul class=3D"toc-indentation">
+<li><a href=3D"#CourseCreation,Listing,Details-8.1CourseCreation">8.1 Cours=
+e Creation</a>
+<ul class=3D"toc-indentation">
+<li><a href=3D"#CourseCreation,Listing,Details-8.1.1CourseCreationForm">8.1=
+.1 Course Creation Form</a>
+<ul class=3D"toc-indentation">
+<li><a href=3D"#CourseCreation,Listing,Details-8.1.1.1DynamicFormBehaviorBa=
+sedonCourseType">8.1.1.1 Dynamic Form Behavior Based on Course Type</a></li=
+>
+<li><a href=3D"#CourseCreation,Listing,Details-8.1.1.2SHINEFormFields">8.1.=
+1.2 SHINE Form Fields</a></li>
+<li><a href=3D"#CourseCreation,Listing,Details-8.1.1.3ProductFormFields">8.=
+1.1.3 Product Form Fields</a></li>
+<li><a href=3D"#CourseCreation,Listing,Details-8.1.1.4SkillFormFields">8.1.=
+1.4 Skill Form Fields</a></li>
+<li><a href=3D"#CourseCreation,Listing,Details-8.1.1.5CourseCodeGenerationL=
+ogic">8.1.1.5 Course Code Generation Logic</a></li>
+<li><a href=3D"#CourseCreation,Listing,Details-8.1.1.6StatusTransitionLogic=
+">8.1.1.6 Status Transition Logic</a></li>
+<li><a href=3D"#CourseCreation,Listing,Details-8.1.1.7ChecklistTemplateAppl=
+ication">8.1.1.7 Checklist Template Application</a></li>
+<li><a href=3D"#CourseCreation,Listing,Details-8.1.1.8Co-trainerManagement"=
+>8.1.1.8 Co-trainer Management</a></li>
+</ul></li>
+<li><a href=3D"#CourseCreation,Listing,Details-8.1.2EntryPoints">8.1.2 Entr=
+y Points</a></li>
+<li><a href=3D"#CourseCreation,Listing,Details-8.1.3Validation&amp;ErrorHan=
+dling">8.1.3 Validation &amp; Error Handling</a></li>
+</ul></li>
+<li><a href=3D"#CourseCreation,Listing,Details-8.2CourseListingScreen">8.2 =
+Course Listing Screen</a>
+<ul class=3D"toc-indentation">
+<li><a href=3D"#CourseCreation,Listing,Details-8.2.1CourseListView">8.2.1 C=
+ourse List View</a></li>
+<li><a href=3D"#CourseCreation,Listing,Details-8.2.2Filter&amp;Search">8.2.=
+2 Filter &amp; Search</a></li>
+<li><a href=3D"#CourseCreation,Listing,Details-8.2.3ExportCourses">8.2.3 Ex=
+port Courses</a></li>
+</ul></li>
+<li><a href=3D"#CourseCreation,Listing,Details-8.3CourseDetailsScreen">8.3 =
+Course Details Screen</a>
+<ul class=3D"toc-indentation">
+<li><a href=3D"#CourseCreation,Listing,Details-8.3.1CourseGeneralTab">8.3.1=
+ Course General Tab</a>
+<ul class=3D"toc-indentation">
+<li><a href=3D"#CourseCreation,Listing,Details-8.3.1.1CourseInformationDisp=
+lay">8.3.1.1 Course Information Display</a></li>
+<li><a href=3D"#CourseCreation,Listing,Details-8.3.1.2CourseStatusTimeline"=
+>8.3.1.2 Course Status Timeline</a></li>
+<li><a href=3D"#CourseCreation,Listing,Details-8.3.1.3CourseApprovalActions=
+">8.3.1.3 Course Approval Actions</a></li>
+</ul></li>
+<li><a href=3D"#CourseCreation,Listing,Details-8.3.2CourseHistory">8.3.2 Co=
+urse History</a></li>
+<li><a href=3D"#CourseCreation,Listing,Details-8.3.3CoursePlanningTab">8.3.=
+3 Course Planning Tab</a></li>
+<li><a href=3D"#CourseCreation,Listing,Details-8.3.4CourseParticipantTabOve=
+rview">8.3.4 Course Participant Tab Overview</a></li>
+</ul></li>
+</ul>
+</div>
+<h2 local-id=3D"668bb496-642b-45b9-a285-3c5082d3fdd5" id=3D"CourseCreation,=
+Listing,Details-8.1CourseCreation">8.1 Course Creation</h2>
+<p local-id=3D"2d3f686f-ae37-4320-b037-a4076950d52c"><strong>User Story:</s=
+trong> <br>
+AS a trainer, lead region, head channel, or master user <br>
+I NEED to create new courses in the LMS system <br>
+SO THAT training programs can be scheduled and managed effectively</p>
+<p local-id=3D"fdcbb823-fc51-4f45-b927-7acf4409e293"><strong>Business Use C=
+ases:</strong></p>
+<ul local-id=3D"4f38682e-704a-4cc1-aa2c-473c220dabf3">
+<li local-id=3D"38bd67b7-13e7-4964-94d6-ec042dc69f42">
+<p local-id=3D"f9b3769e-998c-47b1-b2d3-4f3868ed8e04">Trainer creates SHINE =
+course for new agent onboarding</p></li>
+<li local-id=3D"f2495136-8895-4129-a31d-43190d8a6fea">
+<p local-id=3D"c2c66389-529a-4ceb-87c6-0d1c03c44e18">Lead Region schedules =
+Product training for existing agents</p></li>
+<li local-id=3D"8bc919cd-524d-4c0b-a840-6667957c3084">
+<p local-id=3D"7aad8190-f833-43cb-92bf-fcf6f3baf37a">Head Channel plans Ski=
+ll development courses for their team</p></li>
+</ul>
+<h3 local-id=3D"8371c95d-35e8-47c7-b7cb-ecfbf2dd5282" id=3D"CourseCreation,=
+Listing,Details-8.1.1CourseCreationForm">8.1.1 Course Creation Form</h3>
+<p local-id=3D"dea148a9-3784-424d-a177-8eac1de1223c">The system provides dy=
+namic course creation forms that adapt based on the selected course type (S=
+HINE, Product, or Skill).</p>
+<h4 local-id=3D"3bbe67ca-f18f-4200-bcc5-269150d46a5e" id=3D"CourseCreation,=
+Listing,Details-8.1.1.1DynamicFormBehaviorBasedonCourseType">8.1.1.1 Dynami=
+c Form Behavior Based on Course Type</h4>
+<p local-id=3D"2a8236b4-42bc-4f7b-a199-3ae08ddaa4c8"><strong>Business Rule:=
+</strong></p>
+<p local-id=3D"5d406a87-5d83-40a4-9b3a-535025b60353">When a user selects a =
+course type, the form dynamically shows/hides fields and adjusts validation=
+ rules:</p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"da=
+35c2f9-65a0-4b20-a4e8-226e469d6db5" class=3D"confluenceTable">
+<tbody>
+<tr ac:local-id=3D"e05d35ec-fb57-447c-b7c1-498615084a76">
+<th data-local-id=3D"1bcaa04b-191c-4c61-917c-2be28f073c09" class=3D"conflue=
+nceTh">
+<p local-id=3D"c3e1ca1a-5567-4d9a-afdf-fc8cbd4a7f71">Course Type</p></th>
+<th data-local-id=3D"2ca85b1c-eb5c-4afd-bff8-218d9aa65b6c" class=3D"conflue=
+nceTh">
+<p local-id=3D"d147c98d-b040-4f5c-ac67-443f6b6be5d5">MOF Fields</p></th>
+<th data-local-id=3D"ebe65c0a-2d8e-4f20-89fb-6db0b78656c8" class=3D"conflue=
+nceTh">
+<p local-id=3D"d192167d-5bd9-4677-a445-5abd30af2407">AOL Fields</p></th>
+<th data-local-id=3D"750683f0-7231-43c3-b3a4-a2853b88c523" class=3D"conflue=
+nceTh">
+<p local-id=3D"e9c7b40c-0da9-496a-b159-d5c14c311cd6">Program Filter</p></th=
+>
+</tr>
+<tr ac:local-id=3D"14fef470-92f5-4a2d-b7bd-92c3dc5175a9">
+<td data-local-id=3D"c81bf147-d7e8-4743-b41d-534932c36f8a" class=3D"conflue=
+nceTd">
+<p local-id=3D"6cd3871a-47ba-4a6b-8848-286910ae0872">SHINE</p></td>
+<td data-local-id=3D"aa3e96ad-dcde-497c-bac5-3ecd535adb77" class=3D"conflue=
+nceTd">
+<p local-id=3D"ba554858-dde0-48be-9c26-fbee45d181ab">=E2=9C=85 Required</p>=
+</td>
+<td data-local-id=3D"a837e244-d61e-42ae-b7de-e50ff36ceebe" class=3D"conflue=
+nceTd">
+<p local-id=3D"ce2af241-6b2d-4ed9-a642-f8ecf037194b">=E2=9C=85 Optional</p>=
+</td>
+<td data-local-id=3D"17f590b5-1f29-4406-aa58-95a90f4b4c44" class=3D"conflue=
+nceTd">
+<p local-id=3D"f94f8454-840f-4c4d-973d-7601c22b5f68">SHINE programs only</p=
+></td>
+</tr>
+<tr ac:local-id=3D"4b186363-34cb-4c29-a95f-219c63d76aad">
+<td data-local-id=3D"3109dfca-3b3e-4235-9430-465486a76104" class=3D"conflue=
+nceTd">
+<p local-id=3D"c29c3eb6-2ff8-49b8-be92-7bb85002c0e8">Product</p></td>
+<td data-local-id=3D"18263549-5081-4beb-963e-0a73d1a008b0" class=3D"conflue=
+nceTd">
+<p local-id=3D"b78751f6-3e0f-462c-9dfa-35331b26580e">=E2=9D=8C Hidden</p></=
+td>
+<td data-local-id=3D"cc46626b-fffb-40be-af69-5ac9ddd70cba" class=3D"conflue=
+nceTd">
+<p local-id=3D"0c11314a-5011-4423-b9c3-d3c6bc96682b">=E2=9C=85 Optional</p>=
+</td>
+<td data-local-id=3D"9ad1996b-c8ac-401a-aa86-4febf84499a1" class=3D"conflue=
+nceTd">
+<p local-id=3D"00cb165b-100c-453d-9d7e-42277539f0c4">Product programs only<=
+/p></td>
+</tr>
+<tr ac:local-id=3D"5ab7bb05-0add-419c-b9ed-d1b83c302aeb">
+<td data-local-id=3D"b0159339-70ff-4b05-81c7-8a18abe1e214" class=3D"conflue=
+nceTd">
+<p local-id=3D"f98ad06b-c26b-43ac-a7fe-25da3889e3ec">Skill</p></td>
+<td data-local-id=3D"0fdffc98-5ca6-4618-bf7d-99aba44d5e2e" class=3D"conflue=
+nceTd">
+<p local-id=3D"f34ad11a-ad33-4205-9e30-ec6b49a89fcc">=E2=9D=8C Hidden</p></=
+td>
+<td data-local-id=3D"1ef82865-442b-4565-9dde-2a90f50a680c" class=3D"conflue=
+nceTd">
+<p local-id=3D"d0e93dda-7a17-4d53-b0d2-e8da60d33aef">=E2=9D=8C Hidden</p></=
+td>
+<td data-local-id=3D"646baa3e-03a4-495f-93a9-1858b9c06f43" class=3D"conflue=
+nceTd">
+<p local-id=3D"eb45768b-4344-454a-87f8-c841077c3bfc">Skill programs only</p=
+></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p local-id=3D"d7052296-e484-468e-b0e5-67ee8e7bb6c9"><strong>Dynamic Behavi=
+or:</strong></p>
+<ul local-id=3D"9001c662-4544-46c3-be59-3472408c01b8">
+<li local-id=3D"e9a67fd8-2bea-471f-95da-cdce8db7886a">
+<p local-id=3D"2654ecc8-9f08-4958-8d49-bec277565c3c"><strong>Course Type Se=
+lection:</strong> User selects from dropdown (SHINE/Product/Skill)</p></li>
+<li local-id=3D"a959018a-864e-4483-8ef9-a0b509b3b0f6">
+<p local-id=3D"65efec40-d9d4-4b20-a525-e72f8aa5db48"><strong>Form Template =
+Switch:</strong> System loads appropriate field set</p></li>
+<li local-id=3D"864505c1-fe97-4597-ba8e-ab1e6481b2c3">
+<p local-id=3D"977f21e5-f7e7-4a35-aa2b-700abda1ccdc"><strong>Program List F=
+ilter:</strong> Dropdown shows only programs matching selected course type<=
+/p></li>
+<li local-id=3D"79703d9f-7a86-4537-9fe9-4f3bbeab7910">
+<p local-id=3D"f5f7142f-1312-4c3c-83ec-912acd8fedf0"><strong>Field Visibili=
+ty:</strong> MOF and AOL sections show/hide automatically</p></li>
+<li local-id=3D"fdd9eaa4-7bf6-474d-aa42-3054c498eab8">
+<p local-id=3D"fde10946-09a1-4c28-abad-9352f4cff2f6"><strong>Validation Rul=
+es:</strong> Required fields adjust based on course type</p></li>
+</ul>
+<h4 local-id=3D"d276b95e-c87b-4a9b-a6eb-5f8857301858" id=3D"CourseCreation,=
+Listing,Details-8.1.1.2SHINEFormFields">8.1.1.2 SHINE Form Fields</h4>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"83=
+04a89f-7516-41e6-addf-7e91b0858466" class=3D"confluenceTable">
+<tbody>
+<tr ac:local-id=3D"7f2dc094-c508-4436-b1c7-538e88c89089">
+<th data-local-id=3D"3782107e-0645-4c78-8d71-1ca3f3ac9803" class=3D"conflue=
+nceTh">
+<p local-id=3D"4cec5331-d13d-43ed-8ff7-ad643ae4d296">S/N</p></th>
+<th data-local-id=3D"47a25b18-36b7-417a-af06-fa09d2f1ac54" class=3D"conflue=
+nceTh">
+<p local-id=3D"0fc8f088-a261-4269-bbd4-b0b426c6a79a">Fieldname</p></th>
+<th data-local-id=3D"193266ae-275a-4c91-8b51-0b10f076e637" class=3D"conflue=
+nceTh">
+<p local-id=3D"e4ddeda0-77fe-4f5c-a827-6082cb8156ae">Data Type</p></th>
+<th data-local-id=3D"ca7cccd0-d1a0-4d63-a977-58e68a51810a" class=3D"conflue=
+nceTh">
+<p local-id=3D"7ab6df3a-f738-44e4-96f3-2bc7a39611f5">M/O</p></th>
+<th data-local-id=3D"7711895d-10fa-46c4-a8ea-0da51bb1d18c" class=3D"conflue=
+nceTh">
+<p local-id=3D"98bb9c71-5902-43e6-a0ef-b037f93670b2">Description</p></th>
+</tr>
+<tr ac:local-id=3D"1d160e92-59d7-4b30-89b4-1b36a8c23717">
+<td data-local-id=3D"d018c203-2e52-46ad-b2cf-664bd6912eb6" class=3D"conflue=
+nceTd">
+<p local-id=3D"fee351d4-8f97-420a-84f1-a163eb647f8d">1</p></td>
+<td data-local-id=3D"68daf702-c6cc-4805-94d0-b806ef84a998" class=3D"conflue=
+nceTd">
+<p local-id=3D"1aa43008-87ce-4298-b28b-d05d201e2df9">Save</p></td>
+<td data-local-id=3D"bbaa730b-2121-46c5-b818-caa08822d003" class=3D"conflue=
+nceTd">
+<p local-id=3D"6ee21533-7e18-488b-a40d-23e14060d10f">Button</p></td>
+<td data-local-id=3D"b86db38f-5219-446e-ab01-e8548ae55e51" class=3D"conflue=
+nceTd">
+<ul local-id=3D"d2c55542-803f-4fc2-b58f-0d266c633cee">
+<li local-id=3D"d6e15ca7-3b90-44ed-8e2e-096ef4f218db">
+<p local-id=3D"64a504c5-4a44-43e9-813c-de448fe91b91"></p></li>
+</ul></td>
+<td data-local-id=3D"a1b670b3-f7c3-46ac-932b-035c05352f51" class=3D"conflue=
+nceTd">
+<p local-id=3D"b96e4236-190a-4e6d-afb8-fa945ce79321">On-click to create the=
+ course</p></td>
+</tr>
+<tr ac:local-id=3D"24152533-ef42-4952-a7e3-8c8dbc88bb11">
+<td data-local-id=3D"b23f7cb1-ab7c-4bb1-97e4-c14ab349f5e3" class=3D"conflue=
+nceTd">
+<p local-id=3D"d95adf1b-636a-4d78-80bb-9fe7933c24cb">2</p></td>
+<td data-local-id=3D"a364c34a-3896-4ae0-9848-c18977bf6462" class=3D"conflue=
+nceTd">
+<p local-id=3D"8ded22cc-d261-49bf-921a-717c0b5076df">Cancel</p></td>
+<td data-local-id=3D"f266a0fe-a27b-4af4-91b2-5f7e525d6504" class=3D"conflue=
+nceTd">
+<p local-id=3D"2ff14ee9-0413-418e-a024-e2ffdac42ed6">Button</p></td>
+<td data-local-id=3D"dade1ca4-1a54-456d-97a7-a324dcf77856" class=3D"conflue=
+nceTd">
+<ul local-id=3D"73a1ef92-ac6e-48b2-98ad-76666f65086e">
+<li local-id=3D"146a7e43-caed-4efa-bba2-6e7786921702">
+<p local-id=3D"99350de2-113f-4470-a894-da5bbdde03c0"></p></li>
+</ul></td>
+<td data-local-id=3D"6fe273ac-feca-463d-add5-bcaccea91dc5" class=3D"conflue=
+nceTd">
+<p local-id=3D"a7c54ae7-c4b9-4399-a9e2-dd668e740858">On-click to cancel cou=
+rse creation</p></td>
+</tr>
+<tr ac:local-id=3D"8414a93f-f516-4e27-abf5-7dbd686413f3">
+<td data-local-id=3D"20b93121-8350-47cb-a887-0943d3c8f7d7" class=3D"conflue=
+nceTd">
+<p local-id=3D"95e8360b-ff0c-4c3b-9ef1-f37330792286">3</p></td>
+<td data-local-id=3D"3c615004-39b2-40e7-8dcc-d747f55bdc16" class=3D"conflue=
+nceTd">
+<p local-id=3D"97527e09-172e-448e-8a97-413440281113">Course Type</p></td>
+<td data-local-id=3D"fb0eeca7-c0fa-4dbb-a01b-7f3358eded50" class=3D"conflue=
+nceTd">
+<p local-id=3D"45eb1e3a-9275-4385-8df3-6750af6c4581">Dropdown</p></td>
+<td data-local-id=3D"8fbaa821-b993-44d3-9cb7-82a270f7c200" class=3D"conflue=
+nceTd">
+<p local-id=3D"521b0ca7-6dd1-4fa9-af61-7b01cc56ae33">M</p></td>
+<td data-local-id=3D"1f0f82f6-93c8-44d2-acb6-51262f737f4d" class=3D"conflue=
+nceTd">
+<p local-id=3D"991c406b-f3b5-4598-a11e-8e06044c4da9">Values: Product/Shine/=
+Skill</p></td>
+</tr>
+<tr ac:local-id=3D"1ff7adb0-afd6-4524-98d1-f02611ffe374">
+<td data-local-id=3D"b4f265ca-f69d-4e8b-b81f-208dbf6ecf60" class=3D"conflue=
+nceTd">
+<p local-id=3D"d9a600f5-8ad4-4bae-ac51-d0e35dc07a9c">4</p></td>
+<td data-local-id=3D"a2d1bf15-a62f-4f97-8f7d-28b12b58a3cc" class=3D"conflue=
+nceTd">
+<p local-id=3D"f22b31bf-805f-475c-809c-08488596b003">License Type</p></td>
+<td data-local-id=3D"f3fe56d8-572e-4f3d-b34c-69b70106df98" class=3D"conflue=
+nceTd">
+<p local-id=3D"417a6f32-7934-4302-a0e4-ebe03255664e">Display</p></td>
+<td data-local-id=3D"d90888be-3857-4de6-830e-c0e42d859795" class=3D"conflue=
+nceTd">
+<p local-id=3D"09dd9e4f-51b6-473d-992c-23c361148f19">D</p></td>
+<td data-local-id=3D"b8701ea0-8943-4b4c-9bb6-5cc4323c8ba6" class=3D"conflue=
+nceTd">
+<p local-id=3D"49482517-9310-44ce-9e87-25404b7d16b6">Auto-populated from se=
+lected program</p></td>
+</tr>
+<tr ac:local-id=3D"16dc3eb4-4146-4933-83e8-d5e212635cda">
+<td data-local-id=3D"753d011d-12b1-4f2a-ad12-b1b202d55b6d" class=3D"conflue=
+nceTd">
+<p local-id=3D"0b62cb93-4c69-4de8-87d5-1f7c21e734ad">5</p></td>
+<td data-local-id=3D"fe15042a-b0ba-4b3d-b60a-3a1f64055dd9" class=3D"conflue=
+nceTd">
+<p local-id=3D"18ee791d-6a13-4094-9d75-22d46d6c1332">Programs</p></td>
+<td data-local-id=3D"c7d49840-60e4-44ee-8b05-f36a2b7498dd" class=3D"conflue=
+nceTd">
+<p local-id=3D"0b2103c3-341a-4dc5-b6ad-262554f28687">Dropdown List</p></td>
+<td data-local-id=3D"80f9fd69-394f-4e78-817c-9cf413110c23" class=3D"conflue=
+nceTd">
+<p local-id=3D"aa772a75-b123-4ab1-b3b1-dfbe01ed2b94">M</p></td>
+<td data-local-id=3D"70fc1348-a6e9-40d9-88e4-47e17182d51d" class=3D"conflue=
+nceTd">
+<p local-id=3D"3d317f51-aff2-4096-a8be-a3c12b6f8da4">Filtered list based on=
+ course type</p></td>
+</tr>
+<tr ac:local-id=3D"675402eb-6474-45f4-a5c8-27aa15c1b09f">
+<td data-local-id=3D"76b77789-6504-4500-872d-c140c064738f" class=3D"conflue=
+nceTd">
+<p local-id=3D"48a4004f-90e7-4383-a99a-d600c32ab9eb">6</p></td>
+<td data-local-id=3D"b4898203-ecae-4c23-95c7-dd1d14f6cdb8" class=3D"conflue=
+nceTd">
+<p local-id=3D"2cc16784-f657-4f5b-ae3f-5109492241cd">Course Name</p></td>
+<td data-local-id=3D"47655d3e-cbd6-44e8-9c6e-19447c31d5bf" class=3D"conflue=
+nceTd">
+<p local-id=3D"8a317025-bc8b-4602-93f4-3760cafcdce9">Alphanumeric</p></td>
+<td data-local-id=3D"191435bd-bba1-430e-a4ff-4b0e30000441" class=3D"conflue=
+nceTd">
+<p local-id=3D"d08dfd70-0c7b-409e-ac11-8f94d062b7ed">M</p></td>
+<td data-local-id=3D"657accbd-e1ad-4f14-9859-2e347a4682ca" class=3D"conflue=
+nceTd">
+<p local-id=3D"9eed2f69-a320-42e0-bbe4-b1826eadfde6">Auto-fills with progra=
+m name (editable)</p></td>
+</tr>
+<tr ac:local-id=3D"f5344952-9dad-4c4a-a515-8cde4e50a3b6">
+<td data-local-id=3D"4a97e8f9-dc09-4147-8c9d-0a4ac191d2b8" class=3D"conflue=
+nceTd">
+<p local-id=3D"8d7dcde0-99ec-4010-8b04-06fbbc0bad68">7</p></td>
+<td data-local-id=3D"9764c364-a78b-4e29-b214-c9c843606dd6" class=3D"conflue=
+nceTd">
+<p local-id=3D"8640400b-47e8-482e-932d-c863f9edcdd1">Partner</p></td>
+<td data-local-id=3D"8bf669bc-9f25-4157-aa34-1a7b22d926af" class=3D"conflue=
+nceTd">
+<p local-id=3D"d9f5a174-ccab-4eb6-ad4c-f2621b1ee3fe">Multi-select Dropdown<=
+/p></td>
+<td data-local-id=3D"f764fbbd-a8f9-4e1b-afe6-e8fe2a408fd2" class=3D"conflue=
+nceTd">
+<p local-id=3D"24d0cb94-f809-4ab1-ae29-a386b219f3ca">O</p></td>
+<td data-local-id=3D"ac9e6668-1839-4703-9a1a-80b81dee16d7" class=3D"conflue=
+nceTd">
+<p local-id=3D"f2fd1ace-d3f6-49fb-b3c8-9c8c5ff7a289">List of PARTNERS from =
+list manage. Supports multiple selections with checkbox selection and tag d=
+isplay. Selected items appear as removable tags.</p></td>
+</tr>
+<tr ac:local-id=3D"ccd3b28d-fda3-407e-a8fc-317dfd823168">
+<td data-local-id=3D"295256cb-5b4c-4e62-a34a-2e4efef2222b" class=3D"conflue=
+nceTd">
+<p local-id=3D"48b96aa2-63de-466f-a226-c8c96733a769">8</p></td>
+<td data-local-id=3D"7094347b-305f-4140-a98b-4cbc2df229bb" class=3D"conflue=
+nceTd">
+<p local-id=3D"8da1eb07-e877-4048-a5d1-0069dc6d364e">Branch</p></td>
+<td data-local-id=3D"2e276a7d-520d-428d-bfbd-d48f604601f1" class=3D"conflue=
+nceTd">
+<p local-id=3D"33c17bdc-bae2-4d3a-98ac-6dc7946ed99e">Dropdown List</p></td>
+<td data-local-id=3D"8fa1548b-02cb-4fd9-89d1-120189afb5d8" class=3D"conflue=
+nceTd">
+<p local-id=3D"a5987235-db1d-481d-926a-55b67170e23a">O</p></td>
+<td data-local-id=3D"641c3ec0-f884-458d-8829-ee313c06d869" class=3D"conflue=
+nceTd">
+<p local-id=3D"74197df4-aac7-4c57-848a-0bed6cefc0cc">List of branches from =
+list manage</p></td>
+</tr>
+<tr ac:local-id=3D"f54e1d56-0f2c-4317-865e-ddad28a1cbc4">
+<td data-local-id=3D"d8584d5f-0e1f-43cf-9ed4-a7dac9d41714" class=3D"conflue=
+nceTd">
+<p local-id=3D"ace77e0e-31cc-4be1-9444-83c38b148ffb">9</p></td>
+<td data-local-id=3D"35e6ca50-e690-4f1b-918f-f78fb79c61dd" class=3D"conflue=
+nceTd">
+<p local-id=3D"66e1b5da-4ca3-4d8e-9a5a-3d3b16e2a657">Primary Trainer</p></t=
+d>
+<td data-local-id=3D"54632d6c-63a2-4997-ab65-7ce0d4c4fdb5" class=3D"conflue=
+nceTd">
+<p local-id=3D"1fa967d7-ae1e-4187-b1d4-4676dc8ceb2a">Dropdown List</p></td>
+<td data-local-id=3D"f1576b8f-b175-4c4c-b269-08b64435e02b" class=3D"conflue=
+nceTd">
+<p local-id=3D"7c6cc806-596f-4824-8e21-ebb94d39a4e3">M</p></td>
+<td data-local-id=3D"f33dbc7b-8a8f-4b5d-be8a-a2724dacdda1" class=3D"conflue=
+nceTd">
+<p local-id=3D"1ea916d7-49b9-4bd5-9fb2-4f3231300d1b">List of users with Tea=
+m "Trainer" from User Management. Default: Auto-set to current user if role=
+ is Trainer; blank for Lead/Head roles.</p></td>
+</tr>
+<tr ac:local-id=3D"39cca938-ddbe-4a1e-810f-320f69987c01">
+<td data-local-id=3D"9f863265-9cdb-49bc-bcd4-b736a008da5d" class=3D"conflue=
+nceTd">
+<p local-id=3D"11acbbb3-28f3-459b-ad35-a45a15b281be">10</p></td>
+<td data-local-id=3D"5adfab70-ba59-42c8-88cc-f30b2de86b33" class=3D"conflue=
+nceTd">
+<p local-id=3D"f92c42e6-dc76-4f8b-b371-604ea5e525f9">Co-Trainer</p></td>
+<td data-local-id=3D"3f57b863-befd-4494-9eb7-b218a801effc" class=3D"conflue=
+nceTd">
+<p local-id=3D"5d9ca019-62e2-4922-914f-00c75d54fd98">Dropdown List</p></td>
+<td data-local-id=3D"a42727cf-7bc5-4514-8af8-5eb5771b60f4" class=3D"conflue=
+nceTd">
+<p local-id=3D"1084ef80-214d-4124-91f4-d403a98cb9b9">O</p></td>
+<td data-local-id=3D"83381c42-6e42-4035-b050-ebca124abef4" class=3D"conflue=
+nceTd">
+<p local-id=3D"833b2e1d-0a0b-4263-9ace-08d77a2fd6a9">List of users with Tea=
+m "Trainer" from User Management.</p></td>
+</tr>
+<tr ac:local-id=3D"df8225e1-90f7-40fd-8bab-1b282490afb1">
+<td data-local-id=3D"2ba265df-1fee-40a8-ba7c-fcfed9e51bc8" class=3D"conflue=
+nceTd">
+<p local-id=3D"4aeb9e15-764f-40cc-a756-387efda37011">11</p></td>
+<td data-local-id=3D"984c2fcb-1bce-402a-9093-aafc98073ff6" class=3D"conflue=
+nceTd">
+<p local-id=3D"293abc3c-1e26-4b39-9236-ee6ffc57212f">Channel</p></td>
+<td data-local-id=3D"95e0c4bb-59db-491d-a9a6-e6298118d2e1" class=3D"conflue=
+nceTd">
+<p local-id=3D"b0df9b7d-4c5d-4d25-a059-1c54ce0883ab">Dropdown List</p></td>
+<td data-local-id=3D"4a8ca10d-f65f-46ac-ae3f-476f0c5350dc" class=3D"conflue=
+nceTd">
+<p local-id=3D"9f19fdfc-faa7-4507-a82b-241919e4efec">M</p></td>
+<td data-local-id=3D"da918c1c-adce-4487-8b97-9d2a1219f998" class=3D"conflue=
+nceTd">
+<p local-id=3D"6cda6061-fdc5-4130-b75c-9ed0911c8d57">Values: Agency/Banca F=
+SC/Banker/IFA</p></td>
+</tr>
+<tr ac:local-id=3D"b0d6787c-4b2f-473d-9e7a-7db71e0f3da5">
+<td data-local-id=3D"f1ac5a7e-8480-4f67-b485-262c9a0a91bb" class=3D"conflue=
+nceTd">
+<p local-id=3D"1ae12564-91c7-49ed-aaa8-ffe5ee968fce">12</p></td>
+<td data-local-id=3D"d645f249-58e2-49d8-ad22-8caf7222c9ef" class=3D"conflue=
+nceTd">
+<p local-id=3D"9da4c7c6-afcc-415e-a5a0-84fd7854b2b6">Region</p></td>
+<td data-local-id=3D"4014691b-4fd6-4c2b-bbb4-f24c2e7d4856" class=3D"conflue=
+nceTd">
+<p local-id=3D"143794b7-4400-43e5-875b-8d6c7e293563">Dropdown List</p></td>
+<td data-local-id=3D"f6cc08a6-469d-4e77-b567-10af8d10dd0b" class=3D"conflue=
+nceTd">
+<p local-id=3D"ff36bfc9-e0ee-4489-a2e3-93acb7a23926">M</p></td>
+<td data-local-id=3D"b6c1374d-4c6d-46fc-a92e-0593523fa834" class=3D"conflue=
+nceTd">
+<p local-id=3D"003643db-5a98-4efc-83bb-5224c649f4f2">Values: Central/Middle=
+/North/South</p></td>
+</tr>
+<tr ac:local-id=3D"ee7c3a5e-4898-432a-9bb9-e762e33bf9fc">
+<td data-local-id=3D"1e383332-8c7d-41d8-bd61-8af7f8e847e5" class=3D"conflue=
+nceTd">
+<p local-id=3D"cd861013-20ad-4122-ba98-dbcd48c2a76c">13</p></td>
+<td data-local-id=3D"f6418572-2886-4cf1-b3e9-48c95ab31d5e" class=3D"conflue=
+nceTd">
+<p local-id=3D"05ce8f53-d42b-4366-809a-5d5566e267f2">Venue address</p></td>
+<td data-local-id=3D"3f84ee7b-7328-4177-8ed1-ff5af2751125" class=3D"conflue=
+nceTd">
+<p local-id=3D"45ee04b5-6e7f-476a-a93e-84dc67da5bb4">Alphanumeric</p></td>
+<td data-local-id=3D"9eca5a3e-a9a4-4652-a4b5-f3f8d00ce0d7" class=3D"conflue=
+nceTd">
+<p local-id=3D"999fb60d-cea6-4ee9-b0e4-e232c3c29d00">M</p></td>
+<td data-local-id=3D"f9340ebc-5c23-4786-8419-089f349fa617" class=3D"conflue=
+nceTd">
+<p local-id=3D"f525feab-bed6-4730-97ae-ab5ec0e3b307">Physical location addr=
+ess</p></td>
+</tr>
+<tr ac:local-id=3D"08954ef8-a004-41e9-882f-b43cd8c21af2">
+<td data-local-id=3D"69b2039c-06f6-45d6-900a-cfaefd3f5f0b" class=3D"conflue=
+nceTd">
+<p local-id=3D"cc522329-6f14-4f1c-a572-efcd8e89dded">14</p></td>
+<td data-local-id=3D"d7893b87-b903-4d8b-8cb6-a382136dde8f" class=3D"conflue=
+nceTd">
+<p local-id=3D"f6d6f250-a4ea-4ed4-956b-31a5b03cf4b1">Start Date</p></td>
+<td data-local-id=3D"ed753d1f-b13e-4647-b321-e683ac83c3b1" class=3D"conflue=
+nceTd">
+<p local-id=3D"c3736205-0921-49c2-b317-081c59db51cc">Date Field</p></td>
+<td data-local-id=3D"ef5f6f2a-b9a4-4434-ae77-ce00c16f2bcb" class=3D"conflue=
+nceTd">
+<p local-id=3D"5e7a69b9-a2f5-4a9e-b302-7fec66c91073">M</p></td>
+<td data-local-id=3D"14791113-5306-43e5-85da-0e74d399d6ed" class=3D"conflue=
+nceTd">
+<p local-id=3D"9cce1e0b-087f-49ee-9624-da9af5054231">Must be &gt;=3D today+=
+2, Radio button: AM/PM</p></td>
+</tr>
+<tr ac:local-id=3D"9f2ac2cf-cab3-4183-a165-6bc054e5959b">
+<td data-local-id=3D"3c1f2828-6003-432c-95fe-17043edda932" class=3D"conflue=
+nceTd">
+<p local-id=3D"d08feef1-94e1-4e77-8ec0-587ac2042049">15</p></td>
+<td data-local-id=3D"61f391a7-f1be-4641-bff6-7c2f3f1cd7fb" class=3D"conflue=
+nceTd">
+<p local-id=3D"98b8d036-10cb-4b4f-b1bb-6b61f080e812">End Date</p></td>
+<td data-local-id=3D"5fa0c0d8-cc60-4ade-9c19-8f5b47fdf608" class=3D"conflue=
+nceTd">
+<p local-id=3D"bb1fbbf6-db88-4415-b504-90cf572f15d9">Date Field</p></td>
+<td data-local-id=3D"e61594df-d4a0-4267-b224-991c52d31200" class=3D"conflue=
+nceTd">
+<p local-id=3D"0523ed24-295e-4258-9fe5-e3283ba5da88">M</p></td>
+<td data-local-id=3D"7d71c98e-76af-4adc-af0a-7cc41cb881c9" class=3D"conflue=
+nceTd">
+<p local-id=3D"2eff174b-11cb-40d2-bc5c-5d4d5f29676c">Auto-set: Start date +=
+ program duration, Radio button: AM/PM</p></td>
+</tr>
+<tr ac:local-id=3D"23fc06ae-7755-465e-aaea-cca053db477a">
+<td data-local-id=3D"5e03e80d-0687-4da5-af63-bf23fe47fd8c" class=3D"conflue=
+nceTd">
+<p local-id=3D"26129e31-eb84-4617-8ed3-d0a1f4cf6c0d">16</p></td>
+<td data-local-id=3D"ecb43afb-4f29-43aa-a84f-91182ed0844c" class=3D"conflue=
+nceTd">
+<p local-id=3D"92f1f473-8e79-4ae1-9a3c-ca9ddb01fb6c">Area</p></td>
+<td data-local-id=3D"6644d7ca-0e5c-4cda-9e42-1943d254198c" class=3D"conflue=
+nceTd">
+<p local-id=3D"8d02f463-9989-4883-bef0-5a5b965415d0">Dropdown list</p></td>
+<td data-local-id=3D"cc44e2d5-8465-44c1-a163-e5c3f02d5b3b" class=3D"conflue=
+nceTd">
+<p local-id=3D"926a16ae-3d63-4427-b665-4c6f6714f7d3">M</p></td>
+<td data-local-id=3D"95abad23-efa7-4fa7-8bc4-28b7cc7b863a" class=3D"conflue=
+nceTd">
+<p local-id=3D"f1c2c22e-e656-4f63-bc1c-bbd546099178">List from List manage<=
+/p></td>
+</tr>
+<tr ac:local-id=3D"d4b10234-7fc4-4932-8cf0-f38540e717ef">
+<td data-local-id=3D"8f39db23-8e16-4926-bf7a-45b6d818891c" class=3D"conflue=
+nceTd">
+<p local-id=3D"f6c313e3-2066-466e-b6ef-2813cb0252e2">17</p></td>
+<td data-local-id=3D"38cd0682-a673-4437-95e4-8c3156add909" class=3D"conflue=
+nceTd">
+<p local-id=3D"d201d52a-040f-4dc3-a2a0-9f5711f96594">Province</p></td>
+<td data-local-id=3D"59144694-ef8e-4bd2-b9b2-90468d8440a8" class=3D"conflue=
+nceTd">
+<p local-id=3D"db444fb7-3039-48c3-91d4-a473b09e15c9">Dropdown List</p></td>
+<td data-local-id=3D"aab0b31a-69b4-4696-9161-cb72d8eaed4f" class=3D"conflue=
+nceTd">
+<p local-id=3D"267ea432-6b44-4542-b65a-592f968cd99c">M</p></td>
+<td data-local-id=3D"56a43809-6520-4a89-be36-3c3ef8c5ec7a" class=3D"conflue=
+nceTd">
+<p local-id=3D"75a7e7f7-6a47-48a9-ba9c-7fbad2bb9de7">List of Provinces</p><=
+/td>
+</tr>
+<tr ac:local-id=3D"c7b0740e-840d-4e27-b3ef-7ffd64b30a01">
+<td data-local-id=3D"51c0c0b7-94be-4693-9b8f-5d3673cfc659" class=3D"conflue=
+nceTd">
+<p local-id=3D"0ac871de-fde6-4219-a60f-f7efe9136e83">18</p></td>
+<td data-local-id=3D"4949d852-13ed-4213-b323-6e626b5e1be6" class=3D"conflue=
+nceTd">
+<p local-id=3D"22511cd0-60ec-4b05-8fb0-ecb79882509d">AOL Start time</p></td=
+>
+<td data-local-id=3D"00a7521b-842d-4e9c-90e6-79d717174680" class=3D"conflue=
+nceTd">
+<p local-id=3D"2ee1a958-6f85-4757-b088-57b814a52129">Date Field</p></td>
+<td data-local-id=3D"f98acef1-55fe-4f91-8680-8fbbc10f0dd7" class=3D"conflue=
+nceTd">
+<p local-id=3D"e1cc4bcc-876e-4af1-8240-17955d438a61">O</p></td>
+<td data-local-id=3D"a10f844a-9a2c-4d56-8917-db6cd55ea4b6" class=3D"conflue=
+nceTd">
+<p local-id=3D"033e2d7d-9afe-46fe-9290-37484602e858">Between Course start d=
+ate and course end date + 3 days</p></td>
+</tr>
+<tr ac:local-id=3D"fb7dffbc-4b9f-46f8-b35b-fe78d8a0be18">
+<td data-local-id=3D"79073f70-e0fa-44dc-a62f-df8f8c07e1df" class=3D"conflue=
+nceTd">
+<p local-id=3D"00e7120a-891c-482d-84d9-3e068b60aa5f">19</p></td>
+<td data-local-id=3D"5406aa3c-e66e-4373-9c35-9571c9b4f10c" class=3D"conflue=
+nceTd">
+<p local-id=3D"6b7237df-5c7c-4574-9abe-2e2f6f056c75">AOL End time</p></td>
+<td data-local-id=3D"3c5a9ec5-0242-4112-8349-babc5013062c" class=3D"conflue=
+nceTd">
+<p local-id=3D"64c2d31c-9c85-413a-a93f-80f458846a81">Date Field</p></td>
+<td data-local-id=3D"b419493a-c547-416b-a62e-409d1ebf91c0" class=3D"conflue=
+nceTd">
+<p local-id=3D"226002a9-89a8-48fe-a3f3-4f2a7caccac0">O</p></td>
+<td data-local-id=3D"ac374290-e3d1-4c66-8893-7ced5817e038" class=3D"conflue=
+nceTd">
+<p local-id=3D"38e12641-0c33-40a6-9abe-65bb5857f4d0">Between Course start d=
+ate and course end date + 3 days</p></td>
+</tr>
+<tr ac:local-id=3D"a2b5d425-006b-4d73-851f-0d95a7227d1e">
+<td data-local-id=3D"084c468e-4a41-410b-8e8e-b2c00e073c9a" class=3D"conflue=
+nceTd">
+<p local-id=3D"9ed7dca0-c8ee-436c-9ad1-18d624a7b79f">20</p></td>
+<td data-local-id=3D"72a386bf-1998-4549-b922-75bdbd567ca8" class=3D"conflue=
+nceTd">
+<p local-id=3D"3dc0f2cd-bdfc-49e4-b243-015ec05f2d6c">AOL Exam ID</p></td>
+<td data-local-id=3D"f71f537e-cd25-4772-b7c7-bfab33e69718" class=3D"conflue=
+nceTd">
+<p local-id=3D"b05918d3-9cd3-4dc4-ad26-acdf22a619e9">Multi-select Dropdown<=
+/p></td>
+<td data-local-id=3D"26148512-4807-4640-b15c-2c3b19f72688" class=3D"conflue=
+nceTd">
+<p local-id=3D"935e4be4-1d09-4ab3-aa5f-829e5853e3e4">O</p></td>
+<td data-local-id=3D"32af0e82-6513-4b46-9028-7f9435d79d0a" class=3D"conflue=
+nceTd">
+<p local-id=3D"eb910622-dbe1-4af1-afd0-e26d45ba1083">List of AOL exam codes=
+ from List Manage. Supports multiple selections with checkbox selection and=
+ tag display. Selected items appear as removable tags.</p></td>
+</tr>
+<tr ac:local-id=3D"f23f8533-34a6-4798-aa4c-d8f7f1421f9a">
+<td data-local-id=3D"d85f67b3-443e-4697-98e6-fd7e65e1ce96" class=3D"conflue=
+nceTd">
+<p local-id=3D"54c32e94-2c6d-47fb-8957-6bf6c1871b51">21</p></td>
+<td data-local-id=3D"508f656f-4560-4514-8bbc-10146256769c" class=3D"conflue=
+nceTd">
+<p local-id=3D"172af62c-ae92-4dc0-998f-b7ec2d01a937">Description</p></td>
+<td data-local-id=3D"6498cab8-f708-4616-92c9-e173a05c0dce" class=3D"conflue=
+nceTd">
+<p local-id=3D"0dc3afd1-21dc-4bfc-84d8-b53b76f08a15">Alphanumeric</p></td>
+<td data-local-id=3D"6c1d623f-cbaf-45dd-8e1c-9d9665d5ad29" class=3D"conflue=
+nceTd">
+<p local-id=3D"0cbd1071-8709-4f90-b0c3-01aa295c5828">O</p></td>
+<td data-local-id=3D"f641cc96-b41c-4c94-878a-5ddb21c39a70" class=3D"conflue=
+nceTd">
+<p local-id=3D"4a1c9969-19bb-4426-b098-d66fe0d95948">Free text</p></td>
+</tr>
+<tr ac:local-id=3D"b162d367-61f9-4b7a-a7c1-22de3f630b8c">
+<td data-local-id=3D"02e3b541-2185-4f63-b3c9-8f542e33d6d6" class=3D"conflue=
+nceTd">
+<p local-id=3D"4275338e-8131-453d-886e-552fce7c2a5f">22</p></td>
+<td data-local-id=3D"6573d45b-c57a-4403-8611-cce3fd88a2fd" class=3D"conflue=
+nceTd">
+<p local-id=3D"8497ac6d-67b4-4333-94f2-12eeb6e0c638">MOF Course Name</p></t=
+d>
+<td data-local-id=3D"5e244a57-ae67-48c8-9df6-cacaae0b2595" class=3D"conflue=
+nceTd">
+<p local-id=3D"07e98934-8673-4760-a13b-a190613b37c9">Alphanumeric</p></td>
+<td data-local-id=3D"f7f83285-a600-4c7b-8d87-cede86b36298" class=3D"conflue=
+nceTd">
+<p local-id=3D"68fa1e65-4190-414c-a364-86735d25a4d4">M</p></td>
+<td data-local-id=3D"5796eb46-151d-43f9-ab73-d56e84f4fdaa" class=3D"conflue=
+nceTd">
+<p local-id=3D"c0d8a461-47ce-41de-9f09-7f201e57828a">Official course name f=
+or MOF registration</p></td>
+</tr>
+<tr ac:local-id=3D"65cc5fde-c93f-4852-ac42-99530b52c021">
+<td data-local-id=3D"e0b28784-46b4-4f8c-af1d-a254f4fedb62" class=3D"conflue=
+nceTd">
+<p local-id=3D"3386e043-7e44-4c72-93b7-a530377b2c4e">23</p></td>
+<td data-local-id=3D"309298b6-5155-4a30-a86e-5d2ac890d35a" class=3D"conflue=
+nceTd">
+<p local-id=3D"03e5abd6-40fd-4b31-bd10-8016d588d2a0">Exam Type</p></td>
+<td data-local-id=3D"dc870e1d-467c-4ce3-a7c4-3a6df6628c35" class=3D"conflue=
+nceTd">
+<p local-id=3D"98f7977a-a3b3-44f0-b815-3276a03f7d10">Dropdown List</p></td>
+<td data-local-id=3D"b57203bd-0070-4cbc-b078-4e1ce7b590e3" class=3D"conflue=
+nceTd">
+<p local-id=3D"1f8cf9c3-a0fe-4fab-bea3-316b67be25f5">M</p></td>
+<td data-local-id=3D"b987da77-7e4b-44e0-9a61-01ddae53aea1" class=3D"conflue=
+nceTd">
+<p local-id=3D"ddd0338a-eaaf-4ced-bf4e-f963302a9ced">Values: Tr=E1=BB=B1c t=
+uy=E1=BA=BFn t=E1=BA=A1i doanh nghi=E1=BB=87p/Tr=E1=BB=B1c tuy=E1=BA=BFn t=
+=E1=BA=A1i VIDI</p></td>
+</tr>
+<tr ac:local-id=3D"24d8c808-3de5-4369-abd7-22f5c3b4fbb0">
+<td data-local-id=3D"cea2a660-1548-4fcb-bd85-7ef43c4194b3" class=3D"conflue=
+nceTd">
+<p local-id=3D"ca2b1c08-f868-4a52-9f3c-b48af982df31">24</p></td>
+<td data-local-id=3D"89c9f94b-811d-4bc2-a163-6af0f5585975" class=3D"conflue=
+nceTd">
+<p local-id=3D"1f7262a0-4d6c-4a54-be54-deb9be5cf0c1">MOF Exam Time</p></td>
+<td data-local-id=3D"ea8cceed-6cbc-4066-9342-8e5e0c28dfdd" class=3D"conflue=
+nceTd">
+<p local-id=3D"c06b2674-e501-4337-bb15-269c34071496">DateTime Field</p></td=
+>
+<td data-local-id=3D"09bcf0fb-13a6-4a7b-b13f-905cc2dc541f" class=3D"conflue=
+nceTd">
+<p local-id=3D"fb8bfa02-eddf-4a8c-97a1-b4520a47843b">M</p></td>
+<td data-local-id=3D"3784304f-1980-44e1-9eed-2f62cc2fd8e1" class=3D"conflue=
+nceTd">
+<p local-id=3D"0ee14ecf-a587-417b-a677-60da07211477">Date and time selector=
+. Course start date &lt;=3D MOF Exam time &lt;=3D course start date +30 day=
+s</p></td>
+</tr>
+<tr ac:local-id=3D"55f89be9-aa26-4d3c-a4bb-bf41be570131">
+<td data-local-id=3D"2d499ced-9906-4387-9687-80a4f664ffb7" class=3D"conflue=
+nceTd">
+<p local-id=3D"d97fd92a-bfe1-474e-900c-b164e4bdf3ee">25</p></td>
+<td data-local-id=3D"7ec62ee9-f1d0-4840-a4ee-660c31718c31" class=3D"conflue=
+nceTd">
+<p local-id=3D"0efb536a-d9f9-4ed8-ac1d-decdaf55624d">Is Proctor Trainer</p>=
+</td>
+<td data-local-id=3D"fa69a1e9-3d28-4c79-be30-d352eb2d792d" class=3D"conflue=
+nceTd">
+<p local-id=3D"94b8ba95-0ace-428a-97cc-ca1f5cfc8f6d">Checkbox</p></td>
+<td data-local-id=3D"b31d4519-7b76-4ff4-b8c1-e92346a8271f" class=3D"conflue=
+nceTd">
+<ul local-id=3D"4842458d-aeec-4e42-bfdc-c0521da2267b">
+<li local-id=3D"b753e882-4603-4351-abe7-17185cd7257a">
+<p local-id=3D"e83e18a2-9cf6-4365-86d7-37cccab6b2d5"></p></li>
+</ul></td>
+<td data-local-id=3D"4187d7c7-53a9-4f8a-a4e8-d93e9536c429" class=3D"conflue=
+nceTd">
+<p local-id=3D"59f3997e-a54a-45e1-a4f0-8586cb597e18">Checkbox selection tri=
+ggers show/hide of proctor fields</p></td>
+</tr>
+<tr ac:local-id=3D"6c57ebd2-d05e-4081-a8ea-291a8072e960">
+<td data-local-id=3D"717176d3-6107-4535-975f-edaf97d459e7" class=3D"conflue=
+nceTd">
+<p local-id=3D"d1750599-70c5-45d5-9050-60bf8f752630">26</p></td>
+<td data-local-id=3D"698c48a3-68d5-495f-89ef-1869b8624e0f" class=3D"conflue=
+nceTd">
+<p local-id=3D"b9b71f97-5df8-42b0-aaae-e3270a0243b6">Proctor Trainer</p></t=
+d>
+<td data-local-id=3D"1d50efe4-121b-4f45-8bcf-8a6ea3b6adce" class=3D"conflue=
+nceTd">
+<p local-id=3D"ae688bec-90fd-43c5-920c-5e1cba82f0e3">Dropdown List</p></td>
+<td data-local-id=3D"26b5a49f-2678-4408-bf4b-ebe1577e645e" class=3D"conflue=
+nceTd">
+<p local-id=3D"7b1c908b-76d1-4d21-9c37-8dedb86ccd45">O</p></td>
+<td data-local-id=3D"2d004511-6dce-491b-84a8-50f8f4be6f32" class=3D"conflue=
+nceTd">
+<p local-id=3D"f3deb7e6-8616-46ce-b9f6-c31e33059c98">Shown if "Is Proctor T=
+rainer" checkbox is checked. List of users with Team "Trainer" from User Ma=
+nagement.</p></td>
+</tr>
+<tr ac:local-id=3D"147ba6ba-2da6-4efa-983d-baecc6490c3d">
+<td data-local-id=3D"dbd6e165-1be6-4f14-b48e-e696ee73b3aa" class=3D"conflue=
+nceTd">
+<p local-id=3D"1f88d51f-45e2-4f8b-9303-25c948f85ab3">27</p></td>
+<td data-local-id=3D"5053bcfa-cbe5-4799-ae5f-d33dd3620f8c" class=3D"conflue=
+nceTd">
+<p local-id=3D"00f73385-6cc9-4f47-9d16-e530090f02cd">Proctor Name</p></td>
+<td data-local-id=3D"4144b8b5-b348-41ef-afc4-9c1573c5b311" class=3D"conflue=
+nceTd">
+<p local-id=3D"d161dec2-470d-41bf-9c82-96de42c0a75e">Alphanumeric</p></td>
+<td data-local-id=3D"e353b515-1bf8-467f-9fe7-eab3121b1e47" class=3D"conflue=
+nceTd">
+<p local-id=3D"cb24689b-2c30-4a56-b39a-feb64a7122f7">O</p></td>
+<td data-local-id=3D"ab893380-6576-46da-af87-072a433c4141" class=3D"conflue=
+nceTd">
+<p local-id=3D"d871b667-ceed-47f2-87a2-ffab6a4b8d29">Shown if "Is Proctor T=
+rainer" =3D No</p></td>
+</tr>
+<tr ac:local-id=3D"2bbdb367-4364-4520-a876-640a70775675">
+<td data-local-id=3D"641118bd-30da-480f-9d1a-f342956b62e7" class=3D"conflue=
+nceTd">
+<p local-id=3D"1ebeae55-4405-4723-bf5b-b4829ca40310">28</p></td>
+<td data-local-id=3D"3701bff7-f8d9-45f2-80df-4aa4595c594d" class=3D"conflue=
+nceTd">
+<p local-id=3D"943223c9-8498-40db-ade3-c9cf7b4de9fc">Proctor Phone</p></td>
+<td data-local-id=3D"562eb186-179e-4080-9588-5fcd1d7bfd97" class=3D"conflue=
+nceTd">
+<p local-id=3D"10e4f4e0-25b0-433f-b03e-bf24beb9a6bb">Alphanumeric</p></td>
+<td data-local-id=3D"ef35b570-b7c4-4878-91d6-c83f8d8d640a" class=3D"conflue=
+nceTd">
+<p local-id=3D"cb9654b5-5787-4b81-b6cb-dfba0503e05f">O</p></td>
+<td data-local-id=3D"673f13a2-4288-4105-9fbd-83c9548e582d" class=3D"conflue=
+nceTd">
+<p local-id=3D"d99635cd-2a76-405d-85c9-606f9010c434">Shown if "Is Proctor T=
+rainer" =3D No</p></td>
+</tr>
+<tr ac:local-id=3D"f2d8f794-ab49-42cf-b0af-60600e1b3e39">
+<td data-local-id=3D"41507b21-4d69-4958-b47b-95211efb37b1" class=3D"conflue=
+nceTd">
+<p local-id=3D"8a8d537f-48a0-48df-8200-1cee0a5a9df2">29</p></td>
+<td data-local-id=3D"e5c5c697-6a9f-4c44-a59c-7deec3e42e0f" class=3D"conflue=
+nceTd">
+<p local-id=3D"c1dcc676-8cac-4878-819e-40be545822c3">MOF address</p></td>
+<td data-local-id=3D"4548040d-beba-436a-83cd-b2e8b9919796" class=3D"conflue=
+nceTd">
+<p local-id=3D"0ae48112-b866-4a95-abab-fca364745bc1">Dropdown List</p></td>
+<td data-local-id=3D"90310bf2-adba-4d13-87b2-165b7c852244" class=3D"conflue=
+nceTd">
+<p local-id=3D"2d2b8ffc-f7aa-4cff-8dd9-648749de7a89">M</p></td>
+<td data-local-id=3D"917b3589-3769-4bc7-9b1b-ba21156c2995" class=3D"conflue=
+nceTd">
+<p local-id=3D"460e4b59-58a0-49d4-992a-055aed990bc2">Preconfigured MOF exam=
+ venue addresses. Auto-populates Province and Ward.</p></td>
+</tr>
+<tr ac:local-id=3D"3f54ce83-71c2-4579-8aff-f6d6ce4bffb3">
+<td data-local-id=3D"02f30861-769c-4c13-8985-a302907c3b9f" class=3D"conflue=
+nceTd">
+<p local-id=3D"8baab8f9-1f46-47eb-8cd9-b6b92f548688">30</p></td>
+<td data-local-id=3D"58da0e99-19fb-42f0-bad5-e4fe94149a7a" class=3D"conflue=
+nceTd">
+<p local-id=3D"7dfe07d6-a528-45fe-ac65-0f152627c12c">MOF Province</p></td>
+<td data-local-id=3D"eadbf97a-4e29-4395-a5c2-bb91803324f9" class=3D"conflue=
+nceTd">
+<p local-id=3D"bcf0133a-a0ac-421d-81a6-d61262ac7da8">Display</p></td>
+<td data-local-id=3D"57e44018-623c-4e35-b861-36a527bd5e1f" class=3D"conflue=
+nceTd">
+<p local-id=3D"7bedd602-78f9-4e25-b2cc-0b14295c5668">M</p></td>
+<td data-local-id=3D"55413ecb-7b1a-4345-948e-d5101f7bc49e" class=3D"conflue=
+nceTd">
+<p local-id=3D"43c9114c-103e-4a3f-9544-8ddb91bcc6a9">Auto-populated from se=
+lected MOF address (read-only)</p></td>
+</tr>
+<tr ac:local-id=3D"0d1cd119-3290-4352-b1d9-fa194290983e">
+<td data-local-id=3D"2ad89d3e-cd15-48b1-a974-4901984b7077" class=3D"conflue=
+nceTd">
+<p local-id=3D"9e36512f-573d-4b5a-ba2d-984d8ffa4b0f">31</p></td>
+<td data-local-id=3D"d00702fb-a10a-45ab-ba5b-391b0dd12b81" class=3D"conflue=
+nceTd">
+<p local-id=3D"5f8f6957-7163-49de-a2dc-886f99e051b5">Ward</p></td>
+<td data-local-id=3D"d6da9265-e00f-4278-b91f-b21ded22f1dd" class=3D"conflue=
+nceTd">
+<p local-id=3D"b9b54fe8-583c-4a0f-8b18-e873acad1a80">Display</p></td>
+<td data-local-id=3D"f8135841-88d2-4427-827f-0fe96b120eda" class=3D"conflue=
+nceTd">
+<p local-id=3D"2604b75e-c462-4d4b-a379-cb8485b49a4d">M</p></td>
+<td data-local-id=3D"61b93a5a-381e-422e-a76b-70b3c5ee6d39" class=3D"conflue=
+nceTd">
+<p local-id=3D"9a7143c8-cbdc-4762-84e4-b7547ec29cd3">Auto-populated from se=
+lected MOF address (read-only). Includes former district info for reference=
+.</p></td>
+</tr>
+<tr ac:local-id=3D"8c6a1d04-f7fc-4897-8474-8daa9d1e9a61">
+<td data-local-id=3D"569e6689-8ee0-4d76-9989-a72f24a763fd" class=3D"conflue=
+nceTd">
+<p local-id=3D"a32a197f-fe59-4cab-af4d-a0fb385521c7">32</p></td>
+<td data-local-id=3D"9959b522-3cf1-47de-b94d-1117297d5385" class=3D"conflue=
+nceTd">
+<p local-id=3D"b07ca273-1166-418c-8e2d-1734c60e1a4e">Exam categories</p></t=
+d>
+<td data-local-id=3D"d920433d-0a79-4e89-8e04-0b9badfd7274" class=3D"conflue=
+nceTd">
+<p local-id=3D"a6fcb13b-d30f-463c-aa57-160293407947">Dropdown List</p></td>
+<td data-local-id=3D"11f9564d-43d4-4d89-9f74-726f8fabb3df" class=3D"conflue=
+nceTd">
+<p local-id=3D"3ec40f6b-0a51-4ec5-a92a-aac4e0179e4e">M</p></td>
+<td data-local-id=3D"cf58a7f5-3f4b-4613-b02d-6ffff9c4bd30" class=3D"conflue=
+nceTd">
+<p local-id=3D"c42c8086-51eb-48b9-b03a-5cdcefaef3c4">Nh=C3=A2n vi=C3=AAn t=
+=C6=B0 v=E1=BA=A5n b=E1=BA=A3o hi=E1=BB=83m, Nh=C3=A2n vi=C3=AAn NH</p></td=
+>
+</tr>
+<tr ac:local-id=3D"88c77a13-30e8-4934-a0c2-69a7fa69582d">
+<td data-local-id=3D"b298d56b-cafc-46b4-bcab-37859cec586c" class=3D"conflue=
+nceTd">
+<p local-id=3D"58a2969c-fee6-42ad-b666-7603064c81d2">33</p></td>
+<td data-local-id=3D"f24ad642-46c1-46ac-a9bb-b4e36fb5db44" class=3D"conflue=
+nceTd">
+<p local-id=3D"97944a3f-9970-4b55-85fd-7976ee23340e">Supporter</p></td>
+<td data-local-id=3D"43320dc1-f414-462d-afa0-1559c64b2a75" class=3D"conflue=
+nceTd">
+<p local-id=3D"b0feeb47-aa16-49c2-b410-9be7bef87f5a">Multi-select Dropdown<=
+/p></td>
+<td data-local-id=3D"6a7ffb47-ae12-4610-b699-575d030f5ce3" class=3D"conflue=
+nceTd">
+<p local-id=3D"57d736f5-994a-44b8-bc4b-73107123a5ac">O</p></td>
+<td data-local-id=3D"c89341dc-ce33-4dd9-ac7c-4417d14098b3" class=3D"conflue=
+nceTd">
+<p local-id=3D"e48f51f8-af86-481a-a36f-92a083a1d626">List of users with rol=
+e Admin. Supports multiple selections with checkbox selection and tag displ=
+ay. Selected items appear as removable tags.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p local-id=3D"bf8dbc89-c4c4-4471-b36e-ed8ec84ff107"><strong>Note:</strong>=
+ District field (former Row 31) removed due to Vietnam's administrative ref=
+orm effective July 1, 2025. Vietnam transitioned from 3-tier (Province =E2=
+=86=92 District =E2=86=92 Ward) to 2-tier (Province =E2=86=92 Ward) adminis=
+trative structure.</p>
+<h4 local-id=3D"4ec0d4fe-9ce9-4522-a29b-c7d83a82440d" id=3D"CourseCreation,=
+Listing,Details-8.1.1.3ProductFormFields">8.1.1.3 Product Form Fields</h4>
+<p local-id=3D"0c0f2036-84a4-4f21-81c1-49cb00d50b6b">Product courses use th=
+e same base fields as SHINE (rows 1-21 from above) but <strong>exclude all =
+MOF-related fields</strong> (rows 22-33).</p>
+<p local-id=3D"86fd8a0a-1957-4568-8768-f5ac17fbde6a"><strong>Key Difference=
+s:</strong></p>
+<ul local-id=3D"3faf4551-0d8b-4b42-8a5a-16f7531723b3">
+<li local-id=3D"cfab495e-d58d-49d5-9da3-8f7892e621d1">
+<p local-id=3D"160328e0-417b-4b55-a1eb-ffd2e0e29a80">No MOF Course Name, Ex=
+am Type, MOF Exam Time</p></li>
+<li local-id=3D"88ba45f4-267b-45c4-a5e5-ca2a5e2e5836">
+<p local-id=3D"31fcbcc5-7a29-4880-ad26-943f1f54a5f3">No Proctor fields</p><=
+/li>
+<li local-id=3D"d5958694-45cc-42c9-b432-e58537a9005a">
+<p local-id=3D"4dc6c7b5-4576-4d5e-98c8-56661c018bc9">No MOF address, Ward, =
+Exam categories</p></li>
+<li local-id=3D"db33fa2e-9d20-41f5-b077-994296ed105b">
+<p local-id=3D"2c6c6f67-9107-4809-9572-af30e9d1e781">AOL fields remain opti=
+onal</p></li>
+</ul>
+<h4 local-id=3D"65802428-b83d-4f85-b394-533326a4be61" id=3D"CourseCreation,=
+Listing,Details-8.1.1.4SkillFormFields">8.1.1.4 Skill Form Fields</h4>
+<p local-id=3D"fe1a9c16-83c2-4dd8-a82e-c15fe4064fc9">Skill courses use a mi=
+nimal field set:</p>
+<p local-id=3D"21cb51cb-74e0-4a14-8f43-d646d52bc957"><strong>Included Field=
+s:</strong> Rows 1-17, 21 from SHINE form (basic course information)</p>
+<p local-id=3D"779d0b28-cd0f-4629-badb-5c924a68fc9d"><strong>Excluded Field=
+s:</strong></p>
+<ul local-id=3D"109879f8-58e6-4e12-b0db-b75801b2aee3">
+<li local-id=3D"4a407248-fb1d-499b-a3b2-e9bfceacd095">
+<p local-id=3D"0c94ba8f-92b7-4cb7-a75d-52b88107db6a">All MOF-related fields=
+ (rows 22-33)</p></li>
+<li local-id=3D"7f0b6b47-e9e0-4e34-8f33-2e84e19d98d2">
+<p local-id=3D"1f47c20f-9999-4d8c-82bf-0a8567f09255">All AOL-related fields=
+ (rows 18-20)</p></li>
+</ul>
+<p local-id=3D"fcc700f4-9953-4387-9e41-68650470a40b"><strong>Key Difference=
+s:</strong></p>
+<ul local-id=3D"6b0d2231-f951-4d0c-9733-a71a86e3139f">
+<li local-id=3D"ede6cb7c-c4d3-4927-bad0-cb4c3dafc319">
+<p local-id=3D"cdf75857-4cf9-47d2-82c3-1434b86e95d1">Focus on core training=
+ logistics only</p></li>
+<li local-id=3D"c3c4fda3-8f9a-4e2a-bf25-e7b1f02d7e6e">
+<p local-id=3D"dd9eae77-5ae4-41dd-9371-a79eed310430">No exam-related fields=
+</p></li>
+<li local-id=3D"9d177123-ee19-4274-ba62-c3d8c1a61b1c">
+<p local-id=3D"9fddc14c-3384-44f4-9cf3-d29352aa9242">Simplified form for qu=
+ick skill training setup</p></li>
+</ul>
+<h4 local-id=3D"8bf4d1e7-1be5-4faa-8a9f-1db496c29d01" id=3D"CourseCreation,=
+Listing,Details-8.1.1.5CourseCodeGenerationLogic">8.1.1.5 Course Code Gener=
+ation Logic</h4>
+<p local-id=3D"0ec5cd0e-bae8-4274-9262-6cee9e926fba"><strong>Business Rule:=
+</strong></p>
+<p local-id=3D"6dc38a54-57f9-4fd9-9f88-27ab530ad2b8">System automatically g=
+enerates unique course codes when a course is created. Course code format: =
+<code>[SequenceNumber]-[ProvinceCode][ChannelCode]-[CourseTypeCode]</code><=
+/p>
+<p local-id=3D"7a74a16e-fdc2-47dd-9397-ac1fcd4e256e"><strong>Component Mapp=
+ing:</strong></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"ee=
+3e3841-53ed-4633-be72-31cc5d1cfe75" class=3D"confluenceTable">
+<tbody>
+<tr ac:local-id=3D"346c0023-a345-4a01-8a6c-624f83aa422e">
+<th data-local-id=3D"bab3e43f-65ab-4126-92be-e7264688a479" class=3D"conflue=
+nceTh">
+<p local-id=3D"d5e44307-5a3a-47db-91eb-863a512dc497">Component</p></th>
+<th data-local-id=3D"ef1914e6-66d2-4ec4-8dc3-974586288249" class=3D"conflue=
+nceTh">
+<p local-id=3D"438998b9-e6de-4faf-b7a9-dbb793ce722d">Source Field</p></th>
+<th data-local-id=3D"f4d08edf-a019-4d9a-8394-30841d822da5" class=3D"conflue=
+nceTh">
+<p local-id=3D"464b6c33-30d9-4f2f-8536-14d70f4d8a71">Format</p></th>
+<th data-local-id=3D"569c298c-aa1a-463e-b060-b5ca7352c146" class=3D"conflue=
+nceTh">
+<p local-id=3D"eb8582c3-6bf7-4c93-af65-c802667f88ba">Examples</p></th>
+</tr>
+<tr ac:local-id=3D"86aba2a1-0297-414e-ab30-2951a35e33da">
+<td data-local-id=3D"77a84e5b-ce7c-4328-a68b-f0bc87dd0b96" class=3D"conflue=
+nceTd">
+<p local-id=3D"f626a8b8-15cd-4650-b8c2-f38ec08b0b57">SequenceNumber</p></td=
+>
+<td data-local-id=3D"38c1dedb-96f3-45b6-853a-a9139bef89cc" class=3D"conflue=
+nceTd">
+<p local-id=3D"9a0ad9ae-2397-4410-970b-ab4f931edf5b">Auto-generated</p></td=
+>
+<td data-local-id=3D"4e32e382-a087-4466-9dbe-f69ddf890f42" class=3D"conflue=
+nceTd">
+<p local-id=3D"ebf4623c-b48d-4f3c-9e37-772fb074de24">3-digit (001-999)</p><=
+/td>
+<td data-local-id=3D"3ef5a718-f856-4921-ac87-834fae67bbd0" class=3D"conflue=
+nceTd">
+<p local-id=3D"3dea31c8-0c49-48e0-85c2-6555b06c74e9">Sequential number for =
+uniqueness</p></td>
+</tr>
+<tr ac:local-id=3D"b6d2414a-5abc-4e25-84bf-2c5029d605a5">
+<td data-local-id=3D"2719e7a4-a895-4364-9486-ffe6e394bc97" class=3D"conflue=
+nceTd">
+<p local-id=3D"1b825f71-7ba8-4492-9c93-acc502acd1b4">ProvinceCode</p></td>
+<td data-local-id=3D"c5136059-497d-4621-89a3-b8436013f961" class=3D"conflue=
+nceTd">
+<p local-id=3D"6a4909fa-136e-4847-b154-1525f01627aa">Province</p></td>
+<td data-local-id=3D"a48d109d-c49b-41ab-bc2e-2f88664e0cde" class=3D"conflue=
+nceTd">
+<p local-id=3D"9a6cad8e-cf11-4447-a0b2-c30655934e68">2 uppercase chars</p><=
+/td>
+<td data-local-id=3D"5ff06ce2-8a5b-4e48-b855-dba5c0b16d09" class=3D"conflue=
+nceTd">
+<p local-id=3D"1bfed72e-282e-48da-a564-580c4ea949b9">HC (Ho Chi Minh), HN (=
+Hanoi), DN (Da Nang)</p></td>
+</tr>
+<tr ac:local-id=3D"78984f0a-c81c-4316-9e75-667836588942">
+<td data-local-id=3D"11d9abee-a74e-4690-9973-b83a360864de" class=3D"conflue=
+nceTd">
+<p local-id=3D"17ffab55-412e-4fb1-8fec-d0bf3207ce67">ChannelCode</p></td>
+<td data-local-id=3D"4769f1a9-06e9-47a2-811d-d81aa3433d8c" class=3D"conflue=
+nceTd">
+<p local-id=3D"97c206f3-73d0-48a3-9728-0c44e8102447">Channel</p></td>
+<td data-local-id=3D"908ca06c-c8e5-48de-b81a-38be6c371d97" class=3D"conflue=
+nceTd">
+<p local-id=3D"13422676-ba57-4c0c-be82-5ed11dbffacf">2 uppercase chars</p><=
+/td>
+<td data-local-id=3D"904a2aa9-2e2a-4d5c-ac4d-fd8b751e5a11" class=3D"conflue=
+nceTd">
+<p local-id=3D"bcd449c1-8760-4a27-b902-789189f0e797">BC (Banca), AG (Agency=
+), BK (Banker)</p></td>
+</tr>
+<tr ac:local-id=3D"dbeb429f-453a-413a-b9a0-7b9dbc9f4fc3">
+<td data-local-id=3D"a5466992-757e-479a-a25a-6d2ee179ad8f" class=3D"conflue=
+nceTd">
+<p local-id=3D"36525864-880c-44f0-a1ca-234bb260c1bf">CourseTypeCode</p></td=
+>
+<td data-local-id=3D"9fb751ca-6d75-4900-abaf-5da032229cfe" class=3D"conflue=
+nceTd">
+<p local-id=3D"99380d5b-f784-470c-9603-211202bd6c0d">Course Type/Program</p=
+></td>
+<td data-local-id=3D"c6ac070e-e5c4-46da-a2b0-af705915bf34" class=3D"conflue=
+nceTd">
+<p local-id=3D"ab377159-2c81-4047-903c-ceb720e00648">2 uppercase chars</p><=
+/td>
+<td data-local-id=3D"9a66b2bf-8f4d-40d6-8fe0-9b8836c35352" class=3D"conflue=
+nceTd">
+<p local-id=3D"3506cb4d-cca3-414b-ba69-217a26a3f830">SH (SHINE), PR (Produc=
+t), SK (Skill)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p local-id=3D"e513288b-991b-46f1-97f4-28a97bcc67f7"><strong>Code Generatio=
+n Examples:</strong></p>
+<ul local-id=3D"24269bbd-30fa-46d8-b691-af8ee5b00516">
+<li local-id=3D"9101d97b-d8fd-438c-b9fd-c445e14c4a80">
+<p local-id=3D"b7e51a58-a39d-4cee-9e5d-966e29f74177"><code>001-HCBC-SH</cod=
+e> (Sequence 001, Ho Chi Minh + Banca, SHINE)</p></li>
+<li local-id=3D"2a5c6e40-1bbd-448c-965b-dcec5dbbf9a9">
+<p local-id=3D"2204d007-589e-4c80-85e1-6e39aa76e83e"><code>022-HCAG-PR</cod=
+e> (Sequence 022, Ho Chi Minh + Agency, Product)</p></li>
+<li local-id=3D"dcde4374-cdd1-4d89-bf45-7b0f8481ff14">
+<p local-id=3D"404df390-bcc4-4962-ba1a-ea07952828ba"><code>045-HNAG-SH</cod=
+e> (Sequence 045, Hanoi + Agency, SHINE)</p></li>
+<li local-id=3D"dc6800e5-f6ae-482d-baa7-b1292064ebb0">
+<p local-id=3D"2da008c2-28ac-41d4-9d3b-85177a0c1bfd"><code>011-DNBC-SK</cod=
+e> (Sequence 011, Da Nang + Banca, Skill)</p></li>
+</ul>
+<p local-id=3D"f06f2639-45a9-466f-a829-0de46d0fa622"><strong>Generation Rul=
+es:</strong></p>
+<ul local-id=3D"f561f3a6-215b-492e-a52d-e2c9df37c145">
+<li local-id=3D"5b6bbbf6-a863-4ced-a29d-bca1d3f316e9">
+<p local-id=3D"021f66a4-4c27-4d9f-a643-8886ec31d4c0">Code is auto-generated=
+ during course creation (user cannot edit)</p></li>
+<li local-id=3D"c805ebf4-5eda-4724-b3d9-aec76920ae2e">
+<p local-id=3D"7f738d9b-649b-4921-81e8-912e9c071485">Location code =3D Prov=
+inceCode + ChannelCode (no separator, e.g., HC + BC =3D HCBC)</p></li>
+<li local-id=3D"e3c27817-5f16-4fcc-b883-bedddd9d73c8">
+<p local-id=3D"866fd5c9-1699-48ba-806e-7898b33dd790">Sequence number increm=
+ents for same [ProvinceCode][ChannelCode]-[CourseTypeCode] combination</p><=
+/li>
+<li local-id=3D"0c83fa07-550b-4779-921d-8716c97aebcd">
+<p local-id=3D"0d1a50d1-8e9c-41d8-b310-64b62cd9ddc8">System checks existing=
+ courses and assigns next available sequence number</p></li>
+<li local-id=3D"39f2502e-6b4c-4a6e-b095-114c0a39ded0">
+<p local-id=3D"0533eaa0-e951-4259-a7e1-2068d94640d3">Sequence number appear=
+s first for better sorting and grouping</p></li>
+<li local-id=3D"56702240-8eff-49bd-b158-f2456945903c">
+<p local-id=3D"14c5e4fe-c57d-4306-b07d-89f1ae4ee077">Code is immutable once=
+ assigned</p></li>
+</ul>
+<h4 local-id=3D"9bd8993a-481e-46a3-93e0-8bf9b1fd830d" id=3D"CourseCreation,=
+Listing,Details-8.1.1.6StatusTransitionLogic">8.1.1.6 Status Transition Log=
+ic</h4>
+<p local-id=3D"6574f33c-ba1c-4733-b458-762568fc3db0"><strong>Business Rule:=
+</strong></p>
+<p local-id=3D"6db61b83-8d37-4390-bbc6-b93adde4e8d9">System manages course =
+lifecycle through defined status transitions. Status changes occur based on=
+ user actions, approval workflows, and automatic system triggers.</p>
+<p local-id=3D"b402d710-bf5a-4977-a3eb-fbc0f3e1aab5"><strong>Valid Course S=
+tatus Values:</strong></p>
+<ul local-id=3D"62b8049b-b908-4972-9302-dcd443abb72f">
+<li local-id=3D"0296154c-0c4a-4e05-b740-137d82c75668">
+<p local-id=3D"813ddadc-f38d-451c-9e38-e6f7509c14fc"><code>NEW</code> - Cou=
+rse created but not yet registered</p></li>
+<li local-id=3D"4ad38b87-63b7-4ee2-8f97-d5893c675455">
+<p local-id=3D"6e18bfe5-89d3-44f6-955c-d34a3907eb16"><code>REGISTERED</code=
+> - Trainer has registered for the course</p></li>
+<li local-id=3D"698f822e-7001-4982-bd39-99d40445d1dc">
+<p local-id=3D"c094e17c-16ea-4220-ac44-3492b2752d7b"><code>APPROVED</code> =
+- Course registration approved by Head/Lead</p></li>
+<li local-id=3D"80657a3b-dae2-449a-8c84-ef265647f9f7">
+<p local-id=3D"2d68a969-0d3b-40dc-ba0e-50086d8d5310"><code>IN_PROGRESS</cod=
+e> - Course is currently running (automatic on start date)</p></li>
+<li local-id=3D"ff7add74-63bf-48e7-8573-019dfa8d4a44">
+<p local-id=3D"ac84f613-1e9e-47b1-b791-cc3715bc3705"><code>WAITING_APPROVAL=
+_EDIT</code> - Course edit pending approval</p></li>
+<li local-id=3D"88a3e810-4ae4-4182-9289-82de3e2bec06">
+<p local-id=3D"c7279c04-1c3e-4e09-aa60-e6f67bdf5d4f"><code>WAITING_APPROVAL=
+_CANCEL</code> - Course cancellation pending approval</p></li>
+<li local-id=3D"9d48d30b-1dc3-40c8-a7a7-063f40405c1d">
+<p local-id=3D"0ad6a2a0-bf60-463f-ae67-fa315eab4c38"><code>CANCEL</code> - =
+Course has been cancelled</p></li>
+<li local-id=3D"10590774-07eb-47d3-97f6-ba9f8f5bf589">
+<p local-id=3D"202ab508-7097-4d78-bb77-1f1d278d1ab1"><code>FINISHED</code> =
+- Course completed successfully</p></li>
+<li local-id=3D"c1ece2a2-2e4c-42e1-9657-b22245783561">
+<p local-id=3D"a587747e-ba50-477c-840b-025d8d113f5b"><code>DELETE</code> - =
+Course marked for deletion</p></li>
+</ul>
+<p local-id=3D"b7d33b97-2ab3-45ef-a2d6-6853dea066aa"><strong>Initial Status=
+:</strong></p>
+<ul local-id=3D"d8bbff4e-420d-47f0-8eb5-5cd395d41384">
+<li local-id=3D"1d442d18-d042-4807-92d6-402a4b64eb97">
+<p local-id=3D"372e3921-7923-41a0-b91d-7f4ed7f5e98e">All newly created cour=
+ses start with status <code>NEW</code></p></li>
+<li local-id=3D"d4aa2c7e-3cbb-4970-bb63-d63a11600c1e">
+<p local-id=3D"2e65b408-704d-49cb-a71b-27dff3be6b95">Course code is generat=
+ed and assigned</p></li>
+<li local-id=3D"0ae47773-a25d-46b0-943e-71c90e44ab65">
+<p local-id=3D"fa2df4e6-99e0-4375-a8db-ea89b5341aac">Course checklist templ=
+ate is applied based on course type (see Section 8.1.1.7)</p></li>
+</ul>
+<p local-id=3D"0092b855-3e68-498b-b580-b5d82e48b473"><strong>Status Transit=
+ion Rules:</strong></p>
+<ol start=3D"1" local-id=3D"c020c3f6-fd0d-4c3d-9b8a-6989ff0431d6">
+<li local-id=3D"2a7dcd12-b8d2-455c-866e-8ff246e4ea89">
+<p local-id=3D"43ac8f5b-bf06-4b09-95e4-89ebba89ef13"><strong>Course Creatio=
+n (=E2=86=92 NEW):</strong></p>
+<ul local-id=3D"273fe96e-5108-4118-910b-d5ce46484edd">
+<li local-id=3D"48abbd1e-9bfd-4a5d-b3cd-24e04ef22815">
+<p local-id=3D"26e1d521-cb8f-442d-81f7-330baeb03e48">Trigger: User submits =
+course creation form</p></li>
+<li local-id=3D"c5663f19-664d-44c9-9e18-f6eee91d57bb">
+<p local-id=3D"da1904e0-c1e0-46c2-871c-228ffb38c109">Action: Course created=
+ with status NEW</p></li>
+<li local-id=3D"4ef58968-d556-4ee0-948b-961a81e1355d">
+<p local-id=3D"9f534123-f868-4bb0-80d7-31a52507ae73">System: Auto-generates=
+ course code, applies checklist template</p></li>
+<li local-id=3D"c144a91d-0d67-4096-9a59-4c09e4314af1">
+<p local-id=3D"dda29576-c254-4c29-bfaa-ba941250b95a">User: Trainer, Lead Re=
+gion, Head Channel, Master Role</p></li>
+</ul></li>
+<li local-id=3D"7d1fc383-8f30-4d67-9988-d8e6505918c8">
+<p local-id=3D"6a75cfbc-ebf0-4634-a4e3-1cdc1547718d"><strong>Auto-Cancellat=
+ion (NEW/REGISTERED =E2=86=92 CANCEL):</strong></p>
+<ul local-id=3D"0aada3d9-8b4b-490e-ac8b-d48ced725bee">
+<li local-id=3D"e9e37a4a-0e4a-4e0e-b010-4a827d84e545">
+<p local-id=3D"4c7d3363-7632-44e1-be7e-bf242ece41dd">Trigger: Course start =
+date reached AND course status is NOT APPROVED (automatic)</p></li>
+<li local-id=3D"67d93081-e767-431c-9228-ea6201b2c089">
+<p local-id=3D"00d24c82-6ebb-4ad6-9f7d-44e1dac3e054">Action: Status changes=
+ to CANCEL</p></li>
+<li local-id=3D"8c104e1a-7650-48ef-a3a0-e9fcf9a3132a">
+<p local-id=3D"8e66c0e1-2d8e-4704-b529-63d01f027ab5">System: Automatic syst=
+em trigger</p></li>
+<li local-id=3D"26ed8a84-9270-4f1b-be29-0288ab629c83">
+<p local-id=3D"c7d3132a-4311-4dc8-8f17-84f6556bc902">Business Rule: <strong=
+>Courses that are not approved by their start date are automatically cancel=
+led</strong></p></li>
+</ul></li>
+</ol>
+<h4 local-id=3D"a9898e30-a6ac-4495-9862-cedf40f96b52" id=3D"CourseCreation,=
+Listing,Details-8.1.1.7ChecklistTemplateApplication">8.1.1.7 Checklist Temp=
+late Application</h4>
+<p local-id=3D"076ff8f8-4aff-46d0-ae36-fdf3bc5ed91a"><strong>Business Rule:=
+</strong></p>
+<p local-id=3D"e90dd9a2-4e0a-44a0-a3b6-2b2405b8571b">When a course is creat=
+ed, the system automatically applies a checklist template based on the sele=
+cted course type. This checklist defines the workflow steps required to com=
+plete the course.</p>
+<p local-id=3D"eadaa3f1-68a8-4d7b-a12e-1d2529142c3f"><strong>Template Selec=
+tion Logic:</strong></p>
+<ul local-id=3D"e7a1ba51-dcb0-4b92-a4f9-61f123964fd0">
+<li local-id=3D"2f64256b-e8d9-43f1-a1a3-31b80566bb1c">
+<p local-id=3D"735256a2-39c7-4bbf-91a2-1d561202a8cd"><strong>SHINE Course:<=
+/strong> Apply SHINE checklist template (includes MOF exam steps)</p></li>
+<li local-id=3D"ae976d33-5981-4ffc-9881-056c0518b74b">
+<p local-id=3D"319a3867-2cca-4866-852b-1215fc60afc3"><strong>Product Course=
+:</strong> Apply Product checklist template (includes AOL exam steps, no MO=
+F)</p></li>
+<li local-id=3D"bfe69b42-0c80-4713-87ca-49cf8fdc409e">
+<p local-id=3D"08faa3de-e5ab-41b1-a3b1-7f618096a88a"><strong>Skill Course:<=
+/strong> Apply Skill checklist template (minimal steps, no exams)</p></li>
+</ul>
+<p local-id=3D"a7ee7703-9df0-46a3-a4bc-0e574645b888"><strong>Automatic Acti=
+ons:</strong></p>
+<ol start=3D"1" local-id=3D"cfccae6e-1355-469e-b862-064932ec141e">
+<li local-id=3D"8366ab99-d0da-4df4-86ca-9231d3891a68">
+<p local-id=3D"bbd05e34-b1eb-47e0-9f32-a65f367ac21d">System identifies cour=
+se type from creation form</p></li>
+<li local-id=3D"56e5289f-b4f1-4c93-a50f-0673da29d86f">
+<p local-id=3D"dd595872-d6a6-4b8e-947c-4e38179813e4">Retrieves active templ=
+ate for that course type</p></li>
+<li local-id=3D"1ed29063-403a-4102-b55f-9d539e43eaf0">
+<p local-id=3D"b97fe991-5e36-46ba-8153-028058cca189">Creates checklist inst=
+ance for the new course</p></li>
+<li local-id=3D"d6e96bec-92c9-4727-90b6-e6cd2f053d40">
+<p local-id=3D"f2776f6d-8966-432b-9f6e-66f803410ce9">Associates checklist s=
+teps with course ID</p></li>
+<li local-id=3D"e02153d9-562f-461e-9e59-4b8a762e4d95">
+<p local-id=3D"0198486d-9a57-497e-9b7c-27475dff2c1d">Sets all steps to init=
+ial status (NOT_STARTED)</p></li>
+</ol>
+<p local-id=3D"f1eea075-acc4-433b-a250-ba312754ff23"><strong>Template Versi=
+oning:</strong></p>
+<ul local-id=3D"0b10b760-1b2a-420c-b3d9-1234ab6ec42b">
+<li local-id=3D"5b5c9e27-a175-4976-8378-2ae234b8bb7a">
+<p local-id=3D"b16fec82-3902-497d-a2cb-3364203931e2">System uses snapshot m=
+odel: checklist is copied to course at creation time</p></li>
+<li local-id=3D"50c7bfea-d1be-4cef-afb2-1672e1e65702">
+<p local-id=3D"c3f7de77-f038-450b-acb8-2cf2761ec9c2">Future template change=
+s do not affect existing courses</p></li>
+<li local-id=3D"868b8591-9126-4f48-9c09-32ce465e5d4d">
+<p local-id=3D"95cde55f-6b54-464d-8c07-a4ab366cc42a">Ensures consistency fo=
+r courses in progress</p></li>
+</ul>
+<p local-id=3D"95c58f2d-608e-447d-8421-17565d58f7d6">For detailed checklist=
+ configuration, see Section 8.9 (Course Type Checklist Configuration).</p>
+<h4 local-id=3D"c12a2b1e-c6a0-4c31-96d6-08358cad12aa" id=3D"CourseCreation,=
+Listing,Details-8.1.1.8Co-trainerManagement">8.1.1.8 Co-trainer Management<=
+/h4>
+<p local-id=3D"e43b1440-3770-4b89-a382-fcc94377a9fa"><strong>User Story:</s=
+trong> <br>
+AS a trainer/lead/head <br>
+I CAN add co-trainer when creating a course <br>
+SO THAT the co-trainer data can be managed and trainer workload can be dist=
+ributed</p>
+<p local-id=3D"a2c84732-eb75-4c79-8546-ed660c865d63"><strong>Acceptance Cri=
+teria:</strong></p>
+<ul local-id=3D"4c8e2b3d-b547-4a1a-a28e-0bdcd0254058">
+<li local-id=3D"128b58bf-87c9-43c2-90e0-7b73b92c840c">
+<p local-id=3D"c82fc5a2-014b-49ed-9922-afe0e89aa873">Co-Trainer field avail=
+able in course creation screen</p></li>
+<li local-id=3D"4283b888-0414-4db4-8ec0-e565fdee5024">
+<p local-id=3D"e373c32f-56d9-4bd7-943c-255703a6dc25">Co-trainer automatical=
+ly added to all stages in course planning</p></li>
+<li local-id=3D"7d699bc9-aaa6-44c6-853b-724aadbd7fb5">
+<p local-id=3D"fbd0a6d0-feec-4c1a-b788-807f330631db">Co-trainer can be re-s=
+elected in each individual stage if needed</p></li>
+<li local-id=3D"b433d2b8-b39b-497a-9d58-613e8395a1fe">
+<p local-id=3D"98bcb679-141d-4d9e-b86f-e47717d55da9">System checks trainer =
+availability and shows warning if co-trainer is busy during course dates</p=
+></li>
+</ul>
+<p local-id=3D"49276df2-32bd-4cbb-aa8f-5e9bc83d71a7"><strong>Business Rules=
+:</strong></p>
+<ul local-id=3D"ece7f1db-61f4-4bc0-91a3-8218397d0bdb">
+<li local-id=3D"2165e58b-6a4e-4ede-bb98-23b2e24e9661">
+<p local-id=3D"4f05b3f5-3b31-4784-a878-32fddf72a555">Co-trainer is optional=
+ for all course types</p></li>
+<li local-id=3D"917bfec8-f1e3-4005-9921-428d0648319f">
+<p local-id=3D"361694a8-8118-40d5-b456-6eeb9dfc9dd3">Co-trainer must be an =
+active trainer in the system</p></li>
+<li local-id=3D"a0af37f5-2ce9-432f-9fc7-56613e74d51b">
+<p local-id=3D"97b73935-72cf-46ce-9906-e1685c440078">Co-trainer availabilit=
+y check runs against existing course assignments</p></li>
+<li local-id=3D"e86f9d91-adf9-41ee-ac9c-e320bbde4261">
+<p local-id=3D"460a4c79-3822-4876-8480-8d898371cc30">Warning message: "Co-t=
+rainer [Name] is assigned to [X] courses during this period"</p></li>
+</ul>
+<h3 local-id=3D"b8ebe4c7-5cd2-43fc-88aa-7d855fed6afd" id=3D"CourseCreation,=
+Listing,Details-8.1.2EntryPoints">8.1.2 Entry Points</h3>
+<p local-id=3D"3e4f0084-77e0-4a3b-acf4-995e489827b4">Courses can be created=
+ from multiple locations in the LMS system:</p>
+<p local-id=3D"bdb361ca-15fe-4329-89a8-9034dc31a84a"><strong>1. Master Cale=
+ndar (Section 10.2):</strong></p>
+<ul local-id=3D"03088d6a-6e65-46f2-bc74-65eebc6a34d8">
+<li local-id=3D"41760ecf-5ae3-4b1c-8fdb-5f485f8e132e">
+<p local-id=3D"4e5a6734-3223-4488-bd95-191f0e25b658">Click/double-click on =
+any date in Master Calendar</p></li>
+<li local-id=3D"8dfd8251-38e3-4509-b77b-92783d14a7b9">
+<p local-id=3D"8ff639e7-6bf0-4e2d-9cd3-4481a9570733">Start date, program, c=
+ourse type, and license type auto-filled based on clicked area</p></li>
+<li local-id=3D"75401512-3af0-4212-a3d9-46e30c9d07a0">
+<p local-id=3D"0a2da03b-0f81-4ca9-9d20-ea9979285e03">Course type and licens=
+e type are detected from the selected program</p></li>
+<li local-id=3D"f83ae31c-22be-4552-a26d-20e09faa9479">
+<p local-id=3D"d64b3800-b848-40c5-8ec9-a22163ced084">User can modify pre-fi=
+lled values</p></li>
+</ul>
+<p local-id=3D"f2267997-4ae9-47e8-8f1b-88ce7fe3728d"><strong>2. Course List=
+ Page (Section 8.2):</strong></p>
+<ul local-id=3D"97fef174-515c-4669-b23b-426a7dcd711e">
+<li local-id=3D"5ffb5417-04be-46d2-b700-577c34667fe3">
+<p local-id=3D"fdaf25c5-693b-4624-8685-386aafccd792">"Create New Course" bu=
+tton in Course List header</p></li>
+<li local-id=3D"afd42fa6-c4d8-4914-ab2f-fbb57ba4fa97">
+<p local-id=3D"0a6b4a38-178a-4859-8de5-903ba8e8ea71">Opens course creation =
+form with blank fields</p></li>
+<li local-id=3D"1a5fedcd-571d-4c81-a8e2-ecbbdb3c44f2">
+<p local-id=3D"1acb145e-e551-40dc-89dc-878d1a4ae9cc">User manually selects =
+all values</p></li>
+</ul>
+<p local-id=3D"312357a7-c334-4bf1-b650-880ed550ed34"><strong>Common Behavio=
+r:</strong></p>
+<ul local-id=3D"dbb61b14-93e6-44db-9214-e1ac00566e9c">
+<li local-id=3D"879f8040-940e-4e3e-9045-006e872baa2b">
+<p local-id=3D"95e16705-b6ec-42d6-99e2-559e8dd959ad">Same course creation f=
+orm used from all entry points</p></li>
+<li local-id=3D"85f69331-296f-4511-8095-dd9f3943def0">
+<p local-id=3D"59f7b760-7cfa-465d-bf04-75e03cd1185d">Same validation rules =
+apply</p></li>
+<li local-id=3D"60b0d47e-01fc-4b10-9083-e4103e0eb633">
+<p local-id=3D"d618ef0a-cff2-4cc2-948e-a662d18fdc67">Same authorization che=
+cks (Trainer, Lead, Head, Master Role)</p></li>
+</ul>
+<h3 local-id=3D"59505cf7-7b3c-4e27-a446-f1333b296f06" id=3D"CourseCreation,=
+Listing,Details-8.1.3Validation&amp;ErrorHandling">8.1.3 Validation &amp; E=
+rror Handling</h3>
+<p local-id=3D"a7972452-e7eb-4d6d-93bc-a67a417a8e61"><strong>Field Validati=
+on Rules:</strong></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"26=
+4a4a65-195e-4905-81df-708a545a5b59" class=3D"confluenceTable">
+<tbody>
+<tr ac:local-id=3D"8c81f804-74aa-41be-b267-f47053462428">
+<th data-local-id=3D"a6ce9d19-3001-48c0-bec6-0aab3e9edda9" class=3D"conflue=
+nceTh">
+<p local-id=3D"63f18fbb-af1d-496b-8b59-36cf1a29312a">Field</p></th>
+<th data-local-id=3D"718c1804-0fdd-42b4-9c4c-01e05c019c2a" class=3D"conflue=
+nceTh">
+<p local-id=3D"dfc15896-8065-468d-89e1-b7a0b0b25129">Validation Rule</p></t=
+h>
+<th data-local-id=3D"50df98b5-e746-4f66-9c39-fa90d0c6806c" class=3D"conflue=
+nceTh">
+<p local-id=3D"d780da0b-aae5-494f-a915-4622fe71e152">Error Message</p></th>
+</tr>
+<tr ac:local-id=3D"bd52328d-92a1-4c8f-a6cf-7175fdc50fdf">
+<td data-local-id=3D"c268985e-1a5b-49dc-a524-809a4ae949f8" class=3D"conflue=
+nceTd">
+<p local-id=3D"ca81b629-0b86-4b31-bf36-00dd6a3e97a2">Start Date</p></td>
+<td data-local-id=3D"af43c2f7-07b1-4aa4-9d50-620114ff88a8" class=3D"conflue=
+nceTd">
+<p local-id=3D"2babb64d-e65a-4bb2-8f38-f5afa31a4fc0">Must be &gt;=3D today =
++ 2 days</p></td>
+<td data-local-id=3D"588e3cca-99a5-4872-87cd-9380b94ac23f" class=3D"conflue=
+nceTd">
+<p local-id=3D"75a66b28-92bc-44a8-9643-d639374f2d83">"Course start date mus=
+t be at least 2 days from today"</p></td>
+</tr>
+<tr ac:local-id=3D"54483a05-bc52-4aea-ab1e-04429f86d2f2">
+<td data-local-id=3D"82bcdc38-9f4b-4c18-ae50-0178d4b7240f" class=3D"conflue=
+nceTd">
+<p local-id=3D"2647eaaf-c2d3-48cd-8b52-63e0712ea2f9">End Date</p></td>
+<td data-local-id=3D"85ad4444-f23b-4a73-8cc8-19096c9f89c2" class=3D"conflue=
+nceTd">
+<p local-id=3D"f617fe92-b8e9-443a-af3f-06336239c0b8">Must be &gt;=3D Start =
+Date</p></td>
+<td data-local-id=3D"dfd9a41d-e8eb-4742-8607-57fd8d7754db" class=3D"conflue=
+nceTd">
+<p local-id=3D"7c0e1383-55f3-4e5c-b247-ed4f595331d6">"End date cannot be be=
+fore start date"</p></td>
+</tr>
+<tr ac:local-id=3D"a7032436-e389-41de-9760-d21ac186880b">
+<td data-local-id=3D"7b049b40-e26c-467b-90b5-589e0ed17209" class=3D"conflue=
+nceTd">
+<p local-id=3D"8fdf7a2b-d7e4-4015-ae8a-53fa3229892c">MOF Exam Time</p></td>
+<td data-local-id=3D"539e6134-ca03-4365-8c07-a95d1a237009" class=3D"conflue=
+nceTd">
+<p local-id=3D"3873c12c-fde2-45fd-a3ad-8cfa4c84f910">Start date &lt;=3D MOF=
+ time &lt;=3D Start date + 30 days</p></td>
+<td data-local-id=3D"152d0b76-0c6b-43ae-b5a1-3869114b785a" class=3D"conflue=
+nceTd">
+<p local-id=3D"6b63562a-0035-48be-b9c0-6dfe60a292b8">"MOF exam must be with=
+in 30 days of course start"</p></td>
+</tr>
+<tr ac:local-id=3D"ad5941e0-5385-4291-accb-facb1df3a0ca">
+<td data-local-id=3D"9fc51835-d4d7-4cb0-a283-30250b2d8933" class=3D"conflue=
+nceTd">
+<p local-id=3D"6b124f72-f8ec-45fc-afbb-a84ac12856cd">AOL Start/End</p></td>
+<td data-local-id=3D"537b0a1a-f10a-411a-a163-8d990a808b8a" class=3D"conflue=
+nceTd">
+<p local-id=3D"cb1c2fb0-0c08-46c4-9005-9c03c2371907">Between course start a=
+nd course end + 3 days</p></td>
+<td data-local-id=3D"57d4ea53-9d86-42be-86d1-76e0d34cc59a" class=3D"conflue=
+nceTd">
+<p local-id=3D"e9a9c4fa-7253-4be0-8b75-36f66e0becc6">"AOL exam period must =
+be within course dates + 3 days"</p></td>
+</tr>
+<tr ac:local-id=3D"6c1615de-ed9d-47ed-90ac-48e8c8e24c4d">
+<td data-local-id=3D"d679f879-ce6d-4a75-bf32-8600c791cc2b" class=3D"conflue=
+nceTd">
+<p local-id=3D"c0da8b73-2fdd-41ad-914b-374e37d3aca0">Primary Trainer</p></t=
+d>
+<td data-local-id=3D"501607c1-4ab7-4435-87d0-86e86cc74a73" class=3D"conflue=
+nceTd">
+<p local-id=3D"5917ae59-1f27-40e9-bce9-c86d46a8428b">Must be active trainer=
+</p></td>
+<td data-local-id=3D"59fd79de-d871-4fc9-b511-8c634cb57bb8" class=3D"conflue=
+nceTd">
+<p local-id=3D"4a84aae6-d9cf-4f4e-8921-4f1790d6a638">"Selected trainer is n=
+ot active"</p></td>
+</tr>
+<tr ac:local-id=3D"990e7d26-ad0d-49c9-88fc-981ade926a2b">
+<td data-local-id=3D"9b3f6f51-11f4-467d-907b-82b3b4a0032b" class=3D"conflue=
+nceTd">
+<p local-id=3D"0bc5d9bc-dc74-4b33-8aee-1f50a6aebdd4">Course Code</p></td>
+<td data-local-id=3D"cecbbdb7-b45b-4ea4-815b-e009e988492e" class=3D"conflue=
+nceTd">
+<p local-id=3D"d2a3b0f2-d530-4985-97ed-f9a766e6d140">Must be unique</p></td=
+>
+<td data-local-id=3D"07d0a4b0-5afd-4887-bc89-32f4b46a3961" class=3D"conflue=
+nceTd">
+<p local-id=3D"a5508db0-d76b-4636-8ab4-3bc087575bff">"Course code already e=
+xists" (system-generated, rare)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p local-id=3D"f440355e-b5b3-4d5d-9af4-7607923be81a"><strong>Business Rule =
+Validation:</strong></p>
+<ul local-id=3D"e7efc3b0-024d-4518-a1fb-caff204fd388">
+<li local-id=3D"4bfe262b-5336-4a0a-a60c-f346e86dff3a">
+<p local-id=3D"4e2221c5-e473-4301-bad7-e95935e6e930"><strong>Trainer Availa=
+bility:</strong> Warning if trainer has overlapping course assignments</p><=
+/li>
+<li local-id=3D"e5a6b15a-36aa-479f-aed5-c108163cbeeb">
+<p local-id=3D"4ceea08e-415c-41b6-a48d-406b62b5813b"><strong>Program-Course=
+ Type Match:</strong> Program must match selected course type</p></li>
+<li local-id=3D"a144f9ea-598c-4ff1-904a-f521172b4887">
+<p local-id=3D"bbe230b7-40af-464c-a0aa-8e13dfaab28d"><strong>Required Field=
+s by Type:</strong> MOF fields required only for SHINE courses</p></li>
+</ul>
+<p local-id=3D"ed79ec5d-00dc-45f7-b5d9-db514f5062dc"><strong>Error Handling=
+:</strong></p>
+<ul local-id=3D"5649518f-c6b0-4f7f-914f-ffc9af75c9d7">
+<li local-id=3D"b265d84e-4511-43e3-802b-17c20a811765">
+<p local-id=3D"5d683b16-28d3-4711-8c83-302657c98a8c"><strong>Validation Err=
+ors:</strong> Display inline error messages below fields</p></li>
+<li local-id=3D"8a069d53-c157-4cf7-a366-39b91906233b">
+<p local-id=3D"122d09a9-5fd2-4ff6-af24-e5a6bfdbe7cb"><strong>System Errors:=
+</strong> Display toast notification with error details</p></li>
+<li local-id=3D"d447a85a-4e10-4eb7-96c3-4df15b71857c">
+<p local-id=3D"4f25135d-9e95-4380-9842-d3cf24d13a2e"><strong>Partial Save:<=
+/strong> Not supported - all required fields must be complete</p></li>
+<li local-id=3D"84017377-18d1-49e6-9fa1-c242643aa997">
+<p local-id=3D"5f00c01c-67a1-4ee2-ae23-e7a906bc34b4"><strong>Cancel Action:=
+</strong> Prompt user to confirm if form has unsaved changes</p></li>
+</ul>
+<hr local-id=3D"e858bc45-d13b-4c00-881a-e8c7c37e8bbe">
+<h2 local-id=3D"2c13ae29-e235-4fd9-8aa9-1c93995f228c" id=3D"CourseCreation,=
+Listing,Details-8.2CourseListingScreen">8.2 Course Listing Screen</h2>
+<p local-id=3D"26f69ef3-1db6-446f-8cf8-4a9b53445e6c"><strong>Overview:</str=
+ong></p>
+<p local-id=3D"481a0e77-bfa2-4b49-b999-e96fa0d4db7e">The Course Listing Scr=
+een provides a centralized interface for users to view, search, filter, and=
+ manage courses in the LMS system. Access and visibility are controlled by =
+role-based authorization, ensuring users only see courses relevant to their=
+ responsibilities.</p>
+<h3 local-id=3D"59349d55-38c6-4a83-a7d7-a25852078e79" id=3D"CourseCreation,=
+Listing,Details-8.2.1CourseListView">8.2.1 Course List View</h3>
+<p local-id=3D"3a11c582-56e9-4a59-8ba1-d0ebc92085ff"><strong>User Story:</s=
+trong></p>
+<p local-id=3D"a0e3314d-6984-4d87-88aa-4f7cad11f394"><strong>AS</strong> an=
+y user who can login to LMS <br><strong>I NEED</strong> to view the course =
+list page with data filtered for my role <br><strong>SO THAT</strong> I can=
+ view the list of courses relating to me or my channel/region</p>
+<p local-id=3D"3b3b5c77-86e0-44bd-9188-14c322a478d6"><strong>Acceptance Cri=
+teria:</strong></p>
+<ol start=3D"1" local-id=3D"023dbdd4-6a78-4ea8-a001-c4a71aa5c3ac">
+<li local-id=3D"3a086c3b-f04d-49d2-8638-2afcb6e51357">
+<p local-id=3D"d5c3fcae-4689-405b-89c9-74696b4fbbd6"><strong>Course List Di=
+splay:</strong></p>
+<ul local-id=3D"b88e7d12-278a-48af-bfda-f0e99a473d68">
+<li local-id=3D"4a6d48d9-4d18-43cb-9b58-e548d7a40043">
+<p local-id=3D"7750e66a-e776-480c-aa07-9d0066c03419">Display courses in tab=
+ular format with sortable columns</p></li>
+<li local-id=3D"cb8be5be-aacc-4b4c-a038-2fae86ecadb4">
+<p local-id=3D"a1086e23-0c3a-458d-b7bc-df46a73ae4ec">Default sort: Created =
+At (descending - newest first)</p></li>
+<li local-id=3D"afba9640-a2a0-41ac-be2b-24f8a776cccd">
+<p local-id=3D"2bbbf8a9-9107-4b13-bef7-b632eab4716d">Pagination with config=
+urable rows per page</p></li>
+<li local-id=3D"8d75b446-1bd5-45e9-a335-e08658b5a3d5">
+<p local-id=3D"13a74ee9-ea4d-49ef-b703-fc87642172fc">Loading indicators dur=
+ing data fetch</p></li>
+<li local-id=3D"7845ff34-a096-42a4-b288-81433421164f">
+<p local-id=3D"64c07d16-ae2c-4fb0-af7e-a71cccfd21c4">Empty state message wh=
+en no courses match filters</p></li>
+</ul></li>
+<li local-id=3D"45c3b1f8-59d7-4b58-b44f-0a72416eb5d7">
+<p local-id=3D"4061de05-49bc-4e50-b0f9-37d8106b3864"><strong>Role-Based Aut=
+horization:</strong></p>
+<ul local-id=3D"8dce95dd-943a-4217-893b-4cdacaa9f680">
+<li local-id=3D"4c570f24-6648-4f33-a87f-077e45a8d330">
+<p local-id=3D"652aaafe-5f79-4738-ba2b-61eb219018d7">System automatically f=
+ilters courses based on user role</p></li>
+<li local-id=3D"2da86b28-54eb-4f2e-a3d6-81ddc903d27e">
+<p local-id=3D"b041db8f-7b54-4d21-bef9-6a8e55d7a19c">Authorization rules ap=
+ply without user configuration</p></li>
+<li local-id=3D"2cb0ad3c-73a1-48f7-8b39-83d29f0a27ef">
+<p local-id=3D"f3cd5f95-76a7-4100-8a90-01cbbe192167">See Authorization Matr=
+ix below</p></li>
+</ul></li>
+<li local-id=3D"c23bf59a-0a67-4d7f-9fd9-b05c4acc1402">
+<p local-id=3D"d6bbd2ec-0a5b-4783-a445-4b65970d61f5"><strong>Course Code Hy=
+perlink:</strong></p>
+<ul local-id=3D"68f229ef-9918-4c7b-b8b1-71a181e21234">
+<li local-id=3D"f6f8e961-df94-4515-b099-aef1adf9c27b">
+<p local-id=3D"6bda2666-a289-47ff-a035-8165b6b80c41">Course code is clickab=
+le/hyperlinked</p></li>
+<li local-id=3D"f9ab9d2a-eb91-4eca-956b-564eaee4f62d">
+<p local-id=3D"2132b23b-bd5f-4271-a830-16b8627879d1">Clicking opens Course =
+Details Screen in new tab or same window</p></li>
+<li local-id=3D"52357830-9df0-4e4f-811b-49e0067be1b9">
+<p local-id=3D"d0febe3a-532b-4cc2-a6a7-08aa8a7ee815">Hover shows tooltip pr=
+eview</p></li>
+</ul></li>
+</ol>
+<p local-id=3D"ba500b64-1ce5-47aa-a375-aecd894ba387"><strong>Authorization =
+Rule for Viewing Courses:</strong></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"0a=
+6f35a7-c0b6-4922-8ba6-6ea5ed9928d4" class=3D"confluenceTable">
+<tbody>
+<tr ac:local-id=3D"0314b17c-5bf9-4c54-be4b-a8e2250c6da8">
+<th data-local-id=3D"683a08ef-fc4e-47bd-9f58-f5e39dff6c32" class=3D"conflue=
+nceTh">
+<p local-id=3D"772ab781-674d-466f-9b16-f35759474fcf">Role</p></th>
+<th data-local-id=3D"7d2406f5-0328-447e-887b-7b4298a704b7" class=3D"conflue=
+nceTh">
+<p local-id=3D"6eefbbe8-bff0-45f4-ad3f-f0fe3c369301">Authorization</p></th>
+</tr>
+<tr ac:local-id=3D"2e8fe03b-5133-4ee9-9610-a684369e7ddd">
+<td data-local-id=3D"98dd5b5b-1c2f-4002-91dd-5615ff3b585d" class=3D"conflue=
+nceTd">
+<p local-id=3D"e61eee31-4882-4944-ab11-40f9ca95f29d">Trainer</p></td>
+<td data-local-id=3D"02d8d468-9197-4086-a0be-9c3ae1f204cc" class=3D"conflue=
+nceTd">
+<p local-id=3D"58721534-3619-4b79-a323-6575bfccf306">See only courses creat=
+ed by or assigned to trainer</p></td>
+</tr>
+<tr ac:local-id=3D"4dc80d7a-d237-41eb-9412-917e24d9c3cc">
+<td data-local-id=3D"b906d577-8f0e-4b41-90ea-79da6ebb6c58" class=3D"conflue=
+nceTd">
+<p local-id=3D"303ac13c-5bf0-45cb-b476-7f581ef2a82e">Lead Region</p></td>
+<td data-local-id=3D"c41a9aa0-0117-4306-813d-73cbfc8fed52" class=3D"conflue=
+nceTd">
+<p local-id=3D"cf92c5fc-1450-43d2-9cff-c39d176dfdff">See courses in lead's =
+channel AND region, or created by lead</p></td>
+</tr>
+<tr ac:local-id=3D"5715692b-3168-4a82-9229-a7a203c7783a">
+<td data-local-id=3D"ab6584e9-eed3-4c5c-8bad-f161cf02974f" class=3D"conflue=
+nceTd">
+<p local-id=3D"3dc9418f-1381-436b-8ec4-beece1f902df">Head Channel</p></td>
+<td data-local-id=3D"7810bd26-c0e0-44c7-83db-8d2ab466c659" class=3D"conflue=
+nceTd">
+<p local-id=3D"bccb465b-2308-414d-a45e-b27badc00a28">See courses in head's =
+channel</p></td>
+</tr>
+<tr ac:local-id=3D"5bb24658-0863-4e23-843f-878c29371d3f">
+<td data-local-id=3D"3669ed1b-3edb-4524-aeb1-55ed8bffa59c" class=3D"conflue=
+nceTd">
+<p local-id=3D"5b9ffb85-4c37-404f-846d-a35c0c5c49a3">Admin, Master Role, Ro=
+ot Admin</p></td>
+<td data-local-id=3D"a94c3fa2-f891-4d36-b3e8-270387e65d4f" class=3D"conflue=
+nceTd">
+<p local-id=3D"f130ed28-abe4-4538-89db-0916e6063c96">See all courses in LMS=
+ system</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p local-id=3D"81893ff0-3606-4878-be26-3c1e1a3d7531"><strong>Business Rules=
+:</strong></p>
+<ul local-id=3D"e2458cbf-55d2-4eea-8c28-4d8d7679f31c">
+<li local-id=3D"6c4874cb-3a34-4373-9dd7-b96fca2f3ab6">
+<p local-id=3D"a73eebed-8d5a-4057-a7f4-6db3e32f8412"><strong>Trainer:</stro=
+ng></p>
+<ul local-id=3D"ba446411-6c86-4579-aaa1-227377b1e583">
+<li local-id=3D"fdcfc0b9-c891-43f2-ab38-5cfefec43902">
+<p local-id=3D"3edae3db-6b84-4d42-a931-7818a3b7faef">Can view courses where=
+ they are Primary Trainer OR Co-Trainer</p></li>
+<li local-id=3D"333a0378-b4c1-4770-a996-089133f1a78c">
+<p local-id=3D"5f79dcd5-5b47-4ced-9251-f939ee5047a3">Can view courses they =
+created (as course creator)</p></li>
+<li local-id=3D"093b0e45-a06f-428f-875b-e7009a155b9d">
+<p local-id=3D"82a8b33a-41c2-48da-8a9a-0f986262dd07">Cannot view other trai=
+ners' courses unless assigned</p></li>
+</ul></li>
+<li local-id=3D"1427dd11-664d-46aa-8a71-7f358e8160dc">
+<p local-id=3D"5348d548-4155-4ed6-b16d-9f296512e63e"><strong>Lead Region:</=
+strong></p>
+<ul local-id=3D"49b202bf-5972-4a09-a611-714d16201b5a">
+<li local-id=3D"b8a54c4c-9dac-4cf1-b743-b1a9765587d5">
+<p local-id=3D"240b8cae-979b-4d03-acf5-fbfb0522295d">Can view all courses i=
+n their assigned channel AND region combination</p></li>
+<li local-id=3D"7a65e3d7-ff93-4481-ac02-9915a5f31927">
+<p local-id=3D"e5bd76b5-309d-41c0-930c-48947e44be26">Can view courses they =
+created regardless of channel/region</p></li>
+<li local-id=3D"e8462132-c93c-4968-bf58-f37935131738">
+<p local-id=3D"669d4bcf-ff2c-4b0d-8ed7-63c49dfb7983">Example: Lead for "Age=
+ncy + South" sees all Agency courses in South region</p></li>
+</ul></li>
+<li local-id=3D"0c6d5905-7ff6-46da-892e-8262cf0471ce">
+<p local-id=3D"0570d7ef-47fb-4039-b52b-9b1249f7248b"><strong>Head Channel:<=
+/strong></p>
+<ul local-id=3D"083bdecd-7010-4f8a-bc06-7c0ed283d04b">
+<li local-id=3D"7f0ea433-9838-4a0e-9846-c437df76bd6e">
+<p local-id=3D"011e07d6-6cdc-4590-862b-eccbe5fc02b7">Can view all courses i=
+n their assigned channel across all regions</p></li>
+<li local-id=3D"03a1984c-cb57-4123-bd55-59ba88fb57ea">
+<p local-id=3D"e1b0dfc7-1438-4afb-89f3-19ae416ff4aa">Can view courses they =
+created regardless of channel</p></li>
+<li local-id=3D"00c1a0cb-f394-421e-9841-c7dc30cf616d">
+<p local-id=3D"43da497e-bc85-4f9f-a45d-104f4419896c">Example: Head of Agenc=
+y sees all Agency courses (North, South, Central, Nationwide)</p></li>
+</ul></li>
+<li local-id=3D"a60277ab-8177-4fff-9460-6a1ec4c6463d">
+<p local-id=3D"c354d485-ca7e-4d5e-8c9c-e697ff1eeb26"><strong>Admin, Master =
+Role, Root Admin:</strong></p>
+<ul local-id=3D"9ec032c8-47c4-4592-a52c-e4a62ea8cb7a">
+<li local-id=3D"46c65169-dbd5-4a75-9d52-d75cda961a55">
+<p local-id=3D"208363ab-b43f-4c28-b4f0-f86c65bfdb47">No restrictions - full=
+ visibility to all courses in system</p></li>
+</ul></li>
+</ul>
+<p local-id=3D"9f92c737-b980-4af1-9c54-606dc14ee382"><strong>Course Listing=
+ Fields:</strong></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"c3=
+acac65-a8cd-4b23-b6b8-bd25a3353cf0" class=3D"confluenceTable">
+<tbody>
+<tr ac:local-id=3D"43ef9a19-609a-4a8b-8b66-ca10abaa3422">
+<th data-local-id=3D"392bec9c-e354-4005-b7a4-445a267720e2" class=3D"conflue=
+nceTh">
+<p local-id=3D"ee934ded-eda2-48ab-8b32-81f3288364db">S/N</p></th>
+<th data-local-id=3D"b0422e6e-397d-4aab-b984-ea7dc5922e3e" class=3D"conflue=
+nceTh">
+<p local-id=3D"830a3049-9b22-4463-8f19-bf6752c3c3da">Fieldname</p></th>
+<th data-local-id=3D"c0402749-4572-4cd6-a206-dc9efd9cf9b6" class=3D"conflue=
+nceTh">
+<p local-id=3D"d91a8ba0-c3a8-4e43-ba67-1402301a8e4d">Data Type</p></th>
+<th data-local-id=3D"e1753440-14db-4424-9533-bb413420a640" class=3D"conflue=
+nceTh">
+<p local-id=3D"59e944c2-1f0f-408c-9af0-af898c960cee">M/O/CM/D</p></th>
+<th data-local-id=3D"3b2e4689-8a66-43de-a791-cde981bd2158" class=3D"conflue=
+nceTh">
+<p local-id=3D"78a90aeb-fc1c-4237-ac75-349eefd5408f">Description</p></th>
+<th data-local-id=3D"badbb9e7-2883-4569-a17e-f75af7e0f3b9" class=3D"conflue=
+nceTh">
+<p local-id=3D"c79945ce-50fb-4b6d-ab24-9b61d4e62c67">Data Example</p></th>
+<th data-local-id=3D"e4f776a3-09df-4e5c-abd0-89ab77843754" class=3D"conflue=
+nceTh">
+<p local-id=3D"9f53ed42-0899-4e08-bd57-9de9249b0ef2">Validation/Rules</p></=
+th>
+</tr>
+<tr ac:local-id=3D"8961a9a3-e0e1-4a14-b735-daed41cc2ab1">
+<td data-local-id=3D"310ca2f5-c42d-455a-a7db-bf5552d351b9" class=3D"conflue=
+nceTd">
+<p local-id=3D"fbe2795a-2a2b-408e-8338-32356bba869e">1</p></td>
+<td data-local-id=3D"352140c5-d702-4402-8f57-6e4c36459f4e" class=3D"conflue=
+nceTd">
+<p local-id=3D"fc6efa8c-2142-426b-8569-30a646a965cf">Code</p></td>
+<td data-local-id=3D"d8fb5064-870f-4199-86e0-928ab253a0df" class=3D"conflue=
+nceTd">
+<p local-id=3D"c1fb5396-7d50-486d-b5d6-22c3463f02db">Display</p></td>
+<td data-local-id=3D"262e3513-e781-487f-a792-29256df0db25" class=3D"conflue=
+nceTd">
+<p local-id=3D"799f24b0-cc16-483c-b3e6-a4e3c4f978fd">D</p></td>
+<td data-local-id=3D"1a6ed8dd-cd87-4f0f-bab1-6b8e8b758bfa" class=3D"conflue=
+nceTd">
+<p local-id=3D"a08360db-6e27-44fd-a388-ab88a3c1409c">Course code (hyperlink=
+)</p></td>
+<td data-local-id=3D"2d5f9907-ce45-4e14-b976-ad193d282d61" class=3D"conflue=
+nceTd">
+<p local-id=3D"6edc2da8-c3ec-483a-b036-91fd32d1eacb">001-HCBC-SH</p></td>
+<td data-local-id=3D"e59c447c-3515-43a1-975b-aa77742f209d" class=3D"conflue=
+nceTd">
+<p local-id=3D"7144848e-2d2f-4476-a09f-a815ab756767">Clickable link to cour=
+se details</p></td>
+</tr>
+<tr ac:local-id=3D"40dfd15c-78e2-49c9-88d2-4723c990ede2">
+<td data-local-id=3D"ec2fcfbf-432c-428f-947c-95f32c6eb340" class=3D"conflue=
+nceTd">
+<p local-id=3D"9cdd0c6d-6165-4efd-b998-22f6c4414db6">2</p></td>
+<td data-local-id=3D"e6d9c576-7672-4b70-9960-689b20461d74" class=3D"conflue=
+nceTd">
+<p local-id=3D"edb4435c-b09c-4d5a-99d5-f572759bdcef">Course Name</p></td>
+<td data-local-id=3D"98a3eedc-1494-44df-957d-83f565652b2d" class=3D"conflue=
+nceTd">
+<p local-id=3D"99c505d9-c1af-4a23-aebf-1b248f5cf1e9">Display</p></td>
+<td data-local-id=3D"02ca67d7-d5fa-4498-85fe-893805c55f8d" class=3D"conflue=
+nceTd">
+<p local-id=3D"27a7a316-d72c-42be-8e55-c159a4481c86">D</p></td>
+<td data-local-id=3D"6bbd6d23-0e19-44d2-8b5f-17bcf94f0bc0" class=3D"conflue=
+nceTd">
+<p local-id=3D"38b43e9a-3544-4af0-94f1-fabf082dfdc4">Course name</p></td>
+<td data-local-id=3D"82f01057-4086-457a-b0f2-a944c78ed330" class=3D"conflue=
+nceTd">
+<p local-id=3D"17f9e7a8-174a-487f-8bbe-40b62f0c1abf">SHINE</p></td>
+<td data-local-id=3D"698d34ea-2fd3-49ab-a517-15d82c0a69bc" class=3D"conflue=
+nceTd">
+<ul local-id=3D"6a4042f8-5323-4cd3-97b0-2e279db16b75">
+<li local-id=3D"b32ab074-c6fb-4b8d-b35d-0a7ad6518064">
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence"></pre>
+</div>
+</div></li>
+</ul></td>
+</tr>
+<tr ac:local-id=3D"31bccf54-6c0a-47d9-ad34-931fb239d79a">
+<td data-local-id=3D"de43ff20-8814-46fa-853b-9fd4e72e71be" class=3D"conflue=
+nceTd">
+<p local-id=3D"07e9274c-32c1-4c85-b5f6-2e2b4a6a1b33">3</p></td>
+<td data-local-id=3D"658a8b01-d686-429a-b0ff-592224eaf59e" class=3D"conflue=
+nceTd">
+<p local-id=3D"ee66c5e3-3d79-4076-a026-587160da76e2">Start-End Date</p></td=
+>
+<td data-local-id=3D"a3f5a1b1-1cf2-483b-abb2-8ff258b4919b" class=3D"conflue=
+nceTd">
+<p local-id=3D"1112e8d9-04ae-46ef-a37c-e41afb97b453">Display</p></td>
+<td data-local-id=3D"0b66c94c-e29e-4419-86f3-296414e12c79" class=3D"conflue=
+nceTd">
+<p local-id=3D"bbb70cee-8add-4608-82ff-1f515d294140">D</p></td>
+<td data-local-id=3D"e5b1f544-6401-4593-aa68-1ad5cbb755b3" class=3D"conflue=
+nceTd">
+<p local-id=3D"5e46a20a-8922-4af9-8dfc-7e217921bcb0">Course start and end d=
+ates</p></td>
+<td data-local-id=3D"d9c46dc4-7429-4e75-a139-c4562bafb9cc" class=3D"conflue=
+nceTd">
+<p local-id=3D"55b79512-b60e-4368-801e-f90f074989ac">01/04/2022 - 03/04/202=
+2</p></td>
+<td data-local-id=3D"c254fa90-df24-47ea-8615-8dc886643dee" class=3D"conflue=
+nceTd">
+<p local-id=3D"5a485924-e5d1-4d2b-8dba-51315f6bca20">Format: DD/MM/YYYY</p>=
+</td>
+</tr>
+<tr ac:local-id=3D"763952e0-2818-4391-9bf4-394a5d4a089d">
+<td data-local-id=3D"a12cd3ab-d164-4c44-8fdb-59912e818b69" class=3D"conflue=
+nceTd">
+<p local-id=3D"d8034b00-5542-4046-88d8-3f15008c88c3">4</p></td>
+<td data-local-id=3D"bcb55223-a780-4bdb-adc3-1cdcbe68be55" class=3D"conflue=
+nceTd">
+<p local-id=3D"e970d82c-91ee-44bc-8099-54a2fb8a619a">Trainer</p></td>
+<td data-local-id=3D"30b9c72b-3758-4869-91c8-006d02b07739" class=3D"conflue=
+nceTd">
+<p local-id=3D"0d9e9a0f-3c40-430d-9542-1f278ea860be">Display</p></td>
+<td data-local-id=3D"7e4959df-d921-4943-81a3-59d1457a25f9" class=3D"conflue=
+nceTd">
+<p local-id=3D"91b73aee-3502-43cc-9ee1-6d4260823363">D</p></td>
+<td data-local-id=3D"8a79e854-7e24-47b7-a3e5-ff96863bd1bb" class=3D"conflue=
+nceTd">
+<p local-id=3D"d4d95507-9c30-4c13-8031-1d27252e6ba4">Primary and co-trainer=
+ names</p></td>
+<td data-local-id=3D"a15ac889-c9b5-4924-9be3-27775bee823d" class=3D"conflue=
+nceTd">
+<p local-id=3D"84cc7a65-344f-416c-a7c3-e6527926d547">John Doe, Jane Smith</=
+p></td>
+<td data-local-id=3D"ad18aa0f-e173-43b6-a3cc-216bb30bbc60" class=3D"conflue=
+nceTd">
+<p local-id=3D"9cbe9f3d-c7ce-4cec-8472-9217510ae065">Comma-separated if mul=
+tiple</p></td>
+</tr>
+<tr ac:local-id=3D"e5140f0e-252d-4d79-a8ee-e306ba2014c0">
+<td data-local-id=3D"35af96b2-c108-41ce-9e9d-4725d88675c2" class=3D"conflue=
+nceTd">
+<p local-id=3D"ee0ae23c-ecc8-48ec-8032-6b9e0626a52a">5</p></td>
+<td data-local-id=3D"c1ee7246-ef73-456c-b6e7-a3723bae3311" class=3D"conflue=
+nceTd">
+<p local-id=3D"285f31bc-2074-4281-937c-a54f4fe3a4b9">Session</p></td>
+<td data-local-id=3D"2225d9c3-18bd-4bf1-adec-40217a67bdf8" class=3D"conflue=
+nceTd">
+<p local-id=3D"aa3ce84e-fcac-4631-b800-8a5d7b408919">Display</p></td>
+<td data-local-id=3D"305703da-552b-421f-a7ee-e859fb9f2321" class=3D"conflue=
+nceTd">
+<p local-id=3D"5e085a16-4ab6-4629-9444-1bbc829fd633">D</p></td>
+<td data-local-id=3D"f38e30c7-28be-4450-9a41-e3727b8f2999" class=3D"conflue=
+nceTd">
+<p local-id=3D"561fe483-e2d1-4c41-98f0-e311b0dc7c1f">Number of stages/sessi=
+ons</p></td>
+<td data-local-id=3D"a43aff6d-e746-4dce-952d-e26529d309ff" class=3D"conflue=
+nceTd">
+<p local-id=3D"23aaacdf-964d-48eb-8138-17ca9feea546">6</p></td>
+<td data-local-id=3D"f5d3719b-6fc0-4587-9912-7d0fec557b77" class=3D"conflue=
+nceTd">
+<p local-id=3D"557711f1-4dfa-46ff-9b66-99d8770ed442">Numeric count</p></td>
+</tr>
+<tr ac:local-id=3D"32f89728-f9c3-420d-98cd-02b0448f1f51">
+<td data-local-id=3D"b0e51f69-2d60-414a-8615-7616206af460" class=3D"conflue=
+nceTd">
+<p local-id=3D"25b24b0e-fe65-4311-8fd8-32cce2359ebf">6</p></td>
+<td data-local-id=3D"2919ebdd-0023-4e06-a456-cc70917251d7" class=3D"conflue=
+nceTd">
+<p local-id=3D"a2d8be60-59e8-4322-bf9b-4ccadff1337c">Region</p></td>
+<td data-local-id=3D"ee9b96a5-139e-422b-9a75-91412391a651" class=3D"conflue=
+nceTd">
+<p local-id=3D"689024c6-285b-497b-8b19-a7268ec49d95">Display</p></td>
+<td data-local-id=3D"bde9d665-b31e-4dc3-a0d0-509f8385a5f5" class=3D"conflue=
+nceTd">
+<p local-id=3D"569c7ff1-75f9-4fa9-a75b-bef17bff26f0">D</p></td>
+<td data-local-id=3D"b1401faf-1dff-4e8e-bd6c-1b0efeaa5a77" class=3D"conflue=
+nceTd">
+<p local-id=3D"3daa95aa-e9cd-442d-9348-ca418753002f">Course region</p></td>
+<td data-local-id=3D"5fb74a12-f5fd-4447-92ae-8bb38c912673" class=3D"conflue=
+nceTd">
+<p local-id=3D"ed9f9300-63c1-4be2-828e-d2c5204e4a2c">South</p></td>
+<td data-local-id=3D"c57c005e-b7c1-480f-8e3f-87ac7f27f261" class=3D"conflue=
+nceTd">
+<p local-id=3D"467a20b2-356d-430b-b0a9-a9f90dc59fb3">Values: North/South/Ce=
+ntral/Nationwide</p></td>
+</tr>
+<tr ac:local-id=3D"4581c955-9702-4954-9ea8-1a9bcbd1bf05">
+<td data-local-id=3D"dfbae8c8-3e6e-41ba-abc1-5a7722889de6" class=3D"conflue=
+nceTd">
+<p local-id=3D"98f9304e-4613-4d5f-8843-7516ef4d140d">7</p></td>
+<td data-local-id=3D"cbb41437-8927-4b4a-b351-120ab572ef15" class=3D"conflue=
+nceTd">
+<p local-id=3D"1dd6e5a5-e62d-4ca8-91ab-ca62f4f66702">Channel</p></td>
+<td data-local-id=3D"518d60ff-9049-462c-a10e-818adb4d585d" class=3D"conflue=
+nceTd">
+<p local-id=3D"19e40378-4fca-4c27-8a0c-c4090df3725d">Display</p></td>
+<td data-local-id=3D"79210d26-cb9d-4657-9985-df6f929fe85e" class=3D"conflue=
+nceTd">
+<p local-id=3D"cd17bcc8-3c1a-4925-9197-657db07f7531">D</p></td>
+<td data-local-id=3D"c9fdaf04-67bf-4058-a4ad-e4e09cb34eb6" class=3D"conflue=
+nceTd">
+<p local-id=3D"33f46d1a-eeeb-4bed-b745-9c760a53b9db">Course channel</p></td=
+>
+<td data-local-id=3D"61492598-8848-4653-8e8a-a0f849bdf947" class=3D"conflue=
+nceTd">
+<p local-id=3D"755824fe-d01f-4a95-a89f-6a31cccba907">Agency</p></td>
+<td data-local-id=3D"3ed9f71d-1067-4533-b502-aad5993230a1" class=3D"conflue=
+nceTd">
+<p local-id=3D"98be5a66-4f2f-46c3-bc54-6bd56a5ca0b0">Values: Agency/Banca F=
+SC/Banker/IFA</p></td>
+</tr>
+<tr ac:local-id=3D"fecbedac-298c-43f6-bf81-6d072d098d34">
+<td data-local-id=3D"ce1a4c5b-1c5a-4733-afa3-9cfe5f01b0d9" class=3D"conflue=
+nceTd">
+<p local-id=3D"e8b364a6-2bd4-40bd-870e-82c583608690">8</p></td>
+<td data-local-id=3D"1750cb73-265b-4d8b-b705-ec9515b2d023" class=3D"conflue=
+nceTd">
+<p local-id=3D"cbcdae82-e30f-4968-9b70-1925cbf6ede5">Venue</p></td>
+<td data-local-id=3D"683939e4-a045-4222-801a-65cbdc687fba" class=3D"conflue=
+nceTd">
+<p local-id=3D"3be061c4-9c6a-4c4a-be34-62f4494306c5">Display</p></td>
+<td data-local-id=3D"a88cfe5f-dded-43b4-bd3b-a2caf46c2a58" class=3D"conflue=
+nceTd">
+<p local-id=3D"91afc1c0-5086-4eaf-97a6-42082d919bf1">D</p></td>
+<td data-local-id=3D"82fffc85-8c6e-429d-8ebe-88eada70a3a0" class=3D"conflue=
+nceTd">
+<p local-id=3D"f1418350-1285-4041-aba6-63cdd50b14c5">Course venue address</=
+p></td>
+<td data-local-id=3D"4c7d123d-64a2-453a-bad6-3a65799e34b9" class=3D"conflue=
+nceTd">
+<p local-id=3D"df5bad29-25a8-421b-87cf-781da0fce419">FWD Tower, HCM</p></td=
+>
+<td data-local-id=3D"efc600ed-2846-4851-a134-132968c253c5" class=3D"conflue=
+nceTd">
+<ul local-id=3D"3b6d88ff-d957-4aff-b7a2-d35b2eb27a5c">
+<li local-id=3D"3a349235-869a-453d-9bd0-ab1e0731aaf6">
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence"></pre>
+</div>
+</div></li>
+</ul></td>
+</tr>
+<tr ac:local-id=3D"5a12bc0d-4d3e-47b3-a63b-e028fe303e6f">
+<td data-local-id=3D"5f5796d3-0bfa-4378-8f9b-e5028b795225" class=3D"conflue=
+nceTd">
+<p local-id=3D"d7dc85bc-8b9e-403a-b031-247d9d657d43">9</p></td>
+<td data-local-id=3D"224e3294-0d16-4f6c-8352-1cc44fd608c4" class=3D"conflue=
+nceTd">
+<p local-id=3D"4aac0ffc-2e52-4db2-8272-dc8a2d51425a">Status</p></td>
+<td data-local-id=3D"f3db9236-8523-4251-ac80-8ffc9998e616" class=3D"conflue=
+nceTd">
+<p local-id=3D"73f0f7d5-3d64-47c5-a940-b5ef7bc06ce6">Display</p></td>
+<td data-local-id=3D"24edc556-f0b8-4d75-aa09-929f463fec07" class=3D"conflue=
+nceTd">
+<p local-id=3D"14dab76b-edce-436c-8783-c428989bd395">D</p></td>
+<td data-local-id=3D"2ae83835-c08b-4dc5-8336-e8d38375e691" class=3D"conflue=
+nceTd">
+<p local-id=3D"8114f9c0-0290-485f-8b74-c6352a784cf3">Current course status<=
+/p></td>
+<td data-local-id=3D"d4c41149-1c18-4333-80aa-90147220900b" class=3D"conflue=
+nceTd">
+<p local-id=3D"0235847e-5296-44a3-b39a-72d48fdb725b">APPROVED</p></td>
+<td data-local-id=3D"5367ca7f-954c-48d0-8580-75fb2d5f12a5" class=3D"conflue=
+nceTd">
+<p local-id=3D"bdeabcec-c118-4c72-a1b9-84acf99ab165">Status badge with colo=
+r coding</p></td>
+</tr>
+<tr ac:local-id=3D"1c918ccf-5453-436c-acaa-a70fae04b930">
+<td data-local-id=3D"9f618bd8-251a-4ec3-84c2-85a4e6fb8f11" class=3D"conflue=
+nceTd">
+<p local-id=3D"214cff01-e46e-47e2-ba99-b56c6aec9739">10</p></td>
+<td data-local-id=3D"48e222a0-9202-4dee-a811-e7543e16aac9" class=3D"conflue=
+nceTd">
+<p local-id=3D"ad513aae-54e4-4f9c-9e51-e85918a17b89">Created By</p></td>
+<td data-local-id=3D"74c2c611-7a73-4a97-a404-8b88391466e6" class=3D"conflue=
+nceTd">
+<p local-id=3D"8d47b159-67b5-488f-a706-dd5464231132">Display</p></td>
+<td data-local-id=3D"70d3cfb7-51d0-47d9-96b6-ca2ef4fa52cc" class=3D"conflue=
+nceTd">
+<p local-id=3D"55f5b1e7-9783-4e7b-beb2-8721df01f0fb">D</p></td>
+<td data-local-id=3D"5d7bcfa7-3e12-420b-8df0-8052cdc2054e" class=3D"conflue=
+nceTd">
+<p local-id=3D"135becc0-ebe1-413d-9d6e-95fa5d02d47d">User who created the c=
+ourse</p></td>
+<td data-local-id=3D"52316983-be2c-4998-bec4-38fe1b4958d2" class=3D"conflue=
+nceTd">
+<p local-id=3D"a9a2ad49-221f-4a98-949c-647bb5719b79">Admin User</p></td>
+<td data-local-id=3D"c90dc55e-ac58-41e6-b7df-ab294ef569f2" class=3D"conflue=
+nceTd">
+<ul local-id=3D"859f6366-134d-4db0-9828-53cb1bc32ece">
+<li local-id=3D"8c0fee5c-6f8a-4ceb-88ff-1a0c1709607f">
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence"></pre>
+</div>
+</div></li>
+</ul></td>
+</tr>
+<tr ac:local-id=3D"503d3bca-267b-4750-9be9-0d4d965be9de">
+<td data-local-id=3D"6cdc980b-81a2-49fd-be89-4c8442e63178" class=3D"conflue=
+nceTd">
+<p local-id=3D"7eb22323-61a1-4bf6-9bc2-134467f693dd">11</p></td>
+<td data-local-id=3D"572da483-6ef6-46d3-b6ff-bccde73a848c" class=3D"conflue=
+nceTd">
+<p local-id=3D"59e7441a-fa75-4615-ad03-0232aa62c716">Created At</p></td>
+<td data-local-id=3D"b21a7556-7ee3-467c-9eb7-1dabf5e8b5fa" class=3D"conflue=
+nceTd">
+<p local-id=3D"3b35d1b8-838a-4fa8-acde-4f961e9b54b5">Display</p></td>
+<td data-local-id=3D"3d7b8bc2-ed02-4ffa-ad8b-70f75997f778" class=3D"conflue=
+nceTd">
+<p local-id=3D"1cc70603-fb8a-4585-ab83-1c5e27d55896">D</p></td>
+<td data-local-id=3D"046cf06b-5b91-4dc9-b4ea-77c2ba9e979f" class=3D"conflue=
+nceTd">
+<p local-id=3D"d52dbfd5-de51-426a-b7aa-58c07746a810">Creation date and time=
+</p></td>
+<td data-local-id=3D"f537795a-a4e8-4102-bcfe-c6605a231b35" class=3D"conflue=
+nceTd">
+<p local-id=3D"88c0e439-091b-40a8-94df-160405d04c30">15/03/2022 14:30</p></=
+td>
+<td data-local-id=3D"1b8fc7f3-ff69-4f31-a594-3c233b332502" class=3D"conflue=
+nceTd">
+<p local-id=3D"6b1579bb-f87c-44cc-96ae-e4d7a7a99630">Auto-sorted by newest =
+first</p></td>
+</tr>
+<tr ac:local-id=3D"6bbf86cf-0186-415b-b8da-d9e849b4690a">
+<td data-local-id=3D"dfd5d0ea-2058-4e60-996a-78dd8a51643b" class=3D"conflue=
+nceTd">
+<p local-id=3D"abe29ceb-3c15-4de1-9023-868f7313365e">12</p></td>
+<td data-local-id=3D"e2078cca-d3af-4d68-8c53-6ce8d47bbf79" class=3D"conflue=
+nceTd">
+<p local-id=3D"ba52b391-b251-438e-a3aa-a986ff48d54b">Updated By</p></td>
+<td data-local-id=3D"8b285030-1bdf-4901-b760-afb6202d696f" class=3D"conflue=
+nceTd">
+<p local-id=3D"203c43b6-36a8-487b-9081-333ed8d93bac">Display</p></td>
+<td data-local-id=3D"04dc2814-180b-483a-97d9-3af4ace3a019" class=3D"conflue=
+nceTd">
+<p local-id=3D"a5020833-085f-4d7a-9b27-edd31390858f">D</p></td>
+<td data-local-id=3D"560be9d1-cc8b-432f-b1bf-0af09fee9fee" class=3D"conflue=
+nceTd">
+<p local-id=3D"140c72db-7827-4756-940f-35b9ee6771e9">User who last updated<=
+/p></td>
+<td data-local-id=3D"cbfed97f-507a-4312-b78b-8da4d591fa83" class=3D"conflue=
+nceTd">
+<p local-id=3D"19f1b4c0-a52b-4d11-9078-87250d593e1e">Lead User</p></td>
+<td data-local-id=3D"0dc30756-a791-44c1-a54a-8771483950b1" class=3D"conflue=
+nceTd">
+<ul local-id=3D"95a7b1c0-9704-482f-aa7b-8ecd807c74f0">
+<li local-id=3D"174875fa-90e4-4faa-b02a-f8a987a42155">
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence"></pre>
+</div>
+</div></li>
+</ul></td>
+</tr>
+<tr ac:local-id=3D"5dc005c8-bd4c-44ee-b28d-b77177b29b89">
+<td data-local-id=3D"2fb053d5-1113-417f-9799-17c1c4589bad" class=3D"conflue=
+nceTd">
+<p local-id=3D"612c6a51-1e11-4549-a517-ed050a525af6">13</p></td>
+<td data-local-id=3D"88e3d17b-2209-4c69-9a5f-26c8814288f8" class=3D"conflue=
+nceTd">
+<p local-id=3D"c1ded262-d843-44c3-adea-defe2d4cc0e0">Action</p></td>
+<td data-local-id=3D"e84ccac7-a900-4ce7-9eaa-e71bc12051e0" class=3D"conflue=
+nceTd">
+<p local-id=3D"dc4c89fb-e3a9-433e-b5f3-e0f6c0948ed7">Button</p></td>
+<td data-local-id=3D"e7697cc8-bf7e-4c8e-a319-9c3b3673fd0d" class=3D"conflue=
+nceTd">
+<ul local-id=3D"5f9501bc-c2ea-482d-8da6-3b9a0b2492aa">
+<li local-id=3D"0d9fa09e-49e6-42df-b0a2-b6590d749f68">
+<p local-id=3D"cff0cba0-a46e-4238-bf52-69a84ddd248d"></p></li>
+</ul></td>
+<td data-local-id=3D"a1ee0d44-427b-4a1b-9c5d-f82c94348e09" class=3D"conflue=
+nceTd">
+<p local-id=3D"9192b304-06cc-4f93-a4b4-c6ef34a51bba">Action buttons (role-b=
+ased)</p></td>
+<td data-local-id=3D"1348484c-e361-4329-b7a1-6105780fcd43" class=3D"conflue=
+nceTd">
+<p local-id=3D"da2724a2-9595-4247-87aa-3f21ad9e6b79">=F0=9F=93=9D =E2=9C=8F=
+=EF=B8=8F =E2=9D=8C =F0=9F=97=91=EF=B8=8F</p></td>
+<td data-local-id=3D"a0f3951a-c8b6-4e61-a1da-0c3e010cece1" class=3D"conflue=
+nceTd">
+<p local-id=3D"fabb7ec6-6373-460e-ba7e-30e1e3a23473">See Section 8.2.5 for =
+details</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 local-id=3D"87d94251-642c-4d8b-afb4-172e3de9c201" id=3D"CourseCreation,=
+Listing,Details-8.2.2Filter&amp;Search">8.2.2 Filter &amp; Search</h3>
+<p local-id=3D"a61c95b3-9959-40cd-b8c9-a544758786d2"><strong>User Story:</s=
+trong></p>
+<p local-id=3D"c3db2e54-9254-4c9a-a710-01d4a78073e3"><strong>AS</strong> a =
+user viewing the course list <br><strong>I NEED</strong> to filter and sear=
+ch courses by multiple criteria <br><strong>SO THAT</strong> I can quickly =
+find specific courses I'm looking for</p>
+<p local-id=3D"4ba72a55-82b5-41e3-8e59-4a77db210e37"><strong>Acceptance Cri=
+teria:</strong></p>
+<ol start=3D"1" local-id=3D"1ca643fc-dfdd-4d19-a7c0-6bc2d8fc2309">
+<li local-id=3D"1c9ecaf4-ba60-4369-a886-c15b7618aa7a">
+<p local-id=3D"90020a1d-74d2-4be5-a872-53e60e08ccc3"><strong>Filter Area:</=
+strong></p>
+<ul local-id=3D"149b37d9-d8fc-424b-b770-a4353426d1a7">
+<li local-id=3D"1f6930f7-d0d0-4ccf-a31c-9b13f8211a12">
+<p local-id=3D"8b5a7f92-e68c-4bea-be30-aa2dbc10d54e">Filter panel always vi=
+sible at top of course list</p></li>
+<li local-id=3D"01ee32e9-d85c-4ddb-b196-af46fe3cca12">
+<p local-id=3D"cef03e41-09aa-41f8-bfc2-9fed3dbd2b32">Filters persist during=
+ session</p></li>
+<li local-id=3D"26fc258b-1183-439f-90c5-0f6769ad6206">
+<p local-id=3D"a7191fde-7e71-4c8c-b175-99fc0a762009">Clear indication when =
+filters are active</p></li>
+<li local-id=3D"751c1258-c24b-4bd3-b941-56f840149fed">
+<p local-id=3D"9c3a27b0-a2aa-461b-8ba6-93d00b771767">"Clear All Filters" bu=
+tton resets all filters</p></li>
+</ul></li>
+<li local-id=3D"5ad71a3f-aeaa-413b-974a-e59820eb8fcd">
+<p local-id=3D"db1fbf78-0a64-4485-b0ec-47b34697fdeb"><strong>Filter Behavio=
+r:</strong></p>
+<ul local-id=3D"259fbaf7-2372-43cd-8286-29ee88db02a3">
+<li local-id=3D"1555c0b0-308d-4d8c-8c6b-5bafe8b35947">
+<p local-id=3D"716774f1-a1d5-499f-a95c-4ca5fea19502">Filters apply immediat=
+ely (real-time) OR on button click</p></li>
+<li local-id=3D"6ae5b268-7d38-4a7c-8edc-e537972c2362">
+<p local-id=3D"9d0f7d88-3fc6-4ed0-ac92-c95e723d5e4c">Multiple filters work =
+in combination (AND logic)</p></li>
+<li local-id=3D"d5dc9efe-54ec-4f8f-95cb-caf79105f339">
+<p local-id=3D"c1b36218-9c48-437e-9e78-96fa9ae6d0be">Filter results respect=
+ role-based authorization</p></li>
+<li local-id=3D"44c3a0f6-ca4f-4aa2-b00c-0ae82009e502">
+<p local-id=3D"e70d45c6-f966-4bac-9d8e-79cf1ae2f12c">Display count of filte=
+red results</p></li>
+</ul></li>
+<li local-id=3D"688f2f10-e62d-4568-aa38-644c68aa13d8">
+<p local-id=3D"6753985e-131e-4b2d-8f9f-1c2db3352681"><strong>Search Behavio=
+r:</strong></p>
+<ul local-id=3D"79102fc2-3af8-4670-804e-7d6427f8f3c5">
+<li local-id=3D"59b5ba43-bf93-4270-9f80-03c33101714d">
+<p local-id=3D"f486530f-879d-4a15-8e58-7155fa9b4321">Search triggers on Ent=
+er key or Search button click</p></li>
+<li local-id=3D"71a19689-420e-4e04-bebe-06d858b8a6f7">
+<p local-id=3D"fe5d15dd-59a2-49b6-b33c-c390136dda7f">Search is case-insensi=
+tive</p></li>
+<li local-id=3D"c89d4f3c-8639-417f-80a3-a0cb9301a386">
+<p local-id=3D"040040f4-9df4-4e50-9257-1ed372656898">Partial match supporte=
+d</p></li>
+<li local-id=3D"1e5cbdb7-ccce-4658-8cbb-35adc293abd5">
+<p local-id=3D"295b81ed-db8f-4889-8255-8e604182ec7c">Search across multiple=
+ fields simultaneously</p></li>
+</ul></li>
+</ol>
+<p local-id=3D"447d48c2-a85b-42e7-bbb1-74ab976a2b49"><strong>Filter Criteri=
+a:</strong></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"b3=
+fddfe6-1f9e-4520-a7ab-3805b7460e5c" class=3D"confluenceTable">
+<tbody>
+<tr ac:local-id=3D"1cbf6045-c55c-417c-9ca7-7ec204283911">
+<th data-local-id=3D"cf00e115-76d9-4f81-b7fb-12f9d3f171ff" class=3D"conflue=
+nceTh">
+<p local-id=3D"0b33b0a0-f323-4ab7-ad7c-b77bd0271951">Filter</p></th>
+<th data-local-id=3D"bb99c14b-1373-4ee7-a005-168206abb9ba" class=3D"conflue=
+nceTh">
+<p local-id=3D"0f588ebb-1a7e-47f7-bfde-cfba2b6d041a">Type</p></th>
+<th data-local-id=3D"075f401e-a7e3-4434-9ce7-b6246d9df567" class=3D"conflue=
+nceTh">
+<p local-id=3D"d8985cf6-ddd6-4b49-9543-0b0c29daf3a5">Description</p></th>
+<th data-local-id=3D"0f0db64a-63f9-4157-8cd6-985e171504a3" class=3D"conflue=
+nceTh">
+<p local-id=3D"4f8ed0e8-bf14-4426-a694-197d01918492">Values/Options</p></th=
+>
+</tr>
+<tr ac:local-id=3D"84f8180b-cbbc-4856-9f4a-006eef1585c2">
+<td data-local-id=3D"f85e380e-947b-4a94-a152-d91818e498b1" class=3D"conflue=
+nceTd">
+<p local-id=3D"e6546b90-e641-4ad4-8017-0428d804abc5">Channel</p></td>
+<td data-local-id=3D"ee2c8d73-13f8-4c92-bda5-c5e0d5eaf8a2" class=3D"conflue=
+nceTd">
+<p local-id=3D"14387691-c830-4d88-a97d-93e363a01895">Dropdown</p></td>
+<td data-local-id=3D"1ad4d60b-6e86-48b2-aa91-bbc45f9a7acb" class=3D"conflue=
+nceTd">
+<p local-id=3D"d014cf2b-05b0-4592-9e89-e5a1c0889d46">Filter by channel</p><=
+/td>
+<td data-local-id=3D"667554cd-ae52-4268-b542-4b090637f06f" class=3D"conflue=
+nceTd">
+<p local-id=3D"9122befe-cc37-4992-ae4c-74ead72ac0e0">All, Agency, Banca FSC=
+, Banker, IFA</p></td>
+</tr>
+<tr ac:local-id=3D"bc8bc474-7024-4dd9-9842-4997f81d7395">
+<td data-local-id=3D"3fe621c1-b8ee-4fab-b234-2321e06130ab" class=3D"conflue=
+nceTd">
+<p local-id=3D"19ed95d5-d1d2-4705-bd20-f1ef7f127129">Region</p></td>
+<td data-local-id=3D"443804f1-f2e7-4f0f-af57-52fd6f8f8ac6" class=3D"conflue=
+nceTd">
+<p local-id=3D"1fe662e6-4dca-46ec-a5e0-43b74dd5b575">Dropdown</p></td>
+<td data-local-id=3D"5f745391-2eaf-45b1-b8cd-27d433f6237d" class=3D"conflue=
+nceTd">
+<p local-id=3D"ee9df9b5-63ac-4d7e-8211-f5ce0f170500">Filter by region</p></=
+td>
+<td data-local-id=3D"9c4fa1ce-26f1-47db-91f6-3176bf5382ce" class=3D"conflue=
+nceTd">
+<p local-id=3D"3e996abe-2b96-4d6c-a5fa-0c01606146a5">All, Central, North, S=
+outh, Nationwide</p></td>
+</tr>
+<tr ac:local-id=3D"21937a6b-8863-426d-8e95-826d0bdacc18">
+<td data-local-id=3D"920c7934-4ae0-4369-9717-edf03869e836" class=3D"conflue=
+nceTd">
+<p local-id=3D"21724c9b-c5a9-4636-b2d5-f3cbd3f56c75">Status</p></td>
+<td data-local-id=3D"602abbe1-3c51-4f37-958a-b921fd724ebd" class=3D"conflue=
+nceTd">
+<p local-id=3D"ce5a1fb3-0f14-40e0-b31c-a889040216ec">Dropdown</p></td>
+<td data-local-id=3D"ce07b274-74ea-46f2-bd01-910f4320000a" class=3D"conflue=
+nceTd">
+<p local-id=3D"1cbed4d5-9619-4cdd-8736-98129c8603d4">Filter by status</p></=
+td>
+<td data-local-id=3D"65d8def8-6d24-40d2-8cd0-3ecf985171e0" class=3D"conflue=
+nceTd">
+<p local-id=3D"b93767e0-9629-4676-8947-fa9695be443f">All, NEW, REGISTERED, =
+APPROVED, IN_PROGRESS, WAITING_APPROVAL_EDIT, WAITING_APPROVAL_CANCEL, CANC=
+EL, FINISHED, DELETED</p></td>
+</tr>
+<tr ac:local-id=3D"df1da81f-4fa5-4230-b65c-adaaac5400e7">
+<td data-local-id=3D"f060b929-2344-4927-95d7-912ac31863d3" class=3D"conflue=
+nceTd">
+<p local-id=3D"29e63402-1ca4-4f21-ac56-a4c1b6a6251c">Search</p></td>
+<td data-local-id=3D"ceef318f-fc81-475d-806f-4a640e7229fa" class=3D"conflue=
+nceTd">
+<p local-id=3D"58b76cf2-3a45-4bb4-8662-31b06c52f929">Text Input</p></td>
+<td data-local-id=3D"62871aa7-2d3f-4a18-b8f7-3d15177d380d" class=3D"conflue=
+nceTd">
+<p local-id=3D"e5000fcd-9d75-4ff6-be0e-4aa08f986c4f">Search by code/name</p=
+></td>
+<td data-local-id=3D"36e2de91-1fa4-4da4-a481-fed0d337e9a9" class=3D"conflue=
+nceTd">
+<p local-id=3D"7ce68ce1-72dd-4be2-8ff7-cefbca996971">Free text - searches i=
+n Course Code and Course Name fields</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p local-id=3D"a68fc294-1afc-440d-93d7-0f083df1c8fe"><strong>Filter Impleme=
+ntation Details:</strong></p>
+<ol start=3D"1" local-id=3D"e5b6d53b-b764-4cc1-a847-518cdcb884f2">
+<li local-id=3D"2335c3e1-1fa5-445c-9b1c-a72116f4569c">
+<p local-id=3D"1f35fc71-5f36-4dbc-94c8-e4228366d102"><strong>Channel Filter=
+:</strong></p>
+<ul local-id=3D"3bd4b5e8-0808-449c-9b18-3fad89a6e6aa">
+<li local-id=3D"5c2e8006-3add-4841-99d2-11c7394522d8">
+<p local-id=3D"9490b067-9878-454b-80ce-7c9a637cbc8a">Default: "All" (no fil=
+ter applied)</p></li>
+<li local-id=3D"77226945-1c22-438b-88e9-dcd704163ed1">
+<p local-id=3D"c50fb7c0-a800-4236-a7e1-facf02e92f56">Single selection dropd=
+own</p></li>
+<li local-id=3D"57563c7b-5782-4e08-ab16-238b7737ca4e">
+<p local-id=3D"505c4a9e-83ee-4acb-a96a-b9827a3cba68">Updates course list to=
+ show only selected channel</p></li>
+<li local-id=3D"80297dbd-8010-4f7c-8399-2daff67d94ba">
+<p local-id=3D"83bf9033-0f5c-463f-b672-172cfd4ce886">Respects user role (e.=
+g., Head Channel only sees their channel regardless of filter selection)</p=
+></li>
+</ul></li>
+<li local-id=3D"6433907b-cb76-4c63-a034-f96db87cd59a">
+<p local-id=3D"bdb17891-1bd6-49d2-b50d-78759e845e85"><strong>Region Filter:=
+</strong></p>
+<ul local-id=3D"4ef4e888-9e1c-48e6-b613-91d8169df3a4">
+<li local-id=3D"2045449d-b0a9-4eb2-96ef-54254ae5bcf0">
+<p local-id=3D"477ff28b-6aa9-4116-ad4e-71e79b330c3d">Default: "All" (no fil=
+ter applied)</p></li>
+<li local-id=3D"852e205c-7bbd-469b-a814-4fddd329047e">
+<p local-id=3D"8dad3e18-a12e-4fdb-b58b-0fc6b6bf59db">Single selection dropd=
+own</p></li>
+<li local-id=3D"7afb48cc-c67f-4da2-9e9d-c02796859307">
+<p local-id=3D"ba8bb1a2-5af6-4952-af70-d5614554e5e8">Updates course list to=
+ show only selected region</p></li>
+<li local-id=3D"57d67c83-601c-4f03-aa4f-3f674c4ae6f9">
+<p local-id=3D"47f62a3a-7beb-4f20-9edd-66f096e1fb1e">Respects user role (e.=
+g., Lead Region only sees their region regardless of filter selection)</p><=
+/li>
+</ul></li>
+<li local-id=3D"242afbe7-c8e6-4cd1-a42d-3ad8dbd96e6a">
+<p local-id=3D"95a9172d-c6c3-4c4c-b84c-93b22c2fc6bc"><strong>Status Filter:=
+</strong></p>
+<ul local-id=3D"f872bbad-c515-4bf8-9eae-31b1085083dc">
+<li local-id=3D"513d76c8-df54-45b4-94b6-233c2d95c60f">
+<p local-id=3D"dfc1393e-9e7c-440b-8699-07b8c1b5c26a">Default: "All" (no fil=
+ter applied)</p></li>
+<li local-id=3D"9e5ad5c3-21dd-425b-ba2a-ec6b4128b4aa">
+<p local-id=3D"38630410-6dd2-4f43-a66c-ac539d5958ee">Single selection dropd=
+own</p></li>
+<li local-id=3D"ab5536c0-d6ed-40b7-99a9-c8da586f1dbe">
+<p local-id=3D"1dc891d5-40d0-4147-9e7d-77b71435d728">Shows all course statu=
+ses from system</p></li>
+<li local-id=3D"3ed2657c-5be5-408e-a9d6-b0d9e9e36f39">
+<p local-id=3D"43fa9c4a-ca0e-4639-9038-3ae903143ea2">Color-code dropdown op=
+tions matching status badge colors</p></li>
+</ul></li>
+<li local-id=3D"5822ac31-692d-4eb1-b3bf-d976fe8768e2">
+<p local-id=3D"8d047db2-a4c4-4f58-893d-805111b4029c"><strong>Search Box:</s=
+trong></p>
+<ul local-id=3D"eadb1fd2-b9f2-4e41-bd24-ddcb5a7c467d">
+<li local-id=3D"30e9ad9d-166d-4ec3-8015-8f1fd8655a6c">
+<p local-id=3D"c128ea98-037e-4837-bb09-7d7ec40b00c8">Placeholder text: "Sea=
+rch by course code or name..."</p></li>
+<li local-id=3D"f16a1891-69db-4376-992b-52ba4a1e0d78">
+<p local-id=3D"1c5dcbf5-14b8-4499-8f4c-93f9308782f7">Minimum 1 character to=
+ trigger search</p></li>
+<li local-id=3D"881486b7-ea13-44ba-a694-cc72f59ce0dd">
+<p local-id=3D"928b494e-926f-4a7e-bdc9-623e58f5d803">Clear (X) button to re=
+set search</p></li>
+<li local-id=3D"e5170cc4-5435-41f2-bf5f-f44627dac8dd">
+<p local-id=3D"c24d96d0-ceda-482e-b86e-0874ffd5868e">Search icon for visual=
+ clarity</p></li>
+</ul></li>
+</ol>
+<p local-id=3D"1135ad8e-03cb-46fd-b0ae-131304d20861"><strong>Search Functio=
+nality:</strong></p>
+<p local-id=3D"bb7a79e5-ae9b-4139-9c15-ff91958a545e"><strong>Search Fields:=
+</strong></p>
+<ul local-id=3D"300b488a-6281-4e40-b101-a07ff781dc61">
+<li local-id=3D"a53767a8-1e10-4b6d-85b9-94671b1ec53c">
+<p local-id=3D"7a2d0caf-55d9-4d10-9e7a-927ea021d737">Course Code (e.g., "00=
+1-HCBC-SH")</p></li>
+<li local-id=3D"748762d7-aab5-4056-8420-cf1857abc431">
+<p local-id=3D"2f43bbe5-c850-4724-b911-c4008704fbea">Course Name (e.g., "SH=
+INE")</p></li>
+</ul>
+<p local-id=3D"12cafdeb-e948-42fc-98b2-ea278047aad3"><strong>Search Behavio=
+r:</strong></p>
+<ul local-id=3D"08f9ef6e-f68b-41b5-b2c7-36e316ada4e5">
+<li local-id=3D"2e40c402-7e26-4f31-8d59-ad01f360df6f">
+<p local-id=3D"4c2b9d65-bbf0-45c4-9e58-cace355e79f1"><strong>Partial Match:=
+</strong> Search "HC" returns all courses with "HC" in code or name</p></li=
+>
+<li local-id=3D"2de1c0e5-a5c4-43cb-a9cd-9e434b69e537">
+<p local-id=3D"9be236f5-fe39-42d5-b052-b16dc7323b4d"><strong>Case Insensiti=
+ve:</strong> Search "shine" or "SHINE" returns same results</p></li>
+<li local-id=3D"99a731b1-1318-4bda-9b99-e113a23b77ea">
+<p local-id=3D"be92c498-d6e4-408f-aef0-4349d0fefa9e"><strong>Real-time:</st=
+rong> Results update as user types OR on button click (configurable)</p></l=
+i>
+</ul>
+<p local-id=3D"5033a0cb-24a4-4670-813c-c2e7845c6117"><strong>Example Search=
+ Scenarios:</strong></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"b7=
+c0dc71-b5cd-4f42-9cad-3af86fc5b342" class=3D"confluenceTable">
+<tbody>
+<tr ac:local-id=3D"78b650eb-a940-4b9d-93e9-2d81a6a412ef">
+<th data-local-id=3D"2b92c5f8-721d-4ea2-8288-0a7d85515004" class=3D"conflue=
+nceTh">
+<p local-id=3D"e5df8be6-ff9f-4d20-8ab2-3d2ae33a4203">Search Term</p></th>
+<th data-local-id=3D"ff9cc45e-5915-41bb-9cef-0dcc8f72dab4" class=3D"conflue=
+nceTh">
+<p local-id=3D"6308ee7a-d17e-4beb-bb68-7ebb6e7fe945">Matches</p></th>
+</tr>
+<tr ac:local-id=3D"fa3ab63c-fe3e-47b2-abf1-e592890147c9">
+<td data-local-id=3D"80f137d6-4df6-45c6-b92b-d7a84c86e8a7" class=3D"conflue=
+nceTd">
+<p local-id=3D"b646cf3c-a9bb-42cb-a1ea-264713267d82">"SHINE"</p></td>
+<td data-local-id=3D"63f6fba1-6fc4-49fa-9a0b-62a2a4522831" class=3D"conflue=
+nceTd">
+<p local-id=3D"25368023-ca2e-4ca7-8c3d-53174f1b0a53">All courses with "SHIN=
+E" in code or name</p></td>
+</tr>
+<tr ac:local-id=3D"ffa28fe1-3a41-4019-a98b-8af264c80aa5">
+<td data-local-id=3D"03df6af9-efcb-4679-a0fd-d58937250fb1" class=3D"conflue=
+nceTd">
+<p local-id=3D"a2aa2f37-329d-45fe-af96-f29271cc9ce6">"001-HC"</p></td>
+<td data-local-id=3D"62379bef-e085-49de-9a6c-01cdb2106062" class=3D"conflue=
+nceTd">
+<p local-id=3D"2ffc10cc-6e14-419f-a282-97caaa40ae98">All courses with code =
+starting with "001-HC"</p></td>
+</tr>
+<tr ac:local-id=3D"f7550894-a018-4962-8d91-2445ed5de004">
+<td data-local-id=3D"dccddec4-d91a-42e6-aaf1-12c33f5bb8c9" class=3D"conflue=
+nceTd">
+<p local-id=3D"e1b9461c-6229-40b4-b9e6-6790c0044250">"Agency"</p></td>
+<td data-local-id=3D"91b01f11-2f82-416a-9f16-ca33987743f1" class=3D"conflue=
+nceTd">
+<p local-id=3D"0c947f95-1b3c-4418-aaf1-3b4b6915157c">All courses with "Agen=
+cy" in name</p></td>
+</tr>
+<tr ac:local-id=3D"afa6cba8-d986-4609-b48e-5624301acde5">
+<td data-local-id=3D"0f64e88d-0a2c-4377-a7db-0340495faa09" class=3D"conflue=
+nceTd">
+<p local-id=3D"c79e8ea3-f7b7-4ba8-bfb0-4c27e871a653">"001"</p></td>
+<td data-local-id=3D"6154d8c2-44d1-4b86-b12d-4b4efc260b80" class=3D"conflue=
+nceTd">
+<p local-id=3D"5e7c1164-94ff-4040-bf60-34ac264ca74c">All courses with "001"=
+ in code</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 local-id=3D"c0b2690c-fb7f-4c82-9381-de7f64a8a39c" id=3D"CourseCreation,=
+Listing,Details-8.2.3ExportCourses">8.2.3 Export Courses</h3>
+<p local-id=3D"7936ba45-18a3-4fe0-ba7a-0c1f8f1ba09f"><strong>User Story:</s=
+trong></p>
+<p local-id=3D"e21d4bd9-4ca4-4a58-af23-1572734bdfad"><strong>AS</strong> a =
+user who can view the course list <br><strong>I NEED</strong> a function to=
+ export courses to Excel <br><strong>SO THAT</strong> I can have the list o=
+f courses to view offline or share with others</p>
+<p local-id=3D"ea7f0b74-ca9d-4378-815f-b5a025831123"><strong>Acceptance Cri=
+teria:</strong></p>
+<ol start=3D"1" local-id=3D"008bafbe-90c1-4138-a7e1-d8afeaf91515">
+<li local-id=3D"925974ca-9569-4642-81d4-2b4e29944a41">
+<p local-id=3D"f5acf09d-828d-464f-a65b-261241ce7b35"><strong>Export Button:=
+</strong></p>
+<ul local-id=3D"19f016d8-c363-41c3-b7f2-d36dc8872185">
+<li local-id=3D"a66e9146-db15-4112-809b-2cc6678cc9eb">
+<p local-id=3D"bbe2118c-6bf5-4826-9f1c-d2152e1e8603">"Export Courses" butto=
+n visible at top-right of course list</p></li>
+<li local-id=3D"f5f38c8f-b0f1-4ed5-884a-5ad01be5b543">
+<p local-id=3D"e78d1efd-f92d-48c2-979b-15e0651ba4de">Button always enabled =
+when courses are visible</p></li>
+<li local-id=3D"389925c1-209a-4540-a55b-36ab87a6dfa2">
+<p local-id=3D"4321c5d2-221f-441b-bb94-d7a0f213c80b">Loading indicator duri=
+ng export generation</p></li>
+</ul></li>
+<li local-id=3D"6fd17114-fc6f-413b-8ded-c12c4ab776dc">
+<p local-id=3D"470def84-495b-45bf-aa68-186d4fc940f7"><strong>Export Behavio=
+r:</strong></p>
+<ul local-id=3D"2b1a3aae-3e60-477f-b8a7-38480100b845">
+<li local-id=3D"802984a2-0507-425a-ba90-f939fddc0267">
+<p local-id=3D"e8586c99-1215-42ec-9b8b-2856e2b25f21">Exports only courses v=
+isible to current user (respects role authorization)</p></li>
+<li local-id=3D"5e5f85ae-3432-46c0-85ab-e5313148c293">
+<p local-id=3D"feda7710-2e43-423b-b702-e4642a0f1b53">Exports only courses m=
+atching current filters/search</p></li>
+<li local-id=3D"df19cb71-d090-4586-bf3d-e022db59a8d8">
+<p local-id=3D"8b86b86e-4ca4-4b4f-83be-428ffe7bc701">If no filters applied,=
+ exports all authorized courses</p></li>
+<li local-id=3D"410d1ddf-c6a2-4cb2-a379-648e504bbd5b">
+<p local-id=3D"940e4e86-b4c0-4534-bb19-855b778a457f">File downloads automat=
+ically when ready</p></li>
+</ul></li>
+<li local-id=3D"2bf3fc18-99a0-415f-9add-731ae21cb06a">
+<p local-id=3D"d9cac12f-206e-4b46-aaa4-c34fe70c6db4"><strong>Export Format:=
+</strong></p>
+<ul local-id=3D"92b1a8c2-261d-43f7-8182-9ee4bc7bd94a">
+<li local-id=3D"3f77c94c-fffe-4708-9c74-2c584f676c36">
+<p local-id=3D"c4de8fb3-bfb6-4a17-b011-de10a02a8771">File format: Excel (.x=
+lsx)</p></li>
+<li local-id=3D"01b000ed-91dc-4e78-bfc6-446dabc19969">
+<p local-id=3D"18a3b906-2768-47b0-8382-ffea06bb1290">File name format: <cod=
+e>Courses_Export_{DDMMYYYY_HHMMSS}.xlsx</code></p></li>
+<li local-id=3D"82a3be9f-0bc3-478e-8d6a-69f44e949f57">
+<p local-id=3D"b6362ea6-ed40-43f1-9225-64ad82b4ea34">Example: <code>Courses=
+_Export_15032022_143045.xlsx</code></p></li>
+</ul></li>
+<li local-id=3D"1493a419-2d8c-458d-910b-8a08e837c5d2">
+<p local-id=3D"59e8beca-f29b-4725-9296-978cd363dd17"><strong>Export Content=
+:</strong></p>
+<ul local-id=3D"bca561ab-c873-4767-b532-b9716f2af20e">
+<li local-id=3D"ddf2a67d-7a33-47ef-b22b-6a9010d2c7cc">
+<p local-id=3D"73e78615-c4dd-400c-875f-7682bf95cdfb">Includes all columns f=
+rom Course Listing Fields (Section 8.2.1)</p></li>
+<li local-id=3D"d0f7762c-b0fe-47fa-ac99-c10e714a946d">
+<p local-id=3D"23729896-014c-4004-a3fc-6e37c69385ed">Header row with column=
+ names</p></li>
+<li local-id=3D"14e53139-6573-4231-bd61-a5a6ad7ed227">
+<p local-id=3D"a3da2449-dbfd-4800-98c1-48c6d8aef9ca">Data formatted consist=
+ently with UI display</p></li>
+<li local-id=3D"0d514371-dbef-47f8-8215-71f05c0e26e6">
+<p local-id=3D"a81e3e98-39a5-4d83-870c-ec4919f8c75f">Status column shows st=
+atus text (not color)</p></li>
+</ul></li>
+</ol>
+<p local-id=3D"e68e8736-fa9b-4187-acc8-f963b6b378cd"><strong>Export File St=
+ructure:</strong></p>
+<p local-id=3D"04d7ba1c-dc83-45fa-8a1c-726e89bfd7f8"><strong>Excel Columns:=
+</strong></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"f2=
+83ab00-bb46-4ab8-8eee-02512baf35b5" class=3D"confluenceTable">
+<tbody>
+<tr ac:local-id=3D"30828ab9-7b7b-4429-a861-010a71cf7387">
+<th data-local-id=3D"d69efe5e-3570-404b-a172-cefe5e6e99b5" class=3D"conflue=
+nceTh">
+<p local-id=3D"c147ef07-305b-46f0-bdea-f03f810787d9">Column #</p></th>
+<th data-local-id=3D"721c5f42-a338-4f77-9a64-e5bd11ce6ede" class=3D"conflue=
+nceTh">
+<p local-id=3D"28dbf870-5b47-43d7-a847-71e15b8d6f9a">Column Name</p></th>
+<th data-local-id=3D"400f3ac5-e1d3-4d27-b320-e67818eb2e93" class=3D"conflue=
+nceTh">
+<p local-id=3D"ce670bb1-de96-4c04-9411-f717cc7f40b5">Data Source</p></th>
+<th data-local-id=3D"cba2e31a-b362-4398-8ca7-7e1cadc6e79e" class=3D"conflue=
+nceTh">
+<p local-id=3D"50156d1a-19e6-4edf-a751-d037a97d080b">Format</p></th>
+</tr>
+<tr ac:local-id=3D"47f1cddf-631b-41c1-befd-ec7885cb375b">
+<td data-local-id=3D"d2cca6b0-b8fb-4425-bfe2-ebfb7da064f9" class=3D"conflue=
+nceTd">
+<p local-id=3D"aff6e534-4255-4e91-af4b-21458dd3800f">1</p></td>
+<td data-local-id=3D"7ec4d01c-0f95-47de-9057-59f509104189" class=3D"conflue=
+nceTd">
+<p local-id=3D"add19379-2796-448f-9b7f-f3217dc4f858">Code</p></td>
+<td data-local-id=3D"f81da4ff-0b22-4bd3-968c-cacd5e2348a1" class=3D"conflue=
+nceTd">
+<p local-id=3D"87413780-aae4-43ad-978f-8f361aa5e66a">Course Code</p></td>
+<td data-local-id=3D"2a8c5b05-3159-4605-8d09-5c800ea6cd79" class=3D"conflue=
+nceTd">
+<p local-id=3D"58a4a233-7234-4909-9c50-2d3560925eda">Text</p></td>
+</tr>
+<tr ac:local-id=3D"9fa5a06d-7148-456e-9c58-996005b0c0b2">
+<td data-local-id=3D"67887d5c-87d3-4a07-bb72-2cfa72b98575" class=3D"conflue=
+nceTd">
+<p local-id=3D"011d970b-f6b5-4fa9-b419-8ddafa8c2c68">2</p></td>
+<td data-local-id=3D"f90aaf14-8357-45c8-8892-15bcba6162de" class=3D"conflue=
+nceTd">
+<p local-id=3D"ea8023d1-f637-4994-b7dd-cbf57e51ad09">Course Name</p></td>
+<td data-local-id=3D"a17a8017-0fdc-4842-8416-129abac0fe70" class=3D"conflue=
+nceTd">
+<p local-id=3D"92632e29-80d5-400b-ab89-1832275b01af">Course Name</p></td>
+<td data-local-id=3D"c7a2a7cc-76a7-4fd6-bf5f-01692d04ae81" class=3D"conflue=
+nceTd">
+<p local-id=3D"ea939e7f-1caf-4b43-93da-899373c3f6c6">Text</p></td>
+</tr>
+<tr ac:local-id=3D"50603127-a33c-4c1e-8cbb-a18665947612">
+<td data-local-id=3D"37383498-f6e3-4096-be37-2d41e99b8143" class=3D"conflue=
+nceTd">
+<p local-id=3D"30cde42c-cb28-4e49-b010-4a74a9f7bda2">3</p></td>
+<td data-local-id=3D"08de9f7e-2ff2-49b9-a0bb-c417d839bf3e" class=3D"conflue=
+nceTd">
+<p local-id=3D"e539af8d-e1fb-4e2d-8b00-5c65b50e1b82">Start Date</p></td>
+<td data-local-id=3D"beed1499-0b5a-44e7-9bf6-bb307de37d7e" class=3D"conflue=
+nceTd">
+<p local-id=3D"71bd8bdd-67fc-4fce-b9dc-4ee667aad8cb">Course Start Date</p><=
+/td>
+<td data-local-id=3D"1ad8e522-16b0-42d2-8804-fa7fc2d8ae01" class=3D"conflue=
+nceTd">
+<p local-id=3D"bdca4774-d2fa-43b0-87c4-61739f2f10fa">Date (DD/MM/YYYY)</p><=
+/td>
+</tr>
+<tr ac:local-id=3D"8cd5d2dd-81dd-4b03-a412-1a4f5b0cecc0">
+<td data-local-id=3D"b8b1bf83-b9b1-4b91-8655-7b9735a7b530" class=3D"conflue=
+nceTd">
+<p local-id=3D"b41f95d1-c48e-4202-826e-541bab708316">4</p></td>
+<td data-local-id=3D"c32aa5c2-8c64-4038-99be-43136693df28" class=3D"conflue=
+nceTd">
+<p local-id=3D"4df5bfab-672c-458a-a8b3-9ed1f4b7cc85">End Date</p></td>
+<td data-local-id=3D"0030711e-7f99-4e70-b9f6-a6b43c0bb93f" class=3D"conflue=
+nceTd">
+<p local-id=3D"04d8bf1b-75a5-4784-8393-dc245c437a50">Course End Date</p></t=
+d>
+<td data-local-id=3D"87c2c57a-0a58-4b85-9bdf-b7e958246932" class=3D"conflue=
+nceTd">
+<p local-id=3D"92dbb338-c3a2-401b-b585-bf69fb728628">Date (DD/MM/YYYY)</p><=
+/td>
+</tr>
+<tr ac:local-id=3D"3a5cde26-65ab-449b-b5be-db5c94743430">
+<td data-local-id=3D"5a544013-35ab-4829-a36e-6855a30089ef" class=3D"conflue=
+nceTd">
+<p local-id=3D"9a23b34b-8f61-4855-9893-7fc5cf48d825">5</p></td>
+<td data-local-id=3D"f3eb7be8-a90c-4ae4-9747-2945a66b84d2" class=3D"conflue=
+nceTd">
+<p local-id=3D"281e3794-1c8a-49eb-b5cb-1b57e9ce51be">Trainer</p></td>
+<td data-local-id=3D"0948c868-ee44-4edd-99f8-bb246a3f5c84" class=3D"conflue=
+nceTd">
+<p local-id=3D"b8c34fb6-f00a-42b3-9da7-bcf2ab4ef064">Trainer Names</p></td>
+<td data-local-id=3D"3107eab3-912f-4528-a4c3-023491b6ace7" class=3D"conflue=
+nceTd">
+<p local-id=3D"07921dbe-7ea9-4404-b949-7bac1ba01623">Text</p></td>
+</tr>
+<tr ac:local-id=3D"97021b95-614e-43b8-9ea0-e102d3b2276d">
+<td data-local-id=3D"e3a93c47-9199-4167-bad7-dcd18c695c89" class=3D"conflue=
+nceTd">
+<p local-id=3D"615c2571-8e25-4b84-aa32-a59b74dc3935">6</p></td>
+<td data-local-id=3D"66214d54-4867-45e4-912d-e009a1cf0dca" class=3D"conflue=
+nceTd">
+<p local-id=3D"4babcc1f-78c0-416f-b432-8e7d97885a14">Sessions</p></td>
+<td data-local-id=3D"974912be-9024-42df-aeba-40c8b9c94a5a" class=3D"conflue=
+nceTd">
+<p local-id=3D"9551ac42-d3f6-4dff-9184-10ffe2fe5aaa">Number of Sessions</p>=
+</td>
+<td data-local-id=3D"d99c76cc-f976-4f95-9f7b-2a5ee0790976" class=3D"conflue=
+nceTd">
+<p local-id=3D"63fcee48-2ac9-46a2-8b1d-f7e9d86e54a6">Number</p></td>
+</tr>
+<tr ac:local-id=3D"ac6566d8-ba49-472f-bbe1-2498daf3b7ac">
+<td data-local-id=3D"92685034-9121-41a7-866b-23575925bdbb" class=3D"conflue=
+nceTd">
+<p local-id=3D"7225d27b-c7ce-4df6-ad1e-a9d4e6a370c1">7</p></td>
+<td data-local-id=3D"8358f4a9-45ed-4cae-8548-1cd5bb0429d5" class=3D"conflue=
+nceTd">
+<p local-id=3D"e21ec577-363d-4759-9e81-81af6c8f2dd6">Region</p></td>
+<td data-local-id=3D"0d13db4a-92ca-4acc-a0a5-30cb1ec87dae" class=3D"conflue=
+nceTd">
+<p local-id=3D"0c30d68e-5a61-482a-b05d-97bafa581450">Course Region</p></td>
+<td data-local-id=3D"56914790-7fec-4565-9eaa-68c05b6afc3e" class=3D"conflue=
+nceTd">
+<p local-id=3D"82979524-e006-485e-9a54-a1d6aa551278">Text</p></td>
+</tr>
+<tr ac:local-id=3D"166825fb-ed6d-418c-800b-e86d5a6470a1">
+<td data-local-id=3D"a440aa84-f616-4f7a-8d89-2a66ae5cd513" class=3D"conflue=
+nceTd">
+<p local-id=3D"cb96b668-1360-4e17-84ec-51a77ba0182a">8</p></td>
+<td data-local-id=3D"317e692d-ac34-43e1-854b-670552ef496c" class=3D"conflue=
+nceTd">
+<p local-id=3D"a4af4e13-8670-4aed-a1f5-8ee332a9bad4">Channel</p></td>
+<td data-local-id=3D"4f773b1f-b9ca-43bd-ba96-f385469fb270" class=3D"conflue=
+nceTd">
+<p local-id=3D"d7e477fa-9a2d-48ab-a8d5-ef77a285e7b5">Course Channel</p></td=
+>
+<td data-local-id=3D"64cafe0f-50bd-489c-8af5-5be21b4d2f3c" class=3D"conflue=
+nceTd">
+<p local-id=3D"b0f7b467-6f77-453f-9fd9-72f3d22dc6b9">Text</p></td>
+</tr>
+<tr ac:local-id=3D"285e2102-6153-47b2-9ae0-52280c6dd239">
+<td data-local-id=3D"de5bb0cd-ed9f-4a39-8f09-a20b94ee10d8" class=3D"conflue=
+nceTd">
+<p local-id=3D"c884a57e-cf2d-4ec5-b80c-1fc47b037a95">9</p></td>
+<td data-local-id=3D"228d9b98-489a-4891-82aa-185a0929add0" class=3D"conflue=
+nceTd">
+<p local-id=3D"71bc81da-7ca1-4c67-b6d9-816995341f98">Venue</p></td>
+<td data-local-id=3D"3f200705-c65a-4448-a9e8-a44a13c1ee5f" class=3D"conflue=
+nceTd">
+<p local-id=3D"7c76fb78-4344-43cc-9135-95b3045262ac">Course Venue</p></td>
+<td data-local-id=3D"75ac282f-d5b9-423e-9afc-3016d1b6c98b" class=3D"conflue=
+nceTd">
+<p local-id=3D"c02b2619-d5ab-4038-a762-2ac21d09e03b">Text</p></td>
+</tr>
+<tr ac:local-id=3D"f658af62-27b0-40e0-a084-a75c51508a5d">
+<td data-local-id=3D"e262fd56-83c9-4c0e-ad8d-658f210980c0" class=3D"conflue=
+nceTd">
+<p local-id=3D"a2a0d51d-f5a9-4e81-8eba-7da2fe7d09d7">10</p></td>
+<td data-local-id=3D"9c09451f-0c6c-4cd1-b828-6c3c39b79fd1" class=3D"conflue=
+nceTd">
+<p local-id=3D"c1d2aec6-ca12-4cff-9168-1514e5b838bf">Status</p></td>
+<td data-local-id=3D"ec8dbbe4-7950-4343-bfa7-0ac1f5f25027" class=3D"conflue=
+nceTd">
+<p local-id=3D"bdd3edfe-c11e-47de-afef-b306d8fa4347">Course Status</p></td>
+<td data-local-id=3D"fc9e5e88-0a02-41fa-82f4-8cd6025aea24" class=3D"conflue=
+nceTd">
+<p local-id=3D"02ced7e0-ab95-443d-8731-6471ed968821">Text</p></td>
+</tr>
+<tr ac:local-id=3D"afe8a8d9-c289-41e9-a1c8-a6035a312feb">
+<td data-local-id=3D"5d2db5c2-ed76-4169-b29f-6fcc0a88ccd1" class=3D"conflue=
+nceTd">
+<p local-id=3D"57197efb-42a5-4489-a5f3-c020f6430113">11</p></td>
+<td data-local-id=3D"f626b3fe-471c-40fa-a7f4-db454a8934b1" class=3D"conflue=
+nceTd">
+<p local-id=3D"d1b83e5d-4f26-4982-9a1d-7c952c3b030c">Created By</p></td>
+<td data-local-id=3D"de3b88e3-9387-44ca-9d5b-ea82993e85c9" class=3D"conflue=
+nceTd">
+<p local-id=3D"19f34444-7b42-4a80-adf2-cea250c5ac79">Creator Name</p></td>
+<td data-local-id=3D"158e04b7-a6e3-48c5-a7ee-f638b4750289" class=3D"conflue=
+nceTd">
+<p local-id=3D"755db11d-76ad-4160-88ac-5cbbce3f1185">Text</p></td>
+</tr>
+<tr ac:local-id=3D"fc1e0514-81da-41cf-9a65-1d31213387d5">
+<td data-local-id=3D"c1382239-a95e-448a-9f6e-8e6e5aa21108" class=3D"conflue=
+nceTd">
+<p local-id=3D"7a0007fd-daae-4045-a9e7-b541808c66da">12</p></td>
+<td data-local-id=3D"40c18b5b-7b47-4812-acb1-5b847af1539a" class=3D"conflue=
+nceTd">
+<p local-id=3D"c3e6384b-6c2c-41b0-aad9-8431ef74a8c8">Created At</p></td>
+<td data-local-id=3D"baeffee8-3268-4cd2-9ed5-bc5056621719" class=3D"conflue=
+nceTd">
+<p local-id=3D"0d46ba54-912e-4126-91b7-b5e1661550fd">Creation Timestamp</p>=
+</td>
+<td data-local-id=3D"c86b6eff-42f0-459d-9bbf-5dcb36f6fddf" class=3D"conflue=
+nceTd">
+<p local-id=3D"525429d5-d462-41a5-99b6-654b66cb4341">DateTime</p></td>
+</tr>
+<tr ac:local-id=3D"09e6951c-64e2-4a85-a7cf-8b69f1cc89e8">
+<td data-local-id=3D"726ead62-e97f-41b8-bb81-299dda083412" class=3D"conflue=
+nceTd">
+<p local-id=3D"dd33db64-876e-41d4-a82a-309335cb145f">13</p></td>
+<td data-local-id=3D"2dbdee57-1316-4e99-bada-b1ed9da568ad" class=3D"conflue=
+nceTd">
+<p local-id=3D"2e5e21be-bb7b-45e3-8bfa-e367266ae5da">Updated By</p></td>
+<td data-local-id=3D"52762280-88ea-438e-a499-3e541bfa3398" class=3D"conflue=
+nceTd">
+<p local-id=3D"89a540a0-d185-437a-b52a-7da881e2781b">Updater Name</p></td>
+<td data-local-id=3D"798e1d35-1342-486d-8332-88466678c003" class=3D"conflue=
+nceTd">
+<p local-id=3D"6f830bb9-b3a9-4757-9c1a-e1ac65326b1b">Text</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p local-id=3D"577ea0f0-aef3-45ce-b5b0-9ad7e2bfa609"><strong>Additional Req=
+uirements:</strong></p>
+<ul local-id=3D"a56c3e60-74e2-4ec0-9766-97427140088c">
+<li local-id=3D"febc4a5c-dd96-477b-a0e8-7ed4a7a921d6">
+<p local-id=3D"4e7a487e-9dbc-48d6-8089-b3571d51e40d">Excel file includes sh=
+eet name: "Courses"</p></li>
+<li local-id=3D"0082702d-a65a-4798-9c01-1e632459f559">
+<p local-id=3D"28897904-b34e-4fb5-80a2-1c91fcf0fe7c">First row frozen (head=
+er row always visible)</p></li>
+<li local-id=3D"4bf943ac-4f04-4ee2-ad28-231546dcdaaa">
+<p local-id=3D"d007da93-3ccb-432d-b9bf-e82bcbf3cdf3">Auto-filter enabled on=
+ header row</p></li>
+<li local-id=3D"4e166554-f510-445c-885e-9de7d7a79481">
+<p local-id=3D"45ab0512-6c38-48f7-a376-dbb3e0f6fa1e">Column widths auto-adj=
+usted for content</p></li>
+<li local-id=3D"2285c9d7-0c81-4e0a-98df-af9807b37cd0">
+<p local-id=3D"21911d56-84c4-46ba-aa84-9cddf81e0ac0">Include export metadat=
+a (export date, exported by user) in separate row or footer</p></li>
+</ul>
+<p local-id=3D"5d88c1ec-1687-4d34-b021-abcfc025cf4f"><strong>Business Rules=
+:</strong></p>
+<ol start=3D"1" local-id=3D"955effb9-ca45-4f2b-9ea5-df5672c1ac15">
+<li local-id=3D"62bda825-5b40-44bc-8ffe-a34a068bccb7">
+<p local-id=3D"d27a2e62-caa2-48e4-8728-5462a49f6cf7"><strong>Authorization:=
+</strong></p>
+<ul local-id=3D"7ebebaad-ff7c-43f5-b42f-b1d41e19b0b4">
+<li local-id=3D"fa0bcd67-ed90-4a1f-881d-d34e32347094">
+<p local-id=3D"423c6c30-2da9-4edf-8117-d264375ef188">User can only export c=
+ourses they have permission to view</p></li>
+<li local-id=3D"8ec5553e-1398-4885-a090-fa45c7aa7751">
+<p local-id=3D"ad439ecf-ef92-4c35-b1a7-61c25387e7a9">Export respects same a=
+uthorization rules as Course List View (Section 8.2.1)</p></li>
+</ul></li>
+<li local-id=3D"268f57f0-95f8-4cac-8395-c310c524663a">
+<p local-id=3D"f3e1f93f-5fc0-4941-9fcf-5212e9f9bd82"><strong>Data Integrity=
+:</strong></p>
+<ul local-id=3D"ed8ff7ba-2a4f-4b3f-9982-eb3498f8c6ac">
+<li local-id=3D"4edc7fcb-2db2-4a77-8c97-439f46702c90">
+<p local-id=3D"6f292f3d-a1e1-4034-86bb-6730a5f4d577">Export captures data a=
+t moment of export</p></li>
+<li local-id=3D"68149a1f-7bba-4d59-baf4-cf4ee35c9a5a">
+<p local-id=3D"f5608341-d7b3-4260-b7a4-2eef886399d2">If course is updated a=
+fter export, exported file is not updated</p></li>
+<li local-id=3D"aa2f627d-c3e3-4c53-af3c-5ea7e9ec3f87">
+<p local-id=3D"7edacf0d-05b4-41bc-92e8-c4925990270b">Export includes audit =
+trail (who exported, when)</p></li>
+</ul></li>
+<li local-id=3D"236d4d64-0305-4cdf-9414-5a90a3d57591">
+<p local-id=3D"2fc83141-f064-4125-9a69-d29a001fa432"><strong>Performance:</=
+strong></p>
+<ul local-id=3D"0776d05e-9670-4a4a-bc5e-5e724f0716ec">
+<li local-id=3D"ca58daf6-efde-4303-85ef-d36e32d0c1a4">
+<p local-id=3D"363a4aa1-9a37-4a0f-b2c0-542d223da482">Large exports (&gt;100=
+0 courses) may require background processing</p></li>
+<li local-id=3D"0a4da8e0-c05a-415c-8324-e2701b6ab8e5">
+<p local-id=3D"d6855de0-5b44-4432-83dc-2f00e334d59a">Display progress indic=
+ator for large exports</p></li>
+<li local-id=3D"b98981ec-fca3-473f-a549-c6e500e1a0b0">
+<p local-id=3D"07301131-26b0-4e93-9ba1-3d995e60c500">Provide notification w=
+hen export is ready (if background processing)</p></li>
+</ul></li>
+</ol>
+<hr local-id=3D"35a7cbb4-332c-4eda-a6b3-14c68095f67e">
+<h2 local-id=3D"87650a66-bfe1-4558-b06a-0e21eff12ff2" id=3D"CourseCreation,=
+Listing,Details-8.3CourseDetailsScreen">8.3 Course Details Screen</h2>
+<p local-id=3D"a7ecfd1c-eb34-48dc-91af-e1ccc326efe7"><strong>Overview:</str=
+ong><br>
+The Course Details screen provides a comprehensive view of all course infor=
+mation, status progression, and management capabilities. It serves as the c=
+entral hub for viewing and managing individual courses throughout their lif=
+ecycle.</p>
+<p local-id=3D"9f9db39d-dc9a-41d0-8d93-af5541bd7e39"><strong>Access Points:=
+</strong></p>
+<ul local-id=3D"15056a8d-ab12-444c-9741-4566b326aff8">
+<li local-id=3D"65323937-bd6b-4cc3-a08a-47f87a8d3103">
+<p local-id=3D"9227062a-be7a-4d3b-b691-25d2950de3a3">Click on course code h=
+yperlink in Course List</p></li>
+<li local-id=3D"ff37291f-fac1-422c-86fc-360dffd33d82">
+<p local-id=3D"ab7b9549-9898-4efe-91d9-fa2fbedd257f">Navigate from Master C=
+alendar or PIC Calendar</p></li>
+<li local-id=3D"d97eed5f-786a-4da7-a38c-9da0daa924d5">
+<p local-id=3D"2d7e2da2-8b1f-4f0e-8c3c-2a7349f622a0">Direct URL: <code>/cou=
+rses/[courseId]</code></p></li>
+</ul>
+<p local-id=3D"623719af-ad78-4275-8c1f-dab9b7636445"><strong>Authorization:=
+</strong></p>
+<ul local-id=3D"4cb1821e-12a2-4dff-82d5-3efe77a9fcd1">
+<li local-id=3D"5ea21b9a-6fc2-4a97-a678-d0a6713ec31a">
+<p local-id=3D"080ece01-de5b-4628-be68-2213af0d9082">All users can view cou=
+rses based on their role and region/channel permissions</p></li>
+<li local-id=3D"848d7904-27c2-4081-b077-aa819fc753eb">
+<p local-id=3D"8f077d1e-2f59-40b4-a22c-96814c12213d">Edit/Delete/Cancel act=
+ions follow role-based authorization matrix (see Section 8.5)</p></li>
+</ul>
+<p local-id=3D"e654c15b-6749-415d-8b1f-70e474a803c1"><strong>Page Structure=
+:</strong><br>
+The Course Details page consists of:</p>
+<ol start=3D"1" local-id=3D"9ef4abcb-783e-4b2b-ae27-892d0da98f44">
+<li local-id=3D"704d6a6d-8526-4df1-a2d7-1fd794a039bb">
+<p local-id=3D"809a3eb3-c6e8-4e6d-a48a-5ca2f8c164c5">Header section with co=
+urse title and action buttons</p></li>
+<li local-id=3D"8ca80acb-aa89-4f47-ae14-3cda141fc68d">
+<p local-id=3D"52a9c06d-d3e8-4ca9-9ff0-c841c4f0e9a4">Tab navigation (Genera=
+l, Planning, Participants, Checklist, History)</p></li>
+<li local-id=3D"94c3c82e-dc2d-456a-aebc-677bc61ca68f">
+<p local-id=3D"d1847e99-c816-4777-9f8f-33e3a84cd971">Content area displayin=
+g tab-specific information</p></li>
+</ol>
+<h3 local-id=3D"6065a419-0424-443b-962f-c12b53e7a8bc" id=3D"CourseCreation,=
+Listing,Details-8.3.1CourseGeneralTab">8.3.1 Course General Tab</h3>
+<p local-id=3D"8af7d635-c476-441d-90d3-cab931f09ffa"><strong>Purpose:</stro=
+ng><br>
+Display all course information fields collected during course creation, org=
+anized in an easy-to-read format with status tracking and quick access to m=
+anagement actions.</p>
+<h4 local-id=3D"056100d8-c8f5-4e3c-b4be-cfaa720b1eaf" id=3D"CourseCreation,=
+Listing,Details-8.3.1.1CourseInformationDisplay">8.3.1.1 Course Information=
+ Display</h4>
+<p local-id=3D"5f90905d-58cd-4c53-8825-203c5f28aca3"><strong>User Story:</s=
+trong><br>
+AS a user viewing course details<br>
+I NEED to see all course information collected during course creation<br>
+SO THAT I can review and verify the complete course configuration</p>
+<p local-id=3D"32836f20-66da-4ba1-8d78-c213178763e9"><strong>Information So=
+urce:</strong><br>
+All course information fields displayed in Course Details are the <strong>s=
+ame fields collected during Course Creation</strong>. Refer to Section 8.1.=
+1 for complete field definitions:</p>
+<ul local-id=3D"33b2fedf-59d2-4124-8008-c948a0c3c5e6">
+<li local-id=3D"77a2bc56-478a-4ce4-af6a-bd5b29ae7e54">
+<p local-id=3D"7fb3bc27-4565-4389-bc38-4fa9e1a7045a"><strong>SHINE Course F=
+ields:</strong> See Section 8.1.1.2 (Rows 1-33)</p></li>
+<li local-id=3D"4a44dfdd-7e2f-42fc-8b18-2b88f14840d8">
+<p local-id=3D"83655aa2-42f8-4013-a362-f502a5995896"><strong>Product Course=
+ Fields:</strong> See Section 8.1.1.3 (Rows 1-21, excluding MOF fields)</p>=
+</li>
+<li local-id=3D"5b04755b-f202-4bf4-9abf-d3f3641c0cc2">
+<p local-id=3D"2e0016d5-ac71-4ab8-b089-f2f31b32fc18"><strong>Skill Course F=
+ields:</strong> See Section 8.1.1.4 (Rows 1-17, 21, excluding AOL and MOF f=
+ields)</p></li>
+</ul>
+<p local-id=3D"d576cbf3-d63e-4667-b6ff-b27ea8bab26e"><strong>Note:</strong>=
+ District field (former Row 31 in Section 8.1.1.2) removed due to Vietnam a=
+dministrative reform (July 2025).</p>
+<p local-id=3D"efc0f5a1-0c4c-44da-bd05-7816a3de4c24"><strong>Display Rules:=
+</strong></p>
+<ol start=3D"1" local-id=3D"df1e8482-2fb8-4796-9c25-86b203e37a07">
+<li local-id=3D"ef41323b-0a2c-429b-928f-0f491ffb7b89">
+<p local-id=3D"e1180bc9-b895-4543-ba39-6fc2186baf3e"><strong>Field Visibili=
+ty:</strong> All fields must be displayed, including empty optional fields<=
+/p></li>
+<li local-id=3D"18dfb53c-7f5b-4789-829a-7a656799cdfa">
+<p local-id=3D"ee478ec8-9d54-4387-973c-dd85cbcffe75"><strong>Empty Field Di=
+splay:</strong> Empty fields show "-" or "N/A" as placeholder text</p></li>
+<li local-id=3D"52fd3d2f-2886-4f1c-a0a1-2474e51b100b">
+<p local-id=3D"0ef93c63-9c51-4cf5-9409-ecadd75e50fe"><strong>Conditional Fi=
+elds:</strong></p>
+<ul local-id=3D"5140c29e-ff57-4cb9-860e-4724dfee1ebd">
+<li local-id=3D"afbd24f6-7a43-48b5-9f91-ec21de025583">
+<p local-id=3D"08adeabe-b846-4f1e-9e9d-91e0be0b1c5c">AOL fields: Display fo=
+r SHINE and Product courses only</p></li>
+<li local-id=3D"942d56b3-809e-4610-b2a7-38b04d63d001">
+<p local-id=3D"8f64377b-4797-4fb8-817c-52dad8a5525c">MOF fields: Display fo=
+r SHINE courses only</p></li>
+</ul></li>
+<li local-id=3D"101e91fb-c6db-4b20-8067-1d5fb77efe9c">
+<p local-id=3D"cd9894b2-8b20-420e-81c0-e786c4dc86af"><strong>Read-Only Mode=
+:</strong> All fields are read-only in view mode</p></li>
+</ol>
+<p local-id=3D"835ca0e7-011b-43bb-8cb0-cd2f897570a2"><strong>Display Mode D=
+ifferences:</strong></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"00=
+598c79-546e-4da5-a446-f190d10d631f" class=3D"confluenceTable">
+<tbody>
+<tr ac:local-id=3D"cfbec2df-a198-47f8-afc3-c63492a9a981">
+<th data-local-id=3D"00f91e27-b5d4-49f1-b358-1bc427c63096" class=3D"conflue=
+nceTh">
+<p local-id=3D"8e60c5fc-d0b1-46ef-9af6-22f7e345bd0b">Aspect</p></th>
+<th data-local-id=3D"5ba4d3e3-1f00-40da-97c1-a9f32ca65a16" class=3D"conflue=
+nceTh">
+<p local-id=3D"3a1eedbc-ac7f-4f17-b7eb-30b78dd4f763">Course Creation</p></t=
+h>
+<th data-local-id=3D"eb458ba8-9263-463f-914e-ded2066f9ccd" class=3D"conflue=
+nceTh">
+<p local-id=3D"cbc7d775-95f9-4602-8f56-73c56bf19559">Course Details</p></th=
+>
+</tr>
+<tr ac:local-id=3D"fe1ad08c-04a5-4e84-a2d4-64b0388abe84">
+<td data-local-id=3D"2527390d-cd41-406a-8d09-4ab2c31cfc25" class=3D"conflue=
+nceTd">
+<p local-id=3D"8387c49e-58b3-4834-ab20-0094c2a129f2"><strong>Field Editabil=
+ity</strong></p></td>
+<td data-local-id=3D"34d81038-b959-42a1-82d1-fe644de30a21" class=3D"conflue=
+nceTd">
+<p local-id=3D"a6dc8440-86ff-4642-a9d5-6e0b9f2652be">Editable input fields<=
+/p></td>
+<td data-local-id=3D"285791ff-843c-4fdc-a451-afe2032a7087" class=3D"conflue=
+nceTd">
+<p local-id=3D"0f2a0c2a-abc6-44fd-9c1f-ef9efdfc15f2">Read-only display fiel=
+ds</p></td>
+</tr>
+<tr ac:local-id=3D"0ed78c02-cc5b-4880-8649-e7d52aaa4fac">
+<td data-local-id=3D"f930103b-bc2b-4dbe-8472-b8b93d832454" class=3D"conflue=
+nceTd">
+<p local-id=3D"10fb5dfe-9578-4e81-8b1c-b07dd9457da6"><strong>Field Visibili=
+ty</strong></p></td>
+<td data-local-id=3D"61c6d7ea-34c4-4475-a74d-ce5d6d46bdf0" class=3D"conflue=
+nceTd">
+<p local-id=3D"5a6d5467-984b-4d95-9ce9-a55da9a89512">All fields shown (cond=
+itional)</p></td>
+<td data-local-id=3D"7718c850-ff27-4f46-9e8f-ac3d2903dc41" class=3D"conflue=
+nceTd">
+<p local-id=3D"69e22539-0d59-4847-bb6d-fd6b4196fb0f">All fields shown (disp=
+lay "-" or "N/A" if empty)</p></td>
+</tr>
+<tr ac:local-id=3D"26cd459c-8dec-46d9-b33c-51e582be6b4c">
+<td data-local-id=3D"5346858d-23d4-4bd4-8a6b-5a431ce724b9" class=3D"conflue=
+nceTd">
+<p local-id=3D"bb7ca8b7-1aa6-46d3-8450-f74edebb4b0d"><strong>Multi-Select F=
+ields</strong></p></td>
+<td data-local-id=3D"b78f59dc-154a-4003-b1ea-358d8f17d197" class=3D"conflue=
+nceTd">
+<p local-id=3D"f372bbbb-fccf-49ba-ba9b-59d277469923">Dropdown with checkbox=
+es</p></td>
+<td data-local-id=3D"6daf0cda-2fe1-4a84-9c43-d6778fcb084f" class=3D"conflue=
+nceTd">
+<p local-id=3D"0ee896ef-d725-4fde-aaf1-e8ac17073f8d">Colored tags (non-inte=
+ractive)</p></td>
+</tr>
+<tr ac:local-id=3D"afa5c3dd-8ebd-4fa5-b128-dac8bf057f7a">
+<td data-local-id=3D"ba991187-3cdf-4695-9f8e-fe7662b67e59" class=3D"conflue=
+nceTd">
+<p local-id=3D"896494df-bd4b-4326-b0f7-41e1ed876895"><strong>Status Field</=
+strong></p></td>
+<td data-local-id=3D"018ea5a1-6537-4b1a-a8ab-4769d5fba79b" class=3D"conflue=
+nceTd">
+<p local-id=3D"282ac60b-07b9-4d82-94d4-49bb20132e58">Not shown (auto-set to=
+ NEW)</p></td>
+<td data-local-id=3D"2fe72b3c-334a-4f8d-8cc7-b1760c4805a8" class=3D"conflue=
+nceTd">
+<p local-id=3D"ea689388-d5e2-4c89-9ddb-2c22d766541a">Displayed as colored b=
+adge</p></td>
+</tr>
+<tr ac:local-id=3D"082be6b1-6608-4d64-a755-407cd3e5d8a4">
+<td data-local-id=3D"a541a38b-5559-4871-a710-a2a9a5f6e961" class=3D"conflue=
+nceTd">
+<p local-id=3D"d1ef02cd-bfde-4909-b8a2-96fba10f2d94"><strong>Course Code</s=
+trong></p></td>
+<td data-local-id=3D"b503a25d-6c67-4d98-8e81-527152c305d0" class=3D"conflue=
+nceTd">
+<p local-id=3D"0f9c23de-a288-4e5c-add8-0e085cc727fd">Not shown (auto-genera=
+ted)</p></td>
+<td data-local-id=3D"07b914f1-128d-482c-bea4-71e594f78632" class=3D"conflue=
+nceTd">
+<p local-id=3D"b3d898fb-9b02-4e13-a668-496ab5cfbd7c">Displayed prominently<=
+/p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p local-id=3D"62e76d0b-f1d2-4278-9a5a-bfd05a0c417f"><strong>Error Handling=
+:</strong></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"d7=
+99778a-efb3-4786-9ca5-437ebd57643f" class=3D"confluenceTable">
+<tbody>
+<tr ac:local-id=3D"da6b9a4e-cac4-4a80-b42c-4b35265c724b">
+<th data-local-id=3D"564cbdfe-36fb-42c6-a007-4543c15c1f0f" class=3D"conflue=
+nceTh">
+<p local-id=3D"cc01eaf6-7b5a-4f8f-9b74-0c8ceded4e33">Error Scenario</p></th=
+>
+<th data-local-id=3D"5cd16fe8-4d15-47f2-aa71-00c91212d0dd" class=3D"conflue=
+nceTh">
+<p local-id=3D"95f17463-f870-42e1-9add-73235277f3e1">Display Behavior</p></=
+th>
+</tr>
+<tr ac:local-id=3D"6cde8c11-6cb2-429b-a8e4-759033ef4231">
+<td data-local-id=3D"9da296c0-05ed-47f4-8f9c-68d6899acdec" class=3D"conflue=
+nceTd">
+<p local-id=3D"8a4477df-2cf1-42df-94a8-ddf2f57617f0">Course not found</p></=
+td>
+<td data-local-id=3D"09acc62a-2858-4d54-97db-4a914d5dbb49" class=3D"conflue=
+nceTd">
+<p local-id=3D"6f48f7b4-37b5-4499-b706-6dbaf78daf91">Display 404 error mess=
+age with link back to course list</p></td>
+</tr>
+<tr ac:local-id=3D"21b3aaa4-55b3-4848-bbb0-179fb6977c05">
+<td data-local-id=3D"75538eab-bbd3-41fc-bd79-0ea86249e449" class=3D"conflue=
+nceTd">
+<p local-id=3D"74d73f5b-b44e-4eab-ab3b-16a236037038">Missing required field=
+ data</p></td>
+<td data-local-id=3D"f103ccb6-169b-43b4-bffe-e671063394cc" class=3D"conflue=
+nceTd">
+<p local-id=3D"4eb87288-b5fd-4686-9d45-75b322c11925">Display "N/A" or place=
+holder text</p></td>
+</tr>
+<tr ac:local-id=3D"5ce5ffb4-5d7b-442e-afc9-fd2c46036677">
+<td data-local-id=3D"7a2e395e-f99f-4168-9584-72967c12f59c" class=3D"conflue=
+nceTd">
+<p local-id=3D"f01ccf8e-1623-4454-83f7-ac898aacf5e2">API error</p></td>
+<td data-local-id=3D"f8b511e1-fa25-4fca-8a78-c5935531d26b" class=3D"conflue=
+nceTd">
+<p local-id=3D"21c5146c-b1dd-46fe-9e91-3fbead4e4979">Show error message wit=
+h retry option</p></td>
+</tr>
+<tr ac:local-id=3D"3371d8ee-9b59-4455-a568-3e1978128e64">
+<td data-local-id=3D"0f61fcf1-5dd7-4088-a163-26518d5e06c0" class=3D"conflue=
+nceTd">
+<p local-id=3D"11085ce8-f6bb-486f-9083-d2dfc946a75b">Authorization error</p=
+></td>
+<td data-local-id=3D"d7094713-2208-4182-85f5-455f58a47ebc" class=3D"conflue=
+nceTd">
+<p local-id=3D"06de4682-18fc-4f53-a892-92e58b79d3cb">Redirect to unauthoriz=
+ed page or hide sensitive fields</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 local-id=3D"17f0eadb-8a1d-406d-be8c-a1c779a6e4e6" id=3D"CourseCreation,=
+Listing,Details-8.3.1.2CourseStatusTimeline">8.3.1.2 Course Status Timeline=
+</h4>
+<p local-id=3D"4815c9c7-b2c5-435d-be41-c015709cbb6b">[Content will be detai=
+led in Course Details Screen page]</p>
+<h4 local-id=3D"1d4a9a17-5466-42d4-8905-2ff03cfde23a" id=3D"CourseCreation,=
+Listing,Details-8.3.1.3CourseApprovalActions">8.3.1.3 Course Approval Actio=
+ns</h4>
+<p local-id=3D"b29dc2e3-ae61-45b3-97f5-32c899aba332">[Content will be detai=
+led in Course Details Screen page]</p>
+<h3 local-id=3D"e310f1ef-2010-4da9-a0aa-38bf656b8c7a" id=3D"CourseCreation,=
+Listing,Details-8.3.2CourseHistory">8.3.2 Course History</h3>
+<p local-id=3D"802a0009-6375-4a09-bcdc-c6afee74e72d">[Content will be copie=
+d from original Section 10.2.2]</p>
+<h3 local-id=3D"fcc2723c-0dca-48f0-a823-2648042b2ac9" id=3D"CourseCreation,=
+Listing,Details-8.3.3CoursePlanningTab">8.3.3 Course Planning Tab</h3>
+<p local-id=3D"925b6339-d94f-48ad-b30a-2c864ea2a3d6">[Content will be copie=
+d from original Section 10.2.3]</p>
+<h3 local-id=3D"7c0b923c-453a-4eb1-93e6-f1b1f69f1acd" id=3D"CourseCreation,=
+Listing,Details-8.3.4CourseParticipantTabOverview">8.3.4 Course Participant=
+ Tab Overview</h3>
+<p local-id=3D"b0c1b9a7-b3aa-4880-be8e-a8f2a4e5585e">[Content will be copie=
+d from original Section 10.2.4]</p>
+    </div>
+</body>
+</html>
+------=_Part_36_211327159.1765093546960--

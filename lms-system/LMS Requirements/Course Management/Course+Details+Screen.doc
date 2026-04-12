@@ -1,0 +1,2188 @@
+Date: Sun, 7 Dec 2025 07:45:55 +0000 (UTC)
+Message-ID: <1004805983.43.1765093555672@7a05efa28a56>
+Subject: Exported From Confluence
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_42_1149396914.1765093555672"
+
+------=_Part_42_1149396914.1765093555672
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/exported.html
+
+<html xmlns:o=3D'urn:schemas-microsoft-com:office:office'
+      xmlns:w=3D'urn:schemas-microsoft-com:office:word'
+      xmlns:v=3D'urn:schemas-microsoft-com:vml'
+      xmlns=3D'urn:w3-org-ns:HTML'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <title>Course Details Screen</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:TargetScreenSize>1024x640</o:TargetScreenSize>
+            <o:PixelsPerInch>72</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+                <!--
+        @page Section1 {
+            size: 8.5in 11.0in;
+            margin: 1.0in;
+            mso-header-margin: .5in;
+            mso-footer-margin: .5in;
+            mso-paper-source: 0;
+        }
+
+        table {
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: solid 1px;
+            padding: 5px;
+        }
+
+        td {
+            page-break-inside: avoid;
+        }
+
+        tr {
+            page-break-after: avoid;
+        }
+
+        div.Section1 {
+            page: Section1;
+        }
+
+        /* Confluence print stylesheet. Common to all themes for print medi=
+a */
+/* Full of !important until we improve batching for print CSS */
+
+@media print {
+    #main {
+        padding-bottom: 1em !important; /* The default padding of 6em is to=
+o much for printouts */
+    }
+
+    body {
+        font: var(--ds-font-body-small, Arial, Helvetica, FreeSans, sans-se=
+rif);
+    }
+
+    body, #full-height-container, #main, #page, #content, .has-personal-sid=
+ebar #content {
+        background: var(--ds-surface, #fff) !important;
+        color: var(--ds-text, #000) !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    a, a:link, a:visited, a:focus, a:hover, a:active {
+        color: var(--ds-text, #000);
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+        page-break-after: avoid;
+    }
+
+    pre {
+        font: var(--ds-font-code, Monaco, "Courier New", monospace);
+    }
+
+    #header,
+    .aui-header-inner,
+    #navigation,
+    #sidebar,
+    .sidebar,
+    #personal-info-sidebar,
+    .ia-fixed-sidebar,
+    .page-actions,
+    .navmenu,
+    .ajs-menu-bar,
+    .noprint,
+    .inline-control-link,
+    .inline-control-link a,
+    a.show-labels-editor,
+    .global-comment-actions,
+    .comment-actions,
+    .quick-comment-container,
+    #addcomment {
+        display: none !important;
+    }
+
+    /* CONF-28544 cannot print multiple pages in IE */
+    #splitter-content {
+        position: relative !important;
+    }
+
+    .comment .date::before {
+        content: none !important; /* remove middot for print view */
+    }
+
+    h1.pagetitle img {
+        height: auto;
+        width: auto;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    #footer {
+        position: relative !important; /* CONF-17506 Place the footer at en=
+d of the content */
+        margin: 0;
+        padding: 0;
+        background: none;
+        clear: both;
+    }
+
+    #poweredby {
+        border-top: none;
+        background: none;
+    }
+
+    #poweredby li.print-only {
+        display: list-item;
+        font-style: italic;
+    }
+
+    #poweredby li.noprint {
+        display: none;
+    }
+
+    /* no width controls in print */
+    .wiki-content .table-wrap,
+    .wiki-content p,
+    .panel .codeContent,
+    .panel .codeContent pre,
+    .image-wrap {
+        overflow: visible !important;
+    }
+
+    /* TODO - should this work? */
+    #children-section,
+    #comments-section .comment,
+    #comments-section .comment .comment-body,
+    #comments-section .comment .comment-content,
+    #comments-section .comment p {
+        page-break-inside: avoid;
+    }
+
+    #page-children a {
+        text-decoration: none;
+    }
+
+    /**
+     hide twixies
+
+     the specificity here is a hack because print styles
+     are getting loaded before the base styles. */
+    #comments-section.pageSection .section-header,
+    #comments-section.pageSection .section-title,
+    #children-section.pageSection .section-header,
+    #children-section.pageSection .section-title,
+    .children-show-hide {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .children-show-hide.icon {
+        display: none;
+    }
+
+    /* personal sidebar */
+    .has-personal-sidebar #content {
+        margin-right: 0px;
+    }
+
+    .has-personal-sidebar #content .pageSection {
+        margin-right: 0px;
+    }
+
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+-->
+    </style>
+</head>
+<body>
+    <h1>Course Details Screen</h1>
+    <div class=3D"Section1">
+        <style type=3D"text/css">/*<![CDATA[*/
+div.rbtoc1765093555644 {padding: 0px;}
+div.rbtoc1765093555644 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1765093555644 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style>
+<div class=3D"toc-macro rbtoc1765093555644">
+<ul class=3D"toc-indentation">
+<li><a href=3D"#CourseDetailsScreen-8.3CourseDetailsScreen">8.3 Course Deta=
+ils Screen</a>
+<ul class=3D"toc-indentation">
+<li><a href=3D"#CourseDetailsScreen-8.3.1.2CourseStatusTimeline">8.3.1.2 Co=
+urse Status Timeline</a></li>
+<li><a href=3D"#CourseDetailsScreen-8.3.1.3CourseApprovalActions">8.3.1.3 C=
+ourse Approval Actions</a></li>
+<li><a href=3D"#CourseDetailsScreen-8.3.2CourseHistory">8.3.2 Course Histor=
+y</a></li>
+<li><a href=3D"#CourseDetailsScreen-8.3.3CoursePlanningTab">8.3.3 Course Pl=
+anning Tab</a></li>
+<li><a href=3D"#CourseDetailsScreen-8.3.4CourseParticipantTabOverview">8.3.=
+4 Course Participant Tab Overview</a></li>
+</ul></li>
+</ul>
+</div>
+<h2 local-id=3D"d619b851-866c-40ce-885a-cb469ac3fb72" id=3D"CourseDetailsSc=
+reen-8.3CourseDetailsScreen">8.3 Course Details Screen</h2>
+<p local-id=3D"0acefacc-a281-46f6-8558-fa7be4842b0c"><strong>Overview:</str=
+ong><br>
+The Course Details screen provides a comprehensive view of all course infor=
+mation, status progression, and management capabilities. It serves as the c=
+entral hub for viewing and managing individual courses throughout their lif=
+ecycle.</p>
+<p local-id=3D"655ed694-b703-4288-836d-7dc9c77b8957"><strong>Access Points:=
+</strong></p>
+<ul local-id=3D"1485ad3f-ea28-45d4-b6f2-3bd3ac0726cd">
+<li local-id=3D"47e2430a-3334-45cc-8595-1016b6c78915">
+<p local-id=3D"9123ff2e-1f6d-4f5e-b6a1-c652b29c760f">Click on course code h=
+yperlink in Course List</p></li>
+<li local-id=3D"b1dbb724-1b31-42cc-8ad3-ae4f15562b22">
+<p local-id=3D"67508668-01a9-419f-bd7b-b5b0fb77d429">Navigate from Master C=
+alendar or PIC Calendar</p></li>
+<li local-id=3D"a6025cc3-7a03-41d4-90ec-9cb0cffcbda5">
+<p local-id=3D"0478d378-048e-4b4e-9a64-09ed63040971">Direct URL: <code>/cou=
+rses/[courseId]</code></p></li>
+</ul>
+<p local-id=3D"3e72bbd9-ee7e-4c23-8654-ddc497f257e3"><strong>Authorization:=
+</strong></p>
+<ul local-id=3D"89060eea-e950-48bd-9c2c-5197aa7d2f23">
+<li local-id=3D"a43de72f-d327-44eb-96cc-3eff50a7e5dd">
+<p local-id=3D"6b33cbe6-0f36-4953-a6c8-da434e419052">All users can view cou=
+rses based on their role and region/channel permissions</p></li>
+<li local-id=3D"a80dd077-7978-424a-a143-7cd8fdb2146f">
+<p local-id=3D"9209c854-1ce4-42cd-a845-ad61375cbfc9">Edit/Delete/Cancel act=
+ions follow role-based authorization matrix (see Section 8.5)</p></li>
+</ul>
+<p local-id=3D"9906473e-cc31-4dd2-9cff-6aba2081ffb3"><strong>Page Structure=
+:</strong><br>
+The Course Details page consists of:</p>
+<ol start=3D"1" local-id=3D"d6b38be6-4a8c-4a2f-a0e5-d9fdf5e7ae28">
+<li local-id=3D"69d9cade-58da-41dc-805e-abd32bac8386">
+<p local-id=3D"39cd6a39-b340-4535-8b85-4ee8d54d5910">Header section with co=
+urse title and action buttons</p></li>
+<li local-id=3D"c15a0226-5fd0-4a58-858e-cf1c863bca70">
+<p local-id=3D"848671ea-1d9e-4274-a881-fa2aba9a3abe">Tab navigation (Genera=
+l, Planning, Participants, Checklist, History)</p></li>
+<li local-id=3D"97d22412-8b20-4221-a94e-b40a10dfd42b">
+<p local-id=3D"60e28903-0a69-4660-b095-4045e371f301">Content area displayin=
+g tab-specific information</p></li>
+</ol>
+<hr local-id=3D"834eb222-f550-478f-9b50-debcdbfce3a8">
+<h3 local-id=3D"d3a91684-701e-4810-9bb1-070e5c4ecd12" id=3D"CourseDetailsSc=
+reen-8.3.1.2CourseStatusTimeline">8.3.1.2 Course Status Timeline</h3>
+<p local-id=3D"a07661de-1807-41d0-9e68-90837a793be4"><strong>User Story:</s=
+trong> <br>
+AS a user viewing course details <br>
+I NEED a visual timeline showing the course status progression <br>
+SO THAT I can quickly understand the course lifecycle, track status changes=
+, and see who performed each action and when</p>
+<p local-id=3D"89a35ac6-4379-4f77-8969-a88b23afe1a0"><strong>Acceptance Cri=
+teria:</strong></p>
+<ol start=3D"1" local-id=3D"fad18daf-292e-4498-89c9-f4b7b9e313c5">
+<li local-id=3D"1a07ac59-0572-48a8-b7d2-55d5d07a2c36">
+<p local-id=3D"4c376d53-f2ea-427e-a5ce-0d87e453e6b6"><strong>Timeline Displ=
+ay:</strong></p>
+<ul local-id=3D"422cef73-6e38-4952-bb68-c89dd9e5583a">
+<li local-id=3D"8f3a4018-e79c-46d9-9f91-0e89b7797ad3">
+<p local-id=3D"7e484e81-852c-412a-b3d9-894df734f75f">Status timeline displa=
+yed at the top of Course General Tab</p></li>
+<li local-id=3D"2531f243-488b-4cab-b076-00a08fef928b">
+<p local-id=3D"952414b1-5f65-4ffa-bbb0-598cb99957e9">Shows all status miles=
+tones in chronological order</p></li>
+<li local-id=3D"54e228fd-1e90-4bfb-91d8-12118fc9d3f9">
+<p local-id=3D"4e17587d-2687-4e17-9ac9-aa95e83bac53">Visual indicators for =
+completed, current, and pending statuses</p></li>
+<li local-id=3D"fb48efd6-6d48-45de-bbc3-644ef9ad89f8">
+<p local-id=3D"5c0208a6-b461-4072-8c1e-fca1978fe10b">Click to expand/collap=
+se detailed information for each milestone</p></li>
+</ul></li>
+<li local-id=3D"d89120dc-9c51-4119-bca5-805f0023dfed">
+<p local-id=3D"d68be551-d551-498e-a93c-aa494183beeb"><strong>Status Milesto=
+nes Displayed:</strong></p>
+<ul local-id=3D"81090b0d-8eb2-43e8-827e-7495fc76b338">
+<li local-id=3D"d543a3b8-0f02-4780-ace8-c5850c892605">
+<p local-id=3D"98afb0f2-082d-4602-879a-1f37d735e606">NEW - Course Created</=
+p></li>
+<li local-id=3D"f80c8756-dfb1-483c-a803-eb5471930bbf">
+<p local-id=3D"a5cb9c87-00b0-402c-acb4-67321b7cb6eb">REGISTERED - Trainer R=
+egistered</p></li>
+<li local-id=3D"47c678e5-e933-4a99-9eb4-e9b30d78e61a">
+<p local-id=3D"5c919748-67fe-4a36-a737-a9c163766fd1">APPROVED - Course Appr=
+oved</p></li>
+<li local-id=3D"cda1e6c4-4250-4a01-ad68-719d40140249">
+<p local-id=3D"72bf5b08-fd39-498d-b077-33d565de55ba">WAITING_APPROVAL_EDIT =
+- Edit Pending (shown only when applicable)</p></li>
+<li local-id=3D"e5f74959-c496-4ef7-bba8-674f0e4bf6f6">
+<p local-id=3D"ba15baf6-4c2c-4e9d-94cc-70d9ee8495c9">IN_PROGRESS - Course S=
+tarted (Auto)</p></li>
+<li local-id=3D"6085d78b-8313-41ce-8afd-a111f474d272">
+<p local-id=3D"eb1c07e3-b6e3-4fa1-b320-e1c4acb68af8">FINISHED - Course Comp=
+leted</p></li>
+<li local-id=3D"124022a3-324a-4409-bc0b-7a5162e6d4e1">
+<p local-id=3D"d8bd4cef-375e-425b-82f6-ff07294e55ec">CANCEL - Course Cancel=
+led (shown if course was cancelled)</p></li>
+<li local-id=3D"4df5dbf5-e1ed-4736-a455-bcb476433847">
+<p local-id=3D"280cb9a1-55c1-40bf-a78e-b9b117c7b6f2">WAITING_APPROVAL_CANCE=
+L - Cancel Pending (shown only when applicable)</p></li>
+</ul></li>
+<li local-id=3D"9d3e199a-ddf3-4f26-9af4-f981d852e78a">
+<p local-id=3D"ed808f60-2386-4b76-8384-472999ddf1ea"><strong>Milestone Info=
+rmation:</strong><br>
+For each status milestone, display:</p>
+<ul local-id=3D"a9f1055d-14af-48bc-9beb-1da5f647cd87">
+<li local-id=3D"2f36c349-9db6-44ac-9d7e-5b841edd719f">
+<p local-id=3D"9010ef39-8380-4c9f-978d-535ef6798173">Status name and descri=
+ption</p></li>
+<li local-id=3D"3bd6564b-d21c-4c23-b7cc-3cb3b06c75c6">
+<p local-id=3D"e1eb4553-9b95-4c03-be30-60729571797d">Date and time (dd/mm/y=
+yyy hh:mm)</p></li>
+<li local-id=3D"fb438f29-0cd8-4f9e-a156-756ef1c4b38c">
+<p local-id=3D"7851341f-cb37-4d3d-99c6-6e306def0a45">User who performed act=
+ion (name and role) or "System" for automatic actions</p></li>
+<li local-id=3D"30202e97-c3df-4350-8372-4e1f4da2fa1c">
+<p local-id=3D"b4521191-88df-4b58-a729-3004ea02d6c9">Action description (if=
+ applicable, e.g., "Edit Request", "Registration Rejected")</p></li>
+<li local-id=3D"0399a72d-b18c-413b-bd20-9f558d966116">
+<p local-id=3D"2b43a946-533f-47d8-8ee3-0477466e6f55">Reason (for rejections=
+, cancellations, or approval requests)</p></li>
+</ul></li>
+<li local-id=3D"8dc62ee4-dc5d-4522-b133-cf583d5a0216">
+<p local-id=3D"7fd9ec9d-a980-4e12-8183-3c6d648da4fd"><strong>Timeline Layou=
+t:</strong></p>
+<ul local-id=3D"bb9dcd19-3d7f-4455-88bd-cd5474c74a69">
+<li local-id=3D"715ed15a-a819-4d1a-9e1a-6fce3ca3efcb">
+<p local-id=3D"ba8c7019-9830-4edc-816c-1aa08097b750">Horizontal timeline fo=
+r desktop view</p></li>
+<li local-id=3D"7adba126-d69a-40f0-9d18-1ef7c8667df3">
+<p local-id=3D"3171a1ad-9de0-4a99-b61d-8c201095d1f3">Vertical timeline for =
+mobile/tablet view</p></li>
+<li local-id=3D"9d44aa0f-fcce-4860-af96-4d38867e2ac5">
+<p local-id=3D"e0b5f719-03ed-42c7-b516-9216d65f56e1">Responsive design that=
+ adapts to screen size</p></li>
+<li local-id=3D"ba629b53-2c3d-42e2-999b-3e9721e24fb0">
+<p local-id=3D"7068e7cc-003e-41e7-b9e9-8b62a1c457a0">Compact view by defaul=
+t, expandable for details</p></li>
+</ul></li>
+<li local-id=3D"78e1ba52-aeb8-421e-b8fe-2810f81a6d8b">
+<p local-id=3D"52ca2b4a-bdc9-47ab-9754-4cafc798bfd7"><strong>Progress Indic=
+ator:</strong></p>
+<ul local-id=3D"928fea2b-4793-421b-a75b-6665c9e81c08">
+<li local-id=3D"d6b696a4-772f-4838-b903-2f92af488117">
+<p local-id=3D"c0815a01-effc-471f-908f-fd75559f5dd0">Show current status pr=
+ominently</p></li>
+<li local-id=3D"4cae2955-7aec-4b2f-a4fd-d8b12a5de77f">
+<p local-id=3D"7a0769fd-c7e0-4293-b637-d1af45d08e40">Display progress perce=
+ntage if applicable (e.g., course days completed)</p></li>
+<li local-id=3D"753c6fd0-e155-4617-839d-29a8a0430291">
+<p local-id=3D"182537ca-4ceb-479e-9c4e-ec33905eba66">Show next expected mil=
+estone or deadline</p></li>
+</ul></li>
+<li local-id=3D"437bd66d-40c2-4d12-9b6b-7fa42794d528">
+<p local-id=3D"b8da297f-02e1-4ce2-bd89-2af789a4bf47"><strong>Interactive Fe=
+atures:</strong></p>
+<ul local-id=3D"7f1fd80e-ba35-4ef2-bf19-fa5f3296ae93">
+<li local-id=3D"2012aee7-f6f9-4ea1-97d4-e29789e8082e">
+<p local-id=3D"bfed7215-fedc-44c8-9ed5-1c9d2b7f5848">Hover over milestone: =
+Tooltip with summary (status, date, user)</p></li>
+<li local-id=3D"0f12e49a-892a-4056-aec6-af8bb0b5474e">
+<p local-id=3D"e6fbfcdb-1690-427c-a3ce-10566e4e0739">Click milestone: Expan=
+d to show full details</p></li>
+<li local-id=3D"8950f9c4-b449-4472-aa69-ab81781d898a">
+<p local-id=3D"7f8f4a7e-d7e8-45a7-b837-6b78d9a4ec62">Toggle approval workfl=
+ows: Show/hide WAITING_APPROVAL_EDIT and WAITING_APPROVAL_CANCEL milestones=
+</p></li>
+<li local-id=3D"9d003659-01dd-43c7-80c1-e1eb4e042a00">
+<p local-id=3D"9aa0b95f-8edf-4fcc-9368-e75662ab0a07">Export timeline: Optio=
+n to export as PDF or image</p></li>
+</ul></li>
+</ol>
+<p local-id=3D"c878cd9c-d31b-4109-bdeb-bbb9f3fea1ba"><strong>Data Requireme=
+nts:</strong></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"0a=
+521cf4-6132-4590-bcff-fd8367dc81e9" class=3D"confluenceTable">
+<tbody>
+<tr ac:local-id=3D"457d178f-86fa-483a-8654-694b0cddcd56">
+<th data-local-id=3D"65c035fe-7d95-4e7d-892d-7a5b91324076" class=3D"conflue=
+nceTh">
+<p local-id=3D"d0c23d08-ad94-41ac-92fe-1900967c736f">Field Name</p></th>
+<th data-local-id=3D"5e4def29-48e7-49ce-a087-db5a20b4652d" class=3D"conflue=
+nceTh">
+<p local-id=3D"23626bdd-0cb4-4817-be27-a59a325844d4">Data Type</p></th>
+<th data-local-id=3D"f9722dbd-84d3-4063-a14d-985893d926f6" class=3D"conflue=
+nceTh">
+<p local-id=3D"72d6e152-069c-4f12-b428-2f807af3910f">M/O/CM/D</p></th>
+<th data-local-id=3D"bebf983f-170b-4229-8951-d6297a03ac9b" class=3D"conflue=
+nceTh">
+<p local-id=3D"85c46067-d885-4718-8e06-3fd19dffa370">Description</p></th>
+<th data-local-id=3D"d40e0e8f-3289-41de-9d92-30e465cf2a4d" class=3D"conflue=
+nceTh">
+<p local-id=3D"e58d6836-0b2d-4241-b804-70bdc642ea15">Example</p></th>
+</tr>
+<tr ac:local-id=3D"539eb0d2-dbf9-468d-ad57-040464ecfd5f">
+<td data-local-id=3D"bce18d11-39a6-4ef0-9e2c-7e7b3633f92a" class=3D"conflue=
+nceTd">
+<p local-id=3D"d8e7b726-49c7-48bb-b518-c1e736732f1d">Status</p></td>
+<td data-local-id=3D"4f9c51a2-dc40-4df6-98bb-d1f9c5fdcde3" class=3D"conflue=
+nceTd">
+<p local-id=3D"77e98c3d-759f-42d9-a547-ba33ac04f490">Display</p></td>
+<td data-local-id=3D"07b9cf78-b6a4-4147-8c8a-3ef13b412102" class=3D"conflue=
+nceTd">
+<p local-id=3D"8dfd4bbe-6b63-4aa2-8fd3-6a7ece3a22a8">M</p></td>
+<td data-local-id=3D"a6ed55a2-b60c-4533-838d-f2aead8a48d4" class=3D"conflue=
+nceTd">
+<p local-id=3D"a125a1aa-bdf9-4e7e-b0fd-ec5d219e82ab">Status name</p></td>
+<td data-local-id=3D"7dc3df0c-ad45-447f-82f6-8aeb9be14fa7" class=3D"conflue=
+nceTd">
+<p local-id=3D"f83fb95a-9720-4264-a1d9-0d4db984e1a4">APPROVED</p></td>
+</tr>
+<tr ac:local-id=3D"1964a4dd-26a9-4372-9093-b07569158e3f">
+<td data-local-id=3D"ee9d87fc-4f29-485b-acf2-2514bfe6cd78" class=3D"conflue=
+nceTd">
+<p local-id=3D"40dc3a4e-61f5-43d0-84a8-6f552b41a7dd">Timestamp</p></td>
+<td data-local-id=3D"018f5efe-8ddc-471d-a7f9-becce1783e9f" class=3D"conflue=
+nceTd">
+<p local-id=3D"a1860290-6970-4ca5-90bf-930f6589aae5">Display</p></td>
+<td data-local-id=3D"82001e55-1cdf-4366-b47a-f643516bdd60" class=3D"conflue=
+nceTd">
+<p local-id=3D"d6b13540-b68b-4572-9f7e-6cdc908ca320">M</p></td>
+<td data-local-id=3D"60625155-51d9-4ba9-9b53-0b321fd6966a" class=3D"conflue=
+nceTd">
+<p local-id=3D"9c0b423a-4df4-452c-bb61-d103a6c6b054">Date and time of statu=
+s change</p></td>
+<td data-local-id=3D"7b3a9f4c-0e9b-425e-b178-fc305c04439f" class=3D"conflue=
+nceTd">
+<p local-id=3D"beea43bf-d5fb-4f81-bef4-62081d6b8201">02/10/2025 14:20 PM</p=
+></td>
+</tr>
+<tr ac:local-id=3D"3d4b272f-b8d3-45c6-9ae1-b3f341864c59">
+<td data-local-id=3D"344bc68b-4777-4e2c-a734-ce0e9ad2f841" class=3D"conflue=
+nceTd">
+<p local-id=3D"a405cce5-dcf6-425b-ba9f-74bae4fb289b">Performed By</p></td>
+<td data-local-id=3D"72fe96ac-851a-460e-ab99-84013500f700" class=3D"conflue=
+nceTd">
+<p local-id=3D"e6ddf268-8c28-4099-a85f-0e16b40400bd">Display</p></td>
+<td data-local-id=3D"3f01a483-d32f-48d3-a8d3-708a621d3255" class=3D"conflue=
+nceTd">
+<p local-id=3D"b1727531-08ef-41b9-9dfa-20eeefead2ac">M</p></td>
+<td data-local-id=3D"202a361a-2a10-4636-a33c-7ea51c55b849" class=3D"conflue=
+nceTd">
+<p local-id=3D"b7314f6d-d160-4b28-8752-59a9a6711204">User who performed act=
+ion or "System"</p></td>
+<td data-local-id=3D"16f84bce-769e-4cab-a044-84ca4475e2cc" class=3D"conflue=
+nceTd">
+<p local-id=3D"793fbb7f-9b48-4ca8-b848-a1c9661bf8d4">Jane Smith (Head Chann=
+el)</p></td>
+</tr>
+<tr ac:local-id=3D"02cdfbea-5eec-4914-956d-b26e81bc545b">
+<td data-local-id=3D"d93a7d6d-1900-4963-9b86-e5157d837626" class=3D"conflue=
+nceTd">
+<p local-id=3D"1d4cb05a-f441-46f3-9b75-feac19b5e780">Action</p></td>
+<td data-local-id=3D"cac13536-cc46-4ea5-9167-002cc57881fc" class=3D"conflue=
+nceTd">
+<p local-id=3D"f8999449-0418-4356-b0f5-5e3b430efa37">Display</p></td>
+<td data-local-id=3D"5842672c-3ebd-4570-8f2b-89e599ee76ab" class=3D"conflue=
+nceTd">
+<p local-id=3D"5c70ef96-4d0e-4e09-9635-9b1dfb1ca999">O</p></td>
+<td data-local-id=3D"2c07ce68-bd87-45fe-a94f-ef6c0e1cfb1d" class=3D"conflue=
+nceTd">
+<p local-id=3D"f3be042b-1269-47e4-8927-924a3d6f5bb9">Description of action =
+performed</p></td>
+<td data-local-id=3D"1f63ee1f-2a91-49de-9bdd-5f1908357b17" class=3D"conflue=
+nceTd">
+<p local-id=3D"4b012f75-04be-44c7-b0b5-6086717e1752">Approved course regist=
+ration</p></td>
+</tr>
+<tr ac:local-id=3D"742359cd-27b7-41b6-a2ea-487615047567">
+<td data-local-id=3D"bb9918ce-12b9-4c3f-b2c1-3e221eef8a8f" class=3D"conflue=
+nceTd">
+<p local-id=3D"3dbaf04f-51c4-4625-919c-b3d3dd949365">Reason</p></td>
+<td data-local-id=3D"b78f19f3-ff2e-4af2-b484-254c7ddc7c86" class=3D"conflue=
+nceTd">
+<p local-id=3D"bec2b5ea-ec90-48e3-8bc3-c273e794c0f4">Display</p></td>
+<td data-local-id=3D"5736e725-c740-457b-8de9-5952ed7e6bd4" class=3D"conflue=
+nceTd">
+<p local-id=3D"dc203d85-7949-4a35-a0f8-d15333f62e21">O</p></td>
+<td data-local-id=3D"ddec67b8-63a3-4180-a444-f42a01aaf021" class=3D"conflue=
+nceTd">
+<p local-id=3D"89fb22b8-aa7d-4954-9111-1299e8b7b2c7">Reason for action (if =
+applicable)</p></td>
+<td data-local-id=3D"bdc76866-4b62-4fc8-92e1-35e09e3866e2" class=3D"conflue=
+nceTd">
+<p local-id=3D"c0c610f1-574a-411f-9c79-c5df368226ae">Registration approved<=
+/p></td>
+</tr>
+<tr ac:local-id=3D"3f19d6d8-9ad5-4db5-b005-d3b79c61072d">
+<td data-local-id=3D"442d088a-6a31-40b5-a2e4-c777469569b3" class=3D"conflue=
+nceTd">
+<p local-id=3D"1c9b06af-6ed3-45e1-a74b-1c3781ce53cc">Previous Status</p></t=
+d>
+<td data-local-id=3D"653cb7dd-0374-47cc-8dc5-2e30f0442d7a" class=3D"conflue=
+nceTd">
+<p local-id=3D"adc7a20d-8047-4dce-bd40-20d6c82fae0c">Display</p></td>
+<td data-local-id=3D"3d8156bf-ad79-4076-aa5c-9fe4fb6b5b84" class=3D"conflue=
+nceTd">
+<p local-id=3D"d1bd9f9c-000f-43a4-b666-4a7c395ff85b">O</p></td>
+<td data-local-id=3D"e57f11f7-d7ae-4157-a329-85e258b20ed1" class=3D"conflue=
+nceTd">
+<p local-id=3D"6e3a8a2e-a668-4fe2-ade0-aa4f751d528a">Previous status before=
+ change</p></td>
+<td data-local-id=3D"5e9a398e-a4fe-4b9e-bc95-b3146a2f211e" class=3D"conflue=
+nceTd">
+<p local-id=3D"ab0a05a8-6664-483b-bced-695a6a496f53">REGISTERED</p></td>
+</tr>
+<tr ac:local-id=3D"98fd0113-64b0-40b0-8307-c1560e142eca">
+<td data-local-id=3D"fe48c39c-a252-4eae-9700-b4ab0baed40a" class=3D"conflue=
+nceTd">
+<p local-id=3D"99ff8fab-7775-4bc2-9cee-82b1235ea6d6">Is Automatic</p></td>
+<td data-local-id=3D"c987d309-f0fa-4182-ae68-b7496b74bc31" class=3D"conflue=
+nceTd">
+<p local-id=3D"8d1222b8-e4ad-4e1c-bb15-0b595517565e">Display</p></td>
+<td data-local-id=3D"7be02ee8-852f-4440-8733-8d1030b88c64" class=3D"conflue=
+nceTd">
+<p local-id=3D"b1c44d2f-6955-411e-b552-18b518564e01">O</p></td>
+<td data-local-id=3D"f78e117a-8290-4a97-a2ac-b9cd02d98786" class=3D"conflue=
+nceTd">
+<p local-id=3D"f7eb22d2-ab3f-4582-8947-11482db55ff1">Whether action was aut=
+omatic or manual</p></td>
+<td data-local-id=3D"7321ff03-11d2-42ea-a92b-010bfbb4c679" class=3D"conflue=
+nceTd">
+<p local-id=3D"eb81fa96-ef97-40df-8ac4-de99f2082337">Manual</p></td>
+</tr>
+<tr ac:local-id=3D"037e6855-44eb-4ea2-a523-070e1a272a7b">
+<td data-local-id=3D"6b6df0ba-e540-46f2-a8f5-343015cceff3" class=3D"conflue=
+nceTd">
+<p local-id=3D"77a70c54-7769-4844-b5db-53e15c05b764">Duration</p></td>
+<td data-local-id=3D"1aeab223-8750-4d5f-9dd7-01a07f21ef32" class=3D"conflue=
+nceTd">
+<p local-id=3D"80773071-056e-49d9-89bb-daee17e1a555">Display</p></td>
+<td data-local-id=3D"ff01cec4-44ad-48ca-b18a-858d3109b934" class=3D"conflue=
+nceTd">
+<p local-id=3D"ac97984e-8f1e-49bd-b6d3-f08be568a2fb">O</p></td>
+<td data-local-id=3D"2f5bbec5-78b2-445a-9a38-93870c912f2b" class=3D"conflue=
+nceTd">
+<p local-id=3D"b9adab17-3bc4-443f-8df6-63c0fe73504a">Time taken to reach th=
+is status</p></td>
+<td data-local-id=3D"bbab92ae-39f0-455c-bcc8-5129d11b1d08" class=3D"conflue=
+nceTd">
+<p local-id=3D"6005e1b4-53c0-4325-ae6d-8fb9327c58b3">27 hours 5 minutes</p>=
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p local-id=3D"4d017dee-6e30-47dc-b67f-314ca36abe6e"><strong>Business Rules=
+:</strong></p>
+<ol start=3D"1" local-id=3D"33b333e3-d6be-4c0f-a636-042962a6622a">
+<li local-id=3D"3aa3cf37-3439-4370-bc5c-ead2d7460a9a">
+<p local-id=3D"8fd2be35-04ea-435d-80f0-b9ac811656de"><strong>Timeline Displ=
+ay Logic:</strong></p>
+<ul local-id=3D"ce8f56c7-b31c-4a84-893f-8ff6bb4ba856">
+<li local-id=3D"2dc55a7f-3cb0-4452-8e93-b4d31d9c9cd7">
+<p local-id=3D"33ac4414-0e88-42dd-9f47-92a5bef6b443">Only show statuses tha=
+t have occurred (completed milestones)</p></li>
+<li local-id=3D"01c13e2e-87c1-4a62-901a-5288d5d0146d">
+<p local-id=3D"bde0bbf6-2ac7-4321-aa51-06f776b6dfbb">Show current status wi=
+th highlight and animation</p></li>
+<li local-id=3D"74fbdae8-e850-4937-89b0-d96d42d407f7">
+<p local-id=3D"e38bef50-73af-4ed4-83b3-83e757800bac">Show next expected sta=
+tus as pending (if applicable)</p></li>
+<li local-id=3D"ebf18974-7c76-43df-97f1-4b6bb44081e8">
+<p local-id=3D"291d1e8e-72f4-490c-9d97-f79076823c98">Approval workflows (WA=
+ITING_APPROVAL_EDIT, WAITING_APPROVAL_CANCEL) shown only when relevant</p><=
+/li>
+</ul></li>
+<li local-id=3D"2f731bf4-e0ea-43fd-9444-1de065e82a59">
+<p local-id=3D"38ab16ff-329c-48fa-8699-2c3150f6acae"><strong>Status History=
+ Tracking:</strong></p>
+<ul local-id=3D"d4061403-c4cb-4560-95bd-fcb837e1db27">
+<li local-id=3D"ea393c6f-36bc-4a68-87e7-4dd567b88d56">
+<p local-id=3D"8d630ba2-b244-49b9-8a85-0071c043e81c">System records all sta=
+tus changes with timestamp and user</p></li>
+<li local-id=3D"f8ccb7ea-1d78-4a46-aa0d-4a2dd4ba54c8">
+<p local-id=3D"8e6e082f-31d3-48d2-8f4c-999b54f6321c">Automatic actions (e.g=
+., IN_PROGRESS on start date) marked as "System"</p></li>
+<li local-id=3D"1833d15d-9f12-4de0-9912-48bd824c4f37">
+<p local-id=3D"df0aba6d-3552-4f72-a7f7-179688a93851">Approval workflows tra=
+cked with request timestamp and approval/rejection timestamp</p></li>
+<li local-id=3D"ba5a451d-74a4-4ec7-8f36-e610d83db27e">
+<p local-id=3D"93e335f6-1dd5-437b-a2fc-261f5f50763a">Rejection actions show=
+ reason in timeline</p></li>
+</ul></li>
+<li local-id=3D"d625b230-b2e7-4f86-ad7d-913bc8637802">
+<p local-id=3D"225d846b-dd2d-4a8d-a6c3-27f9047edbbb"><strong>Auto-Cancellat=
+ion Display:</strong></p>
+<ul local-id=3D"25a25e7a-6ace-44ea-b7f6-d88ee6bc2ffc">
+<li local-id=3D"478e4cd3-58db-42ff-9f45-645c4502ff6b">
+<p local-id=3D"e69e9183-bf40-4ffb-9f35-e490c46f689a">If course is auto-canc=
+elled (not approved by start date), show CANCEL status</p></li>
+<li local-id=3D"fa71abd3-928a-49a0-8d7a-2c67f58d61d2">
+<p local-id=3D"3beeee52-44de-4e62-a739-983409fe1969">Display cancellation r=
+eason: "Not approved by course start date"</p></li>
+<li local-id=3D"d715a945-7e80-4c31-bd23-515cc0e54995">
+<p local-id=3D"2c941685-b593-49c4-9a3a-65c7adc90c9a">Mark as automatic acti=
+on by System</p></li>
+</ul></li>
+<li local-id=3D"d4abea80-db04-4875-8eda-208f8c0d8395">
+<p local-id=3D"0e959e70-2856-4703-a4d8-ae8371509370"><strong>Progress Calcu=
+lation:</strong></p>
+<ul local-id=3D"5bc92c7a-870e-4df8-9ed1-f125c3122259">
+<li local-id=3D"40912308-52d3-480d-a133-08c1189ab986">
+<p local-id=3D"9372a416-69bb-47f6-abd8-62300a7cfa49">For IN_PROGRESS status=
+: Calculate percentage based on course days completed</p></li>
+<li local-id=3D"b15ba4a5-17de-4cc4-9749-dc22f58be29d">
+<p local-id=3D"d6105d24-d0bf-4f1b-b1f4-fbf750cfdf9c">Formula: (Days complet=
+ed / Total course days) =C3=97 100%</p></li>
+<li local-id=3D"dff65b9f-f997-4c86-b613-eda15ba38434">
+<p local-id=3D"548d7faa-7b55-427c-a587-c8976b86e6df">Show current day numbe=
+r (e.g., "Day 3 of 6")</p></li>
+</ul></li>
+<li local-id=3D"29100b8c-dd1c-411b-9066-ccea971c9462">
+<p local-id=3D"8f063fd8-7a2d-4c8c-9ac4-fc33153714b5"><strong>Timeline Sorti=
+ng:</strong></p>
+<ul local-id=3D"12363be5-220b-428b-a4dd-3534b4997bed">
+<li local-id=3D"f9c3f11b-6839-41a5-b236-250db830f463">
+<p local-id=3D"edaf9ae0-bca5-4513-a303-bbc6e0691a2a">Sort by timestamp (chr=
+onological order)</p></li>
+<li local-id=3D"9c54a392-f2a9-40be-a14e-3d78fc884a21">
+<p local-id=3D"771f52e5-9590-4e70-8f22-8f2cc064595c">Most recent status at =
+right (horizontal) or bottom (vertical)</p></li>
+<li local-id=3D"03103cd9-7e72-47dc-be21-1e56777740be">
+<p local-id=3D"d3ac2ffe-a522-47db-ad56-2a8a84c85263">Approval workflows ins=
+erted chronologically</p></li>
+</ul></li>
+</ol>
+<p local-id=3D"e40d8870-b376-4bdb-baed-e03d9ecddcf8"><strong>Authorization:=
+</strong></p>
+<ul local-id=3D"0068a180-59a3-4917-aeec-f3a5fd603c7c">
+<li local-id=3D"e4302b5a-c155-4b6d-894c-6e93020b07bc">
+<p local-id=3D"c6439ae7-7a35-4aa8-9ce1-4defbaee94d8"><strong>View Timeline:=
+</strong> All users who can view course details</p></li>
+<li local-id=3D"00065a80-97e9-4cd5-942b-123116b8cc5f">
+<p local-id=3D"56acf3d8-07bc-41a8-b47d-4c554acf2e57"><strong>Export Timelin=
+e:</strong> Admin, Master Role, Root Admin</p></li>
+<li local-id=3D"b8bd9b61-bc40-4bcd-9cf9-72a5d87d4c06">
+<p local-id=3D"3b599038-7d55-4990-8ba9-693d1a3a3f43"><strong>Timeline data:=
+</strong> Based on course viewing authorization rules</p></li>
+</ul>
+<hr local-id=3D"a45df5c5-2b30-4153-a7bc-118250933388">
+<h3 local-id=3D"f97ef627-74d7-41c1-a531-cb546645b43c" id=3D"CourseDetailsSc=
+reen-8.3.1.3CourseApprovalActions">8.3.1.3 Course Approval Actions</h3>
+<p local-id=3D"d4f344f8-9b28-43ee-b6e8-da5d7cff2f1c"><strong>User Story:</s=
+trong> <br>
+AS a Head Channel, Lead Region, or authorized approver <br>
+I NEED to approve or reject course-related actions from the Course Details =
+screen <br>
+SO THAT I can manage course registration, edits, and cancellations efficien=
+tly</p>
+<p local-id=3D"82e0e55e-d2b2-4df0-b225-4d5d928a2d6e"><strong>Overview:</str=
+ong></p>
+<p local-id=3D"d8d49bcc-086b-487e-b4b9-8938f4525c32">The Course Details scr=
+een provides access to approval actions for:</p>
+<ul local-id=3D"3a6c020c-b936-4bbb-9b94-47b704634fa1">
+<li local-id=3D"128c2d88-e683-4321-b801-0fc93c791096">
+<p local-id=3D"8479d5ff-8221-4da7-b72b-edf1e86f9994">Course Registration (S=
+ection 8.4.2)</p></li>
+<li local-id=3D"8cdf8309-b4f9-4d35-a0bd-70882a39839a">
+<p local-id=3D"6ac849ce-eb96-4a68-bdb9-f41b8a879611">Course Edit Requests (=
+Section 8.5.2)</p></li>
+<li local-id=3D"0e2e8be6-fb48-475d-ac45-fcd71ab2e490">
+<p local-id=3D"ee8e6f85-01a0-48ef-a0be-14935a4602b2">Course Cancellation Re=
+quests (Section 8.6.2)</p></li>
+</ul>
+<p local-id=3D"1e9bb51d-75d7-403d-b3a4-c5532933dcea"><strong>Approval Autho=
+rization Matrix:</strong></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"13=
+3f5644-90c4-4a77-a066-96ecf938de45" class=3D"confluenceTable">
+<tbody>
+<tr ac:local-id=3D"aa96b58a-46ae-4f80-9fde-8e2fae3bd5b9">
+<th data-local-id=3D"18337b08-3589-44bd-a48d-dfcf72809de0" class=3D"conflue=
+nceTh">
+<p local-id=3D"0f179f66-43e9-4292-90b9-0a4b26be10b8">Role</p></th>
+<th data-local-id=3D"faa49f82-c02d-43b0-b952-4909588cb3e0" class=3D"conflue=
+nceTh">
+<p local-id=3D"04699641-8e08-4c6c-867c-f636227080fa">Registration Approval<=
+/p></th>
+<th data-local-id=3D"c8342d58-5436-4a67-9e03-33b7e1718397" class=3D"conflue=
+nceTh">
+<p local-id=3D"5e43dba1-3b0c-4d4c-bf0e-69cb9afcb649">Edit Approval</p></th>
+<th data-local-id=3D"ff9d4b5a-6f7c-4d0c-82b5-1187ccc9e60c" class=3D"conflue=
+nceTh">
+<p local-id=3D"6e37aadb-c72d-4acf-94a9-fe14e7608b2e">Cancel Approval</p></t=
+h>
+<th data-local-id=3D"f6c8d9d0-3db4-4df2-aaa5-6c8d05e5e389" class=3D"conflue=
+nceTh">
+<p local-id=3D"40d06066-2c93-403b-a24d-2ff7f14ebd11">Scope</p></th>
+</tr>
+<tr ac:local-id=3D"144de13d-d4a6-42e6-83be-f3e330455004">
+<td data-local-id=3D"89373e66-ce49-4db2-82eb-a5a453ddebde" class=3D"conflue=
+nceTd">
+<p local-id=3D"330aea6c-d422-4ff8-8926-da841cb9e352">Trainer</p></td>
+<td data-local-id=3D"c103e670-36a9-4d29-9e14-38259126e1b6" class=3D"conflue=
+nceTd">
+<p local-id=3D"714f034f-c804-4652-8d06-51f1d34e6522">=E2=9C=97 No</p></td>
+<td data-local-id=3D"71773ec4-2ad4-40d4-a6ab-f68c3a460a02" class=3D"conflue=
+nceTd">
+<p local-id=3D"3ae178ab-6b3a-40ec-ad0d-b1bb0194b225">=E2=9C=97 No</p></td>
+<td data-local-id=3D"35236b62-4296-4137-b8ae-0fb263aa817b" class=3D"conflue=
+nceTd">
+<p local-id=3D"3a0a2563-0b3a-4645-8306-8fe85683f2a6">=E2=9C=97 No</p></td>
+<td data-local-id=3D"4e811d04-046e-477e-9c1e-0062f85c6dbd" class=3D"conflue=
+nceTd">
+<p local-id=3D"6ceec660-7b15-49de-a5cf-5f11e0ecda69">Cannot approve</p></td=
+>
+</tr>
+<tr ac:local-id=3D"6f32ff66-f774-4162-a786-252398a4d083">
+<td data-local-id=3D"a96e61c5-7ef8-4478-8f41-fb32431f4970" class=3D"conflue=
+nceTd">
+<p local-id=3D"a1047701-5284-47e0-b4a6-164180eebadd">Lead Region</p></td>
+<td data-local-id=3D"083510ff-9aac-4964-8826-e4ecdd0598aa" class=3D"conflue=
+nceTd">
+<p local-id=3D"db0ec25a-4171-46f5-96b7-56e88b711ea9">=E2=9C=93 Yes</p></td>
+<td data-local-id=3D"57c334f8-1850-4da8-8542-3f3cc0075c7e" class=3D"conflue=
+nceTd">
+<p local-id=3D"b7bb7369-17e4-4702-948c-13b3d0f7a2da">=E2=9C=93 Yes</p></td>
+<td data-local-id=3D"1986d903-d10b-425f-8d10-6cffed6a9dbf" class=3D"conflue=
+nceTd">
+<p local-id=3D"9fbe3f55-7d36-4d22-a4b5-dd2847ca78c5">=E2=9C=93 Yes</p></td>
+<td data-local-id=3D"02c587bf-66a6-457e-9f8d-348b9c4eb7f5" class=3D"conflue=
+nceTd">
+<p local-id=3D"a077ee1f-fedd-42ee-84fd-6c3ec7ffb962">Can approve courses in=
+ their channel AND region</p></td>
+</tr>
+<tr ac:local-id=3D"4bf9c3ab-09c9-4946-9f59-3ef99cc29378">
+<td data-local-id=3D"bba113ac-b94b-44ee-9705-892e899a9d0a" class=3D"conflue=
+nceTd">
+<p local-id=3D"2a8b2b66-f3dd-4e98-80e8-81fd6c316d69">Head Channel</p></td>
+<td data-local-id=3D"c59e0220-87b1-4caa-b0c5-c2e4dcc7d7e0" class=3D"conflue=
+nceTd">
+<p local-id=3D"9b03f1d0-62e8-4e66-af61-55a9c413a270">=E2=9C=93 Yes</p></td>
+<td data-local-id=3D"6230f76e-b3a1-49ff-bb9a-b0b17d2f806a" class=3D"conflue=
+nceTd">
+<p local-id=3D"81857c77-d64f-46bd-a7de-e70d57bad865">=E2=9C=93 Yes</p></td>
+<td data-local-id=3D"08d34184-f0d1-4c38-9c26-493e6ab1ae0e" class=3D"conflue=
+nceTd">
+<p local-id=3D"9c976c88-b0fb-4ba3-ba8f-a869722c7c3c">=E2=9C=93 Yes</p></td>
+<td data-local-id=3D"a19a50e7-fa11-45c3-8a10-a52cde62067f" class=3D"conflue=
+nceTd">
+<p local-id=3D"3a85ec43-465a-40c9-949e-2a9580bdda68">Can approve courses in=
+ their channel (all regions)</p></td>
+</tr>
+<tr ac:local-id=3D"25007c30-b9e3-4450-88e9-bcc404b12fad">
+<td data-local-id=3D"e1dc1f63-3eb7-45ad-80ed-8a3c12061cca" class=3D"conflue=
+nceTd">
+<p local-id=3D"aea4bbff-7b6c-4c3b-8a85-abcfb82115ac">Admin</p></td>
+<td data-local-id=3D"63f6ab1e-5898-4d81-aded-d3d9fa96ccc5" class=3D"conflue=
+nceTd">
+<p local-id=3D"4a7370c3-b868-4bcc-ace2-e68b004515fe">=E2=9C=97 No</p></td>
+<td data-local-id=3D"c0f4913f-bb8d-407f-810f-32af790164d4" class=3D"conflue=
+nceTd">
+<p local-id=3D"964eea6a-175f-4dc6-981d-8dd7b4d0f787">=E2=9C=97 No</p></td>
+<td data-local-id=3D"279e12b8-29ec-4343-a41a-88e126a2cd84" class=3D"conflue=
+nceTd">
+<p local-id=3D"5f22d6d5-4a3a-4134-bf81-349ebcb8f79a">=E2=9C=97 No</p></td>
+<td data-local-id=3D"11489883-0093-4104-a079-871945098279" class=3D"conflue=
+nceTd">
+<p local-id=3D"fb20e33a-1e27-49de-b1ad-9a106325b425">Cannot approve</p></td=
+>
+</tr>
+<tr ac:local-id=3D"e5c7d99d-8e28-4d20-98b7-decb3f40f626">
+<td data-local-id=3D"673b8a67-e6f9-4ac4-aab0-e04016341d47" class=3D"conflue=
+nceTd">
+<p local-id=3D"18c20624-bc89-40ee-9102-97df4a4960df">Master Role</p></td>
+<td data-local-id=3D"0e2ec4eb-4ee3-436a-9703-a5406fdb2b19" class=3D"conflue=
+nceTd">
+<p local-id=3D"c19c81a0-1362-4f9b-b636-bbfdb9a0c7a6">=E2=9C=93 Yes</p></td>
+<td data-local-id=3D"f92075f7-7441-49f5-bbfe-17aa3e2122d3" class=3D"conflue=
+nceTd">
+<p local-id=3D"ad9999b8-a4af-4ff1-a4fe-d59348bd3f9d">=E2=9C=93 Yes</p></td>
+<td data-local-id=3D"aa494326-fba6-4b5f-a059-23cafed05295" class=3D"conflue=
+nceTd">
+<p local-id=3D"73452a18-fb84-4e1a-8435-c8cfa6dd542d">=E2=9C=93 Yes</p></td>
+<td data-local-id=3D"87b8932d-fb74-44f8-a79d-0ff6e8b39ec5" class=3D"conflue=
+nceTd">
+<p local-id=3D"9b5fc61e-6741-4a4f-a293-3119bdca2931">Can approve any course=
+ (override)</p></td>
+</tr>
+<tr ac:local-id=3D"1b0e9c0e-ef71-4df6-ba74-c59d8b4ce66d">
+<td data-local-id=3D"84f5f6fe-c125-4fe4-b657-dce3a64a63f5" class=3D"conflue=
+nceTd">
+<p local-id=3D"eebbacdd-e001-4c86-88f0-c552ccd5dffa">Root Admin</p></td>
+<td data-local-id=3D"fd7e3833-4407-49f7-94cf-2d4494330705" class=3D"conflue=
+nceTd">
+<p local-id=3D"d425f695-8f87-473d-8e78-66c24a7f147f">=E2=9C=97 No</p></td>
+<td data-local-id=3D"b3c8a215-ed63-4373-8753-02e6fae6a621" class=3D"conflue=
+nceTd">
+<p local-id=3D"19ad9b38-612f-413f-952e-52cbb257ed6d">=E2=9C=97 No</p></td>
+<td data-local-id=3D"6584a41c-1f53-4a7f-9fb4-a6e5bc485719" class=3D"conflue=
+nceTd">
+<p local-id=3D"05a5f758-b6f5-44d4-8f97-95a64ed92d9b">=E2=9C=97 No</p></td>
+<td data-local-id=3D"e91ee45d-0e9b-4692-875e-d13db42e9fc1" class=3D"conflue=
+nceTd">
+<p local-id=3D"5129656f-a677-435e-9572-d4acaabc8b5f">Cannot approve</p></td=
+>
+</tr>
+</tbody>
+</table>
+</div>
+<p local-id=3D"b1363bb5-c1f4-4cea-9aaf-d025cdbd83e6"><strong>Approval Actio=
+ns Available:</strong></p>
+<ol start=3D"1" local-id=3D"f8419390-36a1-444b-ae3b-dd71c9747df4">
+<li local-id=3D"5dec4af6-baac-4a28-aa06-1e1f6daccce4">
+<p local-id=3D"c96716c9-9c18-431c-9e25-f7a7a7f15a0e"><strong>Approve Regist=
+ration:</strong></p>
+<ul local-id=3D"e1111ce1-0994-4647-8f0d-89694e361300">
+<li local-id=3D"0e6edf39-6a72-40f6-ab0c-25796b4fcb30">
+<p local-id=3D"41ba7af3-402c-41cb-ba85-b29298c52bf1">Available when course =
+status is REGISTERED</p></li>
+<li local-id=3D"ec3206e3-f79c-4706-b114-f52b589b5f22">
+<p local-id=3D"e1a5946a-9c69-4cec-9a53-3fa99f792aea">Action: REGISTERED =E2=
+=86=92 APPROVED</p></li>
+<li local-id=3D"8acf6045-a351-4f8a-831d-3ae0a150a497">
+<p local-id=3D"2841615d-b58b-4415-af28-cce8c9e96bcf">Requires: Head Channel=
+ OR Lead Region authorization</p></li>
+<li local-id=3D"0d47dc13-7891-445d-bb9d-45b29ce8d61c">
+<p local-id=3D"597973ba-75a5-4041-8d4d-5ccd1d3bf75c">See Section 8.4.2 for =
+detailed workflow</p></li>
+</ul></li>
+<li local-id=3D"76fc1f25-a9fe-454a-899a-7e3216d6869d">
+<p local-id=3D"cf6b5d10-56ef-4e40-944b-e2a443517bed"><strong>Reject Registr=
+ation:</strong></p>
+<ul local-id=3D"0222f03f-fc34-4b7f-a769-d693257bca71">
+<li local-id=3D"17bd308e-742e-4424-a326-902189c6264a">
+<p local-id=3D"dd1e5b3e-2c8e-4e48-8ef3-4efb84d3f881">Available when course =
+status is REGISTERED</p></li>
+<li local-id=3D"bca6b1b5-d6b3-452c-8587-86745f6a8e63">
+<p local-id=3D"ab0fdace-d062-4a3c-9690-bbb46fb41038">Action: REGISTERED =E2=
+=86=92 NEW</p></li>
+<li local-id=3D"9edfce92-3b12-4b8b-a608-12f81ece1318">
+<p local-id=3D"d5359678-d0a9-48de-87b4-43ef1f36a505">Requires: Head Channel=
+ OR Lead Region authorization</p></li>
+<li local-id=3D"5c3d1433-ef57-4efd-aff8-989238b334ae">
+<p local-id=3D"b22a034c-bee5-4726-b9bd-1c29afd9c1e9">Requires: Rejection re=
+ason (mandatory field)</p></li>
+<li local-id=3D"a7d09b37-b0a7-45c3-ad46-eeb663f80941">
+<p local-id=3D"51fefb91-49ab-4648-8908-d290cf754427">See Section 8.4.2 for =
+detailed workflow</p></li>
+</ul></li>
+<li local-id=3D"18d1468d-e535-4e51-a4c3-c689c0195eff">
+<p local-id=3D"f7939bc6-ff06-4629-8e03-1aced2471dde"><strong>Approve Edit R=
+equest:</strong></p>
+<ul local-id=3D"90cead83-415e-4ec0-b4a9-279be1259f71">
+<li local-id=3D"6c3bb2c4-7eeb-449c-bd92-46d2fb1dc3ed">
+<p local-id=3D"640c902b-0611-4a09-bcb3-0f0b1246e681">Available when course =
+status is WAITING_APPROVAL_EDIT</p></li>
+<li local-id=3D"a2ce32a9-923b-4528-bf6b-fe7408386439">
+<p local-id=3D"a5fb04cc-e946-4258-9785-ab6b7318d582">Action: WAITING_APPROV=
+AL_EDIT =E2=86=92 APPROVED</p></li>
+<li local-id=3D"22009f3f-c78d-4e9c-9164-2a4ecefc5a73">
+<p local-id=3D"24c4e17e-74dc-4ac8-8cec-99b4e8ed2a3e">Requires: Head Channel=
+ OR Lead Region authorization</p></li>
+<li local-id=3D"6b3ba64c-d56c-4791-b6c5-65f1fa59e85e">
+<p local-id=3D"eee78a45-e2e0-48fd-9f98-3185943c8cc1">See Section 8.5.2 for =
+detailed workflow</p></li>
+</ul></li>
+<li local-id=3D"61fe1fda-e67c-4168-a632-fcc853230d0e">
+<p local-id=3D"a2f855fd-1291-4cdc-9f87-2c1233b1adb1"><strong>Reject Edit Re=
+quest:</strong></p>
+<ul local-id=3D"2f314ee7-5d6b-414a-abce-2a2e30c82542">
+<li local-id=3D"e9ddccba-6830-43c2-b5cb-ac059e649045">
+<p local-id=3D"b199a74e-3597-4565-a7bb-ce65f00daa0f">Available when course =
+status is WAITING_APPROVAL_EDIT</p></li>
+<li local-id=3D"db9e6f99-3957-4b27-a053-47e5da3fdfeb">
+<p local-id=3D"2cb1126b-2525-4f2e-a42c-73b44758970c">Action: WAITING_APPROV=
+AL_EDIT =E2=86=92 APPROVED (revert to previous state)</p></li>
+<li local-id=3D"971c6c66-383d-4d4c-9005-055e34229636">
+<p local-id=3D"f4660ab6-64e5-4f50-984b-a5d6eb409ff3">Requires: Head Channel=
+ OR Lead Region authorization</p></li>
+<li local-id=3D"6dd3d8c0-6d1c-40c7-bfb0-77e57d110219">
+<p local-id=3D"91ace816-9504-4001-8b70-9ddffe7dd716">Requires: Rejection re=
+ason (mandatory field)</p></li>
+<li local-id=3D"97248732-ecb9-4e6b-ac8c-6225640c7fca">
+<p local-id=3D"3b2e5623-d50f-42f9-88a7-1f2f1acfa55d">See Section 8.5.2 for =
+detailed workflow</p></li>
+</ul></li>
+<li local-id=3D"5bcdafb0-6b9d-47d5-9c75-d4ccc5eb7fb1">
+<p local-id=3D"e757d2bf-f274-4723-aacf-ec927ce6a78b"><strong>Approve Cancel=
+lation:</strong></p>
+<ul local-id=3D"4e24a64e-9150-4391-9986-fddcd71bd33e">
+<li local-id=3D"eaa368ff-edaf-43f7-9fa1-974c68c0b52c">
+<p local-id=3D"10f09169-ecb3-4a0e-96ea-cea081930e13">Available when course =
+status is WAITING_APPROVAL_CANCEL</p></li>
+<li local-id=3D"c6cfaefb-bafc-4ce5-8043-3d5597c0f5d1">
+<p local-id=3D"b6977bc3-5c7b-47a1-b86c-4fab031d8997">Action: WAITING_APPROV=
+AL_CANCEL =E2=86=92 CANCEL</p></li>
+<li local-id=3D"f57c23c7-fe11-48ba-9f3f-a454aee60036">
+<p local-id=3D"cd3f93ab-7795-4fa9-bca4-41bf382641ed">Requires: Head Channel=
+ OR Lead Region authorization</p></li>
+<li local-id=3D"ff1a88af-b890-43f7-bd53-11dbb3ddbd66">
+<p local-id=3D"2808199f-f7e5-4ca4-ab18-73d5b4eab269">See Section 8.6.2 for =
+detailed workflow</p></li>
+</ul></li>
+<li local-id=3D"0ada153d-b05b-43c0-8a99-512b0841f255">
+<p local-id=3D"fc771cf4-987a-422e-870a-9d4a62048dcb"><strong>Reject Cancell=
+ation:</strong></p>
+<ul local-id=3D"ea5b96fa-eb7a-4cfa-becc-cf31ec86b3f8">
+<li local-id=3D"77b426ec-6c1d-4d7b-81ac-83a1cc29ab0f">
+<p local-id=3D"d729e5f8-ad9c-4c6e-9538-9d65026b4da8">Available when course =
+status is WAITING_APPROVAL_CANCEL</p></li>
+<li local-id=3D"6fc19ee1-011b-4eb0-8dd1-3b2debddcaa5">
+<p local-id=3D"a3639245-f7c9-4d01-b8b0-0a001464832c">Action: WAITING_APPROV=
+AL_CANCEL =E2=86=92 Previous status (revert)</p></li>
+<li local-id=3D"14db80f4-a279-447b-9b86-000c9b251722">
+<p local-id=3D"3966e8b1-7736-483c-a33f-33b6a7ff452d">Requires: Head Channel=
+ OR Lead Region authorization</p></li>
+<li local-id=3D"e26aa93c-4f9b-4e76-89d0-38acb9e96974">
+<p local-id=3D"a4e595d1-da7c-41c1-8320-56fdabfc902f">Requires: Rejection re=
+ason (mandatory field)</p></li>
+<li local-id=3D"64438c8a-4800-4cdb-bd48-210e454a6770">
+<p local-id=3D"a5a000c5-88da-4e33-a4a8-fd4429c05d7b">See Section 8.6.2 for =
+detailed workflow</p></li>
+</ul></li>
+</ol>
+<p local-id=3D"936aa28a-7aa0-4534-9c1e-5eb8b51cf158"><strong>Approval Actio=
+n Requirements:</strong></p>
+<ul local-id=3D"65001468-c7a9-4986-927e-a904961dd99e">
+<li local-id=3D"b60ff716-8dd4-4968-b0db-7fecdcabac8e">
+<p local-id=3D"5e691e71-0d4a-4b3e-80cd-8d7c9a0557b2">All approval actions r=
+equire confirmation dialog</p></li>
+<li local-id=3D"e3896f57-f497-4253-b83f-924efb5ee5db">
+<p local-id=3D"61466fd2-7082-41e8-80f2-64c7c1794be5">Rejection actions requ=
+ire mandatory reason field</p></li>
+<li local-id=3D"0cbf98ff-cde4-4610-8265-85ee3950a873">
+<p local-id=3D"af75ce8b-1a53-449f-bba7-041167cfcc02">All actions are logged=
+ in Course History</p></li>
+<li local-id=3D"01554064-5a83-43e9-a06f-303959c15bbe">
+<p local-id=3D"f302af35-81cb-4d0e-a421-9c747172312a">All actions update Sta=
+tus Timeline</p></li>
+<li local-id=3D"5ed4a5fb-4845-4776-9b90-39a9e7fee7fc">
+<p local-id=3D"b44e47bd-9885-4419-bb91-76bc97a7505f">Notifications sent to =
+relevant users after approval/rejection</p></li>
+</ul>
+<p local-id=3D"c1a19fb3-d4b6-4897-8bf1-5dfc0e0e08bf"><strong>Business Rules=
+:</strong></p>
+<ol start=3D"1" local-id=3D"0338b818-6ecc-46ee-a3a1-f16721e25c26">
+<li local-id=3D"c557f8de-9f9e-4126-a705-2e9ca3944627">
+<p local-id=3D"1c5b2c68-9e33-4508-8208-21295253edfb"><strong>Approval Scope=
+:</strong></p>
+<ul local-id=3D"a215d698-0cb8-414c-b6c6-a77472e70064">
+<li local-id=3D"8da51c0b-5006-426c-a87a-9c149909197a">
+<p local-id=3D"e615fc97-4991-4a42-bb88-b5986177d8fd">Head Channel can appro=
+ve courses in their channel across all regions</p></li>
+<li local-id=3D"5863666b-aedf-479e-a7bd-cd9bb679b3a9">
+<p local-id=3D"6931e206-c891-42db-9fec-b22ea930ada9">Lead Region can approv=
+e courses in their channel AND region only</p></li>
+<li local-id=3D"c429aa29-a5b9-4769-82d4-0e85a13b47d2">
+<p local-id=3D"d7ef8336-bf24-4fc3-81b4-21b0987bcf18">Master Role can approv=
+e any course regardless of channel/region</p></li>
+</ul></li>
+<li local-id=3D"33c52d22-1873-4d30-b0c7-354ff0d19f77">
+<p local-id=3D"7b364454-77e2-4e78-86af-85874075c5f7"><strong>Rejection Requ=
+irements:</strong></p>
+<ul local-id=3D"9fc99802-eba9-4e53-8be9-292e9bd59d53">
+<li local-id=3D"12763bb0-f9ce-4c2c-8b5c-9e28c1302f05">
+<p local-id=3D"1f7f4b54-8884-47c0-a91c-b0c3392653ed">Rejection reason is ma=
+ndatory for all rejection actions</p></li>
+<li local-id=3D"295d0bc6-1edc-4d31-a1e9-e48f9992c84f">
+<p local-id=3D"abdf29d5-9431-4916-9d32-b611c8b1f6ab">Rejection reason is di=
+splayed in Course History</p></li>
+<li local-id=3D"b14ffd33-7aa8-4af2-997c-e686f1ee9893">
+<p local-id=3D"d3cac596-c08e-4a25-a6a7-c49f6a2b5fab">Rejection reason is sh=
+own in Status Timeline</p></li>
+</ul></li>
+<li local-id=3D"5bc498a5-8e33-44cb-aede-871ac3169ed1">
+<p local-id=3D"010a301d-b789-49a4-a366-1c73ee445182"><strong>Action Availab=
+ility:</strong></p>
+<ul local-id=3D"51f14eb1-12a6-4f10-9c1b-707abcd0972a">
+<li local-id=3D"cb69b0b0-9428-4c4f-81f4-0471d3309af0">
+<p local-id=3D"67d87679-f55f-4b5e-8f91-e3e300fb855b">Approval actions only =
+visible when course is in appropriate status</p></li>
+<li local-id=3D"7089a5a3-fbe4-46ee-8f93-24ec8b1a681f">
+<p local-id=3D"00b474f4-30b2-4cf6-bd8b-a398e8b72637">Actions hidden for una=
+uthorized users</p></li>
+<li local-id=3D"f18807b1-42ed-4704-b812-176b8d3ee090">
+<p local-id=3D"81d51e8e-4f79-4453-9e25-34e830428e36">Actions disabled for c=
+ourses outside user's scope</p></li>
+</ul></li>
+</ol>
+<hr local-id=3D"6d8b9d87-88d4-4da9-9a13-6d8796809866">
+<h3 local-id=3D"fc5aaa8f-5946-40fb-a2fe-1c1993a80e01" id=3D"CourseDetailsSc=
+reen-8.3.2CourseHistory">8.3.2 Course History</h3>
+<p local-id=3D"9f620f20-c2a4-482d-9428-712b026ebaf2"><strong>Purpose:</stro=
+ng><br>
+Tracks all course modifications and changes throughout the course lifecycle=
+.</p>
+<p local-id=3D"609e0e96-5ab7-429b-9b8c-417e580d6ed5"><strong>History Tracki=
+ng Fields:</strong></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"99=
+fb59f0-fa0f-43d3-b42f-a09e76464ad6" class=3D"confluenceTable">
+<tbody>
+<tr ac:local-id=3D"e0f639d5-9950-4001-bec7-88bc09720e3d">
+<th data-local-id=3D"e081a663-960c-4732-a9cb-186a759a1255" class=3D"conflue=
+nceTh">
+<p local-id=3D"72edd19a-4e37-4349-a878-be481355ae50">Field Name</p></th>
+<th data-local-id=3D"265d8756-ce71-496c-9ce8-a9d396083735" class=3D"conflue=
+nceTh">
+<p local-id=3D"b5789ea4-50b6-4a9e-aff0-d5aea3576d7e">Description</p></th>
+<th data-local-id=3D"99d54e8b-ecac-44e0-a241-a9b958be729f" class=3D"conflue=
+nceTh">
+<p local-id=3D"41d75a6d-b9ad-4f11-951d-3264d3f06036">Value Format</p></th>
+</tr>
+<tr ac:local-id=3D"dd0b75a1-1853-4b55-87a6-8f429a772253">
+<td data-local-id=3D"f61a7dfb-c514-4c79-bcb2-b6e2988b91da" class=3D"conflue=
+nceTd">
+<p local-id=3D"d3a82065-f6b2-4341-94de-406cf6f06c5f">PROCTOR NAME</p></td>
+<td data-local-id=3D"ce18bfa0-5711-4394-950d-d0c0116dcb7e" class=3D"conflue=
+nceTd">
+<p local-id=3D"4c641ba4-fcb4-4293-9889-33116d1350e5">Proctor update</p></td=
+>
+<td data-local-id=3D"f7474945-8f18-4c11-acf4-a9ae28fe944f" class=3D"conflue=
+nceTd">
+<p local-id=3D"998b25e6-649d-47d1-86a9-5c827982b93d">From [Old value] to [N=
+ew Value]</p></td>
+</tr>
+<tr ac:local-id=3D"924df44c-b1f9-46d1-9335-8512d7cb11d4">
+<td data-local-id=3D"6b6984bc-8c80-4f3f-9dd8-4bd1ec919f63" class=3D"conflue=
+nceTd">
+<p local-id=3D"47702109-bcc1-4602-9ac1-fd9053a5aecb">MOF EXAM TIME</p></td>
+<td data-local-id=3D"e667e7c9-b34b-4d6a-9fe6-de60b69bd077" class=3D"conflue=
+nceTd">
+<p local-id=3D"99e1effe-3e1a-4598-b330-dd53e9548583">MOF Exam Time update</=
+p></td>
+<td data-local-id=3D"5ee4d549-05a6-4e53-b75a-096a15554600" class=3D"conflue=
+nceTd">
+<p local-id=3D"bf193a55-17a4-4b21-bf2e-c354a8e2bf26">From [Old value] to [N=
+ew Value]</p></td>
+</tr>
+<tr ac:local-id=3D"fb77c1ab-37cb-41f2-99de-2772b5be004d">
+<td data-local-id=3D"651dacbd-61c1-4e6d-a8c7-ad4c72a86bbf" class=3D"conflue=
+nceTd">
+<p local-id=3D"e9f0db9d-aed0-4cde-80b9-591831b03703">EXAM TYPE</p></td>
+<td data-local-id=3D"65214738-01fe-45ad-947a-07c247d70bae" class=3D"conflue=
+nceTd">
+<p local-id=3D"308d968b-b291-461a-8131-3e50d0b2d2dd">Exam type update</p></=
+td>
+<td data-local-id=3D"19d36be0-068d-4bc7-80ac-3f8b10f268c3" class=3D"conflue=
+nceTd">
+<p local-id=3D"78c75fd3-d468-4d73-bd75-43f871a16e8d">From [Old value] to [N=
+ew Value]</p></td>
+</tr>
+<tr ac:local-id=3D"7f9dadce-92b5-4412-8f9f-ad8b02449b9e">
+<td data-local-id=3D"bf4d67a8-9370-4f81-989a-e13904abc96d" class=3D"conflue=
+nceTd">
+<p local-id=3D"62b7f2e8-3207-4421-81a5-aee5cc0303f9">MOF ADDRESS</p></td>
+<td data-local-id=3D"9659dc93-b14a-4e9c-9ad0-84f08803e7ac" class=3D"conflue=
+nceTd">
+<p local-id=3D"6e733ba3-d96e-43ff-b447-4fa617370e17">MOF address update</p>=
+</td>
+<td data-local-id=3D"ffdb0057-78e3-4433-98ee-bbd83179b750" class=3D"conflue=
+nceTd">
+<p local-id=3D"c72b68fa-8346-46b8-ac75-24774ea259e8">From [Old value] to [N=
+ew Value]</p></td>
+</tr>
+<tr ac:local-id=3D"6ab57a02-c8f9-41bb-ba82-e7f5fd7b7964">
+<td data-local-id=3D"5064a705-13c4-4aa7-9a98-2d8b79a3728f" class=3D"conflue=
+nceTd">
+<p local-id=3D"ab97893c-5b05-4001-84e8-fc4cfbd53b8c">REJECT REGISTRATION</p=
+></td>
+<td data-local-id=3D"a25d8958-e5d2-4457-8095-19016c11e5cc" class=3D"conflue=
+nceTd">
+<p local-id=3D"d21b7fe9-3781-474a-a0d3-5c3b4b56e847">Reject reason for regi=
+stration</p></td>
+<td data-local-id=3D"77d13b26-48ff-4c13-8edd-62c0c0ef69ab" class=3D"conflue=
+nceTd">
+<p local-id=3D"e28100e6-2a67-40dd-9316-b2551dba2630">Reject reason</p></td>
+</tr>
+<tr ac:local-id=3D"4d9c0416-6c4d-40c1-98fc-0bf77e931cf0">
+<td data-local-id=3D"e3b45466-ad7f-489c-a4d7-d16bc0a850f0" class=3D"conflue=
+nceTd">
+<p local-id=3D"e50bb35f-f1ae-47c8-bb4f-2c80ac7f9452">CANCEL REASON</p></td>
+<td data-local-id=3D"76824147-f51c-4f76-beae-7e5ac49d4d2d" class=3D"conflue=
+nceTd">
+<p local-id=3D"b52537d2-81b3-46c1-b9cc-99482376f155">Course cancel reason</=
+p></td>
+<td data-local-id=3D"f24a2866-4a45-4fe1-a6bb-ad55b58b851c" class=3D"conflue=
+nceTd">
+<p local-id=3D"212af0f9-a7f6-44bb-af98-a22392032815">Cancel reason</p></td>
+</tr>
+<tr ac:local-id=3D"3b33ea4c-7404-414c-beca-9980aefcc6aa">
+<td data-local-id=3D"70e35ed1-4f14-4a81-be16-29dc7ed9da5f" class=3D"conflue=
+nceTd">
+<p local-id=3D"9de659f0-3a1c-43e1-a66e-8e73c9dfc4f8">REJECT CANCEL REASON</=
+p></td>
+<td data-local-id=3D"a62714ef-cfeb-4081-82c9-d66d0bfe4c98" class=3D"conflue=
+nceTd">
+<p local-id=3D"83bdb19d-5478-4e6a-a007-6f7d3ddd2368">Reject reason for canc=
+el</p></td>
+<td data-local-id=3D"c189116e-a608-42ad-a017-2c7f195f6878" class=3D"conflue=
+nceTd">
+<p local-id=3D"6dd0572b-f752-42e4-8260-695006bac31d">Reject cancel reason</=
+p></td>
+</tr>
+<tr ac:local-id=3D"5ee7f3f5-eaa5-4008-8b73-22595a562272">
+<td data-local-id=3D"36495dff-c618-4cba-9a7b-c9760d3fbc56" class=3D"conflue=
+nceTd">
+<p local-id=3D"a418e20c-f50d-4715-9336-1976acf046b6">EDIT REASON</p></td>
+<td data-local-id=3D"86cb2b25-8213-48ac-95a7-1c8e3041090e" class=3D"conflue=
+nceTd">
+<p local-id=3D"eecd117b-4e4b-40bf-9d4a-6c30cbd53dae">Course edit reason</p>=
+</td>
+<td data-local-id=3D"f5b38633-b022-410b-b8aa-9f17882bfcf2" class=3D"conflue=
+nceTd">
+<p local-id=3D"1dd07123-6597-4620-ad7c-5dcc64a7fa8b">Edit reason</p></td>
+</tr>
+<tr ac:local-id=3D"ad94a962-d0e5-43c1-805e-eb3bb038f065">
+<td data-local-id=3D"c0603f9a-a134-418b-8210-cea231dcc875" class=3D"conflue=
+nceTd">
+<p local-id=3D"0c98ba23-a613-46bf-8a5e-b78b3d04d688">REJECT EDIT REASON</p>=
+</td>
+<td data-local-id=3D"29120fad-95c6-4aad-b8dd-23bfaab873bd" class=3D"conflue=
+nceTd">
+<p local-id=3D"85d268f0-a99f-40fb-be22-eecddf7de7ef">Reject reason for edit=
+</p></td>
+<td data-local-id=3D"67e7d0ef-7808-474d-b0ce-f61324963598" class=3D"conflue=
+nceTd">
+<p local-id=3D"17c2c6e6-bba5-468d-8bd5-6b64d18f5665">Reject edit reason</p>=
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p local-id=3D"02a120e5-c92e-482a-a40d-718f72ae72f6"><strong>History Entry =
+Format:</strong></p>
+<p local-id=3D"3c14c2ea-7c24-4d1f-8264-af7770b6d3b5">All entries include:</=
+p>
+<ul local-id=3D"762c9f2f-3804-426f-86d0-1aff5183c334">
+<li local-id=3D"4ae66322-ece0-4069-a5eb-b633f7408ee9">
+<p local-id=3D"ad463243-d623-4aa9-85ab-df65878de41a"><strong>User ID:</stro=
+ng> User who performed the action</p></li>
+<li local-id=3D"66b5323a-fa0c-4872-9721-6875353783cf">
+<p local-id=3D"cb4124a4-e2f7-4040-8435-f581b7c94a72"><strong>Timestamp:</st=
+rong> Date and time (dd/mm/yyyy hh:mm)</p></li>
+<li local-id=3D"445e5639-dfc4-4d4a-add1-0a60bc4b628c">
+<p local-id=3D"dcdd212b-b130-4dfb-8dc9-660cfaefbbb7"><strong>Action Type:</=
+strong> Type of modification or action</p></li>
+<li local-id=3D"30006a20-320a-44ec-a5fa-e4d0475fcac9">
+<p local-id=3D"1ebb5ac6-36ff-4035-bd79-0562aa90f682"><strong>Field Changed:=
+</strong> Field name (for updates)</p></li>
+<li local-id=3D"d621ceb3-a601-42ee-ad90-b1930e8fc59d">
+<p local-id=3D"04f33ba0-e0d3-4dc6-8698-e5aa060f4ce2"><strong>Old Value:</st=
+rong> Previous value (for updates)</p></li>
+<li local-id=3D"f709fd6b-b3e2-4d71-a71a-f9c16b53e9a6">
+<p local-id=3D"41bfbbc8-16ff-41f9-a868-64daf8ddb4df"><strong>New Value:</st=
+rong> New value (for updates)</p></li>
+<li local-id=3D"aea5a7b9-c74a-4717-aa4d-709fe4a3ae2c">
+<p local-id=3D"3f08f990-635b-4fb9-9688-b793d05f129c"><strong>Reason:</stron=
+g> Reason for action (for rejections, cancellations, edits)</p></li>
+</ul>
+<p local-id=3D"119bdc2d-4d04-4113-99f3-310217e72844"><strong>Business Rules=
+:</strong></p>
+<ol start=3D"1" local-id=3D"c57167a9-8951-40ca-ad62-92c4a8c7dbb9">
+<li local-id=3D"6e8ea01d-33cf-4063-ad5a-e380a1235874">
+<p local-id=3D"931c9933-e71a-488a-a371-dbb4840a569a"><strong>History Record=
+ing:</strong></p>
+<ul local-id=3D"e52459b9-b4e7-4152-8ab7-0077856a8ea3">
+<li local-id=3D"53111aca-2673-4cf9-87a9-5a67438240bb">
+<p local-id=3D"9107a887-4e38-475b-ade9-577d14d44add">All course modificatio=
+ns are automatically recorded</p></li>
+<li local-id=3D"cd8e5eec-ffab-453a-a696-d4227b367499">
+<p local-id=3D"bbe41e67-f8fd-4de0-8aff-624d5c82f6ba">System actions are mar=
+ked with "System" as user</p></li>
+<li local-id=3D"ce04855f-319b-4eb8-affa-c10a62d27844">
+<p local-id=3D"51a75f20-9252-4dea-952b-ede1824108ee">Manual actions record =
+the user who performed them</p></li>
+</ul></li>
+<li local-id=3D"0375d665-ecca-43ed-a2e3-c5331d01101e">
+<p local-id=3D"2c055dbe-ea17-489e-9fbf-bf18dbdadf28"><strong>History Displa=
+y:</strong></p>
+<ul local-id=3D"1197524f-9da3-4994-b0c3-202de177f3b9">
+<li local-id=3D"73d84ab3-379d-4b9f-a92f-3ab2db234f06">
+<p local-id=3D"7ddc87d7-5a0b-408e-a21f-69f1b24acd84">History entries displa=
+yed in chronological order (newest first)</p></li>
+<li local-id=3D"3bd8c80f-dd92-4689-ae65-c5d91ca76c47">
+<p local-id=3D"b727f3dc-3b7e-409d-88f0-08249ad8b45a">History entries are re=
+ad-only</p></li>
+<li local-id=3D"766aaa9f-e4a0-4aeb-a061-e5ae95a82733">
+<p local-id=3D"4a140dda-26d6-4c76-92e4-8c61e643d24b">History cannot be dele=
+ted or modified</p></li>
+</ul></li>
+<li local-id=3D"06c17da9-6dec-4721-8608-bbd04eafcc14">
+<p local-id=3D"0a464fc4-68eb-4d13-97a6-fc8713cfec54"><strong>History Access=
+:</strong></p>
+<ul local-id=3D"8be9079f-bd14-47f4-a7eb-5afc540e3e2c">
+<li local-id=3D"707233f3-5709-47fc-9973-705b9bec9446">
+<p local-id=3D"14550a40-c1fa-40a0-86ed-e093137777c3">All users who can view=
+ course details can view history</p></li>
+<li local-id=3D"8ff909b1-62b2-40d8-ae83-a8d0d4b4fe1e">
+<p local-id=3D"89894e09-d131-4251-b5df-91cc3e47b67b">History is displayed i=
+n Course Details =E2=86=92 History tab</p></li>
+</ul></li>
+</ol>
+<hr local-id=3D"a6cbd8cd-04e0-4d07-9939-61fba188c946">
+<h3 local-id=3D"23023d43-91a6-4ef9-9177-d89f5f1c5fcc" id=3D"CourseDetailsSc=
+reen-8.3.3CoursePlanningTab">8.3.3 Course Planning Tab</h3>
+<p local-id=3D"4f5514bc-ce2b-45fa-8b22-0b9fc1bc9c90"><strong>Purpose:</stro=
+ng><br>
+Manage course planning including stages, trainers, and scheduling for non-c=
+ontinuous courses.</p>
+<p local-id=3D"82552c57-5be5-44d7-bff5-31683b9b8901"><strong>Screen Fields:=
+</strong></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"5b=
+13a7a5-1ee1-4bee-acf8-8da13d99892d" class=3D"confluenceTable">
+<tbody>
+<tr ac:local-id=3D"8120c345-d838-4a66-b2e9-970efcc3bff6">
+<th data-local-id=3D"e469dc49-155f-40db-a642-c9dd3e5fd11d" class=3D"conflue=
+nceTh">
+<p local-id=3D"058b8086-4352-4bf4-8b76-ffcf950d8044">S/N</p></th>
+<th data-local-id=3D"28f5719d-b77f-417e-9db3-6f677c12068f" class=3D"conflue=
+nceTh">
+<p local-id=3D"65410ba7-46e3-42c1-b216-f7e2544e79e8">Fieldname</p></th>
+<th data-local-id=3D"711b1bfa-561b-4047-8b18-e2855d2f9235" class=3D"conflue=
+nceTh">
+<p local-id=3D"27838768-decf-4f06-a4a5-e99650a54aa0">Data Type</p></th>
+<th data-local-id=3D"036dfd64-b41d-4f0e-b919-1b7ee9f9cc23" class=3D"conflue=
+nceTh">
+<p local-id=3D"69f3ae29-9230-4f71-ab5f-3af7749c0174">M/O/CM/D</p></th>
+<th data-local-id=3D"da2a239f-1f92-44d7-9974-4d661dc5fe14" class=3D"conflue=
+nceTh">
+<p local-id=3D"5b9f805a-480a-48bb-b54f-29d21da74010">Description</p></th>
+<th data-local-id=3D"7e5c1815-e22f-414b-a35b-a143bacfb5c2" class=3D"conflue=
+nceTh">
+<p local-id=3D"6e9e1065-fb0d-4884-a131-e0ba2d949460">Validation</p></th>
+</tr>
+<tr ac:local-id=3D"8e7e52b9-5ba8-4ac5-a35c-f5ae245f7bc7">
+<td data-local-id=3D"3e810d6e-2234-48bb-a7ac-ee0b2f9e6b83" class=3D"conflue=
+nceTd">
+<p local-id=3D"1f654afe-2d2f-4785-9ddb-d58abe5a644c">1</p></td>
+<td data-local-id=3D"bbf1ee28-ac43-4633-a3d6-777a0f724695" class=3D"conflue=
+nceTd">
+<p local-id=3D"26170bfb-663d-4bc8-baf7-7e7542278c27">Add new</p></td>
+<td data-local-id=3D"d443d196-7b7c-4aed-8a4b-4cc20beff25f" class=3D"conflue=
+nceTd">
+<p local-id=3D"88d80e37-aa1e-4978-a4ec-ed4655ed8601">Button</p></td>
+<td data-local-id=3D"5dcab3d0-e651-41ec-8d4a-9c9f914a600f" class=3D"conflue=
+nceTd">
+<ul local-id=3D"906b3c9d-3100-447f-9ebc-5b0dbc38bf9a">
+<li local-id=3D"2f8c76ce-a24c-4917-9bbb-a7ac27584f8c">
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence"></pre>
+</div>
+</div></li>
+</ul></td>
+<td data-local-id=3D"30ca531a-9c5b-40f3-bcc3-4c1d1fade181" class=3D"conflue=
+nceTd">
+<p local-id=3D"7b4e5120-8c65-425d-bf24-4318a500001d">Upload file</p></td>
+<td data-local-id=3D"569435eb-0e31-464d-8145-4f053644c8f1" class=3D"conflue=
+nceTd">
+<p local-id=3D"6b22cd00-2e7e-49b6-9005-39d48d935501"></p></td>
+</tr>
+<tr ac:local-id=3D"1e949447-9621-4800-851f-1215a2b1f496">
+<td data-local-id=3D"8c3031a3-526d-47b1-8cfa-f7878b56e6fc" class=3D"conflue=
+nceTd">
+<p local-id=3D"a10bf11c-10f3-40c5-8e24-bd9b7bbc7e74">2</p></td>
+<td data-local-id=3D"41a2f968-1cb7-4cb5-9131-bc65df4476bd" class=3D"conflue=
+nceTd">
+<p local-id=3D"f5c4a363-1607-4965-94c3-6a2f56628476">Trainer</p></td>
+<td data-local-id=3D"b90a6806-428b-4891-9a46-52acdf9397d6" class=3D"conflue=
+nceTd">
+<p local-id=3D"0ef7dbc2-413f-44fa-8c74-4ba2077442ed">Display</p></td>
+<td data-local-id=3D"3dc28a85-ef30-4171-8d40-f15a1d526af6" class=3D"conflue=
+nceTd">
+<p local-id=3D"c1226b0b-e88c-4166-a139-4be9c4e9b2d5">D</p></td>
+<td data-local-id=3D"3403ba01-576c-4fd0-9a31-1adc4b01dd3e" class=3D"conflue=
+nceTd">
+<p local-id=3D"7303f632-e069-4e12-948f-793167cdaea5"></p></td>
+<td data-local-id=3D"530da38b-8664-4319-8aed-70dc9591d8ca" class=3D"conflue=
+nceTd">
+<p local-id=3D"d0d3f9b4-a86f-481e-b225-f8f20d979167">Trigger to update valu=
+e</p></td>
+</tr>
+<tr ac:local-id=3D"a0375055-7a1d-481a-b0a1-780fa8c314e8">
+<td data-local-id=3D"353946ae-3aaf-4a9a-b7b7-d3a79700a0ec" class=3D"conflue=
+nceTd">
+<p local-id=3D"29355a73-90b0-4aa4-baeb-a8c8a18b2522">3</p></td>
+<td data-local-id=3D"843c9958-2f08-471a-895c-4cf25e39bd45" class=3D"conflue=
+nceTd">
+<p local-id=3D"73bb6cda-0a4e-469a-8c66-847c1245c7af">Stages</p></td>
+<td data-local-id=3D"2d76eb02-208a-457b-bb18-f3415b7db4a5" class=3D"conflue=
+nceTd">
+<p local-id=3D"c73bef33-53e2-4357-815f-77669027a2f9">Display</p></td>
+<td data-local-id=3D"ed4ec21e-437f-4031-ba91-719538ff50a9" class=3D"conflue=
+nceTd">
+<p local-id=3D"e6ddc3ce-a053-48a4-920c-cef9c2789c67">D</p></td>
+<td data-local-id=3D"4bbb1187-6143-4853-b051-75413c11586c" class=3D"conflue=
+nceTd">
+<p local-id=3D"6de511d3-493d-47cf-8815-36f1c09644e1"></p></td>
+<td data-local-id=3D"17d7697c-2ac6-4504-819a-ffd52fbbbcfa" class=3D"conflue=
+nceTd">
+<p local-id=3D"d9cf7544-6dc7-4807-9a11-fa0b6339516f">Trigger to update valu=
+e</p></td>
+</tr>
+<tr ac:local-id=3D"3269accb-c8ff-4829-bd72-8a6997953cd9">
+<td data-local-id=3D"51e1a99e-3004-494a-8178-d19453a7bc96" class=3D"conflue=
+nceTd">
+<p local-id=3D"6c37c283-f687-4bb7-abe6-3708de77b7ab">4</p></td>
+<td data-local-id=3D"91cf7831-dc9d-4501-a91e-830f0761602b" class=3D"conflue=
+nceTd">
+<p local-id=3D"4d6da993-260c-4713-aa22-0cc908673550">Start Date</p></td>
+<td data-local-id=3D"699ecde4-1be3-4a0a-a6a3-5eb6d27a08d7" class=3D"conflue=
+nceTd">
+<p local-id=3D"42b5ff1c-d15c-4ceb-bf39-5c57359493f8">Display</p></td>
+<td data-local-id=3D"b7a611af-3c93-4540-8fe8-89e82316d43e" class=3D"conflue=
+nceTd">
+<p local-id=3D"45b3f6fe-5562-4101-ad16-7d720c5fb6cd">D</p></td>
+<td data-local-id=3D"4e3eb6d2-7cb4-4649-b3b7-df2b8e64fa14" class=3D"conflue=
+nceTd">
+<p local-id=3D"d38fc8ec-f519-4859-9b01-f67c68628925"></p></td>
+<td data-local-id=3D"1f8ba626-1b4f-4e44-9689-dda139b80efd" class=3D"conflue=
+nceTd">
+<p local-id=3D"908217fc-e06f-403b-bba9-c3e7804e764c">Trigger to update valu=
+e</p></td>
+</tr>
+<tr ac:local-id=3D"219ec2ec-0c40-4ec6-8276-90bf7e4ecbab">
+<td data-local-id=3D"0e46fffb-5917-42d4-975a-cc3e3bc42c0b" class=3D"conflue=
+nceTd">
+<p local-id=3D"ee1e9e5b-d580-4402-a175-aa858e0d4e0a">5</p></td>
+<td data-local-id=3D"e3958caa-29e3-4598-b700-a6018611a883" class=3D"conflue=
+nceTd">
+<p local-id=3D"1b6a06ce-5f50-4585-86ed-b0c2e1b9846f">End Date</p></td>
+<td data-local-id=3D"e2bf6b92-b4a4-4342-9a68-baea782687ab" class=3D"conflue=
+nceTd">
+<p local-id=3D"1bbad259-bfb6-4727-acc2-682841c2b25a">Display</p></td>
+<td data-local-id=3D"b8684a87-6d7d-4204-8c7d-da3ba861a77b" class=3D"conflue=
+nceTd">
+<p local-id=3D"48c12ee6-8a74-4edc-8898-be3935163575">D</p></td>
+<td data-local-id=3D"cc3f6421-d206-4d1e-89e4-12aeebe32cac" class=3D"conflue=
+nceTd">
+<p local-id=3D"b1249066-9c6f-4632-ab85-66168bca7e88"></p></td>
+<td data-local-id=3D"52ce5bdd-f2ad-4b09-87a9-dd0481d492aa" class=3D"conflue=
+nceTd">
+<p local-id=3D"227e8537-2537-4930-a756-dac0f99b2fd4">Trigger to update valu=
+e</p></td>
+</tr>
+<tr ac:local-id=3D"f2e4f543-8d9b-4281-846c-c199a3f89334">
+<td data-local-id=3D"ab24a97d-2440-455f-bb33-fc78d64fc1db" class=3D"conflue=
+nceTd">
+<p local-id=3D"655dea0e-28a6-45a8-a042-48e71d9286df">6</p></td>
+<td data-local-id=3D"e01b5ccc-3e35-46ca-a288-9a37d1f93bfc" class=3D"conflue=
+nceTd">
+<p local-id=3D"cb84e20c-c9d5-4947-aa04-b674e265bc44">Action</p></td>
+<td data-local-id=3D"db05f4ae-c899-40ac-b682-3905b33006af" class=3D"conflue=
+nceTd">
+<p local-id=3D"1378a019-dc9c-475a-ab87-f8f3aa20b404"></p></td>
+<td data-local-id=3D"e72e6ca4-5aa6-4df2-b7dd-80c35b9644e0" class=3D"conflue=
+nceTd">
+<p local-id=3D"54243e63-c544-43f0-afcb-9956c5d02601"></p></td>
+<td data-local-id=3D"c583654f-0d05-4afe-9428-662178e76ced" class=3D"conflue=
+nceTd">
+<p local-id=3D"ace7ac0a-1a17-422f-862c-5aeae4480008">Edit/Delete buttons</p=
+></td>
+<td data-local-id=3D"9c5e94c9-af7f-4e27-977f-ac16e2b021bc" class=3D"conflue=
+nceTd">
+<p local-id=3D"6ead52fd-041b-4749-a5d7-d0927f3baf21"></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p local-id=3D"eaad8d44-758e-48e1-8c81-9d941d130655"><strong>Course Time in=
+ Non-Continuous Days:</strong></p>
+<p local-id=3D"26f27f22-f98f-4a76-92ac-34d32e6d6d8c"><strong>User Story:</s=
+trong> <br>
+AS AN admin/trainer/head/lead <br>
+I CAN manage the non-continuous course <br>
+SO THAT the course time can be tracked correctly</p>
+<p local-id=3D"f203045c-dd57-4403-906a-503c90a0e0b8"><strong>Acceptance Cri=
+teria:</strong></p>
+<ul local-id=3D"c3629420-79a6-4269-9e6a-dddf3e350f58">
+<li local-id=3D"9807aefd-845f-4c1e-9f11-4db0e82286e0">
+<p local-id=3D"84c0f2e4-91f6-46b7-976f-27251cf4209c">Authorized users can e=
+dit planning (time of stages)</p></li>
+<li local-id=3D"6e6034aa-0a8f-4d82-ad1f-f35497e984a2">
+<p local-id=3D"617e3be7-a49d-48f8-b09c-8f9c8143450b">Course can skip days (=
+holidays, scheduled one stage per week, etc.)</p></li>
+<li local-id=3D"65660405-7739-4886-b09f-84a80386b939">
+<p local-id=3D"7dc621e5-17fe-4c76-8c8f-90375f28d235">End date updated autom=
+atically according to planning changes</p></li>
+<li local-id=3D"794a6bc9-66fc-40e2-ac52-ac97b397bc5c">
+<p local-id=3D"0913d34b-8fba-489e-9f13-5f0adaa4f482">PIC/Master Calendar au=
+tomatically updated to show skip days</p></li>
+</ul>
+<p local-id=3D"0e36b96c-aac3-49b1-96c8-14e720b73b78"><strong>Example:</stro=
+ng></p>
+<ul local-id=3D"876cdec0-b1db-44cf-97d2-835a228f9a35">
+<li local-id=3D"f74a6b93-4b7b-4bd1-9347-e1efb76cc0d3">
+<p local-id=3D"f699df5c-4818-4941-a626-49b89acaace9">Course X has 4 stages,=
+ skip date T</p></li>
+<li local-id=3D"f432084b-1929-41b9-9a46-87fe8487761c">
+<p local-id=3D"147ecc1b-85bf-4e30-99d7-7ea041f6a015">Start Date: T-1</p></l=
+i>
+<li local-id=3D"90668a3a-58f1-4c6a-8ed6-583ff4dc1516">
+<p local-id=3D"9e7309ff-5629-44e7-8c31-bc86e9778a00">Skip: T</p></li>
+<li local-id=3D"fbe24af4-d10b-4f90-8d1a-62f64ba8aa2f">
+<p local-id=3D"144e75d7-c10c-4195-bc7d-e507ad519717">End Date: T+1</p></li>
+</ul>
+<p local-id=3D"72afe555-41ea-4f98-b6f7-503c3a9dd298">Planning:</p>
+<ul local-id=3D"744f0874-b451-4cf2-85b2-0a1f6a8ffa82">
+<li local-id=3D"61d4a697-cee6-4f44-9322-08d461016695">
+<p local-id=3D"0761a490-c914-4d00-8cce-bd854625225a">Stage 1: T-1 AM</p></l=
+i>
+<li local-id=3D"9fa73ff0-7815-41ae-8b30-cdcf282358e3">
+<p local-id=3D"9ac95ef7-cf61-4061-bf15-5d82b84da5da">Stage 2: T-1 PM</p></l=
+i>
+<li local-id=3D"6f1e1d65-1db7-46fb-9eb2-dd3252007b1f">
+<p local-id=3D"346b3de2-0ee8-4ea9-8dc3-e275b9cb866d">Stage 3: T+1 AM</p></l=
+i>
+<li local-id=3D"ba9ae758-fc34-407c-9c88-05489c059767">
+<p local-id=3D"c10d1fbc-145c-44b5-8eac-d5c3199a367d">Stage 4: T+1 PM</p></l=
+i>
+</ul>
+<p local-id=3D"ab3f0b18-537f-4824-bb6f-ba2b6cf52eb4"><strong>Business Rules=
+:</strong></p>
+<ol start=3D"1" local-id=3D"bcfc3230-c945-44f4-9707-99349bb34eff">
+<li local-id=3D"8ee82361-6bfd-47e2-9d17-0b40561af09e">
+<p local-id=3D"96b6d292-e292-4657-b9b7-09ab5e0172f7"><strong>Planning Edit =
+Authorization:</strong></p>
+<ul local-id=3D"8b6c4aed-1f21-4738-b68d-41c401639436">
+<li local-id=3D"e076cb88-90cd-4d09-a0ce-b059cf91a45f">
+<p local-id=3D"5c0fbeb9-4700-4a42-bc43-3021075846d9">Admin, Trainer, Head C=
+hannel, Lead Region can edit planning</p></li>
+<li local-id=3D"5dd8b99f-2b4b-4c72-8373-042d46aea7f8">
+<p local-id=3D"f7e3b03f-7e77-47dd-bbe2-875c22a60e87">Planning can be edited=
+ when course status is NEW, REGISTERED, or APPROVED</p></li>
+<li local-id=3D"ae608f02-143b-49e9-81e8-f3150fbb97f6">
+<p local-id=3D"81891917-529f-42f2-b747-f39ca460f253">Planning cannot be edi=
+ted when course is IN_PROGRESS or FINISHED</p></li>
+</ul></li>
+<li local-id=3D"855093fa-f862-43a0-943e-3a428d96d656">
+<p local-id=3D"6db5cc00-d6ff-4a70-8933-613003db0737"><strong>Stage Manageme=
+nt:</strong></p>
+<ul local-id=3D"a4ac38ff-7286-49a0-8311-e46bc6f449d4">
+<li local-id=3D"974a13af-a2ef-482b-a0aa-24627bbd972f">
+<p local-id=3D"681948ff-a681-4c3a-8152-78f5b1b37b3d">Stages can be added, e=
+dited, or deleted</p></li>
+<li local-id=3D"09cf155f-e860-4009-8c20-712002ac3e84">
+<p local-id=3D"257f07dc-c408-4094-be7e-62e742b2f0df">Each stage has date, t=
+ime (AM/PM), and trainer assignment</p></li>
+<li local-id=3D"8d2139cf-fca4-43ba-9236-62e9e5ec074b">
+<p local-id=3D"7f29dd62-14a0-48a8-bac3-7d327f7421c3">Co-trainer can be assi=
+gned per stage</p></li>
+</ul></li>
+<li local-id=3D"5b7471b5-2e36-4ee5-bc6d-6e205d99f82b">
+<p local-id=3D"9a8d8070-58de-4b25-8d9b-efcd2c99a23d"><strong>Date Calculati=
+on:</strong></p>
+<ul local-id=3D"3a090cae-844d-48a7-8706-70f291b048ad">
+<li local-id=3D"d6c402d3-2bd0-413b-83b3-0d9210f08b41">
+<p local-id=3D"996e247a-f5a0-43e5-b7d6-295d00f701b6">End date automatically=
+ calculated from last stage date</p></li>
+<li local-id=3D"6e982752-f7c5-4a1a-8ba4-0f07c2ff1471">
+<p local-id=3D"93165b9f-7a11-4d06-b952-a431a98a6a6d">Skip days are excluded=
+ from course duration calculation</p></li>
+<li local-id=3D"75e8617f-7f73-4cb1-87d7-106a9487db7a">
+<p local-id=3D"ebd853d0-5a42-47c8-895c-8514967d1f79">Calendar views reflect=
+ skip days</p></li>
+</ul></li>
+</ol>
+<hr local-id=3D"bd68b5a2-7262-4bfb-8186-2dcaf54a28c2">
+<h3 local-id=3D"86dc00ec-ad0a-4319-952d-7342e061b52f" id=3D"CourseDetailsSc=
+reen-8.3.4CourseParticipantTabOverview">8.3.4 Course Participant Tab Overvi=
+ew</h3>
+<p local-id=3D"c6e0f237-6863-498d-9286-4b0bdfc43bff"><strong>Purpose:</stro=
+ng><br>
+Course participant tab performs tasks related to participant management.</p=
+>
+<p local-id=3D"1a6b50ce-ca15-4ee3-845e-dc0f550b6008"><strong>Participant Li=
+st Fields:</strong></p>
+<p local-id=3D"6eff047e-8a26-4ccd-9ac9-3530bd913f45">System displays list o=
+f course participants with following data:</p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"09=
+26d5e0-f295-40e0-98a4-198e3b4d0c82" class=3D"confluenceTable">
+<tbody>
+<tr ac:local-id=3D"a7da624c-87ec-436e-b91b-b512ba3e2591">
+<th data-local-id=3D"bdf16bde-7a07-486b-ae02-697ea5caf8ff" class=3D"conflue=
+nceTh">
+<p local-id=3D"71f8aebe-1eca-4fa8-81c4-2f90a203ab9b">S/N</p></th>
+<th data-local-id=3D"6d09e2a4-b7da-4c22-897a-45b90e984172" class=3D"conflue=
+nceTh">
+<p local-id=3D"c5d5ac0b-c251-4845-a10b-038826a17073">Fieldname</p></th>
+<th data-local-id=3D"3bf41611-4b3e-49aa-9d56-e4f24344c500" class=3D"conflue=
+nceTh">
+<p local-id=3D"b1fc79ad-ba77-4fc9-acb5-32dc9f9b4d95">Data Type</p></th>
+<th data-local-id=3D"694abe2d-f3f5-4611-8085-a84ddf5056d0" class=3D"conflue=
+nceTh">
+<p local-id=3D"bb6e712f-c25a-4e38-8380-6f571877824c">M/O/CM/D</p></th>
+<th data-local-id=3D"6a3cdf4b-41ac-4950-88c0-cf6ef8742439" class=3D"conflue=
+nceTh">
+<p local-id=3D"f6c6a3a5-b033-49c4-b906-33736cafe798">Description</p></th>
+</tr>
+<tr ac:local-id=3D"93e64f09-920b-428b-80f8-0f516bd938de">
+<td data-local-id=3D"7e925dcd-c1ad-452d-8eac-4f689ee69395" class=3D"conflue=
+nceTd">
+<p local-id=3D"87765dd0-2242-4220-9414-81f5d997b6fb">1</p></td>
+<td data-local-id=3D"efcf4f01-b3a3-4f12-953c-2a92835a4fbe" class=3D"conflue=
+nceTd">
+<p local-id=3D"fb4b4002-eca2-457b-bfc4-85d0a3203851">Name</p></td>
+<td data-local-id=3D"512774a2-eb81-42aa-85c5-0694910409b4" class=3D"conflue=
+nceTd">
+<p local-id=3D"989a7027-a5c2-4392-9a06-683ce8964202">Display</p></td>
+<td data-local-id=3D"a45bf499-3b95-404a-9ee5-28f0cbdd158b" class=3D"conflue=
+nceTd">
+<p local-id=3D"938beff9-fe71-4d15-b74c-6806cbb0f7df">D</p></td>
+<td data-local-id=3D"72c3b521-c6e8-48da-aa7b-e07686429886" class=3D"conflue=
+nceTd">
+<p local-id=3D"ff764340-e68b-4856-ab0c-e3213f8296af"></p></td>
+</tr>
+<tr ac:local-id=3D"8262896a-eab4-4ed4-8457-c434ee4ec7a7">
+<td data-local-id=3D"2ba653d6-ff4f-451d-8b97-c70f585ba45d" class=3D"conflue=
+nceTd">
+<p local-id=3D"69830c51-0051-4105-afb4-6bc38b881f96">2</p></td>
+<td data-local-id=3D"1386941d-06f3-4f1f-a691-ded93f45bcf8" class=3D"conflue=
+nceTd">
+<p local-id=3D"1a0b1d4b-6612-425f-928d-355f3a560df7">Gender</p></td>
+<td data-local-id=3D"7db3e6d5-6401-4f4a-9087-5feef5f2272f" class=3D"conflue=
+nceTd">
+<p local-id=3D"a67d33e8-ed87-4b37-8a75-c9a14cfee24c">Display</p></td>
+<td data-local-id=3D"7effb758-6905-491e-9337-e9ff48531bbe" class=3D"conflue=
+nceTd">
+<p local-id=3D"d0c4f2fa-04aa-4e1b-8695-5dad8de6d938">D</p></td>
+<td data-local-id=3D"787661ec-d34e-48f6-8324-94306c73e3f0" class=3D"conflue=
+nceTd">
+<p local-id=3D"4fad744f-3f04-4188-a6e7-4807f3865031"></p></td>
+</tr>
+<tr ac:local-id=3D"7f78721e-4a3f-4a5f-84e1-01b1f76752d4">
+<td data-local-id=3D"0868fb26-f68a-4355-adb2-7a07e15844f2" class=3D"conflue=
+nceTd">
+<p local-id=3D"52f94b9a-8103-4c20-925d-9e3ab7b11fd3">3</p></td>
+<td data-local-id=3D"4163a494-b241-431f-a12e-6bca032a5eab" class=3D"conflue=
+nceTd">
+<p local-id=3D"62310d80-2fe9-49e6-90db-82cb6713d6eb">Phone</p></td>
+<td data-local-id=3D"7ef52766-f085-4142-a91f-17465b4d3fb8" class=3D"conflue=
+nceTd">
+<p local-id=3D"62e2e724-e28a-4684-a0e3-0457f7950c48">Display</p></td>
+<td data-local-id=3D"e003b430-b641-48f0-9d11-d9ca475bf258" class=3D"conflue=
+nceTd">
+<p local-id=3D"dded94b4-3f7d-4898-ba9a-1ffcbdbe60dc">D</p></td>
+<td data-local-id=3D"7750bda5-bdc5-408c-a799-3d6384a07bf7" class=3D"conflue=
+nceTd">
+<p local-id=3D"e40125d5-8269-44e4-8811-ade0a8fd0cd2"></p></td>
+</tr>
+<tr ac:local-id=3D"c642cfac-a091-4605-a112-0ca6e1c538ba">
+<td data-local-id=3D"7ece264d-3cad-46ab-ab03-45d38c0f969a" class=3D"conflue=
+nceTd">
+<p local-id=3D"0255c82b-228f-44c2-ae3b-08c47bf058e2">4</p></td>
+<td data-local-id=3D"118680f8-8f16-4d50-8c00-cabdcc20c03f" class=3D"conflue=
+nceTd">
+<p local-id=3D"004f793e-c249-4194-b85a-65a3c6729413">Email</p></td>
+<td data-local-id=3D"a352c361-cf47-4029-b4d6-656116b8f582" class=3D"conflue=
+nceTd">
+<p local-id=3D"fde0ae94-cd72-4918-9c63-04897c7f71c5">Display</p></td>
+<td data-local-id=3D"5d3bf295-3b5a-470a-a64c-e3cfd829c179" class=3D"conflue=
+nceTd">
+<p local-id=3D"a409045c-9d42-47f9-b638-fb13fe74657e">D</p></td>
+<td data-local-id=3D"9cc00e4a-3e86-4e5e-82dd-c984dd3f3273" class=3D"conflue=
+nceTd">
+<p local-id=3D"19728ba8-a96b-42ef-b14a-c168f5a28ae4"></p></td>
+</tr>
+<tr ac:local-id=3D"3c4c8d5a-fdaf-4714-a139-c0c06e8dba04">
+<td data-local-id=3D"18c0b640-8bb3-454a-986c-b345881c5367" class=3D"conflue=
+nceTd">
+<p local-id=3D"12961239-f5f2-477e-bcf5-0e698d5f3e95">5</p></td>
+<td data-local-id=3D"828be6e5-5b42-4d69-aeea-db67e2120529" class=3D"conflue=
+nceTd">
+<p local-id=3D"01df0729-c201-4935-8978-945bfc43d64f">Material status</p></t=
+d>
+<td data-local-id=3D"dcd9e544-b606-45c6-b65a-07d983f26d3e" class=3D"conflue=
+nceTd">
+<p local-id=3D"08e77959-f784-4893-ae66-2db777035bfc">Display</p></td>
+<td data-local-id=3D"2d482295-f6c4-4659-95ff-e8265629560a" class=3D"conflue=
+nceTd">
+<p local-id=3D"bddc3464-793d-4f35-ab49-8e7c15c821b0">D</p></td>
+<td data-local-id=3D"29a1bd3c-be94-4070-a592-3ca6126bfe05" class=3D"conflue=
+nceTd">
+<p local-id=3D"19a4fbd4-7c24-4a3c-8252-b98ad6742bde"></p></td>
+</tr>
+<tr ac:local-id=3D"6dd1fcae-ccaa-44e5-afee-0d261ddfbdd0">
+<td data-local-id=3D"3a7eaf5d-54a9-4e78-b77f-cc1e6cc0f7b5" class=3D"conflue=
+nceTd">
+<p local-id=3D"df633607-540b-4990-9b99-50c591e93ac1">6</p></td>
+<td data-local-id=3D"aea44597-26a2-4451-97e8-ff9eef8499b1" class=3D"conflue=
+nceTd">
+<p local-id=3D"aea17bae-7014-495b-be9d-b2e1daf8845a">Education</p></td>
+<td data-local-id=3D"e75b7eb2-75ec-4d2d-9e49-befe03651bb1" class=3D"conflue=
+nceTd">
+<p local-id=3D"9c9bba75-958d-4e32-9b68-6013cf853989">Display</p></td>
+<td data-local-id=3D"66c3967c-6639-4072-8918-9cd08fd4d052" class=3D"conflue=
+nceTd">
+<p local-id=3D"1307b435-f2cf-4a70-a8c8-1f43ede6485a">D</p></td>
+<td data-local-id=3D"5db65fe4-8056-439e-89c8-8db64b99075c" class=3D"conflue=
+nceTd">
+<p local-id=3D"79fcf2f4-44a6-4e2f-b2f0-d3e015d93fe5"></p></td>
+</tr>
+<tr ac:local-id=3D"4ef5ac06-027a-4c4f-a473-7f321d705b8f">
+<td data-local-id=3D"7b894abb-51ef-4ceb-b532-d05722894d29" class=3D"conflue=
+nceTd">
+<p local-id=3D"0794a9d1-b61e-44e8-acad-6d481c0a03fe">7</p></td>
+<td data-local-id=3D"4a0b11cb-2b97-495f-8484-d882b813126c" class=3D"conflue=
+nceTd">
+<p local-id=3D"fb03dfa1-694a-418a-add1-a0d9f2d6c85a">ID</p></td>
+<td data-local-id=3D"e071b73f-7db8-4a6e-bede-6816d6528b23" class=3D"conflue=
+nceTd">
+<p local-id=3D"b768c3df-695f-42da-ae39-05741113d306">Display</p></td>
+<td data-local-id=3D"7a51c53a-9072-4912-b934-bfe0c8e5a8bc" class=3D"conflue=
+nceTd">
+<p local-id=3D"9075d520-0315-487c-bc61-aa4c0602a511">D</p></td>
+<td data-local-id=3D"0088e6de-78de-438a-8a05-0437d4ecd316" class=3D"conflue=
+nceTd">
+<p local-id=3D"5c32f573-0807-41f3-b814-069e6cc86fb9"></p></td>
+</tr>
+<tr ac:local-id=3D"16d5d0c5-778e-4b4b-ba29-e55f13dfe133">
+<td data-local-id=3D"6562700e-ebb5-4603-8d8c-ef98b00f30da" class=3D"conflue=
+nceTd">
+<p local-id=3D"d5a8f994-6f4a-4dc1-ac89-e62fd672c5a1">8</p></td>
+<td data-local-id=3D"e55cf964-bb94-4b9e-ae08-99338d139203" class=3D"conflue=
+nceTd">
+<p local-id=3D"b7f4f5ea-54e6-4d0e-abc7-1ccbf6889e4a">Issue date</p></td>
+<td data-local-id=3D"d5dd6015-e419-4a86-a5cd-967ecf45484b" class=3D"conflue=
+nceTd">
+<p local-id=3D"b831fccd-4ac3-441c-95fe-b54d60fdc83c">Display</p></td>
+<td data-local-id=3D"aab40b4b-ad35-4a55-97d9-4dd774573805" class=3D"conflue=
+nceTd">
+<p local-id=3D"31c8aeeb-1f03-4d85-aa89-8fb39693d71a">D</p></td>
+<td data-local-id=3D"e60e26b6-9fb4-4e47-9c49-a979f0ee8b9d" class=3D"conflue=
+nceTd">
+<p local-id=3D"b0b598dc-e4a4-4018-bad0-ea64fc2037e2"></p></td>
+</tr>
+<tr ac:local-id=3D"e2917364-90c0-49d0-9023-180627229590">
+<td data-local-id=3D"db9ba6e3-55f6-41cb-aef4-29ee1cd4b315" class=3D"conflue=
+nceTd">
+<p local-id=3D"43232f14-dae5-4926-8d25-21fd7a0fd92b">9</p></td>
+<td data-local-id=3D"836199e0-5452-45cf-8517-95c244a7b2f0" class=3D"conflue=
+nceTd">
+<p local-id=3D"6d373a53-14c0-401e-848c-2c4d484442b7">Issue Place</p></td>
+<td data-local-id=3D"e7e8ce31-d83c-420a-91e3-99e8d5226eeb" class=3D"conflue=
+nceTd">
+<p local-id=3D"1fff8516-a4be-41a6-9d3a-04b7c6063c98">Display</p></td>
+<td data-local-id=3D"60506a9a-fd5c-437d-abaf-a49b166c691f" class=3D"conflue=
+nceTd">
+<p local-id=3D"7b73db57-f7e1-48cc-b836-409e813ece62">D</p></td>
+<td data-local-id=3D"960f9f6e-3570-4a5c-9486-357d5ea33336" class=3D"conflue=
+nceTd">
+<p local-id=3D"6b7851ea-9366-48aa-9897-a20abd261197"></p></td>
+</tr>
+<tr ac:local-id=3D"c12e6aa9-b308-4a25-a80b-442ccb5f3315">
+<td data-local-id=3D"7c37bf44-26c5-469e-89ce-a28d3e096381" class=3D"conflue=
+nceTd">
+<p local-id=3D"c8a97bca-43f9-41d4-a43d-e3ca215ae0dc">10</p></td>
+<td data-local-id=3D"49933fa1-c409-488f-9b66-0bbe1f9cb90e" class=3D"conflue=
+nceTd">
+<p local-id=3D"3f8d73f8-8796-4bea-b41b-bd2067a37d8f">Birth Place</p></td>
+<td data-local-id=3D"4593bcaa-e33d-4ec0-bba8-11e5b6f5556e" class=3D"conflue=
+nceTd">
+<p local-id=3D"d1cb88df-5aed-47f0-be30-fac5829b1e8d">Display</p></td>
+<td data-local-id=3D"5efa2930-12fb-4317-942d-1944eca7d1f0" class=3D"conflue=
+nceTd">
+<p local-id=3D"9a49ba56-5e49-4b26-bbbd-4330ba1fc9ea">D</p></td>
+<td data-local-id=3D"3757e645-7c7b-4d96-9f9f-8f45a6ebc366" class=3D"conflue=
+nceTd">
+<p local-id=3D"598dd4d2-9c25-4aa0-8d73-69af36e2af69"></p></td>
+</tr>
+<tr ac:local-id=3D"304df326-4774-4004-a5be-08d7fbbf533f">
+<td data-local-id=3D"93a93b99-650f-4da8-a2e0-386f40941158" class=3D"conflue=
+nceTd">
+<p local-id=3D"2b5409b8-91a8-45d5-89ca-42f094adc380">11</p></td>
+<td data-local-id=3D"7028c3fd-be4e-498f-998f-b93c2abab94f" class=3D"conflue=
+nceTd">
+<p local-id=3D"aad3e61f-f17d-4e7f-911b-e68b0d4cca4f">Religion</p></td>
+<td data-local-id=3D"8db56e90-0b21-4853-a74b-dd9ca4e609ec" class=3D"conflue=
+nceTd">
+<p local-id=3D"95be2dd3-6ad1-4c37-be4a-a3b42910335f">Display</p></td>
+<td data-local-id=3D"0043550f-7ad4-4b57-9d60-2e16b6b779b0" class=3D"conflue=
+nceTd">
+<p local-id=3D"07efb7de-30da-4b18-8e4e-6e8fe2450b68">D</p></td>
+<td data-local-id=3D"9dd23a91-46cc-4f00-a25c-4b785953a200" class=3D"conflue=
+nceTd">
+<p local-id=3D"a74161f3-5756-4249-8754-863b26c2be74"></p></td>
+</tr>
+<tr ac:local-id=3D"50bd07c8-78f2-48e0-a852-e1413bfd85b4">
+<td data-local-id=3D"c5974018-97f2-4cc1-a59c-190a8daa52cd" class=3D"conflue=
+nceTd">
+<p local-id=3D"09a63da2-5058-4309-b979-14c12e19773d">12</p></td>
+<td data-local-id=3D"f2033932-5c48-498f-8829-4573bf81707d" class=3D"conflue=
+nceTd">
+<p local-id=3D"975af624-6abd-45c2-ba0f-e83a6369e539">Nationality</p></td>
+<td data-local-id=3D"44f19275-18c7-452b-9774-8ed63842f0a2" class=3D"conflue=
+nceTd">
+<p local-id=3D"7bb3ca6d-2fa9-491d-a174-4fd11823a579">Display</p></td>
+<td data-local-id=3D"d9509b60-214a-459f-81c8-658d986acf79" class=3D"conflue=
+nceTd">
+<p local-id=3D"c5bc781f-9535-4594-b45e-647c5f01dc61">D</p></td>
+<td data-local-id=3D"39469820-a45f-4904-8e61-931e9c80f69d" class=3D"conflue=
+nceTd">
+<p local-id=3D"6baaf6e2-742b-46f1-b55d-14f69e465fad"></p></td>
+</tr>
+<tr ac:local-id=3D"00810858-39f1-4235-8921-e6b367abefd1">
+<td data-local-id=3D"b474ed25-718e-431c-aac9-72d03dd1db59" class=3D"conflue=
+nceTd">
+<p local-id=3D"0224e5f6-521f-4c23-b58b-6de77d118e92">13</p></td>
+<td data-local-id=3D"23a465e4-93ac-4564-9fa7-f50639c10d1a" class=3D"conflue=
+nceTd">
+<p local-id=3D"7d521c4d-5d1c-4a7f-a561-d9e4fba7576f">Agent code</p></td>
+<td data-local-id=3D"e3901268-39b0-4faa-9161-f6d59af5d0de" class=3D"conflue=
+nceTd">
+<p local-id=3D"b9ff3f1e-c9d8-4e60-a9f5-54333ecdb1e2">Display</p></td>
+<td data-local-id=3D"bb33a7f8-98cd-4364-b9ac-8aec50311375" class=3D"conflue=
+nceTd">
+<p local-id=3D"7102b841-b3b4-4dc3-a9fb-24fc94ab2852">D</p></td>
+<td data-local-id=3D"c153bf41-675c-4159-84cd-2388e6e7a0f4" class=3D"conflue=
+nceTd">
+<p local-id=3D"22cc92e8-eb40-443d-8ac6-8aaaa685b7c8"></p></td>
+</tr>
+<tr ac:local-id=3D"805644d8-50f8-41c4-a1ad-3a53d7dfbadc">
+<td data-local-id=3D"9bbac4f7-20b9-4f2c-af3b-adadae5024b1" class=3D"conflue=
+nceTd">
+<p local-id=3D"6e6b42db-5393-405c-9f9d-f33682e83713">14</p></td>
+<td data-local-id=3D"85662f0f-a63f-4f44-9f70-3691acaebedb" class=3D"conflue=
+nceTd">
+<p local-id=3D"71f18590-3695-4c23-99cc-2f914ae12a6b">Title</p></td>
+<td data-local-id=3D"5fd3b525-2637-451a-a5cf-9d72df1620b5" class=3D"conflue=
+nceTd">
+<p local-id=3D"1041999e-3d11-4660-b9ec-9bda6748df3b">Display</p></td>
+<td data-local-id=3D"902b9fa1-86a1-41b3-bdf5-802db835b81b" class=3D"conflue=
+nceTd">
+<p local-id=3D"0244f641-bd12-4b0f-aec8-67c8c594e957">D</p></td>
+<td data-local-id=3D"2e82a0e2-0ea0-4231-9ff4-ecefdfb23276" class=3D"conflue=
+nceTd">
+<p local-id=3D"681baaf8-e9d8-4188-a796-9f0628359123"></p></td>
+</tr>
+<tr ac:local-id=3D"ccce9edf-8a0f-4400-bf4c-59ea27e923ab">
+<td data-local-id=3D"230f1f3f-205d-47ba-8511-528cecf7fb09" class=3D"conflue=
+nceTd">
+<p local-id=3D"8e88d776-b841-4ba6-a5c5-cf235e2be116">15</p></td>
+<td data-local-id=3D"227c4644-f20b-4d2b-ba6b-81d8d463b5bf" class=3D"conflue=
+nceTd">
+<p local-id=3D"04f7e729-c507-4fbf-b999-6aa52986e9b2">Ter Date</p></td>
+<td data-local-id=3D"8262f51d-48eb-4c9a-860e-bf8404fcd0ce" class=3D"conflue=
+nceTd">
+<p local-id=3D"ab3c44cf-4f47-4f81-9609-ebe4c514fd9e">Display</p></td>
+<td data-local-id=3D"226e079d-ea62-495f-a789-f9b204be21cd" class=3D"conflue=
+nceTd">
+<p local-id=3D"f4dcb48f-c546-476e-bce7-7544db5f0177">D</p></td>
+<td data-local-id=3D"68cd5719-d608-4774-8200-3c06c2b5f50e" class=3D"conflue=
+nceTd">
+<p local-id=3D"2d238646-e18c-4727-9277-b5b9ff9ab37f"></p></td>
+</tr>
+<tr ac:local-id=3D"38a827a1-882f-494b-937a-6c0ec92fd978">
+<td data-local-id=3D"0535e8a1-0dff-4789-b957-9e3f9b76792c" class=3D"conflue=
+nceTd">
+<p local-id=3D"d94e041f-c8a7-4314-8e86-7cbad7efbcbc">16</p></td>
+<td data-local-id=3D"85171f8b-7d3f-4bc8-993a-a633f0cbce7d" class=3D"conflue=
+nceTd">
+<p local-id=3D"80888fd2-33a9-4be3-94b1-645abe441093">AD Name</p></td>
+<td data-local-id=3D"2bcdf2cd-32b9-46a4-a65f-4bf923b00720" class=3D"conflue=
+nceTd">
+<p local-id=3D"4bb0beaf-bd89-4a6d-abaa-a698c07e23d9">Display</p></td>
+<td data-local-id=3D"9ddeea6c-3710-4ce2-964e-f2338dad6319" class=3D"conflue=
+nceTd">
+<p local-id=3D"9c433591-4029-406f-bedc-947af8db6bfc">D</p></td>
+<td data-local-id=3D"09d97f6a-1fb2-42fc-aea4-95cc9b97499c" class=3D"conflue=
+nceTd">
+<p local-id=3D"8976b807-ab49-4d5d-8b63-3c039009d8a3"></p></td>
+</tr>
+<tr ac:local-id=3D"1611fc48-66e8-45e1-ba13-cbe9924e314c">
+<td data-local-id=3D"baf8283a-0da0-4b16-bcc0-dea646b6f2eb" class=3D"conflue=
+nceTd">
+<p local-id=3D"2e58c036-cd68-4557-b923-776843bbd6ed">17</p></td>
+<td data-local-id=3D"71c4781c-8158-4043-919c-236683326607" class=3D"conflue=
+nceTd">
+<p local-id=3D"10bcd790-a747-4d94-93a4-6a3a281fde16">AOL Result</p></td>
+<td data-local-id=3D"fc40ddb5-ae2b-442f-9781-5155b5c50794" class=3D"conflue=
+nceTd">
+<p local-id=3D"288b3500-9c7a-4dbb-a54a-797ebccb5d03">Display</p></td>
+<td data-local-id=3D"b1e47c9b-19b4-4d37-9893-4b8bda2c9e46" class=3D"conflue=
+nceTd">
+<p local-id=3D"a57755c7-a52d-4062-b192-d4d627b82536">D</p></td>
+<td data-local-id=3D"921b6d31-adfd-4511-9937-39e45064b894" class=3D"conflue=
+nceTd">
+<p local-id=3D"bdfc7019-b30d-4ef8-bf9b-52dde1dff4b1"></p></td>
+</tr>
+<tr ac:local-id=3D"519a6f4b-4b84-45ff-a5df-dcc8624a5aee">
+<td data-local-id=3D"2becbb11-a43b-4c2c-8edc-e3beb31bde30" class=3D"conflue=
+nceTd">
+<p local-id=3D"ccf58be4-3516-4c31-a7c9-a54ba36fc57d">18</p></td>
+<td data-local-id=3D"95d83df0-bd6e-41b2-99c2-02fa9d0e6178" class=3D"conflue=
+nceTd">
+<p local-id=3D"4d2b63e8-084f-4d78-8e3d-cc75b6bc1b79">MOF Result</p></td>
+<td data-local-id=3D"7a6e570c-692f-4bf8-9f6b-4f0aa5c17bc1" class=3D"conflue=
+nceTd">
+<p local-id=3D"93f8d66a-b255-47cd-9284-6e01c8ff8d3d">Display</p></td>
+<td data-local-id=3D"f1fb69fa-4970-443e-a01f-977671a2b861" class=3D"conflue=
+nceTd">
+<p local-id=3D"9de2fa5a-4108-45a4-8083-4975042da52f">D</p></td>
+<td data-local-id=3D"b90291f6-7f27-4fdb-a4ec-317816e19879" class=3D"conflue=
+nceTd">
+<p local-id=3D"67416851-8126-41ba-9e97-dce37392bfe1"></p></td>
+</tr>
+<tr ac:local-id=3D"047ac18f-64c2-4314-9616-23fbe22c4949">
+<td data-local-id=3D"5407d991-1eb7-47c3-9a4f-97386c7eecac" class=3D"conflue=
+nceTd">
+<p local-id=3D"213caa5c-7b07-4570-bfd5-5ced1f37ef2c">19</p></td>
+<td data-local-id=3D"8150d02e-5a7e-4322-9204-dd6b2363f9ef" class=3D"conflue=
+nceTd">
+<p local-id=3D"0a16fd98-04fe-4d3f-a831-45fc10ef1b2b">Attendance Check</p></=
+td>
+<td data-local-id=3D"87bf1bbe-be6d-44b5-aad7-85dedb5c8577" class=3D"conflue=
+nceTd">
+<p local-id=3D"f8d24021-b2b3-4c8e-b778-212bd721fa63">Display</p></td>
+<td data-local-id=3D"670be5d9-ca85-420d-a982-8be9bbd5ef2f" class=3D"conflue=
+nceTd">
+<p local-id=3D"20bec663-c082-4450-8894-f32728925300">D</p></td>
+<td data-local-id=3D"074b2ceb-9c2c-4dcb-b2b3-9697472074f6" class=3D"conflue=
+nceTd">
+<p local-id=3D"9da762ea-31d6-46e9-8d95-28ab0446895e"></p></td>
+</tr>
+<tr ac:local-id=3D"ae236f3e-de9f-4cc9-8102-f1498edfabf8">
+<td data-local-id=3D"19897745-993b-49d0-b33d-7a4292435647" class=3D"conflue=
+nceTd">
+<p local-id=3D"495a2d79-55ea-47c1-9479-d1fc2471cf4a">20</p></td>
+<td data-local-id=3D"712cb9ae-8aa3-41dd-b31f-1e7cecd7e06e" class=3D"conflue=
+nceTd">
+<p local-id=3D"ee9df716-2d02-4ec9-89ff-e2e02cbddf64">Final result</p></td>
+<td data-local-id=3D"66dbc478-c0c5-4936-843e-5abd97647ba9" class=3D"conflue=
+nceTd">
+<p local-id=3D"821f9d1a-625c-4657-b159-90414ed2f48c">Display</p></td>
+<td data-local-id=3D"c09a4fd3-3b24-4fae-96da-34241c34c641" class=3D"conflue=
+nceTd">
+<p local-id=3D"9b5afe0d-ee63-42dc-b78d-7c26ef441355">D</p></td>
+<td data-local-id=3D"446a94fe-f006-41ef-9ea6-0b4a9a437860" class=3D"conflue=
+nceTd">
+<p local-id=3D"f9724b99-8cf4-4fa2-98af-3befdfdbedd6">Passed/Failed</p></td>
+</tr>
+<tr ac:local-id=3D"ae7d1a5b-ac45-49c4-87db-fb6e68a971aa">
+<td data-local-id=3D"1c623d40-0ce4-45a5-853f-68c8fa02a9e1" class=3D"conflue=
+nceTd">
+<p local-id=3D"70e8be10-aa97-4f6f-a2a1-c17472873d8a">21</p></td>
+<td data-local-id=3D"4e3cd148-81fb-45e6-90a6-72eeb3b1faf1" class=3D"conflue=
+nceTd">
+<p local-id=3D"041530ff-b452-475d-9494-8811d9a308e8">Exam type</p></td>
+<td data-local-id=3D"1d113995-b806-4954-ba3d-8c04d2504835" class=3D"conflue=
+nceTd">
+<p local-id=3D"307bca4f-4895-4616-a8d3-dd2bc3feb847">Display</p></td>
+<td data-local-id=3D"81d5ae0d-09a4-42ad-919e-7e2af92ea024" class=3D"conflue=
+nceTd">
+<p local-id=3D"af7ecabb-32f9-4176-98a2-1b67a160bc0d">D</p></td>
+<td data-local-id=3D"c0878ceb-811d-4f1b-a429-aa4cf460e6c3" class=3D"conflue=
+nceTd">
+<p local-id=3D"ef0d5c9f-cdb8-44c5-8245-78f2f55aa5e0">Re-exam, Skip exam, No=
+rmal</p></td>
+</tr>
+<tr ac:local-id=3D"89cbb135-fb72-46a5-863d-7cda3dca7f40">
+<td data-local-id=3D"66b82ede-fc00-4910-9542-2cad23bdaf32" class=3D"conflue=
+nceTd">
+<p local-id=3D"03d086b2-4cdc-4dfd-9486-5ff226073f15">22</p></td>
+<td data-local-id=3D"d0ff7880-2160-4b41-808c-cfd5f297f0ce" class=3D"conflue=
+nceTd">
+<p local-id=3D"1ed77efe-dec0-42a9-be08-ea453b701cf8">AL Name</p></td>
+<td data-local-id=3D"1f30940b-b615-4122-ad5a-e6b1f41b799b" class=3D"conflue=
+nceTd">
+<p local-id=3D"b27f2450-65fd-4c4a-95aa-c3bcfe5c43fd">Display</p></td>
+<td data-local-id=3D"b812b3d6-dded-41f3-bdc4-19ecbbe06e49" class=3D"conflue=
+nceTd">
+<p local-id=3D"302632e7-c137-46ae-91b2-998da0c6fddd">D</p></td>
+<td data-local-id=3D"322b5d0c-64e1-4a34-989c-dbec85442c17" class=3D"conflue=
+nceTd">
+<p local-id=3D"8597c973-0764-496b-8d1b-54c750fd6d2f"></p></td>
+</tr>
+<tr ac:local-id=3D"564c3abb-4898-49ff-8590-36a4f9f6a27b">
+<td data-local-id=3D"14f6f9c1-c684-499c-b4a4-8a69bebe9e54" class=3D"conflue=
+nceTd">
+<p local-id=3D"d9b89b6b-b688-4e12-8284-d7a49273528a">23</p></td>
+<td data-local-id=3D"9defb14f-defa-4198-b442-1f3f27e9f0de" class=3D"conflue=
+nceTd">
+<p local-id=3D"72ffc365-db10-41f1-81fb-e8c6bdd90b7b">AL Code</p></td>
+<td data-local-id=3D"b1c1588e-0ef4-497e-8d54-f930ab37771d" class=3D"conflue=
+nceTd">
+<p local-id=3D"b0cefcd8-074a-4831-ae9e-9c6aaba7d02c">Display</p></td>
+<td data-local-id=3D"2e9ab15b-8280-4b9f-833b-9c8fe9a54ae5" class=3D"conflue=
+nceTd">
+<p local-id=3D"5ee60023-a0b7-49f2-9a04-ecdc6255d7fc">D</p></td>
+<td data-local-id=3D"67bb1108-7584-4ed3-a03e-867dddeb65e5" class=3D"conflue=
+nceTd">
+<p local-id=3D"920fc9dc-4612-42fa-a761-63dda82a04c6"></p></td>
+</tr>
+<tr ac:local-id=3D"37f118ad-4252-458c-800d-341e2e05b4c0">
+<td data-local-id=3D"7fcf3ba5-def6-432d-9342-dfdec44e99f5" class=3D"conflue=
+nceTd">
+<p local-id=3D"b4cc1d05-9cb6-42ee-bf90-e0288da4236a">24</p></td>
+<td data-local-id=3D"07b22cd1-3111-412d-8207-23189dacf8ff" class=3D"conflue=
+nceTd">
+<p local-id=3D"9366c0c9-e1cb-4cee-94b8-9e8056d65fec">Last update</p></td>
+<td data-local-id=3D"8841f2dd-c7f2-4b5e-93f3-7c609ae894fc" class=3D"conflue=
+nceTd">
+<p local-id=3D"77ff4762-39c4-4afe-84ad-6a9349315440">Display</p></td>
+<td data-local-id=3D"0942b42e-1297-4265-8d8b-4585aee1528e" class=3D"conflue=
+nceTd">
+<p local-id=3D"cc13a31d-2a90-4268-9b4e-549a3d1c6a47">D</p></td>
+<td data-local-id=3D"d9e11aac-37c6-4b70-ac4d-8e995e1e5b34" class=3D"conflue=
+nceTd">
+<p local-id=3D"aeb7985d-29f4-4baf-97e8-8baad274a03e"></p></td>
+</tr>
+<tr ac:local-id=3D"9a2585b6-09ba-4ae0-a835-e635091107f7">
+<td data-local-id=3D"8d0f7fd4-d50d-4b13-9826-82214daf0b40" class=3D"conflue=
+nceTd">
+<p local-id=3D"68659778-6502-4ee6-acc7-77fceb5f85f6">25</p></td>
+<td data-local-id=3D"fd256e4f-d8f0-4bad-882b-adacff59537a" class=3D"conflue=
+nceTd">
+<p local-id=3D"898ee035-070f-4663-ae48-40a6576946ce">Update by</p></td>
+<td data-local-id=3D"7b058e09-fe59-408b-a91f-329cec80787a" class=3D"conflue=
+nceTd">
+<p local-id=3D"cf42b330-0e1b-42c8-9955-289d252b5d3e">Display</p></td>
+<td data-local-id=3D"856502ee-7386-4fdc-9279-a8675c996b91" class=3D"conflue=
+nceTd">
+<p local-id=3D"1389ddd1-1d8e-4bb4-904d-9166cf8ec0da">D</p></td>
+<td data-local-id=3D"a46bac17-378d-4a4d-9f2a-4e0cb62d8f3d" class=3D"conflue=
+nceTd">
+<p local-id=3D"5ec28345-1462-4651-9b50-3ccea135d31a"></p></td>
+</tr>
+<tr ac:local-id=3D"8e0fe815-5a7c-4d9f-a5bc-2771c81123b6">
+<td data-local-id=3D"bdc6e96c-a6a1-448f-9e9a-642e37e1454c" class=3D"conflue=
+nceTd">
+<p local-id=3D"c3966175-7277-40fe-869c-d576cf444dfb">26</p></td>
+<td data-local-id=3D"1733a133-33d1-4aa8-a0b4-2487847b109f" class=3D"conflue=
+nceTd">
+<p local-id=3D"2d506377-a82b-4da3-8e19-fd1f056d102d">Note</p></td>
+<td data-local-id=3D"69abb254-d784-423d-91ed-aaaebe803f44" class=3D"conflue=
+nceTd">
+<p local-id=3D"94f0cb3a-1cc7-4424-96d3-891a741ae0b6">Display</p></td>
+<td data-local-id=3D"999919c0-ce9b-4e95-a02a-06fe56dd32d8" class=3D"conflue=
+nceTd">
+<p local-id=3D"a5604f17-8865-4bd1-8107-e5f4b8947705">D</p></td>
+<td data-local-id=3D"2c6fc9a9-fcfc-4bdf-aab4-dfc1e5234b3c" class=3D"conflue=
+nceTd">
+<p local-id=3D"d4a69416-7fc2-4c28-ad89-46a5edb4bee7"></p></td>
+</tr>
+<tr ac:local-id=3D"14de448e-4a19-4184-82f7-107f3a90726a">
+<td data-local-id=3D"4fbf0080-9277-4995-b1b2-fe3a18057d95" class=3D"conflue=
+nceTd">
+<p local-id=3D"5198d4db-c6c3-4881-aaa1-e25fa020301d">27</p></td>
+<td data-local-id=3D"7ec39db3-343f-4243-8e4a-70c1d3379a37" class=3D"conflue=
+nceTd">
+<p local-id=3D"4542292b-0f40-4e1f-b768-ca6879cd6c46">Action</p></td>
+<td data-local-id=3D"07865369-9f57-4273-962f-f457358ad4c5" class=3D"conflue=
+nceTd">
+<p local-id=3D"e859335a-f428-44e3-a6b8-e399111fb585">Button</p></td>
+<td data-local-id=3D"69f8d05a-ba02-4995-8fdc-7eeac5615dfb" class=3D"conflue=
+nceTd">
+<p local-id=3D"7d7665d6-fef0-4fa6-a82b-398f44445e07"></p></td>
+<td data-local-id=3D"d5af0aff-5d0a-4119-bc5a-ff8268a9ab9e" class=3D"conflue=
+nceTd">
+<p local-id=3D"de9f43f0-2332-4aaa-9700-054a952a89bd"></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p local-id=3D"391c211c-e886-4f28-bfb0-520720e17541"><strong>Filter Area:</=
+strong></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"63=
+130fdf-5823-482a-bf1a-d8c144ad3221" class=3D"confluenceTable">
+<tbody>
+<tr ac:local-id=3D"50b020ab-a52f-4351-b4dc-7d33fae6bafb">
+<th data-local-id=3D"a2b0d8ce-98f6-4a3d-8f47-07794ba0412a" class=3D"conflue=
+nceTh">
+<p local-id=3D"173bf2f6-c0f8-4432-bddb-7a05354907ac">Criteria</p></th>
+<th data-local-id=3D"e78fe2fa-e5af-4aad-b30e-276ec4881dbc" class=3D"conflue=
+nceTh">
+<p local-id=3D"b0fd4485-7b7f-4a8a-815c-9bd3f5188085">Data Type</p></th>
+<th data-local-id=3D"cf9bb3a6-db47-42e1-9ad0-064d9190b463" class=3D"conflue=
+nceTh">
+<p local-id=3D"3df59d56-6ebe-4b92-bf3b-ee13794e6eb1">Description</p></th>
+</tr>
+<tr ac:local-id=3D"6ddaf66c-48cd-45f8-bd01-d69fb2f0a233">
+<td data-local-id=3D"bfe80dd5-0497-41a2-81de-de63c9deae77" class=3D"conflue=
+nceTd">
+<p local-id=3D"68a8d4f3-4bb4-4207-960d-aed319cd31d0">Result</p></td>
+<td data-local-id=3D"288db954-adc5-4a0d-b2aa-2b2ec19d42e9" class=3D"conflue=
+nceTd">
+<p local-id=3D"06511c55-6ebe-48d1-b37c-02a2618365e7">Dropdown</p></td>
+<td data-local-id=3D"241a494c-f9c5-4f51-a8d4-d1999a2f627b" class=3D"conflue=
+nceTd">
+<p local-id=3D"2b70dfeb-7a64-4a81-800c-95120cbcf5d5">ALL, PASSED, FAILED</p=
+></td>
+</tr>
+<tr ac:local-id=3D"f72c8800-8b95-4424-8602-8c1feb5150e9">
+<td data-local-id=3D"c2621baa-5b19-4206-be66-1e7d948a5734" class=3D"conflue=
+nceTd">
+<p local-id=3D"d490ec49-ef03-4c56-bf1d-530273b5f2fb">Exam type</p></td>
+<td data-local-id=3D"9a726f75-447f-4f10-aa97-ca881854b5ee" class=3D"conflue=
+nceTd">
+<p local-id=3D"7f564c2a-308e-4425-bf37-de73c831bbd6">Dropdown</p></td>
+<td data-local-id=3D"fe76a3ba-0586-462c-9086-bf28c63084a1" class=3D"conflue=
+nceTd">
+<p local-id=3D"9d55cd89-f0fb-47f2-9c70-75bf2847f346">ALL, SKIP MOF EXAM, RE=
+ MOF EXAM, NORMAL</p></td>
+</tr>
+<tr ac:local-id=3D"e1bf891e-46f4-4621-8ac2-8b4f0be58707">
+<td data-local-id=3D"36c9c4e2-b96e-44d6-97c9-0fba60abc831" class=3D"conflue=
+nceTd">
+<p local-id=3D"da20ab43-fa2c-40f1-bf6d-afe96c18b706">Search</p></td>
+<td data-local-id=3D"58e75f57-146b-4829-9a5f-d4207d57abab" class=3D"conflue=
+nceTd">
+<p local-id=3D"8be3f255-748c-4e16-a55c-5c7b672b8eb5">String</p></td>
+<td data-local-id=3D"65480c50-c3a8-4d57-b1e1-245e6926a655" class=3D"conflue=
+nceTd">
+<p local-id=3D"4ad1cf84-3237-4e43-bf48-1d577b496ad8">Name, Phone number, Em=
+ail, ID</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p local-id=3D"d01c90ee-d386-4f79-bd43-3e32744c56cf"><strong>Participant Ma=
+nagement Features:</strong></p>
+<ol start=3D"1" local-id=3D"7d35842f-14c2-41e2-9cee-5312cc2e7ff6">
+<li local-id=3D"5e894918-1798-413c-b09e-fef08cc7c7a5">
+<p local-id=3D"2c1d91e4-769e-4f25-ace4-800bb193fd64"><strong>Add Participan=
+t to Course:</strong></p>
+<ul local-id=3D"201fa0f3-b267-406b-9f23-06fbc908e400">
+<li local-id=3D"04ed10d2-675a-4987-9a38-3b7f3677d572">
+<p local-id=3D"06023b1e-17e0-4e6b-832a-28705b70f4f8">Import participants vi=
+a Excel file (Section 8.8.3)</p></li>
+<li local-id=3D"ec4a9de6-f86c-4673-aec3-7b3567ab0489">
+<p local-id=3D"d60ae3f5-594d-4878-a240-6e5b60493c91">Add participants manua=
+lly (Section 8.8.4)</p></li>
+<li local-id=3D"37e9019f-f4a4-4c5b-9dde-e9a0508d86fe">
+<p local-id=3D"20981651-ce7a-4228-a2cb-51b144ac03ee">Add re-exam participan=
+ts (Section 8.8.4)</p></li>
+</ul></li>
+<li local-id=3D"750fa189-5ab9-417d-9706-6885ad3b93ec">
+<p local-id=3D"845d5af9-254f-47bc-8424-bb1fc9a0bb9d"><strong>Participant Op=
+erations:</strong></p>
+<ul local-id=3D"4b19cf21-c966-4387-be8d-fe88c7e100b3">
+<li local-id=3D"39afa4b6-6b31-4172-8761-6fd80f5f1efe">
+<p local-id=3D"b97ce162-a9d6-416a-8b42-cc194ba538ef">Export participants li=
+st (Section 8.8.5)</p></li>
+<li local-id=3D"32ad08a8-2f80-49e3-8109-aa31dea96716">
+<p local-id=3D"f8e05359-540d-40d3-bac8-05fc91cf3e67">Export participants fo=
+r MOF exam (Section 8.8.6)</p></li>
+<li local-id=3D"c824967b-1f93-46c9-9de5-e08b3bae244a">
+<p local-id=3D"f548f99c-60fa-4b76-834d-23862fdfbfaf">Import MOF exam result=
+s (Section 8.8.7)</p></li>
+<li local-id=3D"edca5c58-a22b-4eba-b505-73d50c14b972">
+<p local-id=3D"4e36389e-5c6a-413a-8fc2-8803a13bfc8b">Confirm passed partici=
+pants (Section 8.8.8)</p></li>
+<li local-id=3D"c9db9f2a-c50a-4d9a-af7e-9e1f9f29307f">
+<p local-id=3D"945ae46d-0449-499f-a0b6-54495b220345">Export passed particip=
+ants (Section 8.8.9)</p></li>
+<li local-id=3D"d1ce5d57-5c4b-4a7b-84ba-564cc36ea569">
+<p local-id=3D"c703c95e-cc16-4ed6-9d24-82fcba7cce5c">Attendance check (Sect=
+ion 8.8.10)</p></li>
+<li local-id=3D"d17268fa-6779-4415-8030-504a2e4b4459">
+<p local-id=3D"e0061519-f791-47c4-9180-02221ffa8e09">AOL exam result entry =
+(Section 8.8.11)</p></li>
+<li local-id=3D"0ed96c0b-cea3-482e-aaf4-f19039e14ebf">
+<p local-id=3D"eed7d536-784e-4d1f-bd69-0bd0b655f89c">Manually set passed/fa=
+iled (Section 8.8.13)</p></li>
+<li local-id=3D"7ecdcc1a-b385-486a-8e6a-79a03ef91a47">
+<p local-id=3D"a5462b62-85e1-4e72-9030-cc0643a276dd">Grant agent code (Sect=
+ion 8.8.14)</p></li>
+</ul></li>
+<li local-id=3D"ee8ff97f-0cb0-4c13-b9e0-774a6f253d95">
+<p local-id=3D"a10ce197-a3c3-4f9b-8470-3ea3f2e892bc"><strong>Result Calcula=
+tion:</strong></p>
+<ul local-id=3D"11ab02dc-fcd0-4bb1-9746-c3981031a86a">
+<li local-id=3D"81ccf93b-e386-4b6c-8e28-dd984996ac27">
+<p local-id=3D"fea35bc2-e2ad-4625-9c5c-0af87b7452ef">Automatic final result=
+ calculation based on rules (Section 8.8.12)</p></li>
+<li local-id=3D"b70aa226-9e69-481c-8a1c-65a9ba483279">
+<p local-id=3D"2a84e36a-9445-4b41-8f77-18a2461346bf">Manual override availa=
+ble for special cases (Section 8.8.13)</p></li>
+</ul></li>
+</ol>
+<p local-id=3D"58109220-fced-4e45-a2aa-9ee1416fb9b7"><strong>Business Rules=
+:</strong></p>
+<ol start=3D"1" local-id=3D"fc1953e7-76ba-46e8-ad25-c42e507bbb6a">
+<li local-id=3D"5a2bd04d-33c7-411d-875f-183f77596500">
+<p local-id=3D"43bbfe51-da6a-4876-918f-e61ff648631e"><strong>Participant Ad=
+dition:</strong></p>
+<ul local-id=3D"3db86105-25d3-498a-bc11-9775052add69">
+<li local-id=3D"51095a24-0b11-4a2a-ae1a-96f8da660747">
+<p local-id=3D"22d6f5b1-4340-46c1-a402-1a831dadc0ce">SHINE courses (Banca c=
+hannel): Can create new participants via import</p></li>
+<li local-id=3D"07cf139d-22a1-4340-b9ce-6e93ea772418">
+<p local-id=3D"e72457d4-1105-44b2-b3d0-e65518714dcc">After-SHINE courses: C=
+an only add existing participants</p></li>
+<li local-id=3D"14ef0a17-a842-43e6-8ef4-da416629cbdd">
+<p local-id=3D"d93501d9-d82a-4fc5-aa96-4d332acd359d">Re-exam participants: =
+Must meet eligibility criteria (Section 8.8.4)</p></li>
+</ul></li>
+<li local-id=3D"b09de4f8-a57b-4c22-8266-d64b6ffd27dc">
+<p local-id=3D"717bfed9-1f0d-4c71-9e3c-8ba5aebc1caa"><strong>Participant Da=
+ta:</strong></p>
+<ul local-id=3D"209777c8-4bb7-4888-94b9-a769b7775429">
+<li local-id=3D"54e19383-23db-4077-a653-56e4d6709b4c">
+<p local-id=3D"51f8ed84-c4d0-417d-b659-f665da4a81e9">Participant data is re=
+ad-only in course participant list</p></li>
+<li local-id=3D"863e583f-e9bb-408b-a770-33946e674b2f">
+<p local-id=3D"dc5811ec-0791-4cd7-81a0-000ba016da9b">Participant data can b=
+e updated from Participant Management module</p></li>
+<li local-id=3D"ffbe6bf5-2d21-4085-a368-36bd282f6716">
+<p local-id=3D"649d6d75-ed19-42e6-b562-6900fd480fac">Changes to participant=
+ data are reflected in course participant list</p></li>
+</ul></li>
+<li local-id=3D"302f04d9-48a6-45fd-931a-86d168f7c5f9">
+<p local-id=3D"f67e5f2d-3baa-46a2-bc7e-cf5fd1809654"><strong>Authorization:=
+</strong></p>
+<ul local-id=3D"c0392e5b-5ddf-49a9-a3a6-506a98f7e313">
+<li local-id=3D"8c8171f0-c693-42fa-848a-f192ec7010c5">
+<p local-id=3D"b22f96ad-824a-4607-bb2f-b43cc585d206">Admin, Head Channel, L=
+ead Region can manage participants</p></li>
+<li local-id=3D"dcdf3b31-858a-4652-8e4b-c9508cf1477c">
+<p local-id=3D"db4b9f93-4526-403f-95bc-022c50eb8b4a">Trainer can view parti=
+cipants and update exam results/attendance</p></li>
+<li local-id=3D"d3dd8cf5-c7ed-45da-a217-9f1c94dde020">
+<p local-id=3D"7e28224e-71e7-4289-ae79-f04d4ec850b7">Authorization follows =
+role-based access control</p></li>
+</ul></li>
+</ol>
+<p local-id=3D"b3f61c00-a16e-4ef3-a5ed-6fa5413491d1">For detailed participa=
+nt management requirements, see Section 8.8 (Course Operations).</p>
+    </div>
+</body>
+</html>
+------=_Part_42_1149396914.1765093555672--

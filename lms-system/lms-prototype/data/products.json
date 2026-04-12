@@ -1,0 +1,109 @@
+[
+  {
+    "id": 1,
+    "name": "Product Knowledge Fundamentals",
+    "description": "Comprehensive overview of product features and benefits for new sales representatives",
+    "type": "Product",
+    "learnerType": "Beginner",
+    "license": "Product Training License",
+    "duration": 16,
+    "code": "PROD-001",
+    "certificate": "Product Specialist Certificate",
+    "tags": ["Sales", "Product Knowledge", "Foundation"],
+    "status": "ACTIVE",
+    "createdBy": "admin_user",
+    "createdDate": "2025-01-15T10:30:00.000Z",
+    "updatedBy": "admin_user",
+    "updatedDate": "2025-01-15T10:30:00.000Z",
+    "sessions": [
+      {
+        "sessionId": 1,
+        "sessionName": "Session 1: Introduction to Product Features",
+        "description": "Overview of core product features and use cases",
+        "fileName": "session1-slides.pdf",
+        "moduleId": 1,
+        "moduleName": "Introduction to Life Insurance",
+        "moduleDuration": 4,
+        "sequence": 1
+      },
+      {
+        "sessionId": 2,
+        "sessionName": "Session 2: Product Benefits",
+        "description": "Understanding customer benefits and competitive advantages",
+        "moduleId": 2,
+        "moduleName": "Insurance Products Overview",
+        "moduleDuration": 4,
+        "sequence": 2
+      },
+      {
+        "sessionId": 3,
+        "sessionName": "Session 3: Technical Specifications",
+        "description": "Deep dive into technical details",
+        "moduleId": 3,
+        "moduleName": "Customer Service Excellence",
+        "moduleDuration": 4,
+        "sequence": 3
+      },
+      {
+        "sessionId": 4,
+        "sessionName": "Session 4: Practical Application",
+        "description": "Hands-on exercises",
+        "moduleId": 4,
+        "moduleName": "Sales Techniques",
+        "moduleDuration": 4,
+        "sequence": 4
+      }
+    ],
+    "files": [],
+    "usageCount": 3
+  },
+  {
+    "id": 2,
+    "name": "Advanced Sales Techniques",
+    "description": "Advanced training for experienced sales representatives",
+    "type": "Skill",
+    "learnerType": "Advanced",
+    "license": "Advanced Sales License",
+    "duration": 12,
+    "code": "SKILL-001",
+    "certificate": "Advanced Sales Specialist Certificate",
+    "tags": ["Sales", "Advanced", "Skills"],
+    "status": "ACTIVE",
+    "createdBy": "admin_user",
+    "createdDate": "2025-01-20T14:20:00.000Z",
+    "updatedBy": "admin_user",
+    "updatedDate": "2025-01-20T14:20:00.000Z",
+    "sessions": [
+      {
+        "sessionId": 1,
+        "sessionName": "Session 1: Advanced Communication",
+        "description": "Mastering communication techniques",
+        "moduleId": 5,
+        "moduleName": "Communication Skills",
+        "moduleDuration": 4,
+        "sequence": 1
+      },
+      {
+        "sessionId": 2,
+        "sessionName": "Session 2: Negotiation Strategies",
+        "description": "Advanced negotiation tactics",
+        "moduleId": 6,
+        "moduleName": "Negotiation Mastery",
+        "moduleDuration": 4,
+        "sequence": 2
+      },
+      {
+        "sessionId": 3,
+        "sessionName": "Session 3: Closing Techniques",
+        "description": "Effective closing strategies",
+        "moduleId": 7,
+        "moduleName": "Sales Closing",
+        "moduleDuration": 4,
+        "sequence": 3
+      }
+    ],
+    "files": [],
+    "usageCount": 1
+  }
+]
+

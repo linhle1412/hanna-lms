@@ -1,0 +1,2504 @@
+Date: Sun, 7 Dec 2025 05:40:52 +0000 (UTC)
+Message-ID: <707837323.35.1765086052758@c81102006b41>
+Subject: Exported From Confluence
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_34_403616507.1765086052757"
+
+------=_Part_34_403616507.1765086052757
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/exported.html
+
+<html xmlns:o=3D'urn:schemas-microsoft-com:office:office'
+      xmlns:w=3D'urn:schemas-microsoft-com:office:word'
+      xmlns:v=3D'urn:schemas-microsoft-com:vml'
+      xmlns=3D'urn:w3-org-ns:HTML'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <title>Program</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:TargetScreenSize>1024x640</o:TargetScreenSize>
+            <o:PixelsPerInch>72</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+                <!--
+        @page Section1 {
+            size: 8.5in 11.0in;
+            margin: 1.0in;
+            mso-header-margin: .5in;
+            mso-footer-margin: .5in;
+            mso-paper-source: 0;
+        }
+
+        table {
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: solid 1px;
+            padding: 5px;
+        }
+
+        td {
+            page-break-inside: avoid;
+        }
+
+        tr {
+            page-break-after: avoid;
+        }
+
+        div.Section1 {
+            page: Section1;
+        }
+
+        /* Confluence print stylesheet. Common to all themes for print medi=
+a */
+/* Full of !important until we improve batching for print CSS */
+
+@media print {
+    #main {
+        padding-bottom: 1em !important; /* The default padding of 6em is to=
+o much for printouts */
+    }
+
+    body {
+        font: var(--ds-font-body-small, Arial, Helvetica, FreeSans, sans-se=
+rif);
+    }
+
+    body, #full-height-container, #main, #page, #content, .has-personal-sid=
+ebar #content {
+        background: var(--ds-surface, #fff) !important;
+        color: var(--ds-text, #000) !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    a, a:link, a:visited, a:focus, a:hover, a:active {
+        color: var(--ds-text, #000);
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+        page-break-after: avoid;
+    }
+
+    pre {
+        font: var(--ds-font-code, Monaco, "Courier New", monospace);
+    }
+
+    #header,
+    .aui-header-inner,
+    #navigation,
+    #sidebar,
+    .sidebar,
+    #personal-info-sidebar,
+    .ia-fixed-sidebar,
+    .page-actions,
+    .navmenu,
+    .ajs-menu-bar,
+    .noprint,
+    .inline-control-link,
+    .inline-control-link a,
+    a.show-labels-editor,
+    .global-comment-actions,
+    .comment-actions,
+    .quick-comment-container,
+    #addcomment {
+        display: none !important;
+    }
+
+    /* CONF-28544 cannot print multiple pages in IE */
+    #splitter-content {
+        position: relative !important;
+    }
+
+    .comment .date::before {
+        content: none !important; /* remove middot for print view */
+    }
+
+    h1.pagetitle img {
+        height: auto;
+        width: auto;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    #footer {
+        position: relative !important; /* CONF-17506 Place the footer at en=
+d of the content */
+        margin: 0;
+        padding: 0;
+        background: none;
+        clear: both;
+    }
+
+    #poweredby {
+        border-top: none;
+        background: none;
+    }
+
+    #poweredby li.print-only {
+        display: list-item;
+        font-style: italic;
+    }
+
+    #poweredby li.noprint {
+        display: none;
+    }
+
+    /* no width controls in print */
+    .wiki-content .table-wrap,
+    .wiki-content p,
+    .panel .codeContent,
+    .panel .codeContent pre,
+    .image-wrap {
+        overflow: visible !important;
+    }
+
+    /* TODO - should this work? */
+    #children-section,
+    #comments-section .comment,
+    #comments-section .comment .comment-body,
+    #comments-section .comment .comment-content,
+    #comments-section .comment p {
+        page-break-inside: avoid;
+    }
+
+    #page-children a {
+        text-decoration: none;
+    }
+
+    /**
+     hide twixies
+
+     the specificity here is a hack because print styles
+     are getting loaded before the base styles. */
+    #comments-section.pageSection .section-header,
+    #comments-section.pageSection .section-title,
+    #children-section.pageSection .section-header,
+    #children-section.pageSection .section-title,
+    .children-show-hide {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .children-show-hide.icon {
+        display: none;
+    }
+
+    /* personal sidebar */
+    .has-personal-sidebar #content {
+        margin-right: 0px;
+    }
+
+    .has-personal-sidebar #content .pageSection {
+        margin-right: 0px;
+    }
+
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+-->
+    </style>
+</head>
+<body>
+    <h1>Program</h1>
+    <div class=3D"Section1">
+        <h3 id=3D"Program-7.3Program">7.3 Program</h3>
+<p><strong>User Story:</strong><br>
+AS AN Admin, Master Role, or Root Admin<br>
+I NEED to manage training programs in the LMS system<br>
+SO THAT courses can be created under standardized programs with consistent =
+configurations, and training content can be organized hierarchically</p>
+<p><strong>Business Context:</strong></p>
+<p>Program is the highest level in the content hierarchy (Modules =E2=86=92=
+ Products =E2=86=92 Programs =E2=86=92 Courses). Programs serve as template=
+s and containers for organizing courses with predefined configurations such=
+ as duration, license type, course type, and maximum participants. Programs=
+ enable:</p>
+<ul>
+<li>
+<p>Standardized course creation with pre-configured settings</p></li>
+<li>
+<p>Hierarchical content organization (Program contains Stages =E2=86=92 Sta=
+ges contain Products =E2=86=92 Products contain Sessions =E2=86=92 Sessions=
+ contain Modules)</p></li>
+<li>
+<p>Program-based filtering and reporting across the system</p></li>
+<li>
+<p>Course planning and scheduling by program</p></li>
+<li>
+<p>Visual program display in Master Calendar</p></li>
+</ul>
+<p><strong>Content Hierarchy:</strong></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">Program=
+ (highest level)
+  =E2=94=94=E2=94=80 Stage 1, Stage 2, Stage 3...
+      =E2=94=94=E2=94=80 Products (linked from Product Management)
+          =E2=94=94=E2=94=80 Sessions
+              =E2=94=94=E2=94=80 Modules
+</pre>
+</div>
+</div>
+<p><strong>Business Use Cases:</strong></p>
+<ul>
+<li>
+<p>Admin creates SHINE Program with 10-day duration for new agent onboardin=
+g</p></li>
+<li>
+<p>Admin defines Product Program with 3-day duration for product-specific t=
+raining</p></li>
+<li>
+<p>Admin organizes multi-stage programs (e.g., SHINE with Stage 1: Foundati=
+on, Stage 2: Advanced)</p></li>
+<li>
+<p>Programs displayed in Master Calendar for visual course planning</p></li=
+>
+<li>
+<p>Courses inherit program configurations (duration, license type, max part=
+icipants)</p></li>
+</ul>
+<h4 id=3D"Program-7.3.1ProgramDataStructure">7.3.1 Program Data Structure</=
+h4>
+<p><strong>Program Entity Fields:</strong></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"5b=
+eb8c93-93c3-478f-a5f6-c3e4b1623090" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Field Name</p></th>
+<th class=3D"confluenceTh">
+<p>Data Type</p></th>
+<th class=3D"confluenceTh">
+<p>M/O</p></th>
+<th class=3D"confluenceTh">
+<p>Description</p></th>
+<th class=3D"confluenceTh">
+<p>Example</p></th>
+<th class=3D"confluenceTh">
+<p>Validation Rules</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>ID</p></td>
+<td class=3D"confluenceTd">
+<p>Number</p></td>
+<td class=3D"confluenceTd">
+<p>M</p></td>
+<td class=3D"confluenceTd">
+<p>Unique program identifier (auto-generated)</p></td>
+<td class=3D"confluenceTd">
+<p>1</p></td>
+<td class=3D"confluenceTd">
+<p>System-generated, immutable</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Name</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>M</p></td>
+<td class=3D"confluenceTd">
+<p>Program display name</p></td>
+<td class=3D"confluenceTd">
+<p>"SHINE Program"</p></td>
+<td class=3D"confluenceTd">
+<p>Max 255 chars, unique</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Description</p></td>
+<td class=3D"confluenceTd">
+<p>Text</p></td>
+<td class=3D"confluenceTd">
+<p>O</p></td>
+<td class=3D"confluenceTd">
+<p>Program overview and purpose</p></td>
+<td class=3D"confluenceTd">
+<p>"Standard SHINE training program for new agents"</p></td>
+<td class=3D"confluenceTd">
+<p>Max 2000 chars</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Subject</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>O</p></td>
+<td class=3D"confluenceTd">
+<p>Program subject or focus area</p></td>
+<td class=3D"confluenceTd">
+<p>"Insurance Fundamentals"</p></td>
+<td class=3D"confluenceTd">
+<p>Max 255 chars</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Type</p></td>
+<td class=3D"confluenceTd">
+<p>Dropdown</p></td>
+<td class=3D"confluenceTd">
+<p>M</p></td>
+<td class=3D"confluenceTd">
+<p>Program category</p></td>
+<td class=3D"confluenceTd">
+<p>SHINE, Product, Skill</p></td>
+<td class=3D"confluenceTd">
+<p>Predefined values only</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>License Type</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>M</p></td>
+<td class=3D"confluenceTd">
+<p>Associated license/certification</p></td>
+<td class=3D"confluenceTd">
+<p>"Life Insurance Agent License"</p></td>
+<td class=3D"confluenceTd">
+<p>Max 255 chars</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Course Type</p></td>
+<td class=3D"confluenceTd">
+<p>Dropdown</p></td>
+<td class=3D"confluenceTd">
+<p>M</p></td>
+<td class=3D"confluenceTd">
+<p>Related course type</p></td>
+<td class=3D"confluenceTd">
+<p>SHINE, Product, Skill</p></td>
+<td class=3D"confluenceTd">
+<p>Must match Program Type</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Max Participant</p></td>
+<td class=3D"confluenceTd">
+<p>Number</p></td>
+<td class=3D"confluenceTd">
+<p>M</p></td>
+<td class=3D"confluenceTd">
+<p>Maximum participants per course</p></td>
+<td class=3D"confluenceTd">
+<p>50</p></td>
+<td class=3D"confluenceTd">
+<p>Min: 1, Max: 500</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Duration</p></td>
+<td class=3D"confluenceTd">
+<p>Number</p></td>
+<td class=3D"confluenceTd">
+<p>M</p></td>
+<td class=3D"confluenceTd">
+<p>Standard course duration in days</p></td>
+<td class=3D"confluenceTd">
+<p>10</p></td>
+<td class=3D"confluenceTd">
+<p>Min: 1, Max: 365 days</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Color</p></td>
+<td class=3D"confluenceTd">
+<p>Color Picker</p></td>
+<td class=3D"confluenceTd">
+<p>O</p></td>
+<td class=3D"confluenceTd">
+<p>Display color for calendar</p></td>
+<td class=3D"confluenceTd">
+<p>#0097A9</p></td>
+<td class=3D"confluenceTd">
+<p>Hex color code</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Tag</p></td>
+<td class=3D"confluenceTd">
+<p>Multi-select</p></td>
+<td class=3D"confluenceTd">
+<p>O</p></td>
+<td class=3D"confluenceTd">
+<p>Categorization tags</p></td>
+<td class=3D"confluenceTd">
+<p>"Mandatory", "New Agent", "Foundation"</p></td>
+<td class=3D"confluenceTd">
+<p>Multiple tags allowed</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Status</p></td>
+<td class=3D"confluenceTd">
+<p>Dropdown</p></td>
+<td class=3D"confluenceTd">
+<p>M</p></td>
+<td class=3D"confluenceTd">
+<p>Program availability</p></td>
+<td class=3D"confluenceTd">
+<p>ACTIVE, INACTIVE</p></td>
+<td class=3D"confluenceTd">
+<p>Default: ACTIVE</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Created By</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>D</p></td>
+<td class=3D"confluenceTd">
+<p>User who created program</p></td>
+<td class=3D"confluenceTd">
+<p>Admin User</p></td>
+<td class=3D"confluenceTd">
+<p>Auto-populated</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Created Date</p></td>
+<td class=3D"confluenceTd">
+<p>DateTime</p></td>
+<td class=3D"confluenceTd">
+<p>D</p></td>
+<td class=3D"confluenceTd">
+<p>Program creation timestamp</p></td>
+<td class=3D"confluenceTd">
+<p>2025-01-15 10:30:00</p></td>
+<td class=3D"confluenceTd">
+<p>Auto-populated</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Updated By</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>D</p></td>
+<td class=3D"confluenceTd">
+<p>Last user who updated program</p></td>
+<td class=3D"confluenceTd">
+<p>Admin User</p></td>
+<td class=3D"confluenceTd">
+<p>Auto-populated</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Updated Date</p></td>
+<td class=3D"confluenceTd">
+<p>DateTime</p></td>
+<td class=3D"confluenceTd">
+<p>D</p></td>
+<td class=3D"confluenceTd">
+<p>Last update timestamp</p></td>
+<td class=3D"confluenceTd">
+<p>2025-01-20 14:20:00</p></td>
+<td class=3D"confluenceTd">
+<p>Auto-populated</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Stage Entity Fields:</strong></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"74=
+ebff24-1436-4d5f-9bd0-c6d8cef22f11" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Field Name</p></th>
+<th class=3D"confluenceTh">
+<p>Data Type</p></th>
+<th class=3D"confluenceTh">
+<p>M/O</p></th>
+<th class=3D"confluenceTh">
+<p>Description</p></th>
+<th class=3D"confluenceTh">
+<p>Example</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Stage ID</p></td>
+<td class=3D"confluenceTd">
+<p>Number</p></td>
+<td class=3D"confluenceTd">
+<p>M</p></td>
+<td class=3D"confluenceTd">
+<p>Unique stage identifier</p></td>
+<td class=3D"confluenceTd">
+<p>1</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Stage Name</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>M</p></td>
+<td class=3D"confluenceTd">
+<p>Stage display name</p></td>
+<td class=3D"confluenceTd">
+<p>"Foundation Stage"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Stage Order</p></td>
+<td class=3D"confluenceTd">
+<p>Number</p></td>
+<td class=3D"confluenceTd">
+<p>M</p></td>
+<td class=3D"confluenceTd">
+<p>Sequence order (1, 2, 3...)</p></td>
+<td class=3D"confluenceTd">
+<p>1</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Program ID</p></td>
+<td class=3D"confluenceTd">
+<p>Number</p></td>
+<td class=3D"confluenceTd">
+<p>M</p></td>
+<td class=3D"confluenceTd">
+<p>Parent program reference</p></td>
+<td class=3D"confluenceTd">
+<p>1</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Products</p></td>
+<td class=3D"confluenceTd">
+<p>Multi-select</p></td>
+<td class=3D"confluenceTd">
+<p>M</p></td>
+<td class=3D"confluenceTd">
+<p>List of products in this stage</p></td>
+<td class=3D"confluenceTd">
+<p>Product IDs: [12, 15, 18]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Attach File Fields:</strong></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"c9=
+43d052-af04-4551-b449-9c8429f885d0" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Field Name</p></th>
+<th class=3D"confluenceTh">
+<p>Data Type</p></th>
+<th class=3D"confluenceTh">
+<p>M/O</p></th>
+<th class=3D"confluenceTh">
+<p>Description</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>File Name</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>M</p></td>
+<td class=3D"confluenceTd">
+<p>Original file name</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>File Size</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>D</p></td>
+<td class=3D"confluenceTd">
+<p>File size in KB/MB</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>File Type</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>D</p></td>
+<td class=3D"confluenceTd">
+<p>File extension (PDF, DOCX, etc.)</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Upload Date</p></td>
+<td class=3D"confluenceTd">
+<p>DateTime</p></td>
+<td class=3D"confluenceTd">
+<p>D</p></td>
+<td class=3D"confluenceTd">
+<p>File upload timestamp</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Uploaded By</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>D</p></td>
+<td class=3D"confluenceTd">
+<p>User who uploaded file</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id=3D"Program-7.3.2ProgramListingPage">7.3.2 Program Listing Page</h4>
+<p><strong>User Story:</strong><br>
+AS AN Admin, Master Role, or Root Admin<br>
+I NEED to view a list of all programs in the system<br>
+SO THAT I can manage, search, and filter programs efficiently</p>
+<p><strong>Acceptance Criteria:</strong></p>
+<ol start=3D"1">
+<li>
+<p><strong>Page Header:</strong></p>
+<ul>
+<li>
+<p>Page Title: "Program Management"</p></li>
+<li>
+<p>[+ Add New Program] button (top-right)</p></li>
+<li>
+<p>Search bar with filter options</p></li>
+</ul></li>
+<li>
+<p><strong>Filter &amp; Search Options:</strong></p></li>
+</ol>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"3f=
+281a4a-a314-4359-a5cf-eaedd8093c91" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Filter/Search</p></th>
+<th class=3D"confluenceTh">
+<p>Type</p></th>
+<th class=3D"confluenceTh">
+<p>Options/Behavior</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Search</p></td>
+<td class=3D"confluenceTd">
+<p>Text Input</p></td>
+<td class=3D"confluenceTd">
+<p>Search by: Name, Description, Subject</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Type</p></td>
+<td class=3D"confluenceTd">
+<p>Dropdown</p></td>
+<td class=3D"confluenceTd">
+<p>All, SHINE, Product, Skill</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Status</p></td>
+<td class=3D"confluenceTd">
+<p>Dropdown</p></td>
+<td class=3D"confluenceTd">
+<p>All, ACTIVE, INACTIVE</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Sort By</p></td>
+<td class=3D"confluenceTd">
+<p>Dropdown</p></td>
+<td class=3D"confluenceTd">
+<p>Name (A-Z), Name (Z-A), Created Date (Newest), Created Date (Oldest), Ty=
+pe</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol start=3D"3">
+<li>
+<p><strong>Program Listing Table:</strong></p></li>
+</ol>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"b7=
+599621-c97a-4e1d-b38f-d83b2e6ccd96" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Column</p></th>
+<th class=3D"confluenceTh">
+<p>Description</p></th>
+<th class=3D"confluenceTh">
+<p>Display Format</p></th>
+<th class=3D"confluenceTh">
+<p>Sortable</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Name</p></td>
+<td class=3D"confluenceTd">
+<p>Program name (hyperlink to details page)</p></td>
+<td class=3D"confluenceTd">
+<p>Text with link</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Description</p></td>
+<td class=3D"confluenceTd">
+<p>Brief program description</p></td>
+<td class=3D"confluenceTd">
+<p>Text (truncated to 100 chars)</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Type</p></td>
+<td class=3D"confluenceTd">
+<p>Program category</p></td>
+<td class=3D"confluenceTd">
+<p>Badge (color-coded)</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Course Type</p></td>
+<td class=3D"confluenceTd">
+<p>Related course type</p></td>
+<td class=3D"confluenceTd">
+<p>Text</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Sessions</p></td>
+<td class=3D"confluenceTd">
+<p>Number of stages in program</p></td>
+<td class=3D"confluenceTd">
+<p>Number</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>License</p></td>
+<td class=3D"confluenceTd">
+<p>License type</p></td>
+<td class=3D"confluenceTd">
+<p>Text</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Max Participant</p></td>
+<td class=3D"confluenceTd">
+<p>Maximum participants</p></td>
+<td class=3D"confluenceTd">
+<p>Number</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Duration</p></td>
+<td class=3D"confluenceTd">
+<p>Duration in days</p></td>
+<td class=3D"confluenceTd">
+<p>Number + "days"</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Certificate</p></td>
+<td class=3D"confluenceTd">
+<p>Certificate available</p></td>
+<td class=3D"confluenceTd">
+<p>Yes/No</p></td>
+<td class=3D"confluenceTd">
+<p>No</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Status</p></td>
+<td class=3D"confluenceTd">
+<p>Program status</p></td>
+<td class=3D"confluenceTd">
+<p>Badge (Active/Inactive)</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Created By</p></td>
+<td class=3D"confluenceTd">
+<p>User who created</p></td>
+<td class=3D"confluenceTd">
+<p>Username</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Updated By</p></td>
+<td class=3D"confluenceTd">
+<p>Last user who updated</p></td>
+<td class=3D"confluenceTd">
+<p>Username</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Action</p></td>
+<td class=3D"confluenceTd">
+<p>Action buttons</p></td>
+<td class=3D"confluenceTd">
+<p>[Edit] [Clone] [Delete] icons</p></td>
+<td class=3D"confluenceTd">
+<p>No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol start=3D"4">
+<li>
+<p><strong>List Behaviors:</strong></p>
+<ul>
+<li>
+<p>Pagination: 20 rows per page (configurable: 10/20/50/100)</p></li>
+<li>
+<p>Default sort: Created Date (Descending - newest first)</p></li>
+<li>
+<p>Row hover: Highlight row background</p></li>
+<li>
+<p>Name hyperlink: Navigate to Program Details Page</p></li>
+<li>
+<p>Action icons:</p>
+<ul>
+<li>
+<p>Edit (pencil icon) - Navigate to edit form</p></li>
+<li>
+<p>Clone (copy icon) - Clone program with confirmation</p></li>
+<li>
+<p>Delete (trash icon) - Soft delete with confirmation</p></li>
+</ul></li>
+</ul></li>
+<li>
+<p><strong>Empty State:</strong></p>
+<ul>
+<li>
+<p>Display when no programs exist: "No programs found. Click '+ Add New Pro=
+gram' to create your first program."</p></li>
+<li>
+<p>Display when search returns no results: "No programs match your search c=
+riteria. Try different keywords or filters."</p></li>
+</ul></li>
+<li>
+<p><strong>Bulk Actions (Future Enhancement):</strong></p>
+<ul>
+<li>
+<p>Select multiple programs</p></li>
+<li>
+<p>Bulk status change (Activate/Deactivate)</p></li>
+<li>
+<p>Bulk export</p></li>
+</ul></li>
+</ol>
+<h4 id=3D"Program-7.3.3ProgramCreationForm">7.3.3 Program Creation Form</h4=
+>
+<p><strong>User Story:</strong><br>
+AS AN Admin, Master Role, or Root Admin<br>
+I NEED to create new programs in the system<br>
+SO THAT courses can be created under standardized program templates</p>
+<p><strong>Acceptance Criteria:</strong></p>
+<ol start=3D"1">
+<li>
+<p><strong>Access Points:</strong></p>
+<ul>
+<li>
+<p>[+ Add New Program] button in Program Listing Page</p></li>
+<li>
+<p>Navigate to: /programs/create</p></li>
+</ul></li>
+<li>
+<p><strong>Form Sections:</strong></p></li>
+</ol>
+<p><strong>A. General Information Section:</strong></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"e8=
+a3c6b8-364a-4506-8f39-09e83c6050ec" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>S/N</p></th>
+<th class=3D"confluenceTh">
+<p>Field Name</p></th>
+<th class=3D"confluenceTh">
+<p>Data Type</p></th>
+<th class=3D"confluenceTh">
+<p>M/O</p></th>
+<th class=3D"confluenceTh">
+<p>Description</p></th>
+<th class=3D"confluenceTh">
+<p>Validation</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>1</p></td>
+<td class=3D"confluenceTd">
+<p>Name</p></td>
+<td class=3D"confluenceTd">
+<p>Text Input</p></td>
+<td class=3D"confluenceTd">
+<p>M</p></td>
+<td class=3D"confluenceTd">
+<p>Program display name</p></td>
+<td class=3D"confluenceTd">
+<p>Required, unique, max 255 chars</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>2</p></td>
+<td class=3D"confluenceTd">
+<p>Description</p></td>
+<td class=3D"confluenceTd">
+<p>Textarea</p></td>
+<td class=3D"confluenceTd">
+<p>O</p></td>
+<td class=3D"confluenceTd">
+<p>Program overview</p></td>
+<td class=3D"confluenceTd">
+<p>Max 2000 chars</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>3</p></td>
+<td class=3D"confluenceTd">
+<p>Subject</p></td>
+<td class=3D"confluenceTd">
+<p>Text Input</p></td>
+<td class=3D"confluenceTd">
+<p>O</p></td>
+<td class=3D"confluenceTd">
+<p>Program subject/focus</p></td>
+<td class=3D"confluenceTd">
+<p>Max 255 chars</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>4</p></td>
+<td class=3D"confluenceTd">
+<p>Type</p></td>
+<td class=3D"confluenceTd">
+<p>Dropdown</p></td>
+<td class=3D"confluenceTd">
+<p>M</p></td>
+<td class=3D"confluenceTd">
+<p>Program category</p></td>
+<td class=3D"confluenceTd">
+<p>Values: SHINE, Product, Skill</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>5</p></td>
+<td class=3D"confluenceTd">
+<p>License Type</p></td>
+<td class=3D"confluenceTd">
+<p>Text Input</p></td>
+<td class=3D"confluenceTd">
+<p>M</p></td>
+<td class=3D"confluenceTd">
+<p>Associated license</p></td>
+<td class=3D"confluenceTd">
+<p>Required, max 255 chars</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>6</p></td>
+<td class=3D"confluenceTd">
+<p>Course Type</p></td>
+<td class=3D"confluenceTd">
+<p>Dropdown</p></td>
+<td class=3D"confluenceTd">
+<p>M</p></td>
+<td class=3D"confluenceTd">
+<p>Related course type</p></td>
+<td class=3D"confluenceTd">
+<p>Values: SHINE, Product, Skill. Must match Program Type</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>7</p></td>
+<td class=3D"confluenceTd">
+<p>Max Participant</p></td>
+<td class=3D"confluenceTd">
+<p>Number Input</p></td>
+<td class=3D"confluenceTd">
+<p>M</p></td>
+<td class=3D"confluenceTd">
+<p>Max participants per course</p></td>
+<td class=3D"confluenceTd">
+<p>Min: 1, Max: 500</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>8</p></td>
+<td class=3D"confluenceTd">
+<p>Duration</p></td>
+<td class=3D"confluenceTd">
+<p>Number Input</p></td>
+<td class=3D"confluenceTd">
+<p>M</p></td>
+<td class=3D"confluenceTd">
+<p>Course duration (days)</p></td>
+<td class=3D"confluenceTd">
+<p>Min: 1, Max: 365</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>9</p></td>
+<td class=3D"confluenceTd">
+<p>Color</p></td>
+<td class=3D"confluenceTd">
+<p>Color Picker</p></td>
+<td class=3D"confluenceTd">
+<p>O</p></td>
+<td class=3D"confluenceTd">
+<p>Calendar display color</p></td>
+<td class=3D"confluenceTd">
+<p>Hex color code. Default: System-assigned</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>10</p></td>
+<td class=3D"confluenceTd">
+<p>Tag</p></td>
+<td class=3D"confluenceTd">
+<p>Multi-select</p></td>
+<td class=3D"confluenceTd">
+<p>O</p></td>
+<td class=3D"confluenceTd">
+<p>Categorization tags</p></td>
+<td class=3D"confluenceTd">
+<p>Multiple selections allowed</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>B. Stage Section:</strong></p>
+<ul>
+<li>
+<p><strong>Add Stage Button:</strong> [+ Add Stage]</p></li>
+<li>
+<p><strong>Stage List Table:</strong></p></li>
+</ul>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"52=
+875113-7048-4c94-a173-a5f23a51aeed" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Column</p></th>
+<th class=3D"confluenceTh">
+<p>Description</p></th>
+<th class=3D"confluenceTh">
+<p>Action</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Stage Name</p></td>
+<td class=3D"confluenceTd">
+<p>Stage display name</p></td>
+<td class=3D"confluenceTd">
+<p>Editable inline</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Products</p></td>
+<td class=3D"confluenceTd">
+<p>Multi-select dropdown from Product Management</p></td>
+<td class=3D"confluenceTd">
+<p>Select multiple products</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Action</p></td>
+<td class=3D"confluenceTd">
+<p>Edit/Delete buttons</p></td>
+<td class=3D"confluenceTd">
+<p>[Edit] [Delete]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>
+<p><strong>Stage Management:</strong></p>
+<ul>
+<li>
+<p>Drag-and-drop to reorder stages</p></li>
+<li>
+<p>Stage numbering auto-updates (1, 2, 3...)</p></li>
+<li>
+<p>Products filtered by program type (e.g., SHINE programs only show SHINE =
+products)</p></li>
+<li>
+<p>At least 1 stage required</p></li>
+</ul></li>
+</ul>
+<p><strong>C. Attach File Section:</strong></p>
+<ul>
+<li>
+<p><strong>Upload Button:</strong> [Upload File]</p></li>
+<li>
+<p><strong>Supported Formats:</strong> PDF, DOCX, XLSX, PPT, PPTX, ZIP</p><=
+/li>
+<li>
+<p><strong>Max File Size:</strong> 50MB per file</p></li>
+<li>
+<p><strong>File List Table:</strong></p></li>
+</ul>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"ce=
+4da790-3f77-43d3-8190-4105394ab6c5" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Column</p></th>
+<th class=3D"confluenceTh">
+<p>Description</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>File Name</p></td>
+<td class=3D"confluenceTd">
+<p>Original filename with icon</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>File Size</p></td>
+<td class=3D"confluenceTd">
+<p>Size in KB/MB</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Uploaded By</p></td>
+<td class=3D"confluenceTd">
+<p>Username</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Upload Date</p></td>
+<td class=3D"confluenceTd">
+<p>Timestamp</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Action</p></td>
+<td class=3D"confluenceTd">
+<p>[Download] [Delete]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol start=3D"3">
+<li>
+<p><strong>Form Actions:</strong></p>
+<ul>
+<li>
+<p>[Save] - Create program and redirect to Program Details Page</p></li>
+<li>
+<p>[Save &amp; Add Another] - Create program and reset form for new entry</=
+p></li>
+<li>
+<p>[Cancel] - Discard changes and return to Program Listing Page</p></li>
+</ul></li>
+<li>
+<p><strong>Validation Rules:</strong></p>
+<ul>
+<li>
+<p>All mandatory fields must be filled</p></li>
+<li>
+<p>Program name must be unique</p></li>
+<li>
+<p>Course Type must match Program Type</p></li>
+<li>
+<p>At least 1 stage must be defined</p></li>
+<li>
+<p>Each stage must have at least 1 product</p></li>
+</ul></li>
+<li>
+<p><strong>Success/Error Messages:</strong></p>
+<ul>
+<li>
+<p>Success: "Program '[Name]' created successfully"</p></li>
+<li>
+<p>Error: "Failed to create program. Please check the form and try again."<=
+/p></li>
+<li>
+<p>Duplicate Name: "Program name '[Name]' already exists. Please use a diff=
+erent name."</p></li>
+</ul></li>
+</ol>
+<h4 id=3D"Program-7.3.4ProgramDetailsPage">7.3.4 Program Details Page</h4>
+<p><strong>User Story:</strong><br>
+AS AN Admin, Master Role, or Root Admin<br>
+I NEED to view and edit program details<br>
+SO THAT I can manage program configurations and content</p>
+<p><strong>Acceptance Criteria:</strong></p>
+<ol start=3D"1">
+<li>
+<p><strong>Page Header:</strong></p>
+<ul>
+<li>
+<p>Page Title: Program Name</p></li>
+<li>
+<p>Breadcrumb: Home &gt; Program Management &gt; [Program Name]</p></li>
+<li>
+<p>Action Buttons: [Edit] [Clone] [Delete] [Back to List]</p></li>
+</ul></li>
+<li>
+<p><strong>Tab Navigation:</strong></p>
+<ul>
+<li>
+<p><strong>General Tab:</strong> Program information and configurations</p>=
+</li>
+<li>
+<p><strong>Stage Tab:</strong> Stage and product management</p></li>
+<li>
+<p><strong>Files Tab:</strong> Attached files and documents</p></li>
+<li>
+<p><strong>History Tab:</strong> Audit trail of changes</p></li>
+</ul></li>
+</ol>
+<p><strong>A. General Tab:</strong></p>
+<p><strong>Program Information Card:</strong></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"95=
+79d932-ddb0-4b98-85f8-2adc14d23ee6" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Field</p></th>
+<th class=3D"confluenceTh">
+<p>Display Format</p></th>
+<th class=3D"confluenceTh">
+<p>Editable</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Name</p></td>
+<td class=3D"confluenceTd">
+<p>Text</p></td>
+<td class=3D"confluenceTd">
+<p>Yes (Edit mode)</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Description</p></td>
+<td class=3D"confluenceTd">
+<p>Text block</p></td>
+<td class=3D"confluenceTd">
+<p>Yes (Edit mode)</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Subject</p></td>
+<td class=3D"confluenceTd">
+<p>Text</p></td>
+<td class=3D"confluenceTd">
+<p>Yes (Edit mode)</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Type</p></td>
+<td class=3D"confluenceTd">
+<p>Badge</p></td>
+<td class=3D"confluenceTd">
+<p>Yes (Edit mode)</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>License Type</p></td>
+<td class=3D"confluenceTd">
+<p>Text</p></td>
+<td class=3D"confluenceTd">
+<p>Yes (Edit mode)</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Course Type</p></td>
+<td class=3D"confluenceTd">
+<p>Badge</p></td>
+<td class=3D"confluenceTd">
+<p>Yes (Edit mode)</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Max Participant</p></td>
+<td class=3D"confluenceTd">
+<p>Number</p></td>
+<td class=3D"confluenceTd">
+<p>Yes (Edit mode)</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Duration</p></td>
+<td class=3D"confluenceTd">
+<p>Number + "days"</p></td>
+<td class=3D"confluenceTd">
+<p>Yes (Edit mode)</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Color</p></td>
+<td class=3D"confluenceTd">
+<p>Color swatch</p></td>
+<td class=3D"confluenceTd">
+<p>Yes (Edit mode)</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Tag</p></td>
+<td class=3D"confluenceTd">
+<p>Tag chips</p></td>
+<td class=3D"confluenceTd">
+<p>Yes (Edit mode)</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Status</p></td>
+<td class=3D"confluenceTd">
+<p>Badge (Active/Inactive)</p></td>
+<td class=3D"confluenceTd">
+<p>Yes (Edit mode)</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Created By</p></td>
+<td class=3D"confluenceTd">
+<p>Username + Date</p></td>
+<td class=3D"confluenceTd">
+<p>No</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Updated By</p></td>
+<td class=3D"confluenceTd">
+<p>Username + Date</p></td>
+<td class=3D"confluenceTd">
+<p>No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>
+<p><strong>Edit Mode:</strong></p>
+<ul>
+<li>
+<p>Click [Edit] button to enable editing</p></li>
+<li>
+<p>All editable fields become input fields</p></li>
+<li>
+<p>[Save] [Cancel] buttons appear</p></li>
+<li>
+<p>Validation same as creation form</p></li>
+</ul></li>
+</ul>
+<p><strong>B. Stage Tab:</strong></p>
+<p><strong>Stage Management:</strong></p>
+<ul>
+<li>
+<p>[+ Add Stage] button (top-right)</p></li>
+<li>
+<p><strong>Stage List (Accordion Style):</strong></p></li>
+</ul>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">=E2=94=
+=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=90
+=E2=94=82 =E2=86=95 Stage 1: Foundation Stage              [Edit] [=E2=86=
+=93] =E2=94=82
+=E2=94=9C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=A4
+=E2=94=82 Products: (3)                                        =E2=94=82
+=E2=94=82 =E2=80=A2 Product A - Session 1, Session 2                  =E2=
+=94=82
+=E2=94=82 =E2=80=A2 Product B - Session 1                             =E2=
+=94=82
+=E2=94=82 =E2=80=A2 Product C - Session 1, Session 2, Session 3       =E2=
+=94=82
+=E2=94=82                                                      =E2=94=82
+=E2=94=82 [Expand Details =E2=96=BC]                                   =E2=
+=94=82
+=E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=98
+
+=E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=90
+=E2=94=82 =E2=86=95 Stage 2: Advanced Stage                [Edit] [=E2=86=
+=93] =E2=94=82
+=E2=94=9C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=A4
+=E2=94=82 Products: (2)                                        =E2=94=82
+=E2=94=82 =E2=80=A2 Product D - Session 1, Session 2                  =E2=
+=94=82
+=E2=94=82 =E2=80=A2 Product E - Session 1                             =E2=
+=94=82
+=E2=94=82                                                      =E2=94=82
+=E2=94=82 [Expand Details =E2=96=BC]                                   =E2=
+=94=82
+=E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=98
+</pre>
+</div>
+</div>
+<ul>
+<li>
+<p><strong>Stage Actions:</strong></p>
+<ul>
+<li>
+<p>=E2=86=95 Drag handle: Reorder stages</p></li>
+<li>
+<p>[Edit]: Open stage edit modal</p></li>
+<li>
+<p>[=E2=86=93]: Expand/collapse details</p></li>
+<li>
+<p>[Delete]: Remove stage (with confirmation)</p></li>
+</ul></li>
+<li>
+<p><strong>Stage Details (Expanded):</strong></p>
+<ul>
+<li>
+<p>Product list with sessions</p></li>
+<li>
+<p>Module count per product</p></li>
+<li>
+<p>Total duration estimate</p></li>
+<li>
+<p>Product links to Product Details Page</p></li>
+</ul></li>
+</ul>
+<p><strong>C. Files Tab:</strong></p>
+<p><strong>Attach File Section:</strong></p>
+<ul>
+<li>
+<p>[Upload File] button</p></li>
+<li>
+<p><strong>File List Table:</strong></p></li>
+</ul>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"80=
+570ad8-96d4-4b8f-8a6c-1f7258a25e6b" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>File Name</p></th>
+<th class=3D"confluenceTh">
+<p>File Size</p></th>
+<th class=3D"confluenceTh">
+<p>Uploaded By</p></th>
+<th class=3D"confluenceTh">
+<p>Upload Date</p></th>
+<th class=3D"confluenceTh">
+<p>Action</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Program_Overview.pdf</p></td>
+<td class=3D"confluenceTd">
+<p>2.5 MB</p></td>
+<td class=3D"confluenceTd">
+<p>Admin User</p></td>
+<td class=3D"confluenceTd">
+<p>2025-01-15 10:30</p></td>
+<td class=3D"confluenceTd">
+<p>[Download] [Delete]</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Training_Guide.docx</p></td>
+<td class=3D"confluenceTd">
+<p>1.2 MB</p></td>
+<td class=3D"confluenceTd">
+<p>Admin User</p></td>
+<td class=3D"confluenceTd">
+<p>2025-01-16 14:20</p></td>
+<td class=3D"confluenceTd">
+<p>[Download] [Delete]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>
+<p><strong>File Actions:</strong></p>
+<ul>
+<li>
+<p>Download: Download file to local machine</p></li>
+<li>
+<p>Delete: Remove file with confirmation</p></li>
+</ul></li>
+</ul>
+<p><strong>D. History Tab:</strong></p>
+<p><strong>Audit Trail:</strong></p>
+<ul>
+<li>
+<p><strong>Change Log Table:</strong></p></li>
+</ul>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"8e=
+f90796-ed46-4db5-a6aa-41f95e82d939" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Date &amp; Time</p></th>
+<th class=3D"confluenceTh">
+<p>User</p></th>
+<th class=3D"confluenceTh">
+<p>Action</p></th>
+<th class=3D"confluenceTh">
+<p>Field</p></th>
+<th class=3D"confluenceTh">
+<p>Old Value</p></th>
+<th class=3D"confluenceTh">
+<p>New Value</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>2025-01-20 14:20</p></td>
+<td class=3D"confluenceTd">
+<p>Admin</p></td>
+<td class=3D"confluenceTd">
+<p>Updated</p></td>
+<td class=3D"confluenceTd">
+<p>Duration</p></td>
+<td class=3D"confluenceTd">
+<p>7 days</p></td>
+<td class=3D"confluenceTd">
+<p>10 days</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>2025-01-19 10:15</p></td>
+<td class=3D"confluenceTd">
+<p>Admin</p></td>
+<td class=3D"confluenceTd">
+<p>Updated</p></td>
+<td class=3D"confluenceTd">
+<p>Max Participant</p></td>
+<td class=3D"confluenceTd">
+<p>30</p></td>
+<td class=3D"confluenceTd">
+<p>50</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>2025-01-15 10:30</p></td>
+<td class=3D"confluenceTd">
+<p>Admin</p></td>
+<td class=3D"confluenceTd">
+<p>Created</p></td>
+<td class=3D"confluenceTd">
+<p>-</p></td>
+<td class=3D"confluenceTd">
+<p>-</p></td>
+<td class=3D"confluenceTd">
+<p>Program created</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>
+<p><strong>Filter Options:</strong></p>
+<ul>
+<li>
+<p>Date Range</p></li>
+<li>
+<p>User</p></li>
+<li>
+<p>Action Type (Created, Updated, Deleted)</p></li>
+<li>
+<p>Field Name</p></li>
+</ul></li>
+</ul>
+<h4 id=3D"Program-7.3.5ProgramStatusManagement">7.3.5 Program Status Manage=
+ment</h4>
+<p><strong>User Story:</strong><br>
+AS AN Admin, Master Role, or Root Admin<br>
+I NEED to activate or deactivate programs<br>
+SO THAT I can control which programs are available for course creation</p>
+<p><strong>Status Definitions:</strong></p>
+<p><strong>ACTIVE Programs:</strong></p>
+<ul>
+<li>
+<p>Displayed in Master Calendar program selector</p></li>
+<li>
+<p>Available in Program dropdown during course creation</p></li>
+<li>
+<p>Included in program-based filtering and reports</p></li>
+<li>
+<p>Visible in all program lists</p></li>
+<li>
+<p>Can be edited, cloned, or deactivated</p></li>
+</ul>
+<p><strong>INACTIVE Programs:</strong></p>
+<ul>
+<li>
+<p>Hidden from Master Calendar program selector</p></li>
+<li>
+<p>NOT available for new course creation</p></li>
+<li>
+<p>Existing courses created from this program remain visible and functional=
+</p></li>
+<li>
+<p>Still visible in Program Listing Page (with filter)</p></li>
+<li>
+<p>Can be reactivated, edited, or permanently deleted</p></li>
+<li>
+<p>Display warning indicator in details page</p></li>
+</ul>
+<p><strong>Status Change Actions:</strong></p>
+<ol start=3D"1">
+<li>
+<p><strong>Activate Program:</strong></p>
+<ul>
+<li>
+<p>Button: [Activate] (visible when status =3D INACTIVE)</p></li>
+<li>
+<p>Confirmation: "Activate '[Program Name]'? This program will become avail=
+able for course creation."</p></li>
+<li>
+<p>Effect: Status changes to ACTIVE, program appears in all selection lists=
+</p></li>
+</ul></li>
+<li>
+<p><strong>Deactivate Program:</strong></p>
+<ul>
+<li>
+<p>Button: [Deactivate] (visible when status =3D ACTIVE)</p></li>
+<li>
+<p>Confirmation: "Deactivate '[Program Name]'? This program will be hidden =
+from course creation. Existing courses will not be affected."</p></li>
+<li>
+<p>Effect: Status changes to INACTIVE, program hidden from selection lists<=
+/p></li>
+</ul></li>
+</ol>
+<p><strong>Business Rules:</strong></p>
+<ul>
+<li>
+<p>Programs with ACTIVE courses can be deactivated (courses remain unaffect=
+ed)</p></li>
+<li>
+<p>Deactivated programs can be reactivated anytime</p></li>
+<li>
+<p>Status change is audited in History tab</p></li>
+<li>
+<p>Deactivation does NOT delete data (soft status change only)</p></li>
+</ul>
+<h4 id=3D"Program-7.3.6ProgramCloneFunctionality">7.3.6 Program Clone Funct=
+ionality</h4>
+<p><strong>User Story:</strong><br>
+AS AN Admin, Master Role, or Root Admin<br>
+I NEED to clone existing programs<br>
+SO THAT I can quickly create similar programs without manual data entry</p>
+<p><strong>Acceptance Criteria:</strong></p>
+<ol start=3D"1">
+<li>
+<p><strong>Clone Button:</strong></p>
+<ul>
+<li>
+<p>Location: Program Details Page header, Program Listing Page action colum=
+n</p></li>
+<li>
+<p>Icon: Copy icon</p></li>
+<li>
+<p>Label: "Clone"</p></li>
+</ul></li>
+<li>
+<p><strong>Clone Modal:</strong></p></li>
+</ol>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">=E2=94=
+=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=90
+=E2=94=82 Clone Program: "SHINE Program"                  =E2=94=82
+=E2=94=9C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=A4
+=E2=94=82                                                  =E2=94=82
+=E2=94=82 Create a copy of this program with all          =E2=94=82
+=E2=94=82 configurations and stages.                       =E2=94=82
+=E2=94=82                                                  =E2=94=82
+=E2=94=82 New Program Name: *                              =E2=94=82
+=E2=94=82 =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=90 =E2=94=82
+=E2=94=82 =E2=94=82 SHINE Program - Copy                        =E2=94=82 =
+=E2=94=82
+=E2=94=82 =E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=98 =E2=94=82
+=E2=94=82                                                  =E2=94=82
+=E2=94=82 =E2=98=91 Copy all stages and products                 =E2=94=82
+=E2=94=82 =E2=98=91 Copy attached files                           =E2=94=82
+=E2=94=82 =E2=98=91 Copy tags                                     =E2=94=82
+=E2=94=82 =E2=98=90 Set cloned program as INACTIVE               =E2=94=82
+=E2=94=82                                                  =E2=94=82
+=E2=94=82                                                  =E2=94=82
+=E2=94=82                    [Cancel]  [Clone Program]    =E2=94=82
+=E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=98
+</pre>
+</div>
+</div>
+<ol start=3D"3">
+<li>
+<p><strong>Clone Process:</strong></p>
+<ul>
+<li>
+<p>Step 1: User clicks [Clone] button</p></li>
+<li>
+<p>Step 2: Modal appears with default name: "[Original Name] - Copy"</p></l=
+i>
+<li>
+<p>Step 3: User can modify name and select clone options</p></li>
+<li>
+<p>Step 4: System validates unique name</p></li>
+<li>
+<p>Step 5: System creates new program with copied data</p></li>
+<li>
+<p>Step 6: User redirected to cloned Program Details Page</p></li>
+</ul></li>
+<li>
+<p><strong>Cloned Data:</strong></p>
+<ul>
+<li>
+<p>=E2=9C=85 All general information fields (except ID, Created By/Date)</p=
+></li>
+<li>
+<p>=E2=9C=85 All stages and product associations</p></li>
+<li>
+<p>=E2=9C=85 Attached files (optional, checkbox selection)</p></li>
+<li>
+<p>=E2=9C=85 Tags (optional, checkbox selection)</p></li>
+<li>
+<p>=E2=9D=8C History/audit trail (new program starts fresh)</p></li>
+</ul></li>
+<li>
+<p><strong>Default Values in Cloned Program:</strong></p>
+<ul>
+<li>
+<p>Name: "[Original Name] - Copy" (editable)</p></li>
+<li>
+<p>Status: ACTIVE (or INACTIVE if checkbox selected)</p></li>
+<li>
+<p>Created By: Current user</p></li>
+<li>
+<p>Created Date: Current timestamp</p></li>
+</ul></li>
+</ol>
+<h4 id=3D"Program-7.3.7ProgramDeleteFunctionality">7.3.7 Program Delete Fun=
+ctionality</h4>
+<p><strong>User Story:</strong><br>
+AS AN Admin, Master Role, or Root Admin<br>
+I NEED to delete programs that are no longer needed<br>
+SO THAT the program list remains clean and relevant</p>
+<p><strong>Acceptance Criteria:</strong></p>
+<ol start=3D"1">
+<li>
+<p><strong>Delete Button:</strong></p>
+<ul>
+<li>
+<p>Location: Program Details Page header, Program Listing Page action colum=
+n</p></li>
+<li>
+<p>Icon: Trash icon</p></li>
+<li>
+<p>Label: "Delete"</p></li>
+</ul></li>
+<li>
+<p><strong>Delete Confirmation Modal:</strong></p></li>
+</ol>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">=E2=94=
+=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=90
+=E2=94=82 =E2=9A=A0=EF=B8=8F  Delete Program                               =
+=E2=94=82
+=E2=94=9C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=A4
+=E2=94=82                                                  =E2=94=82
+=E2=94=82 Are you sure you want to delete this program?  =E2=94=82
+=E2=94=82                                                  =E2=94=82
+=E2=94=82 Program: "SHINE Program"                        =E2=94=82
+=E2=94=82 Type: SHINE                                      =E2=94=82
+=E2=94=82 Status: ACTIVE                                   =E2=94=82
+=E2=94=82                                                  =E2=94=82
+=E2=94=82 =E2=9A=A0=EF=B8=8F  Warning:                                     =
+=E2=94=82
+=E2=94=82 =E2=80=A2 This action cannot be undone                  =E2=94=82
+=E2=94=82 =E2=80=A2 X courses are associated with this program   =E2=94=82
+=E2=94=82 =E2=80=A2 Courses will remain but lose program link    =E2=94=82
+=E2=94=82                                                  =E2=94=82
+=E2=94=82 To confirm, type DELETE in the box below:       =E2=94=82
+=E2=94=82 =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=90 =E2=94=82
+=E2=94=82 =E2=94=82                                             =E2=94=82 =
+=E2=94=82
+=E2=94=82 =E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=98 =E2=94=82
+=E2=94=82                                                  =E2=94=82
+=E2=94=82                    [Cancel]  [Delete Program]   =E2=94=82
+=E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=98
+</pre>
+</div>
+</div>
+<ol start=3D"3">
+<li>
+<p><strong>Delete Types:</strong></p></li>
+</ol>
+<p><strong>A. Soft Delete (Recommended):</strong></p>
+<ul>
+<li>
+<p>Program status set to DELETED</p></li>
+<li>
+<p>Program hidden from all lists and dropdowns</p></li>
+<li>
+<p>Program data retained in database</p></li>
+<li>
+<p>Existing courses remain linked</p></li>
+<li>
+<p>Can be restored by Admin (future enhancement)</p></li>
+</ul>
+<p><strong>B. Hard Delete (Restricted):</strong></p>
+<ul>
+<li>
+<p>Program permanently removed from database</p></li>
+<li>
+<p>Only allowed if:</p>
+<ul>
+<li>
+<p>No courses associated with program</p></li>
+<li>
+<p>Status is INACTIVE</p></li>
+<li>
+<p>Confirmation text "DELETE" entered</p></li>
+</ul></li>
+<li>
+<p>Cannot be undone</p></li>
+</ul>
+<ol start=3D"4">
+<li>
+<p><strong>Business Rules:</strong></p>
+<ul>
+<li>
+<p>Programs with ACTIVE courses can only be soft deleted</p></li>
+<li>
+<p>Programs with INACTIVE status can be hard deleted if no courses exist</p=
+></li>
+<li>
+<p>Delete action requires confirmation text entry for safety</p></li>
+<li>
+<p>Deletion is audited in system logs</p></li>
+</ul></li>
+<li>
+<p><strong>Post-Delete Behavior:</strong></p>
+<ul>
+<li>
+<p>Success message: "Program '[Name]' deleted successfully"</p></li>
+<li>
+<p>Redirect to Program Listing Page</p></li>
+<li>
+<p>Deleted program no longer appears in lists (soft delete) or database (ha=
+rd delete)</p></li>
+</ul></li>
+</ol>
+<h4 id=3D"Program-7.3.8ProgramIntegrationPoints">7.3.8 Program Integration =
+Points</h4>
+<p><strong>Master Calendar Integration (Section 10.1):</strong></p>
+<ul>
+<li>
+<p><strong>Program Display:</strong></p>
+<ul>
+<li>
+<p>Programs displayed as rows in calendar matrix</p></li>
+<li>
+<p>Program color used for row background</p></li>
+<li>
+<p>Programs selectable regardless of course count</p></li>
+<li>
+<p>Empty program rows show "No courses scheduled"</p></li>
+</ul></li>
+<li>
+<p><strong>Program Filtering:</strong></p>
+<ul>
+<li>
+<p>User can show/hide specific programs</p></li>
+<li>
+<p>Filter settings persist in session</p></li>
+<li>
+<p>All ACTIVE programs displayed by default</p></li>
+</ul></li>
+<li>
+<p><strong>Course Creation from Calendar:</strong></p>
+<ul>
+<li>
+<p>Double-click on program row =E2=86=92 Opens course creation form</p></li=
+>
+<li>
+<p>Program auto-selected in form</p></li>
+<li>
+<p>Course start date pre-filled based on clicked date cell</p></li>
+</ul></li>
+</ul>
+<p><strong>Course Creation Integration (Section 8.1):</strong></p>
+<ul>
+<li>
+<p><strong>Program Selection:</strong></p>
+<ul>
+<li>
+<p>Program dropdown filtered by selected course type</p></li>
+<li>
+<p>Only ACTIVE programs shown</p></li>
+<li>
+<p>Program selection triggers auto-population:</p>
+<ul>
+<li>
+<p>License Type (read-only)</p></li>
+<li>
+<p>Duration (calculates end date)</p></li>
+<li>
+<p>Max Participant (for validation)</p></li>
+</ul></li>
+</ul></li>
+<li>
+<p><strong>Program Validation:</strong></p>
+<ul>
+<li>
+<p>System validates program is ACTIVE</p></li>
+<li>
+<p>System checks max participant limit</p></li>
+<li>
+<p>System ensures course type matches program type</p></li>
+</ul></li>
+</ul>
+<p><strong>Course Details Integration:</strong></p>
+<ul>
+<li>
+<p><strong>Program Display:</strong></p>
+<ul>
+<li>
+<p>Program name shown in course general information</p></li>
+<li>
+<p>Link to Program Details Page</p></li>
+<li>
+<p>Program stages displayed in planning tab</p></li>
+</ul></li>
+</ul>
+<p><strong>Reporting Integration:</strong></p>
+<ul>
+<li>
+<p><strong>Program-Based Reports:</strong></p>
+<ul>
+<li>
+<p>Course count by program</p></li>
+<li>
+<p>Program utilization percentage</p></li>
+<li>
+<p>Program completion rates</p></li>
+<li>
+<p>Participant count by program</p></li>
+<li>
+<p>Program performance metrics</p></li>
+</ul></li>
+</ul>
+<h4 id=3D"Program-7.3.9ProgramAuthorizationMatrix">7.3.9 Program Authorizat=
+ion Matrix</h4>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"33=
+62be66-04bb-4591-aee5-0cc5efec585d" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Action</p></th>
+<th class=3D"confluenceTh">
+<p>TRAINER</p></th>
+<th class=3D"confluenceTh">
+<p>LEAD_REGION</p></th>
+<th class=3D"confluenceTh">
+<p>HEAD_CHANNEL</p></th>
+<th class=3D"confluenceTh">
+<p>DMS_ADMIN</p></th>
+<th class=3D"confluenceTh">
+<p>MASTER_ROLE</p></th>
+<th class=3D"confluenceTh">
+<p>ADMIN</p></th>
+<th class=3D"confluenceTh">
+<p>ROOT_ADMIN</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>View Program List</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>View Program Details</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Create Program</p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Edit Program</p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Clone Program</p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Delete Program</p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Activate/Deactivate</p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Upload Files</p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Delete Files</p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>View History</p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Authorization Notes:</strong></p>
+<ul>
+<li>
+<p>Trainers, Lead Region, Head Channel: Read-only access for program select=
+ion during course creation</p></li>
+<li>
+<p>Master Role, Admin, Root Admin: Full CRUD access to programs</p></li>
+<li>
+<p>DMS_ADMIN: No program management access (export-only role)</p></li>
+</ul>
+<h4 id=3D"Program-7.3.10ProgramValidationRules">7.3.10 Program Validation R=
+ules</h4>
+<p><strong>Field-Level Validation:</strong></p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"44=
+4076a5-06b8-41cd-ad84-6ca26f9f0e44" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Field</p></th>
+<th class=3D"confluenceTh">
+<p>Validation Rule</p></th>
+<th class=3D"confluenceTh">
+<p>Error Message</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Name</p></td>
+<td class=3D"confluenceTd">
+<p>Required, unique, max 255 chars</p></td>
+<td class=3D"confluenceTd">
+<p>"Program name is required and must be unique"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Type</p></td>
+<td class=3D"confluenceTd">
+<p>Required, predefined values</p></td>
+<td class=3D"confluenceTd">
+<p>"Please select a valid program type"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>License Type</p></td>
+<td class=3D"confluenceTd">
+<p>Required, max 255 chars</p></td>
+<td class=3D"confluenceTd">
+<p>"License type is required"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Course Type</p></td>
+<td class=3D"confluenceTd">
+<p>Required, must match Program Type</p></td>
+<td class=3D"confluenceTd">
+<p>"Course type must match program type"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Max Participant</p></td>
+<td class=3D"confluenceTd">
+<p>Required, integer, min 1, max 500</p></td>
+<td class=3D"confluenceTd">
+<p>"Max participants must be between 1 and 500"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Duration</p></td>
+<td class=3D"confluenceTd">
+<p>Required, integer, min 1, max 365</p></td>
+<td class=3D"confluenceTd">
+<p>"Duration must be between 1 and 365 days"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Color</p></td>
+<td class=3D"confluenceTd">
+<p>Valid hex color code</p></td>
+<td class=3D"confluenceTd">
+<p>"Please select a valid color"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Stages</p></td>
+<td class=3D"confluenceTd">
+<p>At least 1 stage required</p></td>
+<td class=3D"confluenceTd">
+<p>"Program must have at least one stage"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Stage Products</p></td>
+<td class=3D"confluenceTd">
+<p>Each stage must have at least 1 product</p></td>
+<td class=3D"confluenceTd">
+<p>"Each stage must have at least one product"</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Business Logic Validation:</strong></p>
+<ol start=3D"1">
+<li>
+<p><strong>Unique Name Validation:</strong></p>
+<ul>
+<li>
+<p>System checks if program name already exists</p></li>
+<li>
+<p>Case-insensitive comparison</p></li>
+<li>
+<p>Applies to both create and edit operations</p></li>
+</ul></li>
+<li>
+<p><strong>Type Consistency Validation:</strong></p>
+<ul>
+<li>
+<p>Course Type must match Program Type</p></li>
+<li>
+<p>Example: SHINE program =E2=86=92 SHINE course type</p></li>
+<li>
+<p>Prevents mismatched configurations</p></li>
+</ul></li>
+<li>
+<p><strong>Stage Validation:</strong></p>
+<ul>
+<li>
+<p>Minimum 1 stage required</p></li>
+<li>
+<p>Each stage must have unique name within program</p></li>
+<li>
+<p>Each stage must have at least 1 product</p></li>
+<li>
+<p>Products must match program type</p></li>
+</ul></li>
+<li>
+<p><strong>Status Validation:</strong></p>
+<ul>
+<li>
+<p>Only ACTIVE programs available for course creation</p></li>
+<li>
+<p>INACTIVE programs can still be viewed and edited</p></li>
+</ul></li>
+<li>
+<p><strong>Delete Validation:</strong></p>
+<ul>
+<li>
+<p>Hard delete only allowed if no associated courses</p></li>
+<li>
+<p>Soft delete allowed anytime</p></li>
+<li>
+<p>Confirmation required for all deletions</p></li>
+</ul></li>
+</ol>
+    </div>
+</body>
+</html>
+------=_Part_34_403616507.1765086052757--

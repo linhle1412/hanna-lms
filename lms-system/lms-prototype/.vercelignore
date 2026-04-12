@@ -1,0 +1,23 @@
+# Vercel ignore file
+node_modules
+.next
+.vercel
+*.log
+.env.local
+.env*.local
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Old HTML files
+*.html
+dashboard.html
+index.html
+
+# Legacy folders (if not used)
+lms-prototype
+pages/*.html
+
+

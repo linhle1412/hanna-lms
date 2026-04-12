@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - FWD LMS</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <h2>FWD Insurance</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard.html" class="nav-item">
+                    <span class="nav-icon">🏠</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="user-management.html" class="nav-item active root-only">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Users</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="breadcrumb">
+                    <a href="../dashboard.html">🏠 Home</a>
+                    <span>></span>
+                    <span class="active">User Management</span>
+                </div>
+                <div class="user-profile">
+                    <select id="roleSelector">
+                        <option value="root_admin">Root Admin</option>
+                    </select>
+                    <img src="https://via.placeholder.com/32" alt="Profile">
+                    <span>LMS Admin</span>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="action-header">
+                    <h1 class="page-title">User Management</h1>
+                    <button class="btn-primary" onclick="Navigation.showModal('createUserModal')">Create New User</button>
+                </div>
+
+                <div class="search-section">
+                    <input type="text" class="search-input" placeholder="Search by username, email...">
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Roles</th>
+                                <th>Team</th>
+                                <th>Created Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><a href="#">Head_agency</a></td>
+                                <td>head.agency@fwd.com</td>
+                                <td>HEAD_CHANNEL, LEAD_REGION</td>
+                                <td>Admin</td>
+                                <td>01/09/2025</td>
+                                <td>
+                                    <a href="#" style="margin-right: 10px;">Edit</a>
+                                    <a href="#" style="color: #e74c3c;">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><a href="#">trainer_user</a></td>
+                                <td>trainer@fwd.com</td>
+                                <td>TRAINER</td>
+                                <td>Trainer</td>
+                                <td>02/09/2025</td>
+                                <td>
+                                    <a href="#" style="margin-right: 10px;">Edit</a>
+                                    <a href="#" style="color: #e74c3c;">Delete</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <span>Go 1 Page 1 of 5</span>
+                        <div class="pagination-controls">
+                            <button>&lt;</button>
+                            <span>1</span>
+                            <button>&gt;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Create User Modal -->
+    <div id="createUserModal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Create New User</h3>
+                <button class="modal-close" onclick="Navigation.hideModal('createUserModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="modal-form">
+                    <div class="form-group">
+                        <label for="userEmail">Email <span class="required-field">*</span></label>
+                        <input type="email" id="userEmail" required placeholder="lms@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="userName">User Name <span class="required-field">*</span></label>
+                        <input type="text" id="userName" required placeholder="Head_agency">
+                    </div>
+                    <div class="form-group">
+                        <label for="userTeam">Team <span class="required-field">*</span></label>
+                        <select id="userTeam" required>
+                            <option>Admin</option>
+                            <option>Trainer</option>
+                            <option>None</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>System Roles <span class="required-field">*</span></label>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                            <label style="display: flex; align-items: center; gap: 5px;">
+                                <input type="checkbox"> Trainer
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 5px;">
+                                <input type="checkbox"> Lead Region
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 5px;">
+                                <input type="checkbox"> Head Channel
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 5px;">
+                                <input type="checkbox"> Master Role
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 5px;">
+                                <input type="checkbox"> Admin
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 5px;">
+                                <input type="checkbox"> Root Admin
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="Navigation.hideModal('createUserModal')">Cancel</button>
+                <button class="btn-primary" onclick="alert('User created!'); Navigation.hideModal('createUserModal')">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>
+

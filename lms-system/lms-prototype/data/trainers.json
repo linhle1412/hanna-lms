@@ -1,0 +1,272 @@
+[
+  {
+    "id": 1,
+    "fullName": "Trainer1 cloudair",
+    "trainerTitle": "Head Academy",
+    "gender": "Male",
+    "idNumber": "123456789",
+    "issueDate": "2020-01-15",
+    "issuePlace": "Ho Chi Minh",
+    "email": "trainer1@mail.com",
+    "phone": "0901234567",
+    "trainerRate": 50,
+    "highestDegree": "Master of Business Administration",
+    "degree": "Master's",
+    "trainerType": "FWD",
+    "location": "Ho Chi Minh City",
+    "region": "South",
+    "status": "Active",
+    "createdBy": "System",
+    "createdDate": "2025-01-01",
+    "address": [
+      {
+        "type": "Home",
+        "street": "123 Nguyen Hue Street",
+        "city": "Ho Chi Minh",
+        "ward": "Ben Nghe Ward",
+        "country": "Vietnam"
+      }
+    ],
+    "experiences": [
+      {
+        "company": "FWD Vietnam",
+        "position": "Senior Trainer",
+        "startDate": "2020-01-01",
+        "endDate": "Present",
+        "description": "Leading training programs for insurance agents"
+      }
+    ],
+    "education": [
+      {
+        "institution": "University of Economics Ho Chi Minh City",
+        "degree": "Master's",
+        "fieldOfStudy": "Business Administration",
+        "startDate": "2015-09-01",
+        "endDate": "2017-06-30"
+      }
+    ],
+    "rewards": [
+      {
+        "title": "Best Trainer of the Year 2024",
+        "issuer": "FWD Vietnam",
+        "date": "2024-12-15",
+        "description": "Recognized for outstanding training performance"
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Certified Professional Trainer",
+        "issuer": "International Training Association",
+        "issueDate": "2020-05-01",
+        "expiryDate": "2025-05-01"
+      }
+    ],
+    "activeRatio": {
+      "totalCourses": 45,
+      "completedCourses": 43,
+      "averageRating": 4.8
+    },
+    "trainingHistory": []
+  },
+  {
+    "id": 2,
+    "fullName": "Trainer2 cloudair",
+    "trainerTitle": "Head Agency",
+    "gender": "Female",
+    "idNumber": "987654321",
+    "issueDate": "2019-05-20",
+    "issuePlace": "Hanoi",
+    "email": "trainer2@mail.com",
+    "phone": "0912345678",
+    "trainerRate": 55,
+    "highestDegree": "Bachelor of Education",
+    "degree": "Bachelor's",
+    "trainerType": "FWD",
+    "location": "Hanoi",
+    "region": "North",
+    "status": "Active",
+    "createdBy": "System",
+    "createdDate": "2025-01-01",
+    "address": [
+      {
+        "type": "Home",
+        "street": "456 Ba Trieu Street",
+        "city": "Hanoi",
+        "ward": "Pham Dinh Ho Ward",
+        "country": "Vietnam"
+      }
+    ],
+    "experiences": [
+      {
+        "company": "FWD Vietnam",
+        "position": "Trainer",
+        "startDate": "2019-06-01",
+        "endDate": "Present",
+        "description": "Conducting training sessions for agency channel"
+      }
+    ],
+    "education": [
+      {
+        "institution": "Hanoi National University of Education",
+        "degree": "Bachelor's",
+        "fieldOfStudy": "Education",
+        "startDate": "2012-09-01",
+        "endDate": "2016-06-30"
+      }
+    ],
+    "rewards": [],
+    "certifications": [
+      {
+        "name": "Insurance Training Certificate",
+        "issuer": "Vietnam Insurance Association",
+        "issueDate": "2019-08-01"
+      }
+    ],
+    "activeRatio": {
+      "totalCourses": 38,
+      "completedCourses": 36,
+      "averageRating": 4.6
+    },
+    "trainingHistory": []
+  },
+  {
+    "id": 3,
+    "fullName": "John Trainer",
+    "trainerTitle": "Head Banca",
+    "gender": "Male",
+    "idNumber": "555666777",
+    "issueDate": "2021-03-10",
+    "issuePlace": "Da Nang",
+    "email": "john.trainer@fwd.com",
+    "phone": "0923456789",
+    "trainerRate": 60,
+    "highestDegree": "Master of Finance",
+    "degree": "Master's",
+    "trainerType": "FWD",
+    "location": "Da Nang",
+    "region": "Middle",
+    "status": "Active",
+    "createdBy": "System",
+    "createdDate": "2025-01-01",
+    "address": [],
+    "experiences": [],
+    "education": [],
+    "rewards": [],
+    "certifications": [],
+    "activeRatio": {
+      "totalCourses": 25,
+      "completedCourses": 24,
+      "averageRating": 4.7
+    },
+    "trainingHistory": []
+  },
+  {
+    "id": 4,
+    "fullName": "Sarah FWT Trainer",
+    "trainerTitle": "Head IFA",
+    "gender": "Female",
+    "idNumber": "111222333",
+    "issueDate": "2018-07-15",
+    "issuePlace": "Ho Chi Minh",
+    "email": "sarah.fwt@external.com",
+    "phone": "0934567890",
+    "trainerRate": 45,
+    "highestDegree": "Bachelor of Business",
+    "degree": "Bachelor's",
+    "trainerType": "FWT",
+    "location": "Ho Chi Minh City",
+    "region": "South",
+    "status": "Active",
+    "createdBy": "System",
+    "createdDate": "2025-01-01",
+    "address": [],
+    "experiences": [],
+    "education": [],
+    "rewards": [],
+    "certifications": [],
+    "activeRatio": {
+      "totalCourses": 15,
+      "completedCourses": 15,
+      "averageRating": 4.5
+    },
+    "trainingHistory": []
+  },
+  {
+    "id": 1763284708058,
+    "fullName": "Hannah",
+    "trainerTitle": "Head Agency",
+    "gender": "Male",
+    "idNumber": "2342234",
+    "issueDate": "2023-02-16",
+    "issuePlace": "Gia Lai",
+    "email": "Hannah123456@gmail.com",
+    "phone": "0334565432",
+    "trainerRate": 300,
+    "highestDegree": "",
+    "degree": "Master's",
+    "trainerType": "FWD",
+    "location": "HCM",
+    "region": "South",
+    "status": "Active",
+    "createdBy": "System",
+    "createdDate": "2025-11-16",
+    "address": [],
+    "experiences": [],
+    "education": [],
+    "rewards": [],
+    "certifications": [],
+    "trainingHistory": []
+  },
+  {
+    "id": 1763289191128,
+    "fullName": "Lead Agency North",
+    "trainerTitle": "Lead Agency - North",
+    "gender": "Male",
+    "idNumber": "2998883745",
+    "issueDate": "2021-02-02",
+    "issuePlace": "Gia Lai",
+    "email": "leadagencynorth@gmail.com",
+    "phone": "0387874545",
+    "trainerRate": 300,
+    "highestDegree": "",
+    "degree": "Master's",
+    "trainerType": "Internal Trainer",
+    "location": "Ha Noi",
+    "region": "North",
+    "status": "Active",
+    "createdBy": "System",
+    "createdDate": "2025-11-16",
+    "address": [],
+    "experiences": [],
+    "education": [],
+    "rewards": [],
+    "certifications": [],
+    "trainingHistory": []
+  },
+  {
+    "id": 1763289330029,
+    "fullName": "Trainer Agency North",
+    "trainerTitle": "Trainer - Agency - North",
+    "gender": "Male",
+    "idNumber": "2898876354",
+    "issueDate": "2020-02-18",
+    "issuePlace": "Ho Chi Minh",
+    "email": "traineragencynorth@gmail.com",
+    "phone": "0389876354",
+    "trainerRate": 200,
+    "highestDegree": "",
+    "degree": "Associate",
+    "trainerType": "Internal Trainer",
+    "location": "Ha Noi",
+    "region": "North",
+    "status": "Active",
+    "createdBy": "System",
+    "createdDate": "2025-11-16",
+    "address": [],
+    "experiences": [],
+    "education": [],
+    "rewards": [],
+    "certifications": [],
+    "trainingHistory": []
+  }
+]

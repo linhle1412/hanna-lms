@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FWD LMS - Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-logo">
+            <h1>FWD Insurance</h1>
+            <h2>Learning Management System</h2>
+        </div>
+        <div class="login-form">
+            <h3>Sign In</h3>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required placeholder="Enter your username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <select id="role" name="role" required>
+                        <option value="">Select Role</option>
+                        <option value="trainer">Trainer</option>
+                        <option value="lead_region">Lead Region</option>
+                        <option value="head_channel">Head Channel</option>
+                        <option value="admin">Admin Channel</option>
+                        <option value="root_admin">Root Admin</option>
+                        <option value="dms_admin">DMS Admin</option>
+                        <option value="master_role">Master Role</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Sign In</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const role = document.getElementById('role').value;
+            if (role) {
+                sessionStorage.setItem('userRole', role);
+                window.location.href = 'dashboard.html';
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - FWD LMS</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <h2>FWD Insurance</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard.html" class="nav-item">
+                    <span class="nav-icon">🏠</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="reports.html" class="nav-item active admin-only">
+                    <span class="nav-icon">📊</span>
+                    <span>Reports</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="breadcrumb">
+                    <a href="../dashboard.html">🏠 Home</a>
+                    <span>></span>
+                    <span class="active">Reports</span>
+                </div>
+                <div class="user-profile">
+                    <select id="roleSelector">
+                        <option value="admin">Admin</option>
+                        <option value="root_admin">Root Admin</option>
+                        <option value="lead_region">Lead Region</option>
+                        <option value="head_channel">Head Channel</option>
+                    </select>
+                    <img src="https://via.placeholder.com/32" alt="Profile">
+                    <span>LMS Admin</span>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <h1 class="page-title">Reports</h1>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px;">
+                    <div class="stat-card" onclick="showReport('shine')" style="cursor: pointer;">
+                        <h3>SHINE Pass Ratio</h3>
+                        <p>View Report</p>
+                    </div>
+                    <div class="stat-card" onclick="showReport('training')" style="cursor: pointer;">
+                        <h3>SHINE Training</h3>
+                        <p>View Report</p>
+                    </div>
+                    <div class="stat-card" onclick="showReport('participants')" style="cursor: pointer;">
+                        <h3>Participants of Trainers</h3>
+                        <p>View Report</p>
+                    </div>
+                    <div class="stat-card" onclick="showReport('recruitment')" style="cursor: pointer;">
+                        <h3>Recruitment SHINE</h3>
+                        <p>View Report</p>
+                    </div>
+                    <div class="stat-card" onclick="showReport('mof')" style="cursor: pointer;">
+                        <h3>MOF Registration</h3>
+                        <p>View Report</p>
+                    </div>
+                    <div class="stat-card" onclick="showReport('passRatio')" style="cursor: pointer;">
+                        <h3>Pass Ratio by Month</h3>
+                        <p>View Report</p>
+                    </div>
+                    <div class="stat-card" onclick="showReport('attendance')" style="cursor: pointer;">
+                        <h3>Attendance Report</h3>
+                        <p>View Report</p>
+                    </div>
+                    <div class="stat-card" onclick="showReport('payslip')" style="cursor: pointer;">
+                        <h3>FWT Trainer Payslip</h3>
+                        <p>View Report</p>
+                    </div>
+                    <div class="stat-card" onclick="showReport('examFee')" style="cursor: pointer;">
+                        <h3>Exam Fee Total</h3>
+                        <p>View Report</p>
+                    </div>
+                </div>
+
+                <div id="reportContent" class="table-container" style="display: none;">
+                    <div class="action-header">
+                        <h2 id="reportTitle">Report</h2>
+                        <button class="btn-primary" onclick="exportReport()">Export Excel</button>
+                    </div>
+                    <div class="search-section">
+                        <select class="filter-select">
+                            <option>Select Filters</option>
+                        </select>
+                        <select class="filter-select">
+                            <option>Date Range</option>
+                        </select>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr id="reportHeaders"></tr>
+                        </thead>
+                        <tbody id="reportBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+    <script>
+        function showReport(reportType) {
+            document.getElementById('reportContent').style.display = 'block';
+            document.getElementById('reportTitle').textContent = reportType.toUpperCase() + ' Report';
+            
+            // Simulate report data
+            const headers = document.getElementById('reportHeaders');
+            const body = document.getElementById('reportBody');
+            
+            headers.innerHTML = '<th>Column 1</th><th>Column 2</th><th>Column 3</th>';
+            body.innerHTML = '<tr><td>Sample Data</td><td>Sample Data</td><td>Sample Data</td></tr>';
+        }
+
+        function exportReport() {
+            alert('Report exported to Excel!');
+        }
+    </script>
+</body>
+</html>
+

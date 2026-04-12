@@ -1,0 +1,1009 @@
+[
+  {
+    "id": 1,
+    "code": "001-HCAG-SH",
+    "name": "SHINE Foundation Training",
+    "program": "SHINE Basic",
+    "trainer": "John Smith",
+    "channel": "Agency",
+    "region": "South",
+    "status": "NEW",
+    "startDate": "2025-12-15",
+    "endDate": "2025-12-20",
+    "venue": "FWD Tower, 5th Floor",
+    "section": 6,
+    "createdBy": "Admin User",
+    "createdAt": "2025-11-30T08:00:00.000Z",
+    "updatedBy": "Admin User",
+    "updatedAt": "2025-11-30T08:00:00.000Z",
+    "participantIds": [],
+    "courseType": "Shine",
+    "licenseType": "SHINE",
+    "partner": [
+      "Partner A"
+    ],
+    "branch": "Branch 1",
+    "primaryTrainer": "John Smith",
+    "coTrainer": "Jane Doe",
+    "venueAddress": "FWD Tower, 5th Floor, 268 To Hien Thanh",
+    "area": "Area 1",
+    "province": "Ho Chi Minh",
+    "district": "District 10",
+    "ward": "Ward 12",
+    "startTimePeriod": "AM",
+    "endTimePeriod": "PM",
+    "aolStartTime": "2025-12-20T14:00:00.000Z",
+    "aolEndTime": "2025-12-22T17:00:00.000Z",
+    "aolExamId": [
+      "AOL001"
+    ],
+    "mofCourseName": "Insurance Consultant Basic",
+    "examType": "Trực tuyến tại doanh nghiệp",
+    "mofExamTime": "2025-12-21T09:00:00.000Z",
+    "isProctorTrainer": true,
+    "proctorTrainer": "Jane Doe",
+    "mofAddress": "FWD Tower, 268 To Hien Thanh",
+    "mofProvince": "Ho Chi Minh",
+    "examCategory": "Nhân viên tư vấn bảo hiểm",
+    "supporter": [
+      "Admin User 1",
+      "Admin User 2"
+    ],
+    "description": "Foundation training for new insurance consultants",
+    "statusHistory": [
+      {
+        "status": "NEW",
+        "timestamp": "2025-11-30T08:00:00.000Z",
+        "performedBy": "Admin User (admin)",
+        "action": "Course Created",
+        "reason": "Course was created in the system",
+        "isAutomatic": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "code": "001-HNBC-PR",
+    "name": "Product Training - Life Insurance",
+    "program": "Product Basic",
+    "trainer": "Michael Chen",
+    "channel": "Banca FSC",
+    "region": "North",
+    "status": "REGISTERED",
+    "startDate": "2025-12-10",
+    "endDate": "2025-12-12",
+    "venue": "Hanoi Training Center",
+    "section": 4,
+    "createdBy": "Lead User North",
+    "createdAt": "2025-11-25T10:30:00.000Z",
+    "updatedBy": "Michael Chen",
+    "updatedAt": "2025-11-28T14:20:00.000Z",
+    "participantIds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "courseType": "Product",
+    "licenseType": "Product",
+    "partner": [
+      "Partner B"
+    ],
+    "branch": "Branch 2",
+    "primaryTrainer": "Michael Chen",
+    "venueAddress": "Hanoi Training Center, 15 Phan Chu Trinh",
+    "area": "Area 2",
+    "province": "Hanoi",
+    "district": "Hoan Kiem District",
+    "ward": "Trang Tien Ward",
+    "startTimePeriod": "AM",
+    "endTimePeriod": "PM",
+    "aolStartTime": "2025-12-12T14:00:00.000Z",
+    "aolEndTime": "2025-12-14T17:00:00.000Z",
+    "aolExamId": [
+      "AOL002"
+    ],
+    "description": "Comprehensive training on life insurance products",
+    "statusHistory": [
+      {
+        "status": "NEW",
+        "timestamp": "2025-11-25T10:30:00.000Z",
+        "performedBy": "Lead User North (lead_region)",
+        "action": "Course Created",
+        "reason": "Course was created in the system",
+        "isAutomatic": false
+      },
+      {
+        "status": "REGISTERED",
+        "timestamp": "2025-11-28T14:20:00.000Z",
+        "performedBy": "Michael Chen (trainer)",
+        "action": "Course Registered",
+        "reason": "Trainer registered for course",
+        "previousStatus": "NEW",
+        "isAutomatic": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "code": "001-DNAG-SK",
+    "name": "Communication Skills Workshop",
+    "program": "Skill Basic",
+    "trainer": "Sarah Johnson",
+    "channel": "Agency",
+    "region": "Central",
+    "status": "APPROVED",
+    "startDate": "2025-12-05",
+    "endDate": "2025-12-07",
+    "venue": "Da Nang Conference Hall",
+    "section": 3,
+    "createdBy": "Head Channel Agency",
+    "createdAt": "2025-11-20T09:00:00.000Z",
+    "updatedBy": "Lead Central",
+    "updatedAt": "2025-11-29T16:45:00.000Z",
+    "participantIds": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "courseType": "Skill",
+    "licenseType": "Skill",
+    "partner": [
+      "Partner C"
+    ],
+    "branch": "Branch 3",
+    "primaryTrainer": "Sarah Johnson",
+    "coTrainer": "David Lee",
+    "venueAddress": "Da Nang Conference Hall, 12 Tran Phu",
+    "area": "Area 3",
+    "province": "Da Nang",
+    "district": "Hai Chau District",
+    "ward": "Thach Thang Ward",
+    "startTimePeriod": "AM",
+    "endTimePeriod": "PM",
+    "aolStartTime": "2025-12-07T14:00:00.000Z",
+    "aolEndTime": "2025-12-09T17:00:00.000Z",
+    "aolExamId": [
+      "AOL003"
+    ],
+    "description": "Enhance communication and soft skills for consultants",
+    "statusHistory": [
+      {
+        "status": "NEW",
+        "timestamp": "2025-11-20T09:00:00.000Z",
+        "performedBy": "Head Channel Agency (head_channel)",
+        "action": "Course Created",
+        "reason": "Course was created in the system",
+        "isAutomatic": false
+      },
+      {
+        "status": "REGISTERED",
+        "timestamp": "2025-11-26T11:30:00.000Z",
+        "performedBy": "Sarah Johnson (trainer)",
+        "action": "Course Registered",
+        "reason": "Trainer registered for course",
+        "previousStatus": "NEW",
+        "isAutomatic": false
+      },
+      {
+        "status": "APPROVED",
+        "timestamp": "2025-11-29T16:45:00.000Z",
+        "performedBy": "Lead Central (lead_region)",
+        "action": "Registration Approved",
+        "reason": "Course registration approved by Lead Region",
+        "previousStatus": "REGISTERED",
+        "isAutomatic": false
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "code": "002-HCAG-SH",
+    "name": "SHINE Advanced Leadership",
+    "program": "SHINE Advanced",
+    "trainer": "Robert Wilson",
+    "channel": "Agency",
+    "region": "South",
+    "status": "IN_PROGRESS",
+    "startDate": "2025-11-28",
+    "endDate": "2025-12-04",
+    "venue": "FWD Tower, 7th Floor",
+    "section": 8,
+    "createdBy": "Admin User",
+    "createdAt": "2025-11-15T07:30:00.000Z",
+    "updatedBy": "System",
+    "updatedAt": "2025-11-28T08:00:00.000Z",
+    "participantIds": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "courseType": "Shine",
+    "licenseType": "SHINE",
+    "partner": [
+      "Partner A",
+      "Partner B"
+    ],
+    "branch": "Branch 1",
+    "primaryTrainer": "Robert Wilson",
+    "coTrainer": "Emily Brown",
+    "venueAddress": "FWD Tower, 7th Floor, 268 To Hien Thanh",
+    "area": "Area 1",
+    "province": "Ho Chi Minh",
+    "district": "District 10",
+    "ward": "Ward 12",
+    "startTimePeriod": "AM",
+    "endTimePeriod": "PM",
+    "aolStartTime": "2025-12-04T14:00:00.000Z",
+    "aolEndTime": "2025-12-06T17:00:00.000Z",
+    "aolExamId": [
+      "AOL001",
+      "AOL002"
+    ],
+    "mofCourseName": "Advanced Insurance Consulting",
+    "examType": "Trực tuyến tại doanh nghiệp",
+    "mofExamTime": "2025-12-05T09:00:00.000Z",
+    "isProctorTrainer": false,
+    "proctorName": "External Proctor A",
+    "proctorPhone": "0901234567",
+    "mofAddress": "FWD Tower, 268 To Hien Thanh",
+    "mofProvince": "Ho Chi Minh",
+    "examCategory": "Nhân viên tư vấn bảo hiểm",
+    "supporter": [
+      "Admin User 1"
+    ],
+    "description": "Advanced training for experienced consultants",
+    "statusHistory": [
+      {
+        "status": "NEW",
+        "timestamp": "2025-11-15T07:30:00.000Z",
+        "performedBy": "Admin User (admin)",
+        "action": "Course Created",
+        "reason": "Course was created in the system",
+        "isAutomatic": false
+      },
+      {
+        "status": "REGISTERED",
+        "timestamp": "2025-11-18T10:00:00.000Z",
+        "performedBy": "Robert Wilson (trainer)",
+        "action": "Course Registered",
+        "reason": "Trainer registered for course",
+        "previousStatus": "NEW",
+        "isAutomatic": false
+      },
+      {
+        "status": "APPROVED",
+        "timestamp": "2025-11-22T14:30:00.000Z",
+        "performedBy": "Lead South (lead_region)",
+        "action": "Registration Approved",
+        "reason": "Course registration approved",
+        "previousStatus": "REGISTERED",
+        "isAutomatic": false
+      },
+      {
+        "status": "IN_PROGRESS",
+        "timestamp": "2025-11-28T08:00:00.000Z",
+        "performedBy": "System (system)",
+        "action": "Course Started",
+        "reason": "Course start date reached",
+        "previousStatus": "APPROVED",
+        "isAutomatic": true
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "code": "001-CTBK-PR",
+    "name": "Product Training - Health Insurance",
+    "program": "Product Advanced",
+    "trainer": "Lisa Anderson",
+    "channel": "Banker",
+    "region": "Central",
+    "status": "FINISHED",
+    "startDate": "2025-11-10",
+    "endDate": "2025-11-13",
+    "venue": "Can Tho Business Center",
+    "section": 5,
+    "createdBy": "Head Channel Banker",
+    "createdAt": "2025-10-25T08:00:00.000Z",
+    "updatedBy": "System",
+    "updatedAt": "2025-11-13T17:00:00.000Z",
+    "participantIds": [
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "courseType": "Product",
+    "licenseType": "Product",
+    "partner": [
+      "Partner D"
+    ],
+    "branch": "Branch 4",
+    "primaryTrainer": "Lisa Anderson",
+    "coTrainer": "Mark Taylor",
+    "venueAddress": "Can Tho Business Center, 89 Nguyen Van Linh",
+    "area": "Area 4",
+    "province": "Can Tho",
+    "district": "Ninh Kieu District",
+    "ward": "An Hoi Ward",
+    "startTimePeriod": "AM",
+    "endTimePeriod": "PM",
+    "aolStartTime": "2025-11-13T14:00:00.000Z",
+    "aolEndTime": "2025-11-15T17:00:00.000Z",
+    "aolExamId": [
+      "AOL004"
+    ],
+    "description": "Comprehensive training on health insurance products",
+    "statusHistory": [
+      {
+        "status": "NEW",
+        "timestamp": "2025-10-25T08:00:00.000Z",
+        "performedBy": "Head Channel Banker (head_channel)",
+        "action": "Course Created",
+        "reason": "Course was created in the system",
+        "isAutomatic": false
+      },
+      {
+        "status": "REGISTERED",
+        "timestamp": "2025-10-28T09:30:00.000Z",
+        "performedBy": "Lisa Anderson (trainer)",
+        "action": "Course Registered",
+        "reason": "Trainer registered for course",
+        "previousStatus": "NEW",
+        "isAutomatic": false
+      },
+      {
+        "status": "APPROVED",
+        "timestamp": "2025-11-03T11:00:00.000Z",
+        "performedBy": "Lead Central (lead_region)",
+        "action": "Registration Approved",
+        "reason": "Course registration approved",
+        "previousStatus": "REGISTERED",
+        "isAutomatic": false
+      },
+      {
+        "status": "IN_PROGRESS",
+        "timestamp": "2025-11-10T08:00:00.000Z",
+        "performedBy": "System (system)",
+        "action": "Course Started",
+        "reason": "Course start date reached",
+        "previousStatus": "APPROVED",
+        "isAutomatic": true
+      },
+      {
+        "status": "FINISHED",
+        "timestamp": "2025-11-13T17:00:00.000Z",
+        "performedBy": "System (system)",
+        "action": "Course Completed",
+        "reason": "Course end date reached",
+        "previousStatus": "IN_PROGRESS",
+        "isAutomatic": true
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "code": "001-HCIFA-SK",
+    "name": "Sales Techniques Masterclass",
+    "program": "Skill Advanced",
+    "trainer": "James Martinez",
+    "channel": "IFA",
+    "region": "South",
+    "status": "WAITING_APPROVAL_EDIT",
+    "startDate": "2025-12-20",
+    "endDate": "2025-12-22",
+    "venue": "IFA Training Hub",
+    "section": 4,
+    "createdBy": "James Martinez",
+    "createdAt": "2025-11-10T13:00:00.000Z",
+    "updatedBy": "James Martinez",
+    "updatedAt": "2025-11-30T10:00:00.000Z",
+    "participantIds": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "courseType": "Skill",
+    "licenseType": "Skill",
+    "partner": [
+      "Partner E"
+    ],
+    "branch": "Branch 5",
+    "primaryTrainer": "James Martinez",
+    "venueAddress": "IFA Training Hub, 456 Le Van Viet",
+    "area": "Area 5",
+    "province": "Ho Chi Minh",
+    "district": "District 9",
+    "ward": "Tang Nhon Phu A Ward",
+    "startTimePeriod": "AM",
+    "endTimePeriod": "PM",
+    "aolStartTime": "2025-12-22T14:00:00.000Z",
+    "aolEndTime": "2025-12-24T17:00:00.000Z",
+    "aolExamId": [
+      "AOL005"
+    ],
+    "description": "Advanced sales techniques for IFA consultants",
+    "statusHistory": [
+      {
+        "status": "NEW",
+        "timestamp": "2025-11-10T13:00:00.000Z",
+        "performedBy": "James Martinez (trainer)",
+        "action": "Course Created",
+        "reason": "Course was created in the system",
+        "isAutomatic": false
+      },
+      {
+        "status": "REGISTERED",
+        "timestamp": "2025-11-12T14:00:00.000Z",
+        "performedBy": "James Martinez (trainer)",
+        "action": "Course Registered",
+        "reason": "Trainer registered for course",
+        "previousStatus": "NEW",
+        "isAutomatic": false
+      },
+      {
+        "status": "APPROVED",
+        "timestamp": "2025-11-15T16:00:00.000Z",
+        "performedBy": "Lead South (lead_region)",
+        "action": "Registration Approved",
+        "reason": "Course registration approved",
+        "previousStatus": "REGISTERED",
+        "isAutomatic": false
+      },
+      {
+        "status": "WAITING_APPROVAL_EDIT",
+        "timestamp": "2025-11-30T10:00:00.000Z",
+        "performedBy": "James Martinez (trainer)",
+        "action": "Edit Submitted",
+        "reason": "Changed venue and added more participants",
+        "previousStatus": "APPROVED",
+        "isAutomatic": false
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "code": "001-HNBC-SH",
+    "name": "SHINE Basic - Hanoi Batch 2",
+    "program": "SHINE Basic",
+    "trainer": "Patricia Davis",
+    "channel": "Banca FSC",
+    "region": "North",
+    "status": "WAITING_APPROVAL_CANCEL",
+    "startDate": "2025-12-18",
+    "endDate": "2025-12-23",
+    "venue": "Hanoi Office Building",
+    "section": 6,
+    "createdBy": "Patricia Davis",
+    "createdAt": "2025-11-05T09:00:00.000Z",
+    "updatedBy": "Patricia Davis",
+    "updatedAt": "2025-11-29T15:30:00.000Z",
+    "participantIds": [
+      28,
+      29
+    ],
+    "courseType": "Shine",
+    "licenseType": "SHINE",
+    "partner": [
+      "Partner B"
+    ],
+    "branch": "Branch 2",
+    "primaryTrainer": "Patricia Davis",
+    "venueAddress": "Hanoi Office Building, 25 Ly Thuong Kiet",
+    "area": "Area 2",
+    "province": "Hanoi",
+    "district": "Hoan Kiem District",
+    "ward": "Hang Trong Ward",
+    "startTimePeriod": "AM",
+    "endTimePeriod": "PM",
+    "aolStartTime": "2025-12-23T14:00:00.000Z",
+    "aolEndTime": "2025-12-25T17:00:00.000Z",
+    "aolExamId": [
+      "AOL001"
+    ],
+    "mofCourseName": "Basic Insurance Consultant",
+    "examType": "Trực tuyến tại VIDI",
+    "mofExamTime": "2025-12-24T09:00:00.000Z",
+    "isProctorTrainer": true,
+    "proctorTrainer": "Trainer Assistant A",
+    "mofAddress": "Hanoi Office Building, 25 Ly Thuong Kiet",
+    "mofProvince": "Hanoi",
+    "examCategory": "Nhân viên tư vấn bảo hiểm",
+    "description": "Foundation SHINE training for Banca FSC channel",
+    "statusHistory": [
+      {
+        "status": "NEW",
+        "timestamp": "2025-11-05T09:00:00.000Z",
+        "performedBy": "Patricia Davis (trainer)",
+        "action": "Course Created",
+        "reason": "Course was created in the system",
+        "isAutomatic": false
+      },
+      {
+        "status": "REGISTERED",
+        "timestamp": "2025-11-08T10:30:00.000Z",
+        "performedBy": "Patricia Davis (trainer)",
+        "action": "Course Registered",
+        "reason": "Trainer registered for course",
+        "previousStatus": "NEW",
+        "isAutomatic": false
+      },
+      {
+        "status": "APPROVED",
+        "timestamp": "2025-11-12T14:00:00.000Z",
+        "performedBy": "Lead North (lead_region)",
+        "action": "Registration Approved",
+        "reason": "Course registration approved",
+        "previousStatus": "REGISTERED",
+        "isAutomatic": false
+      },
+      {
+        "status": "WAITING_APPROVAL_CANCEL",
+        "timestamp": "2025-11-29T15:30:00.000Z",
+        "performedBy": "Patricia Davis (trainer)",
+        "action": "Cancel Request Submitted",
+        "reason": "Insufficient participants - only 2 enrolled",
+        "previousStatus": "APPROVED",
+        "isAutomatic": false
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "code": "001-DNAG-PR",
+    "name": "Product Training - Investment Linked",
+    "program": "Product Advanced",
+    "trainer": "Christopher White",
+    "channel": "Agency",
+    "region": "Central",
+    "status": "CANCELLED",
+    "startDate": "2025-11-25",
+    "endDate": "2025-11-28",
+    "venue": "Da Nang Training Room",
+    "section": 4,
+    "createdBy": "Christopher White",
+    "createdAt": "2025-10-20T11:00:00.000Z",
+    "updatedBy": "Lead Central",
+    "updatedAt": "2025-11-20T09:00:00.000Z",
+    "participantIds": [],
+    "courseType": "Product",
+    "licenseType": "Product",
+    "partner": [
+      "Partner C"
+    ],
+    "branch": "Branch 3",
+    "primaryTrainer": "Christopher White",
+    "venueAddress": "Da Nang Training Room, 88 Bach Dang",
+    "area": "Area 3",
+    "province": "Da Nang",
+    "district": "Hai Chau District",
+    "ward": "Hai Chau 1 Ward",
+    "startTimePeriod": "AM",
+    "endTimePeriod": "PM",
+    "aolStartTime": "2025-11-28T14:00:00.000Z",
+    "aolEndTime": "2025-11-30T17:00:00.000Z",
+    "aolExamId": [
+      "AOL003"
+    ],
+    "description": "Investment-linked insurance product training",
+    "statusHistory": [
+      {
+        "status": "NEW",
+        "timestamp": "2025-10-20T11:00:00.000Z",
+        "performedBy": "Christopher White (trainer)",
+        "action": "Course Created",
+        "reason": "Course was created in the system",
+        "isAutomatic": false
+      },
+      {
+        "status": "REGISTERED",
+        "timestamp": "2025-10-25T13:00:00.000Z",
+        "performedBy": "Christopher White (trainer)",
+        "action": "Course Registered",
+        "reason": "Trainer registered for course",
+        "previousStatus": "NEW",
+        "isAutomatic": false
+      },
+      {
+        "status": "APPROVED",
+        "timestamp": "2025-10-30T15:00:00.000Z",
+        "performedBy": "Lead Central (lead_region)",
+        "action": "Registration Approved",
+        "reason": "Course registration approved",
+        "previousStatus": "REGISTERED",
+        "isAutomatic": false
+      },
+      {
+        "status": "WAITING_APPROVAL_CANCEL",
+        "timestamp": "2025-11-18T10:00:00.000Z",
+        "performedBy": "Christopher White (trainer)",
+        "action": "Cancel Request Submitted",
+        "reason": "Trainer unavailable due to emergency",
+        "previousStatus": "APPROVED",
+        "isAutomatic": false
+      },
+      {
+        "status": "CANCELLED",
+        "timestamp": "2025-11-20T09:00:00.000Z",
+        "performedBy": "Lead Central (lead_region)",
+        "action": "Cancellation Approved",
+        "reason": "Approved - trainer emergency",
+        "previousStatus": "WAITING_APPROVAL_CANCEL",
+        "isAutomatic": false
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "code": "001-HPAG-SK",
+    "name": "Customer Service Excellence",
+    "program": "Skill Basic",
+    "trainer": "Jennifer Garcia",
+    "channel": "Agency",
+    "region": "North",
+    "status": "APPROVED",
+    "startDate": "2025-12-08",
+    "endDate": "2025-12-10",
+    "venue": "Hai Phong Convention Center",
+    "section": 3,
+    "createdBy": "Head Channel Agency",
+    "createdAt": "2025-11-18T08:30:00.000Z",
+    "updatedBy": "Lead North",
+    "updatedAt": "2025-11-27T14:00:00.000Z",
+    "participantIds": [
+      30,
+      31,
+      32,
+      33,
+      34,
+      35
+    ],
+    "courseType": "Skill",
+    "licenseType": "Skill",
+    "partner": [
+      "Partner F"
+    ],
+    "branch": "Branch 6",
+    "primaryTrainer": "Jennifer Garcia",
+    "coTrainer": "Andrew Thomas",
+    "venueAddress": "Hai Phong Convention Center, 2 Nguyen Tri Phuong",
+    "area": "Area 6",
+    "province": "Hai Phong",
+    "district": "Hong Bang District",
+    "ward": "Hoang Van Thu Ward",
+    "startTimePeriod": "AM",
+    "endTimePeriod": "PM",
+    "aolStartTime": "2025-12-10T14:00:00.000Z",
+    "aolEndTime": "2025-12-12T17:00:00.000Z",
+    "aolExamId": [
+      "AOL006"
+    ],
+    "description": "Customer service and relationship management training",
+    "statusHistory": [
+      {
+        "status": "NEW",
+        "timestamp": "2025-11-18T08:30:00.000Z",
+        "performedBy": "Head Channel Agency (head_channel)",
+        "action": "Course Created",
+        "reason": "Course was created in the system",
+        "isAutomatic": false
+      },
+      {
+        "status": "REGISTERED",
+        "timestamp": "2025-11-22T11:00:00.000Z",
+        "performedBy": "Jennifer Garcia (trainer)",
+        "action": "Course Registered",
+        "reason": "Trainer registered for course",
+        "previousStatus": "NEW",
+        "isAutomatic": false
+      },
+      {
+        "status": "APPROVED",
+        "timestamp": "2025-11-27T14:00:00.000Z",
+        "performedBy": "Lead North (lead_region)",
+        "action": "Registration Approved",
+        "reason": "Course registration approved",
+        "previousStatus": "REGISTERED",
+        "isAutomatic": false
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "code": "003-HCAG-SH",
+    "name": "SHINE Refresher Training",
+    "program": "SHINE Basic",
+    "trainer": "Daniel Rodriguez",
+    "channel": "Agency",
+    "region": "South",
+    "status": "REGISTERED",
+    "startDate": "2025-12-12",
+    "endDate": "2025-12-14",
+    "venue": "FWD Tower, 3rd Floor",
+    "section": 4,
+    "createdBy": "Daniel Rodriguez",
+    "createdAt": "2025-11-22T10:00:00.000Z",
+    "updatedBy": "Daniel Rodriguez",
+    "updatedAt": "2025-11-28T09:30:00.000Z",
+    "participantIds": [
+      36,
+      37,
+      38
+    ],
+    "courseType": "Shine",
+    "licenseType": "SHINE",
+    "partner": [
+      "Partner A"
+    ],
+    "branch": "Branch 1",
+    "primaryTrainer": "Daniel Rodriguez",
+    "venueAddress": "FWD Tower, 3rd Floor, 268 To Hien Thanh",
+    "area": "Area 1",
+    "province": "Ho Chi Minh",
+    "district": "District 10",
+    "ward": "Ward 12",
+    "startTimePeriod": "AM",
+    "endTimePeriod": "PM",
+    "aolStartTime": "2025-12-14T14:00:00.000Z",
+    "aolEndTime": "2025-12-16T17:00:00.000Z",
+    "aolExamId": [
+      "AOL001"
+    ],
+    "mofCourseName": "Insurance Consultant Refresher",
+    "examType": "Trực tuyến tại doanh nghiệp",
+    "mofExamTime": "2025-12-15T09:00:00.000Z",
+    "isProctorTrainer": true,
+    "proctorTrainer": "Trainer Assistant B",
+    "mofAddress": "FWD Tower, 268 To Hien Thanh",
+    "mofProvince": "Ho Chi Minh",
+    "examCategory": "Nhân viên tư vấn bảo hiểm",
+    "supporter": [
+      "Admin User 2"
+    ],
+    "description": "Refresher training for existing SHINE consultants",
+    "statusHistory": [
+      {
+        "status": "NEW",
+        "timestamp": "2025-11-22T10:00:00.000Z",
+        "performedBy": "Daniel Rodriguez (trainer)",
+        "action": "Course Created",
+        "reason": "Course was created in the system",
+        "isAutomatic": false
+      },
+      {
+        "status": "REGISTERED",
+        "timestamp": "2025-11-28T09:30:00.000Z",
+        "performedBy": "Daniel Rodriguez (trainer)",
+        "action": "Course Registered",
+        "reason": "Trainer registered for course",
+        "previousStatus": "NEW",
+        "isAutomatic": false
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "code": "001-HCAG-SH-NW",
+    "name": "SHINE National Conference",
+    "program": "SHINE Advanced",
+    "trainer": "Multiple Trainers",
+    "channel": "Agency",
+    "region": "Nationwide",
+    "status": "APPROVED",
+    "startDate": "2026-01-15",
+    "endDate": "2026-01-20",
+    "venue": "National Convention Center",
+    "section": 10,
+    "createdBy": "Master Role User",
+    "createdAt": "2025-11-01T07:00:00.000Z",
+    "updatedBy": "Master Role User",
+    "updatedAt": "2025-11-25T16:00:00.000Z",
+    "participantIds": [
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48
+    ],
+    "courseType": "Shine",
+    "licenseType": "SHINE",
+    "partner": [
+      "Partner A",
+      "Partner B",
+      "Partner C"
+    ],
+    "branch": "All Branches",
+    "primaryTrainer": "John Smith",
+    "coTrainer": "Jane Doe, Robert Wilson",
+    "venueAddress": "National Convention Center, Thu Thiem, District 2",
+    "area": "Area 1",
+    "province": "Ho Chi Minh",
+    "district": "District 2",
+    "ward": "Thu Thiem Ward",
+    "startTimePeriod": "AM",
+    "endTimePeriod": "PM",
+    "aolStartTime": "2026-01-20T14:00:00.000Z",
+    "aolEndTime": "2026-01-22T17:00:00.000Z",
+    "aolExamId": [
+      "AOL001",
+      "AOL002",
+      "AOL003"
+    ],
+    "mofCourseName": "National Insurance Conference",
+    "examType": "Trực tuyến tại doanh nghiệp",
+    "mofExamTime": "2026-01-21T09:00:00.000Z",
+    "isProctorTrainer": false,
+    "proctorName": "External Proctor Team",
+    "proctorPhone": "0909876543",
+    "mofAddress": "National Convention Center, Thu Thiem",
+    "mofProvince": "Ho Chi Minh",
+    "examCategory": "Nhân viên tư vấn bảo hiểm",
+    "supporter": [
+      "Admin User 1",
+      "Admin User 2",
+      "Admin User 3"
+    ],
+    "description": "Annual nationwide SHINE conference and training event",
+    "statusHistory": [
+      {
+        "status": "NEW",
+        "timestamp": "2025-11-01T07:00:00.000Z",
+        "performedBy": "Master Role User (master_role)",
+        "action": "Course Created",
+        "reason": "Course was created in the system",
+        "isAutomatic": false
+      },
+      {
+        "status": "REGISTERED",
+        "timestamp": "2025-11-15T10:00:00.000Z",
+        "performedBy": "John Smith (trainer)",
+        "action": "Course Registered",
+        "reason": "Trainer registered for course",
+        "previousStatus": "NEW",
+        "isAutomatic": false
+      },
+      {
+        "status": "APPROVED",
+        "timestamp": "2025-11-25T16:00:00.000Z",
+        "performedBy": "Master Role User (master_role)",
+        "action": "Registration Approved",
+        "reason": "Annual event approved",
+        "previousStatus": "REGISTERED",
+        "isAutomatic": false
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "code": "001-VTBK-PR",
+    "name": "Product Training - Annuity Products",
+    "program": "Product Advanced",
+    "trainer": "Michelle Thompson",
+    "channel": "Banker",
+    "region": "South",
+    "status": "NEW",
+    "startDate": "2025-12-22",
+    "endDate": "2025-12-25",
+    "venue": "Vung Tau Business Hub",
+    "section": 4,
+    "createdBy": "Michelle Thompson",
+    "createdAt": "2025-11-28T14:00:00.000Z",
+    "updatedBy": "Michelle Thompson",
+    "updatedAt": "2025-11-28T14:00:00.000Z",
+    "participantIds": [],
+    "courseType": "Product",
+    "licenseType": "Product",
+    "partner": [
+      "Partner G"
+    ],
+    "branch": "Branch 7",
+    "primaryTrainer": "Michelle Thompson",
+    "venueAddress": "Vung Tau Business Hub, 10 Thuy Van",
+    "area": "Area 7",
+    "province": "Vung Tau",
+    "district": "District 1",
+    "ward": "Thang Tam Ward",
+    "startTimePeriod": "AM",
+    "endTimePeriod": "PM",
+    "aolStartTime": "2025-12-25T14:00:00.000Z",
+    "aolEndTime": "2025-12-27T17:00:00.000Z",
+    "aolExamId": [
+      "AOL007"
+    ],
+    "description": "Comprehensive training on annuity and retirement products",
+    "statusHistory": [
+      {
+        "status": "NEW",
+        "timestamp": "2025-11-28T14:00:00.000Z",
+        "performedBy": "Michelle Thompson (trainer)",
+        "action": "Course Created",
+        "reason": "Course was created in the system",
+        "isAutomatic": false
+      }
+    ]
+  },
+  {
+    "id": 999,
+    "code": "TEST-CHECKLIST-SH",
+    "name": "Test Course - Checklist Display",
+    "program": "SHINE Basic",
+    "trainer": "Test Trainer",
+    "channel": "Agency",
+    "region": "South",
+    "status": "NEW",
+    "startDate": "2025-12-20",
+    "endDate": "2025-12-25",
+    "venue": "Test Training Center",
+    "section": 6,
+    "createdBy": "Admin User",
+    "createdAt": "2025-12-01T10:00:00.000Z",
+    "updatedBy": "Admin User",
+    "updatedAt": "2025-12-01T10:00:00.000Z",
+    "participantIds": [
+      3,
+      2,
+      4,
+      1
+    ],
+    "courseType": "SHINE",
+    "licenseType": "SHINE",
+    "partner": [
+      "Test Partner"
+    ],
+    "branch": "Test Branch",
+    "primaryTrainer": "Test Trainer",
+    "coTrainer": "Test Co-Trainer",
+    "venueAddress": "Test Training Center, 123 Test Street",
+    "area": "Test Area",
+    "province": "Ho Chi Minh",
+    "district": "District 1",
+    "ward": "Test Ward",
+    "startTimePeriod": "AM",
+    "endTimePeriod": "PM",
+    "aolStartTime": "2025-12-25T14:00:00.000Z",
+    "aolEndTime": "2025-12-27T17:00:00.000Z",
+    "aolExamId": [
+      "AOL-TEST"
+    ],
+    "mofCourseName": "Test Insurance Consultant",
+    "examType": "Trực tuyến tại doanh nghiệp",
+    "mofExamTime": "2025-12-26T09:00:00.000Z",
+    "isProctorTrainer": true,
+    "proctorTrainer": "Test Proctor",
+    "mofAddress": "Test Training Center, 123 Test Street",
+    "mofProvince": "Ho Chi Minh",
+    "examCategory": "Nhân viên tư vấn bảo hiểm",
+    "supporter": [
+      "Test Supporter 1",
+      "Test Supporter 2"
+    ],
+    "description": "This is a test course created specifically to demonstrate the checklist functionality. It uses the SHINE course type which has 14 checklist steps.",
+    "statusHistory": [
+      {
+        "status": "NEW",
+        "timestamp": "2025-12-01T10:00:00.000Z",
+        "performedBy": "Admin User (admin)",
+        "action": "Course Created",
+        "reason": "Test course created for checklist demonstration",
+        "isAutomatic": false
+      }
+    ],
+    "mofExamCode": "MOF-2025-002"
+  }
+]

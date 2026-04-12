@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Calendar - FWD LMS</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <h2>FWD Insurance</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard.html" class="nav-item">
+                    <span class="nav-icon">🏠</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="master-calendar.html" class="nav-item active">
+                    <span class="nav-icon">📅</span>
+                    <span>Master Calendar</span>
+                </a>
+                <a href="pic-calendar.html" class="nav-item">
+                    <span class="nav-icon">👤</span>
+                    <span>PIC Calendar</span>
+                </a>
+                <a href="course-list.html" class="nav-item">
+                    <span class="nav-icon">📚</span>
+                    <span>Courses</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="breadcrumb">
+                    <a href="../dashboard.html">🏠 Home</a>
+                    <span>></span>
+                    <span class="active">Master Calendar</span>
+                </div>
+                <div class="user-profile">
+                    <select id="roleSelector">
+                        <option value="trainer">Trainer</option>
+                        <option value="lead_region">Lead Region</option>
+                        <option value="head_channel">Head Channel</option>
+                        <option value="admin">Admin</option>
+                        <option value="root_admin">Root Admin</option>
+                    </select>
+                    <img src="https://via.placeholder.com/32" alt="Profile">
+                    <span>LMS Admin</span>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="action-header">
+                    <h1 class="page-title">Master Calendar</h1>
+                    <div>
+                        <select class="filter-select" style="margin-right: 10px;">
+                            <option>October 2025</option>
+                        </select>
+                        <button class="btn-primary" onclick="Navigation.showModal('createCourseModal')">Create Course</button>
+                    </div>
+                </div>
+
+                <div class="search-section">
+                    <select class="filter-select">
+                        <option>All Channels</option>
+                        <option>IFA</option>
+                        <option>Banca</option>
+                        <option>Agency</option>
+                    </select>
+                    <select class="filter-select">
+                        <option>All Regions</option>
+                    </select>
+                    <select class="filter-select">
+                        <option>All Course Types</option>
+                        <option>SHINE</option>
+                        <option>After-SHINE</option>
+                        <option>Product</option>
+                        <option>Skill</option>
+                    </select>
+                    <label style="display: flex; align-items: center; gap: 5px;">
+                        <input type="checkbox"> Show Programs
+                    </label>
+                </div>
+
+                <div class="calendar-view">
+                    <div class="calendar-grid">
+                        <div class="calendar-day-header">Sun</div>
+                        <div class="calendar-day-header">Mon</div>
+                        <div class="calendar-day-header">Tue</div>
+                        <div class="calendar-day-header">Wed</div>
+                        <div class="calendar-day-header">Thu</div>
+                        <div class="calendar-day-header">Fri</div>
+                        <div class="calendar-day-header">Sat</div>
+                        
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">1</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">2</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">3</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">4</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">5</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">6</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">7</div>
+                        </div>
+                        
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">8</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">9</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">10</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">11</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">12</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">13</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">14</div>
+                        </div>
+                        
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">15</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">16</div>
+                            <div class="calendar-event" onclick="Navigation.navigate('course-details.html')">SHINE Course<br/>IFA Central</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">17</div>
+                            <div class="calendar-event" onclick="Navigation.navigate('course-details.html')">Product Course<br/>Banca South</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">18</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">19</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">20</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div style="font-weight: 600; margin-bottom: 5px;">21</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Create Course Modal -->
+    <div id="createCourseModal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Create New Course</h3>
+                <button class="modal-close" onclick="Navigation.hideModal('createCourseModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="modal-form">
+                    <div class="form-group">
+                        <label for="courseName">Course Name <span class="required-field">*</span></label>
+                        <input type="text" id="courseName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="program">Program <span class="required-field">*</span></label>
+                        <select id="program" required>
+                            <option>Program</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="startDate">Start Date <span class="required-field">*</span></label>
+                        <input type="date" id="startDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="endDate">End Date <span class="required-field">*</span></label>
+                        <input type="date" id="endDate" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="Navigation.hideModal('createCourseModal')">Cancel</button>
+                <button class="btn-primary" onclick="alert('Course created!'); Navigation.hideModal('createCourseModal')">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,50 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2025-01-15T00:00:00.000Z",
+  "updatedBy": "system",
+  
+  "hierarchy": {
+    "levels": [
+      {
+        "id": "channel",
+        "name": "Channel",
+        "role": "head_channel",
+        "order": 1,
+        "parent": null,
+        "description": "Highest level - Channel head"
+      },
+      {
+        "id": "region",
+        "name": "Region",
+        "role": "lead_region",
+        "order": 2,
+        "parent": "channel",
+        "description": "Middle level - Regional lead"
+      },
+      {
+        "id": "trainer",
+        "name": "Trainer",
+        "role": "trainer",
+        "order": 3,
+        "parent": "region",
+        "description": "Lowest level - Individual trainer"
+      }
+    ]
+  },
+  
+  "approvalWorkflow": {
+    "enabled": true,
+    "description": "Unified approval workflow for all actions (Registration, Edit, Cancel)",
+    
+    "approver": {
+      "level": "channel",
+      "role": "head_channel",
+      "canApproveFor": ["trainer", "lead_region"],
+      "scope": {
+        "channel": "same",
+        "region": "all"
+      }
+    }
+  }
+}
+

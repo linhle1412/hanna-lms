@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses Management - FWD LMS</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <h2>FWD Insurance</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard.html" class="nav-item">
+                    <span class="nav-icon">🏠</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="master-calendar.html" class="nav-item">
+                    <span class="nav-icon">📅</span>
+                    <span>Master Calendar</span>
+                </a>
+                <a href="pic-calendar.html" class="nav-item">
+                    <span class="nav-icon">👤</span>
+                    <span>PIC Calendar</span>
+                </a>
+                <a href="course-list.html" class="nav-item active">
+                    <span class="nav-icon">📚</span>
+                    <span>Courses</span>
+                </a>
+                <a href="participant-list.html" class="nav-item admin-only">
+                    <span class="nav-icon">👥</span>
+                    <span>Participants</span>
+                </a>
+                <a href="trainer-list.html" class="nav-item admin-only">
+                    <span class="nav-icon">🎓</span>
+                    <span>Trainers</span>
+                </a>
+                <a href="content-management.html" class="nav-item admin-only">
+                    <span class="nav-icon">📖</span>
+                    <span>Content</span>
+                </a>
+                <a href="user-management.html" class="nav-item root-only">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Users</span>
+                </a>
+                <a href="reports.html" class="nav-item admin-only">
+                    <span class="nav-icon">📊</span>
+                    <span>Reports</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="breadcrumb">
+                    <a href="../dashboard.html">🏠 Home</a>
+                    <span>></span>
+                    <span class="active">Courses Management</span>
+                </div>
+                <div class="user-profile">
+                    <select id="roleSelector">
+                        <option value="trainer">Trainer</option>
+                        <option value="lead_region">Lead Region</option>
+                        <option value="head_channel">Head Channel</option>
+                        <option value="admin">Admin</option>
+                        <option value="root_admin">Root Admin</option>
+                        <option value="dms_admin">DMS Admin</option>
+                        <option value="master_role">Master Role</option>
+                    </select>
+                    <img src="https://via.placeholder.com/32" alt="Profile">
+                    <span>LMS Admin</span>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="action-header">
+                    <h1 class="page-title">Program Curriculum</h1>
+                    <button class="btn-primary" onclick="Navigation.showModal('createCourseModal')">Create New Course +</button>
+                </div>
+
+                <div class="search-section">
+                    <input type="text" class="search-input" placeholder="Type course code, course name,... to search.">
+                    <select class="filter-select">
+                        <option value="">All Channels</option>
+                        <option value="Agency">Agency</option>
+                        <option value="Banca FSC">Banca FSC</option>
+                        <option value="Banker">Banker</option>
+                        <option value="IFA">IFA</option>
+                    </select>
+                    <select class="filter-select">
+                        <option value="">All Regions</option>
+                        <option value="Central">Central</option>
+                        <option value="North">North</option>
+                        <option value="South">South</option>
+                        <option value="Nationwide">Nationwide</option>
+                    </select>
+                    <select class="filter-select">
+                        <option value="">All Status</option>
+                        <option value="NEW">NEW</option>
+                        <option value="REGISTERED">REGISTERED</option>
+                        <option value="APPROVED">APPROVED</option>
+                        <option value="IN_PROGRESS">IN_PROGRESS</option>
+                        <option value="WAITING_APPROVAL_EDIT">WAITING_APPROVAL_EDIT</option>
+                        <option value="WAITING_APPROVAL_CANCEL">WAITING_APPROVAL_CANCEL</option>
+                        <option value="CANCEL">CANCEL</option>
+                        <option value="FINISHED">FINISHED</option>
+                        <option value="DELETED">DELETED</option>
+                    </select>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>COURSE CODE</th>
+                                <th>COURSE NAME</th>
+                                <th>START-END DATE</th>
+                                <th>COURSE.TRAINER</th>
+                                <th>SESSION</th>
+                                <th>REGION</th>
+                                <th>CHANNEL</th>
+                                <th>VENUE</th>
+                                <th>STATUS</th>
+                                <th>CREATED BY</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="course-details.html">4-TPCTIFA_M... Shine</a></td>
+                                <td>Shine: New course</td>
+                                <td>F: 01/10/2025 PM<br>T: 16/10/2025 PM</td>
+                                <td>• Trainer1 cloudair</td>
+                                <td>3</td>
+                                <td>IFA Central</td>
+                                <td>IFA</td>
+                                <td>NA</td>
+                                <td><span class="status-badge status-creating">Creating</span></td>
+                                <td>LMS Admin Cloudair</td>
+                            </tr>
+                            <tr>
+                                <td><a href="course-details.html">3-KGNF_SOU... Product</a></td>
+                                <td>2-TPCTAG_SOUTH-Shine</td>
+                                <td>F: 01/10/2025 PM<br>T: 16/10/2025 PM</td>
+                                <td>• trainer 2 cloudair</td>
+                                <td>4</td>
+                                <td>Banca South</td>
+                                <td>Banca</td>
+                                <td>NA</td>
+                                <td><span class="status-badge status-creating">Creating</span></td>
+                                <td>LMS Admin Cloudair</td>
+                            </tr>
+                            <tr>
+                                <td><a href="course-details.html">2-TPCTAG_S... Shine</a></td>
+                                <td>Product Training Course</td>
+                                <td>F: 15/09/2025 AM<br>T: 20/09/2025 PM</td>
+                                <td>• Trainer3 cloudair</td>
+                                <td>2</td>
+                                <td>Agency South</td>
+                                <td>Agency</td>
+                                <td>Training Center</td>
+                                <td><span class="status-badge status-approved">Approved</span></td>
+                                <td>LMS Admin Cloudair</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <span>Go 1 Page 1 of 1</span>
+                        <div class="pagination-controls">
+                            <button>&lt;</button>
+                            <span>1</span>
+                            <button>&gt;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Create Course Modal -->
+    <div id="createCourseModal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Create New Course</h3>
+                <div>
+                    <label>Template:</label>
+                    <select style="padding: 5px 10px; border: 1px solid #ddd; border-radius: 4px;">
+                        <option>Default</option>
+                    </select>
+                    <button class="modal-close" onclick="Navigation.hideModal('createCourseModal')">&times;</button>
+                </div>
+            </div>
+            <div class="section-indicator">
+                <span>Course Overview</span>
+            </div>
+            <div class="modal-body">
+                <form class="modal-form">
+                    <div class="form-group">
+                        <label for="primaryCourse">Primary Course</label>
+                        <input type="text" id="primaryCourse" name="primaryCourse" placeholder="Type to search Primary Course">
+                    </div>
+                    <div class="form-group">
+                        <label for="courseName">Course Name <span class="required-field">*</span></label>
+                        <input type="text" id="courseName" name="courseName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="program">Program <span class="required-field">*</span></label>
+                        <select id="program" name="program" required>
+                            <option value="">Program</option>
+                            <option value="SHINE Program">SHINE Program</option>
+                            <option value="Product Program">Product Program</option>
+                            <option value="Skill Program">Skill Program</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="partner">Partner</label>
+                        <select id="partner" name="partner">
+                            <option value="">Partner</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="trainer">Trainer</label>
+                        <input type="text" id="trainer" name="trainer" placeholder="Type to search Trainer">
+                    </div>
+                    <div class="form-group">
+                        <label for="branch">Branch</label>
+                        <select id="branch" name="branch">
+                            <option value="">Branch</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="endDate">End Date <span class="required-field">*</span></label>
+                        <input type="date" id="endDate" name="endDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="startDate">Start Date <span class="required-field">*</span></label>
+                        <input type="date" id="startDate" name="startDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location <span class="required-field">*</span></label>
+                        <select id="location" name="location" required>
+                            <option value="">Location</option>
+                            <option value="Training Center">Training Center</option>
+                            <option value="NA">NA</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="channel">Channel <span class="required-field">*</span></label>
+                        <select id="channel" name="channel" required>
+                            <option value="">Channel</option>
+                            <option value="IFA">IFA</option>
+                            <option value="Banca">Banca</option>
+                            <option value="Agency">Agency</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="region">Region <span class="required-field">*</span></label>
+                        <select id="region" name="region" required>
+                            <option value="">Region</option>
+                            <option value="IFA Central">IFA Central</option>
+                            <option value="Banca South">Banca South</option>
+                            <option value="Agency South">Agency South</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="supporters">Supporters</label>
+                        <input type="text" id="supporters" name="supporters" placeholder="Type to search Supporters">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="Navigation.hideModal('createCourseModal')">Cancel</button>
+                <button class="btn-primary" onclick="alert('Course created!'); Navigation.hideModal('createCourseModal')">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+    <script src="../js/state.js"></script>
+    <script src="../js/data-handler.js"></script>
+    <script>
+        let currentFilters = {
+            search: '',
+            channel: '',
+            region: '',
+            status: ''
+        };
+
+        // Load and display courses
+        function loadCourses() {
+            const courses = DataHandler.loadCourses(currentFilters);
+            const tbody = document.querySelector('.data-table tbody');
+            
+            if (courses.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="10" style="text-align: center; padding: 30px;">No courses found</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = courses.map(course => {
+                const statusClass = `status-${course.status.toLowerCase().replace(' ', '-')}`;
+                return `
+                    <tr>
+                        <td><a href="course-details.html?id=${course.id}">${course.code}</a></td>
+                        <td>${course.name}</td>
+                        <td>F: ${formatDate(course.startDate)}<br>T: ${formatDate(course.endDate)}</td>
+                        <td>• ${course.trainer}</td>
+                        <td>${course.section || ''}</td>
+                        <td>${course.region}</td>
+                        <td>${course.channel}</td>
+                        <td>${course.venue}</td>
+                        <td><span class="status-badge ${statusClass}">${course.status}</span></td>
+                        <td>${course.createdBy}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function formatDate(dateString) {
+            if (!dateString) return '';
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' });
+        }
+
+        // Search and filter handlers
+        function setupFilters() {
+            const searchInput = document.querySelector('.search-input');
+            const channelFilter = document.querySelector('.filter-select');
+            const regionFilter = document.querySelectorAll('.filter-select')[1];
+            const statusFilter = document.querySelectorAll('.filter-select')[2];
+
+            searchInput?.addEventListener('input', (e) => {
+                currentFilters.search = e.target.value;
+                loadCourses();
+            });
+
+            channelFilter?.addEventListener('change', (e) => {
+                currentFilters.channel = e.target.value || '';
+                loadCourses();
+            });
+
+            regionFilter?.addEventListener('change', (e) => {
+                currentFilters.region = e.target.value || '';
+                loadCourses();
+            });
+
+            statusFilter?.addEventListener('change', (e) => {
+                currentFilters.status = e.target.value || '';
+                loadCourses();
+            });
+        }
+
+        // Create course handler
+        function setupCreateCourseForm() {
+            const createBtn = document.querySelector('#createCourseModal .btn-primary');
+            const form = document.querySelector('#createCourseModal form');
+            
+            createBtn?.addEventListener('click', () => {
+                const formData = DataHandler.getFormData(form);
+                
+                if (!formData.courseName || !formData.program || !formData.channel || !formData.region) {
+                    DataHandler.showMessage('Please fill in all required fields', 'error');
+                    return;
+                }
+
+                const courseData = {
+                    name: formData.courseName,
+                    program: formData.program,
+                    trainer: formData.trainer || '',
+                    channel: formData.channel,
+                    region: formData.region,
+                    startDate: formData.startDate || new Date().toISOString().split('T')[0],
+                    endDate: formData.endDate || new Date().toISOString().split('T')[0],
+                    venue: formData.location || 'NA'
+                };
+
+                DataHandler.createCourse(courseData);
+                DataHandler.showMessage('Course created successfully!');
+                Navigation.hideModal('createCourseModal');
+                form.reset();
+                loadCourses();
+            });
+        }
+
+        // Global refresh function
+        window.refreshCourseList = loadCourses;
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCourses();
+            setupFilters();
+            setupCreateCourseForm();
+
+            // Listen for updates
+            LMSState.on('courses_updated', loadCourses);
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Management - FWD LMS</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <h2>FWD Insurance</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard.html" class="nav-item">
+                    <span class="nav-icon">🏠</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="content-management.html" class="nav-item active admin-only">
+                    <span class="nav-icon">📖</span>
+                    <span>Content</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="breadcrumb">
+                    <a href="../dashboard.html">🏠 Home</a>
+                    <span>></span>
+                    <span class="active">Content Management</span>
+                </div>
+                <div class="user-profile">
+                    <select id="roleSelector">
+                        <option value="admin">Admin</option>
+                        <option value="root_admin">Root Admin</option>
+                    </select>
+                    <img src="https://via.placeholder.com/32" alt="Profile">
+                    <span>LMS Admin</span>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="action-header">
+                    <h1 class="page-title">Content Management</h1>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab active" onclick="showTab('modules')">Modules</button>
+                    <button class="tab" onclick="showTab('products')">Products</button>
+                    <button class="tab" onclick="showTab('programs')">Programs</button>
+                </div>
+
+                <div id="modules" class="tab-content active">
+                    <div class="action-header">
+                        <h2>Modules</h2>
+                        <button class="btn-primary" onclick="Navigation.showModal('createModuleModal')">Create Module</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Module Name</th>
+                                    <th>Duration</th>
+                                    <th>Outcome</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Introduction to Insurance</td>
+                                    <td>2 hours</td>
+                                    <td>Basic understanding of insurance concepts</td>
+                                    <td>
+                                        <a href="#" style="margin-right: 10px;">Edit</a>
+                                        <a href="#" style="color: #e74c3c;">Delete</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Product Knowledge</td>
+                                    <td>4 hours</td>
+                                    <td>Complete product understanding</td>
+                                    <td>
+                                        <a href="#" style="margin-right: 10px;">Edit</a>
+                                        <a href="#" style="color: #e74c3c;">Delete</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="products" class="tab-content">
+                    <div class="action-header">
+                        <h2>Products</h2>
+                        <button class="btn-primary" onclick="Navigation.showModal('createProductModal')">Create Product</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Type</th>
+                                    <th>Modules</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>SHINE Program</td>
+                                    <td>Product</td>
+                                    <td>5 modules</td>
+                                    <td>
+                                        <a href="#" style="margin-right: 10px;">Edit</a>
+                                        <a href="#" style="color: #3498db;">Clone</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="programs" class="tab-content">
+                    <div class="action-header">
+                        <h2>Programs</h2>
+                        <button class="btn-primary" onclick="Navigation.showModal('createProgramModal')">Create Program</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Program Name</th>
+                                    <th>Type</th>
+                                    <th>Stages</th>
+                                    <th>License Type</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>SHINE Training Program</td>
+                                    <td>SHINE</td>
+                                    <td>3 stages</td>
+                                    <td>Type A</td>
+                                    <td><a href="#">Edit</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+    <script>
+        function showTab(tabName) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+    </script>
+</body>
+</html>
+

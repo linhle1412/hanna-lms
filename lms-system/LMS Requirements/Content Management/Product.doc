@@ -1,0 +1,2274 @@
+Date: Sun, 7 Dec 2025 07:48:47 +0000 (UTC)
+Message-ID: <1394921648.43.1765093727144@d112942d4d24>
+Subject: Exported From Confluence
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_42_844327645.1765093727143"
+
+------=_Part_42_844327645.1765093727143
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/exported.html
+
+<html xmlns:o=3D'urn:schemas-microsoft-com:office:office'
+      xmlns:w=3D'urn:schemas-microsoft-com:office:word'
+      xmlns:v=3D'urn:schemas-microsoft-com:vml'
+      xmlns=3D'urn:w3-org-ns:HTML'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <title>Product</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:TargetScreenSize>1024x640</o:TargetScreenSize>
+            <o:PixelsPerInch>72</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+                <!--
+        @page Section1 {
+            size: 8.5in 11.0in;
+            margin: 1.0in;
+            mso-header-margin: .5in;
+            mso-footer-margin: .5in;
+            mso-paper-source: 0;
+        }
+
+        table {
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: solid 1px;
+            padding: 5px;
+        }
+
+        td {
+            page-break-inside: avoid;
+        }
+
+        tr {
+            page-break-after: avoid;
+        }
+
+        div.Section1 {
+            page: Section1;
+        }
+
+        /* Confluence print stylesheet. Common to all themes for print medi=
+a */
+/* Full of !important until we improve batching for print CSS */
+
+@media print {
+    #main {
+        padding-bottom: 1em !important; /* The default padding of 6em is to=
+o much for printouts */
+    }
+
+    body {
+        font: var(--ds-font-body-small, Arial, Helvetica, FreeSans, sans-se=
+rif);
+    }
+
+    body, #full-height-container, #main, #page, #content, .has-personal-sid=
+ebar #content {
+        background: var(--ds-surface, #fff) !important;
+        color: var(--ds-text, #000) !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    a, a:link, a:visited, a:focus, a:hover, a:active {
+        color: var(--ds-text, #000);
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+        page-break-after: avoid;
+    }
+
+    pre {
+        font: var(--ds-font-code, Monaco, "Courier New", monospace);
+    }
+
+    #header,
+    .aui-header-inner,
+    #navigation,
+    #sidebar,
+    .sidebar,
+    #personal-info-sidebar,
+    .ia-fixed-sidebar,
+    .page-actions,
+    .navmenu,
+    .ajs-menu-bar,
+    .noprint,
+    .inline-control-link,
+    .inline-control-link a,
+    a.show-labels-editor,
+    .global-comment-actions,
+    .comment-actions,
+    .quick-comment-container,
+    #addcomment {
+        display: none !important;
+    }
+
+    /* CONF-28544 cannot print multiple pages in IE */
+    #splitter-content {
+        position: relative !important;
+    }
+
+    .comment .date::before {
+        content: none !important; /* remove middot for print view */
+    }
+
+    h1.pagetitle img {
+        height: auto;
+        width: auto;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    #footer {
+        position: relative !important; /* CONF-17506 Place the footer at en=
+d of the content */
+        margin: 0;
+        padding: 0;
+        background: none;
+        clear: both;
+    }
+
+    #poweredby {
+        border-top: none;
+        background: none;
+    }
+
+    #poweredby li.print-only {
+        display: list-item;
+        font-style: italic;
+    }
+
+    #poweredby li.noprint {
+        display: none;
+    }
+
+    /* no width controls in print */
+    .wiki-content .table-wrap,
+    .wiki-content p,
+    .panel .codeContent,
+    .panel .codeContent pre,
+    .image-wrap {
+        overflow: visible !important;
+    }
+
+    /* TODO - should this work? */
+    #children-section,
+    #comments-section .comment,
+    #comments-section .comment .comment-body,
+    #comments-section .comment .comment-content,
+    #comments-section .comment p {
+        page-break-inside: avoid;
+    }
+
+    #page-children a {
+        text-decoration: none;
+    }
+
+    /**
+     hide twixies
+
+     the specificity here is a hack because print styles
+     are getting loaded before the base styles. */
+    #comments-section.pageSection .section-header,
+    #comments-section.pageSection .section-title,
+    #children-section.pageSection .section-header,
+    #children-section.pageSection .section-title,
+    .children-show-hide {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .children-show-hide.icon {
+        display: none;
+    }
+
+    /* personal sidebar */
+    .has-personal-sidebar #content {
+        margin-right: 0px;
+    }
+
+    .has-personal-sidebar #content .pageSection {
+        margin-right: 0px;
+    }
+
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+-->
+    </style>
+</head>
+<body>
+    <h1>Product</h1>
+    <div class=3D"Section1">
+        <h3 id=3D"Product-7.2Product">7.2 Product</h3>
+<p><strong>User Story:</strong> <br>
+AS AN Admin, Master Role, or Root Admin <br>
+I NEED to manage training products in the LMS system <br>
+SO THAT I can create structured learning units that combine modules into or=
+ganized sessions for programs</p>
+<p><strong>Business Use Cases:</strong></p>
+<ul>
+<li>
+<p>Create products that organize modules into logical learning sequences</p=
+></li>
+<li>
+<p>Define certifications and licenses granted upon product completion</p></=
+li>
+<li>
+<p>Manage product lifecycle (draft, active, inactive statuses)</p></li>
+<li>
+<p>Clone existing products to create variations quickly</p></li>
+<li>
+<p>Track product usage across programs</p></li>
+</ul>
+<hr>
+<h4 id=3D"Product-7.2.1ProductDataStructure">7.2.1 Product Data Structure</=
+h4>
+<p><strong>Product Definition:</strong></p>
+<p>A product is the middle tier in the course content hierarchy. Products c=
+ombine multiple modules organized into sessions, with associated certificat=
+ions and licenses.</p>
+<p><strong>Content Hierarchy:</strong></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">Modules=
+ (smallest unit)
+   =E2=86=93
+Products (organized sessions of modules)
+   =E2=86=93
+Programs (collection of products)</pre>
+</div>
+</div>
+<p><strong>Product Fields:</strong></p>
+<div class=3D"table-wrap">
+<table data-layout=3D"default" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Field</p></th>
+<th class=3D"confluenceTh">
+<p>Type</p></th>
+<th class=3D"confluenceTh">
+<p>Required</p></th>
+<th class=3D"confluenceTh">
+<p>Description</p></th>
+<th class=3D"confluenceTh">
+<p>Example</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>ID</p></td>
+<td class=3D"confluenceTd">
+<p>Number</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+<td class=3D"confluenceTd">
+<p>Unique product identifier</p></td>
+<td class=3D"confluenceTd">
+<p>1</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Name</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+<td class=3D"confluenceTd">
+<p>Product display name</p></td>
+<td class=3D"confluenceTd">
+<p>"Product Knowledge Fundamentals"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Description</p></td>
+<td class=3D"confluenceTd">
+<p>Text</p></td>
+<td class=3D"confluenceTd">
+<p>Optional</p></td>
+<td class=3D"confluenceTd">
+<p>Product overview</p></td>
+<td class=3D"confluenceTd">
+<p>"Comprehensive overview of product features"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Type</p></td>
+<td class=3D"confluenceTd">
+<p>Dropdown</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+<td class=3D"confluenceTd">
+<p>Product category</p></td>
+<td class=3D"confluenceTd">
+<p>"Skill" or "Product"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Learner Type</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>Optional</p></td>
+<td class=3D"confluenceTd">
+<p>Target learner level</p></td>
+<td class=3D"confluenceTd">
+<p>"Beginner", "Intermediate", "Advanced"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>License</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>Optional</p></td>
+<td class=3D"confluenceTd">
+<p>License granted upon completion</p></td>
+<td class=3D"confluenceTd">
+<p>"Product Training License"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Duration</p></td>
+<td class=3D"confluenceTd">
+<p>Number</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+<td class=3D"confluenceTd">
+<p>Total duration in hours (auto-calculated)</p></td>
+<td class=3D"confluenceTd">
+<p>16</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Code</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>Optional</p></td>
+<td class=3D"confluenceTd">
+<p>Product code (must be unique)</p></td>
+<td class=3D"confluenceTd">
+<p>"PROD-001"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Certificate</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>Optional</p></td>
+<td class=3D"confluenceTd">
+<p>Certificate name</p></td>
+<td class=3D"confluenceTd">
+<p>"Product Specialist Certificate"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Tags</p></td>
+<td class=3D"confluenceTd">
+<p>Array</p></td>
+<td class=3D"confluenceTd">
+<p>Optional</p></td>
+<td class=3D"confluenceTd">
+<p>Categorization tags</p></td>
+<td class=3D"confluenceTd">
+<p>["Sales", "Product Knowledge"]</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Status</p></td>
+<td class=3D"confluenceTd">
+<p>Dropdown</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+<td class=3D"confluenceTd">
+<p>Product availability</p></td>
+<td class=3D"confluenceTd">
+<p>ACTIVE, INACTIVE, DRAFT</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Created By</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>Auto</p></td>
+<td class=3D"confluenceTd">
+<p>Creator username</p></td>
+<td class=3D"confluenceTd">
+<p>"<a class=3D"external-link" href=3D"mailto:admin@lms.com" rel=3D"nofollo=
+w">admin@lms.com</a>"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Created Date</p></td>
+<td class=3D"confluenceTd">
+<p>DateTime</p></td>
+<td class=3D"confluenceTd">
+<p>Auto</p></td>
+<td class=3D"confluenceTd">
+<p>Product creation timestamp</p></td>
+<td class=3D"confluenceTd">
+<p>"2025-01-15 10:30:00"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Updated By</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>Auto</p></td>
+<td class=3D"confluenceTd">
+<p>Last modifier username</p></td>
+<td class=3D"confluenceTd">
+<p>"<a class=3D"external-link" href=3D"mailto:admin@lms.com" rel=3D"nofollo=
+w">admin@lms.com</a>"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Updated Date</p></td>
+<td class=3D"confluenceTd">
+<p>DateTime</p></td>
+<td class=3D"confluenceTd">
+<p>Auto</p></td>
+<td class=3D"confluenceTd">
+<p>Last update timestamp</p></td>
+<td class=3D"confluenceTd">
+<p>"2025-03-20 14:45:00"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Sessions</p></td>
+<td class=3D"confluenceTd">
+<p>Array</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+<td class=3D"confluenceTd">
+<p>List of session objects (see below)</p></td>
+<td class=3D"confluenceTd">
+<p>Session collection</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Files</p></td>
+<td class=3D"confluenceTd">
+<p>Array</p></td>
+<td class=3D"confluenceTd">
+<p>Optional</p></td>
+<td class=3D"confluenceTd">
+<p>Attached supporting files</p></td>
+<td class=3D"confluenceTd">
+<p>File collection</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Usage Count</p></td>
+<td class=3D"confluenceTd">
+<p>Number</p></td>
+<td class=3D"confluenceTd">
+<p>Auto</p></td>
+<td class=3D"confluenceTd">
+<p>Number of programs using this product</p></td>
+<td class=3D"confluenceTd">
+<p>3</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Session Structure:</strong></p>
+<p>Each product consists of multiple sessions that organize modules into a =
+logical learning sequence.</p>
+<div class=3D"table-wrap">
+<table data-layout=3D"default" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Field</p></th>
+<th class=3D"confluenceTh">
+<p>Type</p></th>
+<th class=3D"confluenceTh">
+<p>Required</p></th>
+<th class=3D"confluenceTh">
+<p>Description</p></th>
+<th class=3D"confluenceTh">
+<p>Example</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Session ID</p></td>
+<td class=3D"confluenceTd">
+<p>Number</p></td>
+<td class=3D"confluenceTd">
+<p>Auto</p></td>
+<td class=3D"confluenceTd">
+<p>Unique session identifier</p></td>
+<td class=3D"confluenceTd">
+<p>1</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Session Name</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+<td class=3D"confluenceTd">
+<p>Session title</p></td>
+<td class=3D"confluenceTd">
+<p>"Session 1: Introduction to Features"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Description</p></td>
+<td class=3D"confluenceTd">
+<p>Text</p></td>
+<td class=3D"confluenceTd">
+<p>Optional</p></td>
+<td class=3D"confluenceTd">
+<p>Session overview</p></td>
+<td class=3D"confluenceTd">
+<p>"Overview of core features"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>File Name</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>Optional</p></td>
+<td class=3D"confluenceTd">
+<p>Associated file reference</p></td>
+<td class=3D"confluenceTd">
+<p>"session1-slides.pdf"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Module ID</p></td>
+<td class=3D"confluenceTd">
+<p>Number</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+<td class=3D"confluenceTd">
+<p>Reference to Module ID from Module Management</p></td>
+<td class=3D"confluenceTd">
+<p>12</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Module Name</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>Display</p></td>
+<td class=3D"confluenceTd">
+<p>Module name (from Module data)</p></td>
+<td class=3D"confluenceTd">
+<p>"Product Overview Module"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Module Duration</p></td>
+<td class=3D"confluenceTd">
+<p>Number</p></td>
+<td class=3D"confluenceTd">
+<p>Display</p></td>
+<td class=3D"confluenceTd">
+<p>Module duration in hours (from Module data)</p></td>
+<td class=3D"confluenceTd">
+<p>2</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Sequence</p></td>
+<td class=3D"confluenceTd">
+<p>Number</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+<td class=3D"confluenceTd">
+<p>Session order (1, 2, 3...)</p></td>
+<td class=3D"confluenceTd">
+<p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>File Structure:</strong></p>
+<div class=3D"table-wrap">
+<table data-layout=3D"default" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Field</p></th>
+<th class=3D"confluenceTh">
+<p>Type</p></th>
+<th class=3D"confluenceTh">
+<p>Required</p></th>
+<th class=3D"confluenceTh">
+<p>Description</p></th>
+<th class=3D"confluenceTh">
+<p>Example</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>File ID</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>Auto</p></td>
+<td class=3D"confluenceTd">
+<p>Unique file identifier</p></td>
+<td class=3D"confluenceTd">
+<p>"file_12345"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>File Name</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+<td class=3D"confluenceTd">
+<p>Original file name</p></td>
+<td class=3D"confluenceTd">
+<p>"product-handbook.pdf"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>File Size</p></td>
+<td class=3D"confluenceTd">
+<p>Number</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+<td class=3D"confluenceTd">
+<p>File size in bytes</p></td>
+<td class=3D"confluenceTd">
+<p>2048576</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>File Type</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+<td class=3D"confluenceTd">
+<p>File MIME type</p></td>
+<td class=3D"confluenceTd">
+<p>"application/pdf"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Uploaded By</p></td>
+<td class=3D"confluenceTd">
+<p>String</p></td>
+<td class=3D"confluenceTd">
+<p>Auto</p></td>
+<td class=3D"confluenceTd">
+<p>Uploader username</p></td>
+<td class=3D"confluenceTd">
+<p>"<a class=3D"external-link" href=3D"mailto:admin@lms.com" rel=3D"nofollo=
+w">admin@lms.com</a>"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Upload Date</p></td>
+<td class=3D"confluenceTd">
+<p>DateTime</p></td>
+<td class=3D"confluenceTd">
+<p>Auto</p></td>
+<td class=3D"confluenceTd">
+<p>Upload timestamp</p></td>
+<td class=3D"confluenceTd">
+<p>"2025-01-15 10:35:00"</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h4 id=3D"Product-7.2.2ProductListingPage">7.2.2 Product Listing Page</h4>
+<p><strong>User Story:</strong> <br>
+AS AN Admin, Master Role, or Root Admin <br>
+I NEED to access the product listing page <br>
+SO THAT I can search, view, create, and manage training products</p>
+<p><strong>Access Control:</strong></p>
+<ul>
+<li>
+<p><strong>Authorized Roles:</strong> Admin, Master Role, Root Admin (full =
+access)</p></li>
+<li>
+<p><strong>Read-Only Access:</strong> Lead Region, Head Channel, Trainer (v=
+iew only)</p></li>
+</ul>
+<p><strong>Page Features:</strong></p>
+<p><strong>1. Add New Button:</strong></p>
+<ul>
+<li>
+<p>Location: Top-right corner of page</p></li>
+<li>
+<p>Action: Opens product creation form</p></li>
+<li>
+<p>Label: "+ Add New Product"</p></li>
+<li>
+<p>Authorization: Admin, Master Role, Root Admin only</p></li>
+</ul>
+<p><strong>2. Search Functionality:</strong></p>
+<ul>
+<li>
+<p>Search by product name</p></li>
+<li>
+<p>Search by description</p></li>
+<li>
+<p>Search by tags</p></li>
+<li>
+<p>Real-time search with debounce (300ms)</p></li>
+<li>
+<p>Case-insensitive matching</p></li>
+</ul>
+<p><strong>3. Filter Options:</strong></p>
+<div class=3D"table-wrap">
+<table data-layout=3D"default" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Filter</p></th>
+<th class=3D"confluenceTh">
+<p>Options</p></th>
+<th class=3D"confluenceTh">
+<p>Default</p></th>
+<th class=3D"confluenceTh">
+<p>Behavior</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Type</strong></p></td>
+<td class=3D"confluenceTd">
+<p>All, Skill, Product</p></td>
+<td class=3D"confluenceTd">
+<p>All</p></td>
+<td class=3D"confluenceTd">
+<p>Filter products by type</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Status</strong></p></td>
+<td class=3D"confluenceTd">
+<p>All, Active, Inactive, Draft</p></td>
+<td class=3D"confluenceTd">
+<p>All</p></td>
+<td class=3D"confluenceTd">
+<p>Filter products by status</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Tags</strong></p></td>
+<td class=3D"confluenceTd">
+<p>Multi-select from all tags</p></td>
+<td class=3D"confluenceTd">
+<p>None</p></td>
+<td class=3D"confluenceTd">
+<p>Filter by one or more tags</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>4. Display Columns:</strong></p>
+<div class=3D"table-wrap">
+<table data-layout=3D"default" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Column</p></th>
+<th class=3D"confluenceTh">
+<p>Description</p></th>
+<th class=3D"confluenceTh">
+<p>Features</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Name</p></td>
+<td class=3D"confluenceTd">
+<p>Product name</p></td>
+<td class=3D"confluenceTd">
+<p>Hyperlink to product details, sortable</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Description</p></td>
+<td class=3D"confluenceTd">
+<p>Brief description</p></td>
+<td class=3D"confluenceTd">
+<p>Truncated with "..." if too long, tooltip on hover</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Type</p></td>
+<td class=3D"confluenceTd">
+<p>Product type</p></td>
+<td class=3D"confluenceTd">
+<p>Badge (Skill/Product), sortable</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Sessions</p></td>
+<td class=3D"confluenceTd">
+<p>Number of sessions</p></td>
+<td class=3D"confluenceTd">
+<p>Sortable, displayed as number</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Certificate</p></td>
+<td class=3D"confluenceTd">
+<p>Certificate name</p></td>
+<td class=3D"confluenceTd">
+<p>Text display</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>License</p></td>
+<td class=3D"confluenceTd">
+<p>License type</p></td>
+<td class=3D"confluenceTd">
+<p>Text display</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Status</p></td>
+<td class=3D"confluenceTd">
+<p>Product status</p></td>
+<td class=3D"confluenceTd">
+<p>Visual indicator (=F0=9F=9F=A2 Active/=E2=9A=AA Inactive/=F0=9F=93=9D Dr=
+aft), sortable</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Duration</p></td>
+<td class=3D"confluenceTd">
+<p>Total hours</p></td>
+<td class=3D"confluenceTd">
+<p>Sortable, displayed as "X hours"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Created By</p></td>
+<td class=3D"confluenceTd">
+<p>Username who created</p></td>
+<td class=3D"confluenceTd">
+<p>Sortable</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Updated By</p></td>
+<td class=3D"confluenceTd">
+<p>Username who last updated</p></td>
+<td class=3D"confluenceTd">
+<p>Sortable</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Actions</p></td>
+<td class=3D"confluenceTd">
+<p>Action icons</p></td>
+<td class=3D"confluenceTd">
+<p>View, Edit, Clone, Delete (role-based visibility)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>5. List Features:</strong></p>
+<ul>
+<li>
+<p><strong>Pagination:</strong> 20 products per page by default (adjustable=
+: 10/20/50/100)</p></li>
+<li>
+<p><strong>Sorting:</strong> Click column headers to sort (default: latest =
+update descending)</p></li>
+<li>
+<p><strong>Row Hover:</strong> Highlight row on hover for better UX</p></li=
+>
+<li>
+<p><strong>Export:</strong> Export product list to Excel</p></li>
+</ul>
+<p><strong>6. Action Icons:</strong></p>
+<div class=3D"table-wrap">
+<table data-layout=3D"default" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Action</p></th>
+<th class=3D"confluenceTh">
+<p>Icon</p></th>
+<th class=3D"confluenceTh">
+<p>Color</p></th>
+<th class=3D"confluenceTh">
+<p>Authorization</p></th>
+<th class=3D"confluenceTh">
+<p>Behavior</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>View</p></td>
+<td class=3D"confluenceTd">
+<p>Eye</p></td>
+<td class=3D"confluenceTd">
+<p>Teal (#0097A9)</p></td>
+<td class=3D"confluenceTd">
+<p>All roles</p></td>
+<td class=3D"confluenceTd">
+<p>Navigate to product details (read-only)</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Edit</p></td>
+<td class=3D"confluenceTd">
+<p>Pencil</p></td>
+<td class=3D"confluenceTd">
+<p>Teal (#0097A9)</p></td>
+<td class=3D"confluenceTd">
+<p>Admin, Root Admin, Master Role</p></td>
+<td class=3D"confluenceTd">
+<p>Navigate to product details (edit mode)</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Clone</p></td>
+<td class=3D"confluenceTd">
+<p>Copy</p></td>
+<td class=3D"confluenceTd">
+<p>Gray (#666)</p></td>
+<td class=3D"confluenceTd">
+<p>Admin, Root Admin, Master Role</p></td>
+<td class=3D"confluenceTd">
+<p>Open clone modal</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Delete</p></td>
+<td class=3D"confluenceTd">
+<p>Trash</p></td>
+<td class=3D"confluenceTd">
+<p>Red (#d32f2f)</p></td>
+<td class=3D"confluenceTd">
+<p>Admin, Root Admin, Master Role</p></td>
+<td class=3D"confluenceTd">
+<p>Show confirmation dialog</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>7. Empty State:</strong></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">=E2=94=
+=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=90
+=E2=94=82                                                             =E2=
+=94=82
+=E2=94=82                    =F0=9F=93=A6                                  =
+     =E2=94=82
+=E2=94=82                                                             =E2=
+=94=82
+=E2=94=82         No products found                                   =E2=
+=94=82
+=E2=94=82                                                             =E2=
+=94=82
+=E2=94=82         [+ Add New Product]                                 =E2=
+=94=82
+=E2=94=82                                                             =E2=
+=94=82
+=E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=98</pre>
+</div>
+</div>
+<hr>
+<h4 id=3D"Product-7.2.3ProductDetailsPage">7.2.3 Product Details Page</h4>
+<p><strong>User Story:</strong> <br>
+AS A user with access to products <br>
+I NEED to view and edit complete product information <br>
+SO THAT I can manage product content, sessions, and associated materials</p=
+>
+<p><strong>Access Control:</strong></p>
+<ul>
+<li>
+<p><strong>View Only:</strong> Lead Region, Head Channel, Trainer</p></li>
+<li>
+<p><strong>Edit Access:</strong> Admin, Master Role, Root Admin</p></li>
+</ul>
+<p><strong>Page Sections:</strong></p>
+<p><strong>1. General Section:</strong></p>
+<p>Displays all product information in read-only format with edit capabilit=
+y:</p>
+<div class=3D"table-wrap">
+<table data-layout=3D"default" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Field</p></th>
+<th class=3D"confluenceTh">
+<p>Display Format</p></th>
+<th class=3D"confluenceTh">
+<p>Actions</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Name</p></td>
+<td class=3D"confluenceTd">
+<p>Text display</p></td>
+<td class=3D"confluenceTd">
+<p>Edit button</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Type</p></td>
+<td class=3D"confluenceTd">
+<p>Badge (Skill/Product)</p></td>
+<td class=3D"confluenceTd">
+<p>Edit button</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Learner Type</p></td>
+<td class=3D"confluenceTd">
+<p>Text display</p></td>
+<td class=3D"confluenceTd">
+<p>Edit button</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>License</p></td>
+<td class=3D"confluenceTd">
+<p>Text display</p></td>
+<td class=3D"confluenceTd">
+<p>Edit button</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Duration</p></td>
+<td class=3D"confluenceTd">
+<p>"X hours" (auto-calculated)</p></td>
+<td class=3D"confluenceTd">
+<p>Read-only</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Code</p></td>
+<td class=3D"confluenceTd">
+<p>Text display</p></td>
+<td class=3D"confluenceTd">
+<p>Edit button</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Certificate</p></td>
+<td class=3D"confluenceTd">
+<p>Text display</p></td>
+<td class=3D"confluenceTd">
+<p>Edit button</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Tags</p></td>
+<td class=3D"confluenceTd">
+<p>Colored pill badges</p></td>
+<td class=3D"confluenceTd">
+<p>Edit button</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Description</p></td>
+<td class=3D"confluenceTd">
+<p>Full text</p></td>
+<td class=3D"confluenceTd">
+<p>Edit button</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Status</p></td>
+<td class=3D"confluenceTd">
+<p>Status badge</p></td>
+<td class=3D"confluenceTd">
+<p>Edit button</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Created By</p></td>
+<td class=3D"confluenceTd">
+<p>Username + timestamp</p></td>
+<td class=3D"confluenceTd">
+<p>Read-only</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Updated By</p></td>
+<td class=3D"confluenceTd">
+<p>Username + timestamp</p></td>
+<td class=3D"confluenceTd">
+<p>Read-only</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Edit Mode:</strong></p>
+<ul>
+<li>
+<p>Click <strong>Edit</strong> button to enable editing</p></li>
+<li>
+<p>All fields become editable (except Created By/Updated By/Duration)</p></=
+li>
+<li>
+<p><strong>Save</strong> button commits changes</p></li>
+<li>
+<p><strong>Cancel</strong> button discards changes</p></li>
+</ul>
+<p><strong>2. Session Section:</strong></p>
+<p><strong>User Story:</strong> <br>
+AS A product manager <br>
+I NEED to organize modules into sessions <br>
+SO THAT learners follow a structured learning path</p>
+<p><strong>Session List Table:</strong></p>
+<div class=3D"table-wrap">
+<table data-layout=3D"default" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Column</p></th>
+<th class=3D"confluenceTh">
+<p>Description</p></th>
+<th class=3D"confluenceTh">
+<p>Actions</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Sequence</p></td>
+<td class=3D"confluenceTd">
+<p>Session order</p></td>
+<td class=3D"confluenceTd">
+<p>Drag-and-drop to reorder</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Session Name</p></td>
+<td class=3D"confluenceTd">
+<p>Session title</p></td>
+<td class=3D"confluenceTd">
+<p>Click to expand/edit</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Description</p></td>
+<td class=3D"confluenceTd">
+<p>Brief session description</p></td>
+<td class=3D"confluenceTd">
+<p>Inline edit</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Module</p></td>
+<td class=3D"confluenceTd">
+<p>Module name from Module Management</p></td>
+<td class=3D"confluenceTd">
+<p>Select from active modules</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Duration</p></td>
+<td class=3D"confluenceTd">
+<p>Module duration (auto-filled from module)</p></td>
+<td class=3D"confluenceTd">
+<p>Display only</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>File Name</p></td>
+<td class=3D"confluenceTd">
+<p>Associated file reference (optional)</p></td>
+<td class=3D"confluenceTd">
+<p>Text input</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Actions</p></td>
+<td class=3D"confluenceTd">
+<p>Edit, Delete icons</p></td>
+<td class=3D"confluenceTd">
+<p>Inline actions</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Session Management Features:</strong></p>
+<ol start=3D"1">
+<li>
+<p><strong>Add Session Button:</strong> Opens form to add new session</p></=
+li>
+<li>
+<p><strong>Reorder Sessions:</strong> Drag-and-drop to change sequence</p><=
+/li>
+<li>
+<p><strong>Edit Session:</strong> Inline editing for session details</p></l=
+i>
+<li>
+<p><strong>Delete Session:</strong> Confirmation dialog before deletion</p>=
+</li>
+<li>
+<p><strong>Module Selection:</strong> Dropdown populated from active module=
+s in Module Management</p></li>
+<li>
+<p><strong>Auto-calculation:</strong> Total duration updates when sessions =
+added/removed</p></li>
+</ol>
+<p><strong>Session Form Fields:</strong></p>
+<div class=3D"table-wrap">
+<table data-layout=3D"default" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Field</p></th>
+<th class=3D"confluenceTh">
+<p>Input Type</p></th>
+<th class=3D"confluenceTh">
+<p>Required</p></th>
+<th class=3D"confluenceTh">
+<p>Validation</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Session Name</p></td>
+<td class=3D"confluenceTd">
+<p>Text input</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+<td class=3D"confluenceTd">
+<p>Max 200 characters</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Description</p></td>
+<td class=3D"confluenceTd">
+<p>Textarea</p></td>
+<td class=3D"confluenceTd">
+<p>No</p></td>
+<td class=3D"confluenceTd">
+<p>Max 500 characters</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Module</p></td>
+<td class=3D"confluenceTd">
+<p>Dropdown</p></td>
+<td class=3D"confluenceTd">
+<p>Yes</p></td>
+<td class=3D"confluenceTd">
+<p>Select from active modules</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>File Name</p></td>
+<td class=3D"confluenceTd">
+<p>Text input</p></td>
+<td class=3D"confluenceTd">
+<p>No</p></td>
+<td class=3D"confluenceTd">
+<p>Optional reference</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Sequence</p></td>
+<td class=3D"confluenceTd">
+<p>Number</p></td>
+<td class=3D"confluenceTd">
+<p>Auto</p></td>
+<td class=3D"confluenceTd">
+<p>Auto-assigned, can be reordered</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>3. Attach File Section:</strong></p>
+<p><strong>User Story:</strong> <br>
+AS A product manager <br>
+I NEED to attach supporting materials to products <br>
+SO THAT trainers and learners have access to relevant resources</p>
+<p><strong>File List Display:</strong></p>
+<div class=3D"table-wrap">
+<table data-layout=3D"default" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Column</p></th>
+<th class=3D"confluenceTh">
+<p>Description</p></th>
+<th class=3D"confluenceTh">
+<p>Features</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>File Name</p></td>
+<td class=3D"confluenceTd">
+<p>Original filename</p></td>
+<td class=3D"confluenceTd">
+<p>Hyperlink to download, truncated with tooltip</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>File Size</p></td>
+<td class=3D"confluenceTd">
+<p>Size in MB/KB</p></td>
+<td class=3D"confluenceTd">
+<p>Sortable</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>File Type</p></td>
+<td class=3D"confluenceTd">
+<p>Icon + extension</p></td>
+<td class=3D"confluenceTd">
+<p>Visual indicator (=F0=9F=93=84 PDF, =F0=9F=93=8A Excel, etc.)</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Uploaded By</p></td>
+<td class=3D"confluenceTd">
+<p>Username who uploaded</p></td>
+<td class=3D"confluenceTd">
+<p>Sortable</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Upload Date</p></td>
+<td class=3D"confluenceTd">
+<p>Timestamp</p></td>
+<td class=3D"confluenceTd">
+<p>Sortable, format: "DD/MM/YYYY HH:MM"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Actions</p></td>
+<td class=3D"confluenceTd">
+<p>Download, Delete buttons</p></td>
+<td class=3D"confluenceTd">
+<p>Role-based visibility</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>File Actions:</strong></p>
+<ul>
+<li>
+<p><strong>Upload:</strong> Click "Add File" button to upload</p></li>
+<li>
+<p><strong>Download:</strong> Download file to user's device</p></li>
+<li>
+<p><strong>Delete:</strong> Remove file with confirmation dialog</p></li>
+</ul>
+<p><strong>Supported File Types:</strong></p>
+<ul>
+<li>
+<p>Documents: PDF, DOC, DOCX, XLS, XLSX</p></li>
+<li>
+<p>Presentations: PPT, PPTX</p></li>
+<li>
+<p>Videos: MP4, AVI, MOV</p></li>
+<li>
+<p>Images: JPG, PNG, GIF</p></li>
+<li>
+<p>Archives: ZIP, RAR</p></li>
+</ul>
+<p><strong>File Upload Validation:</strong></p>
+<ul>
+<li>
+<p>Max file size: 50MB per file</p></li>
+<li>
+<p>Max total size: 500MB per product</p></li>
+<li>
+<p>Allowed types: As listed above</p></li>
+<li>
+<p>Error: "File exceeds maximum size of 50MB"</p></li>
+</ul>
+<p><strong>Business Rules:</strong></p>
+<ol start=3D"1">
+<li>
+<p><strong>File Naming:</strong> System preserves original filename</p></li=
+>
+<li>
+<p><strong>Duplicate Names:</strong> If duplicate filename uploaded, system=
+ appends "(1)", "(2)", etc.</p></li>
+<li>
+<p><strong>Virus Scan:</strong> All uploaded files scanned for viruses</p><=
+/li>
+<li>
+<p><strong>Access Control:</strong> Only authorized roles can upload/delete=
+ files</p></li>
+<li>
+<p><strong>Audit Trail:</strong> All file operations logged in system</p></=
+li>
+</ol>
+<p><strong>4. Metadata Section (Bottom of page):</strong></p>
+<p>Display fields:</p>
+<ul>
+<li>
+<p><strong>Created By:</strong> Username + timestamp (e.g., "admin_user on =
+2025-11-01 10:30 AM")</p></li>
+<li>
+<p><strong>Updated By:</strong> Username + timestamp (e.g., "admin_user on =
+2025-11-15 02:45 PM")</p></li>
+<li>
+<p><strong>Usage Count:</strong> Number of programs using this product (e.g=
+., "Used in 3 programs")</p></li>
+</ul>
+<hr>
+<h4 id=3D"Product-7.2.4ProductCreation">7.2.4 Product Creation</h4>
+<p><strong>User Story:</strong> <br>
+AS AN Admin, Master Role, or Root Admin <br>
+I NEED to create new products <br>
+SO THAT I can build comprehensive training programs</p>
+<p><strong>Creation Flow:</strong></p>
+<ol start=3D"1">
+<li>
+<p><strong>Initiate Creation:</strong></p>
+<ul>
+<li>
+<p>Click "Add New Product" button in Product Listing page</p></li>
+<li>
+<p>Navigate to product creation form</p></li>
+</ul></li>
+<li>
+<p><strong>Fill General Information:</strong></p>
+<ul>
+<li>
+<p>Enter product name (required)</p></li>
+<li>
+<p>Select product type (required: Skill or Product)</p></li>
+<li>
+<p>Enter optional fields (learner type, license, code, certificate, tags, d=
+escription)</p></li>
+<li>
+<p>Select initial status (default: DRAFT)</p></li>
+</ul></li>
+<li>
+<p><strong>Add Sessions:</strong></p>
+<ul>
+<li>
+<p>Click "Add Session" button</p></li>
+<li>
+<p>Enter session name and description</p></li>
+<li>
+<p>Select module from dropdown (active modules only)</p></li>
+<li>
+<p>Duration auto-filled from selected module</p></li>
+<li>
+<p>Repeat to add multiple sessions</p></li>
+<li>
+<p>Reorder sessions if needed</p></li>
+</ul></li>
+<li>
+<p><strong>Attach Files (Optional):</strong></p>
+<ul>
+<li>
+<p>Upload supporting materials</p></li>
+<li>
+<p>Add multiple files as needed</p></li>
+</ul></li>
+<li>
+<p><strong>Save Product:</strong></p>
+<ul>
+<li>
+<p>Validate all required fields</p></li>
+<li>
+<p>Check at least 1 session exists</p></li>
+<li>
+<p>Calculate total duration</p></li>
+<li>
+<p>Create product record</p></li>
+<li>
+<p>Redirect to product details page</p></li>
+</ul></li>
+</ol>
+<p><strong>Form Validation:</strong></p>
+<div class=3D"table-wrap">
+<table data-layout=3D"default" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Field</p></th>
+<th class=3D"confluenceTh">
+<p>Validation Rule</p></th>
+<th class=3D"confluenceTh">
+<p>Error Message</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Name</p></td>
+<td class=3D"confluenceTd">
+<p>Required, max 200 chars</p></td>
+<td class=3D"confluenceTd">
+<p>"Product name is required"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Type</p></td>
+<td class=3D"confluenceTd">
+<p>Required</p></td>
+<td class=3D"confluenceTd">
+<p>"Please select a product type"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Code</p></td>
+<td class=3D"confluenceTd">
+<p>Unique if provided</p></td>
+<td class=3D"confluenceTd">
+<p>"Product code already exists"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Sessions</p></td>
+<td class=3D"confluenceTd">
+<p>At least 1 session</p></td>
+<td class=3D"confluenceTd">
+<p>"Product must have at least one session"</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Module</p></td>
+<td class=3D"confluenceTd">
+<p>Valid module ID</p></td>
+<td class=3D"confluenceTd">
+<p>"Please select a valid module"</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h4 id=3D"Product-7.2.5ProductStatusManagement">7.2.5 Product Status Manage=
+ment</h4>
+<p><strong>Status Values:</strong></p>
+<div class=3D"table-wrap">
+<table data-layout=3D"default" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Status</p></th>
+<th class=3D"confluenceTh">
+<p>Description</p></th>
+<th class=3D"confluenceTh">
+<p>Behavior</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>ACTIVE</strong></p></td>
+<td class=3D"confluenceTd">
+<p>Product available for assignment</p></td>
+<td class=3D"confluenceTd">
+<p>Can be assigned to programs, visible in all dropdowns</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>INACTIVE</strong></p></td>
+<td class=3D"confluenceTd">
+<p>Product not available for new assignments</p></td>
+<td class=3D"confluenceTd">
+<p>Cannot be assigned to new programs, existing assignments remain</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>DRAFT</strong></p></td>
+<td class=3D"confluenceTd">
+<p>Product under development</p></td>
+<td class=3D"confluenceTd">
+<p>Not visible in program assignment dropdowns, only visible to creators</p=
+></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Status Transition Rules:</strong></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">DRAFT =
+=E2=86=92 Publish =E2=86=92 ACTIVE
+ACTIVE =E2=86=92 Deactivate =E2=86=92 INACTIVE
+INACTIVE =E2=86=92 Reactivate =E2=86=92 ACTIVE
+DRAFT =E2=86=92 Delete =E2=86=92 DELETED</pre>
+</div>
+</div>
+<p><strong>Transition Actions:</strong></p>
+<ul>
+<li>
+<p><strong>Publish (DRAFT =E2=86=92 ACTIVE):</strong> Makes product availab=
+le for assignment to programs</p></li>
+<li>
+<p><strong>Deactivate (ACTIVE =E2=86=92 INACTIVE):</strong> Prevents new as=
+signments, existing remain</p></li>
+<li>
+<p><strong>Reactivate (INACTIVE =E2=86=92 ACTIVE):</strong> Re-enables prod=
+uct for assignment</p></li>
+<li>
+<p><strong>Delete (DRAFT =E2=86=92 DELETED):</strong> Permanently removes p=
+roduct (only if not used)</p></li>
+</ul>
+<hr>
+<h4 id=3D"Product-7.2.6ProductCloneFunctionality">7.2.6 Product Clone Funct=
+ionality</h4>
+<p><strong>User Story:</strong> <br>
+AS AN Admin <br>
+I NEED to clone existing products <br>
+SO THAT I can quickly create similar products without starting from scratch=
+</p>
+<p><strong>Clone Process:</strong></p>
+<ol start=3D"1">
+<li>
+<p><strong>Initiate Clone:</strong></p>
+<ul>
+<li>
+<p>Click <strong>Clone</strong> icon in product listing or details page</p>=
+</li>
+<li>
+<p>Clone modal opens</p></li>
+</ul></li>
+<li>
+<p><strong>Clone Modal:</strong></p></li>
+</ol>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">=E2=94=
+=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=90
+=E2=94=82 Clone Product                                     [=E2=9C=95]   =
+=E2=94=82
+=E2=94=9C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=A4
+=E2=94=82                                                          =E2=94=
+=82
+=E2=94=82 Source Product: Product Knowledge Fundamentals          =E2=94=82
+=E2=94=82                                                          =E2=94=
+=82
+=E2=94=82 New Product Name: * (Required)                          =E2=94=82
+=E2=94=82 =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=90 =E2=94=82
+=E2=94=82 =E2=94=82 Product Knowledge Fundamentals (Copy)              =E2=
+=94=82 =E2=94=82
+=E2=94=82 =E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=98 =E2=94=82
+=E2=94=82                                                          =E2=94=
+=82
+=E2=94=82 =E2=98=91 Copy sessions                                         =
+=E2=94=82
+=E2=94=82 =E2=98=91 Copy tags                                             =
+=E2=94=82
+=E2=94=82 =E2=98=90 Copy files                                            =
+=E2=94=82
+=E2=94=82 =E2=98=91 Set as DRAFT status                                  =
+=E2=94=82
+=E2=94=82                                                          =E2=94=
+=82
+=E2=94=82                              [Cancel]  [Clone Product]  =E2=94=82
+=E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=98</pre>
+</div>
+</div>
+<ol start=3D"3">
+<li>
+<p><strong>Cloned Data:</strong></p>
+<ul>
+<li>
+<p><strong>Copied:</strong> Name (with suffix), Type, Description, Sessions=
+ (optional), Tags (optional), Files (optional)</p></li>
+<li>
+<p><strong>Not Copied:</strong> Created By (set to current user), Usage sta=
+tistics</p></li>
+<li>
+<p><strong>Default Status:</strong> DRAFT (unless unchecked)</p></li>
+</ul></li>
+<li>
+<p><strong>Post-Clone:</strong></p>
+<ul>
+<li>
+<p>Success message: "Product cloned successfully"</p></li>
+<li>
+<p>Navigate to cloned product details page for editing</p></li>
+</ul></li>
+</ol>
+<hr>
+<h4 id=3D"Product-7.2.7ProductDeleteFunctionality">7.2.7 Product Delete Fun=
+ctionality</h4>
+<p><strong>User Story:</strong> <br>
+AS AN Admin <br>
+I NEED to delete products <br>
+SO THAT I can remove outdated or unused content</p>
+<p><strong>Delete Authorization:</strong></p>
+<ul>
+<li>
+<p><strong>Authorized Roles:</strong> Admin, Root Admin only (Master Role c=
+annot delete)</p></li>
+<li>
+<p><strong>Conditions:</strong> Product must not be used in any active prog=
+rams</p></li>
+</ul>
+<p><strong>Delete Process:</strong></p>
+<ol start=3D"1">
+<li>
+<p><strong>Initiate Delete:</strong></p>
+<ul>
+<li>
+<p>Click <strong>Delete</strong> icon in product listing or details page</p=
+></li>
+<li>
+<p>System checks product usage</p></li>
+</ul></li>
+<li>
+<p><strong>Usage Check:</strong></p>
+<ul>
+<li>
+<p><strong>If product is used:</strong> Display error message</p></li>
+<li>
+<p><strong>If product is not used:</strong> Show confirmation dialog</p></l=
+i>
+</ul></li>
+<li>
+<p><strong>Confirmation Dialog:</strong></p></li>
+</ol>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">=E2=94=
+=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=90
+=E2=94=82 Delete Product?                                   [=E2=9C=95]   =
+=E2=94=82
+=E2=94=9C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=A4
+=E2=94=82                                                          =E2=94=
+=82
+=E2=94=82 =E2=9A=A0=EF=B8=8F Are you sure you want to delete this product? =
+      =E2=94=82
+=E2=94=82                                                          =E2=94=
+=82
+=E2=94=82 Product Name: Product Knowledge Fundamentals            =E2=94=82
+=E2=94=82 Sessions: 4                                             =E2=94=82
+=E2=94=82 Duration: 16 hours                                       =E2=94=
+=82
+=E2=94=82                                                          =E2=94=
+=82
+=E2=94=82 This action cannot be undone.                           =E2=94=82
+=E2=94=82                                                          =E2=94=
+=82
+=E2=94=82                              [Cancel]  [Delete Product] =E2=94=82
+=E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=98</pre>
+</div>
+</div>
+<ol start=3D"4">
+<li>
+<p><strong>Deletion:</strong></p>
+<ul>
+<li>
+<p>Product status changed to DELETED (soft delete)</p></li>
+<li>
+<p>Product removed from all listings</p></li>
+<li>
+<p>Attached files moved to archive</p></li>
+<li>
+<p>Audit trail entry created</p></li>
+</ul></li>
+</ol>
+<p><strong>Error Messages:</strong></p>
+<div class=3D"table-wrap">
+<table data-layout=3D"default" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Scenario</p></th>
+<th class=3D"confluenceTh">
+<p>Message</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Product used in programs</p></td>
+<td class=3D"confluenceTd">
+<p>"Cannot delete product. It is currently used in X program(s). Please rem=
+ove it from all programs first."</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>No delete permission</p></td>
+<td class=3D"confluenceTd">
+<p>"You do not have permission to delete products."</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>System error</p></td>
+<td class=3D"confluenceTd">
+<p>"Failed to delete product: [error details]"</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h4 id=3D"Product-7.2.8ProductIntegrationPoints">7.2.8 Product Integration =
+Points</h4>
+<p><strong>Module Management (Section 7.1):</strong></p>
+<ul>
+<li>
+<p>Products reference modules in sessions</p></li>
+<li>
+<p>Module duration contributes to product total duration</p></li>
+<li>
+<p>Module name and details displayed in product sessions</p></li>
+<li>
+<p>Module deletion blocked if used in any product</p></li>
+</ul>
+<p><strong>Program Management (Section 7.3):</strong></p>
+<ul>
+<li>
+<p>Products assigned to programs</p></li>
+<li>
+<p>Program duration calculated from product durations</p></li>
+<li>
+<p>Product content visible in program overview</p></li>
+<li>
+<p>Product deletion blocked if used in any program</p></li>
+</ul>
+<p><strong>Course Planning (Section 8.3.3):</strong></p>
+<ul>
+<li>
+<p>Products displayed in course planning tab</p></li>
+<li>
+<p>Trainers can view product sessions and modules</p></li>
+<li>
+<p>Product completion tracked during course delivery</p></li>
+</ul>
+<p><strong>Reporting:</strong></p>
+<ul>
+<li>
+<p>Product usage statistics</p></li>
+<li>
+<p>Product completion rates by learner</p></li>
+<li>
+<p>Trainer feedback on products</p></li>
+</ul>
+<hr>
+<h4 id=3D"Product-7.2.9ProductAuthorizationMatrix">7.2.9 Product Authorizat=
+ion Matrix</h4>
+<div class=3D"table-wrap">
+<table data-layout=3D"default" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Action</p></th>
+<th class=3D"confluenceTh">
+<p>Admin</p></th>
+<th class=3D"confluenceTh">
+<p>Master Role</p></th>
+<th class=3D"confluenceTh">
+<p>Root Admin</p></th>
+<th class=3D"confluenceTh">
+<p>Other Roles</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>View Product List</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93 (read-only)</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Create Product</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=97</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Edit Product</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=97</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Delete Product</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=97</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=97</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Clone Product</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=97</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Upload Files</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=97</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Delete Files</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=97</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=97</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Change Status</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=97</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>View Usage</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=93</p></td>
+<td class=3D"confluenceTd">
+<p>=E2=9C=97</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h4 id=3D"Product-7.2.10ProductValidationRules">7.2.10 Product Validation R=
+ules</h4>
+<p><strong>Business Rules:</strong></p>
+<ol start=3D"1">
+<li>
+<p><strong>Name Uniqueness:</strong></p>
+<ul>
+<li>
+<p>Product names should be unique (warning, not blocking)</p></li>
+<li>
+<p>Case-insensitive comparison</p></li>
+<li>
+<p>Warning: "A product with a similar name already exists"</p></li>
+</ul></li>
+<li>
+<p><strong>Code Uniqueness:</strong></p>
+<ul>
+<li>
+<p>Product codes must be unique if provided</p></li>
+<li>
+<p>Case-insensitive comparison</p></li>
+<li>
+<p>Error: "Product code already exists"</p></li>
+</ul></li>
+<li>
+<p><strong>Minimum Sessions:</strong></p>
+<ul>
+<li>
+<p>Product must have at least 1 session</p></li>
+<li>
+<p>Error: "Product must have at least one session"</p></li>
+</ul></li>
+<li>
+<p><strong>Valid Modules:</strong></p>
+<ul>
+<li>
+<p>Each session must reference a valid, active module</p></li>
+<li>
+<p>Error: "Please select a valid module for all sessions"</p></li>
+</ul></li>
+<li>
+<p><strong>Duration Calculation:</strong></p>
+<ul>
+<li>
+<p>Total duration =3D Sum of all session module durations</p></li>
+<li>
+<p>Auto-calculated, not editable by user</p></li>
+<li>
+<p>Updates when sessions added/removed/modified</p></li>
+</ul></li>
+<li>
+<p><strong>File Upload Validation:</strong></p>
+<ul>
+<li>
+<p>Max file size: 50MB per file</p></li>
+<li>
+<p>Max total size: 500MB per product</p></li>
+<li>
+<p>Allowed types: PDF, DOCX, PPTX, XLSX, MP4, ZIP, images</p></li>
+<li>
+<p>Error: "File exceeds maximum size of 50MB"</p></li>
+</ul></li>
+<li>
+<p><strong>Deletion Validation:</strong></p>
+<ul>
+<li>
+<p>Cannot delete if used in active programs</p></li>
+<li>
+<p>Can delete if only used in INACTIVE programs (with warning)</p></li>
+<li>
+<p>Error: "Product is used in X active program(s)"</p></li>
+</ul></li>
+<li>
+<p><strong>Status Change Validation:</strong></p>
+<ul>
+<li>
+<p>Cannot set to ACTIVE if required fields incomplete</p></li>
+<li>
+<p>Can set to INACTIVE anytime</p></li>
+<li>
+<p>Warning when deactivating: "This will prevent new assignments to program=
+s"</p></li>
+</ul></li>
+</ol>
+<hr>
+<h4 id=3D"Product-7.2.11ProductUI/UXConsiderations">7.2.11 Product UI/UX Co=
+nsiderations</h4>
+<p><strong>Responsive Design:</strong></p>
+<ul>
+<li>
+<p>Desktop: Full table layout with all columns</p></li>
+<li>
+<p>Tablet: Condensed table with essential columns</p></li>
+<li>
+<p>Mobile: Card-based layout with expandable details</p></li>
+</ul>
+<p><strong>Performance:</strong></p>
+<ul>
+<li>
+<p>Pagination for large product lists (&gt;100 items)</p></li>
+<li>
+<p>Lazy loading for session details</p></li>
+<li>
+<p>Debounced search (300ms delay)</p></li>
+<li>
+<p>Cached product data in browser session</p></li>
+</ul>
+<p><strong>Accessibility:</strong></p>
+<ul>
+<li>
+<p>Keyboard navigation support</p></li>
+<li>
+<p>Screen reader labels for all fields</p></li>
+<li>
+<p>High contrast mode support</p></li>
+<li>
+<p>Focus indicators on interactive elements</p></li>
+</ul>
+<p><strong>User Feedback:</strong></p>
+<ul>
+<li>
+<p>Success toast notifications for all actions</p></li>
+<li>
+<p>Loading indicators during file uploads</p></li>
+<li>
+<p>Progress bars for large file uploads</p></li>
+<li>
+<p>Error messages with actionable guidance</p></li>
+</ul>
+<hr>
+<h4 id=3D"Product-7.2.12ProductUIScreenshots">7.2.12 Product UI Screenshots=
+</h4>
+<p>This section contains screenshots from the implemented Product Managemen=
+t UI to illustrate the actual interface design and functionality.</p>
+<p><strong>Note:</strong> The screenshots have been embedded directly in th=
+is page. If the images do not display properly, please upload them manually=
+ using the Confluence editor's image upload feature. The screenshot files a=
+re located at:</p>
+<ul>
+<li>
+<p><code>C:\Users\diem.hakieu1\AppData\Local\Temp\cursor\screenshots\produc=
+t-listing-page.png</code></p></li>
+<li>
+<p><code>C:\Users\diem.hakieu1\AppData\Local\Temp\cursor\screenshots\produc=
+t-details-page.png</code></p></li>
+<li>
+<p><code>C:\Users\diem.hakieu1\AppData\Local\Temp\cursor\screenshots\produc=
+t-creation-form.png</code></p></li>
+</ul>
+<p><strong>Product Listing Page Screenshot:</strong></p>
+<p>The Product Listing Page displays all products in a table format with se=
+arch, filters, and action buttons. Key features visible:</p>
+<ul>
+<li>
+<p>Search bar at the top for filtering products</p></li>
+<li>
+<p>Filter dropdowns for Type and Status</p></li>
+<li>
+<p>Data table showing product information (Name, Type, Sessions, Certificat=
+e, License, Status, Duration)</p></li>
+<li>
+<p>Action icons (View, Edit, Clone, Delete) for each product</p></li>
+<li>
+<p>"+ Add New Product" button in the top-right corner</p></li>
+<li>
+<p>Pagination controls at the bottom</p></li>
+</ul>
+<p><strong>Product Details Page Screenshot:</strong></p>
+<p>The Product Details Page shows comprehensive product information with ta=
+bs for different sections. Key features visible:</p>
+<ul>
+<li>
+<p>General Information section with product fields (Name, Type, Learner Typ=
+e, License, Duration, Code, Certificate, Tags)</p></li>
+<li>
+<p>Sessions section showing the list of sessions with their associated modu=
+les</p></li>
+<li>
+<p>File attachment section for managing product files</p></li>
+<li>
+<p>Edit buttons for modifying product information</p></li>
+<li>
+<p>Breadcrumb navigation showing current location</p></li>
+</ul>
+<p><strong>Product Creation Form Screenshot:</strong></p>
+<p>The Product Creation Form allows administrators to create new products. =
+Key features visible:</p>
+<ul>
+<li>
+<p>General Information tab with form fields (Name, Type, Learner Type, Lice=
+nse, Duration, Code, Certificate, Tags)</p></li>
+<li>
+<p>Sessions section with ability to add multiple sessions</p></li>
+<li>
+<p>Form validation indicators for required fields</p></li>
+<li>
+<p>Cancel and Create Product buttons</p></li>
+<li>
+<p>Clean, organized layout with clear field labels</p></li>
+</ul>
+    </div>
+</body>
+</html>
+------=_Part_42_844327645.1765093727143--

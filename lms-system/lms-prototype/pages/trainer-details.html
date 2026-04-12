@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainer Details - FWD LMS</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <h2>FWD Insurance</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard.html" class="nav-item">
+                    <span class="nav-icon">🏠</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="trainer-list.html" class="nav-item active admin-only">
+                    <span class="nav-icon">🎓</span>
+                    <span>Trainers</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="breadcrumb">
+                    <a href="../dashboard.html">🏠 Home</a>
+                    <span>></span>
+                    <a href="trainer-list.html">Trainers</a>
+                    <span>></span>
+                    <span class="active">Trainer Details</span>
+                </div>
+                <div class="user-profile">
+                    <select id="roleSelector">
+                        <option value="admin">Admin</option>
+                        <option value="root_admin">Root Admin</option>
+                    </select>
+                    <img src="https://via.placeholder.com/32" alt="Profile">
+                    <span>LMS Admin</span>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="action-header">
+                    <h1 class="page-title">Trainer: Trainer1 cloudair</h1>
+                    <button class="btn-primary">Edit Trainer</button>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab active" onclick="showTab('general')">General</button>
+                    <button class="tab" onclick="showTab('courses')">Courses</button>
+                    <button class="tab" onclick="showTab('history')">History</button>
+                </div>
+
+                <div id="general" class="tab-content active">
+                    <div class="table-container" style="padding: 20px;">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr style="border-bottom: 1px solid #e0e0e0;">
+                                <td style="width: 200px; font-weight: 600; padding: 12px; color: #555;">Name:</td>
+                                <td style="padding: 12px; color: #333;">Trainer1 cloudair</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0e0e0;">
+                                <td style="padding: 12px; font-weight: 600; color: #555;">Email:</td>
+                                <td style="padding: 12px; color: #333;">trainer1@mail.com</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0e0e0;">
+                                <td style="padding: 12px; font-weight: 600; color: #555;">Type:</td>
+                                <td style="padding: 12px; color: #333;">FWD</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0e0e0;">
+                                <td style="padding: 12px; font-weight: 600; color: #555;">Region:</td>
+                                <td style="padding: 12px; color: #333;">IFA Central</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0e0e0;">
+                                <td style="padding: 12px; font-weight: 600; color: #555;">Rate:</td>
+                                <td style="padding: 12px; color: #333;">$50/hr</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; font-weight: 600; color: #555;">Status:</td>
+                                <td style="padding: 12px;"><span class="status-badge status-approved">Active</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="courses" class="tab-content">
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Course Code</th>
+                                    <th>Course Name</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="course-details.html">4-TPCTIFA_M... Shine</a></td>
+                                    <td>Shine: New course</td>
+                                    <td>01/10/2025 - 16/10/2025</td>
+                                    <td><span class="status-badge status-creating">Creating</span></td>
+                                    <td><a href="course-details.html">View</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="history" class="tab-content">
+                    <div class="table-container" style="padding: 20px;">
+                        <h3 style="margin-bottom: 15px; color: #2c3e50;">Trainer History</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                    <th>Course</th>
+                                    <th>Modified By</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01/10/2025</td>
+                                    <td>Assigned to Course</td>
+                                    <td>4-TPCTIFA_M... Shine</td>
+                                    <td>LMS Admin</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+    <script>
+        function showTab(tabName) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,241 @@
+[
+  {
+    "id": 1,
+    "name": "Introduction to Life Insurance",
+    "duration": 2.5,
+    "outcome": "Understand basic life insurance concepts, types of policies, and regulatory requirements",
+    "tags": [
+      "Insurance",
+      "Basics",
+      "Foundation"
+    ],
+    "status": "ACTIVE",
+    "createdBy": "admin@lms.com",
+    "createdDate": "2025-01-15",
+    "files": [
+      {
+        "id": "file_1",
+        "fileName": "Life_Insurance_Basics.pdf",
+        "fileSize": 2457600,
+        "fileType": "application/pdf",
+        "uploadedBy": "admin@lms.com",
+        "uploadDate": "2025-01-15T10:30:00Z"
+      }
+    ],
+    "usageCount": 3,
+    "updatedBy": "admin_user",
+    "updatedDate": "2025-11-23"
+  },
+  {
+    "id": 2,
+    "name": "Sales Techniques for Insurance",
+    "duration": 3,
+    "outcome": "Master effective sales techniques, customer engagement strategies, and closing methods",
+    "tags": [
+      "Sales",
+      "Skills",
+      "Communication"
+    ],
+    "status": "ACTIVE",
+    "createdBy": "admin@lms.com",
+    "createdDate": "2025-01-15",
+    "files": [
+      {
+        "id": "file_2",
+        "fileName": "Sales_Techniques_Guide.pdf",
+        "fileSize": 3145728,
+        "fileType": "application/pdf",
+        "uploadedBy": "admin@lms.com",
+        "uploadDate": "2025-01-16T14:20:00Z"
+      },
+      {
+        "id": "file_3",
+        "fileName": "Sales_Presentation_Template.pptx",
+        "fileSize": 5242880,
+        "fileType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "uploadedBy": "admin@lms.com",
+        "uploadDate": "2025-01-16T14:25:00Z"
+      }
+    ],
+    "usageCount": 5
+  },
+  {
+    "id": 3,
+    "name": "Regulatory Compliance",
+    "duration": 2,
+    "outcome": "Understand insurance regulations, compliance requirements, and ethical practices",
+    "tags": [
+      "Compliance",
+      "Legal",
+      "Ethics"
+    ],
+    "status": "ACTIVE",
+    "createdBy": "admin@lms.com",
+    "createdDate": "2025-01-15",
+    "files": [],
+    "usageCount": 2
+  },
+  {
+    "id": 4,
+    "name": "Customer Service Excellence",
+    "duration": 1.5,
+    "outcome": "Develop customer service skills, handle complaints effectively, and build long-term relationships",
+    "tags": [
+      "Customer Service",
+      "Skills",
+      "Communication"
+    ],
+    "status": "ACTIVE",
+    "createdBy": "admin@lms.com",
+    "createdDate": "2025-01-15",
+    "files": [
+      {
+        "id": "file_4",
+        "fileName": "Customer_Service_Handbook.pdf",
+        "fileSize": 1835008,
+        "fileType": "application/pdf",
+        "uploadedBy": "admin@lms.com",
+        "uploadDate": "2025-01-18T09:15:00Z"
+      }
+    ],
+    "usageCount": 4
+  },
+  {
+    "id": 5,
+    "name": "Digital Marketing for Insurance",
+    "duration": 2,
+    "outcome": "Learn digital marketing strategies, social media engagement, and online lead generation",
+    "tags": [
+      "Marketing",
+      "Digital",
+      "Social Media"
+    ],
+    "status": "DRAFT",
+    "createdBy": "admin@lms.com",
+    "createdDate": "2025-01-20",
+    "files": [],
+    "usageCount": 0
+  },
+  {
+    "id": 6,
+    "name": "Risk Assessment and Underwriting",
+    "duration": 3.5,
+    "outcome": "Learn risk assessment methodologies, underwriting principles, and decision-making processes",
+    "tags": [
+      "Risk Management",
+      "Underwriting",
+      "Analysis"
+    ],
+    "status": "ACTIVE",
+    "createdBy": "admin@lms.com",
+    "createdDate": "2025-01-22",
+    "files": [
+      {
+        "id": "file_5",
+        "fileName": "Risk_Assessment_Framework.pdf",
+        "fileSize": 4194304,
+        "fileType": "application/pdf",
+        "uploadedBy": "admin@lms.com",
+        "uploadDate": "2025-01-22T11:00:00Z"
+      }
+    ],
+    "usageCount": 1
+  },
+  {
+    "id": 7,
+    "name": "Claims Processing Fundamentals",
+    "duration": 2.5,
+    "outcome": "Understand claims processing workflow, documentation requirements, and customer communication",
+    "tags": [
+      "Claims",
+      "Operations",
+      "Process"
+    ],
+    "status": "ACTIVE",
+    "createdBy": "admin@lms.com",
+    "createdDate": "2025-01-25",
+    "files": [],
+    "usageCount": 2
+  },
+  {
+    "id": 8,
+    "name": "Leadership and Team Management",
+    "duration": 4,
+    "outcome": "Develop leadership skills, team building strategies, and performance management techniques",
+    "tags": [
+      "Leadership",
+      "Management",
+      "Skills"
+    ],
+    "status": "ACTIVE",
+    "createdBy": "admin@lms.com",
+    "createdDate": "2025-02-01",
+    "files": [
+      {
+        "id": "file_6",
+        "fileName": "Leadership_Essentials.pdf",
+        "fileSize": 2621440,
+        "fileType": "application/pdf",
+        "uploadedBy": "admin@lms.com",
+        "uploadDate": "2025-02-01T13:45:00Z"
+      },
+      {
+        "id": "file_7",
+        "fileName": "Team_Building_Activities.docx",
+        "fileSize": 1048576,
+        "fileType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "uploadedBy": "admin@lms.com",
+        "uploadDate": "2025-02-01T13:50:00Z"
+      }
+    ],
+    "usageCount": 3
+  },
+  {
+    "id": 9,
+    "name": "Financial Planning Basics",
+    "duration": 3,
+    "outcome": "Understand financial planning principles, investment strategies, and retirement planning",
+    "tags": [
+      "Financial Planning",
+      "Investment",
+      "Retirement"
+    ],
+    "status": "INACTIVE",
+    "createdBy": "admin@lms.com",
+    "createdDate": "2024-12-10",
+    "updatedBy": "admin@lms.com",
+    "updatedDate": "2025-02-15",
+    "files": [],
+    "usageCount": 0
+  },
+  {
+    "id": 10,
+    "name": "Advanced Product Knowledge",
+    "duration": 5,
+    "outcome": "Master advanced product features, benefits comparison, and competitive positioning",
+    "tags": [
+      "Product",
+      "Advanced",
+      "Knowledge"
+    ],
+    "status": "DRAFT",
+    "createdBy": "admin@lms.com",
+    "createdDate": "2025-02-20",
+    "files": [],
+    "usageCount": 0
+  },
+  {
+    "id": 1763810530210,
+    "name": "Test Module",
+    "duration": 1.5,
+    "outcome": "Learning outcome test",
+    "tags": [
+      "Insurance"
+    ],
+    "status": "DRAFT",
+    "createdBy": "admin_user",
+    "createdDate": "2025-11-22",
+    "files": [],
+    "usageCount": 0
+  }
+]

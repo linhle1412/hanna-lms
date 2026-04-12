@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainers - FWD LMS</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <h2>FWD Insurance</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard.html" class="nav-item">
+                    <span class="nav-icon">🏠</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="trainer-list.html" class="nav-item active admin-only">
+                    <span class="nav-icon">🎓</span>
+                    <span>Trainers</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="breadcrumb">
+                    <a href="../dashboard.html">🏠 Home</a>
+                    <span>></span>
+                    <span class="active">Trainers</span>
+                </div>
+                <div class="user-profile">
+                    <select id="roleSelector">
+                        <option value="admin">Admin</option>
+                        <option value="root_admin">Root Admin</option>
+                    </select>
+                    <img src="https://via.placeholder.com/32" alt="Profile">
+                    <span>LMS Admin</span>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="action-header">
+                    <h1 class="page-title">Trainers</h1>
+                    <button class="btn-primary" onclick="Navigation.showModal('createTrainerModal')">Create New Trainer</button>
+                </div>
+
+                <div class="search-section">
+                    <input type="text" class="search-input" placeholder="Search by name, email, type...">
+                    <select class="filter-select">
+                        <option>All Regions</option>
+                    </select>
+                    <select class="filter-select">
+                        <option>All Channels</option>
+                    </select>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Type</th>
+                                <th>Region</th>
+                                <th>Rate</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="trainer-details.html">Trainer1 cloudair</a></td>
+                                <td>trainer1@mail.com</td>
+                                <td>FWD</td>
+                                <td>IFA Central</td>
+                                <td>$50/hr</td>
+                                <td><span class="status-badge status-approved">Active</span></td>
+                                <td><a href="trainer-details.html">View</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="trainer-details.html">Trainer2 cloudair</a></td>
+                                <td>trainer2@mail.com</td>
+                                <td>FWD</td>
+                                <td>Banca South</td>
+                                <td>$55/hr</td>
+                                <td><span class="status-badge status-approved">Active</span></td>
+                                <td><a href="trainer-details.html">View</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="trainer-details.html">Trainer3 cloudair</a></td>
+                                <td>trainer3@mail.com</td>
+                                <td>FWT</td>
+                                <td>Agency South</td>
+                                <td>$45/hr</td>
+                                <td><span class="status-badge status-approved">Active</span></td>
+                                <td><a href="trainer-details.html">View</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <span>Go 1 Page 1 of 5</span>
+                        <div class="pagination-controls">
+                            <button>&lt;</button>
+                            <span>1</span>
+                            <button>&gt;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Create Trainer Modal -->
+    <div id="createTrainerModal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Create New Trainer</h3>
+                <button class="modal-close" onclick="Navigation.hideModal('createTrainerModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="modal-form">
+                    <div class="form-group">
+                        <label for="trainerName">Name <span class="required-field">*</span></label>
+                        <input type="text" id="trainerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="trainerEmail">Email <span class="required-field">*</span></label>
+                        <input type="email" id="trainerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="trainerType">Type <span class="required-field">*</span></label>
+                        <select id="trainerType" required>
+                            <option>FWD</option>
+                            <option>FWT</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="trainerRegion">Region <span class="required-field">*</span></label>
+                        <select id="trainerRegion" required>
+                            <option>Region</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="trainerRate">Rate</label>
+                        <input type="text" id="trainerRate" placeholder="$50/hr">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="Navigation.hideModal('createTrainerModal')">Cancel</button>
+                <button class="btn-primary" onclick="alert('Trainer created!'); Navigation.hideModal('createTrainerModal')">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>
+
