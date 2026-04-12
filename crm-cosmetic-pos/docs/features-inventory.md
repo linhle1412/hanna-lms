@@ -122,9 +122,14 @@ Màn hình tổng quan hiển thị tình trạng tồn kho toàn hệ thống h
 ### 3.1 Mô Tả
 Ghi nhận hàng hóa nhập vào kho từ nhà cung cấp hoặc nguồn khác.
 
-### 3.2 Yêu Cầu Chức Năng
+### 3.2 Use Cases
+1. **UC-IN-01**: Nhập hàng từ nhà cung cấp (100 chai Serum từ NCC)
+2. **UC-IN-02**: Nhập hàng trả lại từ khách (2 chai Foundation - sai màu)
+3. **UC-IN-03**: Nhập hàng chuyển đổi/tặng (quà khuyến mãi)
 
-#### 3.2.1 Form Nhập Kho
+### 3.3 Yêu Cầu Chức Năng
+
+#### 3.3.1 Form Nhập Kho
 **Input Fields**:
 - **Sản phẩm** (Required): Dropdown chọn sản phẩm
 - **Chi nhánh** (Required): Chi nhánh nhập hàng
@@ -133,7 +138,7 @@ Ghi nhận hàng hóa nhập vào kho từ nhà cung cấp hoặc nguồn khác.
 - **Nhà cung cấp**: Tên NCC
 - **Ghi chú**: Mô tả lô hàng
 
-#### 3.2.2 Business Rules
+#### 3.3.2 Business Rules
 1. **Validation**:
    - Số lượng > 0
    - Giá nhập >= 0 (có thể = 0 nếu quà tặng)
@@ -151,7 +156,7 @@ Ghi nhận hàng hóa nhập vào kho từ nhà cung cấp hoặc nguồn khác.
    - Ghi nhận giá nhập (để tính COGS)
    - Lưu thông tin NCC
 
-#### 3.2.3 Lịch Sử
+#### 3.3.3 Lịch Sử
 Mỗi giao dịch nhập kho ghi nhận:
 - Mã giao dịch (auto-generated)
 - Sản phẩm, chi nhánh
@@ -166,9 +171,14 @@ Mỗi giao dịch nhập kho ghi nhận:
 ### 4.1 Mô Tả
 Ghi nhận hàng hóa xuất khỏi kho.
 
-### 4.2 Yêu Cầu Chức Năng
+### 4.2 Use Cases
+1. **UC-OUT-01**: Xuất kho bán lẻ (3 son MAC cho khách walk-in)
+2. **UC-OUT-02**: Xuất hàng hư hỏng (1 chai kem bị vỡ)
+3. **UC-OUT-03**: Xuất trả NCC (hàng lỗi)
 
-#### 4.2.1 Form Xuất Kho
+### 4.3 Yêu Cầu Chức Năng
+
+#### 4.3.1 Form Xuất Kho
 **Input Fields**:
 - **Sản phẩm** (Required)
 - **Chi nhánh** (Required)
@@ -181,7 +191,7 @@ Ghi nhận hàng hóa xuất khỏi kho.
   - Trả nhà cung cấp
 - **Ghi chú**
 
-#### 4.2.2 Business Rules
+#### 4.3.2 Business Rules
 1. **Validation**:
    - Số lượng > 0
    - Số lượng <= Tồn kho hiện tại
@@ -199,7 +209,7 @@ Ghi nhận hàng hóa xuất khỏi kho.
    - Giảm tồn kho chi nhánh
    - Ghi nhận lý do xuất (cho báo cáo)
 
-#### 4.2.3 Special Cases
+#### 4.3.3 Special Cases
 - **Bán lẻ/sỉ**: Link với Order ID (nếu từ đơn hàng)
 - **Hàng hư hỏng**: Ghi nhận loss inventory
 - **Chuyển kho**: Tạo phiếu chuyển kho (Stock Transfer)
@@ -211,7 +221,13 @@ Ghi nhận hàng hóa xuất khỏi kho.
 ### 5.1 Mô Tả
 Điều chuyển sản phẩm từ chi nhánh này sang chi nhánh khác.
 
-### 5.2 Process Flow Diagram
+### 5.2 Use Cases
+1. **UC-TRF-01**: Chuyển kho thành công (20 Foundation Q3→Q1)
+2. **UC-TRF-02**: Manager từ chối phiếu (không đủ hàng)
+3. **UC-TRF-03**: Hủy giữa chừng (người giao gặp sự cố)
+4. **UC-TRF-04**: Nhận hàng sai lệch (18/20 chai - 2 chai vỡ)
+
+### 5.3 Process Flow Diagram
 
 ```mermaid
 flowchart TD
@@ -285,9 +301,9 @@ flowchart TD
 
 ---
 
-### 5.3 Yêu Cầu Chức Năng
+### 5.4 Yêu Cầu Chức Năng
 
-#### 5.3.1 Tạo Phiếu Chuyển Kho
+#### 5.4.1 Tạo Phiếu Chuyển Kho
 **Input Fields**:
 - **Sản phẩm** (Required)
 - **Từ chi nhánh** (Required)
@@ -297,7 +313,7 @@ flowchart TD
 - **Dự kiến nhận**: Date/Time
 - **Lý do chuyển kho**: Text
 
-#### 5.3.2 Business Rules
+#### 5.4.2 Business Rules
 1. **Validation**:
    - Từ chi nhánh ≠ Đến chi nhánh
    - Số lượng > 0
@@ -324,7 +340,7 @@ flowchart TD
    Completed: Cộng tồn kho chi nhánh đích
    ```
 
-#### 5.3.3 Quản Lý Phiếu Chuyển
+#### 5.4.3 Quản Lý Phiếu Chuyển
 **Danh sách hiển thị**:
 - Mã phiếu (TF-YYYY-XXX)
 - Sản phẩm
@@ -341,7 +357,7 @@ flowchart TD
 - **Hủy**: Cancel phiếu (chỉ khi Pending/In Transit)
 - **In phiếu**: Print PDF
 
-#### 5.3.4 Notifications
+#### 5.4.4 Notifications
 - Tạo phiếu → Notify Manager chi nhánh nguồn
 - Phê duyệt → Notify người giao & chi nhánh đích
 - Xác nhận nhận → Notify Manager chi nhánh nguồn
@@ -353,7 +369,14 @@ flowchart TD
 ### 6.1 Mô Tả
 Đối chiếu số liệu tồn kho trên hệ thống với thực tế tại kho.
 
-### 6.2 Process Flow Diagram (Enhanced)
+### 6.2 Use Cases
+1. **UC-STK-01**: Full Count cuối tháng (toàn bộ sản phẩm Q1)
+2. **UC-STK-02**: Cycle Count tuần (30 SKU category A)
+3. **UC-STK-03**: Team Assignment (3 teams parallel, 500 SKU)
+4. **UC-STK-04**: Barcode Scanning (quick count mode)
+5. **UC-STK-05**: Variance > 10% (cần Investigation Report)
+
+### 6.3 Process Flow Diagram (Enhanced)
 
 ```mermaid
 flowchart TD
@@ -466,9 +489,9 @@ flowchart TD
 
 ---
 
-### 6.3 Yêu Cầu Chức Năng
+### 6.4 Yêu Cầu Chức Năng
 
-#### 6.3.1 Tạo Phiên Kiểm Kho
+#### 6.4.1 Tạo Phiên Kiểm Kho
 **Input Fields**:
 - **Tên phiên** (Required): VD: "Kiểm kho tháng 4/2024"
 - **Chi nhánh** (Required): Chọn 1 hoặc tất cả
@@ -481,7 +504,7 @@ flowchart TD
   - Sản phẩm có chênh lệch
   - Random sampling (10%, 20%...)
 
-#### 6.3.2 Quy Trình Kiểm Kho
+#### 6.4.2 Quy Trình Kiểm Kho
 **Step 1: Chuẩn bị**
 - Tạo phiên kiểm kho
 - Hệ thống generate danh sách sản phẩm cần kiểm
@@ -498,7 +521,7 @@ flowchart TD
 - **Lưu nháp**: Save để tiếp tục sau
 - **Hoàn tất**: Cập nhật tồn kho = số thực tế
 
-#### 6.2.3 Variance Calculation
+#### 6.4.3 Variance Calculation
 ```
 Variance = Số thực tế - Số hệ thống
 
@@ -507,7 +530,7 @@ Nếu Variance < 0: Thiếu (mất hàng)
 Nếu Variance = 0: Chính xác
 ```
 
-#### 6.2.4 Business Rules
+#### 6.4.4 Business Rules
 1. **Trong quá trình kiểm kho**:
    - Khóa chức năng nhập/xuất cho sản phẩm đang kiểm (optional)
    - Hoặc: Cho phép nhập/xuất nhưng flag "Đang kiểm kho"
@@ -522,13 +545,13 @@ Nếu Variance = 0: Chính xác
    - Tổng chênh lệch (+ và -)
    - Giá trị chênh lệch (theo giá nhập)
 
-#### 6.2.5 Lịch Sử Kiểm Kho
+#### 6.4.5 Lịch Sử Kiểm Kho
 Lưu trữ tất cả phiên kiểm kho:
 - Tên phiên, ngày, người kiểm
 - Kết quả chi tiết từng sản phẩm
 - Variance, Accuracy Rate
 
-#### 6.2.6 Enhanced Features
+#### 6.4.6 Enhanced Features
 
 ##### **A. Variance Threshold & Approval Workflow**
 
