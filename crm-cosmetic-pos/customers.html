@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản Lý Khách Hàng - CRM POS</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    /* Customer tier badges */
+    .tier-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .tier-gold { background: #ffd700; color: #8b6914; }
+    .tier-silver { background: #c0c0c0; color: #505050; }
+    .tier-bronze { background: #cd7f32; color: #fff; }
+    .tier-regular { background: #e0e0e0; color: #666; }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 900px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+
+    .modal-header {
+      padding: 1.5rem;
+      border-bottom: 2px solid #e8ecef;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+
+    .modal-close {
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #999;
+      background: none;
+      border: none;
+      padding: 0.5rem;
+      line-height: 1;
+    }
+
+    .modal-close:hover {
+      color: #333;
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+    }
+
+    .modal-footer {
+      padding: 1rem 1.5rem;
+      border-top: 2px solid #e8ecef;
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+    }
+
+    /* Customer detail sections */
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .detail-section {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    .detail-section.full {
+      grid-column: 1 / -1;
+    }
+
+    .section-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+
+    .detail-label {
+      color: #777;
+      font-size: 0.875rem;
+    }
+
+    .detail-value {
+      font-weight: 500;
+      color: #2c3e50;
+      font-size: 0.875rem;
+    }
+
+    /* Stats cards in detail */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-box {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .stat-box.green {
+      background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    }
+
+    .stat-box.orange {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      opacity: 0.9;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-number {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    /* Order history table */
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    .history-table th {
+      text-align: left;
+      padding: 0.75rem;
+      background: #f0f0f0;
+      font-weight: 600;
+      color: #555;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .history-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .history-table tr:hover {
+      background: #f8f9fa;
+    }
+
+    /* Create customer form */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .form-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .form-label.required::after {
+      content: " *";
+      color: #e74c3c;
+    }
+
+    .form-input, .form-select {
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-family: inherit;
+    }
+
+    .form-input:focus, .form-select:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">🏪 Beauty Store</div>
+      </div>
+      
+      <nav class="sidebar-menu">
+        <div class="menu-section">
+          <div class="menu-section-title">Chính</div>
+          <a href="dashboard.html" class="menu-item">
+            <span class="menu-item-icon">📊</span>
+            <span class="menu-item-text">Dashboard</span>
+          </a>
+          <a href="index.html" class="menu-item">
+            <span class="menu-item-icon">🛒</span>
+            <span class="menu-item-text">POS - Bán Hàng</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Bán Hàng</div>
+          <a href="orders.html" class="menu-item">
+            <span class="menu-item-icon">📦</span>
+            <span class="menu-item-text">Đơn Hàng</span>
+          </a>
+          <a href="customers.html" class="menu-item active">
+            <span class="menu-item-icon">👥</span>
+            <span class="menu-item-text">Khách Hàng</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Quản Lý</div>
+          <a href="inventory.html" class="menu-item">
+            <span class="menu-item-icon">📦</span>
+            <span class="menu-item-text">Kho Hàng</span>
+          </a>
+          <a href="promotions.html" class="menu-item">
+            <span class="menu-item-icon">🎁</span>
+            <span class="menu-item-text">Khuyến Mãi</span>
+          </a>
+          <a href="settings.html" class="menu-item">
+            <span class="menu-item-icon">⚙️</span>
+            <span class="menu-item-text">Cài Đặt</span>
+          </a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1 class="page-title">👥 Quản Lý Khách Hàng</h1>
+        <div class="page-actions">
+          <button class="btn btn-secondary" onclick="alert('Import CSV coming soon!')">📥 Import CSV</button>
+          <button class="btn btn-secondary" onclick="alert('Export Excel coming soon!')">📄 Xuất Excel</button>
+          <button class="btn btn-secondary" onclick="alert('Gửi SMS tới khách đã chọn')">📲 Gửi SMS</button>
+          <button class="btn btn-primary" onclick="openCreateModal()">➕ Thêm khách hàng</button>
+        </div>
+      </div>
+
+      <div class="page-content">
+        <!-- Stats Overview -->
+        <div class="stats-grid">
+          <div class="stat-card" style="border-left-color: var(--primary-color)">
+            <div class="stat-label">Tổng Khách Hàng</div>
+            <div class="stat-value">1,247</div>
+            <div class="stat-change positive">↑ 23 khách mới tuần này</div>
+          </div>
+          
+          <div class="stat-card" style="border-left-color: #ffd700">
+            <div class="stat-label">Khách VIP (Gold)</div>
+            <div class="stat-value">156</div>
+            <div class="stat-change">12.5% tổng khách</div>
+          </div>
+          
+          <div class="stat-card" style="border-left-color: var(--secondary-color)">
+            <div class="stat-label">Trung Bình / Khách</div>
+            <div class="stat-value">2.8M đ</div>
+            <div class="stat-change positive">↑ 8% so với tháng trước</div>
+          </div>
+          
+          <div class="stat-card" style="border-left-color: var(--warning-color)">
+            <div class="stat-label">Khách Không Active</div>
+            <div class="stat-value">87</div>
+            <div class="stat-change">Không mua >90 ngày</div>
+          </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="card">
+          <div class="filters">
+            <div class="filter-group">
+              <label class="filter-label">Tìm kiếm</label>
+              <input type="text" class="filter-input" placeholder="SĐT, tên khách hàng..." style="width: 250px;">
+            </div>
+            
+            <div class="filter-group">
+              <label class="filter-label">Hạng</label>
+              <select class="filter-input">
+                <option>Tất cả</option>
+                <option>Gold</option>
+                <option>Silver</option>
+                <option>Bronze</option>
+                <option>Regular</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label">Trạng thái</label>
+              <select class="filter-input">
+                <option>Active</option>
+                <option>Inactive</option>
+                <option>Tất cả</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label">Sắp xếp</label>
+              <select class="filter-input">
+                <option>Mới nhất</option>
+                <option>Tên A-Z</option>
+                <option>Điểm cao → thấp</option>
+                <option>Tổng chi tiêu cao → thấp</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customers Table -->
+        <div class="card">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th><input type="checkbox" onclick="toggleSelectAll(this)"></th>
+                <th>Mã KH</th>
+                <th>Tên khách hàng</th>
+                <th>Số điện thoại</th>
+                <th>Email</th>
+                <th>Hạng</th>
+                <th>Điểm</th>
+                <th>Tổng đơn</th>
+                <th>Tổng chi tiêu</th>
+                <th>Ngày đăng ký</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Customer 1 -->
+              <tr>
+                <td><input type="checkbox" class="customer-checkbox"></td>
+                <td><strong>KH001</strong></td>
+                <td>Nguyễn Thị Lan</td>
+                <td>0901234567</td>
+                <td>lan.nguyen@email.com</td>
+                <td><span class="tier-badge tier-gold">Gold</span></td>
+                <td><strong>2,450</strong></td>
+                <td>18</td>
+                <td><strong>12,850,000đ</strong></td>
+                <td>15/03/2024</td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-icon" onclick="viewCustomerDetail(1)" title="Xem chi tiết">👁️</button>
+                    <button class="btn-icon" onclick="alert('Gửi SMS tới Lan')" title="Gửi SMS">📲</button>
+                    <button class="btn-icon" onclick="confirmDelete(1)" title="Xóa (soft)">🗑️</button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Customer 2 -->
+              <tr>
+                <td><input type="checkbox" class="customer-checkbox"></td>
+                <td><strong>KH002</strong></td>
+                <td>Trần Minh Anh</td>
+                <td>0901234568</td>
+                <td>anh.tran@email.com</td>
+                <td><span class="tier-badge tier-silver">Silver</span></td>
+                <td><strong>850</strong></td>
+                <td>7</td>
+                <td><strong>4,200,000đ</strong></td>
+                <td>22/05/2024</td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-icon" onclick="viewCustomerDetail(2)" title="Xem chi tiết">👁️</button>
+                    <button class="btn-icon" onclick="alert('Gửi SMS tới Anh')" title="Gửi SMS">📲</button>
+                    <button class="btn-icon" onclick="confirmDelete(2)" title="Xóa (soft)">🗑️</button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Customer 3 -->
+              <tr>
+                <td><input type="checkbox" class="customer-checkbox"></td>
+                <td><strong>KH003</strong></td>
+                <td>Lê Văn Hùng</td>
+                <td>0912345678</td>
+                <td>hung.le@email.com</td>
+                <td><span class="tier-badge tier-bronze">Bronze</span></td>
+                <td><strong>320</strong></td>
+                <td>3</td>
+                <td><strong>1,850,000đ</strong></td>
+                <td>08/08/2024</td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-icon" onclick="viewCustomerDetail(3)" title="Xem chi tiết">👁️</button>
+                    <button class="btn-icon" onclick="alert('Gửi SMS tới Hùng')" title="Gửi SMS">📲</button>
+                    <button class="btn-icon" onclick="confirmDelete(3)" title="Xóa (soft)">🗑️</button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Customer 4 -->
+              <tr>
+                <td><input type="checkbox" class="customer-checkbox"></td>
+                <td><strong>KH004</strong></td>
+                <td>Phạm Thu Hà</td>
+                <td>0923456789</td>
+                <td>ha.pham@email.com</td>
+                <td><span class="tier-badge tier-gold">Gold</span></td>
+                <td><strong>3,120</strong></td>
+                <td>24</td>
+                <td><strong>18,500,000đ</strong></td>
+                <td>02/01/2024</td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-icon" onclick="viewCustomerDetail(4)" title="Xem chi tiết">👁️</button>
+                    <button class="btn-icon" onclick="alert('Gửi SMS tới Hà')" title="Gửi SMS">📲</button>
+                    <button class="btn-icon" onclick="confirmDelete(4)" title="Xóa (soft)">🗑️</button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Customer 5 -->
+              <tr>
+                <td><input type="checkbox" class="customer-checkbox"></td>
+                <td><strong>KH005</strong></td>
+                <td>Vũ Thị Mai</td>
+                <td>0934567890</td>
+                <td>mai.vu@email.com</td>
+                <td><span class="tier-badge tier-regular">Regular</span></td>
+                <td><strong>150</strong></td>
+                <td>2</td>
+                <td><strong>920,000đ</strong></td>
+                <td>18/11/2024</td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-icon" onclick="viewCustomerDetail(5)" title="Xem chi tiết">👁️</button>
+                    <button class="btn-icon" onclick="alert('Gửi SMS tới Mai')" title="Gửi SMS">📲</button>
+                    <button class="btn-icon" onclick="confirmDelete(5)" title="Xóa (soft)">🗑️</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Pagination -->
+          <div class="pagination">
+            <button class="pagination-btn" disabled>← Trước</button>
+            <button class="pagination-btn active">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+            <button class="pagination-btn">...</button>
+            <button class="pagination-btn">25</button>
+            <button class="pagination-btn">Sau →</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Customer Detail Modal -->
+  <div class="modal" id="detailModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">👤 Chi Tiết Khách Hàng</h2>
+        <button class="modal-close" onclick="closeDetailModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <!-- Stats Row -->
+        <div class="stats-row">
+          <div class="stat-box">
+            <div class="stat-label">Tổng Đơn Hàng</div>
+            <div class="stat-number">18</div>
+          </div>
+          <div class="stat-box green">
+            <div class="stat-label">Tổng Chi Tiêu</div>
+            <div class="stat-number">12.8M đ</div>
+          </div>
+          <div class="stat-box orange">
+            <div class="stat-label">Điểm Tích Lũy</div>
+            <div class="stat-number">2,450</div>
+          </div>
+        </div>
+
+        <!-- Customer Info Grid -->
+        <div class="detail-grid">
+          <!-- Basic Info -->
+          <div class="detail-section">
+            <div class="section-title">Thông Tin Cơ Bản</div>
+            <div class="detail-row">
+              <span class="detail-label">Mã KH:</span>
+              <span class="detail-value">KH001</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Tên:</span>
+              <span class="detail-value">Nguyễn Thị Lan</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">SĐT:</span>
+              <span class="detail-value">0901234567</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Email:</span>
+              <span class="detail-value">lan.nguyen@email.com</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Ngày sinh:</span>
+              <span class="detail-value">15/03/1990</span>
+            </div>
+          </div>
+
+          <!-- Membership Info -->
+          <div class="detail-section">
+            <div class="section-title">Thông Tin Thành Viên</div>
+            <div class="detail-row">
+              <span class="detail-label">Hạng:</span>
+              <span class="detail-value"><span class="tier-badge tier-gold">Gold</span></span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Điểm hiện tại:</span>
+              <span class="detail-value">2,450 điểm</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Ngày đăng ký:</span>
+              <span class="detail-value">15/03/2024</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Lần mua gần nhất:</span>
+              <span class="detail-value">2 ngày trước</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Trung bình/đơn:</span>
+              <span class="detail-value">713,000đ</span>
+            </div>
+          </div>
+
+          <!-- Address -->
+          <div class="detail-section full">
+            <div class="section-title">Địa Chỉ</div>
+            <div class="detail-row">
+              <span class="detail-label">Địa chỉ chính:</span>
+              <span class="detail-value">123 Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP.HCM</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Địa chỉ phụ:</span>
+              <span class="detail-value">456 Lê Lợi, Phường Bến Thành, Quận 1, TP.HCM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order History -->
+        <div class="detail-section full">
+          <div class="section-title">Lịch Sử Mua Hàng (5 đơn gần nhất)</div>
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>Mã đơn</th>
+                <th>Ngày</th>
+                <th>Kênh</th>
+                <th>Sản phẩm</th>
+                <th>Tổng tiền</th>
+                <th>Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>#POS-245</strong></td>
+                <td>10/04/2026</td>
+                <td><span class="badge badge-info">Store</span></td>
+                <td>Son Dior, Serum Estée</td>
+                <td><strong>2,835,000đ</strong></td>
+                <td><span class="badge badge-success">Completed</span></td>
+              </tr>
+              <tr>
+                <td><strong>#SHOPEE-891</strong></td>
+                <td>05/04/2026</td>
+                <td><span class="badge badge-warning">Shopee</span></td>
+                <td>Kem chống nắng LRP</td>
+                <td><strong>385,000đ</strong></td>
+                <td><span class="badge badge-success">Completed</span></td>
+              </tr>
+              <tr>
+                <td><strong>#POS-198</strong></td>
+                <td>28/03/2026</td>
+                <td><span class="badge badge-info">Store</span></td>
+                <td>Mascara Lancôme</td>
+                <td><strong>890,000đ</strong></td>
+                <td><span class="badge badge-success">Completed</span></td>
+              </tr>
+              <tr>
+                <td><strong>#LAZADA-542</strong></td>
+                <td>15/03/2026</td>
+                <td><span class="badge badge-danger">Lazada</span></td>
+                <td>Set trang điểm</td>
+                <td><strong>1,250,000đ</strong></td>
+                <td><span class="badge badge-success">Completed</span></td>
+              </tr>
+              <tr>
+                <td><strong>#POS-143</strong></td>
+                <td>08/03/2026</td>
+                <td><span class="badge badge-info">Store</span></td>
+                <td>Nước hoa Chanel</td>
+                <td><strong>3,200,000đ</strong></td>
+                <td><span class="badge badge-success">Completed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeDetailModal()">Đóng</button>
+        <button class="btn btn-secondary">✏️ Chỉnh sửa</button>
+        <button class="btn btn-primary">📲 Gửi SMS</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Customer Modal -->
+  <div class="modal" id="createModal">
+    <div class="modal-content" style="max-width: 600px;">
+      <div class="modal-header">
+        <h2 class="modal-title">➕ Thêm Khách Hàng Mới</h2>
+        <button class="modal-close" onclick="closeCreateModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label required">Số điện thoại</label>
+            <input type="text" class="form-input" placeholder="09xxxxxxxx">
+          </div>
+          <div class="form-field">
+            <label class="form-label required">Tên khách hàng</label>
+            <input type="text" class="form-input" placeholder="Nguyễn Văn A">
+          </div>
+          <div class="form-field">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" placeholder="email@example.com">
+          </div>
+          <div class="form-field">
+            <label class="form-label">Ngày sinh</label>
+            <input type="date" class="form-input">
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Địa chỉ</label>
+          <input type="text" class="form-input" placeholder="Số nhà, đường, phường, quận, thành phố">
+        </div>
+        <div class="form-field">
+          <label class="form-label">Ghi chú</label>
+          <textarea class="form-input" rows="3" placeholder="Ghi chú về khách hàng..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeCreateModal()">Hủy</button>
+        <button class="btn btn-primary" onclick="createCustomer()">✓ Tạo khách hàng</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleSelectAll(checkbox) {
+      document.querySelectorAll('.customer-checkbox').forEach(cb => {
+        cb.checked = checkbox.checked;
+      });
+    }
+
+    function viewCustomerDetail(id) {
+      document.getElementById('detailModal').classList.add('show');
+    }
+
+    function closeDetailModal() {
+      document.getElementById('detailModal').classList.remove('show');
+    }
+
+    function openCreateModal() {
+      document.getElementById('createModal').classList.add('show');
+    }
+
+    function closeCreateModal() {
+      document.getElementById('createModal').classList.remove('show');
+    }
+
+    function createCustomer() {
+      alert('Khách hàng mới đã được tạo!\n(Trong thực tế: POST /api/customers)');
+      closeCreateModal();
+    }
+
+    function confirmDelete(id) {
+      if (confirm('Xác nhận xóa khách hàng này?\n(Soft delete - có thể khôi phục)')) {
+        alert('Đã xóa khách hàng (status = inactive)');
+      }
+    }
+
+    // Close modal when clicking outside
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.classList.remove('show');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

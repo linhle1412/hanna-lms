@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tạo Đơn Hàng - CRM POS</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    /* Override main-content to match POS layout */
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background-color: var(--gray-100);
+    }
+
+    .breadcrumb-section {
+      background: white;
+      padding: 0.75rem 1.5rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: #777;
+    }
+
+    .breadcrumb a {
+      color: #3498db;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .breadcrumb a:hover {
+      color: #2980b9;
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      color: #bbb;
+    }
+
+    .breadcrumb-current {
+      color: #2c3e50;
+      font-weight: 500;
+    }
+
+    .page-header {
+      background-color: white;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .page-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--gray-900);
+      margin: 0;
+    }
+
+    .page-subtitle {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      margin-top: 0.25rem;
+    }
+
+    /* 2 Column Grid Layout (like POS) */
+    .create-order-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      overflow: hidden;
+    }
+
+    /* Left Column - Scrollable */
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+
+    /* Right Column - Fixed Cart */
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      max-height: calc(100vh - 200px);
+      overflow-y: auto;
+    }
+
+    /* Form Sections */
+    .section-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.25rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Form Elements */
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .form-row.full {
+      grid-template-columns: 1fr;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .form-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .form-label.required::after {
+      content: " *";
+      color: #e74c3c;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-family: inherit;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    }
+
+    .form-input:read-only {
+      background: #f8f9fa;
+      cursor: not-allowed;
+    }
+
+    /* Cart Styles */
+    .cart-header {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid #e8ecef;
+      color: #2c3e50;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+    }
+
+    .cart-item {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .cart-item-name {
+      font-weight: 500;
+      font-size: 0.875rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .cart-item-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    .cart-item-price {
+      font-weight: 600;
+      color: #2c3e50;
+      font-size: 0.875rem;
+    }
+
+    .gift-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      background: #fff3cd;
+      color: #856404;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      margin-left: 0.5rem;
+    }
+
+    .qty-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .qty-btn {
+      width: 24px;
+      height: 24px;
+      border: 1px solid #ddd;
+      background: white;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+    }
+
+    .qty-btn:hover {
+      background: #f0f0f0;
+    }
+
+    /* Summary */
+    .cart-summary {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-top: auto;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.4rem 0;
+      font-size: 0.85rem;
+    }
+
+    .summary-row.total {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #27ae60;
+      padding-top: 0.75rem;
+      margin-top: 0.75rem;
+      border-top: 2px solid #dee2e6;
+    }
+
+    .promo-tag {
+      display: inline-block;
+      padding: 2px 6px;
+      background: #d4edda;
+      color: #155724;
+      border-radius: 3px;
+      font-size: 0.7rem;
+      margin-left: 0.5rem;
+    }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 2px solid #e8ecef;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary {
+      background: #ecf0f1;
+      color: #555;
+    }
+
+    .btn-secondary:hover {
+      background: #d5dbdb;
+    }
+
+    .btn-primary {
+      background: #27ae60;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #229954;
+    }
+
+    /* Payment Grid */
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+
+    .payment-card {
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      padding: 0.75rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .payment-card:hover {
+      border-color: #3498db;
+      background: #f0f8ff;
+    }
+
+    .payment-card.active {
+      border-color: #3498db;
+      background: #e3f2fd;
+    }
+
+    .payment-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .payment-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    /* Promo Banner */
+    .promo-banner {
+      background: #d4edda;
+      padding: 0.75rem;
+      border-radius: 6px;
+      border-left: 4px solid #28a745;
+      font-size: 0.85rem;
+      color: #155724;
+    }
+
+    .promo-banner ul {
+      margin: 0.5rem 0 0 1.25rem;
+      padding: 0;
+    }
+
+    /* Scrollbar Styling */
+    .left-column::-webkit-scrollbar,
+    .right-column::-webkit-scrollbar,
+    .cart-items::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .left-column::-webkit-scrollbar-thumb,
+    .right-column::-webkit-scrollbar-thumb,
+    .cart-items::-webkit-scrollbar-thumb {
+      background: #ddd;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">🏪 Beauty Store</div>
+      </div>
+      
+      <nav class="sidebar-menu">
+        <div class="menu-section">
+          <div class="menu-section-title">Chính</div>
+          <a href="dashboard.html" class="menu-item">
+            <span class="menu-item-icon">📊</span>
+            <span class="menu-item-text">Dashboard</span>
+          </a>
+          <a href="index.html" class="menu-item">
+            <span class="menu-item-icon">🛒</span>
+            <span class="menu-item-text">POS - Bán Hàng</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Bán Hàng</div>
+          <a href="orders.html" class="menu-item">
+            <span class="menu-item-icon">📦</span>
+            <span class="menu-item-text">Đơn Hàng</span>
+          </a>
+          <a href="customers.html" class="menu-item">
+            <span class="menu-item-icon">👥</span>
+            <span class="menu-item-text">Khách Hàng</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Quản Lý</div>
+          <a href="inventory.html" class="menu-item">
+            <span class="menu-item-icon">📦</span>
+            <span class="menu-item-text">Kho Hàng</span>
+          </a>
+          <a href="promotions.html" class="menu-item">
+            <span class="menu-item-icon">🎁</span>
+            <span class="menu-item-text">Khuyến Mãi</span>
+          </a>
+          <a href="settings.html" class="menu-item">
+            <span class="menu-item-icon">⚙️</span>
+            <span class="menu-item-text">Cài Đặt</span>
+          </a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Breadcrumb -->
+      <div class="breadcrumb-section">
+        <div class="breadcrumb">
+          <a href="orders.html">📦 Đơn Hàng</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">Tạo Đơn Hàng Mới</span>
+        </div>
+      </div>
+
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1 class="page-title">Tạo Đơn Hàng Mới</h1>
+        <p class="page-subtitle">Nhập thông tin đơn hàng cho khách (Điện thoại, Zalo, Facebook...)</p>
+      </div>
+
+      <!-- 2 Column Grid -->
+      <div class="create-order-grid">
+        <!-- LEFT COLUMN -->
+        <div class="left-column">
+          <!-- Customer Info -->
+          <div class="section-card">
+            <div class="section-title">👤 Thông Tin Khách Hàng</div>
+            
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label required">Số điện thoại</label>
+                <input type="text" class="form-input" placeholder="Nhập SĐT..." value="0901234567">
+              </div>
+              <div class="form-field">
+                <label class="form-label required">Tên khách hàng</label>
+                <input type="text" class="form-input" placeholder="Nhập tên..." value="Nguyễn Thị Lan">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-input" placeholder="email@example.com" value="lan.nguyen@email.com">
+              </div>
+              <div class="form-field">
+                <label class="form-label">Hạng khách hàng</label>
+                <input type="text" class="form-input" value="Gold - 2,450 điểm" readonly>
+              </div>
+            </div>
+
+            <div class="form-row full">
+              <div class="form-field">
+                <label class="form-label required">Địa chỉ giao hàng</label>
+                <input type="text" class="form-input" placeholder="Số nhà, đường, quận, thành phố" value="123 Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP.HCM">
+              </div>
+            </div>
+
+            <div class="form-row full">
+              <div class="form-field">
+                <label class="form-label">Ghi chú đơn hàng</label>
+                <textarea class="form-textarea" rows="2" placeholder="Ghi chú đặc biệt...">Giao giờ hành chính, gọi trước 15 phút</textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Search -->
+          <div class="section-card">
+            <div class="section-title">🛍️ Chọn Sản Phẩm</div>
+            <div class="form-row full">
+              <div class="form-field">
+                <label class="form-label">Tìm kiếm sản phẩm</label>
+                <input type="text" class="form-input" placeholder="Tên sản phẩm, mã SP, barcode...">
+              </div>
+            </div>
+            <p style="font-size: 0.8rem; color: #777; margin-top: 0.5rem;">
+              💡 Nhập tên hoặc mã sản phẩm để thêm vào giỏ hàng
+            </p>
+          </div>
+
+          <!-- Discount & Promo -->
+          <div class="section-card">
+            <div class="section-title">🎁 Khuyến Mãi & Giảm Giá</div>
+            
+            <div class="promo-banner">
+              <strong>✅ Khuyến mãi tự động đã áp dụng:</strong>
+              <ul>
+                <li>Giảm 10% cho đơn hàng ≥500,000đ (-315,000đ)</li>
+                <li>Tặng Mascara mini Lancôme (Mua ≥2 makeup)</li>
+              </ul>
+            </div>
+
+            <div style="margin-top: 1rem; padding: 0.75rem; background: #fff3cd; border-radius: 6px; border-left: 4px solid #ffc107;">
+              <strong style="font-size: 0.85rem; color: #856404;">🔐 Giảm giá thêm (Chỉ Quản lý)</strong>
+              <div class="form-row" style="margin-top: 0.75rem;">
+                <div class="form-field">
+                  <label class="form-label">Loại giảm giá</label>
+                  <select class="form-select">
+                    <option>Không giảm thêm</option>
+                    <option>Giảm theo %</option>
+                    <option>Giảm số tiền cố định</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label class="form-label">Lý do</label>
+                  <select class="form-select">
+                    <option>Khách VIP</option>
+                    <option>Bù lỗi sản phẩm</option>
+                    <option>Khuyến mãi đặc biệt</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shipping -->
+          <div class="section-card">
+            <div class="section-title">🚚 Phí Giao Hàng</div>
+            
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label">Hình thức giao hàng</label>
+                <select class="form-select">
+                  <option>Giao hàng tiêu chuẩn</option>
+                  <option>Giao hàng nhanh (GHN Express)</option>
+                  <option>Tự đến lấy (Miễn phí)</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Ngày giao mong muốn</label>
+                <input type="date" class="form-input" value="2026-04-15">
+              </div>
+            </div>
+
+            <div style="margin-top: 0.75rem;">
+              <button class="btn btn-secondary" style="width: auto; padding: 0.5rem 1rem; font-size: 0.8rem;">
+                🧮 Tính phí tự động (API GHN)
+              </button>
+              <span style="margin-left: 1rem; color: #27ae60; font-weight: 500; font-size: 0.85rem;">
+                Phí ship: 30,000đ → Miễn phí (đơn ≥1tr)
+              </span>
+            </div>
+          </div>
+
+          <!-- Payment -->
+          <div class="section-card">
+            <div class="section-title">💳 Thanh Toán</div>
+            
+            <div class="payment-grid">
+              <div class="payment-card active">
+                <div class="payment-icon">💵</div>
+                <div class="payment-label">COD</div>
+              </div>
+              <div class="payment-card">
+                <div class="payment-icon">🏦</div>
+                <div class="payment-label">Chuyển khoản</div>
+              </div>
+              <div class="payment-card">
+                <div class="payment-icon">💳</div>
+                <div class="payment-label">Thẻ</div>
+              </div>
+              <div class="payment-card">
+                <div class="payment-icon">📱</div>
+                <div class="payment-label">Ví điện tử</div>
+              </div>
+              <div class="payment-card">
+                <div class="payment-icon">🔄</div>
+                <div class="payment-label">Trả góp</div>
+              </div>
+              <div class="payment-card">
+                <div class="payment-icon">🎯</div>
+                <div class="payment-label">Điểm</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Cart & Summary -->
+        <div class="right-column">
+          <div class="cart-header">🛒 Giỏ Hàng</div>
+
+          <div class="cart-items">
+            <!-- Item 1 -->
+            <div class="cart-item">
+              <div class="cart-item-name">Son Dior Rouge 999</div>
+              <div class="cart-item-meta">
+                <span>350,000đ × 
+                  <span class="qty-controls">
+                    <button class="qty-btn">−</button>
+                    <strong>2</strong>
+                    <button class="qty-btn">+</button>
+                  </span>
+                </span>
+                <span class="cart-item-price">700,000đ</span>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="cart-item">
+              <div class="cart-item-name">Serum Estée Lauder Advanced Night Repair</div>
+              <div class="cart-item-meta">
+                <span>2,450,000đ × 
+                  <span class="qty-controls">
+                    <button class="qty-btn">−</button>
+                    <strong>1</strong>
+                    <button class="qty-btn">+</button>
+                  </span>
+                </span>
+                <span class="cart-item-price">2,450,000đ</span>
+              </div>
+            </div>
+
+            <!-- Gift Item -->
+            <div class="cart-item" style="background: #fffbf0;">
+              <div class="cart-item-name">
+                🎁 Mascara mini Lancôme
+                <span class="gift-badge">Quà tặng</span>
+              </div>
+              <div class="cart-item-meta">
+                <span style="font-size: 0.75rem; color: #856404;">Miễn phí khi mua ≥2 makeup</span>
+                <span class="cart-item-price" style="color: #27ae60;">0đ</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Summary -->
+          <div class="cart-summary">
+            <div class="summary-row">
+              <span>Tạm tính (3 sản phẩm):</span>
+              <strong>3,150,000đ</strong>
+            </div>
+            <div class="summary-row">
+              <span>Giảm giá: <span class="promo-tag">KM tự động</span></span>
+              <strong style="color: #e74c3c;">-315,000đ</strong>
+            </div>
+            <div class="summary-row">
+              <span>Phí ship:</span>
+              <span>
+                <span style="text-decoration: line-through; color: #999;">30,000đ</span>
+                <strong style="color: #27ae60; margin-left: 0.5rem;">Miễn phí</strong>
+              </span>
+            </div>
+            <div class="summary-row total">
+              <span>TỔNG CỘNG:</span>
+              <span>2,835,000đ</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="action-buttons">
+            <button class="btn btn-secondary" onclick="window.history.back()">← Hủy</button>
+            <button class="btn btn-primary" onclick="alert('Đơn hàng #ORD-24561 đã được tạo!')">✓ Tạo đơn</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Payment method selection
+    document.querySelectorAll('.payment-card').forEach(card => {
+      card.addEventListener('click', function() {
+        document.querySelectorAll('.payment-card').forEach(c => c.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

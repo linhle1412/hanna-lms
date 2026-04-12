@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản Lý Kho - CRM POS</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    .page-header {
+      background: white;
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--gray-200);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .page-title-section h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0 0 0.5rem 0;
+    }
+
+    .page-subtitle {
+      font-size: 0.875rem;
+      color: #777;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.25rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: #3498db;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #2980b9;
+    }
+
+    .btn-success {
+      background: #27ae60;
+      color: white;
+    }
+
+    .btn-success:hover {
+      background: #229954;
+    }
+
+    .btn-warning {
+      background: #f39c12;
+      color: white;
+    }
+
+    .btn-warning:hover {
+      background: #e67e22;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background: #f8f9fa;
+    }
+
+    .stat-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border-left: 4px solid #3498db;
+    }
+
+    .stat-card.warning {
+      border-left-color: #f39c12;
+    }
+
+    .stat-card.danger {
+      border-left-color: #e74c3c;
+    }
+
+    .stat-card.success {
+      border-left-color: #27ae60;
+    }
+
+    .stat-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      color: #777;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-value {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+
+    .stat-change {
+      font-size: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .stat-change.positive {
+      color: #27ae60;
+    }
+
+    .stat-change.negative {
+      color: #e74c3c;
+    }
+
+    /* Main Content */
+    .main-section {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem;
+    }
+
+    /* Filter Bar */
+    .filter-bar {
+      background: white;
+      padding: 1.25rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .filter-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+      flex: 1;
+    }
+
+    .filter-label {
+      font-size: 0.813rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .filter-select, .filter-input {
+      padding: 0.625rem 0.875rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 0.875rem;
+    }
+
+    /* Tabs */
+    .tabs-container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .tabs-header {
+      display: flex;
+      border-bottom: 2px solid #e8ecef;
+      background: #f8f9fa;
+    }
+
+    .tab-button {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      border: none;
+      background: transparent;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #777;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-bottom: 3px solid transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .tab-button:hover {
+      background: #f0f0f0;
+      color: #555;
+    }
+
+    .tab-button.active {
+      background: white;
+      color: #3498db;
+      border-bottom-color: #3498db;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 1.5rem;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Table */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .data-table thead {
+      background: #f8f9fa;
+    }
+
+    .data-table th {
+      text-align: left;
+      padding: 0.875rem;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: #555;
+      border-bottom: 2px solid #dee2e6;
+    }
+
+    .data-table td {
+      padding: 0.875rem;
+      border-bottom: 1px solid #e8ecef;
+      font-size: 0.875rem;
+    }
+
+    .data-table tbody tr:hover {
+      background: #f8f9fa;
+    }
+
+    .product-info {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .product-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 2px solid #e0e0e0;
+    }
+
+    .product-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .product-name {
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    .product-sku {
+      font-size: 0.75rem;
+      color: #999;
+      font-family: monospace;
+    }
+
+    .stock-badge {
+      padding: 0.375rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .stock-badge.high {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .stock-badge.medium {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    .stock-badge.low {
+      background: #f8d7da;
+      color: #721c24;
+    }
+
+    .stock-badge.out {
+      background: #e0e0e0;
+      color: #555;
+    }
+
+    .btn-icon {
+      padding: 0.5rem;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 1.25rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-icon:hover {
+      background: #f0f0f0;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 16px;
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+
+    .modal-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #999;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+    }
+
+    .modal-close:hover {
+      background: #f0f0f0;
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+    }
+
+    .modal-footer {
+      padding: 1.5rem;
+      border-top: 1px solid #e0e0e0;
+      display: flex;
+      gap: 0.75rem;
+      justify-content: flex-end;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-grid.full {
+      grid-template-columns: 1fr;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+    }
+
+    .form-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .form-label.required::after {
+      content: " *";
+      color: #e74c3c;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      padding: 0.625rem 0.875rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-family: inherit;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    }
+
+    /* Alert Box */
+    .alert-box {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+
+    .alert-title {
+      font-weight: 600;
+      color: #856404;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .alert-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .alert-list li {
+      font-size: 0.875rem;
+      color: #856404;
+      padding: 0.25rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* History Timeline */
+    .history-timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .history-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.5rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #e0e0e0;
+    }
+
+    .history-item {
+      position: relative;
+      padding-bottom: 1.5rem;
+    }
+
+    .history-item::before {
+      content: '';
+      position: absolute;
+      left: -1.5rem;
+      top: 0.25rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #3498db;
+      border: 2px solid white;
+      box-shadow: 0 0 0 2px #3498db;
+    }
+
+    .history-content {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    .history-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .history-action {
+      font-weight: 600;
+      color: #2c3e50;
+      font-size: 0.875rem;
+    }
+
+    .history-time {
+      font-size: 0.75rem;
+      color: #999;
+    }
+
+    .history-details {
+      font-size: 0.813rem;
+      color: #555;
+    }
+
+    .history-user {
+      font-size: 0.75rem;
+      color: #777;
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">🏪 Beauty Store</div>
+      </div>
+      
+      <nav class="sidebar-menu">
+        <div class="menu-section">
+          <div class="menu-section-title">Chính</div>
+          <a href="dashboard.html" class="menu-item">
+            <span class="menu-item-icon">📊</span>
+            <span class="menu-item-text">Dashboard</span>
+          </a>
+          <a href="index.html" class="menu-item">
+            <span class="menu-item-icon">🛒</span>
+            <span class="menu-item-text">POS - Bán Hàng</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Bán Hàng</div>
+          <a href="orders.html" class="menu-item">
+            <span class="menu-item-icon">📦</span>
+            <span class="menu-item-text">Đơn Hàng</span>
+          </a>
+          <a href="customers.html" class="menu-item">
+            <span class="menu-item-icon">👥</span>
+            <span class="menu-item-text">Khách Hàng</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Sản Phẩm</div>
+          <a href="products.html" class="menu-item">
+            <span class="menu-item-icon">💄</span>
+            <span class="menu-item-text">Quản Lý Sản Phẩm</span>
+          </a>
+          <a href="inventory.html" class="menu-item active">
+            <span class="menu-item-icon">📊</span>
+            <span class="menu-item-text">Quản Lý Kho</span>
+          </a>
+          <a href="stock-transfer.html" class="menu-item">
+            <span class="menu-item-icon">↔️</span>
+            <span class="menu-item-text">Chuyển Kho</span>
+          </a>
+          <a href="expiry-management.html" class="menu-item">
+            <span class="menu-item-icon">⏰</span>
+            <span class="menu-item-text">Hạn Sử Dụng</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Marketing</div>
+          <a href="promotions.html" class="menu-item">
+            <span class="menu-item-icon">🎁</span>
+            <span class="menu-item-text">Khuyến Mãi</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Hệ Thống</div>
+          <a href="settings.html" class="menu-item">
+            <span class="menu-item-icon">⚙️</span>
+            <span class="menu-item-text">Cài Đặt</span>
+          </a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Page Header -->
+      <div class="page-header">
+        <div class="page-title-section">
+          <h1>📦 Quản Lý Kho</h1>
+          <p class="page-subtitle">Theo dõi và quản lý tồn kho sản phẩm</p>
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-success" onclick="openStockInModal()">
+            ⬇️ Nhập kho
+          </button>
+          <button class="btn btn-warning" onclick="openStockOutModal()">
+            ⬆️ Xuất kho
+          </button>
+          <button class="btn btn-primary" onclick="openTransferModal()">
+            ↔️ Chuyển kho
+          </button>
+          <button class="btn btn-primary" onclick="openStockTakeModal()">
+            📋 Kiểm kho
+          </button>
+          <button class="btn btn-primary" onclick="openBatchModal()">
+            📦 Batch/Expiry
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📦</div>
+          <div class="stat-label">Tổng sản phẩm</div>
+          <div class="stat-value">1,847</div>
+          <div class="stat-change positive">↑ 12% so với tháng trước</div>
+        </div>
+
+        <div class="stat-card warning">
+          <div class="stat-icon">⚠️</div>
+          <div class="stat-label">Cảnh báo tồn kho thấp</div>
+          <div class="stat-value">8</div>
+          <div class="stat-change">Cần nhập kho gấp</div>
+        </div>
+
+        <div class="stat-card danger">
+          <div class="stat-icon">🚫</div>
+          <div class="stat-label">Hết hàng</div>
+          <div class="stat-value">3</div>
+          <div class="stat-change">Đang chờ nhập hàng</div>
+        </div>
+
+        <div class="stat-card success">
+          <div class="stat-icon">💰</div>
+          <div class="stat-label">Giá trị kho</div>
+          <div class="stat-value">2.4 tỷ</div>
+          <div class="stat-change positive">↑ 8.3% so với tháng trước</div>
+        </div>
+      </div>
+
+      <!-- Main Section -->
+      <div class="main-section">
+        <!-- Alert Box -->
+        <div class="alert-box">
+          <div class="alert-title">⚠️ Cảnh báo tồn kho</div>
+          <ul class="alert-list">
+            <li>🔴 <strong>Rouge Dior 999</strong> - Chi nhánh Quận 3: Còn 3 sản phẩm (ngưỡng: 10)</li>
+            <li>🔴 <strong>Estée Lauder Night Repair</strong> - Chi nhánh Quận 5: Còn 5 sản phẩm (ngưỡng: 15)</li>
+            <li>🟠 <strong>La Roche-Posay UV SPF50</strong> - Chi nhánh Quận 1: Còn 8 sản phẩm (ngưỡng: 20)</li>
+          </ul>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+          <div class="filter-item">
+            <label class="filter-label">Chi nhánh</label>
+            <select class="filter-select" onchange="filterTable()">
+              <option value="all">Tất cả chi nhánh</option>
+              <option value="q1">Quận 1</option>
+              <option value="q3">Quận 3</option>
+              <option value="q5">Quận 5</option>
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <label class="filter-label">Trạng thái tồn kho</label>
+            <select class="filter-select" onchange="filterTable()">
+              <option value="all">Tất cả</option>
+              <option value="high">Tồn kho cao</option>
+              <option value="medium">Tồn kho trung bình</option>
+              <option value="low">Tồn kho thấp</option>
+              <option value="out">Hết hàng</option>
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <label class="filter-label">Danh mục</label>
+            <select class="filter-select" onchange="filterTable()">
+              <option value="all">Tất cả danh mục</option>
+              <option value="lipstick">Son môi</option>
+              <option value="skincare">Chăm sóc da</option>
+              <option value="serum">Serum</option>
+              <option value="sunscreen">Kem chống nắng</option>
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <label class="filter-label">Tìm kiếm</label>
+            <input type="text" class="filter-input" placeholder="Tìm theo tên hoặc SKU..." onkeyup="searchTable(this.value)">
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs-container">
+          <div class="tabs-header">
+            <button class="tab-button active" onclick="switchTab(event, 'overview')">
+              📊 Tổng quan
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'branches')">
+              🏪 Theo chi nhánh
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'history')">
+              📜 Lịch sử
+            </button>
+          </div>
+
+          <!-- Tab: Overview -->
+          <div class="tab-content active" id="overview">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Sản phẩm</th>
+                  <th>Danh mục</th>
+                  <th>Quận 1</th>
+                  <th>Quận 3</th>
+                  <th>Quận 5</th>
+                  <th>Tổng</th>
+                  <th>Trạng thái</th>
+                  <th>Thao tác</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="product-info">
+                      <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=100&h=100&fit=crop" alt="Product" class="product-image">
+                      <div class="product-details">
+                        <div class="product-name">Rouge Dior 999</div>
+                        <div class="product-sku">DIOR-999</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Son môi</td>
+                  <td>67</td>
+                  <td><strong style="color: #e74c3c;">3</strong></td>
+                  <td>33</td>
+                  <td><strong>103</strong></td>
+                  <td><span class="stock-badge low">Tồn kho thấp</span></td>
+                  <td>
+                    <div class="action-buttons">
+                      <button class="btn-icon" onclick="openStockInModal()" title="Nhập kho">⬇️</button>
+                      <button class="btn-icon" onclick="openStockOutModal()" title="Xuất kho">⬆️</button>
+                      <button class="btn-icon" onclick="viewHistory(1)" title="Lịch sử">📜</button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="product-info">
+                      <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=100&h=100&fit=crop" alt="Product" class="product-image">
+                      <div class="product-details">
+                        <div class="product-name">Estée Lauder Night Repair</div>
+                        <div class="product-sku">EL-NR-50ML</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Serum</td>
+                  <td>45</td>
+                  <td>28</td>
+                  <td><strong style="color: #e74c3c;">5</strong></td>
+                  <td><strong>78</strong></td>
+                  <td><span class="stock-badge low">Tồn kho thấp</span></td>
+                  <td>
+                    <div class="action-buttons">
+                      <button class="btn-icon" onclick="openStockInModal()" title="Nhập kho">⬇️</button>
+                      <button class="btn-icon" onclick="openStockOutModal()" title="Xuất kho">⬆️</button>
+                      <button class="btn-icon" onclick="viewHistory(2)" title="Lịch sử">📜</button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="product-info">
+                      <img src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=100&h=100&fit=crop" alt="Product" class="product-image">
+                      <div class="product-details">
+                        <div class="product-name">La Roche-Posay UV SPF50</div>
+                        <div class="product-sku">LRP-UV-50</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Kem chống nắng</td>
+                  <td><strong style="color: #e74c3c;">8</strong></td>
+                  <td>52</td>
+                  <td>41</td>
+                  <td><strong>101</strong></td>
+                  <td><span class="stock-badge medium">Tồn kho trung bình</span></td>
+                  <td>
+                    <div class="action-buttons">
+                      <button class="btn-icon" onclick="openStockInModal()" title="Nhập kho">⬇️</button>
+                      <button class="btn-icon" onclick="openStockOutModal()" title="Xuất kho">⬆️</button>
+                      <button class="btn-icon" onclick="viewHistory(3)" title="Lịch sử">📜</button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="product-info">
+                      <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=100&h=100&fit=crop" alt="Product" class="product-image">
+                      <div class="product-details">
+                        <div class="product-name">Lancôme Advanced Génifique</div>
+                        <div class="product-sku">LAN-GEN-30ML</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Serum</td>
+                  <td>122</td>
+                  <td>98</td>
+                  <td>87</td>
+                  <td><strong>307</strong></td>
+                  <td><span class="stock-badge high">Tồn kho cao</span></td>
+                  <td>
+                    <div class="action-buttons">
+                      <button class="btn-icon" onclick="openStockInModal()" title="Nhập kho">⬇️</button>
+                      <button class="btn-icon" onclick="openStockOutModal()" title="Xuất kho">⬆️</button>
+                      <button class="btn-icon" onclick="viewHistory(4)" title="Lịch sử">📜</button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="product-info">
+                      <img src="https://images.unsplash.com/photo-1631214524020-7e18db9a8f92?w=100&h=100&fit=crop" alt="Product" class="product-image">
+                      <div class="product-details">
+                        <div class="product-name">Chanel N°5 Eau de Parfum</div>
+                        <div class="product-sku">CHANEL-N5</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Nước hoa</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td><strong style="color: #e74c3c;">0</strong></td>
+                  <td><span class="stock-badge out">Hết hàng</span></td>
+                  <td>
+                    <div class="action-buttons">
+                      <button class="btn-icon" onclick="openStockInModal()" title="Nhập kho">⬇️</button>
+                      <button class="btn-icon" onclick="openStockOutModal()" title="Xuất kho">⬆️</button>
+                      <button class="btn-icon" onclick="viewHistory(5)" title="Lịch sử">📜</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Tab: Branches -->
+          <div class="tab-content" id="branches">
+            <h3 style="margin-bottom: 1rem;">📍 Chọn chi nhánh để xem chi tiết</h3>
+            <div class="form-grid">
+              <div class="form-field">
+                <select class="filter-select" id="branchSelector" onchange="loadBranchData()">
+                  <option value="q1">Chi nhánh Quận 1</option>
+                  <option value="q3">Chi nhánh Quận 3</option>
+                  <option value="q5">Chi nhánh Quận 5</option>
+                </select>
+              </div>
+            </div>
+
+            <table class="data-table" style="margin-top: 1rem;">
+              <thead>
+                <tr>
+                  <th>Sản phẩm</th>
+                  <th>Tồn kho</th>
+                  <th>Ngưỡng cảnh báo</th>
+                  <th>Trạng thái</th>
+                  <th>Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="branchTableBody">
+                <tr>
+                  <td>
+                    <div class="product-info">
+                      <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=100&h=100&fit=crop" alt="Product" class="product-image">
+                      <div class="product-details">
+                        <div class="product-name">Rouge Dior 999</div>
+                        <div class="product-sku">DIOR-999</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><strong>67</strong></td>
+                  <td>10</td>
+                  <td><span class="stock-badge high">Đủ hàng</span></td>
+                  <td>
+                    <div class="action-buttons">
+                      <button class="btn-icon" onclick="openStockInModal()" title="Nhập kho">⬇️</button>
+                      <button class="btn-icon" onclick="openStockOutModal()" title="Xuất kho">⬆️</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Tab: History -->
+          <div class="tab-content" id="history">
+            <div class="history-timeline">
+              <div class="history-item">
+                <div class="history-content">
+                  <div class="history-header">
+                    <div class="history-action">⬇️ Nhập kho</div>
+                    <div class="history-time">2 giờ trước</div>
+                  </div>
+                  <div class="history-details">
+                    <strong>Rouge Dior 999</strong> - Chi nhánh Quận 1<br>
+                    Số lượng: +50 sản phẩm (67 → 117)
+                  </div>
+                  <div class="history-user">👤 Nguyễn Văn A • Nhập từ nhà cung cấp</div>
+                </div>
+              </div>
+
+              <div class="history-item">
+                <div class="history-content">
+                  <div class="history-header">
+                    <div class="history-action">⬆️ Xuất kho</div>
+                    <div class="history-time">5 giờ trước</div>
+                  </div>
+                  <div class="history-details">
+                    <strong>Estée Lauder Night Repair</strong> - Chi nhánh Quận 3<br>
+                    Số lượng: -15 sản phẩm (43 → 28)
+                  </div>
+                  <div class="history-user">👤 Trần Thị B • Bán lẻ</div>
+                </div>
+              </div>
+
+              <div class="history-item">
+                <div class="history-content">
+                  <div class="history-header">
+                    <div class="history-action">🔄 Điều chỉnh</div>
+                    <div class="history-time">1 ngày trước</div>
+                  </div>
+                  <div class="history-details">
+                    <strong>La Roche-Posay UV SPF50</strong> - Chi nhánh Quận 5<br>
+                    Số lượng: -2 sản phẩm (43 → 41)<br>
+                    Lý do: <em>Hàng hư hỏng</em>
+                  </div>
+                  <div class="history-user">👤 Lê Văn C • Kiểm kho</div>
+                </div>
+              </div>
+
+              <div class="history-item">
+                <div class="history-content">
+                  <div class="history-header">
+                    <div class="history-action">↔️ Chuyển kho</div>
+                    <div class="history-time">2 ngày trước</div>
+                  </div>
+                  <div class="history-details">
+                    <strong>Lancôme Advanced Génifique</strong><br>
+                    Từ: Chi nhánh Quận 1 (-20)<br>
+                    Đến: Chi nhánh Quận 3 (+20)
+                  </div>
+                  <div class="history-user">👤 Admin • Điều chuyển nội bộ</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal: Stock In -->
+  <div class="modal" id="stockInModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">⬇️ Nhập Kho</h2>
+        <button class="modal-close" onclick="closeStockInModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label required">Sản phẩm</label>
+            <select class="form-select">
+              <option>Rouge Dior 999</option>
+              <option>Estée Lauder Night Repair</option>
+              <option>La Roche-Posay UV SPF50</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label required">Chi nhánh</label>
+            <select class="form-select">
+              <option>Quận 1</option>
+              <option>Quận 3</option>
+              <option>Quận 5</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label required">Số lượng nhập</label>
+            <input type="number" class="form-input" placeholder="0" min="1">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">Giá nhập</label>
+            <input type="number" class="form-input" placeholder="0" min="0">
+          </div>
+        </div>
+
+        <div class="form-grid full">
+          <div class="form-field">
+            <label class="form-label">Nhà cung cấp</label>
+            <input type="text" class="form-input" placeholder="Tên nhà cung cấp">
+          </div>
+        </div>
+
+        <div class="form-grid full">
+          <div class="form-field">
+            <label class="form-label">Ghi chú</label>
+            <textarea class="form-textarea" rows="3" placeholder="Ghi chú về lô hàng..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeStockInModal()">Hủy</button>
+        <button class="btn btn-success" onclick="confirmStockIn()">✅ Xác nhận nhập</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Stock Out -->
+  <div class="modal" id="stockOutModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">⬆️ Xuất Kho</h2>
+        <button class="modal-close" onclick="closeStockOutModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label required">Sản phẩm</label>
+            <select class="form-select">
+              <option>Rouge Dior 999</option>
+              <option>Estée Lauder Night Repair</option>
+              <option>La Roche-Posay UV SPF50</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label required">Chi nhánh</label>
+            <select class="form-select">
+              <option>Quận 1</option>
+              <option>Quận 3</option>
+              <option>Quận 5</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label required">Số lượng xuất</label>
+            <input type="number" class="form-input" placeholder="0" min="1">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label required">Lý do xuất</label>
+            <select class="form-select">
+              <option>Bán lẻ</option>
+              <option>Bán sỉ</option>
+              <option>Hàng hư hỏng</option>
+              <option>Chuyển kho</option>
+              <option>Trả nhà cung cấp</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid full">
+          <div class="form-field">
+            <label class="form-label">Ghi chú</label>
+            <textarea class="form-textarea" rows="3" placeholder="Ghi chú..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeStockOutModal()">Hủy</button>
+        <button class="btn btn-warning" onclick="confirmStockOut()">✅ Xác nhận xuất</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Adjust -->
+  <div class="modal" id="adjustModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">🔄 Điều Chỉnh Tồn Kho</h2>
+        <button class="modal-close" onclick="closeAdjustModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label required">Sản phẩm</label>
+            <select class="form-select">
+              <option>Rouge Dior 999</option>
+              <option>Estée Lauder Night Repair</option>
+              <option>La Roche-Posay UV SPF50</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label required">Chi nhánh</label>
+            <select class="form-select">
+              <option>Quận 1</option>
+              <option>Quận 3</option>
+              <option>Quận 5</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label">Tồn kho hiện tại</label>
+            <input type="text" class="form-input" value="67" readonly style="background: #f8f9fa;">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label required">Tồn kho mới</label>
+            <input type="number" class="form-input" placeholder="0" min="0">
+          </div>
+        </div>
+
+        <div class="form-grid full">
+          <div class="form-field">
+            <label class="form-label required">Lý do điều chỉnh</label>
+            <select class="form-select">
+              <option>Kiểm kho định kỳ</option>
+              <option>Sai số nhập liệu</option>
+              <option>Hàng hư hỏng</option>
+              <option>Hàng mất</option>
+              <option>Khác</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid full">
+          <div class="form-field">
+            <label class="form-label">Ghi chú chi tiết</label>
+            <textarea class="form-textarea" rows="3" placeholder="Mô tả chi tiết lý do điều chỉnh..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeAdjustModal()">Hủy</button>
+        <button class="btn btn-primary" onclick="confirmAdjust()">✅ Xác nhận điều chỉnh</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Stock Transfer -->
+  <div class="modal" id="transferModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">↔️ Chuyển Kho Giữa Chi Nhánh</h2>
+        <button class="modal-close" onclick="closeTransferModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label required">Sản phẩm</label>
+            <select class="form-select" id="transferProduct">
+              <option>Rouge Dior 999</option>
+              <option>Estée Lauder Night Repair</option>
+              <option>La Roche-Posay UV SPF50</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label required">Số lượng chuyển</label>
+            <input type="number" class="form-input" id="transferQty" placeholder="0" min="1">
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label required">Từ chi nhánh</label>
+            <select class="form-select" id="fromBranch">
+              <option value="q1">Quận 1 (Tồn: 67)</option>
+              <option value="q3">Quận 3 (Tồn: 45)</option>
+              <option value="q5">Quận 5 (Tồn: 33)</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label required">Đến chi nhánh</label>
+            <select class="form-select" id="toBranch">
+              <option value="q1">Quận 1</option>
+              <option value="q3">Quận 3</option>
+              <option value="q5">Quận 5</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label required">Người giao hàng</label>
+            <input type="text" class="form-input" placeholder="Tên người giao">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">Dự kiến nhận</label>
+            <input type="datetime-local" class="form-input">
+          </div>
+        </div>
+
+        <div class="form-grid full">
+          <div class="form-field">
+            <label class="form-label">Lý do chuyển kho</label>
+            <textarea class="form-textarea" rows="2" placeholder="VD: Chi nhánh Q3 hết hàng, cần bổ sung gấp..."></textarea>
+          </div>
+        </div>
+
+        <div style="background: #e3f2fd; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+          <div style="font-size: 0.813rem; color: #1565c0; font-weight: 600; margin-bottom: 0.5rem;">📋 Trạng thái chuyển kho:</div>
+          <div style="font-size: 0.75rem; color: #555;">
+            • Đang chuyển: Hàng đang trên đường<br>
+            • Đã nhận: Chi nhánh đích xác nhận nhận hàng<br>
+            • Hủy: Chuyển kho bị hủy
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeTransferModal()">Hủy</button>
+        <button class="btn btn-primary" onclick="confirmTransfer()">✅ Tạo phiếu chuyển kho</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Stock Take (Kiểm Kho) -->
+  <div class="modal" id="stockTakeModal">
+    <div class="modal-content" style="max-width: 800px;">
+      <div class="modal-header">
+        <h2 class="modal-title">📋 Kiểm Kho Định Kỳ</h2>
+        <button class="modal-close" onclick="closeStockTakeModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label required">Tên phiên kiểm kho</label>
+            <input type="text" class="form-input" placeholder="VD: Kiểm kho tháng 4/2024">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label required">Chi nhánh</label>
+            <select class="form-select">
+              <option>Quận 1</option>
+              <option>Quận 3</option>
+              <option>Quận 5</option>
+              <option value="all">Tất cả chi nhánh</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label required">Ngày kiểm kho</label>
+            <input type="date" class="form-input">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label required">Người kiểm kho</label>
+            <input type="text" class="form-input" placeholder="Tên người kiểm">
+          </div>
+        </div>
+
+        <div class="form-grid full">
+          <div class="form-field">
+            <label class="form-label">Phạm vi kiểm kho</label>
+            <select class="form-select">
+              <option>Toàn bộ sản phẩm</option>
+              <option>Theo danh mục</option>
+              <option>Theo thương hiệu</option>
+              <option>Sản phẩm có chênh lệch</option>
+              <option>Random sampling (10%)</option>
+            </select>
+          </div>
+        </div>
+
+        <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+        <h3 style="font-size: 0.938rem; font-weight: 600; margin-bottom: 1rem;">📦 Danh sách sản phẩm kiểm kho</h3>
+        
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Sản phẩm</th>
+              <th>Hệ thống</th>
+              <th>Thực tế</th>
+              <th>Chênh lệch</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Rouge Dior 999</strong></td>
+              <td>67</td>
+              <td><input type="number" class="form-input" style="width: 80px; padding: 0.5rem;" placeholder="0"></td>
+              <td id="variance1"><span style="color: #999;">-</span></td>
+            </tr>
+            <tr>
+              <td><strong>Estée Lauder Night Repair</strong></td>
+              <td>45</td>
+              <td><input type="number" class="form-input" style="width: 80px; padding: 0.5rem;" placeholder="0"></td>
+              <td id="variance2"><span style="color: #999;">-</span></td>
+            </tr>
+            <tr>
+              <td><strong>La Roche-Posay UV SPF50</strong></td>
+              <td>52</td>
+              <td><input type="number" class="form-input" style="width: 80px; padding: 0.5rem;" placeholder="0"></td>
+              <td id="variance3"><span style="color: #999;">-</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="background: #fff3cd; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 4px solid #ffc107;">
+          <div style="font-size: 0.813rem; color: #856404; font-weight: 600; margin-bottom: 0.5rem;">⚠️ Lưu ý khi kiểm kho:</div>
+          <div style="font-size: 0.75rem; color: #856404;">
+            • Đếm kỹ số lượng thực tế tại kho<br>
+            • Kiểm tra hạn sử dụng và chất lượng sản phẩm<br>
+            • Ghi rõ lý do chênh lệch nếu có<br>
+            • Hệ thống sẽ tự động điều chỉnh tồn kho sau khi hoàn tất
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeStockTakeModal()">Hủy</button>
+        <button class="btn btn-warning" onclick="saveDraftStockTake()">💾 Lưu nháp</button>
+        <button class="btn btn-primary" onclick="confirmStockTake()">✅ Hoàn tất kiểm kho</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Batch & Expiry Management -->
+  <div class="modal" id="batchModal">
+    <div class="modal-content" style="max-width: 700px;">
+      <div class="modal-header">
+        <h2 class="modal-title">📦 Quản Lý Lô Hàng & Hạn Sử Dụng</h2>
+        <button class="modal-close" onclick="closeBatchModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label required">Sản phẩm</label>
+            <select class="form-select">
+              <option>Rouge Dior 999</option>
+              <option>Estée Lauder Night Repair</option>
+              <option>La Roche-Posay UV SPF50</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label required">Chi nhánh</label>
+            <select class="form-select">
+              <option>Quận 1</option>
+              <option>Quận 3</option>
+              <option>Quận 5</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label required">Mã lô (Batch/Lot)</label>
+            <input type="text" class="form-input" placeholder="VD: LOT-2024-001">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label required">Số lượng</label>
+            <input type="number" class="form-input" placeholder="0" min="1">
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label required">Ngày sản xuất</label>
+            <input type="date" class="form-input">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label required">Hạn sử dụng</label>
+            <input type="date" class="form-input">
+          </div>
+        </div>
+
+        <div class="form-grid full">
+          <div class="form-field">
+            <label class="form-label">Ghi chú</label>
+            <textarea class="form-textarea" rows="2" placeholder="Ghi chú về lô hàng..."></textarea>
+          </div>
+        </div>
+
+        <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+        <h3 style="font-size: 0.938rem; font-weight: 600; margin-bottom: 1rem;">📋 Lô Hàng Hiện Tại</h3>
+        
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Mã lô</th>
+              <th>Số lượng</th>
+              <th>Ngày SX</th>
+              <th>Hạn SD</th>
+              <th>Trạng thái</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>LOT-2024-001</strong></td>
+              <td>35</td>
+              <td>10/01/2024</td>
+              <td>10/01/2027</td>
+              <td><span class="stock-badge high">Còn hạn</span></td>
+            </tr>
+            <tr>
+              <td><strong>LOT-2023-089</strong></td>
+              <td>22</td>
+              <td>05/08/2023</td>
+              <td>05/08/2026</td>
+              <td><span class="stock-badge high">Còn hạn</span></td>
+            </tr>
+            <tr>
+              <td><strong>LOT-2023-012</strong></td>
+              <td>10</td>
+              <td>15/02/2023</td>
+              <td>15/05/2024</td>
+              <td><span class="stock-badge medium">Sắp hết hạn</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="background: #fff3cd; padding: 1rem; border-radius: 6px; margin-top: 1rem; border-left: 4px solid #ffc107;">
+          <div style="font-size: 0.813rem; color: #856404; font-weight: 600; margin-bottom: 0.5rem;">⚠️ Cảnh báo hạn sử dụng:</div>
+          <div style="font-size: 0.75rem; color: #856404;">
+            • Cảnh báo khi còn < 3 tháng: Giảm giá hoặc khuyến mãi<br>
+            • Cảnh báo khi còn < 1 tháng: Thanh lý gấp<br>
+            • Hết hạn: Không được bán, phải loại bỏ
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeBatchModal()">Đóng</button>
+        <button class="btn btn-primary" onclick="saveBatch()">💾 Lưu lô hàng</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Tab Switching
+    function switchTab(event, tabId) {
+      document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    // Modal Functions
+    function openStockInModal() {
+      document.getElementById('stockInModal').classList.add('show');
+    }
+
+    function closeStockInModal() {
+      document.getElementById('stockInModal').classList.remove('show');
+    }
+
+    function confirmStockIn() {
+      alert('✅ Đã nhập kho thành công!\n\n(Trong thực tế: POST /api/inventory/stock-in)');
+      closeStockInModal();
+      location.reload();
+    }
+
+    function openStockOutModal() {
+      document.getElementById('stockOutModal').classList.add('show');
+    }
+
+    function closeStockOutModal() {
+      document.getElementById('stockOutModal').classList.remove('show');
+    }
+
+    function confirmStockOut() {
+      alert('✅ Đã xuất kho thành công!\n\n(Trong thực tế: POST /api/inventory/stock-out)');
+      closeStockOutModal();
+      location.reload();
+    }
+
+    function openAdjustModal() {
+      document.getElementById('adjustModal').classList.add('show');
+    }
+
+    function closeAdjustModal() {
+      document.getElementById('adjustModal').classList.remove('show');
+    }
+
+    function confirmAdjust() {
+      alert('✅ Đã điều chỉnh tồn kho!\n\n(Trong thực tế: PUT /api/inventory/adjust)');
+      closeAdjustModal();
+      location.reload();
+    }
+
+    function viewHistory(id) {
+      switchTab({ currentTarget: document.querySelectorAll('.tab-button')[2] }, 'history');
+    }
+
+    function filterTable() {
+      alert('Filtering table... (Sẽ implement filter logic)');
+    }
+
+    function searchTable(query) {
+      console.log('Searching for:', query);
+    }
+
+    function loadBranchData() {
+      const branch = document.getElementById('branchSelector').value;
+      console.log('Loading data for branch:', branch);
+    }
+
+    // Transfer Modal Functions
+    function openTransferModal() {
+      document.getElementById('transferModal').classList.add('show');
+    }
+
+    function closeTransferModal() {
+      document.getElementById('transferModal').classList.remove('show');
+    }
+
+    function confirmTransfer() {
+      const from = document.getElementById('fromBranch').value;
+      const to = document.getElementById('toBranch').value;
+      const qty = document.getElementById('transferQty').value;
+
+      if (from === to) {
+        alert('❌ Không thể chuyển kho cùng chi nhánh!');
+        return;
+      }
+
+      if (!qty || qty <= 0) {
+        alert('❌ Vui lòng nhập số lượng hợp lệ!');
+        return;
+      }
+
+      if (confirm('Xác nhận tạo phiếu chuyển kho?\n\nTừ: ' + from + '\nĐến: ' + to + '\nSố lượng: ' + qty)) {
+        alert('✅ Đã tạo phiếu chuyển kho!\n\nTrạng thái: Đang chuyển\n\n(Trong thực tế: POST /api/inventory/transfer)');
+        closeTransferModal();
+        location.reload();
+      }
+    }
+
+    // Stock Take Modal Functions
+    function openStockTakeModal() {
+      document.getElementById('stockTakeModal').classList.add('show');
+    }
+
+    function closeStockTakeModal() {
+      document.getElementById('stockTakeModal').classList.remove('show');
+    }
+
+    function saveDraftStockTake() {
+      alert('💾 Đã lưu nháp phiếu kiểm kho!\n\n(Trong thực tế: POST /api/inventory/stock-take/draft)');
+    }
+
+    function confirmStockTake() {
+      if (confirm('⚠️ Xác nhận hoàn tất kiểm kho?\n\nHệ thống sẽ tự động điều chỉnh tồn kho theo số liệu thực tế.\n\nBạn có chắc chắn?')) {
+        alert('✅ Đã hoàn tất kiểm kho!\n\nHệ thống đã cập nhật tồn kho.\n\n(Trong thực tế: POST /api/inventory/stock-take/complete)');
+        closeStockTakeModal();
+        location.reload();
+      }
+    }
+
+    // Batch & Expiry Modal Functions
+    function openBatchModal() {
+      document.getElementById('batchModal').classList.add('show');
+    }
+
+    function closeBatchModal() {
+      document.getElementById('batchModal').classList.remove('show');
+    }
+
+    function saveBatch() {
+      alert('✅ Đã lưu thông tin lô hàng!\n\n(Trong thực tế: POST /api/inventory/batch)');
+      closeBatchModal();
+      location.reload();
+    }
+
+    // Close modal when clicking outside
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.classList.remove('show');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

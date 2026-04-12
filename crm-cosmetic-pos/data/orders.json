@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1,
+    "orderCode": "POS-20260412-001",
+    "customer": "Nguyễn Văn A",
+    "phone": "0901234567",
+    "channel": "store",
+    "items": 3,
+    "total": 1250000,
+    "status": "completed",
+    "paymentMethod": "cash",
+    "createdAt": "2026-04-12T14:35:00",
+    "cashier": "Lan Anh"
+  },
+  {
+    "id": 2,
+    "orderCode": "SHOPEE-4521",
+    "customer": "Trần Thị B",
+    "phone": "0987654321",
+    "channel": "shopee",
+    "items": 2,
+    "total": 680000,
+    "status": "processing",
+    "paymentMethod": "online",
+    "createdAt": "2026-04-12T14:10:00"
+  },
+  {
+    "id": 3,
+    "orderCode": "POS-20260412-002",
+    "customer": "Lê Văn C",
+    "phone": "0912345678",
+    "channel": "store",
+    "items": 5,
+    "total": 2150000,
+    "status": "completed",
+    "paymentMethod": "card",
+    "createdAt": "2026-04-12-04-12T14:03:00",
+    "cashier": "Minh Thu"
+  },
+  {
+    "id": 4,
+    "orderCode": "LAZADA-8832",
+    "customer": "Phạm Thị D",
+    "phone": "0923456789",
+    "channel": "lazada",
+    "items": 1,
+    "total": 450000,
+    "status": "pending",
+    "paymentMethod": "online",
+    "createdAt": "2026-04-12T13:35:00"
+  },
+  {
+    "id": 5,
+    "orderCode": "WEB-3321",
+    "customer": "Hoàng Văn E",
+    "phone": "0934567890",
+    "channel": "website",
+    "items": 4,
+    "total": 1890000,
+    "status": "shipping",
+    "paymentMethod": "transfer",
+    "createdAt": "2026-04-12T13:35:00"
+  }
+]

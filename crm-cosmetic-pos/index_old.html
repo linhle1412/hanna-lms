@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POS - Bán Hàng - CRM POS</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    .app-layout { display: flex; height: 100vh; }
+    .pos-content { flex: 1; display: flex; flex-direction: column; }
+    .pos-header
+    <div class="header-left">
+      <div class="logo">🏪 Beauty Store</div>
+      <div class="branch-info">
+        📍 Chi nhánh: Quận 1
+      </div>
+      <div class="staff-info">
+        👤 NV: Lan Anh | ⏰ <span id="currentTime"></span>
+      </div>
+    </div>
+    <div class="header-right">
+      <button class="btn btn-secondary" onclick="alert('Cài đặt')">⚙️ Cài đặt</button>
+      <button class="btn btn-secondary" onclick="alert('Đăng xuất')">🚪 Đăng xuất</button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    <!-- Left Panel - Product Catalog -->
+    <div class="left-panel">
+      <!-- Search Box -->
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Quét mã hoặc nhập tên sản phẩm... (F3)"
+          oninput="handleSearch()"
+        >
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="category-tabs">
+        <button class="tab active" onclick="filterCategory('all')">Tất cả</button>
+        <button class="tab" onclick="filterCategory('skincare')">Skincare</button>
+        <button class="tab" onclick="filterCategory('makeup')">Makeup</button>
+        <button class="tab" onclick="filterCategory('fragrance')">Fragrance</button>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="product-grid" id="productGrid">
+        <!-- Products will be loaded here by JavaScript -->
+      </div>
+    </div>
+
+    <!-- Right Panel - Cart & Payment -->
+    <div class="right-panel">
+      <!-- Customer Info -->
+      <div class="customer-info">
+        <div class="customer-header">
+          <div class="customer-title">👤 KHÁCH HÀNG</div>
+          <button class="btn btn-search-customer" onclick="searchCustomer()">🔍 Tìm (F2)</button>
+        </div>
+        <div class="customer-details" id="customerDetails">
+          <div class="customer-name">Khách vãng lai</div>
+        </div>
+      </div>
+
+      <!-- Cart Items -->
+      <div class="cart-items" id="cartItems">
+        <div class="cart-empty">🛒 Giỏ hàng trống</div>
+      </div>
+
+      <!-- Promotion Section -->
+      <div class="promotion-section" id="promotionSection" style="display: none;">
+        <div class="promotion-title">🎉 KHUYẾN MÃI ÁP DỤNG</div>
+        <div id="promotionDetails"></div>
+      </div>
+
+      <!-- Payment Summary -->
+      <div class="payment-summary">
+        <div class="summary-title">💰 THANH TOÁN</div>
+        
+        <div class="summary-row">
+          <span class="summary-label">Tạm tính:</span>
+          <span class="summary-value" id="subtotal">0đ</span>
+        </div>
+        
+        <div class="summary-row">
+          <span class="summary-label">Giảm giá:</span>
+          <span class="summary-value summary-discount" id="discount">0đ</span>
+        </div>
+        
+        <div class="summary-divider"></div>
+        
+        <div class="summary-row summary-total">
+          <span class="summary-label">TỔNG CỘNG:</span>
+          <span class="summary-value" id="total">0đ</span>
+        </div>
+        
+        <div class="summary-divider"></div>
+        
+        <div class="summary-row summary-points">
+          <span class="summary-label">💎 Điểm tích lũy:</span>
+          <span class="summary-value" id="points">+0 điểm</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button class="btn btn-primary" id="btnCheckout" onclick="checkout()" disabled>
+          💳 THANH TOÁN
+          <span class="btn-hotkey">(F12)</span>
+        </button>
+        <button class="btn btn-danger" onclick="cancelOrder()">
+          🗑️ HỦY ĐƠN
+          <span class="btn-hotkey">(ESC)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment Modal -->
+  <div class="modal" id="paymentModal">
+    <div class="modal-content">
+      <div class="modal-header">💳 THANH TOÁN ĐƠN HÀNG</div>
+      
+      <div class="modal-total" id="modalTotal">0đ</div>
+      
+      <div class="input-label">CHỌN PHƯƠNG THỨC THANH TOÁN:</div>
+      <div class="payment-methods">
+        <div class="payment-method selected" id="payment-cash" onclick="selectPaymentMethod('cash')">
+          <div class="payment-icon">💵</div>
+          <div class="payment-label">Tiền Mặt</div>
+        </div>
+        <div class="payment-method" id="payment-card" onclick="selectPaymentMethod('card')">
+          <div class="payment-icon">💳</div>
+          <div class="payment-label">Thẻ NH</div>
+        </div>
+        <div class="payment-method" id="payment-transfer" onclick="selectPaymentMethod('transfer')">
+          <div class="payment-icon">📱</div>
+          <div class="payment-label">CK/MoMo</div>
+        </div>
+      </div>
+      
+      <div class="cash-input-section" id="cashInputSection">
+        <div class="input-group">
+          <label class="input-label">TIỀN KHÁCH ĐƯA:</label>
+          <input 
+            type="number" 
+            class="input-field" 
+            id="cashReceived" 
+            placeholder="0"
+            oninput="calculateChange()"
+          >
+        </div>
+        
+        <div class="change-display">
+          <div class="change-label">TIỀN THỪA TRẢ KHÁCH:</div>
+          <div class="change-amount" id="changeAmount">0đ</div>
+        </div>
+        
+        <div class="input-label">Tính năng tiện ích:</div>
+        <div class="quick-amount-buttons">
+          <button class="btn btn-quick-amount" onclick="setQuickAmount(20000)">20k</button>
+          <button class="btn btn-quick-amount" onclick="setQuickAmount(50000)">50k</button>
+          <button class="btn btn-quick-amount" onclick="setQuickAmount(100000)">100k</button>
+          <button class="btn btn-quick-amount" onclick="setQuickAmount(200000)">200k</button>
+          <button class="btn btn-quick-amount" onclick="setQuickAmount(500000)">500k</button>
+        </div>
+      </div>
+      
+      <div class="modal-actions">
+        <button class="btn btn-complete" id="btnComplete" onclick="completePayment()" disabled>
+          ✅ HOÀN THÀNH & IN HÓA ĐƠN
+        </button>
+        <button class="btn btn-cancel" onclick="closeModal('paymentModal')">
+          ❌ HỦY
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal" id="successModal">
+    <div class="modal-content">
+      <div class="modal-header">✅ THANH TOÁN THÀNH CÔNG!</div>
+      
+      <div class="success-icon">✓</div>
+      
+      <div class="order-info">
+        <div class="order-code" id="orderCode">#POS-20260412-0001</div>
+        <div class="order-time" id="orderTime">12/04/2026 - 14:35</div>
+        <div class="order-time">Nhân viên: Lan Anh</div>
+      </div>
+      
+      <div class="success-actions">
+        <button class="btn btn-print" onclick="printReceipt()">
+          🖨️ IN HÓA ĐƠN
+        </button>
+        <button class="btn btn-print" onclick="sendReceipt()">
+          📧 GỬI EMAIL/SMS
+        </button>
+      </div>
+      
+      <button class="btn btn-new-order" onclick="newOrder()">
+        ➡️ ĐƠN HÀNG MỚI (F1)
+      </button>
+      
+      <div class="countdown" id="countdown">
+        Tự động chuyển sang đơn mới sau 5 giây...
+      </div>
+    </div>
+  </div>
+
+  <script src="js/pos.js"></script>
+  
+  <!-- Update time -->
+  <script>
+    function updateTime() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+      document.getElementById('currentTime').textContent = timeString;
+    }
+    
+    updateTime();
+    setInterval(updateTime, 60000); // Update every minute
+  </script>
+</body>
+</html>

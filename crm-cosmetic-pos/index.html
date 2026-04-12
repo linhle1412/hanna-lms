@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POS - Bán Hàng - CRM POS</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    .pos-main { 
+      flex: 1; 
+      display: grid; 
+      grid-template-columns: 1.2fr 1fr; 
+      gap: 1.5rem; 
+      padding: 1.5rem;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">🏪 Beauty Store</div>
+      </div>
+      
+      <nav class="sidebar-menu">
+        <div class="menu-section">
+          <div class="menu-section-title">Chính</div>
+          <a href="dashboard.html" class="menu-item">
+            <span class="menu-item-icon">📊</span>
+            <span class="menu-item-text">Dashboard</span>
+          </a>
+          <a href="index.html" class="menu-item active">
+            <span class="menu-item-icon">🛒</span>
+            <span class="menu-item-text">POS - Bán Hàng</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Bán Hàng</div>
+          <a href="orders.html" class="menu-item">
+            <span class="menu-item-icon">📦</span>
+            <span class="menu-item-text">Đơn Hàng</span>
+          </a>
+          <a href="customers.html" class="menu-item">
+            <span class="menu-item-icon">👥</span>
+            <span class="menu-item-text">Khách Hàng</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Sản Phẩm</div>
+          <a href="products.html" class="menu-item">
+            <span class="menu-item-icon">💄</span>
+            <span class="menu-item-text">Quản Lý Sản Phẩm</span>
+          </a>
+          <a href="inventory.html" class="menu-item">
+            <span class="menu-item-icon">📊</span>
+            <span class="menu-item-text">Quản Lý Kho</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Marketing</div>
+          <a href="promotions.html" class="menu-item">
+            <span class="menu-item-icon">🎁</span>
+            <span class="menu-item-text">Khuyến Mãi</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Hệ Thống</div>
+          <a href="settings.html" class="menu-item">
+            <span class="menu-item-icon">⚙️</span>
+            <span class="menu-item-text">Cài Đặt</span>
+          </a>
+        </div>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <div class="user-avatar">LA</div>
+          <div class="user-details">
+            <div class="user-name">Lan Anh</div>
+            <div class="user-role">Thu ngân</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- POS Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">🛒 POS - Bán Hàng</h1>
+        <div class="page-actions">
+          <button class="btn btn-secondary">📋 Lịch sử đơn (F4)</button>
+          <button class="btn btn-danger" onclick="cancelOrder()">🗑️ Hủy đơn (ESC)</button>
+        </div>
+      </div>
+
+      <div class="pos-main">
+        <!-- Left: Products -->
+        <div class="left-panel">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input 
+              type="text" 
+              id="searchInput" 
+              placeholder="Quét mã hoặc nhập tên sản phẩm... (F3)"
+              oninput="handleSearch()"
+            >
+          </div>
+
+          <div class="category-tabs">
+            <button class="tab active" onclick="filterCategory('all')">Tất cả</button>
+            <button class="tab" onclick="filterCategory('skincare')">Skincare</button>
+            <button class="tab" onclick="filterCategory('makeup')">Makeup</button>
+            <button class="tab" onclick="filterCategory('fragrance')">Fragrance</button>
+          </div>
+
+          <div class="product-grid" id="productGrid">
+            <!-- Dummy Products -->
+            <div class="product-card" onclick="alert('Đã thêm Son Dior vào giỏ hàng')">
+              <div class="product-badge badge-bestseller">⭐ Best</div>
+              <div class="product-image">💄</div>
+              <div class="product-name">Son Dior Rouge 999</div>
+              <div class="product-price">350,000đ</div>
+              <div class="product-stock stock-high">📦 Còn: 15</div>
+            </div>
+
+            <div class="product-card" onclick="alert('Đã thêm Serum vào giỏ hàng')">
+              <div class="product-image">🧴</div>
+              <div class="product-name">Serum The Ordinary Niacinamide 10%</div>
+              <div class="product-price">450,000đ</div>
+              <div class="product-stock stock-medium">📦 Còn: 8</div>
+            </div>
+
+            <div class="product-card" onclick="alert('Đã thêm Kem chống nắng vào giỏ hàng')">
+              <div class="product-badge badge-sale">🔥 Sale</div>
+              <div class="product-image">☀️</div>
+              <div class="product-name">Kem Chống Nắng La Roche-Posay</div>
+              <div class="product-price">380,000đ</div>
+              <div class="product-stock stock-high">📦 Còn: 22</div>
+            </div>
+
+            <div class="product-card" onclick="alert('Đã thêm Mascara vào giỏ hàng')">
+              <div class="product-image">👁️</div>
+              <div class="product-name">Mascara Maybelline Sky High</div>
+              <div class="product-price">250,000đ</div>
+              <div class="product-stock stock-high">📦 Còn: 12</div>
+            </div>
+
+            <div class="product-card" onclick="alert('Đã thêm Phấn nền vào giỏ hàng')">
+              <div class="product-badge badge-bestseller">⭐ Best</div>
+              <div class="product-image">🎨</div>
+              <div class="product-name">Phấn Nền MAC Studio Fix</div>
+              <div class="product-price">420,000đ</div>
+              <div class="product-stock stock-medium">📦 Còn: 7</div>
+            </div>
+
+            <div class="product-card" onclick="alert('Đã thêm Nước hoa vào giỏ hàng')">
+              <div class="product-image">🌸</div>
+              <div class="product-name">Nước Hoa Chanel No. 5</div>
+              <div class="product-price">2,800,000đ</div>
+              <div class="product-stock stock-low">📦 Còn: 3</div>
+            </div>
+
+            <div class="product-card" onclick="alert('Đã thêm Sữa rửa mặt vào giỏ hàng')">
+              <div class="product-image">🧼</div>
+              <div class="product-name">Sữa Rửa Mặt CeraVe</div>
+              <div class="product-price">320,000đ</div>
+              <div class="product-stock stock-high">📦 Còn: 18</div>
+            </div>
+
+            <div class="product-card out-of-stock" onclick="alert('Sản phẩm này đã HẾT HÀNG!')">
+              <div class="product-image">💋</div>
+              <div class="product-name">Son Kem 3CE Velvet Lip</div>
+              <div class="product-price">280,000đ</div>
+              <div class="product-stock stock-out">HẾT HÀNG</div>
+            </div>
+
+            <div class="product-card" onclick="alert('Đã thêm Kem dưỡng vào giỏ hàng')">
+              <div class="product-badge badge-sale">🔥 Sale</div>
+              <div class="product-image">🫙</div>
+              <div class="product-name">Kem Dưỡng Ẩm Innisfree</div>
+              <div class="product-price">380,000đ</div>
+              <div class="product-stock stock-high">📦 Còn: 14</div>
+            </div>
+
+            <div class="product-card" onclick="alert('Đã thêm Cushion vào giỏ hàng')">
+              <div class="product-image">✨</div>
+              <div class="product-name">Cushion Missha Magic</div>
+              <div class="product-price">310,000đ</div>
+              <div class="product-stock stock-medium">📦 Còn: 9</div>
+            </div>
+
+            <div class="product-card" onclick="alert('Đã thêm Nước hoa hồng vào giỏ hàng')">
+              <div class="product-image">💧</div>
+              <div class="product-name">Nước Hoa Hồng Klairs</div>
+              <div class="product-price">420,000đ</div>
+              <div class="product-stock stock-high">📦 Còn: 11</div>
+            </div>
+
+            <div class="product-card" onclick="alert('Đã thêm Chì kẻ mày vào giỏ hàng')">
+              <div class="product-badge badge-bestseller">⭐ Best</div>
+              <div class="product-image">✏️</div>
+              <div class="product-name">Chì Kẻ Mày Anastasia</div>
+              <div class="product-price">380,000đ</div>
+              <div class="product-stock stock-high">📦 Còn: 16</div>
+            </div>
+
+            <div class="product-card" onclick="alert('Đã thêm Nước hoa vào giỏ hàng')">
+              <div class="product-image">🌿</div>
+              <div class="product-name">Nước Hoa Jo Malone Wood Sage</div>
+              <div class="product-price">3,200,000đ</div>
+              <div class="product-stock stock-low">📦 Còn: 2</div>
+            </div>
+
+            <div class="product-card" onclick="alert('Đã thêm Mặt nạ vào giỏ hàng')">
+              <div class="product-image">🎭</div>
+              <div class="product-name">Mặt Nạ Some By Mi</div>
+              <div class="product-price">180,000đ</div>
+              <div class="product-stock stock-high">📦 Còn: 25</div>
+            </div>
+
+            <div class="product-card" onclick="alert('Đã thêm Phấn má vào giỏ hàng')">
+              <div class="product-image">🌺</div>
+              <div class="product-name">Phấn Má Hồng Canmake</div>
+              <div class="product-price">220,000đ</div>
+              <div class="product-stock stock-high">📦 Còn: 13</div>
+            </div>
+
+            <div class="product-card" onclick="alert('Đã thêm Dầu tẩy trang vào giỏ hàng')">
+              <div class="product-image">🛢️</div>
+              <div class="product-name">Dầu Tẩy Trang DHC</div>
+              <div class="product-price">480,000đ</div>
+              <div class="product-stock stock-medium">📦 Còn: 6</div>
+            </div>
+
+            <div class="product-card" onclick="alert('Đã thêm Bảng phấn mắt vào giỏ hàng')">
+              <div class="product-badge badge-bestseller">⭐ Best</div>
+              <div class="product-image">🎨</div>
+              <div class="product-name">Bảng Phấn Mắt Urban Decay</div>
+              <div class="product-price">1,200,000đ</div>
+              <div class="product-stock stock-low">📦 Còn: 4</div>
+            </div>
+
+            <div class="product-card" onclick="alert('Đã thêm Nước hoa vào giỏ hàng')">
+              <div class="product-image">💐</div>
+              <div class="product-name">Nước Hoa Victoria's Secret Bombshell</div>
+              <div class="product-price">1,800,000đ</div>
+              <div class="product-stock stock-medium">📦 Còn: 5</div>
+            </div>
+
+            <div class="product-card" onclick="alert('Đã thêm Retinol vào giỏ hàng')">
+              <div class="product-image">💊</div>
+              <div class="product-name">Retinol The Ordinary</div>
+              <div class="product-price">380,000đ</div>
+              <div class="product-stock stock-high">📦 Còn: 10</div>
+            </div>
+
+            <div class="product-card" onclick="alert('Đã thêm Son dưỡng vào giỏ hàng')">
+              <div class="product-badge badge-sale">🔥 Sale</div>
+              <div class="product-image">💗</div>
+              <div class="product-name">Son Dưỡng Vaseline Rosy Lips</div>
+              <div class="product-price">85,000đ</div>
+              <div class="product-stock stock-high">📦 Còn: 30</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Cart -->
+        <div class="right-panel">
+          <!-- Customer Info with dummy data -->
+          <div class="customer-info">
+            <div class="customer-header">
+              <div class="customer-title">👤 KHÁCH HÀNG</div>
+              <button class="btn btn-search-customer" onclick="searchCustomer()">🔍 Tìm (F2)</button>
+            </div>
+            <div class="customer-details" id="customerDetails">
+              <div class="customer-name">📱 0901234567 - Nguyễn Văn A</div>
+              <div class="customer-tier">⭐ Hạng: <strong style="color: #f59e0b;">GOLD</strong> | 💎 2,450 điểm</div>
+            </div>
+          </div>
+
+          <!-- Cart Items with dummy data -->
+          <div class="cart-items" id="cartItems">
+            <div class="cart-item">
+              <div class="cart-item-header">
+                <div class="cart-item-name">Son Dior Rouge 999</div>
+                <button class="btn btn-remove" onclick="alert('Xóa sản phẩm')">🗑️</button>
+              </div>
+              <div class="cart-item-controls">
+                <div class="quantity-controls">
+                  <div class="btn-qty">−</div>
+                  <input type="number" class="qty-input" value="2" min="1">
+                  <div class="btn-qty">+</div>
+                </div>
+                <div class="item-price">700,000đ</div>
+              </div>
+            </div>
+
+            <div class="cart-item">
+              <div class="cart-item-header">
+                <div class="cart-item-name">Serum The Ordinary Niacinamide 10%</div>
+                <button class="btn btn-remove" onclick="alert('Xóa sản phẩm')">🗑️</button>
+              </div>
+              <div class="cart-item-controls">
+                <div class="quantity-controls">
+                  <div class="btn-qty">−</div>
+                  <input type="number" class="qty-input" value="1" min="1">
+                  <div class="btn-qty">+</div>
+                </div>
+                <div class="item-price">450,000đ</div>
+              </div>
+            </div>
+
+            <div class="cart-item cart-gift-item">
+              <div class="gift-label">🎁 QUÀ TẶNG (Tự động áp dụng)</div>
+              <div class="cart-item-name">✨ Mascara Mini (KM Mua 2 Tặng 1)</div>
+              <div class="cart-item-controls">
+                <div></div>
+                <div class="item-price">0đ</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Promotion with dummy data -->
+          <div class="promotion-section" id="promotionSection">
+            <div class="promotion-title">🎉 KHUYẾN MÃI ÁP DỤNG</div>
+            <div id="promotionDetails">
+              <div class="promotion-item">✅ Chương trình: "Mừng 8/3 - Giảm 10%"</div>
+              <div class="promotion-item">Giảm: 115,000đ</div>
+              <div class="promotion-item">✅ Quà tặng: Mascara Mini (x1)</div>
+            </div>
+          </div>
+
+          <!-- Payment Summary with dummy data -->
+          <div class="payment-summary">
+            <div class="summary-title">💰 THANH TOÁN</div>
+            
+            <div class="summary-row">
+              <span class="summary-label">Tạm tính:</span>
+              <span class="summary-value" id="subtotal">1,150,000đ</span>
+            </div>
+            
+            <div class="summary-row">
+              <span class="summary-label">Giảm giá:</span>
+              <span class="summary-value summary-discount" id="discount">-115,000đ</span>
+            </div>
+            
+            <div class="summary-divider"></div>
+            
+            <div class="summary-row summary-total">
+              <span class="summary-label">TỔNG CỘNG:</span>
+              <span class="summary-value" id="total">1,035,000đ</span>
+            </div>
+            
+            <div class="summary-divider"></div>
+            
+            <div class="summary-row summary-points">
+              <span class="summary-label">💎 Điểm tích lũy:</span>
+              <span class="summary-value" id="points">+104 điểm</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="action-buttons">
+            <button class="btn btn-primary" id="btnCheckout" onclick="checkout()">
+              💳 THANH TOÁN
+              <span class="btn-hotkey">(F12)</span>
+            </button>
+            <button class="btn btn-danger" onclick="cancelOrder()">
+              🗑️ HỦY ĐƠN
+              <span class="btn-hotkey">(ESC)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Payment Modal -->
+  <div class="modal" id="paymentModal">
+    <div class="modal-content">
+      <div class="modal-header">💳 THANH TOÁN ĐƠN HÀNG</div>
+      
+      <div class="modal-total" id="modalTotal">1,035,000đ</div>
+      
+      <div class="input-label">CHỌN PHƯƠNG THỨC THANH TOÁN:</div>
+      <div class="payment-methods">
+        <div class="payment-method selected" id="payment-cash" onclick="selectPaymentMethod('cash')">
+          <div class="payment-icon">💵</div>
+          <div class="payment-label">Tiền Mặt</div>
+        </div>
+        <div class="payment-method" id="payment-card" onclick="selectPaymentMethod('card')">
+          <div class="payment-icon">💳</div>
+          <div class="payment-label">Thẻ NH</div>
+        </div>
+        <div class="payment-method" id="payment-transfer" onclick="selectPaymentMethod('transfer')">
+          <div class="payment-icon">📱</div>
+          <div class="payment-label">CK/MoMo</div>
+        </div>
+      </div>
+      
+      <div class="cash-input-section" id="cashInputSection">
+        <div class="input-group">
+          <label class="input-label">TIỀN KHÁCH ĐƯA:</label>
+          <input 
+            type="number" 
+            class="input-field" 
+            id="cashReceived" 
+            placeholder="0"
+            oninput="calculateChange()"
+          >
+        </div>
+        
+        <div class="change-display">
+          <div class="change-label">TIỀN THỪA TRẢ KHÁCH:</div>
+          <div class="change-amount" id="changeAmount">0đ</div>
+        </div>
+        
+        <div class="input-label">Tính năng tiện ích:</div>
+        <div class="quick-amount-buttons">
+          <button class="btn btn-quick-amount" onclick="setQuickAmount(20000)">20k</button>
+          <button class="btn btn-quick-amount" onclick="setQuickAmount(50000)">50k</button>
+          <button class="btn btn-quick-amount" onclick="setQuickAmount(100000)">100k</button>
+          <button class="btn btn-quick-amount" onclick="setQuickAmount(200000)">200k</button>
+          <button class="btn btn-quick-amount" onclick="setQuickAmount(500000)">500k</button>
+        </div>
+      </div>
+      
+      <div class="modal-actions">
+        <button class="btn btn-complete" id="btnComplete" onclick="completePayment()">
+          ✅ HOÀN THÀNH & IN HÓA ĐƠN
+        </button>
+        <button class="btn btn-cancel" onclick="closeModal('paymentModal')">
+          ❌ HỦY
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal" id="successModal">
+    <div class="modal-content">
+      <div class="modal-header">✅ THANH TOÁN THÀNH CÔNG!</div>
+      
+      <div class="success-icon">✓</div>
+      
+      <div class="order-info">
+        <div class="order-code" id="orderCode">#POS-20260412-0001</div>
+        <div class="order-time" id="orderTime">12/04/2026 - 14:35</div>
+        <div class="order-time">Thu ngân: Lan Anh</div>
+        <div class="order-time">Khách hàng: Nguyễn Văn A</div>
+      </div>
+      
+      <div class="success-actions">
+        <button class="btn btn-print" onclick="printReceipt()">
+          🖨️ IN HÓA ĐƠN
+        </button>
+        <button class="btn btn-print" onclick="sendReceipt()">
+          📧 GỬI EMAIL/SMS
+        </button>
+      </div>
+      
+      <button class="btn btn-new-order" onclick="newOrder()">
+        ➡️ ĐƠN HÀNG MỚI (F1)
+      </button>
+      
+      <div class="countdown" id="countdown">
+        Tự động chuyển sang đơn mới sau 5 giây...
+      </div>
+    </div>
+  </div>
+
+  <!-- Tạm thời tắt JS để giữ dummy data tĩnh -->
+  <!-- <script src="js/pos.js"></script> -->
+  
+  <script>
+    // Basic functions for demo
+    function checkout() {
+      document.getElementById('paymentModal').classList.add('active');
+    }
+    
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove('active');
+    }
+    
+    function cancelOrder() {
+      if (confirm('Bạn có chắc muốn hủy đơn hàng này?')) {
+        alert('Đơn hàng đã được hủy');
+      }
+    }
+    
+    function selectPaymentMethod(method) {
+      document.querySelectorAll('.payment-method').forEach(el => {
+        el.classList.remove('selected');
+      });
+      document.getElementById(`payment-${method}`).classList.add('selected');
+      
+      if (method === 'cash') {
+        document.getElementById('cashInputSection').style.display = 'block';
+      } else {
+        document.getElementById('cashInputSection').style.display = 'none';
+      }
+    }
+    
+    function calculateChange() {
+      const total = 1035000;
+      const received = parseFloat(document.getElementById('cashReceived').value) || 0;
+      const change = received - total;
+      document.getElementById('changeAmount').textContent = 
+        new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(Math.max(0, change));
+      document.getElementById('btnComplete').disabled = received < total;
+    }
+    
+    function setQuickAmount(amount) {
+      const total = 1035000;
+      let quickAmount = Math.ceil(total / amount) * amount;
+      document.getElementById('cashReceived').value = quickAmount;
+      calculateChange();
+    }
+    
+    function completePayment() {
+      closeModal('paymentModal');
+      document.getElementById('successModal').classList.add('active');
+      
+      let countdown = 5;
+      const countdownEl = document.getElementById('countdown');
+      const interval = setInterval(() => {
+        countdown--;
+        countdownEl.textContent = `Tự động chuyển sang đơn mới sau ${countdown} giây...`;
+        if (countdown <= 0) {
+          clearInterval(interval);
+          newOrder();
+        }
+      }, 1000);
+    }
+    
+    function newOrder() {
+      closeModal('successModal');
+      closeModal('paymentModal');
+      alert('Tính năng đơn hàng mới - Sẽ reset về trang chủ');
+      window.location.reload();
+    }
+    
+    function printReceipt() {
+      alert('In hóa đơn...\n(Demo - Trong app thật sẽ kết nối máy in)');
+    }
+    
+    function sendReceipt() {
+      alert('Đã gửi hóa đơn qua Email/SMS!');
+    }
+    
+    function searchCustomer() {
+      alert('Tìm kiếm khách hàng...\n(Demo - Hiển thị popup tìm kiếm)');
+    }
+    
+    function filterCategory(cat) {
+      // Update active tab
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      
+      // Filter products by category
+      const products = document.querySelectorAll('.product-card');
+      products.forEach(product => {
+        const name = product.querySelector('.product-name').textContent.toLowerCase();
+        
+        if (cat === 'all') {
+          product.style.display = 'block';
+        } else if (cat === 'skincare') {
+          if (name.includes('serum') || name.includes('kem') || name.includes('sữa') || 
+              name.includes('nước') || name.includes('dầu') || name.includes('mặt nạ') || 
+              name.includes('retinol')) {
+            product.style.display = 'block';
+          } else {
+            product.style.display = 'none';
+          }
+        } else if (cat === 'makeup') {
+          if (name.includes('son') || name.includes('phấn') || name.includes('mascara') || 
+              name.includes('cushion') || name.includes('chì') || name.includes('bảng')) {
+            product.style.display = 'block';
+          } else {
+            product.style.display = 'none';
+          }
+        } else if (cat === 'fragrance') {
+          if (name.includes('nước hoa')) {
+            product.style.display = 'block';
+          } else {
+            product.style.display = 'none';
+          }
+        }
+      });
+    }
+    
+    function handleSearch() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      const products = document.querySelectorAll('.product-card');
+      
+      products.forEach(product => {
+        const name = product.querySelector('.product-name').textContent.toLowerCase();
+        if (name.includes(searchTerm)) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+    
+    // Close modal when clicking outside
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('modal')) {
+        e.target.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>

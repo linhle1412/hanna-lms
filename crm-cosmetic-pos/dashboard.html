@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - CRM POS</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">🏪 Beauty Store</div>
+      </div>
+      
+      <nav class="sidebar-menu">
+        <div class="menu-section">
+          <div class="menu-section-title">Chính</div>
+          <a href="dashboard.html" class="menu-item active">
+            <span class="menu-item-icon">📊</span>
+            <span class="menu-item-text">Dashboard</span>
+          </a>
+          <a href="index.html" class="menu-item">
+            <span class="menu-item-icon">🛒</span>
+            <span class="menu-item-text">POS - Bán Hàng</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Bán Hàng</div>
+          <a href="orders.html" class="menu-item">
+            <span class="menu-item-icon">📦</span>
+            <span class="menu-item-text">Đơn Hàng</span>
+          </a>
+          <a href="customers.html" class="menu-item">
+            <span class="menu-item-icon">👥</span>
+            <span class="menu-item-text">Khách Hàng</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Sản Phẩm</div>
+          <a href="products.html" class="menu-item">
+            <span class="menu-item-icon">💄</span>
+            <span class="menu-item-text">Quản Lý Sản Phẩm</span>
+          </a>
+          <a href="inventory.html" class="menu-item">
+            <span class="menu-item-icon">📊</span>
+            <span class="menu-item-text">Quản Lý Kho</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Marketing</div>
+          <a href="promotions.html" class="menu-item">
+            <span class="menu-item-icon">🎁</span>
+            <span class="menu-item-text">Khuyến Mãi</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Hệ Thống</div>
+          <a href="settings.html" class="menu-item">
+            <span class="menu-item-icon">⚙️</span>
+            <span class="menu-item-text">Cài Đặt</span>
+          </a>
+        </div>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <div class="user-avatar">LA</div>
+          <div class="user-details">
+            <div class="user-name">Lan Anh</div>
+            <div class="user-role">Quản lý</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">Dashboard</h1>
+        <div class="page-actions">
+          <button class="btn btn-secondary">📅 Hôm nay</button>
+          <button class="btn btn-secondary">📥 Xuất báo cáo</button>
+        </div>
+      </div>
+      
+      <div class="page-content">
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+          <div class="stat-card" style="border-left-color: var(--secondary-color)">
+            <div class="stat-label">Doanh Thu Hôm Nay</div>
+            <div class="stat-value">45,780,000đ</div>
+            <div class="stat-change positive">↑ 12.5% so với hôm qua</div>
+          </div>
+          
+          <div class="stat-card" style="border-left-color: var(--primary-color)">
+            <div class="stat-label">Đơn Hàng Hôm Nay</div>
+            <div class="stat-value">127</div>
+            <div class="stat-change positive">↑ 8 đơn so với hôm qua</div>
+          </div>
+          
+          <div class="stat-card" style="border-left-color: var(--warning-color)">
+            <div class="stat-label">Giá Trị Đơn TB</div>
+            <div class="stat-value">360,472đ</div>
+            <div class="stat-change negative">↓ 3.2% so với hôm qua</div>
+          </div>
+          
+          <div class="stat-card" style="border-left-color: #8b5cf6">
+            <div class="stat-label">Khách Hàng Mới</div>
+            <div class="stat-value">23</div>
+            <div class="stat-change positive">↑ 15 khách so với hôm qua</div>
+          </div>
+        </div>
+        
+        <!-- Recent Orders -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Đơn Hàng Gần Đây</h2>
+            <a href="orders.html" class="btn btn-secondary btn-sm">Xem tất cả</a>
+          </div>
+          
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Mã Đơn</th>
+                <th>Khách Hàng</th>
+                <th>Sản Phẩm</th>
+                <th>Kênh</th>
+                <th>Tổng Tiền</th>
+                <th>Trạng Thái</th>
+                <th>Thời Gian</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>#POS-001</strong></td>
+                <td>Nguyễn Văn A</td>
+                <td>3 sản phẩm</td>
+                <td><span class="badge badge-info">Cửa hàng</span></td>
+                <td><strong>1,250,000đ</strong></td>
+                <td><span class="badge badge-success">Hoàn thành</span></td>
+                <td>10 phút trước</td>
+              </tr>
+              <tr>
+                <td><strong>#SHOPEE-4521</strong></td>
+                <td>Trần Thị B</td>
+                <td>2 sản phẩm</td>
+                <td><span class="badge badge-warning">Shopee</span></td>
+                <td><strong>680,000đ</strong></td>
+                <td><span class="badge badge-info">Đang xử lý</span></td>
+                <td>25 phút trước</td>
+              </tr>
+              <tr>
+                <td><strong>#POS-002</strong></td>
+                <td>Lê Văn C</td>
+                <td>5 sản phẩm</td>
+                <td><span class="badge badge-info">Cửa hàng</span></td>
+                <td><strong>2,150,000đ</strong></td>
+                <td><span class="badge badge-success">Hoàn thành</span></td>
+                <td>32 phút trước</td>
+              </tr>
+              <tr>
+                <td><strong>#LAZADA-8832</strong></td>
+                <td>Phạm Thị D</td>
+                <td>1 sản phẩm</td>
+                <td><span class="badge badge-danger">Lazada</span></td>
+                <td><strong>450,000đ</strong></td>
+                <td><span class="badge badge-warning">Chờ xác nhận</span></td>
+                <td>1 giờ trước</td>
+              </tr>
+              <tr>
+                <td><strong>#WEB-3321</strong></td>
+                <td>Hoàng Văn E</td>
+                <td>4 sản phẩm</td>
+                <td><span class="badge badge-success">Website</span></td>
+                <td><strong>1,890,000đ</strong></td>
+                <td><span class="badge badge-info">Đang giao</span></td>
+                <td>1 giờ trước</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- Low Stock Alert -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">⚠️ Cảnh Báo Tồn Kho</h2>
+            <a href="inventory.html" class="btn btn-secondary btn-sm">Xem chi tiết</a>
+          </div>
+          
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Sản Phẩm</th>
+                <th>SKU</th>
+                <th>Tồn Kho</th>
+                <th>Mức Tối Thiểu</th>
+                <th>Trạng Thái</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Son Dior Rouge 999</td>
+                <td>DR-999</td>
+                <td><strong style="color: var(--danger-color)">3</strong></td>
+                <td>20</td>
+                <td><span class="badge badge-danger">Rất thấp</span></td>
+              </tr>
+              <tr>
+                <td>Nước Hoa Chanel No. 5</td>
+                <td>CH-NO5</td>
+                <td><strong style="color: var(--warning-color)">8</strong></td>
+                <td>15</td>
+                <td><span class="badge badge-warning">Thấp</span></td>
+              </tr>
+              <tr>
+                <td>Phấn Nền MAC Studio Fix</td>
+                <td>MAC-SF</td>
+                <td><strong style="color: var(--warning-color)">12</strong></td>
+                <td>25</td>
+                <td><span class="badge badge-warning">Thấp</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- Top Products -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">🏆 Top Sản Phẩm Bán Chạy</h2>
+            <button class="btn btn-secondary btn-sm">Tuần này</button>
+          </div>
+          
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Sản Phẩm</th>
+                <th>Danh Mục</th>
+                <th>Đã Bán</th>
+                <th>Doanh Thu</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>🥇</td>
+                <td><strong>Son Dior Rouge 999</strong></td>
+                <td>Makeup</td>
+                <td>156 sản phẩm</td>
+                <td><strong>54,600,000đ</strong></td>
+              </tr>
+              <tr>
+                <td>🥈</td>
+                <td><strong>Kem Chống Nắng La Roche-Posay</strong></td>
+                <td>Skincare</td>
+                <td>142 sản phẩm</td>
+                <td><strong>53,960,000đ</strong></td>
+              </tr>
+              <tr>
+                <td>🥉</td>
+                <td><strong>Serum The Ordinary</strong></td>
+                <td>Skincare</td>
+                <td>128 sản phẩm</td>
+                <td><strong>57,600,000đ</strong></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Phấn Nền MAC Studio Fix</td>
+                <td>Makeup</td>
+                <td>98 sản phẩm</td>
+                <td><strong>41,160,000đ</strong></td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Mascara Maybelline Sky High</td>
+                <td>Makeup</td>
+                <td>87 sản phẩm</td>
+                <td><strong>21,750,000đ</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản Lý Đơn Hàng - CRM POS</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">🏪 Beauty Store</div>
+      </div>
+      
+      <nav class="sidebar-menu">
+        <div class="menu-section">
+          <div class="menu-section-title">Chính</div>
+          <a href="dashboard.html" class="menu-item">
+            <span class="menu-item-icon">📊</span>
+            <span class="menu-item-text">Dashboard</span>
+          </a>
+          <a href="index.html" class="menu-item">
+            <span class="menu-item-icon">🛒</span>
+            <span class="menu-item-text">POS - Bán Hàng</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Bán Hàng</div>
+          <a href="orders.html" class="menu-item active">
+            <span class="menu-item-icon">📦</span>
+            <span class="menu-item-text">Đơn Hàng</span>
+          </a>
+          <a href="customers.html" class="menu-item">
+            <span class="menu-item-icon">👥</span>
+            <span class="menu-item-text">Khách Hàng</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Sản Phẩm</div>
+          <a href="products.html" class="menu-item">
+            <span class="menu-item-icon">💄</span>
+            <span class="menu-item-text">Quản Lý Sản Phẩm</span>
+          </a>
+          <a href="inventory.html" class="menu-item">
+            <span class="menu-item-icon">📊</span>
+            <span class="menu-item-text">Quản Lý Kho</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Marketing</div>
+          <a href="promotions.html" class="menu-item">
+            <span class="menu-item-icon">🎁</span>
+            <span class="menu-item-text">Khuyến Mãi</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Hệ Thống</div>
+          <a href="settings.html" class="menu-item">
+            <span class="menu-item-icon">⚙️</span>
+            <span class="menu-item-text">Cài Đặt</span>
+          </a>
+        </div>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <div class="user-avatar">LA</div>
+          <div class="user-details">
+            <div class="user-name">Lan Anh</div>
+            <div class="user-role">Quản lý</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">📦 Quản Lý Đơn Hàng</h1>
+        <div class="page-actions">
+          <button class="btn btn-primary" onclick="window.location.href='create-order.html'">➕ Tạo đơn hàng</button>
+          <button class="btn btn-secondary">📥 Import đơn</button>
+          <button class="btn btn-secondary">📄 Xuất Excel</button>
+        </div>
+      </div>
+      
+      <div class="page-content">
+        <!-- Stats Overview -->
+        <div class="stats-grid">
+          <div class="stat-card" style="border-left-color: var(--primary-color)">
+            <div class="stat-label">Tổng Đơn Hôm Nay</div>
+            <div class="stat-value">127</div>
+            <div class="stat-change positive">↑ 8 đơn so với hôm qua</div>
+          </div>
+          
+          <div class="stat-card" style="border-left-color: var(--warning-color)">
+            <div class="stat-label">Đang Xử Lý</div>
+            <div class="stat-value">23</div>
+            <div class="stat-change">Cần xác nhận</div>
+          </div>
+          
+          <div class="stat-card" style="border-left-color: var(--secondary-color)">
+            <div class="stat-label">Hoàn Thành</div>
+            <div class="stat-value">98</div>
+            <div class="stat-change positive">↑ 77% tỷ lệ hoàn thành</div>
+          </div>
+          
+          <div class="stat-card" style="border-left-color: var(--danger-color)">
+            <div class="stat-label">Đã Hủy/Trả Hàng</div>
+            <div class="stat-value">6</div>
+            <div class="stat-change negative">4.7% tỷ lệ hủy</div>
+          </div>
+        </div>
+        
+        <!-- Filters -->
+        <div class="card">
+          <div class="filters">
+            <div class="filter-group">
+              <label class="filter-label">Tìm kiếm</label>
+              <input type="text" class="filter-input" placeholder="Mã đơn, SĐT, Tên KH..." style="width: 300px" id="searchOrder">
+            </div>
+            
+            <div class="filter-group">
+              <label class="filter-label">Kênh bán</label>
+              <select class="filter-input" id="filterChannel">
+                <option value="all">Tất cả kênh</option>
+                <option value="store">Cửa hàng</option>
+                <option value="shopee">Shopee</option>
+                <option value="lazada">Lazada</option>
+                <option value="website">Website</option>
+                <option value="tiktok">TikTok Shop</option>
+              </select>
+            </div>
+            
+            <div class="filter-group">
+              <label class="filter-label">Trạng thái</label>
+              <select class="filter-input" id="filterStatus">
+                <option value="all">Tất cả</option>
+                <option value="pending">Chờ xác nhận</option>
+                <option value="processing">Đang xử lý</option>
+                <option value="shipping">Đang giao</option>
+                <option value="completed">Hoàn thành</option>
+                <option value="cancelled">Đã hủy</option>
+              </select>
+            </div>
+            
+            <div class="filter-group">
+              <label class="filter-label">Ngày</label>
+              <input type="date" class="filter-input" value="2026-04-12">
+            </div>
+            
+            <div class="filter-group">
+              <label class="filter-label">&nbsp;</label>
+              <button class="btn btn-primary" onclick="filterOrders()">🔍 Lọc</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Orders Table -->
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Danh Sách Đơn Hàng (127 đơn)</h2>
+            <div style="display: flex; gap: 0.5rem;">
+              <button class="btn btn-secondary btn-sm">🔄 Làm mới</button>
+              <button class="btn btn-secondary btn-sm">⚙️ Cột hiển thị</button>
+            </div>
+          </div>
+          
+          <table class="data-table" id="ordersTable">
+            <thead>
+              <tr>
+                <th style="width: 50px"><input type="checkbox"></th>
+                <th>Mã Đơn</th>
+                <th>Khách Hàng</th>
+                <th>Sản Phẩm</th>
+                <th>Kênh</th>
+                <th>Tổng Tiền</th>
+                <th>Trạng Thái</th>
+                <th>Thời Gian</th>
+                <th style="width: 150px">Thao Tác</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Row 1 -->
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><strong style="color: var(--primary-color);">#POS-001</strong></td>
+                <td>
+                  <div><strong>Nguyễn Văn A</strong></div>
+                  <div style="font-size: 0.875rem; color: var(--gray-600);">0901234567</div>
+                </td>
+                <td>3 sản phẩm</td>
+                <td><span class="badge badge-info">Cửa hàng</span></td>
+                <td><strong>1,250,000đ</strong></td>
+                <td><span class="badge badge-success">Hoàn thành</span></td>
+                <td>
+                  <div>10 phút trước</div>
+                  <div style="font-size: 0.75rem; color: var(--gray-500);">14:35</div>
+                </td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-icon" title="Chi tiết" onclick="viewOrderDetail('POS-001')">👁️</button>
+                    <button class="btn-icon" title="In hóa đơn">🖨️</button>
+                    <button class="btn-icon" title="Xem thêm">⋮</button>
+                  </div>
+                </td>
+              </tr>
+              
+              <!-- Row 2 -->
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><strong style="color: var(--warning-color);">#SHOPEE-4521</strong></td>
+                <td>
+                  <div><strong>Trần Thị B</strong></div>
+                  <div style="font-size: 0.875rem; color: var(--gray-600);">0987654321</div>
+                </td>
+                <td>2 sản phẩm</td>
+                <td><span class="badge badge-warning">Shopee</span></td>
+                <td><strong>680,000đ</strong></td>
+                <td><span class="badge badge-info">Đang xử lý</span></td>
+                <td>
+                  <div>25 phút trước</div>
+                  <div style="font-size: 0.75rem; color: var(--gray-500);">14:10</div>
+                </td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-icon" title="Chi tiết" onclick="viewOrderDetail('SHOPEE-4521')">👁️</button>
+                    <button class="btn-icon" title="Xác nhận" style="color: var(--secondary-color);">✓</button>
+                    <button class="btn-icon" title="Xem thêm">⋮</button>
+                  </div>
+                </td>
+              </tr>
+              
+              <!-- Row 3 -->
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><strong style="color: var(--primary-color);">#POS-002</strong></td>
+                <td>
+                  <div><strong>Lê Văn C</strong></div>
+                  <div style="font-size: 0.875rem; color: var(--gray-600);">0912345678</div>
+                </td>
+                <td>5 sản phẩm</td>
+                <td><span class="badge badge-info">Cửa hàng</span></td>
+                <td><strong>2,150,000đ</strong></td>
+                <td><span class="badge badge-success">Hoàn thành</span></td>
+                <td>
+                  <div>32 phút trước</div>
+                  <div style="font-size: 0.75rem; color: var(--gray-500);">14:03</div>
+                </td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-icon" title="Chi tiết" onclick="viewOrderDetail('POS-002')">👁️</button>
+                    <button class="btn-icon" title="In hóa đơn">🖨️</button>
+                    <button class="btn-icon" title="Xem thêm">⋮</button>
+                  </div>
+                </td>
+              </tr>
+              
+              <!-- Row 4 -->
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><strong style="color: var(--danger-color);">#LAZADA-8832</strong></td>
+                <td>
+                  <div><strong>Phạm Thị D</strong></div>
+                  <div style="font-size: 0.875rem; color: var(--gray-600);">0923456789</div>
+                </td>
+                <td>1 sản phẩm</td>
+                <td><span class="badge badge-danger">Lazada</span></td>
+                <td><strong>450,000đ</strong></td>
+                <td><span class="badge badge-warning">Chờ xác nhận</span></td>
+                <td>
+                  <div>1 giờ trước</div>
+                  <div style="font-size: 0.75rem; color: var(--gray-500);">13:35</div>
+                </td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-icon" title="Chi tiết" onclick="viewOrderDetail('LAZADA-8832')">👁️</button>
+                    <button class="btn-icon" title="Xác nhận" style="color: var(--secondary-color);">✓</button>
+                    <button class="btn-icon" title="Từ chối" style="color: var(--danger-color);">✕</button>
+                  </div>
+                </td>
+              </tr>
+              
+              <!-- Row 5 -->
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><strong style="color: var(--secondary-color);">#WEB-3321</strong></td>
+                <td>
+                  <div><strong>Hoàng Văn E</strong></div>
+                  <div style="font-size: 0.875rem; color: var(--gray-600);">0934567890</div>
+                </td>
+                <td>4 sản phẩm</td>
+                <td><span class="badge badge-success">Website</span></td>
+                <td><strong>1,890,000đ</strong></td>
+                <td><span class="badge badge-info">Đang giao</span></td>
+                <td>
+                  <div>1 giờ trước</div>
+                  <div style="font-size: 0.75rem; color: var(--gray-500);">13:35</div>
+                </td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-icon" title="Chi tiết" onclick="viewOrderDetail('WEB-3321')">👁️</button>
+                    <button class="btn-icon" title="Tracking">📍</button>
+                    <button class="btn-icon" title="Xem thêm">⋮</button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Row 6 - TikTok -->
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><strong style="color: #000;">#TIKTOK-9912</strong></td>
+                <td>
+                  <div><strong>Võ Thị F</strong></div>
+                  <div style="font-size: 0.875rem; color: var(--gray-600);">0945678901</div>
+                </td>
+                <td>6 sản phẩm</td>
+                <td><span class="badge" style="background: #000; color: white;">TikTok</span></td>
+                <td><strong>3,200,000đ</strong></td>
+                <td><span class="badge badge-success">Hoàn thành</span></td>
+                <td>
+                  <div>2 giờ trước</div>
+                  <div style="font-size: 0.75rem; color: var(--gray-500);">12:45</div>
+                </td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-icon" title="Chi tiết" onclick="viewOrderDetail('TIKTOK-9912')">👁️</button>
+                    <button class="btn-icon" title="In hóa đơn">🖨️</button>
+                    <button class="btn-icon" title="Xem thêm">⋮</button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Row 7 - Cancelled -->
+              <tr style="opacity: 0.6;">
+                <td><input type="checkbox"></td>
+                <td><strong style="color: var(--gray-500);">#POS-003</strong></td>
+                <td>
+                  <div><strong>Ngô Văn G</strong></div>
+                  <div style="font-size: 0.875rem; color: var(--gray-600);">0956789012</div>
+                </td>
+                <td>2 sản phẩm</td>
+                <td><span class="badge badge-info">Cửa hàng</span></td>
+                <td><strong>850,000đ</strong></td>
+                <td><span class="badge badge-danger">Đã hủy</span></td>
+                <td>
+                  <div>3 giờ trước</div>
+                  <div style="font-size: 0.75rem; color: var(--gray-500);">11:30</div>
+                </td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-icon" title="Chi tiết" onclick="viewOrderDetail('POS-003')">👁️</button>
+                    <button class="btn-icon" title="Lý do hủy">❓</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <!-- Pagination -->
+          <div class="pagination">
+            <button class="pagination-btn" disabled>« Trước</button>
+            <button class="pagination-btn active">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+            <button class="pagination-btn">...</button>
+            <button class="pagination-btn">18</button>
+            <button class="pagination-btn">Sau »</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Order Detail Modal -->
+  <div class="modal" id="orderDetailModal">
+    <div class="modal-content" style="max-width: 800px;">
+      <div class="modal-header">
+        📦 Chi Tiết Đơn Hàng <span id="modalOrderCode">#POS-001</span>
+        <button onclick="closeModal('orderDetailModal')" style="float: right; background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+        <div>
+          <h3 style="margin-bottom: 0.5rem;">Thông Tin Khách Hàng</h3>
+          <div style="background: var(--gray-50); padding: 1rem; border-radius: 0.5rem;">
+            <div style="margin-bottom: 0.5rem;"><strong>Nguyễn Văn A</strong></div>
+            <div style="font-size: 0.875rem; color: var(--gray-600);">📱 0901234567</div>
+            <div style="font-size: 0.875rem; color: var(--gray-600);">⭐ Hạng: GOLD</div>
+            <div style="font-size: 0.875rem; color: var(--gray-600);">💎 2,450 điểm</div>
+          </div>
+        </div>
+        
+        <div>
+          <h3 style="margin-bottom: 0.5rem;">Thông Tin Đơn Hàng</h3>
+          <div style="background: var(--gray-50); padding: 1rem; border-radius: 0.5rem;">
+            <div style="margin-bottom: 0.5rem;">Kênh: <span class="badge badge-info">Cửa hàng</span></div>
+            <div style="font-size: 0.875rem; color: var(--gray-600);">Thu ngân: Lan Anh</div>
+            <div style="font-size: 0.875rem; color: var(--gray-600);">Thời gian: 12/04/2026 14:35</div>
+            <div style="font-size: 0.875rem; color: var(--gray-600);">Thanh toán: Tiền mặt</div>
+          </div>
+        </div>
+      </div>
+      
+      <h3 style="margin-bottom: 0.5rem;">Sản Phẩm</h3>
+      <table class="data-table" style="margin-bottom: 1.5rem;">
+        <thead>
+          <tr>
+            <th>Sản Phẩm</th>
+            <th>Số Lượng</th>
+            <th>Đơn Giá</th>
+            <th>Thành Tiền</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Son Dior Rouge 999</td>
+            <td>2</td>
+            <td>350,000đ</td>
+            <td><strong>700,000đ</strong></td>
+          </tr>
+          <tr>
+            <td>Serum The Ordinary</td>
+            <td>1</td>
+            <td>450,000đ</td>
+            <td><strong>450,000đ</strong></td>
+          </tr>
+          <tr style="background: #fef3c7;">
+            <td>🎁 Mascara Mini (Quà tặng)</td>
+            <td>1</td>
+            <td>0đ</td>
+            <td><strong>0đ</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div style="background: var(--gray-50); padding: 1rem; border-radius: 0.5rem;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+          <span>Tạm tính:</span>
+          <strong>1,150,000đ</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: var(--danger-color);">
+          <span>Giảm giá (10%):</span>
+          <strong>-115,000đ</strong>
+        </div>
+        <div style="border-top: 2px solid var(--gray-300); margin: 0.5rem 0; padding-top: 0.5rem;"></div>
+        <div style="display: flex; justify-content: space-between; font-size: 1.25rem;">
+          <span><strong>TỔNG CỘNG:</strong></span>
+          <strong style="color: var(--secondary-color);">1,250,000đ</strong>
+        </div>
+      </div>
+      
+      <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+        <button class="btn btn-primary" onclick="alert('In hóa đơn')">🖨️ In Hóa Đơn</button>
+        <button class="btn btn-secondary" onclick="alert('Gửi Email')">📧 Gửi Email</button>
+        <button class="btn btn-secondary" onclick="closeModal('orderDetailModal')">Đóng</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function viewOrderDetail(orderCode) {
+      document.getElementById('modalOrderCode').textContent = '#' + orderCode;
+      document.getElementById('orderDetailModal').classList.add('active');
+    }
+    
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove('active');
+    }
+    
+    function filterOrders() {
+      const searchTerm = document.getElementById('searchOrder').value.toLowerCase();
+      const channel = document.getElementById('filterChannel').value;
+      const status = document.getElementById('filterStatus').value;
+      
+      const rows = document.querySelectorAll('#ordersTable tbody tr');
+      
+      rows.forEach(row => {
+        const orderCode = row.children[1].textContent.toLowerCase();
+        const customer = row.children[2].textContent.toLowerCase();
+        const channelBadge = row.children[4].textContent.toLowerCase();
+        const statusBadge = row.children[6].textContent.toLowerCase();
+        
+        let showRow = true;
+        
+        // Search filter
+        if (searchTerm && !orderCode.includes(searchTerm) && !customer.includes(searchTerm)) {
+          showRow = false;
+        }
+        
+        // Channel filter
+        if (channel !== 'all' && !channelBadge.includes(channel)) {
+          showRow = false;
+        }
+        
+        // Status filter
+        if (status !== 'all') {
+          const statusMap = {
+            'pending': 'chờ xác nhận',
+            'processing': 'đang xử lý',
+            'shipping': 'đang giao',
+            'completed': 'hoàn thành',
+            'cancelled': 'đã hủy'
+          };
+          if (!statusBadge.includes(statusMap[status])) {
+            showRow = false;
+          }
+        }
+        
+        row.style.display = showRow ? '' : 'none';
+      });
+    }
+    
+    // Close modal when clicking outside
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('modal')) {
+        e.target.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>

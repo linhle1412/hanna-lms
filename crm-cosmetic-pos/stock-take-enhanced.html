@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Take Enhanced - CRM POS</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    .page-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #f8f9fa;
+    }
+
+    .section-card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #2c3e50;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-grid.full {
+      grid-template-columns: 1fr;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+    }
+
+    .form-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .form-label.required::after {
+      content: " *";
+      color: #e74c3c;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      padding: 0.625rem 0.875rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-family: inherit;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem;
+      background: #f8f9fa;
+      border-radius: 6px;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .checkbox-group label {
+      cursor: pointer;
+      font-size: 0.875rem;
+      user-select: none;
+    }
+
+    .team-assignment {
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .team-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .team-name {
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    .btn-remove {
+      background: #e74c3c;
+      color: white;
+      border: none;
+      padding: 0.375rem 0.75rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.813rem;
+    }
+
+    .progress-bar-container {
+      background: #e0e0e0;
+      border-radius: 10px;
+      height: 24px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .progress-bar {
+      background: linear-gradient(90deg, #27ae60, #2ecc71);
+      height: 100%;
+      transition: width 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 0.813rem;
+    }
+
+    .scan-zone {
+      border: 2px dashed #3498db;
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      background: #f0f8ff;
+    }
+
+    .scan-input {
+      width: 100%;
+      max-width: 400px;
+      margin: 1rem auto;
+      font-size: 1.125rem;
+      text-align: center;
+      padding: 0.875rem;
+    }
+
+    .scanned-items {
+      margin-top: 1.5rem;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .scanned-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem;
+      background: white;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: #3498db;
+      color: white;
+    }
+
+    .btn-success {
+      background: #27ae60;
+      color: white;
+    }
+
+    .btn-warning {
+      background: #f39c12;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #ecf0f1;
+      color: #555;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .data-table th {
+      text-align: left;
+      padding: 0.75rem;
+      background: #f8f9fa;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border-bottom: 2px solid #dee2e6;
+    }
+
+    .data-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid #e8ecef;
+      font-size: 0.875rem;
+    }
+
+    .variance-badge {
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .variance-ok {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .variance-medium {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    .variance-high {
+      background: #f8d7da;
+      color: #721c24;
+    }
+
+    .alert-box {
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 4px solid;
+      margin-bottom: 1rem;
+    }
+
+    .alert-info {
+      background: #d1ecf1;
+      border-left-color: #17a2b8;
+      color: #0c5460;
+    }
+
+    .alert-warning {
+      background: #fff3cd;
+      border-left-color: #ffc107;
+      color: #856404;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <h1 style="margin-bottom: 2rem;">📋 Stock Take Enhanced Demo</h1>
+
+    <!-- Section 1: Basic Setup -->
+    <div class="section-card">
+      <div class="section-title">🔧 1. Basic Setup</div>
+      
+      <div class="form-grid">
+        <div class="form-field">
+          <label class="form-label required">Tên phiên kiểm kho</label>
+          <input type="text" class="form-input" placeholder="VD: Kiểm kho tháng 4/2024">
+        </div>
+
+        <div class="form-field">
+          <label class="form-label required">Loại kiểm kho</label>
+          <select class="form-select" onchange="toggleCountType(this.value)">
+            <option value="full">Full Count (Kiểm toàn bộ)</option>
+            <option value="cycle">Cycle Count (Kiểm tuần hoàn)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-field">
+          <label class="form-label required">Chi nhánh</label>
+          <select class="form-select">
+            <option>Quận 1</option>
+            <option>Quận 3</option>
+            <option>Quận 5</option>
+            <option value="all">Tất cả chi nhánh</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label required">Ngày kiểm kho</label>
+          <input type="date" class="form-input">
+        </div>
+      </div>
+
+      <div class="form-grid full" id="cycleCountOptions" style="display: none;">
+        <div class="alert-box alert-info">
+          <strong>ℹ️ Cycle Count Mode</strong><br>
+          Kiểm kho tuần hoàn theo ABC classification. Không cần freeze inventory.
+        </div>
+        <div class="form-field">
+          <label class="form-label">ABC Classification</label>
+          <select class="form-select">
+            <option>Class A - High Value (Monthly)</option>
+            <option>Class B - Medium Value (Quarterly)</option>
+            <option>Class C - Low Value (Semi-annually)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-grid full">
+        <div class="form-field">
+          <label class="form-label">Phạm vi kiểm kho</label>
+          <select class="form-select">
+            <option>Toàn bộ sản phẩm</option>
+            <option>Theo danh mục</option>
+            <option>Theo thương hiệu</option>
+            <option>ABC Class A only</option>
+            <option>Random sampling (10%)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: Enhanced Options -->
+    <div class="section-card">
+      <div class="section-title">⚙️ 2. Enhanced Options</div>
+
+      <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+        <div class="checkbox-group">
+          <input type="checkbox" id="freezeInventory">
+          <label for="freezeInventory">🔒 <strong>Freeze Inventory</strong> - Khóa nhập/xuất kho trong lúc kiểm (Hard Freeze)</label>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="softFreeze" checked>
+          <label for="softFreeze">🔔 <strong>Soft Freeze</strong> - Warning khi nhập/xuất (Recommended)</label>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="barcodeScan" checked>
+          <label for="barcodeScan">📷 <strong>Barcode Scanning</strong> - Sử dụng barcode scanner</label>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="partialSubmit" checked>
+          <label for="partialSubmit">💾 <strong>Partial Submission</strong> - Cho phép submit từng phần</label>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="exportSheet" checked>
+          <label for="exportSheet">📄 <strong>Export Count Sheet</strong> - Xuất phiếu kiểm kho Excel/PDF</label>
+        </div>
+      </div>
+
+      <div class="alert-box alert-warning" style="margin-top: 1rem;">
+        <strong>⚠️ Approval Thresholds</strong><br>
+        • Variance < 5%: Auto-approve<br>
+        • Variance 5-10%: Supervisor approval required<br>
+        • Variance > 10%: Manager approval + Investigation report required
+      </div>
+    </div>
+
+    <!-- Section 3: Team Assignment -->
+    <div class="section-card">
+      <div class="section-title">👥 3. Team Assignment</div>
+
+      <div id="teamList">
+        <div class="team-assignment">
+          <div class="team-header">
+            <span class="team-name">Team A - Nguyễn Văn A (Leader)</span>
+            <button class="btn-remove" onclick="removeTeam(this)">✕ Remove</button>
+          </div>
+          <div class="form-grid">
+            <div class="form-field">
+              <label class="form-label">Location/Kệ</label>
+              <input type="text" class="form-input" placeholder="VD: Kệ A1-A10">
+            </div>
+            <div class="form-field">
+              <label class="form-label">Số lượng sản phẩm</label>
+              <input type="number" class="form-input" placeholder="50" value="50">
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-label">Danh mục assigned</label>
+            <input type="text" class="form-input" placeholder="VD: Son môi, Son dưỡng" value="Son môi, Son dưỡng">
+          </div>
+        </div>
+
+        <div class="team-assignment">
+          <div class="team-header">
+            <span class="team-name">Team B - Trần Thị B (Leader)</span>
+            <button class="btn-remove" onclick="removeTeam(this)">✕ Remove</button>
+          </div>
+          <div class="form-grid">
+            <div class="form-field">
+              <label class="form-label">Location/Kệ</label>
+              <input type="text" class="form-input" placeholder="VD: Kệ B1-B10">
+            </div>
+            <div class="form-field">
+              <label class="form-label">Số lượng sản phẩm</label>
+              <input type="number" class="form-input" placeholder="45" value="45">
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-label">Danh mục assigned</label>
+            <input type="text" class="form-input" placeholder="VD: Serum, Kem dưỡng" value="Serum, Kem dưỡng">
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" onclick="addTeam()" style="margin-top: 1rem;">
+        + Add Team
+      </button>
+    </div>
+
+    <!-- Section 4: Barcode Scanning Demo -->
+    <div class="section-card">
+      <div class="section-title">📷 4. Barcode Scanning Mode</div>
+
+      <div class="scan-zone">
+        <div style="font-size: 3rem; margin-bottom: 1rem;">📷</div>
+        <div style="font-weight: 600; margin-bottom: 1rem;">Ready to Scan</div>
+        <input type="text" class="form-input scan-input" id="barcodeInput" placeholder="Scan barcode or enter manually..." onkeyup="handleBarcodeScan(event)">
+        <div style="font-size: 0.813rem; color: #777; margin-top: 0.5rem;">
+          Press Enter after scan or manual entry
+        </div>
+      </div>
+
+      <div class="scanned-items" id="scannedList">
+        <div class="scanned-item">
+          <span><strong>Rouge Dior 999</strong> (DIOR-999)</span>
+          <span style="font-size: 1.25rem; font-weight: 700; color: #27ae60;">x5</span>
+        </div>
+        <div class="scanned-item">
+          <span><strong>Estée Lauder Night Repair</strong> (EL-NR-50ML)</span>
+          <span style="font-size: 1.25rem; font-weight: 700; color: #27ae60;">x3</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5: Progress & Partial Submission -->
+    <div class="section-card">
+      <div class="section-title">📊 5. Progress & Partial Submission</div>
+
+      <div style="margin-bottom: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+          <span style="font-weight: 600;">Overall Progress</span>
+          <span style="font-weight: 600; color: #27ae60;">70/100 items (70%)</span>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: 70%;">
+            70%
+          </div>
+        </div>
+      </div>
+
+      <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+        <div style="font-weight: 600; margin-bottom: 0.75rem;">Submitted Batches:</div>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem; background: white; border-radius: 4px;">
+            <span>✅ Batch 1 - Team A</span>
+            <span><strong>30 items</strong> (9:30 AM)</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem; background: white; border-radius: 4px;">
+            <span>✅ Batch 2 - Team B</span>
+            <span><strong>40 items</strong> (11:15 AM)</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem; background: #fff3cd; border-radius: 4px;">
+            <span>⏳ Batch 3 - Team A (In Progress)</span>
+            <span><strong>15/30 items</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0.75rem;">
+        <button class="btn btn-warning" onclick="saveProgress()">💾 Save Progress & Continue Later</button>
+        <button class="btn btn-primary" onclick="submitBatch()">📤 Submit Current Batch</button>
+      </div>
+    </div>
+
+    <!-- Section 6: Variance & Approval -->
+    <div class="section-card">
+      <div class="section-title">⚖️ 6. Variance Calculation & Approval</div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Sản phẩm</th>
+            <th>Hệ thống</th>
+            <th>Thực tế</th>
+            <th>Variance</th>
+            <th>%</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Rouge Dior 999</strong></td>
+            <td>67</td>
+            <td>65</td>
+            <td>-2</td>
+            <td>-3.0%</td>
+            <td><span class="variance-badge variance-ok">✅ Auto-approved</span></td>
+          </tr>
+          <tr>
+            <td><strong>Estée Lauder Night Repair</strong></td>
+            <td>45</td>
+            <td>42</td>
+            <td>-3</td>
+            <td>-6.7%</td>
+            <td><span class="variance-badge variance-medium">⏳ Supervisor approval</span></td>
+          </tr>
+          <tr>
+            <td><strong>La Roche-Posay UV SPF50</strong></td>
+            <td>52</td>
+            <td>43</td>
+            <td>-9</td>
+            <td>-17.3%</td>
+            <td><span class="variance-badge variance-high">🚨 Manager + Report</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="alert-box alert-warning" style="margin-top: 1.5rem;">
+        <strong>⚠️ Investigation Required</strong><br>
+        La Roche-Posay UV SPF50 có chênh lệch 17.3% (> 10%).<br>
+        Vui lòng điền Investigation Report trước khi Manager có thể approve.
+      </div>
+
+      <div class="form-grid full" style="margin-top: 1rem;">
+        <div class="form-field">
+          <label class="form-label required">Investigation Report</label>
+          <textarea class="form-textarea" rows="4" placeholder="Giải thích nguyên nhân chênh lệch, người chịu trách nhiệm, hành động khắc phục..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 7: Export Count Sheet -->
+    <div class="section-card">
+      <div class="section-title">📄 7. Export Count Sheet</div>
+
+      <div class="form-grid">
+        <div class="form-field">
+          <label class="form-label">Format</label>
+          <select class="form-select">
+            <option>Excel (.xlsx)</option>
+            <option>PDF with Barcode</option>
+            <option>CSV</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">Options</label>
+          <select class="form-select">
+            <option>Include system quantity</option>
+            <option>Blind count (no quantity)</option>
+            <option>With product images</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+        <button class="btn btn-success" onclick="exportSheet('excel')">📊 Export Excel</button>
+        <button class="btn btn-success" onclick="exportSheet('pdf')">📄 Export PDF</button>
+        <button class="btn btn-secondary" onclick="importSheet()">📤 Import Results</button>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="section-card">
+      <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+        <button class="btn btn-secondary">❌ Cancel</button>
+        <button class="btn btn-warning">💾 Save as Draft</button>
+        <button class="btn btn-success">✅ Complete & Submit for Approval</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleCountType(type) {
+      const cycleOptions = document.getElementById('cycleCountOptions');
+      cycleOptions.style.display = type === 'cycle' ? 'block' : 'none';
+    }
+
+    function addTeam() {
+      const teamList = document.getElementById('teamList');
+      const newTeam = document.createElement('div');
+      newTeam.className = 'team-assignment';
+      newTeam.innerHTML = `
+        <div class="team-header">
+          <span class="team-name">New Team</span>
+          <button class="btn-remove" onclick="removeTeam(this)">✕ Remove</button>
+        </div>
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label">Team Leader</label>
+            <input type="text" class="form-input" placeholder="Tên người phụ trách">
+          </div>
+          <div class="form-field">
+            <label class="form-label">Location/Kệ</label>
+            <input type="text" class="form-input" placeholder="VD: Kệ C1-C10">
+          </div>
+        </div>
+      `;
+      teamList.appendChild(newTeam);
+    }
+
+    function removeTeam(btn) {
+      btn.closest('.team-assignment').remove();
+    }
+
+    let scannedItems = {};
+
+    function handleBarcodeScan(event) {
+      if (event.key === 'Enter') {
+        const input = event.target;
+        const barcode = input.value.trim();
+        
+        if (barcode) {
+          // Mock product lookup
+          const product = {
+            'DIOR-999': 'Rouge Dior 999',
+            'EL-NR-50ML': 'Estée Lauder Night Repair',
+            'LRP-UV-50': 'La Roche-Posay UV SPF50'
+          }[barcode] || 'Unknown Product';
+
+          if (!scannedItems[barcode]) {
+            scannedItems[barcode] = { name: product, count: 0 };
+          }
+          scannedItems[barcode].count++;
+
+          // Beep sound (visual feedback)
+          input.style.background = '#d4edda';
+          setTimeout(() => { input.style.background = ''; }, 200);
+
+          // Update list
+          updateScannedList();
+          input.value = '';
+        }
+      }
+    }
+
+    function updateScannedList() {
+      const list = document.getElementById('scannedList');
+      list.innerHTML = '';
+      for (let [barcode, data] of Object.entries(scannedItems)) {
+        const item = document.createElement('div');
+        item.className = 'scanned-item';
+        item.innerHTML = `
+          <span><strong>${data.name}</strong> (${barcode})</span>
+          <span style="font-size: 1.25rem; font-weight: 700; color: #27ae60;">x${data.count}</span>
+        `;
+        list.appendChild(item);
+      }
+    }
+
+    function saveProgress() {
+      alert('✅ Progress saved!\n\nYou can resume later from where you left off.');
+    }
+
+    function submitBatch() {
+      alert('✅ Batch submitted successfully!\n\nProgress: 70% → 85%');
+    }
+
+    function exportSheet(format) {
+      alert(`📄 Exporting count sheet in ${format.toUpperCase()} format...\n\n(In real app: Generate file for download)`);
+    }
+
+    function importSheet() {
+      alert('📤 Upload completed count sheet:\n\n1. Excel file with filled data\n2. System will validate and import\n3. Highlight any conflicts');
+    }
+  </script>
+</body>
+</html>

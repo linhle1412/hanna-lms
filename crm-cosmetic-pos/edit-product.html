@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chỉnh Sửa Sản Phẩm - CRM POS</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    .breadcrumb-section {
+      background: white;
+      padding: 0.75rem 1.5rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: #777;
+    }
+
+    .breadcrumb a {
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      color: #bbb;
+    }
+
+    .breadcrumb-current {
+      color: #2c3e50;
+      font-weight: 500;
+    }
+
+    .page-header {
+      background: white;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .page-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .page-subtitle {
+      font-size: 0.875rem;
+      color: #777;
+      margin-top: 0.25rem;
+    }
+
+    /* 2-Column Layout */
+    .edit-container {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 0;
+      overflow: hidden;
+    }
+
+    /* Left Column - Form */
+    .left-column {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      overflow-y: auto;
+    }
+
+    /* Right Column - Preview */
+    .right-column {
+      background: white;
+      border-left: 1px solid #e0e0e0;
+      padding: 1.5rem;
+      overflow-y: auto;
+    }
+
+    /* General Info Section */
+    .general-section {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-grid.full {
+      grid-template-columns: 1fr;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+    }
+
+    .form-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .form-label.required::after {
+      content: " *";
+      color: #e74c3c;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      padding: 0.625rem 0.875rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-family: inherit;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    }
+
+    .form-help {
+      font-size: 0.75rem;
+      color: #777;
+    }
+
+    /* Tabs Section */
+    .tabs-section {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .tabs-header {
+      display: flex;
+      border-bottom: 2px solid #e8ecef;
+      background: #f8f9fa;
+    }
+
+    .tab-button {
+      flex: 1;
+      padding: 0.875rem 1rem;
+      border: none;
+      background: transparent;
+      font-size: 0.813rem;
+      font-weight: 600;
+      color: #777;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-bottom: 3px solid transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.375rem;
+    }
+
+    .tab-button:hover {
+      background: #f0f0f0;
+      color: #555;
+    }
+
+    .tab-button.active {
+      background: white;
+      color: #3498db;
+      border-bottom-color: #3498db;
+    }
+
+    .tab-icon {
+      font-size: 1.125rem;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 1.5rem;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Form Actions */
+    .form-actions {
+      background: white;
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 0.75rem 1.25rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary {
+      background: #ecf0f1;
+      color: #555;
+    }
+
+    .btn-secondary:hover {
+      background: #d5dbdb;
+    }
+
+    .btn-danger {
+      background: #e74c3c;
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: #c0392b;
+    }
+
+    .btn-primary {
+      background: #27ae60;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #229954;
+    }
+
+    /* Image Upload */
+    .image-upload-zone {
+      border: 2px dashed #ddd;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .image-upload-zone:hover {
+      border-color: #3498db;
+      background: #f0f8ff;
+    }
+
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .image-item {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 2px solid #e0e0e0;
+    }
+
+    .image-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-remove {
+      position: absolute;
+      top: 0.375rem;
+      right: 0.375rem;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 0.25rem 0.5rem;
+      cursor: pointer;
+      font-size: 0.75rem;
+    }
+
+    .image-remove:hover {
+      background: rgba(231, 76, 60, 0.9);
+    }
+
+    .image-primary {
+      position: absolute;
+      bottom: 0.375rem;
+      left: 0.375rem;
+      background: #27ae60;
+      color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.688rem;
+      font-weight: 600;
+    }
+
+    /* Checkbox groups */
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem;
+      background: #f8f9fa;
+      border-radius: 6px;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .checkbox-group label {
+      cursor: pointer;
+      font-size: 0.875rem;
+      user-select: none;
+    }
+
+    /* Stock table */
+    .stock-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .stock-table th {
+      text-align: left;
+      padding: 0.75rem;
+      background: #f8f9fa;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border-bottom: 2px solid #dee2e6;
+    }
+
+    .stock-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid #e8ecef;
+      font-size: 0.875rem;
+    }
+
+    .stock-input {
+      width: 80px;
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    /* Preview Card */
+    .preview-card {
+      background: white;
+      border-radius: 12px;
+      border: 2px solid #e0e0e0;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    .preview-image {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      background: #f8f9fa;
+    }
+
+    .preview-content {
+      padding: 1.25rem;
+    }
+
+    .preview-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+
+    .preview-sku {
+      font-size: 0.813rem;
+      color: #777;
+      font-family: monospace;
+      background: #f0f0f0;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .preview-price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px dashed #e0e0e0;
+    }
+
+    .price-label {
+      font-size: 0.813rem;
+      color: #777;
+    }
+
+    .price-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #27ae60;
+    }
+
+    .preview-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .stat-item {
+      background: #f8f9fa;
+      padding: 0.875rem;
+      border-radius: 8px;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: #777;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-value {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+
+    .preview-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .badge {
+      padding: 0.375rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .badge-success {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .badge-warning {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    .badge-primary {
+      background: #cfe2ff;
+      color: #084298;
+    }
+
+    /* Info Section in Right Column */
+    .info-section {
+      background: #f8f9fa;
+      padding: 1.25rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-title {
+      font-size: 0.938rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.625rem 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+    }
+
+    .info-label {
+      font-size: 0.813rem;
+      color: #777;
+    }
+
+    .info-value {
+      font-size: 0.813rem;
+      font-weight: 600;
+      color: #2c3e50;
+      text-align: right;
+    }
+
+    /* Danger Zone */
+    .danger-zone {
+      background: #fff3cd;
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 4px solid #ffc107;
+    }
+
+    .danger-title {
+      font-weight: 600;
+      color: #856404;
+      margin-bottom: 0.75rem;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">🏪 Beauty Store</div>
+      </div>
+      
+      <nav class="sidebar-menu">
+        <div class="menu-section">
+          <div class="menu-section-title">Chính</div>
+          <a href="dashboard.html" class="menu-item">
+            <span class="menu-item-icon">📊</span>
+            <span class="menu-item-text">Dashboard</span>
+          </a>
+          <a href="index.html" class="menu-item">
+            <span class="menu-item-icon">🛒</span>
+            <span class="menu-item-text">POS - Bán Hàng</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Bán Hàng</div>
+          <a href="orders.html" class="menu-item">
+            <span class="menu-item-icon">📦</span>
+            <span class="menu-item-text">Đơn Hàng</span>
+          </a>
+          <a href="customers.html" class="menu-item">
+            <span class="menu-item-icon">👥</span>
+            <span class="menu-item-text">Khách Hàng</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Sản Phẩm</div>
+          <a href="products.html" class="menu-item active">
+            <span class="menu-item-icon">💄</span>
+            <span class="menu-item-text">Quản Lý Sản Phẩm</span>
+          </a>
+          <a href="inventory.html" class="menu-item">
+            <span class="menu-item-icon">📊</span>
+            <span class="menu-item-text">Quản Lý Kho</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Marketing</div>
+          <a href="promotions.html" class="menu-item">
+            <span class="menu-item-icon">🎁</span>
+            <span class="menu-item-text">Khuyến Mãi</span>
+          </a>
+        </div>
+        
+        <div class="menu-section">
+          <div class="menu-section-title">Hệ Thống</div>
+          <a href="settings.html" class="menu-item">
+            <span class="menu-item-icon">⚙️</span>
+            <span class="menu-item-text">Cài Đặt</span>
+          </a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Breadcrumb -->
+      <div class="breadcrumb-section">
+        <div class="breadcrumb">
+          <a href="products.html">💄 Quản Lý Sản Phẩm</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current">Chỉnh Sửa: Rouge Dior 999</span>
+        </div>
+      </div>
+
+      <!-- Page Header -->
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Chỉnh Sửa Sản Phẩm</h1>
+          <p class="page-subtitle">SKU: DIOR-999 • Ngày tạo: 15/03/2024 • Cập nhật: 08/04/2024</p>
+        </div>
+      </div>
+
+      <!-- 2-Column Layout -->
+      <div class="edit-container">
+        <!-- LEFT COLUMN - Form -->
+        <div class="left-column">
+          <!-- GENERAL INFO -->
+          <div class="general-section">
+            <div class="section-title">📋 Thông Tin Chung</div>
+            
+            <div class="form-grid">
+              <div class="form-field">
+                <label class="form-label required">Tên sản phẩm</label>
+                <input type="text" class="form-input" id="productName" value="Rouge Dior 999 - Son Môi Matte" oninput="updatePreview()">
+              </div>
+
+              <div class="form-field">
+                <label class="form-label required">SKU</label>
+                <input type="text" class="form-input" id="sku" value="DIOR-999" readonly style="background: #f8f9fa;">
+                <div class="form-help">SKU không thể thay đổi</div>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-field">
+                <label class="form-label required">Thương hiệu</label>
+                <select class="form-select" id="brand" onchange="updatePreview()">
+                  <option selected>Dior</option>
+                  <option>Estée Lauder</option>
+                  <option>Lancôme</option>
+                  <option>Chanel</option>
+                  <option>La Roche-Posay</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label class="form-label required">Danh mục</label>
+                <select class="form-select" id="category">
+                  <option selected>Son môi</option>
+                  <option>Kem dưỡng</option>
+                  <option>Serum</option>
+                  <option>Kem chống nắng</option>
+                  <option>Trang điểm mắt</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid full">
+              <div class="form-field">
+                <label class="form-label">Mô tả ngắn</label>
+                <textarea class="form-textarea" rows="2" placeholder="Mô tả ngắn gọn...">Son môi màu đỏ truyền thống, lâu trôi, không khô môi</textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- TABS SECTION -->
+          <div class="tabs-section">
+            <div class="tabs-header">
+              <button class="tab-button active" onclick="switchTab(event, 'pricing')">
+                <span class="tab-icon">💰</span>
+                <span>Giá</span>
+              </button>
+              <button class="tab-button" onclick="switchTab(event, 'inventory')">
+                <span class="tab-icon">📦</span>
+                <span>Kho</span>
+              </button>
+              <button class="tab-button" onclick="switchTab(event, 'images')">
+                <span class="tab-icon">📸</span>
+                <span>Ảnh</span>
+              </button>
+              <button class="tab-button" onclick="switchTab(event, 'details')">
+                <span class="tab-icon">📝</span>
+                <span>Chi tiết</span>
+              </button>
+              <button class="tab-button" onclick="switchTab(event, 'settings')">
+                <span class="tab-icon">⚙️</span>
+                <span>Cài đặt</span>
+              </button>
+            </div>
+
+            <!-- Tab: Pricing -->
+            <div class="tab-content active" id="pricing">
+              <div class="form-grid">
+                <div class="form-field">
+                  <label class="form-label required">Giá nhập</label>
+                  <div style="display: flex; align-items: stretch;">
+                    <input type="number" class="form-input" id="buyPrice" value="280000" min="0" step="1000" style="border-radius: 6px 0 0 6px;" oninput="updatePreview()">
+                    <span style="padding: 0.625rem 0.875rem; background: #f0f0f0; border: 1px solid #ddd; border-left: none; border-radius: 0 6px 6px 0; font-size: 0.875rem;">đ</span>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label class="form-label required">Giá bán</label>
+                  <div style="display: flex; align-items: stretch;">
+                    <input type="number" class="form-input" id="sellPrice" value="350000" min="0" step="1000" style="border-radius: 6px 0 0 6px;" oninput="updatePreview()">
+                    <span style="padding: 0.625rem 0.875rem; background: #f0f0f0; border: 1px solid #ddd; border-left: none; border-radius: 0 6px 6px 0; font-size: 0.875rem;">đ</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-field">
+                  <label class="form-label">Giá khuyến mãi</label>
+                  <div style="display: flex; align-items: stretch;">
+                    <input type="number" class="form-input" id="promoPrice" placeholder="0" min="0" step="1000" style="border-radius: 6px 0 0 6px;" oninput="updatePreview()">
+                    <span style="padding: 0.625rem 0.875rem; background: #f0f0f0; border: 1px solid #ddd; border-left: none; border-radius: 0 6px 6px 0; font-size: 0.875rem;">đ</span>
+                  </div>
+                  <div class="form-help">Để trống nếu không giảm giá</div>
+                </div>
+
+                <div class="form-field">
+                  <label class="form-label">Giá sỉ (B2B)</label>
+                  <div style="display: flex; align-items: stretch;">
+                    <input type="number" class="form-input" placeholder="0" min="0" step="1000" style="border-radius: 6px 0 0 6px;">
+                    <span style="padding: 0.625rem 0.875rem; background: #f0f0f0; border: 1px solid #ddd; border-left: none; border-radius: 0 6px 6px 0; font-size: 0.875rem;">đ</span>
+                  </div>
+                  <div class="form-help">Giá bán cho đại lý</div>
+                </div>
+              </div>
+
+              <div style="background: #d4edda; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-weight: 600; color: #155724;">💹 Lợi nhuận:</span>
+                  <span style="font-size: 1.25rem; font-weight: 700; color: #155724;" id="profitDisplay">70,000đ (25%)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab: Inventory -->
+            <div class="tab-content" id="inventory">
+              <h3 style="font-size: 0.938rem; font-weight: 600; margin-bottom: 1rem;">📊 Tồn Kho Theo Chi Nhánh</h3>
+              
+              <table class="stock-table">
+                <thead>
+                  <tr>
+                    <th>Chi nhánh</th>
+                    <th>Hiện tại</th>
+                    <th>Điều chỉnh</th>
+                    <th>Mới</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Quận 1</strong></td>
+                    <td>67</td>
+                    <td><input type="number" class="stock-input" placeholder="0" oninput="updateStock(0)"></td>
+                    <td><strong id="newStockQ1">67</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Quận 3</strong></td>
+                    <td>45</td>
+                    <td><input type="number" class="stock-input" placeholder="0" oninput="updateStock(1)"></td>
+                    <td><strong id="newStockQ3">45</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Quận 5</strong></td>
+                    <td>33</td>
+                    <td><input type="number" class="stock-input" placeholder="0" oninput="updateStock(2)"></td>
+                    <td><strong id="newStockQ5">33</strong></td>
+                  </tr>
+                  <tr style="background: #f8f9fa; font-weight: 600;">
+                    <td>TỔNG</td>
+                    <td>145</td>
+                    <td>-</td>
+                    <td><strong id="totalStock">145</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div style="margin-top: 1.5rem;">
+                <div class="form-grid">
+                  <div class="form-field">
+                    <label class="form-label">Cảnh báo tồn kho thấp</label>
+                    <input type="number" class="form-input" value="10" min="0">
+                  </div>
+
+                  <div class="form-field">
+                    <label class="form-label">Tồn kho tối đa</label>
+                    <input type="number" class="form-input" value="500" min="0">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab: Images -->
+            <div class="tab-content" id="images">
+              <h3 style="font-size: 0.938rem; font-weight: 600; margin-bottom: 1rem;">📸 Quản Lý Hình Ảnh</h3>
+              
+              <div class="image-gallery">
+                <div class="image-item">
+                  <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=300&h=300&fit=crop" alt="Product">
+                  <div class="image-primary">Ảnh chính</div>
+                  <button class="image-remove">✕</button>
+                </div>
+                <div class="image-item">
+                  <img src="https://images.unsplash.com/photo-1631214524020-7e18db9a8f92?w=300&h=300&fit=crop" alt="Product">
+                  <button class="image-remove">✕</button>
+                </div>
+                <div class="image-item">
+                  <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=300&fit=crop" alt="Product">
+                  <button class="image-remove">✕</button>
+                </div>
+              </div>
+
+              <div class="image-upload-zone" onclick="document.getElementById('imageInput').click()" style="margin-top: 1rem;">
+                <div style="font-size: 2.5rem; margin-bottom: 0.375rem;">📷</div>
+                <div style="font-weight: 500; margin-bottom: 0.25rem; font-size: 0.875rem;">Click để thêm ảnh</div>
+                <div style="font-size: 0.688rem; color: #999;">JPG, PNG (max 5MB)</div>
+                <input type="file" id="imageInput" accept="image/*" multiple style="display: none;">
+              </div>
+            </div>
+
+            <!-- Tab: Details -->
+            <div class="tab-content" id="details">
+              <div class="form-grid">
+                <div class="form-field">
+                  <label class="form-label">Barcode</label>
+                  <input type="text" class="form-input" value="3348901419598">
+                </div>
+
+                <div class="form-field">
+                  <label class="form-label">Mã nhà sản xuất</label>
+                  <input type="text" class="form-input" value="DIO-RG-999">
+                </div>
+              </div>
+
+              <div class="form-grid full">
+                <div class="form-field">
+                  <label class="form-label">Mô tả chi tiết</label>
+                  <textarea class="form-textarea" rows="6">Rouge Dior 999 là dòng son môi cao cấp từ Dior với màu đỏ truyền thống, sang trọng.
+
+Đặc điểm nổi bật:
+- Công thức mới với 77% thành phần dưỡng môi
+- Lâu trôi đến 12 giờ
+- Không khô môi, không gây bết dính</textarea>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-field">
+                  <label class="form-label">Tags</label>
+                  <input type="text" class="form-input" value="best-seller, luxury, gift-worthy">
+                </div>
+
+                <div class="form-field">
+                  <label class="form-label">Xuất xứ</label>
+                  <input type="text" class="form-input" value="Pháp">
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab: Settings -->
+            <div class="tab-content" id="settings">
+              <h3 style="font-size: 0.938rem; font-weight: 600; margin-bottom: 1rem;">⚙️ Cài Đặt Sản Phẩm</h3>
+              
+              <div style="display: flex; flex-direction: column; gap: 0.625rem;">
+                <div class="checkbox-group">
+                  <input type="checkbox" id="isActive" checked onchange="updatePreview()">
+                  <label for="isActive">🟢 Kích hoạt sản phẩm</label>
+                </div>
+
+                <div class="checkbox-group">
+                  <input type="checkbox" id="isFeatured" checked onchange="updatePreview()">
+                  <label for="isFeatured">⭐ Sản phẩm nổi bật</label>
+                </div>
+
+                <div class="checkbox-group">
+                  <input type="checkbox" id="allowBackorder">
+                  <label for="allowBackorder">📦 Cho phép Pre-order</label>
+                </div>
+
+                <div class="checkbox-group">
+                  <input type="checkbox" id="trackInventory" checked>
+                  <label for="trackInventory">📊 Theo dõi tồn kho</label>
+                </div>
+
+                <div class="checkbox-group">
+                  <input type="checkbox" id="isGiftWrappable" checked>
+                  <label for="isGiftWrappable">🎁 Có thể gói quà</label>
+                </div>
+              </div>
+
+              <div class="danger-zone" style="margin-top: 1.5rem;">
+                <div class="danger-title">🔐 Thao Tác Nguy Hiểm</div>
+                <button class="btn btn-danger" onclick="confirmDelete()" style="width: 100%;">
+                  🗑️ Xóa sản phẩm vĩnh viễn
+                </button>
+                <div style="font-size: 0.688rem; color: #856404; margin-top: 0.5rem;">
+                  ⚠️ Hành động này không thể hoàn tác
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Actions -->
+          <div class="form-actions">
+            <button class="btn btn-secondary" onclick="window.history.back()">← Quay lại</button>
+            <button class="btn btn-primary" onclick="saveProduct()">💾 Lưu thay đổi</button>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN - Preview -->
+        <div class="right-column">
+          <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 1rem; color: #2c3e50;">👁️ Preview</h3>
+          
+          <!-- Product Preview Card -->
+          <div class="preview-card">
+            <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop" alt="Product Preview" class="preview-image">
+            <div class="preview-content">
+              <h2 class="preview-title" id="previewName">Rouge Dior 999 - Son Môi Matte</h2>
+              <div class="preview-sku" id="previewSKU">DIOR-999</div>
+              
+              <div class="preview-price">
+                <span class="price-label">Giá bán:</span>
+                <span class="price-value" id="previewPrice">350,000đ</span>
+              </div>
+
+              <div class="preview-stats">
+                <div class="stat-item">
+                  <div class="stat-label">Tồn kho</div>
+                  <div class="stat-value" id="previewStock">145</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-label">Lợi nhuận</div>
+                  <div class="stat-value" id="previewProfit">25%</div>
+                </div>
+              </div>
+
+              <div class="preview-badges">
+                <span class="badge badge-success" id="previewActive">✅ Active</span>
+                <span class="badge badge-warning" id="previewFeatured">⭐ Best Seller</span>
+                <span class="badge badge-primary" id="previewBrand">Dior</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Info Section -->
+          <div class="info-section">
+            <div class="info-title">📊 Thông Tin Hệ Thống</div>
+            <div class="info-row">
+              <span class="info-label">Ngày tạo</span>
+              <span class="info-value">15/03/2024</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Cập nhật lần cuối</span>
+              <span class="info-value">08/04/2024, 14:30</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Người tạo</span>
+              <span class="info-value">Admin</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Số lần xem</span>
+              <span class="info-value">1,243</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Đã bán</span>
+              <span class="info-value">89 sản phẩm</span>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <button class="btn btn-secondary" style="width: 100%;" onclick="window.open('edit-product.html', '_blank')">
+              🔗 Mở trong tab mới
+            </button>
+            <button class="btn btn-secondary" style="width: 100%;" onclick="alert('View history')">
+              📜 Xem lịch sử thay đổi
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const stockData = [67, 45, 33];
+
+    // Tab Switching
+    function switchTab(event, tabId) {
+      document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    // Update Preview in real-time
+    function updatePreview() {
+      const name = document.getElementById('productName').value;
+      const sellPrice = parseInt(document.getElementById('sellPrice').value) || 0;
+      const buyPrice = parseInt(document.getElementById('buyPrice').value) || 0;
+      const promoPrice = parseInt(document.getElementById('promoPrice').value) || 0;
+      const brand = document.getElementById('brand').value;
+      const isActive = document.getElementById('isActive').checked;
+      const isFeatured = document.getElementById('isFeatured').checked;
+
+      document.getElementById('previewName').textContent = name || 'Tên sản phẩm';
+      
+      if (promoPrice > 0) {
+        document.getElementById('previewPrice').innerHTML = `<span style="text-decoration: line-through; font-size: 0.875rem; color: #999;">${sellPrice.toLocaleString('vi-VN')}đ</span><br>${promoPrice.toLocaleString('vi-VN')}đ`;
+      } else {
+        document.getElementById('previewPrice').textContent = sellPrice.toLocaleString('vi-VN') + 'đ';
+      }
+
+      if (buyPrice > 0 && sellPrice > 0) {
+        const profit = sellPrice - buyPrice;
+        const profitPercent = ((profit / buyPrice) * 100).toFixed(1);
+        document.getElementById('profitDisplay').textContent = profit.toLocaleString('vi-VN') + 'đ (' + profitPercent + '%)';
+        document.getElementById('previewProfit').textContent = profitPercent + '%';
+      }
+
+      document.getElementById('previewActive').textContent = isActive ? '✅ Active' : '⏸️ Inactive';
+      document.getElementById('previewActive').className = isActive ? 'badge badge-success' : 'badge badge-secondary';
+      
+      document.getElementById('previewFeatured').style.display = isFeatured ? 'inline-block' : 'none';
+      document.getElementById('previewBrand').textContent = brand;
+    }
+
+    // Stock adjustment
+    function updateStock(index) {
+      const inputs = document.querySelectorAll('.stock-input');
+      const adjustment = parseInt(inputs[index].value) || 0;
+      const newStock = stockData[index] + adjustment;
+      
+      const ids = ['newStockQ1', 'newStockQ3', 'newStockQ5'];
+      document.getElementById(ids[index]).textContent = newStock;
+
+      const q1 = parseInt(document.getElementById('newStockQ1').textContent);
+      const q3 = parseInt(document.getElementById('newStockQ3').textContent);
+      const q5 = parseInt(document.getElementById('newStockQ5').textContent);
+      const total = q1 + q3 + q5;
+      
+      document.getElementById('totalStock').textContent = total;
+      document.getElementById('previewStock').textContent = total;
+    }
+
+    function saveProduct() {
+      if (confirm('Xác nhận lưu tất cả thay đổi?')) {
+        alert('✅ Đã lưu thành công!\n\n(Trong thực tế: PUT /api/products/DIOR-999)');
+        window.location.href = 'products.html';
+      }
+    }
+
+    function confirmDelete() {
+      if (confirm('⚠️ XÁC NHẬN XÓA SẢN PHẨM?\n\nSản phẩm sẽ chuyển sang Inactive.\n\nBạn có chắc chắn?')) {
+        alert('✅ Sản phẩm đã được chuyển sang Inactive');
+        window.location.href = 'products.html';
+      }
+    }
+
+    // Initialize
+    updatePreview();
+  </script>
+</body>
+</html>

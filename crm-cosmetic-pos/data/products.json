@@ -1,0 +1,169 @@
+[
+  {
+    "id": 1,
+    "name": "Son Dior Rouge 999",
+    "category": "makeup",
+    "price": 350000,
+    "stock": 15,
+    "image": "💄",
+    "badge": "bestseller"
+  },
+  {
+    "id": 2,
+    "name": "Serum The Ordinary Niacinamide 10%",
+    "category": "skincare",
+    "price": 450000,
+    "stock": 8,
+    "image": "🧴"
+  },
+  {
+    "id": 3,
+    "name": "Kem Chống Nắng La Roche-Posay",
+    "category": "skincare",
+    "price": 380000,
+    "stock": 22,
+    "image": "☀️",
+    "badge": "sale"
+  },
+  {
+    "id": 4,
+    "name": "Mascara Maybelline Sky High",
+    "category": "makeup",
+    "price": 250000,
+    "stock": 12,
+    "image": "👁️"
+  },
+  {
+    "id": 5,
+    "name": "Phấn Nền MAC Studio Fix",
+    "category": "makeup",
+    "price": 420000,
+    "stock": 7,
+    "image": "🎨",
+    "badge": "bestseller"
+  },
+  {
+    "id": 6,
+    "name": "Nước Hoa Chanel No. 5",
+    "category": "fragrance",
+    "price": 2800000,
+    "stock": 3,
+    "image": "🌸"
+  },
+  {
+    "id": 7,
+    "name": "Sữa Rửa Mặt CeraVe",
+    "category": "skincare",
+    "price": 320000,
+    "stock": 18,
+    "image": "🧼"
+  },
+  {
+    "id": 8,
+    "name": "Son Kem 3CE Velvet Lip",
+    "category": "makeup",
+    "price": 280000,
+    "stock": 0,
+    "image": "💋"
+  },
+  {
+    "id": 9,
+    "name": "Kem Dưỡng Ẩm Innisfree",
+    "category": "skincare",
+    "price": 380000,
+    "stock": 14,
+    "image": "🫙",
+    "badge": "sale"
+  },
+  {
+    "id": 10,
+    "name": "Cushion Missha Magic",
+    "category": "makeup",
+    "price": 310000,
+    "stock": 9,
+    "image": "✨"
+  },
+  {
+    "id": 11,
+    "name": "Nước Hoa Hồng Klairs",
+    "category": "skincare",
+    "price": 420000,
+    "stock": 11,
+    "image": "💧"
+  },
+  {
+    "id": 12,
+    "name": "Chì Kẻ Mày Anastasia",
+    "category": "makeup",
+    "price": 380000,
+    "stock": 16,
+    "image": "✏️",
+    "badge": "bestseller"
+  },
+  {
+    "id": 13,
+    "name": "Nước Hoa Jo Malone Wood Sage",
+    "category": "fragrance",
+    "price": 3200000,
+    "stock": 2,
+    "image": "🌿"
+  },
+  {
+    "id": 14,
+    "name": "Mặt Nạ Some By Mi",
+    "category": "skincare",
+    "price": 180000,
+    "stock": 25,
+    "image": "🎭"
+  },
+  {
+    "id": 15,
+    "name": "Phấn Má Hồng Canmake",
+    "category": "makeup",
+    "price": 220000,
+    "stock": 13,
+    "image": "🌺"
+  },
+  {
+    "id": 16,
+    "name": "Dầu Tẩy Trang DHC",
+    "category": "skincare",
+    "price": 480000,
+    "stock": 6,
+    "image": "🛢️"
+  },
+  {
+    "id": 17,
+    "name": "Bảng Phấn Mắt Urban Decay",
+    "category": "makeup",
+    "price": 1200000,
+    "stock": 4,
+    "image": "🎨",
+    "badge": "bestseller"
+  },
+  {
+    "id": 18,
+    "name": "Nước Hoa Victoria's Secret Bombshell",
+    "category": "fragrance",
+    "price": 1800000,
+    "stock": 5,
+    "image": "💐"
+  },
+  {
+    "id": 19,
+    "name": "Retinol The Ordinary",
+    "category": "skincare",
+    "price": 380000,
+    "stock": 10,
+    "image": "💊"
+  },
+  {
+    "id": 20,
+    "name": "Son Dưỡng Vaseline Rosy Lips",
+    "category": "makeup",
+    "price": 85000,
+    "stock": 30,
+    "image": "💗",
+    "badge": "sale"
+  }
+]
