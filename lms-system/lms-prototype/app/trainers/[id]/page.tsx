@@ -444,7 +444,7 @@ export default function TrainerDetailsPage() {
                         <strong style={{ color: '#666' }}>Street:</strong> {addr.street}
                       </div>
                       <div>
-                        <strong style={{ color: '#666' }}>City:</strong> {addr.city}
+                        <strong style={{ color: '#666' }}>Province:</strong> {addr.province}
                       </div>
                       <div>
                         <strong style={{ color: '#666' }}>Ward:</strong> {addr.ward}

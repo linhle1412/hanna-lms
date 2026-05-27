@@ -378,7 +378,7 @@ function StepConfigCard({ step, index, onUpdate }: StepConfigCardProps) {
                   </label>
                   <select
                     value={reminderType}
-                    onChange={(e) => setReminderType(e.target.value)}
+                    onChange={(e) => setReminderType(e.target.value as 'none' | 'daily' | 'date_based' | 'course_date_relative')}
                     style={{
                       width: '100%',
                       padding: '8px 12px',
@@ -749,10 +749,7 @@ function ReminderRecipientConfig({ recipients, onChange }: ReminderRecipientConf
             fontWeight: '500',
             whiteSpace: 'nowrap',
             height: '38px',
-            alignSelf: 'flex-end'
-          }}
-          style={{
-            whiteSpace: 'nowrap',
+            alignSelf: 'flex-end',
             flexShrink: 0,
             width: 'auto',
             minWidth: '80px'

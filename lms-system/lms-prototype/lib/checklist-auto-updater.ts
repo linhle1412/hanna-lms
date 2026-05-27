@@ -60,7 +60,7 @@ export class ChecklistAutoUpdater {
               autoDetectedAt: new Date().toISOString(),
               autoDetectionReason: evaluation.reason,
               lastEvaluatedAt: new Date().toISOString()
-            }).catch(error => {
+            }).then(() => {}).catch(error => {
               console.error(`Failed to auto-update step ${step.stepId}:`, error)
             })
           )
@@ -69,7 +69,7 @@ export class ChecklistAutoUpdater {
           updatePromises.push(
             courseChecklistAPI.updateStep(courseId, step.stepId, {
               lastEvaluatedAt: new Date().toISOString()
-            }).catch(error => {
+            }).then(() => {}).catch(error => {
               console.error(`Failed to update evaluation timestamp for step ${step.stepId}:`, error)
             })
           )

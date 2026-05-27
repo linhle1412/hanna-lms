@@ -127,7 +127,7 @@ export default function PendingRegistrations({ onApprovalComplete }: PendingRegi
 
   const getRegistrationNote = (course: Course): string => {
     const registeredEntry = course.statusHistory?.find(h => h.status === 'REGISTERED')
-    return registeredEntry?.reason || registeredEntry?.note || 'No note provided'
+    return registeredEntry?.reason || 'No note provided'
   }
 
   const getRegisteredBy = (course: Course): string => {

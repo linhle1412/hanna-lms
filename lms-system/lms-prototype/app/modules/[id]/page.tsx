@@ -47,16 +47,16 @@ export default function ModuleDetailsPage() {
 
   // Load module data
   useEffect(() => {
-    if (params.id) {
+    if (params?.id) {
       loadModule()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params.id])
+  }, [params?.id])
 
   const loadModule = async () => {
     try {
       setLoading(true)
-      const response = await fetch(`/api/modules/${params.id}`)
+      const response = await fetch(`/api/modules/${params?.id}`)
       if (response.ok) {
         const data = await response.json()
         setModule(data)

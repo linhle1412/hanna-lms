@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import Layout from '@/components/Layout'
 import PendingRegistrations from '@/components/PendingRegistrations'
@@ -13,7 +13,7 @@ import { canRegisterForCourse } from '@/lib/auth-utils'
 
 type ApprovalTab = 'registered' | 'edit' | 'cancel'
 
-export default function PICCalendarPage() {
+function PICCalendarContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const { showToast } = useToast()
@@ -993,3 +993,10 @@ export default function PICCalendarPage() {
   )
 }
 
+export default function PICCalendarPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PICCalendarContent />
+    </Suspense>
+  )
+}

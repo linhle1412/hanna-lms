@@ -1,5 +1,5 @@
 // API service for CRUD operations with JSON file persistence
-import type { Course, Participant, Trainer, User, Program, ChecklistTemplate, CourseChecklistInstance } from './state'
+import type { Course, Participant, Trainer, User, Program, Product, ChecklistTemplate, CourseChecklistInstance } from './state'
 
 const API_BASE = '/api'
 
@@ -237,6 +237,37 @@ export const programAPI = {
   }
 }
 
+// Product API
+export const productAPI = {
+  getAll: async (): Promise<Product[]> => {
+    return fetchAPI<Product[]>('/products')
+  },
+
+  getById: async (id: number): Promise<Product> => {
+    return fetchAPI<Product>(`/products/${id}`)
+  },
+
+  create: async (data: Partial<Product>): Promise<Product> => {
+    return fetchAPI<Product>('/products', {
+      method: 'POST',
+      body: JSON.stringify(data)
+    })
+  },
+
+  update: async (id: number, data: Partial<Product>): Promise<Product> => {
+    return fetchAPI<Product>(`/products/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(data)
+    })
+  },
+
+  delete: async (id: number): Promise<void> => {
+    return fetchAPI<void>(`/products/${id}`, {
+      method: 'DELETE'
+    })
+  }
+}
+
 // Template API
 export const templateAPI = {
   getAll: async (courseType?: string): Promise<ChecklistTemplate[]> => {
@@ -281,7 +312,7 @@ export const courseChecklistAPI = {
     courseId: number,
     stepId: number,
     updates: {
-      status: 'not_started' | 'pending' | 'done' | 'overdue' | 'not_applicable'
+      status?: 'not_started' | 'pending' | 'done' | 'overdue' | 'not_applicable'
       notes?: string
       completedBy?: string
       manualMarkDoneReason?: string

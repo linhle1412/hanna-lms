@@ -144,10 +144,6 @@ export default function ChecklistConfigModal({
     onSave(steps)
   }
 
-  const completedSteps = steps.filter(s => s.status === 'done').length
-  const totalSteps = steps.length
-  const progress = totalSteps > 0 ? (completedSteps / totalSteps) * 100 : 0
-
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" style={{ maxWidth: '90vw', width: '1400px', maxHeight: '90vh' }} onClick={(e) => e.stopPropagation()}>
@@ -272,11 +268,11 @@ export default function ChecklistConfigModal({
 
                       {step.reminderTiming?.type !== 'none' && (
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
-                          {step.reminderTiming.type === 'daily' && (
+                          {step.reminderTiming?.type === 'daily' && (
                             <div>
                               <label className="form-label">Start From:</label>
                               <select
-                                value={step.reminderTiming.start || 'course_creation'}
+                                value={step.reminderTiming?.start || 'course_creation'}
                                 onChange={(e) => handleUpdateStep(step.id, {
                                   reminderTiming: { ...step.reminderTiming!, start: e.target.value }
                                 })}
@@ -289,12 +285,12 @@ export default function ChecklistConfigModal({
                             </div>
                           )}
 
-                          {step.reminderTiming.type === 'date_based' && (
+                          {step.reminderTiming?.type === 'date_based' && (
                             <>
                               <div>
                                 <label className="form-label">Start From:</label>
                                 <select
-                                  value={step.reminderTiming.start || 'course_end'}
+                                  value={step.reminderTiming?.start || 'course_end'}
                                   onChange={(e) => handleUpdateStep(step.id, {
                                     reminderTiming: { ...step.reminderTiming!, start: e.target.value }
                                   })}
@@ -308,7 +304,7 @@ export default function ChecklistConfigModal({
                                 <label className="form-label">Days After:</label>
                                 <input
                                   type="number"
-                                  value={step.reminderTiming.daysAfter || 0}
+                                  value={step.reminderTiming?.daysAfter || 0}
                                   onChange={(e) => handleUpdateStep(step.id, {
                                     reminderTiming: { ...step.reminderTiming!, daysAfter: parseInt(e.target.value) || 0 }
                                   })}
@@ -319,12 +315,12 @@ export default function ChecklistConfigModal({
                             </>
                           )}
 
-                          {step.reminderTiming.type === 'course_date_relative' && (
+                          {step.reminderTiming?.type === 'course_date_relative' && (
                             <div>
                               <label className="form-label">Days Before Course Start:</label>
                               <input
                                 type="number"
-                                value={step.reminderTiming.daysBefore || 7}
+                                value={step.reminderTiming?.daysBefore || 7}
                                 onChange={(e) => handleUpdateStep(step.id, {
                                   reminderTiming: { ...step.reminderTiming!, daysBefore: parseInt(e.target.value) || 7 }
                                 })}

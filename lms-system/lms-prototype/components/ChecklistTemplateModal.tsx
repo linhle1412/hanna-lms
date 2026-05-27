@@ -233,7 +233,7 @@ export default function ChecklistTemplateModal({
       ...formData,
       steps: [...(formData.steps || []), newStep]
     })
-    setExpandedSteps(new Set([...expandedSteps, newStep.id]))
+    setExpandedSteps(new Set([...Array.from(expandedSteps), newStep.id]))
   }
 
   const handleRemoveStep = (stepId: number) => {
@@ -639,11 +639,11 @@ export default function ChecklistTemplateModal({
 
                           {step.reminderTiming?.type !== 'none' && (
                             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
-                              {step.reminderTiming.type === 'daily' && (
+                              {step.reminderTiming?.type === 'daily' && (
                                 <div>
                                   <label className="form-label">Start From:</label>
                                   <select
-                                    value={step.reminderTiming.start || 'course_creation'}
+                                    value={step.reminderTiming?.start || 'course_creation'}
                                     onChange={(e) => handleUpdateStep(step.id, {
                                       reminderTiming: { ...step.reminderTiming!, start: e.target.value }
                                     })}
@@ -656,12 +656,12 @@ export default function ChecklistTemplateModal({
                                 </div>
                               )}
 
-                              {step.reminderTiming.type === 'date_based' && (
+                              {step.reminderTiming?.type === 'date_based' && (
                                 <>
                                   <div>
                                     <label className="form-label">Start From:</label>
                                     <select
-                                      value={step.reminderTiming.start || 'course_end'}
+                                      value={step.reminderTiming?.start || 'course_end'}
                                       onChange={(e) => handleUpdateStep(step.id, {
                                         reminderTiming: { ...step.reminderTiming!, start: e.target.value }
                                       })}
@@ -675,7 +675,7 @@ export default function ChecklistTemplateModal({
                                     <label className="form-label">Days After:</label>
                                     <input
                                       type="number"
-                                      value={step.reminderTiming.daysAfter || 0}
+                                      value={step.reminderTiming?.daysAfter || 0}
                                       onChange={(e) => handleUpdateStep(step.id, {
                                         reminderTiming: { ...step.reminderTiming!, daysAfter: parseInt(e.target.value) || 0 }
                                       })}
@@ -686,12 +686,12 @@ export default function ChecklistTemplateModal({
                                 </>
                               )}
 
-                              {step.reminderTiming.type === 'course_date_relative' && (
+                              {step.reminderTiming?.type === 'course_date_relative' && (
                                 <div>
                                   <label className="form-label">Days Before Course Start:</label>
                                   <input
                                     type="number"
-                                    value={step.reminderTiming.daysBefore || 7}
+                                    value={step.reminderTiming?.daysBefore || 7}
                                     onChange={(e) => handleUpdateStep(step.id, {
                                       reminderTiming: { ...step.reminderTiming!, daysBefore: parseInt(e.target.value) || 7 }
                                     })}

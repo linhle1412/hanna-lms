@@ -24,7 +24,7 @@ const supportsManualConfirm = (step: CourseChecklistStepInstance): boolean => {
   if (step.actionType === 'confirm') return true
   
   // Check status definition logic for manual_confirm type
-  const logic = getStatusDefinitionLogic(step.name, step.statusDefinitionLogic)
+  const logic = getStatusDefinitionLogic(step.name, undefined)
   if (logic?.type === 'manual_confirm') return true
   
   return false
@@ -62,7 +62,7 @@ const shouldDisableMarkAsCompleted = (step: CourseChecklistStepInstance): boolea
 
 // Helper function to check if step needs a progress bar
 const needsProgressBar = (step: CourseChecklistStepInstance): boolean => {
-  const logic = getStatusDefinitionLogic(step.name, step.statusDefinitionLogic)
+  const logic = getStatusDefinitionLogic(step.name, undefined)
   return logic?.type === 'percentage_calculation'
 }
 
@@ -70,7 +70,7 @@ const needsProgressBar = (step: CourseChecklistStepInstance): boolean => {
 const calculateStepProgress = (step: CourseChecklistStepInstance, course: Course | null, participants: Participant[]): number | null => {
   if (!course || step.status === 'done') return null
   
-  const logic = getStatusDefinitionLogic(step.name, step.statusDefinitionLogic)
+  const logic = getStatusDefinitionLogic(step.name, undefined)
   if (logic?.type !== 'percentage_calculation' || !logic.percentageCalculation) {
     return null
   }

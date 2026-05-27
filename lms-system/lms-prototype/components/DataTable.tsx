@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export interface Column<T> {
   key: string
-  label: string
+  label: string | React.ReactNode
   render?: (item: T, index: number) => React.ReactNode
   sortable?: boolean
   width?: string

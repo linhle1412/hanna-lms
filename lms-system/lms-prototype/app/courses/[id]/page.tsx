@@ -365,7 +365,7 @@ export default function CourseDetailsPage() {
       const data = await response.json()
       if (data.success) {
         showToast('Registration approved successfully', 'success')
-        await fetchCourse()
+        await loadCourseDetails()
         setShowApproveRegistrationModal(false)
         setActionReason('')
       } else {
@@ -392,7 +392,7 @@ export default function CourseDetailsPage() {
       const data = await response.json()
       if (data.success) {
         showToast('Registration rejected', 'success')
-        await fetchCourse()
+        await loadCourseDetails()
         setShowRejectRegistrationModal(false)
         setActionReason('')
       } else {
@@ -415,7 +415,7 @@ export default function CourseDetailsPage() {
       const data = await response.json()
       if (data.success) {
         showToast('Edit approved successfully', 'success')
-        await fetchCourse()
+        await loadCourseDetails()
         setShowApproveEditModal(false)
         setActionReason('')
       } else {
@@ -442,7 +442,7 @@ export default function CourseDetailsPage() {
       const data = await response.json()
       if (data.success) {
         showToast('Edit rejected', 'success')
-        await fetchCourse()
+        await loadCourseDetails()
         setShowRejectEditModal(false)
         setActionReason('')
       } else {
@@ -469,7 +469,7 @@ export default function CourseDetailsPage() {
       const data = await response.json()
       if (data.success) {
         showToast('Cancellation request submitted', 'success')
-        await fetchCourse()
+        await loadCourseDetails()
         setShowCancelModal(false)
         setActionReason('')
       } else {
@@ -492,7 +492,7 @@ export default function CourseDetailsPage() {
       const data = await response.json()
       if (data.success) {
         showToast('Cancellation approved', 'success')
-        await fetchCourse()
+        await loadCourseDetails()
         setShowApproveCancelModal(false)
         setActionReason('')
       } else {
@@ -519,7 +519,7 @@ export default function CourseDetailsPage() {
       const data = await response.json()
       if (data.success) {
         showToast('Cancellation rejected', 'success')
-        await fetchCourse()
+        await loadCourseDetails()
         setShowRejectCancelModal(false)
         setActionReason('')
       } else {
@@ -542,7 +542,7 @@ export default function CourseDetailsPage() {
       const data = await response.json()
       if (data.success) {
         showToast('Course finished successfully', 'success')
-        await fetchCourse()
+        await loadCourseDetails()
         setShowFinishModal(false)
         setActionReason('')
       } else {
@@ -1579,9 +1579,9 @@ export default function CourseDetailsPage() {
                         backgroundColor: 'white',
                         cursor: 'pointer',
                         position: 'relative',
-                        transition: 'all 0.2s',
-                        title: 'Add Participants'
+                        transition: 'all 0.2s'
                       }}
+                      title="Add Participants"
                       onClick={() => {
                         setAddModalActiveTab('normal');
                         setShowAddModal(true);
@@ -1630,9 +1630,9 @@ export default function CourseDetailsPage() {
                         border: '1px solid #ddd',
                         backgroundColor: 'white',
                         cursor: 'pointer',
-                        transition: 'all 0.2s',
-                        title: 'Import Participants'
+                        transition: 'all 0.2s'
                       }}
+                      title="Import Participants"
                       onClick={() => setShowImportModal(true)}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.backgroundColor = '#f5f5f5';
@@ -1663,9 +1663,9 @@ export default function CourseDetailsPage() {
                           backgroundColor: 'white',
                           cursor: participants && participants.length > 0 ? 'pointer' : 'not-allowed',
                           transition: 'all 0.2s',
-                          opacity: participants && participants.length > 0 ? 1 : 0.6,
-                          title: participants && participants.length > 0 ? 'Export for MOF Exam' : 'No participants to export'
+                          opacity: participants && participants.length > 0 ? 1 : 0.6
                         }}
+                        title={participants && participants.length > 0 ? 'Export for MOF Exam' : 'No participants to export'}
                         onClick={() => {
                           if (participants && participants.length > 0) {
                             handleExportParticipantsForMOF();
@@ -1703,9 +1703,9 @@ export default function CourseDetailsPage() {
                         backgroundColor: 'white',
                         cursor: 'pointer',
                         position: 'relative',
-                        transition: 'all 0.2s',
-                        title: 'More Actions'
+                        transition: 'all 0.2s'
                       }}
+                      title="More Actions"
                       onClick={(e) => {
                         e.stopPropagation();
                         setShowActionsMenu(!showActionsMenu);
@@ -2744,7 +2744,7 @@ export default function CourseDetailsPage() {
                     id="editBranch"
                     label="Branch"
                     options={branches}
-                    selectedValues={editFormData.branch || []}
+                    selectedValues={Array.isArray(editFormData.branch) ? editFormData.branch : editFormData.branch ? [editFormData.branch] : []}
                     onChange={(selected) => setEditFormData({ ...editFormData, branch: selected })}
                     placeholder="Select Branch"
                     size={3}
