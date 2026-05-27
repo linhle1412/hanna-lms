@@ -42,7 +42,7 @@ export default function ModulesPage() {
 
   // Check authorization
   useEffect(() => {
-    const authorized = hasAnyRole(['admin', 'master_role', 'root_admin'])
+    const authorized = hasAnyRole(['admin', 'master_role', 'root_admin', 'test_role'])
     if (!authorized) {
       router.push('/dashboard')
     }
@@ -189,7 +189,7 @@ export default function ModulesPage() {
           onClick={() => setShowCreateModal(true)}
           style={{
             padding: '10px 20px',
-            backgroundColor: '#0097A9',
+            backgroundColor: 'var(--color-primary)',
             color: 'white',
             border: 'none',
             borderRadius: '4px',
@@ -305,7 +305,7 @@ export default function ModulesPage() {
               onClick={() => setShowCreateModal(true)}
               style={{
                 padding: '10px 20px',
-                backgroundColor: '#0097A9',
+                backgroundColor: 'var(--color-primary)',
                 color: 'white',
                 border: 'none',
                 borderRadius: '4px',
@@ -338,7 +338,7 @@ export default function ModulesPage() {
                   <td style={{ padding: '12px' }}>
                     <a
                       href={`/modules/${module.id}`}
-                      style={{ color: '#0097A9', textDecoration: 'none', fontWeight: '500' }}
+                      style={{ color: 'var(--color-primary)', textDecoration: 'none', fontWeight: '500' }}
                       onMouseOver={(e) => e.currentTarget.style.textDecoration = 'underline'}
                       onMouseOut={(e) => e.currentTarget.style.textDecoration = 'none'}
                     >
@@ -710,7 +710,7 @@ function CreateModuleModal({ onClose, onSuccess }: { onClose: () => void; onSucc
               disabled={submitting}
               style={{
                 padding: '8px 16px',
-                backgroundColor: '#0097A9',
+                backgroundColor: 'var(--color-primary)',
                 color: 'white',
                 border: 'none',
                 borderRadius: '4px',
@@ -872,7 +872,7 @@ function CloneModuleModal({ module, onClose, onSuccess }: { module: Module; onCl
               disabled={submitting}
               style={{
                 padding: '8px 16px',
-                backgroundColor: '#0097A9',
+                backgroundColor: 'var(--color-primary)',
                 color: 'white',
                 border: 'none',
                 borderRadius: '4px',

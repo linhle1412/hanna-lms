@@ -180,5 +180,43 @@
     "isSystemRole": false,
     "createdDate": "2025-11-30T11:36:35.914Z",
     "updatedDate": "2025-11-30T11:36:35.914Z"
+  },
+  {
+    "roleId": "test_role",
+    "roleName": "TEST_ROLE",
+    "description": "Full access role for feature demonstrations - bypasses all permission checks and can perform any action in the system",
+    "permissions": [
+      "view_pic_calendar",
+      "view_master_calendar",
+      "create_course",
+      "import_course",
+      "view_course",
+      "register_course",
+      "edit_course",
+      "cancel_course",
+      "delete_course",
+      "approve_course",
+      "self_approval",
+      "manage_participant",
+      "manage_trainer",
+      "manage_admin",
+      "view_reports",
+      "import_mof_result",
+      "import_participant",
+      "add_participant",
+      "confirm_passed",
+      "finish_course",
+      "manage_program",
+      "view_program",
+      "manage_channel",
+      "manage_template",
+      "manage_list",
+      "manage_roles",
+      "general_settings",
+      "export_participant"
+    ],
+    "isSystemRole": false,
+    "createdDate": "2026-05-09T08:38:00.000Z",
+    "updatedDate": "2026-05-09T08:38:00.000Z"
   }
 ]

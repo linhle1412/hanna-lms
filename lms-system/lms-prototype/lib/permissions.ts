@@ -166,15 +166,54 @@ export const DEFAULT_ROLE_PERMISSIONS: Record<UserRole, string[]> = {
     'manage_roles',
     'general_settings',
   ],
+  test_role: [
+    // Test Role - Full access for feature demonstrations (bypasses all permission checks)
+    'view_pic_calendar',
+    'view_master_calendar',
+    'create_course',
+    'import_course',
+    'view_course',
+    'register_course',
+    'edit_course',
+    'cancel_course',
+    'delete_course',
+    'approve_course',
+    'self_approval',
+    'manage_participant',
+    'manage_trainer',
+    'manage_admin',
+    'view_reports',
+    'import_mof_result',
+    'import_participant',
+    'add_participant',
+    'confirm_passed',
+    'finish_course',
+    'manage_program',
+    'view_program',
+    'manage_channel',
+    'manage_template',
+    'manage_list',
+    'manage_roles',
+    'general_settings',
+    'export_participant',
+  ],
 };
 
 // Helper function to get role permissions
 export function getRolePermissions(role: UserRole): string[] {
+  // Test role has all permissions for demo purposes
+  if (role === 'test_role' || role === 'Test Role') {
+    return AVAILABLE_PERMISSIONS.map(p => p.id);
+  }
   return DEFAULT_ROLE_PERMISSIONS[role] || [];
 }
 
 // Helper function to check if a role has a specific permission
 export function roleHasPermission(role: UserRole, permissionId: string): boolean {
+  // Test role always has permission for demo purposes
+  if (role === 'test_role' || role === 'Test Role') {
+    return true;
+  }
   const permissions = getRolePermissions(role);
   return permissions.includes(permissionId);
 }

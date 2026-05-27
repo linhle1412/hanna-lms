@@ -2070,7 +2070,7 @@ flowchart TD
 ```
 ---
 
-## 7. CONTENT MANAGEMENT
+http://localhost:3000/courses## 7. CONTENT MANAGEMENT
 
 **Subsections:**
 - [7.1 Modules](#71-modules)

@@ -181,11 +181,11 @@ export default function LoginPage() {
           <div style={{
             marginTop: '20px',
             padding: '15px',
-            backgroundColor: '#f0f7ff',
-            border: '1px solid #0066cc',
+            backgroundColor: '#fff5f0',
+            border: '1px solid var(--color-primary)',
             borderRadius: '6px'
           }}>
-            <strong style={{ color: '#0066cc', fontSize: '14px' }}>⚡ Quick Login (Testing)</strong>
+            <strong style={{ color: 'var(--color-primary)', fontSize: '14px' }}>⚡ Quick Login (Testing)</strong>
             <div style={{
               marginTop: '12px',
               display: 'grid',
@@ -200,22 +200,22 @@ export default function LoginPage() {
                   padding: '8px 12px',
                   fontSize: '12px',
                   backgroundColor: '#fff',
-                  border: '1px solid #0066cc',
+                  border: '1px solid var(--color-primary)',
                   borderRadius: '4px',
                   cursor: loading ? 'not-allowed' : 'pointer',
-                  color: '#0066cc',
+                  color: 'var(--color-primary)',
                   fontWeight: '500',
                   transition: 'all 0.2s'
                 }}
                 onMouseOver={(e) => {
                   if (!loading) {
-                    e.currentTarget.style.backgroundColor = '#0066cc'
+                    e.currentTarget.style.backgroundColor = 'var(--color-primary)'
                     e.currentTarget.style.color = '#fff'
                   }
                 }}
                 onMouseOut={(e) => {
                   e.currentTarget.style.backgroundColor = '#fff'
-                  e.currentTarget.style.color = '#0066cc'
+                  e.currentTarget.style.color = 'var(--color-primary)'
                 }}
               >
                 🔧 Admin

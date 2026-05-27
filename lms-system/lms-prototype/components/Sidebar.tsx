@@ -33,8 +33,12 @@ export default function Sidebar({ userRole, isCollapsed, onToggle }: SidebarProp
                   currentRole === 'root_admin' || 
                   currentRole === 'lead_region' || 
                   currentRole === 'head_channel' || 
-                  currentRole === 'master_role'
-  const isRootAdmin = currentRole === 'root_admin'
+                  currentRole === 'master_role' ||
+                  currentRole === 'test_role' ||
+                  currentRole === 'Test Role'
+  const isRootAdmin = currentRole === 'root_admin' || 
+                      currentRole === 'test_role' ||
+                      currentRole === 'Test Role'
   const canViewPrograms = isAdmin || currentRole === 'trainer'
 
   const isActive = (path: string) => pathname === path

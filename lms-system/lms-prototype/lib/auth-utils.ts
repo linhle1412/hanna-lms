@@ -3,7 +3,7 @@ import type { Course } from './state'
 import { DEFAULT_ROLE_PERMISSIONS, roleHasPermission } from './permissions'
 import { hasSelfApproval } from './approval-workflow'
 
-export type SystemRole = 'trainer' | 'lead_region' | 'head_channel' | 'admin' | 'root_admin' | 'dms_admin' | 'master_role'
+export type SystemRole = 'trainer' | 'lead_region' | 'head_channel' | 'admin' | 'root_admin' | 'dms_admin' | 'master_role' | 'test_role'
 export type UserRole = SystemRole | string  // Allows custom roles
 
 export interface EditPermission {
@@ -46,6 +46,11 @@ export function canApproveRegistration(course: Course, userRole?: UserRole): { c
   const userChannel = getCurrentUserChannel()
   const userRegion = getCurrentUserRegion()
   const courseStatus = course.status.toUpperCase()
+
+  // Test Role can always approve for demo purposes
+  if (role === 'test_role' || role === 'Test Role') {
+    return { canApprove: true }
+  }
 
   // Only REGISTERED courses can be approved
   if (courseStatus !== 'REGISTERED') {
@@ -149,6 +154,11 @@ export function canRegisterForCourse(course: Course, userRole?: UserRole): { can
   const role = userRole || getCurrentUserRole()
   const status = course.status.toUpperCase()
 
+  // Test Role can always register for demo purposes
+  if (role === 'test_role' || role === 'Test Role') {
+    return { canRegister: true }
+  }
+
   // Only NEW courses can be registered
   if (status !== 'NEW') {
     return { canRegister: false, reason: 'This course cannot be registered. Only NEW courses can be registered.' }
@@ -177,7 +187,7 @@ export function checkSelfApproval(userRole?: UserRole, userPermissions?: string[
 export function isSystemRole(role: UserRole): boolean {
   const systemRoles: SystemRole[] = [
     'trainer', 'lead_region', 'head_channel', 'admin', 
-    'root_admin', 'dms_admin', 'master_role'
+    'root_admin', 'dms_admin', 'master_role', 'test_role'
   ]
   return systemRoles.includes(role as SystemRole)
 }
@@ -190,6 +200,11 @@ export function checkEditPermission(course: Course, userRole?: UserRole): EditPe
   const status = course.status.toUpperCase()
   const isSHINE = isSHINECourse(course)
   const isAfterSHINE = isAfterSHINECourse(course)
+
+  // Test Role can always edit for demo purposes (bypasses all permission checks)
+  if (role === 'test_role' || role === 'Test Role') {
+    return { canEdit: true, requiresApproval: false }
+  }
 
   // Master Role can always edit
   if (role === 'master_role') {
@@ -392,6 +407,11 @@ export function hasPermission(permissionId: string): boolean {
   if (typeof window === 'undefined') return false
   
   const userRoles = getUserRoles()
+  
+  // Test role always has all permissions for demo purposes
+  if (userRoles.includes('test_role') || userRoles.includes('TEST_ROLE') || getCurrentUserRole() === 'test_role' || getCurrentUserRole() === 'Test Role') {
+    return true
+  }
   
   // If no roles, check single role
   if (userRoles.length === 0) {

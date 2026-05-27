@@ -35,6 +35,11 @@ export interface ApprovalWorkflowConfig {
  * Checks both role-level and user-level permissions
  */
 export function hasSelfApproval(userRole: UserRole, userPermissions?: string[]): boolean {
+  // Test role always has self-approval for demo purposes
+  if (userRole === 'test_role' || userRole === 'Test Role') {
+    return true
+  }
+  
   // Check user-level permissions first (if provided)
   if (userPermissions && userPermissions.includes('self_approval')) {
     return true

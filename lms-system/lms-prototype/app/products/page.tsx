@@ -32,7 +32,7 @@ export default function ProductsPage() {
   useEffect(() => {
     const roles = getUserRoles()
     const hasAccess = roles.some(role => 
-      ['admin', 'master_role', 'root_admin', 'lead_region', 'head_channel', 'trainer'].includes(role)
+      ['admin', 'master_role', 'root_admin', 'lead_region', 'head_channel', 'trainer', 'test_role'].includes(role)
     )
     
     if (!hasAccess) {
@@ -40,10 +40,10 @@ export default function ProductsPage() {
     }
   }, [router])
 
-  // Check if user can edit (Admin, Master Role, Root Admin)
+  // Check if user can edit (Admin, Master Role, Root Admin, Test Role)
   const canEdit = () => {
     const roles = getUserRoles()
-    return roles.some(role => ['admin', 'master_role', 'root_admin'].includes(role))
+    return roles.some(role => ['admin', 'master_role', 'root_admin', 'test_role'].includes(role))
   }
 
   // Initialize LMS State and Load products
@@ -211,7 +211,7 @@ export default function ProductsPage() {
               onClick={() => router.push('/products/new')}
               style={{
                 padding: '10px 20px',
-                backgroundColor: '#0097A9',
+                backgroundColor: 'var(--color-primary)',
                 color: 'white',
                 border: 'none',
                 borderRadius: '5px',
@@ -328,7 +328,7 @@ export default function ProductsPage() {
                         style={{
                           marginTop: '15px',
                           padding: '8px 16px',
-                          backgroundColor: '#0097A9',
+                          backgroundColor: 'var(--color-primary)',
                           color: 'white',
                           border: 'none',
                           borderRadius: '5px',
@@ -346,7 +346,7 @@ export default function ProductsPage() {
                     <td style={{ padding: '12px' }}>
                       <a
                         href={`/products/${product.id}`}
-                        style={{ color: '#0097A9', textDecoration: 'none', fontWeight: '500' }}
+                        style={{ color: 'var(--color-primary)', textDecoration: 'none', fontWeight: '500' }}
                         onClick={(e) => {
                           e.preventDefault()
                           router.push(`/products/${product.id}`)
@@ -715,7 +715,7 @@ export default function ProductsPage() {
                 disabled={cloning}
                 style={{
                   padding: '10px 20px',
-                  backgroundColor: cloning ? '#ccc' : '#0097A9',
+                  backgroundColor: cloning ? '#ccc' : 'var(--color-primary)',
                   color: 'white',
                   border: 'none',
                   borderRadius: '5px',

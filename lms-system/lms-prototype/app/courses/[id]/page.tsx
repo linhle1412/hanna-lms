@@ -52,6 +52,17 @@ export default function CourseDetailsPage() {
   const [showActionsMenu, setShowActionsMenu] = useState(false)
   const [selectedParticipantIds, setSelectedParticipantIds] = useState<number[]>([])
   const [showBulkDeleteModal, setShowBulkDeleteModal] = useState(false)
+  const [showApproveRegistrationModal, setShowApproveRegistrationModal] = useState(false)
+  const [showRejectRegistrationModal, setShowRejectRegistrationModal] = useState(false)
+  const [showCancelModal, setShowCancelModal] = useState(false)
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [showFinishModal, setShowFinishModal] = useState(false)
+  const [showApproveEditModal, setShowApproveEditModal] = useState(false)
+  const [showRejectEditModal, setShowRejectEditModal] = useState(false)
+  const [showApproveCancelModal, setShowApproveCancelModal] = useState(false)
+  const [showRejectCancelModal, setShowRejectCancelModal] = useState(false)
+  const [actionReason, setActionReason] = useState('')
+  const [showMoreActionsMenu, setShowMoreActionsMenu] = useState(false)
   
   // Mock data for dropdowns
   const partners = ['Partner A', 'Partner B', 'Partner C']
@@ -339,6 +350,225 @@ export default function CourseDetailsPage() {
       console.error('Error exporting participants for MOF:', error)
       const errorMessage = error instanceof Error ? error.message : 'Failed to export participants for MOF exam'
       showToast(errorMessage, 'error')
+    }
+  }
+
+  // Handler for approving registration
+  const handleApproveRegistration = async () => {
+    if (!course) return
+    try {
+      const response = await fetch(`/api/courses/${course.id}/approve-registration`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'approve', approverNote: actionReason })
+      })
+      const data = await response.json()
+      if (data.success) {
+        showToast('Registration approved successfully', 'success')
+        await fetchCourse()
+        setShowApproveRegistrationModal(false)
+        setActionReason('')
+      } else {
+        showToast(data.error || 'Failed to approve registration', 'error')
+      }
+    } catch (error) {
+      showToast('Error approving registration', 'error')
+    }
+  }
+
+  // Handler for rejecting registration
+  const handleRejectRegistration = async () => {
+    if (!course) return
+    if (!actionReason.trim()) {
+      showToast('Please provide a reason for rejection', 'warning')
+      return
+    }
+    try {
+      const response = await fetch(`/api/courses/${course.id}/approve-registration`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'reject', approverNote: actionReason })
+      })
+      const data = await response.json()
+      if (data.success) {
+        showToast('Registration rejected', 'success')
+        await fetchCourse()
+        setShowRejectRegistrationModal(false)
+        setActionReason('')
+      } else {
+        showToast(data.error || 'Failed to reject registration', 'error')
+      }
+    } catch (error) {
+      showToast('Error rejecting registration', 'error')
+    }
+  }
+
+  // Handler for approving edit
+  const handleApproveEdit = async () => {
+    if (!course) return
+    try {
+      const response = await fetch(`/api/courses/${course.id}/approve-edit`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'approve', approverNote: actionReason })
+      })
+      const data = await response.json()
+      if (data.success) {
+        showToast('Edit approved successfully', 'success')
+        await fetchCourse()
+        setShowApproveEditModal(false)
+        setActionReason('')
+      } else {
+        showToast(data.error || 'Failed to approve edit', 'error')
+      }
+    } catch (error) {
+      showToast('Error approving edit', 'error')
+    }
+  }
+
+  // Handler for rejecting edit
+  const handleRejectEdit = async () => {
+    if (!course) return
+    if (!actionReason.trim()) {
+      showToast('Please provide a reason for rejection', 'warning')
+      return
+    }
+    try {
+      const response = await fetch(`/api/courses/${course.id}/approve-edit`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'reject', approverNote: actionReason })
+      })
+      const data = await response.json()
+      if (data.success) {
+        showToast('Edit rejected', 'success')
+        await fetchCourse()
+        setShowRejectEditModal(false)
+        setActionReason('')
+      } else {
+        showToast(data.error || 'Failed to reject edit', 'error')
+      }
+    } catch (error) {
+      showToast('Error rejecting edit', 'error')
+    }
+  }
+
+  // Handler for cancel request
+  const handleCancelRequest = async () => {
+    if (!course) return
+    if (!actionReason.trim()) {
+      showToast('Please provide a reason for cancellation', 'warning')
+      return
+    }
+    try {
+      const response = await fetch(`/api/courses/${course.id}/cancel`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ reason: actionReason })
+      })
+      const data = await response.json()
+      if (data.success) {
+        showToast('Cancellation request submitted', 'success')
+        await fetchCourse()
+        setShowCancelModal(false)
+        setActionReason('')
+      } else {
+        showToast(data.error || 'Failed to submit cancellation request', 'error')
+      }
+    } catch (error) {
+      showToast('Error submitting cancellation request', 'error')
+    }
+  }
+
+  // Handler for approving cancel
+  const handleApproveCancel = async () => {
+    if (!course) return
+    try {
+      const response = await fetch(`/api/courses/${course.id}/approve-cancel`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'approve', approverNote: actionReason })
+      })
+      const data = await response.json()
+      if (data.success) {
+        showToast('Cancellation approved', 'success')
+        await fetchCourse()
+        setShowApproveCancelModal(false)
+        setActionReason('')
+      } else {
+        showToast(data.error || 'Failed to approve cancellation', 'error')
+      }
+    } catch (error) {
+      showToast('Error approving cancellation', 'error')
+    }
+  }
+
+  // Handler for rejecting cancel
+  const handleRejectCancel = async () => {
+    if (!course) return
+    if (!actionReason.trim()) {
+      showToast('Please provide a reason for rejection', 'warning')
+      return
+    }
+    try {
+      const response = await fetch(`/api/courses/${course.id}/approve-cancel`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'reject', approverNote: actionReason })
+      })
+      const data = await response.json()
+      if (data.success) {
+        showToast('Cancellation rejected', 'success')
+        await fetchCourse()
+        setShowRejectCancelModal(false)
+        setActionReason('')
+      } else {
+        showToast(data.error || 'Failed to reject cancellation', 'error')
+      }
+    } catch (error) {
+      showToast('Error rejecting cancellation', 'error')
+    }
+  }
+
+  // Handler for finishing course
+  const handleFinishCourse = async () => {
+    if (!course) return
+    try {
+      const response = await fetch(`/api/courses/${course.id}/finish`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ note: actionReason })
+      })
+      const data = await response.json()
+      if (data.success) {
+        showToast('Course finished successfully', 'success')
+        await fetchCourse()
+        setShowFinishModal(false)
+        setActionReason('')
+      } else {
+        showToast(data.error || 'Failed to finish course', 'error')
+      }
+    } catch (error) {
+      showToast('Error finishing course', 'error')
+    }
+  }
+
+  // Handler for deleting course
+  const handleDeleteCourse = async () => {
+    if (!course) return
+    try {
+      const response = await fetch(`/api/courses/${course.id}`, {
+        method: 'DELETE'
+      })
+      const data = await response.json()
+      if (data.success) {
+        showToast('Course deleted successfully', 'success')
+        router.push('/courses')
+      } else {
+        showToast(data.error || 'Failed to delete course', 'error')
+      }
+    } catch (error) {
+      showToast('Error deleting course', 'error')
     }
   }
 
@@ -723,8 +953,9 @@ export default function CourseDetailsPage() {
     ]}>
       <div className="action-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', gap: '20px' }}>
         <h1 className="page-title" style={{ margin: 0, flex: 1, minWidth: 0 }}>Course: {course.code}</h1>
-        <div style={{ display: 'flex', gap: '10px', flexShrink: 0 }}>
-          {canRegister() && (
+        <div style={{ display: 'flex', gap: '10px', flexShrink: 0, flexWrap: 'wrap', alignItems: 'center' }}>
+          {/* Register Button - for NEW status */}
+          {canRegister() && course.status === 'NEW' && (
             <button 
               className="btn-primary"
               style={{ 
@@ -734,24 +965,252 @@ export default function CourseDetailsPage() {
               }}
               onClick={handleRegisterClick}
             >
+              <i className="fas fa-check-circle" style={{ marginRight: '8px' }}></i>
               Register
             </button>
           )}
-          <button 
-            className={`btn-primary ${!editPermission?.canEdit ? 'disabled' : ''}`}
-            style={{ 
-              whiteSpace: 'nowrap', 
-              width: 'auto', 
-              padding: '10px 20px',
-              opacity: editPermission?.canEdit ? 1 : 0.5,
-              cursor: editPermission?.canEdit ? 'pointer' : 'not-allowed'
-            }}
-            onClick={handleEditClick}
-            disabled={!editPermission?.canEdit}
-            title={editPermission?.reason || 'Edit Course'}
-          >
-            Edit
-          </button>
+          
+          {/* Approve Registration - for REGISTERED status */}
+          {course.status === 'REGISTERED' && (
+            <>
+              <button 
+                className="btn-primary"
+                style={{ 
+                  whiteSpace: 'nowrap', 
+                  width: 'auto', 
+                  padding: '10px 20px',
+                  backgroundColor: '#4caf50'
+                }}
+                onClick={() => setShowApproveRegistrationModal(true)}
+              >
+                <i className="fas fa-check" style={{ marginRight: '8px' }}></i>
+                Approve Registration
+              </button>
+              <button 
+                className="btn-primary"
+                style={{ 
+                  whiteSpace: 'nowrap', 
+                  width: 'auto', 
+                  padding: '10px 20px',
+                  backgroundColor: '#f44336'
+                }}
+                onClick={() => setShowRejectRegistrationModal(true)}
+              >
+                <i className="fas fa-times" style={{ marginRight: '8px' }}></i>
+                Reject Registration
+              </button>
+            </>
+          )}
+          
+          {/* Approve/Reject Edit - for WAITING_APPROVAL_EDIT status */}
+          {course.status === 'WAITING_APPROVAL_EDIT' && (
+            <>
+              <button 
+                className="btn-primary"
+                style={{ 
+                  whiteSpace: 'nowrap', 
+                  width: 'auto', 
+                  padding: '10px 20px',
+                  backgroundColor: '#4caf50'
+                }}
+                onClick={() => setShowApproveEditModal(true)}
+              >
+                <i className="fas fa-check" style={{ marginRight: '8px' }}></i>
+                Approve Edit
+              </button>
+              <button 
+                className="btn-primary"
+                style={{ 
+                  whiteSpace: 'nowrap', 
+                  width: 'auto', 
+                  padding: '10px 20px',
+                  backgroundColor: '#f44336'
+                }}
+                onClick={() => setShowRejectEditModal(true)}
+              >
+                <i className="fas fa-times" style={{ marginRight: '8px' }}></i>
+                Reject Edit
+              </button>
+            </>
+          )}
+          
+          {/* Approve/Reject Cancel - for WAITING_APPROVAL_CANCEL status */}
+          {course.status === 'WAITING_APPROVAL_CANCEL' && (
+            <>
+              <button 
+                className="btn-primary"
+                style={{ 
+                  whiteSpace: 'nowrap', 
+                  width: 'auto', 
+                  padding: '10px 20px',
+                  backgroundColor: '#4caf50'
+                }}
+                onClick={() => setShowApproveCancelModal(true)}
+              >
+                <i className="fas fa-check" style={{ marginRight: '8px' }}></i>
+                Approve Cancel
+              </button>
+              <button 
+                className="btn-primary"
+                style={{ 
+                  whiteSpace: 'nowrap', 
+                  width: 'auto', 
+                  padding: '10px 20px',
+                  backgroundColor: '#f44336'
+                }}
+                onClick={() => setShowRejectCancelModal(true)}
+              >
+                <i className="fas fa-times" style={{ marginRight: '8px' }}></i>
+                Reject Cancel
+              </button>
+            </>
+          )}
+          
+          {/* Edit Button - for most statuses */}
+          {!['CANCEL', 'FINISHED', 'WAITING_APPROVAL_EDIT', 'WAITING_APPROVAL_CANCEL'].includes(course.status) && (
+            <button 
+              className={`btn-primary ${!editPermission?.canEdit ? 'disabled' : ''}`}
+              style={{ 
+                whiteSpace: 'nowrap', 
+                width: 'auto', 
+                padding: '10px 20px',
+                opacity: editPermission?.canEdit ? 1 : 0.5,
+                cursor: editPermission?.canEdit ? 'pointer' : 'not-allowed',
+                backgroundColor: '#2196f3'
+              }}
+              onClick={handleEditClick}
+              disabled={!editPermission?.canEdit}
+              title={editPermission?.reason || 'Edit Course'}
+            >
+              <i className="fas fa-edit" style={{ marginRight: '8px' }}></i>
+              Edit
+            </button>
+          )}
+          
+          {/* Finish Button - for IN_PROGRESS status */}
+          {course.status === 'IN_PROGRESS' && (
+            <button 
+              className="btn-primary"
+              style={{ 
+                whiteSpace: 'nowrap', 
+                width: 'auto', 
+                padding: '10px 20px',
+                backgroundColor: '#9c27b0'
+              }}
+              onClick={() => setShowFinishModal(true)}
+            >
+              <i className="fas fa-flag-checkered" style={{ marginRight: '8px' }}></i>
+              Finish Course
+            </button>
+          )}
+          
+          {/* More Actions Dropdown (Cancel & Delete) */}
+          {(['NEW', 'REGISTERED', 'APPROVED', 'IN_PROGRESS'].includes(course.status)) && (
+            <div style={{ position: 'relative' }}>
+              <button 
+                className="btn-primary"
+                style={{ 
+                  whiteSpace: 'nowrap', 
+                  width: 'auto', 
+                  padding: '10px 15px',
+                  backgroundColor: '#666'
+                }}
+                onClick={() => setShowMoreActionsMenu(!showMoreActionsMenu)}
+              >
+                <i className="fas fa-ellipsis-v"></i>
+              </button>
+              
+              {showMoreActionsMenu && (
+                <>
+                  <div 
+                    style={{
+                      position: 'fixed',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      zIndex: 999
+                    }}
+                    onClick={() => setShowMoreActionsMenu(false)}
+                  />
+                  <div 
+                    style={{
+                      position: 'absolute',
+                      right: 0,
+                      top: '100%',
+                      marginTop: '5px',
+                      backgroundColor: 'white',
+                      border: '1px solid #ddd',
+                      borderRadius: '8px',
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                      minWidth: '200px',
+                      zIndex: 1000,
+                      overflow: 'hidden'
+                    }}
+                  >
+                    {/* Cancel Button - for REGISTERED, APPROVED, IN_PROGRESS statuses */}
+                    {['REGISTERED', 'APPROVED', 'IN_PROGRESS'].includes(course.status) && (
+                      <button
+                        style={{
+                          width: '100%',
+                          padding: '12px 16px',
+                          border: 'none',
+                          backgroundColor: 'transparent',
+                          textAlign: 'left',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '10px',
+                          fontSize: '14px',
+                          color: '#ff9800',
+                          fontWeight: 500
+                        }}
+                        onClick={() => {
+                          setShowCancelModal(true)
+                          setShowMoreActionsMenu(false)
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f5f5f5'}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                      >
+                        <i className="fas fa-ban" style={{ width: '16px' }}></i>
+                        Request Cancel
+                      </button>
+                    )}
+                    
+                    {/* Delete Button - for NEW, REGISTERED statuses */}
+                    {['NEW', 'REGISTERED'].includes(course.status) && (
+                      <button
+                        style={{
+                          width: '100%',
+                          padding: '12px 16px',
+                          border: 'none',
+                          backgroundColor: 'transparent',
+                          textAlign: 'left',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '10px',
+                          fontSize: '14px',
+                          color: '#f44336',
+                          fontWeight: 500,
+                          borderTop: ['REGISTERED', 'APPROVED', 'IN_PROGRESS'].includes(course.status) ? '1px solid #eee' : 'none'
+                        }}
+                        onClick={() => {
+                          setShowDeleteModal(true)
+                          setShowMoreActionsMenu(false)
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f5f5f5'}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                      >
+                        <i className="fas fa-trash" style={{ width: '16px' }}></i>
+                        Delete
+                      </button>
+                    )}
+                  </div>
+                </>
+              )}
+            </div>
+          )}
         </div>
       </div>
 
@@ -2754,6 +3213,330 @@ export default function CourseDetailsPage() {
           loadCourseDetails()
         }}
       />
+
+      {/* Approve Registration Modal */}
+      {showApproveRegistrationModal && (
+        <div className="modal-overlay" onClick={() => setShowApproveRegistrationModal(false)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>Approve Registration</h3>
+              <button className="modal-close" onClick={() => setShowApproveRegistrationModal(false)}>
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>Are you sure you want to approve the registration for course <strong>{course.code}</strong>?</p>
+              <div style={{ marginTop: '15px' }}>
+                <label style={{ display: 'block', marginBottom: '5px', fontWeight: 600 }}>
+                  Note (Optional):
+                </label>
+                <textarea
+                  value={actionReason}
+                  onChange={(e) => setActionReason(e.target.value)}
+                  placeholder="Add approval note..."
+                  rows={3}
+                  style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }}
+                />
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button className="btn-secondary" onClick={() => setShowApproveRegistrationModal(false)}>
+                Cancel
+              </button>
+              <button className="btn-primary" onClick={handleApproveRegistration} style={{ backgroundColor: '#4caf50' }}>
+                Approve
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Reject Registration Modal */}
+      {showRejectRegistrationModal && (
+        <div className="modal-overlay" onClick={() => setShowRejectRegistrationModal(false)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>Reject Registration</h3>
+              <button className="modal-close" onClick={() => setShowRejectRegistrationModal(false)}>
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>Are you sure you want to reject the registration for course <strong>{course.code}</strong>?</p>
+              <div style={{ marginTop: '15px' }}>
+                <label style={{ display: 'block', marginBottom: '5px', fontWeight: 600 }}>
+                  Reason (Required):
+                </label>
+                <textarea
+                  value={actionReason}
+                  onChange={(e) => setActionReason(e.target.value)}
+                  placeholder="Enter rejection reason..."
+                  rows={3}
+                  style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }}
+                />
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button className="btn-secondary" onClick={() => setShowRejectRegistrationModal(false)}>
+                Cancel
+              </button>
+              <button className="btn-primary" onClick={handleRejectRegistration} style={{ backgroundColor: '#f44336' }}>
+                Reject
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Approve Edit Modal */}
+      {showApproveEditModal && (
+        <div className="modal-overlay" onClick={() => setShowApproveEditModal(false)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>Approve Edit Request</h3>
+              <button className="modal-close" onClick={() => setShowApproveEditModal(false)}>
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>Are you sure you want to approve the edit request for course <strong>{course.code}</strong>?</p>
+              <div style={{ marginTop: '15px' }}>
+                <label style={{ display: 'block', marginBottom: '5px', fontWeight: 600 }}>
+                  Note (Optional):
+                </label>
+                <textarea
+                  value={actionReason}
+                  onChange={(e) => setActionReason(e.target.value)}
+                  placeholder="Add approval note..."
+                  rows={3}
+                  style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }}
+                />
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button className="btn-secondary" onClick={() => setShowApproveEditModal(false)}>
+                Cancel
+              </button>
+              <button className="btn-primary" onClick={handleApproveEdit} style={{ backgroundColor: '#4caf50' }}>
+                Approve
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Reject Edit Modal */}
+      {showRejectEditModal && (
+        <div className="modal-overlay" onClick={() => setShowRejectEditModal(false)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>Reject Edit Request</h3>
+              <button className="modal-close" onClick={() => setShowRejectEditModal(false)}>
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>Are you sure you want to reject the edit request for course <strong>{course.code}</strong>?</p>
+              <div style={{ marginTop: '15px' }}>
+                <label style={{ display: 'block', marginBottom: '5px', fontWeight: 600 }}>
+                  Reason (Required):
+                </label>
+                <textarea
+                  value={actionReason}
+                  onChange={(e) => setActionReason(e.target.value)}
+                  placeholder="Enter rejection reason..."
+                  rows={3}
+                  style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }}
+                />
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button className="btn-secondary" onClick={() => setShowRejectEditModal(false)}>
+                Cancel
+              </button>
+              <button className="btn-primary" onClick={handleRejectEdit} style={{ backgroundColor: '#f44336' }}>
+                Reject
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Cancel Request Modal */}
+      {showCancelModal && (
+        <div className="modal-overlay" onClick={() => setShowCancelModal(false)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>Request Course Cancellation</h3>
+              <button className="modal-close" onClick={() => setShowCancelModal(false)}>
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>Submit a request to cancel course <strong>{course.code}</strong>.</p>
+              <div style={{ marginTop: '15px' }}>
+                <label style={{ display: 'block', marginBottom: '5px', fontWeight: 600 }}>
+                  Reason (Required):
+                </label>
+                <textarea
+                  value={actionReason}
+                  onChange={(e) => setActionReason(e.target.value)}
+                  placeholder="Enter cancellation reason..."
+                  rows={3}
+                  style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }}
+                />
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button className="btn-secondary" onClick={() => setShowCancelModal(false)}>
+                Cancel
+              </button>
+              <button className="btn-primary" onClick={handleCancelRequest} style={{ backgroundColor: '#ff9800' }}>
+                Submit Request
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Approve Cancel Modal */}
+      {showApproveCancelModal && (
+        <div className="modal-overlay" onClick={() => setShowApproveCancelModal(false)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>Approve Cancellation</h3>
+              <button className="modal-close" onClick={() => setShowApproveCancelModal(false)}>
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>Are you sure you want to approve the cancellation for course <strong>{course.code}</strong>?</p>
+              <div style={{ marginTop: '15px' }}>
+                <label style={{ display: 'block', marginBottom: '5px', fontWeight: 600 }}>
+                  Note (Optional):
+                </label>
+                <textarea
+                  value={actionReason}
+                  onChange={(e) => setActionReason(e.target.value)}
+                  placeholder="Add approval note..."
+                  rows={3}
+                  style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }}
+                />
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button className="btn-secondary" onClick={() => setShowApproveCancelModal(false)}>
+                Cancel
+              </button>
+              <button className="btn-primary" onClick={handleApproveCancel} style={{ backgroundColor: '#4caf50' }}>
+                Approve
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Reject Cancel Modal */}
+      {showRejectCancelModal && (
+        <div className="modal-overlay" onClick={() => setShowRejectCancelModal(false)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>Reject Cancellation</h3>
+              <button className="modal-close" onClick={() => setShowRejectCancelModal(false)}>
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>Are you sure you want to reject the cancellation for course <strong>{course.code}</strong>?</p>
+              <div style={{ marginTop: '15px' }}>
+                <label style={{ display: 'block', marginBottom: '5px', fontWeight: 600 }}>
+                  Reason (Required):
+                </label>
+                <textarea
+                  value={actionReason}
+                  onChange={(e) => setActionReason(e.target.value)}
+                  placeholder="Enter rejection reason..."
+                  rows={3}
+                  style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }}
+                />
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button className="btn-secondary" onClick={() => setShowRejectCancelModal(false)}>
+                Cancel
+              </button>
+              <button className="btn-primary" onClick={handleRejectCancel} style={{ backgroundColor: '#f44336' }}>
+                Reject
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Finish Course Modal */}
+      {showFinishModal && (
+        <div className="modal-overlay" onClick={() => setShowFinishModal(false)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>Finish Course</h3>
+              <button className="modal-close" onClick={() => setShowFinishModal(false)}>
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>Mark course <strong>{course.code}</strong> as finished.</p>
+              <div style={{ marginTop: '15px' }}>
+                <label style={{ display: 'block', marginBottom: '5px', fontWeight: 600 }}>
+                  Note (Optional):
+                </label>
+                <textarea
+                  value={actionReason}
+                  onChange={(e) => setActionReason(e.target.value)}
+                  placeholder="Add completion note..."
+                  rows={3}
+                  style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }}
+                />
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button className="btn-secondary" onClick={() => setShowFinishModal(false)}>
+                Cancel
+              </button>
+              <button className="btn-primary" onClick={handleFinishCourse} style={{ backgroundColor: '#9c27b0' }}>
+                Finish Course
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Delete Course Modal */}
+      {showDeleteModal && (
+        <div className="modal-overlay" onClick={() => setShowDeleteModal(false)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>Delete Course</h3>
+              <button className="modal-close" onClick={() => setShowDeleteModal(false)}>
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
+            <div className="modal-body">
+              <p style={{ color: '#f44336', fontWeight: 600 }}>
+                Warning: This action cannot be undone!
+              </p>
+              <p>Are you sure you want to delete course <strong>{course.code}</strong>?</p>
+            </div>
+            <div className="modal-footer">
+              <button className="btn-secondary" onClick={() => setShowDeleteModal(false)}>
+                Cancel
+              </button>
+              <button className="btn-primary" onClick={handleDeleteCourse} style={{ backgroundColor: '#f44336' }}>
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   )
 }

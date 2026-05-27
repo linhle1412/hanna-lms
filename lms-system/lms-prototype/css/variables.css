@@ -1,9 +1,9 @@
 /* Theme Variables - CSS Custom Properties */
 :root {
   /* Primary Colors */
-  --color-primary: #00AFF5;
-  --color-primary-hover: #0095D6;
-  --color-primary-dark: #007CB5;
+  --color-primary: #F26522;
+  --color-primary-hover: #D95418;
+  --color-primary-dark: #C04515;
 
   /* Secondary Colors */
   --color-secondary: #666;

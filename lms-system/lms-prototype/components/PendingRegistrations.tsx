@@ -28,6 +28,10 @@ export default function PendingRegistrations({ onApprovalComplete }: PendingRegi
   const [showApproveModal, setShowApproveModal] = useState(false)
   const [showRejectModal, setShowRejectModal] = useState(false)
   const [processing, setProcessing] = useState(false)
+  const [selectedIds, setSelectedIds] = useState<number[]>([])
+  const [showBulkApproveModal, setShowBulkApproveModal] = useState(false)
+  const [showBulkRejectModal, setShowBulkRejectModal] = useState(false)
+  const [bulkNote, setBulkNote] = useState('')
 
   const userRole = getCurrentUserRole()
   const userChannel = getCurrentUserChannel()
@@ -121,6 +125,16 @@ export default function PendingRegistrations({ onApprovalComplete }: PendingRegi
     })
   }
 
+  const getRegistrationNote = (course: Course): string => {
+    const registeredEntry = course.statusHistory?.find(h => h.status === 'REGISTERED')
+    return registeredEntry?.reason || registeredEntry?.note || 'No note provided'
+  }
+
+  const getRegisteredBy = (course: Course): string => {
+    const registeredEntry = course.statusHistory?.find(h => h.status === 'REGISTERED')
+    return registeredEntry?.performedBy || 'Unknown'
+  }
+
   const handleApprove = (course: Course) => {
     setSelectedCourse(course)
     setShowApproveModal(true)
@@ -187,6 +201,129 @@ export default function PendingRegistrations({ onApprovalComplete }: PendingRegi
     } catch (error) {
       console.error('Failed to reject registration:', error)
       showToast('Failed to reject registration', 'error')
+    } finally {
+      setProcessing(false)
+    }
+  }
+
+  const handleSelectAll = (checked: boolean) => {
+    if (checked) {
+      setSelectedIds(filteredCourses.map(c => c.id))
+    } else {
+      setSelectedIds([])
+    }
+  }
+
+  const handleSelectOne = (courseId: number, checked: boolean) => {
+    if (checked) {
+      setSelectedIds([...selectedIds, courseId])
+    } else {
+      setSelectedIds(selectedIds.filter(id => id !== courseId))
+    }
+  }
+
+  const handleBulkApprove = () => {
+    if (selectedIds.length === 0) {
+      showToast('Please select at least one request', 'warning')
+      return
+    }
+    setBulkNote('')
+    setShowBulkApproveModal(true)
+  }
+
+  const handleBulkReject = () => {
+    if (selectedIds.length === 0) {
+      showToast('Please select at least one request', 'warning')
+      return
+    }
+    setBulkNote('')
+    setShowBulkRejectModal(true)
+  }
+
+  const confirmBulkApprove = async () => {
+    try {
+      setProcessing(true)
+      const userName = sessionStorage.getItem('userName') || 'System'
+      
+      const promises = selectedIds.map(courseId =>
+        fetch(`/api/courses/${courseId}/approve-registration`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            action: 'approve',
+            userRole,
+            userName,
+            reason: bulkNote
+          })
+        }).then(res => res.json())
+      )
+
+      const results = await Promise.all(promises)
+      const successCount = results.filter(r => r.success).length
+      const failCount = results.length - successCount
+
+      if (successCount > 0) {
+        showToast(`${successCount} registration(s) approved successfully`, 'success')
+      }
+      if (failCount > 0) {
+        showToast(`${failCount} registration(s) failed to approve`, 'error')
+      }
+
+      setShowBulkApproveModal(false)
+      setBulkNote('')
+      setSelectedIds([])
+      loadPendingRegistrations()
+      onApprovalComplete?.()
+    } catch (error) {
+      console.error('Error bulk approving registrations:', error)
+      showToast('Error processing bulk approval', 'error')
+    } finally {
+      setProcessing(false)
+    }
+  }
+
+  const confirmBulkReject = async () => {
+    if (!bulkNote.trim()) {
+      showToast('Please provide a rejection reason', 'warning')
+      return
+    }
+
+    try {
+      setProcessing(true)
+      const userName = sessionStorage.getItem('userName') || 'System'
+      
+      const promises = selectedIds.map(courseId =>
+        fetch(`/api/courses/${courseId}/approve-registration`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            action: 'reject',
+            reason: bulkNote,
+            userRole,
+            userName
+          })
+        }).then(res => res.json())
+      )
+
+      const results = await Promise.all(promises)
+      const successCount = results.filter(r => r.success).length
+      const failCount = results.length - successCount
+
+      if (successCount > 0) {
+        showToast(`${successCount} registration(s) rejected`, 'success')
+      }
+      if (failCount > 0) {
+        showToast(`${failCount} registration(s) failed to reject`, 'error')
+      }
+
+      setShowBulkRejectModal(false)
+      setBulkNote('')
+      setSelectedIds([])
+      loadPendingRegistrations()
+      onApprovalComplete?.()
+    } catch (error) {
+      console.error('Error bulk rejecting registrations:', error)
+      showToast('Error processing bulk rejection', 'error')
     } finally {
       setProcessing(false)
     }
@@ -303,6 +440,61 @@ export default function PendingRegistrations({ onApprovalComplete }: PendingRegi
         Showing {filteredCourses.length} of {courses.length} pending registration{courses.length !== 1 ? 's' : ''}
       </div>
 
+      {/* Bulk Actions Bar */}
+      {selectedIds.length > 0 && (
+        <div style={{
+          padding: '15px',
+          backgroundColor: '#f0f7ff',
+          border: '1px solid var(--color-primary)',
+          borderRadius: '8px',
+          marginBottom: '20px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}>
+          <div style={{ fontWeight: 600, color: '#333' }}>
+            <i className="fas fa-check-square" style={{ marginRight: '8px', color: 'var(--color-primary)' }}></i>
+            {selectedIds.length} registration{selectedIds.length > 1 ? 's' : ''} selected
+          </div>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <button
+              className="btn-primary"
+              style={{
+                padding: '8px 16px',
+                fontSize: '14px',
+                backgroundColor: '#4caf50'
+              }}
+              onClick={handleBulkApprove}
+            >
+              <i className="fas fa-check" style={{ marginRight: '6px' }}></i>
+              Approve Selected
+            </button>
+            <button
+              className="btn-primary"
+              style={{
+                padding: '8px 16px',
+                fontSize: '14px',
+                backgroundColor: '#f44336'
+              }}
+              onClick={handleBulkReject}
+            >
+              <i className="fas fa-times" style={{ marginRight: '6px' }}></i>
+              Reject Selected
+            </button>
+            <button
+              className="btn-secondary"
+              style={{
+                padding: '8px 16px',
+                fontSize: '14px'
+              }}
+              onClick={() => setSelectedIds([])}
+            >
+              Clear Selection
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Table */}
       {filteredCourses.length === 0 ? (
         <div style={{
@@ -327,13 +519,22 @@ export default function PendingRegistrations({ onApprovalComplete }: PendingRegi
           <table className="data-table" style={{ width: '100%', minWidth: '1000px' }}>
             <thead>
               <tr>
+                <th style={{ width: '40px' }}>
+                  <input
+                    type="checkbox"
+                    checked={selectedIds.length === filteredCourses.length && filteredCourses.length > 0}
+                    onChange={(e) => handleSelectAll(e.target.checked)}
+                    style={{ cursor: 'pointer' }}
+                  />
+                </th>
                 <th>Course Code</th>
                 <th>Course Name</th>
                 <th>Type</th>
                 <th>Primary Trainer</th>
+                <th>Registered By</th>
+                <th>Registration Note</th>
                 <th>Start Date</th>
                 <th>Region</th>
-                <th>Channel</th>
                 <th>Registered Date</th>
                 <th>Days Pending</th>
                 <th>Actions</th>
@@ -342,6 +543,14 @@ export default function PendingRegistrations({ onApprovalComplete }: PendingRegi
             <tbody>
               {filteredCourses.map(course => (
                 <tr key={course.id}>
+                  <td>
+                    <input
+                      type="checkbox"
+                      checked={selectedIds.includes(course.id)}
+                      onChange={(e) => handleSelectOne(course.id, e.target.checked)}
+                      style={{ cursor: 'pointer' }}
+                    />
+                  </td>
                   <td style={{ fontWeight: 500 }}>
                     <Link 
                       href={`/courses/${course.id}`} 
@@ -369,9 +578,19 @@ export default function PendingRegistrations({ onApprovalComplete }: PendingRegi
                     </span>
                   </td>
                   <td>{course.primaryTrainer || course.trainer}</td>
+                  <td style={{ fontSize: '13px' }}>{getRegisteredBy(course)}</td>
+                  <td>
+                    <div style={{ 
+                      maxWidth: '300px',
+                      whiteSpace: 'normal',
+                      wordWrap: 'break-word',
+                      fontSize: '13px'
+                    }}>
+                      {getRegistrationNote(course)}
+                    </div>
+                  </td>
                   <td>{course.startDate}</td>
                   <td>{course.region}</td>
-                  <td>{course.channel}</td>
                   <td style={{ fontSize: '13px' }}>{getRegisteredDate(course)}</td>
                   <td>
                     <span style={{
@@ -386,30 +605,34 @@ export default function PendingRegistrations({ onApprovalComplete }: PendingRegi
                     </span>
                   </td>
                   <td>
-                    <div className="table-actions">
+                    <div style={{ display: 'flex', gap: '8px' }}>
                       <button
+                        className="btn-primary"
+                        style={{
+                          padding: '6px 12px',
+                          fontSize: '13px',
+                          backgroundColor: '#4caf50',
+                          whiteSpace: 'nowrap'
+                        }}
                         onClick={() => handleApprove(course)}
                         disabled={processing}
-                        className="action-icon approve"
-                        title="Approve Registration"
-                        style={{
-                          cursor: processing ? 'not-allowed' : 'pointer',
-                          opacity: processing ? 0.6 : 1
-                        }}
                       >
-                        <i className="fas fa-check"></i>
+                        <i className="fas fa-check" style={{ marginRight: '6px' }}></i>
+                        Approve
                       </button>
                       <button
+                        className="btn-primary"
+                        style={{
+                          padding: '6px 12px',
+                          fontSize: '13px',
+                          backgroundColor: '#f44336',
+                          whiteSpace: 'nowrap'
+                        }}
                         onClick={() => handleReject(course)}
                         disabled={processing}
-                        className="action-icon reject"
-                        title="Reject Registration"
-                        style={{
-                          cursor: processing ? 'not-allowed' : 'pointer',
-                          opacity: processing ? 0.6 : 1
-                        }}
                       >
-                        <i className="fas fa-times"></i>
+                        <i className="fas fa-times" style={{ marginRight: '6px' }}></i>
+                        Reject
                       </button>
                     </div>
                   </td>
@@ -441,6 +664,106 @@ export default function PendingRegistrations({ onApprovalComplete }: PendingRegi
             setSelectedCourse(null)
           }}
         />
+      )}
+
+      {/* Bulk Approve Modal */}
+      {showBulkApproveModal && (
+        <div className="modal-overlay" onClick={() => !processing && setShowBulkApproveModal(false)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>Bulk Approve Registrations</h3>
+              <button className="modal-close" onClick={() => setShowBulkApproveModal(false)} disabled={processing}>
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>Approve <strong>{selectedIds.length}</strong> registration{selectedIds.length > 1 ? 's' : ''}?</p>
+              <div style={{ marginTop: '15px' }}>
+                <label style={{ display: 'block', marginBottom: '5px', fontWeight: 600 }}>
+                  Approver Note (Optional):
+                </label>
+                <textarea
+                  value={bulkNote}
+                  onChange={(e) => setBulkNote(e.target.value)}
+                  placeholder="Add approval note for all selected requests..."
+                  rows={3}
+                  disabled={processing}
+                  style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }}
+                />
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button className="btn-secondary" onClick={() => setShowBulkApproveModal(false)} disabled={processing}>
+                Cancel
+              </button>
+              <button 
+                className="btn-primary" 
+                onClick={confirmBulkApprove}
+                disabled={processing}
+                style={{ backgroundColor: '#4caf50' }}
+              >
+                {processing ? (
+                  <>
+                    <i className="fas fa-spinner fa-spin" style={{ marginRight: '8px' }}></i>
+                    Approving...
+                  </>
+                ) : (
+                  `Approve ${selectedIds.length} Registration${selectedIds.length > 1 ? 's' : ''}`
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Bulk Reject Modal */}
+      {showBulkRejectModal && (
+        <div className="modal-overlay" onClick={() => !processing && setShowBulkRejectModal(false)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>Bulk Reject Registrations</h3>
+              <button className="modal-close" onClick={() => setShowBulkRejectModal(false)} disabled={processing}>
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>Reject <strong>{selectedIds.length}</strong> registration{selectedIds.length > 1 ? 's' : ''}?</p>
+              <div style={{ marginTop: '15px' }}>
+                <label style={{ display: 'block', marginBottom: '5px', fontWeight: 600 }}>
+                  Rejection Reason (Required):
+                </label>
+                <textarea
+                  value={bulkNote}
+                  onChange={(e) => setBulkNote(e.target.value)}
+                  placeholder="Enter rejection reason for all selected requests..."
+                  rows={3}
+                  disabled={processing}
+                  style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }}
+                />
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button className="btn-secondary" onClick={() => setShowBulkRejectModal(false)} disabled={processing}>
+                Cancel
+              </button>
+              <button 
+                className="btn-primary" 
+                onClick={confirmBulkReject}
+                disabled={processing || !bulkNote.trim()}
+                style={{ backgroundColor: '#f44336' }}
+              >
+                {processing ? (
+                  <>
+                    <i className="fas fa-spinner fa-spin" style={{ marginRight: '8px' }}></i>
+                    Rejecting...
+                  </>
+                ) : (
+                  `Reject ${selectedIds.length} Registration${selectedIds.length > 1 ? 's' : ''}`
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   )
